@@ -32,4 +32,4 @@ jobs:
     - run: npm run docs:build
     - run: pip install coscmd
     - run: coscmd config -a ${{ secrets.SecretId }} -s ${{ secrets.SecretKey }} -b graiax-1302360504 -r ap-hongkong
-    - run: coscmd upload -r dist/ /
+    - run: coscmd upload -r docs/.vuepress/dist/ /
