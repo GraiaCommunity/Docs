@@ -1,3 +1,4 @@
+---
 title: 主页
 home: true
 
@@ -11,4 +12,5 @@ features:
     details: 化繁为简，通过将复杂的底层简单化，只需一行代码，便可创造一切可能
   - title: 富有表现性
     details: 通过使用 <code>Dispatcher</code>, <code>Decorator</code>, <code>Interrupt</code> 等特性, 你大可不必将精力放在处理繁琐的网络通信上，只需要你有无限的想法
+---
 本项目为 Graia Community 自主发起, 与 Graia Project 及 NatriumLab 均无任何直属关系, 该项目不代表 Graia Project 维护者的意图与目的, 由社区共同进行维护
