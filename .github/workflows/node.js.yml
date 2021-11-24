@@ -21,15 +21,13 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - uses: zkqiang/tencent-cos-action@v0.1.0
+    - uses: actions/setup-python@v2.3.0
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v2
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-        args: 'upload dist/ /'
-        secret_id: ${{ secrets.SecretId }}
-        secret_key: ${{ secrets.SecretKey }}
-        bucket: graiax-1302360504
-        region: ap-hongkong
     - run: npm run build --if-present
+    - run: pip install coscmd
+    - run: coscmd config -a ${{ secrets.SecretId }} -s ${{ secrets.SecretKey }} -b graiax-1302360504 -r ap-hongkong
+    - run: coscmd upload -r dist/ /
