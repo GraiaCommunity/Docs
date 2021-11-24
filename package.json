@@ -1,0 +1,14 @@
+{
+  "name": "GraiaxHomePage",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Graiax-Community/HomePage",
+  "license": "MIT",
+  "devDependencies": {
+    "vuepress": "^2.0.0-beta.27"
+  },
+  "scripts": {
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
+  }
+}
