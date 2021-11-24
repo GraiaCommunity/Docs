@@ -27,7 +27,8 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: npm run build --if-present
+    - run: npm install
+    - run: npm run docs:build
     - run: pip install coscmd
     - run: coscmd config -a ${{ secrets.SecretId }} -s ${{ secrets.SecretKey }} -b graiax-1302360504 -r ap-hongkong
     - run: coscmd upload -r dist/ /
