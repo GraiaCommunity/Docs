@@ -56,7 +56,7 @@ export default {
 .avatar-text {
   background: var(--c-bg);
   text-align: center;
-  line-height: 40px;
+  line-height: 36px;
   font-size: 24px;
   font-weight: 600;
 }
