@@ -56,7 +56,7 @@ export default {
 .message {
   background: var(--c-bg);
   margin-top: 4px;
-  padding: 10px;
+  padding: 10px 14px;
   border-radius: 12px;
   z-index: 3;
 }
