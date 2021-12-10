@@ -27,6 +27,6 @@ export default {
   padding: 6px;
 }
 .panel-body {
-  padding: 8px 20px;
+  padding: 8px 12px;
 }
 </style>
