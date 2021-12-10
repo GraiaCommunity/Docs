@@ -1,6 +1,6 @@
 <template>
   <div class="panel">
-    <div class="panel-title">{{ title }}</div>
+    <div v-if="title" class="panel-title">{{ title }}</div>
     <div class="panel-body">
       <slot></slot>
     </div>
@@ -20,6 +20,7 @@ export default {
   background: var(--c-details-bg);
   border-radius: 6px;
   margin: 16px 0;
+  overflow: hidden;
 }
 .panel-title {
   font-weight: 600;
