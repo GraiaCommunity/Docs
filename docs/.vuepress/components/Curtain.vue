@@ -1,5 +1,5 @@
 <template>
-  <span :title="title" class="curtain"><slot></slot></span>
+  <span :title="title" class="heimu"><slot></slot></span>
 </template>
 
 <script>
@@ -7,57 +7,48 @@ export default {
   props: {
     title: {
       type: String,
-      default: "你知道的太多了"
-    }
-  }
+      default: "你知道的太多了",
+    },
+  },
 };
 </script>
 
 <style scoped>
-@keyframes curtainFadeOut {
-  0% {
-    background: var(--c-text);
-  }
-  100% {
-    background: none;
-  }
+span.heimu a.external,
+span.heimu a.external:visited,
+span.heimu a.extiw,
+span.heimu a.extiw:visited {
+  color: var(--c-text);
 }
-@keyframes curtainFadeIn {
-  0% {
-    background: none;
-  }
-  100% {
-    background: var(--c-text);
-  }
-}
-.curtain {
-  margin-left: 0;
-  margin-right: 0;
-  background: var(--c-text);
-  border-radius: 3px;
-  animation: curtainFadeIn 0.1s ease-in-out;
-}
-.curtain:hover {
-  background: none;
-  animation: curtainFadeOut 0.1s ease-in-out;
-}
-.curtain,
-.curtain a,
-a .curtain {
+.heimu,
+.heimu a,
+a .heimu,
+.heimu a.new {
+  background-color: var(--c-text);
   color: var(--c-text);
   text-shadow: none;
-}
-.curtain code,
-code .curtain {
-  padding: 0rem 0.4rem;
-  color: var(--c-text);
-  background-color: var(--c-text);
   border-radius: 3px;
 }
-.curtain code:hover,
-code .curtain:hover {
-  padding: 0.2rem 0.4rem;
-  color: #f0615c;
-  background-color: rgba(175, 184, 193, 0.2);
+body:not(.heimu_toggle_on) .heimu:hover,
+body:not(.heimu_toggle_on) .heimu:active,
+body:not(.heimu_toggle_on) .heimu.off {
+  transition: color 0.13s linear;
+  color: var(--c-bg);
+}
+body:not(.heimu_toggle_on) .heimu:hover a,
+body:not(.heimu_toggle_on) a:hover .heimu,
+body:not(.heimu_toggle_on) .heimu.off a,
+body:not(.heimu_toggle_on) a:hover .heimu.off {
+  transition: color 0.13s linear;
+  color: var(--c-bg);
+}
+body:not(.heimu_toggle_on) .heimu.off .new,
+body:not(.heimu_toggle_on) .heimu.off .new:hover,
+body:not(.heimu_toggle_on) .new:hover .heimu.off,
+body:not(.heimu_toggle_on) .heimu.off .new,
+body:not(.heimu_toggle_on) .heimu.off .new:hover,
+body:not(.heimu_toggle_on) .new:hover .heimu.off {
+  transition: color 0.13s linear;
+  color: #ba0000;
 }
 </style>
