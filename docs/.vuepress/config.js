@@ -6,15 +6,17 @@ module.exports = {
   description: "GraiaX社区文档",
 
   themeConfig: {
-    logo: "https://vuejs.org/images/logo.png",
+    head: [['link', { rel: 'icon', href: "/logo.ico" }]],
+    logo: "/logo.svg",
     sidebar: {
       "/make_ero_bot/": [
         {
           text: "手把手教你写机器人",
           children: [
             "/make_ero_bot/README.md",
+            "/make_ero_bot/0_before_start.md",
             "/make_ero_bot/1_hello_ero.md",
-            "/make_ero_bot/2_bot_start.md",
+            "/make_ero_bot/2_other_event.md",
             "/make_ero_bot/3_ero_comes.md"
           ]
         }

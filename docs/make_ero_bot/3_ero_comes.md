@@ -35,7 +35,8 @@ await app.sendGroupMessage(group, MessageChain.create(
 At(114514) # @114514
 AtAll() # @全体成员
 Poke(PokeMethods.ChuoYiChuo) # 戳一戳方法
-Image(path=...) # 图片，这个我们后面还会提及
+Image(path=...) # 图片，这个我们待会还会提及
+Face
 ```
 
 ### 3. 怎么构建MessageChain
@@ -57,7 +58,7 @@ MessageChain.create("你好")
 ```python
 MessageChain.create("你好", At(1919810), [Plain(", 你是不是喜欢"), At(114514)])
 ```
-:::danger
+:::danger 注意一下
 这只是举例，千万不要在你的业务代码中写出这么离谱的玩意儿
 :::
 

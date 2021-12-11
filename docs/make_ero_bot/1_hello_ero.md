@@ -1,5 +1,5 @@
 ---
-id: hello-ero
+id: hello_ero
 title: 1. 来点涩图
 ---
 
@@ -8,18 +8,8 @@ title: 1. 来点涩图
 你可能会疑惑为什么不直接使用 `pip` + `venv` 而是使用 `poetry`  
 `poetry`能够让我们更好的管理你机器人的依赖以及更新  
 可能你在刚开始制作QQ机器人的时候还没有什么问题  
-但等到后面你就会知道`poetry`帮你管理依赖关系是有多爽了
-
-## 0.开始前你需要注意的
-1. 在最开始的开始，请记住，配置好你的mcl(详细配置请看[官方的配置文档](https://graia.readthedocs.io/zh_CN/latest/appendix/mah-install/))  
-2. 安装`Python 3.9+`版本的 Python
-3. 安装`poetry` (下图为 poetry 推荐的安装办法)
-```bash
-# osx / linux / bashonwindows 
-curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
-# windows powershell
-(Invoke-WebRequest -Uri https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py -UseBasicParsing).Content | python -
-```
+但等到后面你就会知道`poetry`帮你管理依赖关系是有多爽了  
+（当然，你直接用pip也行，只是并不推荐）
 
 ## 1.创建项目
 
