@@ -29,7 +29,14 @@ await app.sendGroupMessage(group, MessageChain.create(
 
 ### 2. 什么是元素
 像是"@xxx"， "图片"， "App消息", 就是MessageChain的元素  
-所有元素都可在`graia.ariadne.message.element`中找到
+所有元素都可在`graia.ariadne.message.element`中找到  
+以下是常见的元素
+```python
+At(114514) # @114514
+AtAll() # @全体成员
+Poke(PokeMethods.ChuoYiChuo) # 戳一戳方法
+Image(path=...) # 图片，这个我们后面还会提及
+```
 
 ### 3. 怎么构建MessageChain
 我们先来康康MessageChain的三种构建办法
@@ -39,9 +46,8 @@ MessageChain.create(Plain("你好"))
 MessageChain.create("你好")
 ```
 这三种办法都是调用`create`方法进行构建  
-我们先说第一种，也就是最基础的`MessageChain`构建办法  
 第一种办法先用文本元素`Plain`来构建一个文本消息，并将文本消息装在一个list中  
-第二种办法是不传递列表，直接传入任意字符  
+第二种办法是不传递列表，直接传入任意数量的元素进去  
 第三种就更直接了，直接传入纯字符串进行构建(该方法仅支持纯文本)  
 
 第一种办法最基本的构建办法，也是之前v4(我们称graia-application-mirai为v4)唯一合法的构建方法  
