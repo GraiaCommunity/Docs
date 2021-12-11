@@ -1,0 +1,75 @@
+---
+id: 3-ero-comes
+title: 3.涩图来
+---
+
+:::danger
+本文档还没有写完
+:::
+
+# 涩图来
+在之前的教程中，我们教会了大家怎么接收到各种类型的消息(如被禁言的时候)  
+但之前的教程并不能让我们**在群友要看涩图的时候发涩图**，而是**群友在干了什么事情的时候都在索取涩图**
+而在这一篇章，我们将会教大家如何**发涩图**
+
+## MessageChain
+我们来回顾一下，在我们的[第一篇](1_hello_ero)中是通过什么办法来发送的消息
+```python
+await app.sendGroupMessage(group, MessageChain.create(
+    f"不要说{message.asDisplay()}，来点涩图"
+))
+```
+相信大家肯定会对其中的`MessageChain`很感兴趣  
+这是什么，这个怎么用，怎么通过这个发送图片什么的  
+今天就来讲讲MessageChain
+### 1. 什么是MessageChain
+首先要明确一点，QQ消息并不只有纯文本，还可以包括了如At, 图片等消息  
+我们现在QQ"能过将多个类型融合在一起的文本"称作`富文本`  
+而消息链(MessageChain)正是为了能够适应QQ这种富文本消息所诞生的产物
+
+### 2. 什么是元素
+像是"@xxx"， "图片"， "App消息", 就是MessageChain的元素  
+所有元素都可在`graia.ariadne.message.element`中找到
+
+### 3. 怎么构建MessageChain
+我们先来康康MessageChain的三种构建办法
+```python
+MessageChain.create([Plain("你好")])
+MessageChain.create(Plain("你好"))
+MessageChain.create("你好")
+```
+这三种办法都是调用`create`方法进行构建  
+我们先说第一种，也就是最基础的`MessageChain`构建办法  
+第一种办法先用文本元素`Plain`来构建一个文本消息，并将文本消息装在一个list中  
+第二种办法是不传递列表，直接传入任意字符  
+第三种就更直接了，直接传入纯字符串进行构建(该方法仅支持纯文本)  
+
+第一种办法最基本的构建办法，也是之前v4(我们称graia-application-mirai为v4)唯一合法的构建方法  
+而剩余两种办法是`graia-ariadne`新增的办法，以帮助用户能够更加简单的创建消息链  
+当然，实际上`create`办法并没有严格限定方法就必须是这三类中的一类，他们可以任意组合  
+比如如下的骚操作  
+```python
+MessageChain.create("你好", At(1919810), [Plain(", 你是不是喜欢"), At(114514)])
+```
+:::danger
+这只是举例，千万不要在你的业务代码中写出这么离谱的玩意儿
+:::
+
+### 4. 从MessageChain中获取元素
+首先，我们需要一个类
+
+## Twilight的简单运用
+`Twilight`, 是`graia-ariadne`所使用的消息链匹配工具之一(是的，之一)  
+我们就直接通过例子来向各位讲解如何使用`Twilight`
+```python
+...
+from graia.ariadne.message.parser.pattern import FullMatch
+from graia.ariadne.message.parser.twilight import Sparkle, Twilight
+...
+@bcc.receiver(
+    GroupMessage,
+    dispatcher=[Twilight(Sparkle([FullMatch("涩图来")]))]
+)
+async def test(app: Ariadne, group: Group):
+    pass
+```
