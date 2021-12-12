@@ -5,7 +5,7 @@ title: 鸣谢
 
 以下是鸣谢名单(排名不分先后):
 - [MamoeTechnologies](https://github.com/mamoe): 带来了 `Mirai` 这样一个高效率 QQ 机器人支持库
-- [project-mirai)](https://github.com/project-mirai): 带来了 `Mirai API http` 这样一个 `Mirai` 插件
+- [project-mirai](https://github.com/project-mirai): 带来了 `Mirai API http` 这样一个 `Mirai` 插件
 - [iTXTech](https://github.com/iTXTech): 带来了 `mirai-console-loader` 和 `mcl-installer` 这两个方便部署 `Mirai` 的工具
 - [GraiaProject](https://github.com/GraiaProject)
     - [GreyElaina](https://github.com/GreyElaina): `Graia Project` 的 主要作者

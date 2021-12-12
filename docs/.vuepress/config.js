@@ -8,6 +8,14 @@ module.exports = {
   themeConfig: {
     head: [['link', { rel: 'icon', href: "/logo.ico" }]],
     logo: "/logo.svg",
+    repo: "Graiax-Community/Docs",
+    editLink: false,
+    notFound: [
+      "你在翻什么，这里可没有涩图哦",
+      "朋友，你是不是迷路了",
+      "不要乱翻，会乱的"
+    ],
+    backToHome: "返回首页",
     sidebar: {
       "/make_ero_bot/": [
         {
