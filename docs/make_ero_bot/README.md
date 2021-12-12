@@ -17,9 +17,9 @@ sidebar-title: 0.导语
 1. [你好，来点涩图](1_hello_ero) —— 你与机器人的第一次对话
 2. [别戳了](2_other_event) —— `Ariadne`上各类`Event`的简单讲解
 3. [来点涩图](3_ero_comes) —— `Twilight`的简单运用以及`MessageChain`的构建
+4. [八嘎 hentai 无路赛](4_kugimiya) —— 对于`多媒体消息`发送的一点补充
 
 ## 还没写的
-4. [八嘎 hentai 无路赛]() —— 对于语音消息发送的一点补充
 5. [这件事都传疯了]() —— 合并消息的构建
 6. [来点网络上的涩图]() —— `aiohttp`的超简单运用
 7. [来点xxx涩图]() —— `Twilight`的参数获取和`Detectxxx`的运用
