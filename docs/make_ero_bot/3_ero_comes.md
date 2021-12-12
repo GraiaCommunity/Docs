@@ -35,7 +35,7 @@ await app.sendGroupMessage(group, MessageChain.create(
 At(114514) # @114514
 AtAll() # @全体成员
 Poke(PokeMethods.ChuoYiChuo) # 戳一戳方法
-Image(path=...) # 图片，这个我们待会还会提及
+Image(path=...) # 图片，这个我们后面的篇章还会提及
 Face
 ```
 
@@ -62,8 +62,27 @@ MessageChain.create("你好", At(1919810), [Plain(", 你是不是喜欢"), At(11
 这只是举例，千万不要在你的业务代码中写出这么离谱的玩意儿
 :::
 
-### 4. 从MessageChain中获取元素
-首先，我们需要一个类
+### 4. 怎么操作MessageChain
+说实话，就像 Python 的 str 一样， MessageChain 提供的方法有亿点点多  
+这边推荐你去看一下这两篇官方教程  
+~~这个文档编写者就是逊啦~~  
+[Ariadne 文档 消息链: 基础](https://graia.readthedocs.io/zh_CN/latest/basic/msg-chain/)  
+[Ariadne 文档 消息链: 进阶](https://graia.readthedocs.io/zh_CN/latest/advance/msg-chain/)  
+
+当然我们这边就给各位提供一些简简单单的例子
+```python
+# 消息中是否有AtAll Element
+AtAll in message
+# 有没有人At机器人
+At(app.account) in message
+# 获取消息链中所有的图片
+message[Image]
+# 快速合并两个message
+message.create("ApplePen") + Message.create("PineapplePen") == Message.create("ApplePenPineapplePen")
+# 过滤一遍消息链让其只有Plain和At
+message.include(At, Plain)
+```
+
 
 ## Twilight的简单运用
 `Twilight`, 是`graia-ariadne`所使用的消息链匹配工具之一(是的，之一)  
@@ -78,5 +97,6 @@ from graia.ariadne.message.parser.twilight import Sparkle, Twilight
     dispatcher=[Twilight(Sparkle([FullMatch("涩图来")]))]
 )
 async def test(app: Ariadne, group: Group):
-    pass
+    await app.sendGroupMessage(group, Message.create(Image(path="/Graiax/EroEroBot/eropic.jpg")))
 ```
+这个就是Twilight最简单的运用了

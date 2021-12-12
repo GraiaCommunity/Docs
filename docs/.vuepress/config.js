@@ -17,7 +17,13 @@ module.exports = {
             "/make_ero_bot/0_before_start.md",
             "/make_ero_bot/1_hello_ero.md",
             "/make_ero_bot/2_other_event.md",
-            "/make_ero_bot/3_ero_comes.md"
+            "/make_ero_bot/3_ero_comes.md",
+          ]
+        },
+        {
+          text: "附录",
+          children: [
+            "/make_ero_bot/credit.md"
           ]
         }
       ]
