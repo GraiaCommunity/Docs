@@ -6,7 +6,7 @@ module.exports = {
   description: "GraiaX社区文档",
 
   themeConfig: {
-    head: [['link', { rel: 'icon', href: "/logo.ico" }]],
+    head: [['link', { rel: 'icon', href: "/favicon.ico" }]],
     logo: "/logo.svg",
     repo: "Graiax-Community/Docs",
     editLink: false,
@@ -26,6 +26,7 @@ module.exports = {
             "/make_ero_bot/1_hello_ero.md",
             "/make_ero_bot/2_other_event.md",
             "/make_ero_bot/3_ero_comes.md",
+            "/make_ero_bot/4_kugimiya.md",
           ]
         },
         {

@@ -65,7 +65,7 @@ MessageChain.create("你好", At(1919810), [Plain(", 你是不是喜欢"), At(11
 ### 4. 怎么操作MessageChain
 说实话，就像 Python 的 str 一样， MessageChain 提供的方法有亿点点多  
 这边推荐你去看一下这两篇官方教程  
-~~这个文档编写者就是逊啦~~  
+~~这个社区文档作者就是逊啦，都不教的~~  
 [Ariadne 文档 消息链: 基础](https://graia.readthedocs.io/zh_CN/latest/basic/msg-chain/)  
 [Ariadne 文档 消息链: 进阶](https://graia.readthedocs.io/zh_CN/latest/advance/msg-chain/)  
 
@@ -100,3 +100,6 @@ async def test(app: Ariadne, group: Group):
     await app.sendGroupMessage(group, Message.create(Image(path="/Graiax/EroEroBot/eropic.jpg")))
 ```
 这个就是Twilight最简单的运用了
+:::tip
+虽然这些括号套娃套的有亿点点多，但习惯就好
+:::
