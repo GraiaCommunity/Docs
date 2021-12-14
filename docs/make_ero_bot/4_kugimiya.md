@@ -4,8 +4,15 @@ title: 4. 八嘎 hentai 无路赛
 ---
 
 :::danger
-本文档还没有写完  <Curtain>比如没准备好钉宫三连语音包</Curtain>
-:::
+本文档还没有写完  <Curtain>比如没准备好钉宫三连语音包，欢迎<RubyCurtain up="hentai xiong di">有志之士</RubyCurtain>提供</Curtain>
+::: 
+
+<ChatPanel title="GraiaX-Community">
+  <ChatMessage name="GraiaX" onright=true>你好</ChatMessage>
+  <ChatMessage name="EroEroBot" :avatar="$withBase('/avatar/ero.png')">
+    <SimpleAudio audio="/images/4_夏娜_无路赛_钉宫理惠.mp3"></SimpleAudio> <span style="margin-right:20px;"></span>3'
+  </ChatMessage>
+</ChatPanel>
 
 还记得上一篇我们简单的讲解了一下消息链时候，给出了这样一个构建图片元素的办法
 ```python

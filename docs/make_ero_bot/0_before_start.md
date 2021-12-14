@@ -56,4 +56,4 @@ curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poet
 
 
 ## 5. 当你遇到不会的东西的时候
-![](/images/0_baidu.jpg)
+![](/images/0_baidu.webp)
