@@ -23,13 +23,14 @@ from graia.ariadne.event.mirai import NudgeEvent
 
 #@bcc.receiver(GroupMessage)
 @bcc.receiver(NudgeEvent)
-async def getup(app: Ariadne, group: Group):
-    await app.sendGroupMessage(group, MessageChain.create("别戳我，好痒"))
+async def getup(app: Ariadne, event: NudgeEvent):
+    to = event.group if event.context_type == "group" else event.friend_id
+    await app.sendMessage(to, MessageChain.create("别戳我，好痒"))
 ...
 ```
 <ChatPanel title="GraiaX-Community">
-  <p align="center" style="font-size:0.5em">GraiaX <span style="display: inline-block; width: 1.8em; height: 1.8em;-webkit-mask:url(/images/2_poke.png) no-repeat; -webkit-mask-size: 100% 100%;mask:url(/images/2_poke.png) no-repeat; mask-size: 100% 100%;background:var(--c-text)"/> 戳了戳 EroEroBot 的 腰部</p>
-  <ChatMessage name="EroEroBot" :avatar="$withBase('/avatar/ero.png')">别戳我，好痒</ChatMessage>
+  <p align="center" style="font-size:0.5em">GraiaX <span style="display: inline-block; width: 1.5em; height: 1.5em;-webkit-mask:url(/images/2_poke.webp) no-repeat; -webkit-mask-size: 100% 100%;mask:url(/images/2_poke.webp) no-repeat; mask-size: 100% 100%;background:var(--c-text)"/> 戳了戳 EroEroBot 的 腰部</p>
+  <ChatMessage name="EroEroBot" :avatar="$withBase('/avatar/ero.webp')">别戳我，好痒</ChatMessage>
 </ChatPanel>
 
 接下来，让我们好好讲解一下
