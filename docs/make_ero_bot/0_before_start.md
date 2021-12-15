@@ -51,7 +51,7 @@ curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poet
 
 ::: warning
 当你遇到什么bug的时候，最好搞清楚是哪里的bug  
-再向那边的仓库提交issue <Curtain>腾讯的bug例外，因为你压根没地方提交issue</Curtain>
+再向那边的仓库提交issue <Curtain type="warning">腾讯的bug例外，因为你压根没地方提交issue</Curtain>
 :::
 
 ## 5. 关于涩图机器人

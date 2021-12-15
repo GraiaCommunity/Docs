@@ -3,15 +3,15 @@ id: 4-kugimiya
 title: 4. 八嘎 hentai 无路赛
 ---
 
-# 好大的奶
+# 八嘎 hentai 无路赛
 
 :::danger
-本文档还没有写完  <Curtain>比如没准备好钉宫三连语音包，欢迎<RubyCurtain up="hentai xiong di">有志之士</RubyCurtain>提供</Curtain>  
-十分建议在阅读的时候不要声音拉满+外放 <Curtain>除非你跟唐可可一样有社交牛逼症</Curtain>
+本文档还没有写完  <Curtain type="danger">比如没准备好钉宫三连语音包，欢迎<RubyCurtain up="hentai xiong di" type="danger">有志之士</RubyCurtain>提供</Curtain>  
+十分建议在阅读的时候不要声音拉满+外放 <Curtain type="danger">除非你跟唐可可一样有社交牛逼症</Curtain>
 ::: 
 
 <ChatPanel title="GraiaX-Community">
-  <ChatMessage name="GraiaX" onright=true>你好</ChatMessage>
+  <ChatMessage name="GraiaX" onright>你好</ChatMessage>
   <ChatMessage name="EroEroBot" :avatar="$withBase('/avatar/ero.webp')">
     <SimpleAudio audio="/images/4_夏娜_无路赛_钉宫理惠.mp3"></SimpleAudio> <span style="margin-right:20px;"></span>3'
   </ChatMessage>
@@ -71,5 +71,5 @@ Voice(data_bytes=audio_bytes)
 ```
 :::tip
 详细用法请去其[Github页面查看](https://pypi.org/project/graiax-silkcoder/)  
-这次就不能说我逊了因为<RubyCurtain up="我写的$h!t Mountain">这就是我写的</RubyCurtain>
+这次就不能说我逊了因为<RubyCurtain up="我写的$h!t Mountain" type="tip">这就是我写的</RubyCurtain>
 :::
