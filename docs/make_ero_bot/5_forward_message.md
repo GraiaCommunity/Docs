@@ -11,7 +11,7 @@ title: 5. 好大的奶
 <ChatPanel title="GraiaX-Community">
   <ChatMessage name="EroEroBot" :avatar="$withBase('/avatar/ero.webp')">
     <div style="width:200px">
-      <font size="3.5em">群聊的聊天记录</font><br/>
+      <div style="font-size:1.2em;margin-bottom:5px">群聊的聊天记录</div>
       EroEroBot: [图片]<br/>
       群菜鸮: 好大的奶<br/>
       群菜鸡: 好大的奶<br/>
