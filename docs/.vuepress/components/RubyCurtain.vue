@@ -2,7 +2,7 @@
     <ruby>
         <slot></slot>
         <rp>(</rp><rt style="font-size:0.75em">
-            <curtain :title="title">{{up}}</curtain>
+            <curtain :title="title" :type="type">{{up}}</curtain>
         </rt><rp>)</rp>
     </ruby>
   
@@ -16,6 +16,10 @@ export default {
       type: String,
       default: "你知道的太多了",
     },
+    type: {
+      type: String,
+      default: "",
+    }
   },
 };
 </script>

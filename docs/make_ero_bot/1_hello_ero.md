@@ -187,6 +187,6 @@ Package operations: 14 installs, 0 updates, 0 removals
     ```
 
 <ChatPanel title="GraiaX-Community">
-  <ChatMessage name="GraiaX" onright=true>你好</ChatMessage>
+  <ChatMessage name="GraiaX" onright>你好</ChatMessage>
   <ChatMessage name="EroEroBot" :avatar="$withBase('/avatar/ero.webp')">不要说你好，来点涩图</ChatMessage>
 </ChatPanel>

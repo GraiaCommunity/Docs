@@ -3,6 +3,8 @@ id: 5_forward_message
 title: 5. 好大的奶
 ---
 
+# 好大的奶
+
 :::danger
 这篇文档除了例子<Curtain>与乐子</Curtain>啥也没写
 :::

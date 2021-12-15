@@ -11,8 +11,8 @@ title: 2.别戳了
 所以下面教大家如何用戳一戳触发
 
 :::warning
-`NudgeEvent`需要`Mirai`的登陆协议是`ANDROID_PHONE/IPAD/MACOS`中的一种  
-`ANDROID_PAD/ANDROID_WATCH`协议由于腾讯服务器的原因并不能接收到`NudgeEvent`
+NudgeEvent 需要 Mirai 的登陆协议是 **ANDROID_PHONE/IPAD/MACOS** 中的一种  
+ANDROID_PAD/ANDROID_WATCH 协议由于腾讯服务器的原因**并不能**接收到 NudgeEvent
 :::
 
 ```python
