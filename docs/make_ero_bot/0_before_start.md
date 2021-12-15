@@ -3,7 +3,12 @@ id: before_start
 title: 0. 开始之前你需要知道的
 ---
 
-## 1. 关于Mirai环境
+# 开始之前
+
+## 1. 这教程正经吗
+正经，我说的
+
+## 2. 关于Mirai环境
 请容许我先介绍一下 <Curtain>虽然说不知道已经说了多少遍了</Curtain>  
 [`mirai`](https://github.com/mamoe/mirai)，是一个高性能, 高可扩展性的 QQ 协议库  
 [`mirai-console`](https://github.com/mamoe/mirai-console): 一个基于 `mirai` 开发的插件式可扩展开发平台  
@@ -14,7 +19,7 @@ title: 0. 开始之前你需要知道的
 所以，假设你想要使用，就必须先把 `mirai` 和 `mirai-api-http` 连接好  
 至于配置方法，我向您推荐[Ariadne官方文档关于mah的配置方法](https://graia.readthedocs.io/zh_CN/latest/appendix/mah-install/)
 
-## 2. 关于安装Poetry
+## 3. 关于安装Poetry
 注：假设你不想用 `poetry` ，你可直接跳过  
 本教程将会使用 `poetry` 来管理项目依赖关系  
 在这里先放上 poetry 官方推荐的安装方法
@@ -25,7 +30,7 @@ curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poet
 (Invoke-WebRequest -Uri https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py -UseBasicParsing).Content | python -
 ```
 
-## 3. 关于风控
+## 4. 关于风控
 在使用机器人的时候，你可能会遇到这些问题：
 - 明明显示消息发送成功了，但是群友们/朋友没有接收到机器人发送的消息
 - 在登录的时候， `Mirai` 报错，报错内容是 `该账号已经封禁`
@@ -49,11 +54,11 @@ curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poet
 再向那边的仓库提交issue <Curtain>腾讯的bug例外，因为你压根没地方提交issue</Curtain>
 :::
 
-## 4. 关于涩图机器人
+## 5. 关于涩图机器人
 1. 本教程所引用的涩图并没有多涩，更多的可能趋近于美图
 2. 本教程不单单会将思维局限于"发涩图"这件事上，还会有其他有趣的小功能 <Curtain>虽然浓度都不低</Curtain>  
 3. 不建议用真·涩图测试机器人，极有可能被风控 <Curtain>涩图发给我就好</Curtain>  
 
 
-## 5. 当你遇到不会的东西的时候
+## 6. 当你遇到不会的东西的时候
 ![](/images/0_baidu.webp)

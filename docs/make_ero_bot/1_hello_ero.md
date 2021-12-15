@@ -3,6 +3,8 @@ id: hello_ero
 title: 1. 来点涩图
 ---
 
+# 来点涩图
+
 ## 注意
 本文将会使用 `poetry` 作为依赖管理和打包的工具。  
 你可能会疑惑为什么不直接使用 `pip` + `venv` 而是使用 `poetry`  
@@ -186,5 +188,5 @@ Package operations: 14 installs, 0 updates, 0 removals
 
 <ChatPanel title="GraiaX-Community">
   <ChatMessage name="GraiaX" onright=true>你好</ChatMessage>
-  <ChatMessage name="EroEroBot" :avatar="$withBase('/avatar/ero.png')">不要说你好，来点涩图</ChatMessage>
+  <ChatMessage name="EroEroBot" :avatar="$withBase('/avatar/ero.webp')">不要说你好，来点涩图</ChatMessage>
 </ChatPanel>
