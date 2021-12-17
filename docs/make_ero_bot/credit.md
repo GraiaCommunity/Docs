@@ -10,10 +10,11 @@ title: 鸣谢
 - [GraiaProject](https://github.com/GraiaProject)
     - [GreyElaina](https://github.com/GreyElaina): `Graia Project` 的 主要作者
     - [BlueGlassBlock](https://github.com/BlueGlassBlock): `Ariadne` 的 主要维护者  
-    - [Bryan不可思议 (ProgramRipper)](https://github.com/BlueGlassBlock): `Graia Project` 的 协作者
+    - [Bryan不可思议 (ProgramRipper)](https://github.com/ProgramRipper): `Graia Project` 的 协作者
 - [Chase小念念](https://github.com/Little-LinNian): 提供了该文档部署的服务器以及域名
 - [I_Love_Study](https://github.com/I-love-study): 该文档的主要编写者  
 - [ZhaoZuohong](https://github.com/ZhaoZuohong): 文档`ChatMessage`模块的构建者  
 - [djkcyl (A60)](https://github.com/djkcyl): ~~迫害对象~~ 其所写的[myfirstbot](https://github.com/djkcyl/myfirstbot)被本文档参考
+- [Red lnn](https://github.com/Redlnn): 文档的校对者以`EroEroBot`仓库的维护者
 - [萌娘百科](https://zh.moegirl.org.cn/Mainpage): 提供了如<Curtain>黑幕</Curtain>还有<RubyCurtain up="RubyH">这种</RubyCurtain>的css  
 - 正在看这篇文档的**你**: 使这篇文档的存在拥有了意义

@@ -24,8 +24,10 @@ from graia.ariadne.event.mirai import NudgeEvent
 #@bcc.receiver(GroupMessage)
 @bcc.receiver(NudgeEvent)
 async def getup(app: Ariadne, event: NudgeEvent):
-    to = event.group if event.context_type == "group" else event.friend_id
-    await app.sendMessage(to, MessageChain.create("别戳我，好痒"))
+    if event.context_type == "group":
+        await app.sendGroupMessage(event.group_id, MessageChain.create("别戳我，好痒"))
+    else:
+        await app.sendFriendMessage(event.friend_id, MessageChain.create("别戳我，好痒"))
 ...
 ```
 <ChatPanel title="GraiaX-Community">

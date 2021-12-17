@@ -1,7 +1,6 @@
 ---
 id: intro
 title: 导语
-sidebar-title: 0.导语
 ---
 众所周知，学习代码最好的办法，就是举例子  
 所以我们将创建**大家最喜欢的涩图机器人**为例子  
@@ -10,6 +9,10 @@ sidebar-title: 0.导语
 ::: warning  
 本教程将会默认你至少学过一点点`Python`  
 假设你连python都不会，建议至少学点python基础再来看  
+:::
+
+::: tip
+本文档的所有例子都在[co↗co↘](https://github.com/Graiax-Community/EroEroBot)
 :::
 
 ## 写了的(包括没写完的)
@@ -27,7 +30,7 @@ sidebar-title: 0.导语
 8. [/斜眼笑]() —— `Formatter`的运用
 9. [不是所有人都能看涩图]() —— `Depend`的简单运用
 10. [准时叫你起床板砖]() —— `graia-scheduler`的使用
-11. [功能管理]() —— `graia-saya`的使用
+11. [东西要分类好]() —— `graia-saya`的使用
 12. [请问您这次要怎么样的涩图]() —— `interrupt`的简单运用
 13. [Wow, 这个好涩]() —— `Component`的简单运用
 14. [加速画~~涩~~图速度]() —— `cpu_bound`的运用
