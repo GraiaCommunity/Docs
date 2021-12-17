@@ -25,8 +25,7 @@ await app.sendGroupMessage(group, MessageChain.create(
 这是什么，这个怎么用，怎么通过这个发送图片什么的  
 今天就来讲讲MessageChain
 ### 1. 什么是MessageChain
-首先要明确一点，QQ消息并不只有纯文本，还可以包括了如At, 图片等消息  
-我们现在QQ"能过将多个类型融合在一起的文本"称作`富文本`  
+首先要明确一点，QQ消息并不只有纯文本，还可以包括了如At, 图片等消息
 而消息链(MessageChain)正是为了能够适应QQ这种富文本消息所诞生的产物
 
 ### 2. 什么是元素
@@ -61,7 +60,9 @@ MessageChain.create("你好")
 MessageChain.create("你好", At(1919810), [Plain(", 你是不是喜欢"), At(114514)])
 ```
 :::danger 注意一下
-这只是举例，千万不要在你的业务代码中写出这么离谱的玩意儿
+这只是举例，千万不要在你的业务代码中写出这么离谱的玩意儿  
+<Curtain type="danger">否则 <MoreInfo words="蓝玻璃块"><img src="/images/3_BGB_watching.png"></MoreInfo>大概率会提刀撒了你</Curtain><Curtain type="danger">撒日朗</Curtain>
+<div style="height:1em"></div>
 :::
 
 ### 4. 怎么操作MessageChain
@@ -80,7 +81,7 @@ At(app.account) in message
 # 获取消息链中所有的图片
 message[Image]
 # 快速合并两个message
-message.create("ApplePen") + Message.create("PineapplePen") == Message.create("ApplePenPineapplePen")
+MessageChain.create("ApplePen") + MessageChain.create("PineapplePen") == MessageChain.create("ApplePenPineapplePen")
 # 过滤一遍消息链让其只有Plain和At
 message.include(At, Plain)
 ```
@@ -89,6 +90,9 @@ message.include(At, Plain)
 ## Twilight的简单运用
 `Twilight`, 是`graia-ariadne`所使用的消息链匹配工具之一(是的，之一)  
 我们就直接通过例子来向各位讲解如何使用`Twilight`
+::: warning
+以下方法仅适用于0.5.2-, 在0.5.2发版之后，这里将会改正
+:::
 ```python
 ...
 from graia.ariadne.message.parser.pattern import FullMatch
@@ -96,7 +100,7 @@ from graia.ariadne.message.parser.twilight import Sparkle, Twilight
 ...
 @bcc.receiver(
     GroupMessage,
-    dispatcher=[Twilight(Sparkle([FullMatch("涩图来")]))]
+    dispatchers=[Twilight(Sparkle([FullMatch("涩图来")]))]
 )
 async def test(app: Ariadne, group: Group):
     await app.sendGroupMessage(group, Message.create(Image(path="/Graiax/EroEroBot/eropic.jpg")))
