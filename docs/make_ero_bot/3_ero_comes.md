@@ -61,7 +61,7 @@ MessageChain.create("你好", At(1919810), [Plain(", 你是不是喜欢"), At(11
 ```
 :::danger 注意一下
 这只是举例，千万不要在你的业务代码中写出这么离谱的玩意儿  
-<Curtain type="danger">否则 <MoreInfo words="蓝玻璃块"><img src="/images/3_BGB_watching.png"></MoreInfo>大概率会提刀撒了你</Curtain><Curtain type="danger">撒日朗</Curtain>
+<Curtain type="danger">否则 <MoreInfo words="蓝玻璃块"><img src="/images/3_BGB_watching.webp"></MoreInfo>大概率会提刀撒了你</Curtain><Curtain type="danger">撒日朗</Curtain>
 <div style="height:1em"></div>
 :::
 
