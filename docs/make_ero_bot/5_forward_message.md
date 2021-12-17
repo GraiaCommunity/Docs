@@ -6,7 +6,7 @@ title: 5. 好大的奶
 # 好大的奶
 
 :::danger
-这篇文档除了例子<Curtain>与乐子</Curtain>啥也没写
+这篇文档除了例子<Curtain type="danger">与乐子</Curtain>啥也没写
 :::
 
 你可能曾经看到过这样的合并消息
@@ -54,10 +54,10 @@ from graia.ariadne.message.element import At, Plain, Image, Forward, ForwardNode
 async def create_forward(app: Ariadne, member: Member):
     fwd_nodeList = [
         ForwardNode(
-            senderId=member.id,
+            target=member.id,
             time=datetime.now(),
-            senderName=member.name,
-            messageChain=MessageChain.create(Image(path="big_milk.jpg")),
+            name=member.name,
+            message=MessageChain.create(Image(path="big_milk.jpg")),
         )
     ]
     member_list = await app.getMemberList(group)
@@ -65,12 +65,28 @@ async def create_forward(app: Ariadne, member: Member):
         random_member: Member = random.choice(member_list)
         fwd_nodeList.append(
             ForwardNode(
-                senderId=random_member.id,
+                target=random_member.id,
                 time=datetime.now(),
-                senderName=random_member.name,
-                messageChain=MessageChain.create("好大的奶"),
+                name=random_member.name,
+                message=MessageChain.create("好大的奶"),
             )
         )
     message = MessageChain.create(Forward(nodeList=fwd_nodeList))
     await app.sendGroupMessage(group, message)
 ```
+
+因为比较简单，所以我们直接随便讲一讲参数就好了
+```python
+ForwardNode(
+    target=member.id, # 发送者的id
+    time=datetime.now(), # 发送时间
+    name=member.name, # 发送者的名字
+    message=MessageChain.create(Image(path="big_milk.jpg")), # 发送的消息链
+)
+```
+::: danger 注意
+通过上面的例子你一定意识到了一个很严肃的问题：  
+**你可以自己无中生有生成消息链然后传播出去**  
+请不要通过该方法**传播谣言**  
+要不然我就要用我的靴子狠狠的踢你的屁股
+:::
