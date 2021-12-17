@@ -27,7 +27,8 @@ module.exports = {
             "/make_ero_bot/2_other_event.md",
             "/make_ero_bot/3_ero_comes.md",
             "/make_ero_bot/4_kugimiya.md",
-            "/make_ero_bot/5_forward_message.md"
+            "/make_ero_bot/5_forward_message.md",
+            "/make_ero_bot/6_ero_from_net.md"
           ]
         },
         {

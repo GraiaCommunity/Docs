@@ -1,18 +1,14 @@
 <template>
   <span
-    v-if="type == ''"
     :title="title"
     class="heimu"
-    :style="'--text: var(--c-text);--bg: var(--c-bg)'"
-    ><slot></slot
-  ></span>
-  <span
-    v-else
-    :title="title"
-    class="heimu"
-    :style="'--text: var(--c-' + type + '-text);--bg: var(--c-' + type + '-bg)'"
-    ><slot></slot
-  ></span>
+    :style="
+      '--text: var(--c-' + type + '-text);' +
+      '--bg: var(--c-' + type + '-bg)'
+    "
+  >
+    <slot></slot>
+  </span>
 </template>
 
 <script>

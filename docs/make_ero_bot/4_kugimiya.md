@@ -11,7 +11,7 @@ title: 4. 八嘎 hentai 无路赛
 ::: 
 
 <ChatPanel title="GraiaX-Community">
-  <ChatMessage name="GraiaX" onright>你好</ChatMessage>
+  <ChatMessage name="GraiaX" onright>无路赛</ChatMessage>
   <ChatMessage name="EroEroBot" :avatar="$withBase('/avatar/ero.webp')">
     <SimpleAudio audio="/images/4_夏娜_无路赛_钉宫理惠.mp3"></SimpleAudio> <span style="margin-right:20px;"></span>3'
   </ChatMessage>
