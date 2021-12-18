@@ -12,7 +12,8 @@ title: 导语
 :::
 
 ::: tip
-本文档的所有例子都在[co↗co↘](https://github.com/Graiax-Community/EroEroBot)
+本文档的所有例子都在[co↗co↘](https://github.com/Graiax-Community/EroEroBot)  
+假设文档有专有名词没看懂，也可以看看[这里](terms)
 :::
 
 ## 写了的(包括没写完的)
