@@ -28,13 +28,14 @@ module.exports = {
             "/make_ero_bot/3_ero_comes.md",
             "/make_ero_bot/4_kugimiya.md",
             "/make_ero_bot/5_forward_message.md",
-            "/make_ero_bot/6_ero_from_net.md"
+            "/make_ero_bot/6_ero_from_net.md",
           ]
         },
         {
           text: "附录",
           children: [
-            "/make_ero_bot/credit.md"
+            "/make_ero_bot/terms.md",
+            "/make_ero_bot/credit.md",
           ]
         }
       ]

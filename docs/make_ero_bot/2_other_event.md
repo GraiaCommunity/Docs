@@ -42,7 +42,14 @@ async def getup(app: Ariadne, event: NudgeEvent):
 [>_<]: 这里很需要找个人改一下，我不会
 
 `Graia-Ariadne` 使用了 `Graia-Broadcast` 作为其事件广播的工具  
-`Graia Project` 的主要构造者 `GreyElaina` 称其为 利刃
+`Graia Project` 的主要构造者
+<ruby>
+  `GreyElaina` <rp>(</rp><rt><span lang="ja">灰の魔女</span></rt><rp>)</rp>
+</ruby>
+称其为
+<ruby>
+  魔剑 <rp>(</rp><rt><span lang="ja">魔剣</span></rt><rp>)</rp>
+</ruby> 
 
 当然，本篇教程并不会跟你完全讲清楚这是个啥，不过还是会或多或少涉及到一点
 
