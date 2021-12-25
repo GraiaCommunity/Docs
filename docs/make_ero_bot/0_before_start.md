@@ -59,6 +59,8 @@ curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poet
 2. 本教程不单单会将思维局限于"发涩图"这件事上，还会有其他有趣的小功能 <Curtain>虽然浓度都不低</Curtain>  
 3. 不建议用真·涩图测试机器人，极有可能被风控 <Curtain>涩图发给我就好</Curtain>  
 
+## 6. 最近怎么没有更新
+现在唯一可以知道的是，笔者出现在的最后一段监控的，ta在听的，是一首名为"Untitled"的曲子
 
-## 6. 当你遇到不会的东西的时候
+## 7. 当你遇到不会的东西的时候
 ![](/images/0_baidu.webp)
