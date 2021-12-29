@@ -27,6 +27,7 @@ from pathlib import Path
 import aiohttp
 
 async def very_simple_example():
+    #注：这里为了教学，故意让api返回json形式
     ero_url = "https://api.ixiaowai.cn/api/api.php?return=json"
     async with aiohttp.ClientSession() as session:
         async with session.get(ero_url) as r:
@@ -73,7 +74,7 @@ async def test(app: Ariadne):
 这就是一个并发的例子  
 你在这个时间段干了"干饭"和"开门"两件事情，并且不是说干饭的时候就不回去开门了  
 但是在任意瞬间，你只干了"干饭"和"开门"中的一件事情  
-这就是典型(?)的并发
+这就是典型<sup style="font-size:0.5em">(吗)</sup>的并发
 
 为了保证这种"能在干一件事情干到一半的时候能去处理另一件事"的能力  
 `Graia-Ariadne`使用了asyncio以保证并发的高效性
@@ -88,3 +89,29 @@ async def test():
 你要是写出了这种东西，还是速速remake(指重看asyncio文档)吧
 :::
 
+:::tip
+这里并发使用的是aiohttp只是因为Ariadne本身就有aiohttp，不用装额外的库  
+你也可以使用`httpx`等支持并发的库，效果也是同样的
+:::
+
+## 直接使用Ariadne自带的session进行请求
+在上面我们提到了，Ariadne是使用了aiohttp的  
+那，我们能不能直接白嫖Ariadne的session呢  
+Of course you can  
+```python
+from graia.ariadne.context import adapter_ctx
+...
+
+@bcc.receiver(GroupMessage)
+async def test():
+    session = adapter_ctx.get().session
+    async with session.get("https://api.ixiaowai.cn/api/api.php") as r:
+        data = await r.read()
+```
+这样做有一个好处，那就是**不会在每次请求的时候都创建一个会话**  
+在[aiohttp官方文档的这里](https://docs.aiohttp.org/en/stable/client_quickstart.html#make-a-request)有一个note  
+不要为每一个请求都创造一个会话(Don’t create a session per request. )  
+假设你直接调用Ariadne本身的会话(session), 那你机器人的性能会好一点(当然这好的一点点你可能都感觉不到)  
+不过还是有缺点的，那就是**降低了代码移植效率**  
+假设你想要将你的代码放到其他地方(比如v5), 那你移植的时候，就给加上更改session的获取  
+至于用不用Ariadne自带的session，就是你的选择了  
