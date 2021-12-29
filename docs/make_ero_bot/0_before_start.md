@@ -12,7 +12,7 @@ title: 0. 开始之前你需要知道的
 请容许我先介绍一下 <Curtain>虽然说不知道已经说了多少遍了</Curtain>  
 [`mirai`](https://github.com/mamoe/mirai)，是一个高性能, 高可扩展性的 QQ 协议库  
 [`mirai-console`](https://github.com/mamoe/mirai-console): 一个基于 `mirai` 开发的插件式可扩展开发平台  
-[`mirai-api-http`](https://github.com/project-mirai/mirai-api-http): 简称`mah`， 为 `Graia-Ariadne` 提供与 `mirai` 交互方式的 `mirai-console` 插件  
+[`mirai-api-http`](https://github.com/project-mirai/mirai-api-http): 一个 `mirai-console` 插件(简称 mah)，在 `Graia-Ariadne` 和 `mirai` 之间提供了交互方式
   
 简单来说，`Graia-Ariadne` 是通过 `mirai-api-http` 与 `mirai` 进行连接，从而间接连接到QQ客户端  
 如果你只下载了 `Graia-Ariadne` 而没有配置好 `mirai-api-http` ，那并不能运行  
@@ -25,9 +25,9 @@ title: 0. 开始之前你需要知道的
 在这里先放上 poetry 官方推荐的安装方法
 ```bash
 # osx / linux / bashonwindows 
-curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
+curl -sSL https://install.python-poetry.org | python -
 # windows powershell
-(Invoke-WebRequest -Uri https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py -UseBasicParsing).Content | python -
+(Invoke-WebRequest -Uri https://install.python-poetry.org -UseBasicParsing).Content | python -
 ```
 
 ## 4. 关于风控
@@ -49,9 +49,9 @@ curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poet
 当你遇到这个问题的时候，无能狂怒并不能帮你解决这个问题  
 你需要做的，只有积极配合，耐心的等待，或者换一个号
 
-::: warning
+::: tip
 当你遇到什么bug的时候，最好搞清楚是哪里的bug  
-再向那边的仓库提交issue <Curtain type="warning">腾讯的bug例外，因为你压根没地方提交issue</Curtain>
+再向那边的仓库提交issue <Curtain type="tip">腾讯的bug例外，因为你压根没地方提交issue</Curtain>
 :::
 
 ## 5. 关于涩图机器人
