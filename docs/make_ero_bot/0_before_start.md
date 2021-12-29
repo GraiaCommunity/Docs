@@ -17,7 +17,7 @@ title: 0. 开始之前你需要知道的
 简单来说，`Graia-Ariadne` 是通过 `mirai-api-http` 与 `mirai` 进行连接，从而间接连接到QQ客户端  
 如果你只下载了 `Graia-Ariadne` 而没有配置好 `mirai-api-http` ，那并不能运行  
 所以，假设你想要使用，就必须先把 `mirai` 和 `mirai-api-http` 连接好  
-至于配置方法，我向您推荐[Ariadne官方文档关于mah的配置方法](https://graia.readthedocs.io/zh_CN/latest/appendix/mah-install/)
+至于配置方法，我向您推荐[Ariadne官方文档关于mah的配置方法](https://graia.readthedocs.io/appendix/mah-install/)
 
 ## 3. 关于安装Poetry
 注：假设你不想用 `poetry` ，你可直接跳过  
