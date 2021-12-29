@@ -29,6 +29,7 @@ module.exports = {
             "/make_ero_bot/4_kugimiya.md",
             "/make_ero_bot/5_forward_message.md",
             "/make_ero_bot/6_ero_from_net.md",
+            "/make_ero_bot/7_setu_tag.md",
           ]
         },
         {
@@ -36,6 +37,7 @@ module.exports = {
           children: [
             "/make_ero_bot/terms.md",
             "/make_ero_bot/credit.md",
+            "/make_ero_bot/awesome_bot.md"
           ]
         }
       ]
@@ -47,6 +49,6 @@ module.exports = {
       {
         componentsDir: path.resolve(__dirname, "./components")
       }
-    ]
+    ],
   ],
 };
