@@ -19,7 +19,7 @@ title: 鸣谢
 - [萌娘百科](https://zh.moegirl.org.cn/Mainpage): 提供了如<Curtain>黑幕</Curtain>还有<RubyCurtain up="RubyH">这种</RubyCurtain>的css  
 - 正在看这篇文档的**你**: 使这篇文档的存在拥有了意义
 
-本文档参考了以下资料:
+本文档参考了以下资料:  
 [Graia Ariadne 官方文档](https://graia.readthedocs.io/)  
 [A60 的 MyFirstBot](https://github.com/djkcyl/myfirstbot)  
 [v5(Avilla) 官方文档](https://autumn-psi.vercel.app/docs/broadcast/basic/hello-world)  
