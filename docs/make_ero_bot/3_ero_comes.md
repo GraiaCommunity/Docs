@@ -90,9 +90,9 @@ message.include(At, Plain)
 ## Twilight的简单运用
 `Twilight`, 是`graia-ariadne`所使用的消息链匹配工具之一(是的，之一)  
 我们就直接通过例子来向各位讲解如何使用`Twilight`
-::: warning
-以下方法仅适用于0.5.2-, 在0.5.2发版之后，这里将会改正
-:::
+
+:::: code-group
+::: code-group-item 0.5.0   -
 ```python
 ...
 from graia.ariadne.message.parser.pattern import FullMatch
@@ -105,6 +105,21 @@ from graia.ariadne.message.parser.twilight import Sparkle, Twilight
 async def test(app: Ariadne, group: Group):
     await app.sendGroupMessage(group, Message.create(Image(path="/Graiax/EroEroBot/eropic.jpg")))
 ```
+:::
+::: code-group-item 0.5.0 +
+```python
+...
+from graia.ariadne.message.parser.pattern import FullMatch
+from graia.ariadne.message.parser.twilight import Twilight
+...
+@bcc.receiver(
+    GroupMessage,
+    dispatchers=[Twilight([FullMatch("涩图来")])]
+)
+async def test(app: Ariadne, group: Group):
+    await app.sendGroupMessage(group, Message.create(Image(path="/Graiax/EroEroBot/eropic.jpg")))
+```
+:::
 这个就是Twilight最简单的运用了
 :::tip
 虽然这些括号套娃套的有亿点点多，但习惯就好
