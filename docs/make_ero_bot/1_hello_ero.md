@@ -153,8 +153,8 @@ Package operations: 14 installs, 0 updates, 0 removals
         ))
 
 
-    #app.launch_blocking()
-    loop.run_until_complete(app.lifecycle())
+    app.launch_blocking()
+    #loop.run_until_complete(app.lifecycle())
     ```
 4. 保存，并且使用如下命令运行  
     ```bash 
@@ -188,7 +188,7 @@ Package operations: 14 installs, 0 updates, 0 removals
 5. 给你的bot随便发一条消息
     ```bash
     2021-12-03 10:49:45.350 | INFO     | graia.ariadne.model:log_friend_message:114 - 1919810: [Graiax(114514)] -> '你好'
-    2021-12-03 10:49:45.478 | INFO     | graia.ariadne.app:sendFriendMessage:114 - [BOT 1919810] Friend(114514) <- 不要说你好，来点涩图
+    2021-12-03 10:49:45.478 | INFO     | graia.ariadne.app:sendFriendMessage:114 - [BOT 1919810] Friend(114514) <- '不要说你好，来点涩图'
     ```
 
 <ChatPanel title="GraiaX-Community">
