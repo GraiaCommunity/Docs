@@ -20,7 +20,7 @@ title: 鸣谢
 - 正在看这篇文档的**你**: 使这篇文档的存在拥有了意义
 
 本文档参考了以下资料:  
-[Graia Ariadne 官方文档](https://graia.readthedocs.io/)  
-[A60 的 MyFirstBot](https://github.com/djkcyl/myfirstbot)  
-[v5(Avilla) 官方文档](https://autumn-psi.vercel.app/docs/broadcast/basic/hello-world)  
-沙雕网友的日常
+- [Graia Ariadne 官方文档](https://graia.readthedocs.io/)  
+- [A60 的 MyFirstBot](https://github.com/djkcyl/myfirstbot)  
+- [v5(Avilla) 官方文档](https://autumn-psi.vercel.app/docs/broadcast/basic/hello-world)  
+- 沙雕网友的日常
