@@ -59,15 +59,24 @@ async def who(app: Ariadne, group: Group, tag: MessageChain = DetectPrefix("我�
 async def baka(app: Ariadne, group: Group, tag: MessageChain = DetectSuffix("是谁")):
     await app.sendGroupMessage(group, tag + MessageChain.create("是笨蛋"))
 ```
+<ChatPanel title="GraiaX-Community">
+  <ChatMessage name="GraiaX" onright>我是GraiaX</ChatMessage>
+  <ChatMessage name="EroEroBot" :avatar="$withBase('/avatar/ero.webp')">你是GraiaX</ChatMessage>
+  <ChatMessage name="GraiaX" onright>GraiaX是谁</ChatMessage>
+  <ChatMessage name="EroEroBot" :avatar="$withBase('/avatar/ero.webp')">GraiaX是笨蛋</ChatMessage>
+</ChatPanel>
+
+用法就这么简单，不过嘛，还有一点点小问题  
+就是当你想要匹配`涩图来 %涩图tag%`的时候，你的谨慎
 
 :::tip
 这个模块实际上用了`graia-broadcast`中参数修饰器的属性  
-假设你特别想知道这怎么办到的，可以看看[这里](https://autumn-psi.vercel.app/docs/broadcast/basic/decorator)
+假设你特别想知道原理，可以看看[这里](https://autumn-psi.vercel.app/docs/broadcast/basic/decorator)
 :::
 
 
 ## Twilight
-`Twilight`, 是`graia-ariadne`所使用的消息链匹配工具之一
+`Twilight`, 是`graia-ariadne`所使用的消息链匹配工具之一  
 我们就直接通过例子来向各位讲解如何使用`Twilight`
 
 :::: code-group
@@ -101,20 +110,32 @@ async def test(app: Ariadne, group: Group):
 ::::
 这个就是Twilight最简单的运用了
 
-下面我们来介绍一下Twilight的一些简单用法(0.5.0+)
+下面我们来介绍一下Twilight(0.5.0+)
 
 ### 1. Twilight是什么
 `Twilight`是Ariadne使用的一种标准消息链匹配工具（有点类似于v4的Kanata，但其增加了类似argparse的操作）
 :::tip
 其实`Twilight`这个名字是取自于`My little Pony`中的`Twilight Sparkle`
-<Curtain type="tip">来点紫悦涩图<Curtain type="tip"> 人不能，至少不应该</Curtain></Curtain>
+<Curtain type="tip">来点暮光闪闪涩图<Curtain type="tip"> 人不能，至少不应该</Curtain></Curtain>
+<div style="height:1em"></div>
 :::
 
 ## Alconna
 敬请期待
 
-## Literature
+## Commander
+:::warning
+该模块还在WIP阶段
+:::
 敬请期待
+
+## Literature
+:::warning
+这玩意儿已经不受支持了  
+所以不要用该模块  
+<Curtain type="warning">写上来只是告诉你有这个玩意儿罢了</Curtain>
+<div style="height:1em"></div>
+:::
 
 <style>
 progress {
