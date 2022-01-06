@@ -140,15 +140,23 @@ async def test(app: Ariadne, group: Group):
 <style>
 progress {
     -webkit-appearance: none;
+    background: var(--c-danger);
+    border: 0;
+    border-radius: 3px;
 }
 
 progress::-webkit-progress-bar{
-    background-color: var(--c-danger-title);
+    background-color: var(--c-danger);
     border-radius: 3px;
 }
 
 progress::-webkit-progress-value{
-    background-color: var(--c-danger);
+    background-color: var(--c-danger-title);
+    border-radius: 3px;
+}
+
+progress::-moz-progress-bar{
+    background-color: var(--c-danger-title);
     border-radius: 3px;
 }
 </style>
