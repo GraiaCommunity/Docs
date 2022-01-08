@@ -54,9 +54,8 @@ from graia.ariadne.message.element import At, Plain, Image, Forward, ForwardNode
 async def create_forward(app: Ariadne, member: Member):
     fwd_nodeList = [
         ForwardNode(
-            target=member.id,
+            target=member,
             time=datetime.now(),
-            name=member.name,
             message=MessageChain.create(Image(path="big_milk.jpg")),
         )
     ]
@@ -65,9 +64,8 @@ async def create_forward(app: Ariadne, member: Member):
         random_member: Member = random.choice(member_list)
         fwd_nodeList.append(
             ForwardNode(
-                target=random_member.id,
+                target=random_member,
                 time=datetime.now(),
-                name=random_member.name,
                 message=MessageChain.create("好大的奶"),
             )
         )
@@ -78,9 +76,8 @@ async def create_forward(app: Ariadne, member: Member):
 因为比较简单，所以我们直接随便讲一讲参数就好了
 ```python
 ForwardNode(
-    target=member.id, # 发送者的id
+    target=member, # 发送者的信息(Member / Friend / Stranger 都行)
     time=datetime.now(), # 发送时间
-    name=member.name, # 发送者的名字
     message=MessageChain.create(Image(path="big_milk.jpg")), # 发送的消息链
 )
 ```
