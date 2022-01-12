@@ -30,6 +30,7 @@ module.exports = {
             "/make_ero_bot/5_forward_message.md",
             "/make_ero_bot/6_ero_from_net.md",
             "/make_ero_bot/7_setu_tag.md",
+            "/make_ero_bot/8_leave_no_evidence.md",
           ]
         },
         {
