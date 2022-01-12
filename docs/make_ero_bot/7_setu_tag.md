@@ -1,9 +1,9 @@
 ---
 id: 7_setu_tag
-title: 7. 来点xxx涩图
+title: 7. 来点 xxx 涩图
 ---
 
-# 来点xxx涩图
+# 来点 xxx 涩图
 
 [>_<]: 真的好多东西啊，好难写，哭唧唧
 
@@ -32,8 +32,8 @@ async def ero(app: Ariadne, group: Group, message: MessageChain):
         ))
 ...
 ```
-不过说句实在话，用`if`来判断实在有点难受  
-（比如缩进太多, 那你匹配`涩图来 %涩图tag%`什么的）  
+不过说句实在话，用 `if` 来判断实在有点难受  
+（比如缩进太多，那你匹配 `涩图来 %涩图tag%` 什么的）  
 什么？你都有解决办法？
 ```python
 # 缩进
@@ -43,8 +43,8 @@ if message.asDisplay() != "涩图来": return
 if message.startswith("涩图来"):
     message.removeprefix("涩图来")
 ```
-我不管，反正就是有点难受啦o(≧口≦)o  
-所以，今天给各位介绍一下Ariadne中的消息匹配器**们**
+我不管，反正就是有点难受啦 o(≧口≦)o  
+所以，今天给各位介绍一下 Ariadne 中的消息匹配器**们**
 
 ## Detectxxx
 这是最简单的模块，只需要举个例子就可以说明完
@@ -67,17 +67,17 @@ async def baka(app: Ariadne, group: Group, tag: MessageChain = DetectSuffix("是
 </ChatPanel>
 
 用法就这么简单，不过嘛，还有一点点小问题  
-就是当你想要匹配`涩图来 %涩图tag%`的时候，你的谨慎
+就是当你想要匹配 `涩图来 %涩图tag%` 的时候，你的谨慎
 
 :::tip
-这个模块实际上用了`graia-broadcast`中参数修饰器的属性  
+这个模块实际上用了 `graia-broadcast` 中参数修饰器的属性  
 假设你特别想知道原理，可以看看[这里](https://autumn-psi.vercel.app/docs/broadcast/basic/decorator)
 :::
 
 
 ## Twilight
-`Twilight`, 是`graia-ariadne`所使用的消息链匹配工具之一  
-我们就直接通过例子来向各位讲解如何使用`Twilight`
+`Twilight`, 是 `graia-ariadne` 所使用的消息链匹配工具之一  
+我们就直接通过例子来向各位讲解如何使用 `Twilight`
 
 :::: code-group
 ::: code-group-item 0.5.0 +
@@ -108,14 +108,14 @@ async def test(app: Ariadne, group: Group):
 ```
 :::
 ::::
-这个就是Twilight最简单的运用了
+这个就是 Twilight 最简单的运用了
 
-下面我们来介绍一下Twilight(0.5.0+)
+下面我们来介绍一下 Twilight(0.5.0+)
 
-### 1. Twilight是什么
-`Twilight`是Ariadne使用的一种标准消息链匹配工具（有点类似于v4的Kanata，但其增加了类似argparse的操作）
+### 1. Twilight 是什么
+`Twilight` 是 Ariadne 使用的一种标准消息链匹配工具（有点类似于 v4 的 Kanata，但其增加了类似 argparse 的操作）
 :::tip
-其实`Twilight`这个名字是取自于`My little Pony`中的`Twilight Sparkle`
+其实 `Twilight` 这个名字是取自于 `My little Pony` 中的 `Twilight Sparkle`
 <Curtain type="tip">来点暮光闪闪涩图<Curtain type="tip"> 人不能，至少不应该</Curtain></Curtain>
 <div style="height:1em"></div>
 :::
@@ -125,7 +125,7 @@ async def test(app: Ariadne, group: Group):
 
 ## Commander
 :::warning
-该模块还在WIP阶段
+该模块还在 WIP 阶段
 :::
 敬请期待
 

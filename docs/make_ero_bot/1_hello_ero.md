@@ -8,24 +8,24 @@ title: 1. 来点涩图
 ## 注意
 本文将会使用 `poetry` 作为依赖管理和打包的工具。  
 你可能会疑惑为什么不直接使用 `pip` + `venv` 而是使用 `poetry`  
-`poetry`能够让我们更好的管理你机器人的依赖以及更新  
-可能你在刚开始制作QQ机器人的时候还没有什么问题  
-但等到后面你就会知道`poetry`帮你管理依赖关系是有多爽了  
-（当然，你直接用pip也行，只是并不推荐）
+`poetry` 能够让我们更好的管理你机器人的依赖以及更新  
+可能你在刚开始制作 QQ 机器人的时候还没有什么问题  
+但等到后面你就会知道 `poetry` 帮你管理依赖关系是有多爽了  
+（当然，你直接用 pip 也行，只是并不推荐）
 :::tip
-直接用pip的方法很简单  
-你只需要replace("poetry add", "pip install")  
-至于你问我如何用pip创建虚拟环境？[看这](0_before_start.html#_6-当你遇到不会的东西的时候)
+直接用 pip 的方法很简单  
+你只需要 replace("poetry add", "pip install")  
+至于你问我如何用 pip 创建虚拟环境？[看这](0_before_start.html#_6-当你遇到不会的东西的时候)
 :::
 
 ## 1.创建项目
 
-新建一个项目文件夹(在这里我们就叫 `EroEroBot` 吧) <Curtain>PeroPero震怒</Curtain> ，并进入到该文件夹里面
+新建一个项目文件夹(在这里我们就叫 `EroEroBot` 吧) <Curtain>PeroPero 震怒</Curtain> ，并进入到该文件夹里面
 ```bash
 mkdir EroEroBot
 cd EroEroBot
 ```
-然后输入`poetry init`开始创建环境
+然后输入 `poetry init` 开始创建环境
 ```bash
 root@Graiax-Server:/Graiax/EroEroBot# poetry init
 
@@ -38,8 +38,8 @@ Author [
 Graiax-Community <example@graiax.cn>, n to skip]:  
 License []:  
 Compatible Python versions [^3.9]:  
-Would you like to define your main dependencies interactively? (yes/no) [yes] no # 注意，这里要你自己填写no
-Would you like to define your development dependencies interactively? (yes/no) [yes] no # 注意，这里要你自己填写no
+Would you like to define your main dependencies interactively? (yes/no) [yes] no # 注意，这里要你自己填写 no
+Would you like to define your development dependencies interactively? (yes/no) [yes] no # 注意，这里要你自己填写 no
 Generated file
 
 [tool.poetry]
@@ -60,9 +60,9 @@ build-backend = "poetry.core.masonry.api"
 
 Do you confirm generation? (yes/no) [yes] 
 ```
-注：因为国内对Pypi的连接问题实在是太离谱了，所以我们在定义依赖的时候填写no  
+注：因为国内对 Pypi 的连接问题实在是太离谱了，所以我们在定义依赖的时候填写 no  
 
-后面，你的文件夹里面应该会出现一个`pyproject.toml`
+后面，你的文件夹里面应该会出现一个 `pyproject.toml`
 
 >为了防止后续的包解析及安装等待时间过长，可以预先修改项目根目录下的 `pyproject.toml` 来添加国内镜像加速站，打开该文件后在文件末尾添加如下内容
 >```toml
@@ -73,8 +73,8 @@ Do you confirm generation? (yes/no) [yes]
 >default = true
 >```
 
-## 2.启用虚拟环境并安装`graia-ariadne`
-在配置好环境之后，你需要给你的项目创建一个虚拟环境并且安装`graia-ariadne`
+## 2.启用虚拟环境并安装 `graia-ariadne`
+在配置好环境之后，你需要给你的项目创建一个虚拟环境并且安装 `graia-ariadne`
 还是刚刚那个目录
 输入如下指令
 
@@ -185,7 +185,7 @@ Package operations: 14 installs, 0 updates, 0 removals
     2021-12-03 10:47:47.477 | INFO     | graia.ariadne.app:launch:1286 - Remote version: 2.3.3
     2021-12-03 10:47:47.477 | INFO     | graia.ariadne.app:launch:1289 - Application launched with 0.15s
     ```
-5. 给你的bot随便发一条消息
+5. 给你的 bot 随便发一条消息
     ```bash
     2021-12-03 10:49:45.350 | INFO     | graia.ariadne.model:log_friend_message:114 - 1919810: [Graiax(114514)] -> '你好'
     2021-12-03 10:49:45.478 | INFO     | graia.ariadne.app:sendFriendMessage:114 - [BOT 1919810] Friend(114514) <- '不要说你好，来点涩图'
