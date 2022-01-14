@@ -16,6 +16,12 @@ module.exports = {
       "不要乱翻，会乱的"
     ],
     backToHome: "返回首页",
+    navbar: [
+      {
+        text: "Graia Ariadne 官方文档",
+        link: "https://graia.rtfd.io"
+      }
+    ],
     sidebar: {
       "/make_ero_bot/": [
         {

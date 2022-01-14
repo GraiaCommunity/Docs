@@ -61,7 +61,7 @@ MessageChain.create("你好", At(1919810), [Plain(", 你是不是喜欢"), At(11
 ```
 :::warning 注意一下
 这只是举例，千万不要在你的业务代码中写出这么离谱的玩意儿  
-<Curtain type="warning">否则 <MoreInfo words="蓝玻璃块"><img src="/images/3_BGB_watching.webp"></MoreInfo>大概率会提刀撒了你</Curtain><Curtain type="warning">撒日朗</Curtain>
+<Curtain type="warning">否则<MoreInfo words="蓝玻璃块"><img src="/images/3_BGB_watching.webp"></MoreInfo>大概率会提刀撒了你</Curtain><Curtain type="warning">撒日朗</Curtain>
 <div style="height:1em"></div>
 :::
 
@@ -78,6 +78,8 @@ MessageChain.create("你好", At(1919810), [Plain(", 你是不是喜欢"), At(11
 AtAll in message
 # 有没有人 At 机器人
 At(app.account) in message
+# 消息里是不是只有文字（这里有个坑，详细请看第8章）
+message.onlyContains(Plain)
 # 获取消息链中所有的图片
 message[Image]
 # 快速合并两个 MessageChain 元素

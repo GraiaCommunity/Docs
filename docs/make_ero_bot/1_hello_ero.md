@@ -15,7 +15,7 @@ title: 1. 来点涩图
 :::tip
 直接用 pip 的方法很简单  
 你只需要 replace("poetry add", "pip install")  
-至于你问我如何用 pip 创建虚拟环境？[看这](0_before_start.html#_6-当你遇到不会的东西的时候)
+至于你问我如何用 pip 创建虚拟环境？[看这](0_before_start.html#_8-当你遇到不会的东西的时候)
 :::
 
 ## 1.创建项目
@@ -64,14 +64,16 @@ Do you confirm generation? (yes/no) [yes]
 
 后面，你的文件夹里面应该会出现一个 `pyproject.toml`
 
->为了防止后续的包解析及安装等待时间过长，可以预先修改项目根目录下的 `pyproject.toml` 来添加国内镜像加速站，打开该文件后在文件末尾添加如下内容
->```toml
->[[tool.poetry.source]]
-># 这里以清华源举例，你也可以使用其他源
->name = "tsinghua"
->url = "https://pypi.tuna.tsinghua.edu.cn/simple"
->default = true
->```
+:::tip
+为了防止后续的包解析及安装等待时间过长，可以预先修改项目根目录下的 `pyproject.toml` 来添加国内镜像加速站，打开该文件后在文件末尾添加如下内容
+```toml
+[[tool.poetry.source]]
+# 这里以清华源举例，你也可以使用其他源
+name = "tsinghua"
+url = "https://pypi.tuna.tsinghua.edu.cn/simple"
+default = true
+```
+:::
 
 ## 2.启用虚拟环境并安装 `graia-ariadne`
 在配置好环境之后，你需要给你的项目创建一个虚拟环境并且安装 `graia-ariadne`
