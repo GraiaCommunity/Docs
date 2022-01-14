@@ -5,10 +5,64 @@ title: 4. 八嘎 hentai 无路赛
 
 # 八嘎 hentai 无路赛
 
+[>_<]: 因为不知道怎么样才能把script写在md里面，没办法只能用';'来硬生生把代码连起来了
+
 :::danger
 本文档还没有写完  <Curtain type="danger">比如没准备好钉宫三连语音包，欢迎<RubyCurtain up="hentai xiong di" type="danger">有志之士</RubyCurtain>提供</Curtain>  
-十分建议在阅读的时候不要声音拉满 + 外放 <Curtain type="danger">除非你跟<MoreInfo words="唐可可"><img src="/images/4_tkk.webp"></MoreInfo>一样有社交牛逼症</Curtain>
+十分建议在阅读的时候不要声音拉满 + 外放 <Curtain type="danger">除非你跟<MoreInfo words="唐可可"><div onmouseover="document.getElementById('thtlb').currentTime = 0;document.getElementById('thtlb').play()" onmouseout="document.getElementById('thtlb').pause()"><img src="/images/4_tkk.webp"></div></MoreInfo>一样有社交牛逼症</Curtain>
 ::: 
+
+贴心的音量键 <input id="range" type="range" min="0" max="100" value="100" oninput="var range = document.getElementById('range');  range.style.backgroundSize = `${range.value}%, 100%`; document.getElementById('thtlb').volume=range.value / 100; document.getElementById('myaudio').volume=range.value / 100; document.getElementById('volume').innerHTML = `${value}%`"/><p id="volume" style="display:inline;margin-left:10px">100%</p>
+<audio id="thtlb" src="/voices/4_太好听了8.mp3"></audio>
+<style>
+  input[type=range] {
+      -webkit-appearance: none;
+      width: 200px;
+      border-radius: 10px; /*这个属性设置使填充进度条时的图形为圆角*/
+      background: linear-gradient(var(--c-text), var(--c-text)) no-repeat;
+      background-size: 100% 100%
+  }
+  input[type=range]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+  }
+  /*轨道设计*/
+  input[type=range]::-webkit-slider-runnable-track {
+    height: 15px;
+    border-radius: 10px; /*将轨道设为圆角的*/
+    box-shadow: 0 1px 1px #def3f8, inset 0 .125em .125em #0d1112;
+  }
+  input[type=range]::-moz-range-track {
+    height: 17px;
+    border-radius: 10px; /*将轨道设为圆角的*/
+    box-shadow: 0 1px 1px #def3f8, inset 0 .125em .125em #0d1112;
+  }
+  /*删除内框*/
+  input[type=range]:focus {
+      outline: none;
+  }
+  /*滑块*/
+  input[type=range]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      height: 25px;
+      width: 25px;
+      margin-top: -5px; /*使滑块超出轨道部分的偏移量相等*/
+      background: var(--c-text); 
+      border-radius: 50%; /*外观设置为圆形*/
+  }
+  input[type=range]::-moz-range-thumb {
+      height: 25px;
+      width: 25px;
+      margin-top: -5px; /*使滑块超出轨道部分的偏移量相等*/
+      background: var(--c-text); 
+      border-radius: 50%; /*外观设置为圆形*/
+  }
+  /*Firefox用*/
+  input[type=range]::-moz-range-progress {
+    background: linear-gradient(var(--c-text), var(--c-text)) no-repeat;
+    height: 13px;
+    border-radius: 10px;
+  }
+</style>
 
 <ChatPanel title="GraiaX-Community">
   <ChatMessage name="GraiaX" onright>无路赛</ChatMessage>
