@@ -1,9 +1,9 @@
 <template>
   <span class="text">
-    {{ words }}
-    <span class="mbox" style="width:200px">
-      <slot></slot>
-    </span>
+  <span class="mbox" style="width: 200px">
+  <div style="height: 1.4em"></div>
+  <slot></slot>
+  </span>{{ words }}
   </span>
 </template>
 
@@ -16,12 +16,12 @@ export default {
 </script>
 
 <style scoped>
-.text .mbox {
-    position: absolute;
-	background-color: var(--c-details-bg);
-	display: none;
+.mbox {
+  position: absolute;
+  z-index: 22;
+  display: none;
 }
 .text:hover .mbox {
-	display: block;
+  display: inline;
 }
 </style>
