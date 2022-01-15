@@ -21,19 +21,19 @@ title: 导语
 
 ## 写了的(包括没写完的)
 
-0. [先谈好](0_before_start) —— 开始之前，你需要知道的事情
-1. [你好，来点涩图](1_hello_ero) —— 你与机器人的第一次对话
-2. [别戳了](2_other_event) —— `Ariadne` 上各类 `Event` 的简单讲解
-3. [发涩图](3_ero_comes) —— `MessageChain` 的介绍
-4. [八嘎 hentai 无路赛](4_kugimiya) —— 对于 ` 多媒体消息 ` 发送的一点补充
-5. [好大的奶](5_forward_message) —— 合并消息的构建
-6. [来点网络上的涩图](6_ero_from_net) —— `aiohttp` 的超简单运用
-7. [来点 xxx 涩图](7_setu_tag) —— `Ariadne` 的消息匹配器**们**的介绍
-8. [看完了吗，我撤回了](8_leave_no_evidence) —— `异步延时` 和 Ariadne 实例的其他方法介绍
+ 0. [先谈好](0_before_start) —— 开始之前，你需要知道的事情
+ 1. [你好，来点涩图](1_hello_ero) —— 你与机器人的第一次对话
+ 2. [别戳了](2_other_event) —— `Ariadne` 上各类 `Event` 的简单讲解
+ 3. [发涩图](3_ero_comes) —— `MessageChain` 的介绍
+ 4. [八嘎 hentai 无路赛](4_kugimiya) —— 对于 ` 多媒体消息 ` 发送的一点补充
+ 5. [好大的奶](5_forward_message) —— 合并消息的构建
+ 6. [来点网络上的涩图](6_ero_from_net) —— `aiohttp` 的超简单运用
+ 7. [来点 xxx 涩图](7_setu_tag) —— `Ariadne` 的消息匹配器**们**的介绍
+ 8. [看完了吗，我撤回了](8_leave_no_evidence) —— `异步延时` 和 Ariadne 实例的其他方法介绍
 
 ## 还没写的
 
-9. [/斜眼笑]() —— `Formatter` 的运用
+ 9. [/斜眼笑]() —— `Formatter` 的运用
 10. [不是所有人都能看涩图]() —— `Depend` 的简单运用
 11.  [准时叫你起床板砖]() —— `graia-scheduler` 的使用
 12.  [东西要分类好]() —— `graia-saya` 的使用

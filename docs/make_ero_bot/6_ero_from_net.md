@@ -128,7 +128,7 @@ async def test():
 
 在[aiohttp 官方文档的这里](https://docs.aiohttp.org/en/stable/client_quickstart.html#make-a-request)有一个 note
 
-**不要为每一个请求都创造一个会话(Don ’ t create a session per request. )**
+**不要为每一个请求都创造一个会话(Don’t create a session per request.)**
 
 假设你直接调用 Ariadne 本身的会话(session), 那你机器人的性能会好一点(当然这好的一点点你可能都感觉不到)
 
