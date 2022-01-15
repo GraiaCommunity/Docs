@@ -103,7 +103,7 @@ async def test(app: Ariadne, message: MessageChain, source: Source):
 @bcc.receiver(GroupMessage, dispatchers=[Twilight.from_command("涩图来")])
 async def test(app: Ariadne, message: MessageChain):
     session = adapter_ctx.get().session
-    async with session.get("https://api.ixiaowai.cn/api/api.php") as r:
+    async with session.get("https://i1.hdslb.com/bfs/archive/5242750857121e05146d5d5b13a47a2a6dd36e98.jpg") as r:
         data = await r.read()
     b_msg = await app.sendGroupMessage(group, MessageChain.create(Image(data_bytes=data)))
     time.sleep(120)
@@ -139,7 +139,7 @@ async def test(app: Ariadne, message: MessageChain):
 @bcc.receiver(GroupMessage, dispatchers=[Twilight.from_command("涩图来")])
 async def test(app: Ariadne, message: MessageChain):
     session = adapter_ctx.get().session
-    async with session.get("https://api.ixiaowai.cn/api/api.php") as r:
+    async with session.get("https://i1.hdslb.com/bfs/archive/5242750857121e05146d5d5b13a47a2a6dd36e98.jpg") as r:
         data = await r.read()
     b_msg = await app.sendGroupMessage(group, MessageChain.create(Image(data_bytes=data)))
     time.sleep(120)
@@ -158,7 +158,7 @@ async def test(app: Ariadne, message: MessageChain):
 @bcc.receiver(GroupMessage, dispatchers=[Twilight.from_command("涩图来")])
 async def test(app: Ariadne, message: MessageChain):
     session = adapter_ctx.get().session
-    async with session.get("https://api.ixiaowai.cn/api/api.php") as r:
+    async with session.get("https://i1.hdslb.com/bfs/archive/5242750857121e05146d5d5b13a47a2a6dd36e98.jpg") as r:
         data = await r.read()
     b_msg = await app.sendGroupMessage(group, MessageChain.create(Image(data_bytes=data)))
     await asyncio.sleep(120)
