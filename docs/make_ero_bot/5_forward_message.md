@@ -5,7 +5,7 @@ title: 5. 好大的奶
 
 # 好大的奶
 
-:::danger
+::: danger
 这篇文档除了例子<Curtain type="danger">与乐子</Curtain>啥也没写
 :::
 
@@ -33,12 +33,11 @@ title: 5. 好大的奶
   <ChatMessage name="群菜龙" avatar="http://q1.qlogo.cn/g?b=qq&nk=2544704967&s=640">好大的奶</ChatMessage>
 </ChatPanel>
 
-不知道是因为你没看到你想要看的东西，还是说你觉得这个奶完全不够大    
+不知道是因为你没看到你想要看的东西，还是说你觉得这个奶完全不够大  
 反正你发现你被骗了<Curtain>You're Rickrolling</Curtain>  
 然后在下一秒，你突发奇想，能不能让机器人也整一个这个来骗人呢？  
 
-**当然可以**  
-我们现在就通过代码来直接复刻上面的效果
+**当然可以**，我们现在就通过代码来直接复刻上面的效果
 
 ```python
 ...
@@ -49,7 +48,7 @@ from graia.ariadne.message.element import At, Plain, Image, Forward, ForwardNode
 
 @bcc.receiver(
     GroupMessage,
-    dispatcher=[Twilight(Sparkle([FullMatch("好大的奶")]))]
+    dispatchers=[Twilight(Sparkle([FullMatch("好大的奶")]))]
 )
 async def create_forward(app: Ariadne, member: Member):
     fwd_nodeList = [
@@ -74,13 +73,15 @@ async def create_forward(app: Ariadne, member: Member):
 ```
 
 因为比较简单，所以我们直接随便讲一讲参数就好了
+
 ```python
 ForwardNode(
-    target=member, # 发送者的信息(Member / Friend / Stranger 都行)
-    time=datetime.now(), # 发送时间
-    message=MessageChain.create(Image(path="big_milk.jpg")), # 发送的消息链
+    target=member,  # 发送者的信息(Member / Friend / Stranger 都行)
+    time=datetime.now(),  # 发送时间
+    message=MessageChain.create(Image(path="big_milk.jpg")),  # 发送的消息链
 )
 ```
+
 ::: danger 注意
 通过上面的例子你一定意识到了一个很严肃的问题：  
 **你可以自己无中生有生成消息链然后传播出去**  
