@@ -32,16 +32,17 @@ import aiohttp
 
 async def very_simple_example():
     #注：这里为了教学，故意让 api 返回 json 形式
-    ero_url = "https://api.ixiaowai.cn/api/api.php?return=json"
+    ero_url = "https://www.bing.com/HPImageArchive.aspx?format=js&n=1"
     async with aiohttp.ClientSession() as session:
         async with session.get(ero_url) as r:
             ret = await r.json()
-        async with session.get(ret["imgurl"]) as r:
+        pic_url = "https://cn.bing.com" + ret["images"][0]["url"]
+        async with session.get(pic_url) as r:
             pic = await r.read()
 
-
     #将二进制数据储存在这里面
-    Path("/Graiax/EroEroBot/eropic.jpg").read_bytes(pic)
+    Path("/Graiax/EroEroBot/eropic.jpg").write_bytes(pic)
+
 
 asyncio.run(very_simple_example())
 ```
@@ -54,11 +55,12 @@ from pathlib import Path
 import requests
 
 def very_simple_example():
-    ero_url = "https://api.ixiaowai.cn/api/api.php?return=json"
+    ero_url = "https://www.bing.com/HPImageArchive.aspx?format=js&n=1"
     ss = requests.session()
     ret = ss.get(ero_url).json()
-    pic = ss.get(ret["imgurl"]).content
-    Path("/Graiax/EroEroBot/eropic.jpg").read_bytes(pic)
+    pic_url = "https://cn.bing.com" + ret["images"][0]["url"]
+    pic = ss.get(pic_url).content
+    Path("/Graiax/EroEroBot/eropic.jpg").write_bytes(pic)
 
 very_simple_example()
 ```
@@ -96,7 +98,7 @@ async def test(app: Ariadne):
 
 ```python
 async def test():
-    r = requests.get("https://api.ixiaowai.cn/api/api.php")
+    r = requests.get("https://i1.hdslb.com/bfs/archive/5242750857121e05146d5d5b13a47a2a6dd36e98.jpg")
 ```
 
 你要是写出了这种东西，还是速速 remake(指重看 asyncio 文档)吧
@@ -120,7 +122,7 @@ from graia.ariadne.context import adapter_ctx
 @bcc.receiver(GroupMessage)
 async def test():
     session = adapter_ctx.get().session
-    async with session.get("https://api.ixiaowai.cn/api/api.php") as r:
+    async with session.get("https://i1.hdslb.com/bfs/archive/5242750857121e05146d5d5b13a47a2a6dd36e98.jpg") as r:
         data = await r.read()
 ```
 

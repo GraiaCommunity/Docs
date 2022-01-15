@@ -28,7 +28,7 @@ title: 7. 来点 xxx 涩图
 async def ero(app: Ariadne, group: Group, message: MessageChain):
     if message.asDisplay() == "涩图来":
         session = adapter_ctx.get().session
-        async with session.get("https://api.ixiaowai.cn/api/api.php") as r:
+        async with session.get("https://i1.hdslb.com/bfs/archive/5242750857121e05146d5d5b13a47a2a6dd36e98.jpg") as r:
             data = await r.read()
         await app.sendGroupMessage(group, MessageChain.create(
             Image(data_bytes=data)
