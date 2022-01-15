@@ -164,6 +164,6 @@ MessageChain.asPersistentString(binary=True)
 ('你好\x021_At\x03', {1: At(target=114514, display='先辈')})
 ```
 
-这个办法其实很简答  
+这个办法其实很简单  
 说白了就是将所有非 Plain 的消息全都用别的字符串代替  
 然后用一个字典储存被替换成字符串的元素
