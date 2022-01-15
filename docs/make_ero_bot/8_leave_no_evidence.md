@@ -132,6 +132,7 @@ async def test(app: Ariadne, message: MessageChain):
 你可以猜一下是什么原因吗
 
 ### 关于异步
+
 还记得我们在[第6章](6_ero_from_net.html#为啥要用-aiohttp)讲过，我们为什么要使用异步吗
 
 ```python{7}

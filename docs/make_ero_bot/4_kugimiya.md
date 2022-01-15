@@ -9,7 +9,7 @@ title: 4. 八嘎 hentai 无路赛
 
 ::: danger
 本文档还没有写完  <Curtain type="danger">比如没准备好钉宫三连语音包，欢迎<RubyCurtain up="hentai xiong di" type="danger">有志之士</RubyCurtain>提供</Curtain>  
-十分建议在阅读的时候不要声音拉满 + 外放 <Curtain type="danger">除非你跟<MoreInfo words="唐可可"><div onmouseover="document.getElementById('thtlb').currentTime = 0;document.getElementById('thtlb').play()" onmouseout="document.getElementById('thtlb').pause()"><img src="/images/4_tkk.webp"></div></MoreInfo>一样有社交牛逼症</Curtain>
+十分建议在阅读的时候不要声音拉满 + 外放 <Curtain type="danger">除非你跟<MoreInfo words="唐可可"><img src="/images/4_tkk.webp" onmouseover="document.getElementById('thtlb').currentTime = 0;document.getElementById('thtlb').play()" onmouseout="document.getElementById('thtlb').pause()"></MoreInfo>一样有社交牛逼症</Curtain>
 :::
 
 贴心的音量键 <input id="range" type="range" min="0" max="100" value="100" oninput="var range = document.getElementById('range');  range.style.backgroundSize = `${range.value}%, 100%`; document.getElementById('thtlb').volume=range.value / 100; document.getElementById('myaudio').volume=range.value / 100; document.getElementById('volume').innerHTML = `${value}%`"/><p id="volume" style="display:inline;margin-left:10px">100%</p>
@@ -46,14 +46,14 @@ title: 4. 八嘎 hentai 无路赛
       height: 25px;
       width: 25px;
       margin-top: -5px; /*使滑块超出轨道部分的偏移量相等*/
-      background: var(--c-text); 
+      background: var(--c-text);
       border-radius: 50%; /*外观设置为圆形*/
   }
   input[type=range]::-moz-range-thumb {
       height: 25px;
       width: 25px;
       margin-top: -5px; /*使滑块超出轨道部分的偏移量相等*/
-      background: var(--c-text); 
+      background: var(--c-text);
       border-radius: 50%; /*外观设置为圆形*/
   }
   /*Firefox用*/
@@ -83,6 +83,7 @@ Image(path="/Graiax/EroEroBot/eropic.jpg")
 接下来，让我们好好讲解一下图片元素的父类 —— 多媒体元素 `MultimediaElement`
 
 ## 什么是 MultimediaElement
+
 多媒体元素 `MultimediaElement`, 是 `Graia-Ariadne` 为了方便构建类似图片这种需要上传二进制数据的元素所创造的
 
 目前，其子类包含有 `Image`, `FlashImage`, `Voice`.
