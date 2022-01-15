@@ -78,7 +78,7 @@ MessageChain.create("你好", At(1919810), [Plain(", 你是不是喜欢"), At(11
 
 说实话，就像 Python 的 str 一样， MessageChain 提供的方法有亿点点多  
 这边推荐你去看一下这两篇官方教程  
-~~ 这个社区文档作者就是逊啦，都不教的 ~~  
+~~这个社区文档作者就是逊啦，都不教的~~  
 
 - [Ariadne 文档 消息链：基础](https://graia.readthedocs.io/basic/msg-chain/)  
 - [Ariadne 文档 消息链：进阶](https://graia.readthedocs.io/advance/msg-chain/)  
