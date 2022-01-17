@@ -1,9 +1,4 @@
----
-id: 8_leave_no_evidence
-title: 8. 看完了吗，我撤回了
----
-
-# 看完了吗，我撤回了
+# 8. 看完了吗，我撤回了
 
 ::: danger
 本文档有点混乱，可能需要重排版
@@ -85,12 +80,14 @@ await app.recallMessage(botmessage.messageId)  # 通过 BotMessage 中的消息 
 
 :::tip
 有一个相对简单的获取消息链 ID 的方法
+
 ```python
 @bcc.receiver(GroupMessage)
 async def test(app: Ariadne, message: MessageChain, source: Source):
     if str(message) == "撤回测试":
         await app.recallMessage(source)
 ```
+
 :::
 
 ## 异步延迟

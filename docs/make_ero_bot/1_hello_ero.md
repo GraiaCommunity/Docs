@@ -1,9 +1,4 @@
----
-id: hello_ero
-title: 1. 来点涩图
----
-
-# 来点涩图
+# 1. 来点涩图
 
 ## 注意
 
@@ -81,6 +76,7 @@ name = "tsinghua"
 url = "https://pypi.tuna.tsinghua.edu.cn/simple"
 default = true
 ```
+
 :::
 
 ## 2.启用虚拟环境并安装 `graia-ariadne`

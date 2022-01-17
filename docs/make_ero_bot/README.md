@@ -30,11 +30,11 @@ title: 导语
  6. [来点网络上的涩图](6_ero_from_net) —— `aiohttp` 的超简单运用
  7. [来点 xxx 涩图](7_setu_tag) —— `Ariadne` 的消息匹配器**们**的介绍
  8. [看完了吗，我撤回了](8_leave_no_evidence) —— `异步延时` 和 Ariadne 实例的其他方法介绍
+ 9. [/斜眼笑](9_huaji) —— `Formatter` 的运用
+ 10. [不是所有人都能看涩图](10_not_everyone_have_st.md) —— `Depend` 的简单运用
 
 ## 还没写的
 
- 9. [/斜眼笑]() —— `Formatter` 的运用
-10. [不是所有人都能看涩图]() —— `Depend` 的简单运用
 11.  [准时叫你起床板砖]() —— `graia-scheduler` 的使用
 12.  [东西要分类好]() —— `graia-saya` 的使用
 13.  [请问您这次要怎么样的涩图]() —— `interrupt` 的简单运用

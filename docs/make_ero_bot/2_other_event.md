@@ -1,9 +1,4 @@
----
-id: other_event
-title: 2.别戳了
----
-
-# 不要再戳了~
+# 2. 不要再戳了~
 
 在看了[上一篇](1_hello_ero)后，你应该已经得到了一个**每发送一次消息就会嚷嚷要涩图的机器人**  
 当然，一个在每一条消息后面都会嚷嚷要涩图的机器人还是太诡异了  
@@ -118,4 +113,5 @@ async def test(app: Ariadne, group: Group, target: Member):
 async def test(app: Ariadne, group: Group, target: Member):
     ...
 ```
+
 ::::

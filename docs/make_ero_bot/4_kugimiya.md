@@ -1,9 +1,4 @@
----
-id: 4-kugimiya
-title: 4. 八嘎 hentai 无路赛
----
-
-# 八嘎 hentai 无路赛
+# 4. 八嘎 hentai 无路赛
 
 [>_<]: 因为不知道怎么样才能把script写在md里面，没办法只能用';'来硬生生把代码连起来了
 
