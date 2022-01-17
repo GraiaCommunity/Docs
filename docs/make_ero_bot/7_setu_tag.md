@@ -1,9 +1,4 @@
----
-id: 7_setu_tag
-title: 7. 来点 xxx 涩图
----
-
-# 来点 xxx 涩图
+# 7. 来点 xxx 涩图
 
 [>_<]: 真的好多东西啊，好难写，哭唧唧
 
@@ -91,6 +86,7 @@ async def baka(app: Ariadne, group: Group, tag: MessageChain = DetectSuffix("是
 
 :::: code-group
 ::: code-group-item 0.5.0 +
+
 ```python
 ...
 from graia.ariadne.message.parser.twilight import Twilight
@@ -102,8 +98,10 @@ from graia.ariadne.message.parser.twilight import Twilight
 async def test(app: Ariadne, group: Group):
     await app.sendGroupMessage(group, Message.create(Image(path="/Graiax/EroEroBot/eropic.jpg")))
 ```
+
 :::
 ::: code-group-item 0.5.0 -
+
 ```python
 ...
 from graia.ariadne.message.parser.pattern import FullMatch
@@ -116,6 +114,7 @@ from graia.ariadne.message.parser.twilight import Sparkle, Twilight
 async def test(app: Ariadne, group: Group):
     await app.sendGroupMessage(group, Message.create(Image(path="/Graiax/EroEroBot/eropic.jpg")))
 ```
+
 :::
 ::::
 这个就是 Twilight 最简单的运用了
