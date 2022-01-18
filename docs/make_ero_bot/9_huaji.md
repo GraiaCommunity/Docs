@@ -1,7 +1,7 @@
 # 9. /斜眼笑
 
 ::: warning
-虽然说 `mirai` 支持了商城表情mirai-api-http
+虽然说 `mirai` 支持了商城表情，但是 `mirai-api-http` 不支持
 :::
 
 想必大家在 QQ 聊天的时候，或多或少都会用到QQ的一些表情包（如<img src="/images/9_huaji.webp" height=20 style="vertical-align:text-bottom">和<img src="/images/9_wangwang.webp" height=20 style="vertical-align:text-bottom">）。  
