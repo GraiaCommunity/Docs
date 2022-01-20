@@ -89,6 +89,10 @@ curl -sSL https://install.python-poetry.org | python3 -
 
 现在唯一可以知道的是，笔者出现在的最后一段监控的，ta 在听的，是一首名为 `Untitled` 的曲子
 
-## 8. 当你遇到不会的东西的时候
+## 8. 这文档浓度怎么这么高
+
+当你思考到这个问题的时候，就说明，你的浓度也不低
+
+## 9. 当你遇到不会的东西的时候
 
 ![baidu](/images/0_baidu.webp)

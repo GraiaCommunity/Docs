@@ -48,6 +48,7 @@ module.exports = {
             "/make_ero_bot/credit.md",
             "/make_ero_bot/awesome_bot.md",
             "/make_ero_bot/inside_story.md",
+            "/make_ero_bot/Q&A.md"
           ]
         }
       ]
