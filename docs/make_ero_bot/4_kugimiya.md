@@ -7,6 +7,15 @@
 十分建议在阅读的时候不要声音拉满 + 外放 <Curtain type="danger">除非你跟<MoreInfo words="唐可可"><img src="/images/4_tkk.webp" onmouseover="document.getElementById('thtlb').currentTime = 0;document.getElementById('thtlb').play()" onmouseout="document.getElementById('thtlb').pause()"></MoreInfo>一样有社交牛逼症</Curtain>
 :::
 
+虽然有点突然，但是你是否有想过机器人能够对你[钉宫三连](https://zh.moegirl.org.cn/%E9%92%89%E5%AE%AB%E7%90%86%E6%83%A0)呢
+
+<ChatPanel title="GraiaX-Community">
+  <ChatMessage name="GraiaX" onright>无路赛</ChatMessage>
+  <ChatMessage name="EroEroBot" :avatar="$withBase('/avatar/ero.webp')">
+    <SimpleAudio audio="/voices/4_夏娜_无路赛_钉宫理惠.mp3"></SimpleAudio> <span style="margin-right:20px;"></span>3'
+  </ChatMessage>
+</ChatPanel>
+
 贴心的音量键 <input id="range" type="range" min="0" max="100" value="100" oninput="var range = document.getElementById('range');  range.style.backgroundSize = `${range.value}%, 100%`; document.getElementById('thtlb').volume=range.value / 100; document.getElementById('myaudio').volume=range.value / 100; document.getElementById('volume').innerHTML = `${value}%`"/><p id="volume" style="display:inline;margin-left:10px">100%</p>
 <audio id="thtlb" src="/voices/4_太好听了8.mp3"></audio>
 <style>
@@ -58,13 +67,6 @@
     border-radius: 10px;
   }
 </style>
-
-<ChatPanel title="GraiaX-Community">
-  <ChatMessage name="GraiaX" onright>无路赛</ChatMessage>
-  <ChatMessage name="EroEroBot" :avatar="$withBase('/avatar/ero.webp')">
-    <SimpleAudio audio="/voices/4_夏娜_无路赛_钉宫理惠.mp3"></SimpleAudio> <span style="margin-right:20px;"></span>3'
-  </ChatMessage>
-</ChatPanel>
 
 还记得上一篇我们简单的讲解了一下消息链时候，给出了这样一个构建图片元素的办法
 
