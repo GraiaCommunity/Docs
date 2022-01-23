@@ -32,10 +32,10 @@ title: 导语
  8. [看完了吗，我撤回了](8_leave_no_evidence) —— `异步延时` 和 Ariadne 实例的其他方法介绍
  9. [/斜眼笑](9_huaji) —— `Formatter` 的运用
 10. [不是所有人都能看涩图](10_not_everyone_have_st.md) —— `Depend` 的简单运用
+11. [哦嗨哟，欧尼酱](11_ohayou_oniichan.md) —— `graia-scheduler` 的使用
 
 ## 还没写的
 
-11.  [准时叫你起床搬砖]() —— `graia-scheduler` 的使用
 12.  [东西要分类好]() —— `graia-saya` 的使用
 13.  [请问您这次要怎么样的涩图]() —— `interrupt` 的简单运用
 14.  [Wow, 这个好涩]() —— `Component` 的简单运用
