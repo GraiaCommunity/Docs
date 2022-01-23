@@ -39,6 +39,7 @@ module.exports = {
             "/make_ero_bot/8_leave_no_evidence.md",
             "/make_ero_bot/9_huaji.md",
             "/make_ero_bot/10_not_everyone_have_st.md",
+            "/make_ero_bot/11_ohayou_oniichan.md"
           ]
         },
         {

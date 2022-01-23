@@ -87,8 +87,12 @@ default = true
 
 ```bash
 poetry env use python3.9
-poetry add graia-ariadne
+poetry add graia-ariadne[full]
 ```
+
+:::tip
+`graia-ariadne[full]` 是安装 `graia-ariadne` 功能所需要的所有非必要组件（比如[第11章](11_ohayou_onnichan)中的 `graia-scheduler`）
+:::
 
 注：你的运行结果可能跟我有所不同，但是大致应该是差不多的
 
