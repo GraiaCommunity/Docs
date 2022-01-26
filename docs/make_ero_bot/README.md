@@ -33,12 +33,12 @@ title: 导语
  9. [/斜眼笑](9_huaji) —— `Formatter` 的运用
 10. [不是所有人都能看涩图](10_not_everyone_have_st.md) —— `Depend` 的简单运用
 11. [哦嗨哟，欧尼酱](11_ohayou_oniichan.md) —— `graia-scheduler` 的使用
+12. [东西要分类好](12_classification.md) —— `graia-saya` 的使用
 
 ## 还没写的
 
-12.  [东西要分类好]() —— `graia-saya` 的使用
-13.  [请问您这次要怎么样的涩图]() —— `interrupt` 的简单运用
-14.  [Wow, 这个好涩]() —— `Component` 的简单运用
-15.  [无内鬼，来点加密压缩包]() —— 关于`文件操作`的简单实例
-16.  [后台对线]() —— 关于 `Console` 的介绍
-17.  [加速画~~涩~~图速度]() —— `cpu_bound` 的运用
+13. [请问您这次要怎么样的涩图]() —— `interrupt` 的简单运用
+14. [Wow, 这个好涩]() —— `Component` 的简单运用
+15. [无内鬼，来点加密压缩包]() —— 关于`文件操作`的简单实例
+16. [后台对线]() —— 关于 `Console` 的介绍
+17. [加速画~~涩~~图速度]() —— `cpu_bound` 的运用
