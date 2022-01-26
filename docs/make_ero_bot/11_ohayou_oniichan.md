@@ -62,14 +62,39 @@ from graia.scheduler import GraiaScheduler
 sche = GraiaScheduler(loop=loop, broadcast=bcc)
 ```
 
-### 一个最简单的例子
+## 一个最简单的例子
 
 以**每分钟都在群里发垃圾消息的机器人**为例子
 
 ```python
 from graia.scheduler import timers
 
-@shce.schedule(timers.every_minute())
+@sche.schedule(timers.every_minute())
 async def every_minute_speaking(app: Ariadne):
     await app.sendGroupMessage(1919810, MessageChain.create("我又来了"))
 ```
+
+## 通过crontab来设定时间
+
+在上面的例子中，你一定会发现，timers 中绝大多数 timer 都是**每隔一段间隔后触发**的一种模式  
+这明显跟我们**让机器人每天早上7点半准时叫我们起床**相违背  
+难道我们还要每天掐着点算什么时候启动机器人吗？
+
+当然不是，有一个特殊的 timer 可以解决这个问题，那就是 `timers.crontabify`
+该方法支持传入一个 `crontab` 时间格式来进行时间计算  
+`crontab` 具体语法你可以看一下[菜鸟教程对crontab的讲解](https://www.runoob.com/linux/linux-comm-crontab.html)
+
+::: tip
+事实上，`graia-scheduler` 所使用的 crontab 语法分析库支持将**秒**作为第六个参数导入，如
+
+``` python
+#每天17点30分30秒发送消息
+@sche.schedule(timers.crontabify("30 17 * * * 30"))
+```
+
+:::
+
+::: tip
+假设你是在例如树莓派什么的地方运行，最好先检查一下你有没有设置好时区  
+否则你的机器人可能会在协调世界时的早上7点半（北京时间15点半）叫你起床
+:::
