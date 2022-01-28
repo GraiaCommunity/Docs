@@ -14,7 +14,7 @@
     "
     @click="play"
   />
-  <audio :src="audio" id="myaudio" @ended="reset"></audio>
+  <audio :src="audio" :id="audio" @ended="reset"></audio>
 </template>
 
 <script>
@@ -25,7 +25,7 @@ export default {
   },
   methods: {
     play: function () {
-      var audio = document.getElementById("myaudio");
+      var audio = document.getElementById(this.audio);
       if (tag) {
         audio.pause();
         tag = false;

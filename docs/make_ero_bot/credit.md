@@ -22,7 +22,9 @@ title: 鸣谢
 
 本文档参考了以下资料：
 
-- [Graia Ariadne 官方文档](https://graia.readthedocs.io/)
+- [Graia Ariadne 官方文档](https://graia.readthedocs.io)
 - [A60 的 MyFirstBot](https://github.com/djkcyl/myfirstbot)
-- [v5(Avilla) 官方文档](https://autumn-psi.vercel.app/docs/broadcast/basic/hello-world)
+- [v4(Application) 官方文档](https://graia-document.vercel.app)
+- [v5(Avilla) 官方文档](https://autumn-psi.vercel.app)
+- [yiri-mirai 官方文档](https://yiri-mirai.wybxc.cc/docs/intro)(:herb:)
 - 沙雕网友的日常

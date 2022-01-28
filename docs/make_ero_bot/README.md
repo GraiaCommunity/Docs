@@ -32,8 +32,8 @@ title: 导语
  8. [看完了吗，我撤回了](8_leave_no_evidence) —— `异步延时` 和 Ariadne 实例的其他方法介绍
  9. [/斜眼笑](9_huaji) —— `Formatter` 的运用
 10. [不是所有人都能看涩图](10_not_everyone_have_st.md) —— `Depend` 的简单运用
-11. [哦嗨哟，欧尼酱](11_ohayou_oniichan.md) —— `graia-scheduler` 的使用
-12. [东西要分类好](12_classification.md) —— `graia-saya` 的使用
+11. [哦嗨哟，欧尼酱](11_ohayou_oniichan.md) —— 任务计划器 `graia-scheduler` 的使用
+12. [东西要分类好](12_classification.md) —— 插件管理器 `graia-saya` 的使用
 
 ## 还没写的
 
