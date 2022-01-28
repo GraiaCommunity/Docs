@@ -88,8 +88,8 @@ async def every_minute_speaking(app: Ariadne):
 事实上，`graia-scheduler` 所使用的 crontab 语法分析库支持将**秒**作为第六个参数导入，如
 
 ``` python
-#每天17点30分30秒发送消息
-@sche.schedule(timers.crontabify("30 17 * * * 30"))
+#每天7点30分30秒发送消息
+@sche.schedule(timers.crontabify("30 7 * * * 30"))
 ```
 
 :::
@@ -98,3 +98,11 @@ async def every_minute_speaking(app: Ariadne):
 假设你是在例如树莓派什么的地方运行，最好先检查一下你有没有设置好时区  
 否则你的机器人可能会在协调世界时的早上7点半（北京时间15点半）叫你起床
 :::
+
+<ChatPanel title="GraiaX-Community">
+<p style = "text-align:center; font-size:0.75em">07:30</p>
+  <ChatMessage name="Hanser" :avatar="$withBase('/avatar/hanser.webp')"><a>@GraiaX</a></ChatMessage>
+  <ChatMessage name="Hanser" :avatar="$withBase('/avatar/hanser.webp')">
+    <SimpleAudio audio="/voices/11_起床搬砖辣.mp3"></SimpleAudio> <span style="margin-right:20px;"></span>7'
+  </ChatMessage>
+</ChatPanel>

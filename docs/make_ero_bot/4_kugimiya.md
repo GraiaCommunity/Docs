@@ -16,7 +16,7 @@
   </ChatMessage>
 </ChatPanel>
 
-贴心的音量键 <input id="range" type="range" min="0" max="100" value="100" oninput="var range = document.getElementById('range');  range.style.backgroundSize = `${range.value}%, 100%`; document.getElementById('thtlb').volume=range.value / 100; document.getElementById('myaudio').volume=range.value / 100; document.getElementById('volume').innerHTML = `${value}%`"/><p id="volume" style="display:inline;margin-left:10px">100%</p>
+贴心的音量键 <input id="range" type="range" min="0" max="100" value="100" oninput="var range = document.getElementById('range');  range.style.backgroundSize = `${range.value}%, 100%`; document.getElementById('thtlb').volume=range.value / 100; document.getElementById('/voices/4_夏娜_无路赛_钉宫理惠.mp3').volume=range.value / 100; document.getElementById('volume').innerHTML = `${value}%`"/><p id="volume" style="display:inline;margin-left:10px">100%</p>
 <audio id="thtlb" src="/voices/4_太好听了8.mp3"></audio>
 <style>
   input[type=range] {
