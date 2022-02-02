@@ -8,12 +8,11 @@
 `poetry` 能够让我们更好地管理你机器人的依赖  
 如果不使用 `poetry` 虽然可能在你在刚开始制作 QQ 机器人的时候还没有什么问题  
 但等到功能增多、依赖变多以后，你就会知道 `poetry` 有多爽了  
+（详细请看[这](0_before_start.html#_4-关于-poetry)）
 
 :::tip
 （当然，你直接用 pip 也行，只是并不推荐）
 
-直接用 pip 的方法很简单  
-你只需要 replace("poetry add", "pip install")  
 至于你问我如何用 pip 创建虚拟环境？[看这](0_before_start.html#_8-当你遇到不会的东西的时候)
 :::
 
@@ -90,8 +89,12 @@ poetry env use python3.9
 poetry add graia-ariadne[full]
 ```
 
-:::tip
+::: tip
 `graia-ariadne[full]` 是安装 `graia-ariadne` 功能所需要的所有非必要组件（比如[第11章](11_ohayou_onnichan)中的 `graia-scheduler`）
+:::
+
+::: tip TIP2
+假设你不怎么喜欢将包
 :::
 
 注：你的运行结果可能跟我有所不同，但是大致应该是差不多的
@@ -173,6 +176,11 @@ Package operations: 14 installs, 0 updates, 0 removals
    ```
 
 4. 保存，并且使用如下命令运行
+
+  ::: tip 注意
+  一定要记得在运行之前启动 `mcl`  
+  关于 `mcl` 的配置，看[这里](0_before_start.html#_3-关于-mirai-环境)
+  :::
 
    ```bash
    poetry run python bot.py

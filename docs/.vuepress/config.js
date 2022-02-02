@@ -40,7 +40,8 @@ module.exports = {
             "/make_ero_bot/9_huaji.md",
             "/make_ero_bot/10_not_everyone_have_st.md",
             "/make_ero_bot/11_ohayou_oniichan.md",
-            "/make_ero_bot/12_classification.md"
+            "/make_ero_bot/12_classification.md",
+            "/make_ero_bot/13_setu_tag_pls.md"
           ]
         },
         {
