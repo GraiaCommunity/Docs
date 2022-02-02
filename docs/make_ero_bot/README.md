@@ -21,7 +21,8 @@ title: 导语
 
 ## 写了的(包括没写完的)
 
- 0. [先谈好](0_before_start) —— 开始之前，你需要知道的事情
+ 0. [先谈好](0_before_start) —— 开始之前，你需要知道的事情  
+ . [你好]
  1. [你好，来点涩图](1_hello_ero) —— 你与机器人的第一次对话
  2. [别戳了](2_other_event) —— `Ariadne` 上各类 `Event` 的简单讲解
  3. [发涩图](3_ero_comes) —— `MessageChain` 的介绍
@@ -34,10 +35,10 @@ title: 导语
 10. [不是所有人都能看涩图](10_not_everyone_have_st.md) —— `Depend` 的简单运用
 11. [哦嗨哟，欧尼酱](11_ohayou_oniichan.md) —— 任务计划器 `graia-scheduler` 的使用
 12. [东西要分类好](12_classification.md) —— 插件管理器 `graia-saya` 的使用
+13. [请问您这次要怎么样的涩图](13_setu_tag_pls.md) —— `interrupt` 的简单运用
 
 ## 还没写的
 
-13. [请问您这次要怎么样的涩图]() —— `interrupt` 的简单运用
 14. [Wow, 这个好涩]() —— `Component` 的简单运用
 15. [无内鬼，来点加密压缩包]() —— 关于`文件操作`的简单实例
 16. [后台对线]() —— 关于 `Console` 的介绍

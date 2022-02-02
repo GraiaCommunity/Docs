@@ -34,12 +34,55 @@
 
 配置 `mirai` 和 `mirai-api-http` 的方法，推荐您阅读[Ariadne 官方文档关于 mah 的配置方法](https://graia.readthedocs.io/appendix/mah-install/)
 
-## 4. 关于安装 Poetry
-
-**假设你不想用 `poetry` ，你可直接跳过本节**
+## 4. 关于 Poetry
 
 本教程将会使用 `poetry` 来管理项目依赖关系  
-在这里先放上 poetry 官方推荐的安装方法
+
+### 4.1 Poetry 是什么
+
+> Poetry 是 Python 中用于**依赖管理**和**打包**的工具。它允许您声明项目所依赖的库，并将为您管理（安装/更新）它们。
+
+说白了，他能够跟 pip 一样安装扩展  
+但是，他通知还能帮你**管理**你已经安装的扩展  
+（比如升级所有依赖什么的）
+
+### 4.2 为什么我们想要使用 Poetry
+
+当你写的机器人拥有越来越多功能的时候，代码所需要的第三方库也会越来越多  
+（比如用来作图的 Pillow / PIL，用来做图标的 matplotlib）  
+举个例子，这是 `graia-ariadne 0.5.2.post1` 的依赖
+
+```bash
+graia-ariadne==0.5.2.post1
+  - aiohttp [required: >=3.7.4,<4.0.0]
+    - async-timeout [required: >=3.0,<4.0]
+    - attrs [required: >=17.3.0]
+    - chardet [required: >=2.0,<5.0]
+    - multidict [required: >=4.5,<7.0]
+    - typing-extensions [required: >=3.6.5]
+    - yarl [required: >=1.0,<2.0]
+      - idna [required: >=2.0]
+      - multidict [required: >=4.0]
+  - graia-broadcast [required: >=0.15.2,<0.16.0]
+  - loguru [required: >=0.6,<0.7]
+    - colorama [required: >=0.3.4]
+    - win32-setctime [required: >=1.0.0]
+  - prompt-toolkit [required: >=3.0.24,<4.0.0]
+    - wcwidth [required: Any]
+  - pydantic [required: >=1.8.2,<2.0.0]
+    - typing-extensions [required: >=3.7.4.3]
+  - typing-extensions [required: >=4.0.0,<5.0.0]
+  - yarl [required: >=1.7,<2.0]
+    - idna [required: >=2.0]
+    - multidict [required: >=4.0]
+```
+
+你以为你只安装了一个库，实际上你安装了17个库  
+当你后面想要把你的机器人在别的电脑里运行的时候  
+一切都太迟了，你完全不知道你到底需要哪个库，不需要哪个库  
+甚至升级，pip并不会自动升级依赖库
+
+### 4.3 Poetry 的安装
 
 ```bash
 # osx / linux / bashonwindows

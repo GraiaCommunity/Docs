@@ -174,6 +174,33 @@ EroEroBot
 :::
 ::::
 
+### 导入文件夹里所有模组的例子
+
+当你以后写了更多模组之后，你想必不可能一个一个的去导入
+
+``` python
+with saya.module_context():
+    saya.require("modules.ero1")
+    saya.require("modules.ero2")
+    ...
+```
+
+所以在这里介绍一下用 Python 标准库 `pkgutil` 写的  
+一个比较简洁的动态导入，代码如下
+
+```python
+import pkgutil
+...
+
+with saya.module_context():
+    for module_info in pkgutil.iter_modules(["modules"]):
+        if module_info.name.startswith("_"):
+            continue
+        saya.require("modules." + module_info.name)
+
+app.launch_blocking()
+```
+
 ## 写 `module`
 
 ### 举个栗子

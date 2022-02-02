@@ -26,5 +26,6 @@ title: 鸣谢
 - [A60 的 MyFirstBot](https://github.com/djkcyl/myfirstbot)
 - [v4(Application) 官方文档](https://graia-document.vercel.app)
 - [v5(Avilla) 官方文档](https://autumn-psi.vercel.app)
+- [Arclet-Alconna 官方文档](https://arcletproject.github.io/docs/alconna/tutorial/)
 - [yiri-mirai 官方文档](https://yiri-mirai.wybxc.cc/docs/intro)(:herb:)
 - 沙雕网友的日常
