@@ -72,7 +72,7 @@ async def test(app: Ariadne):
 相比于普通的构建函数，我们会在前面加上 `async`  
 这是为什么？~~我也在寻找着这个答案~~
 
-首先，让我们再次搬出[Graia Ariadne 官方文档](https://graia-dev.readthedocs.io/zh_CN/latest/appendix/asyncio-intro/) (进行一个鱼的摸)
+首先，让我们再次搬出[Graia Ariadne 官方文档关于 asyncio 的介绍](https://graia.readthedocs.io/appendix/asyncio-intro/) (进行一个鱼的摸)
 
 简单说一下，`async/await` 关键词就是为了 `asyncio` 而诞生的  
 而 asyncio，就是是用来编写**并发**代码的库

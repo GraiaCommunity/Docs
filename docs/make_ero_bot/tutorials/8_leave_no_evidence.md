@@ -27,7 +27,7 @@ app.recallMessage()  # 实际使用时请不要忘记 await
 ### Source —— 消息的识别ID
 
 再将这些之前，现给大家扯点别的  
-假设（是的，又是假设）你还记得[第3章](3_ero_comes.html#_4-怎么操作-messagechain)曾经介绍过的`MessageChain.onlyContains`方法  
+假设（是的，又是假设）你还记得[第3章](./3_ero_comes.md#_4-怎么操作-messagechain)曾经介绍过的`MessageChain.onlyContains`方法  
 就会发现很诡异的事情
 
 ```python
@@ -114,16 +114,16 @@ async def test(app: Ariadne, message: MessageChain):
 <ChatPanel title="GraiaX-Community">
   <p style = "text-align:center; font-size:0.75em">03:38</p>
   <ChatMessage name="群菜鸮" avatar="http://q1.qlogo.cn/g?b=qq&nk=2948531755&s=640">涩图来</ChatMessage>
-  <ChatMessage name="EroEroBot" :avatar="$withBase('/avatar/ero.webp')"><img height="100" src="/images/8_ero_pic_1.webp"></ChatMessage>
+  <ChatMessage name="EroEroBot" :avatar="$withBase('/avatar/ero.webp')"><img height="100" src="/images/tutorials/8_ero_pic_1.webp"></ChatMessage>
   <ChatMessage name="群菜鸡" avatar="http://q1.qlogo.cn/g?b=qq&nk=1450069615&s=640">涩图来</ChatMessage>
   <ChatMessage name="群菜鸡" avatar="http://q1.qlogo.cn/g?b=qq&nk=1450069615&s=640">？我涩图呢</ChatMessage>
   <ChatMessage name="群菜鸡" avatar="http://q1.qlogo.cn/g?b=qq&nk=1450069615&s=640"><a>@GraiaX</a> 我涩图呢</ChatMessage>
   <ChatMessage name="GraiaX" onright>涩图来</ChatMessage>
   <ChatMessage name="GraiaX" onright>az?</ChatMessage>
   <p style = "text-align:center; font-size:0.75em">03:40</p>
-  <ChatMessage name="EroEroBot" :avatar="$withBase('/avatar/ero.webp')"><img height="100" src="/images/8_ero_pic_2.webp"></ChatMessage>
+  <ChatMessage name="EroEroBot" :avatar="$withBase('/avatar/ero.webp')"><img height="100" src="/images/tutorials/8_ero_pic_2.webp"></ChatMessage>
   <p style = "text-align:center; font-size:0.75em">03:42</p>
-  <ChatMessage name="EroEroBot" :avatar="$withBase('/avatar/ero.webp')"><img height="100" src="/images/8_ero_pic_3.webp"></ChatMessage>
+  <ChatMessage name="EroEroBot" :avatar="$withBase('/avatar/ero.webp')"><img height="100" src="/images/tutorials/8_ero_pic_3.webp"></ChatMessage>
 </ChatPanel>
 
 你可以猜一下是什么原因吗

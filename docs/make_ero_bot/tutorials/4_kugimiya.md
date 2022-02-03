@@ -4,7 +4,7 @@
 
 ::: danger
 本文档还没有写完  <Curtain type="danger">比如没准备好钉宫三连语音包，欢迎<RubyCurtain up="hentai xiong di" type="danger">有志之士</RubyCurtain>提供</Curtain>  
-十分建议在阅读的时候不要声音拉满 + 外放 <Curtain type="danger">除非你跟<MoreInfo words="唐可可"><img src="/images/4_tkk.webp" onmouseover="document.getElementById('thtlb').currentTime = 0;document.getElementById('thtlb').play()" onmouseout="document.getElementById('thtlb').pause()"></MoreInfo>一样有社交牛逼症</Curtain>
+十分建议在阅读的时候不要声音拉满 + 外放 <Curtain type="danger">除非你跟<MoreInfo words="唐可可"><img src="/images/tutorials/4_tkk.webp" onmouseover="document.getElementById('thtlb').currentTime = 0;document.getElementById('thtlb').play()" onmouseout="document.getElementById('thtlb').pause()"></MoreInfo>一样有社交牛逼症</Curtain>
 :::
 
 虽然有点突然，但是你是否有想过机器人能够对你[钉宫三连](https://zh.moegirl.org.cn/%E9%92%89%E5%AE%AB%E7%90%86%E6%83%A0)呢

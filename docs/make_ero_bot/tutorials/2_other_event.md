@@ -1,6 +1,6 @@
 # 2. 不要再戳了~
 
-在看了[上一篇](1_hello_ero)后，你应该已经得到了一个**每发送一次消息就会嚷嚷要涩图的机器人**  
+在看了[上一篇](./1_hello_ero.md)后，你应该已经得到了一个**每发送一次消息就会嚷嚷要涩图的机器人**  
 当然，一个在每一条消息后面都会嚷嚷要涩图的机器人还是太诡异了  
 而且，QQ 并不只有群消息这一种事件，比如，戳一戳  
 所以下面教大家如何用戳一戳触发
@@ -27,7 +27,7 @@ async def getup(app: Ariadne, event: NudgeEvent):
 ```
 
 <ChatPanel title="GraiaX-Community">
-  <p align="center" style="font-size:0.5em">GraiaX <span style="display: inline-block; width: 1.5em; height: 1.5em;-webkit-mask:url(/images/2_poke.webp) no-repeat; -webkit-mask-size: 100% 100%;mask:url(/images/2_poke.webp) no-repeat; mask-size: 100% 100%;background:var(--c-text)"/> 戳了戳 EroEroBot 的 腰部</p>
+  <p align="center" style="font-size:0.5em">GraiaX <span style="display: inline-block; width: 1.5em; height: 1.5em;-webkit-mask:url(/images/tutorials/2_poke.webp) no-repeat; -webkit-mask-size: 100% 100%;mask:url(/images/tutorials/2_poke.webp) no-repeat; mask-size: 100% 100%;background:var(--c-text)"/> 戳了戳 EroEroBot 的 腰部</p>
   <ChatMessage name="EroEroBot" :avatar="$withBase('/avatar/ero.webp')">别戳我，好痒</ChatMessage>
 </ChatPanel>
 

@@ -1,4 +1,4 @@
-# 0. 开始之前
+# 0. 开始之前你需要知道的一些事
 
 ## 1. 这教程正经吗
 
@@ -138,4 +138,4 @@ curl -sSL https://install.python-poetry.org | python3 -
 
 ## 9. 当你遇到不会的东西的时候
 
-![baidu](/images/0_baidu.webp)
+![baidu](/images/before/0_baidu.webp)

@@ -8,12 +8,12 @@
 `poetry` 能够让我们更好地管理你机器人的依赖  
 如果不使用 `poetry` 虽然可能在你在刚开始制作 QQ 机器人的时候还没有什么问题  
 但等到功能增多、依赖变多以后，你就会知道 `poetry` 有多爽了  
-（详细请看[这](0_before_start.html#_4-关于-poetry)）
+（详细请看[这](../before/Q&A.md#_4-关于-poetry)）
 
 :::tip
 （当然，你直接用 pip 也行，只是并不推荐）
 
-至于你问我如何用 pip 创建虚拟环境？[看这](0_before_start.html#_8-当你遇到不会的东西的时候)
+至于你问我如何用 pip 创建虚拟环境？[看这](../before/Q&A.md#_9-当你遇到不会的东西的时候)
 :::
 
 ## 1.创建项目
@@ -90,7 +90,7 @@ poetry add graia-ariadne[full]
 ```
 
 ::: tip
-`graia-ariadne[full]` 是安装 `graia-ariadne` 功能所需要的所有非必要组件（比如[第11章](11_ohayou_onnichan)中的 `graia-scheduler`）
+`graia-ariadne[full]` 是安装 `graia-ariadne` 功能所需要的所有非必要组件（比如[第11章](./11_ohayou_oniichan.md)中的 `graia-scheduler`）
 :::
 
 ::: tip TIP2
@@ -177,46 +177,46 @@ Package operations: 14 installs, 0 updates, 0 removals
 
 4. 保存，并且使用如下命令运行
 
-  ::: tip 注意
-  一定要记得在运行之前启动 `mcl`  
-  关于 `mcl` 的配置，看[这里](0_before_start.html#_3-关于-mirai-环境)
-  :::
-
+   ::: tip 注意
+   一定要记得在运行之前启动 `mcl`  
+   关于 `mcl` 的配置，看[这里](../before/Q&A.md#_3-关于-mirai-环境)
+   :::
+  
    ```bash
    poetry run python bot.py
    ```
-
+  
    之后，你会看到显示如下画面
 
-   ```bash
-   $ poetry run python bot.py
+    ```bash
+    $ poetry run python bot.py
 
                   _           _
-       /\        (_)         | |
+        /\        (_)         | |
       /  \   _ __ _  __ _  __| |_ __   ___
-     / /\ \ | '__| |/ _` |/ _` | '_ \ / _ \
+      / /\ \ | '__| |/ _` |/ _` | '_ \ / _ \
     / ____ \| |  | | (_| | (_| | | | |  __/
-   /_/    \_\_|  |_|\__,_|\__,_|_| |_|\___|
-   Ariadne version: 0.5.1
-   Broadcast version: 0.14.5
-   Saya version: 0.0.13
-   Scheduler version: 0.0.6
-   2022-01-15 22:15:58.85 | INFO     | graia.ariadne.app - Launching app...
-   2022-01-15 22:15:58.86 | INFO     | graia.ariadne.adapter - websocket: connected
-   2022-01-15 22:15:58.86 | INFO     | graia.ariadne.adapter - websocket: ping task created
-   2022-01-15 22:15:58.87 | INFO     | graia.ariadne.app - Remote version: 2.4.0
-   2022-01-15 22:15:58.87 | INFO     | graia.ariadne.app - Application launched with 0.019s
-   2022-01-15 22:15:58.87 | INFO     | graia.ariadne.app - daemon: adapter started
-   ```
+    /_/    \_\_|  |_|\__,_|\__,_|_| |_|\___|
+    Ariadne version: 0.5.1
+    Broadcast version: 0.14.5
+    Saya version: 0.0.13
+    Scheduler version: 0.0.6
+    2022-01-15 22:15:58.85 | INFO     | graia.ariadne.app - Launching app...
+    2022-01-15 22:15:58.86 | INFO     | graia.ariadne.adapter - websocket: connected
+    2022-01-15 22:15:58.86 | INFO     | graia.ariadne.adapter - websocket: ping task created
+    2022-01-15 22:15:58.87 | INFO     | graia.ariadne.app - Remote version: 2.4.0
+    2022-01-15 22:15:58.87 | INFO     | graia.ariadne.app - Application launched with 0.019s
+    2022-01-15 22:15:58.87 | INFO     | graia.ariadne.app - daemon: adapter started
+    ```
 
 5. 给你的 bot 随便发一条消息
 
-   ```bash
-   2021-12-03 10:49:45.350 | INFO     | graia.ariadne.model:log_friend_message:114 - 1919810: [Graiax(114514)] -> '你好'
-   2021-12-03 10:49:45.478 | INFO     | graia.ariadne.app:sendFriendMessage:114 - [BOT 1919810] Friend(114514) <- '不要说你好，来点涩图'
-   ```
+  ```bash
+  2021-12-03 10:49:45.350 | INFO     | graia.ariadne.model:log_friend_message:114 - 1919810: [Graiax(114514)] -> '你好'
+  2021-12-03 10:49:45.478 | INFO     | graia.ariadne.app:sendFriendMessage:114 - [BOT 1919810] Friend(114514) <- '不要说你好，来点涩图'
+  ```
 
   <ChatPanel title="GraiaX-Community">
-    <ChatMessage name="GraiaX" onright>你好</ChatMessage>
-    <ChatMessage name="EroEroBot" :avatar="$withBase('/avatar/ero.webp')">不要说你好，来点涩图</ChatMessage>
+  <ChatMessage name="GraiaX" onright>你好</ChatMessage>
+  <ChatMessage name="EroEroBot" :avatar="$withBase('/avatar/ero.webp')">不要说你好，来点涩图</ChatMessage>
   </ChatPanel>
