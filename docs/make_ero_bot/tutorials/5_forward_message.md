@@ -22,7 +22,7 @@
 但很可惜，也不知道你在可惜什么，当你点开聊天记录的时候，你看到的是这种景象
 
 <ChatPanel title="转发的合并消息">
-  <ChatMessage name="EroEroBot" :avatar="$withBase('/avatar/ero.webp')"><img src="/images/5_huge_milk.webp"></ChatMessage>
+  <ChatMessage name="EroEroBot" :avatar="$withBase('/avatar/ero.webp')"><img src="/images/tutorials/5_huge_milk.webp"></ChatMessage>
   <ChatMessage name="群菜鸮" avatar="http://q1.qlogo.cn/g?b=qq&nk=2948531755&s=640">好大的奶</ChatMessage>
   <ChatMessage name="群菜鸡" avatar="http://q1.qlogo.cn/g?b=qq&nk=1450069615&s=640">好大的奶</ChatMessage>
   <ChatMessage name="群菜龙" avatar="http://q1.qlogo.cn/g?b=qq&nk=2544704967&s=640">好大的奶</ChatMessage>

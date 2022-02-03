@@ -4,9 +4,9 @@
       display: inline-block;
       width: 1.8em;
       height: 1.8em;
-      -webkit-mask: url(/images/4_wifi.svg) no-repeat;
+      -webkit-mask: url(/images/tutorials/4_wifi.svg) no-repeat;
       -webkit-mask-size: 100% 100%;
-      mask: url(/images/4_wifi.svg) no-repeat;
+      mask: url(/images/tutorials/4_wifi.svg) no-repeat;
       mask-size: 100% 100%;
       background: var(--c-text);
       -moz-transform: rotate(90deg);

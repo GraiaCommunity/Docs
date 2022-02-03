@@ -123,7 +123,7 @@ def check_group(*groups: int):
 首先我们可以看到，我们在 `check_group` 函数中定义了一个 `check_group_deco` 函数  
 并且返回了 `Depend(check_group_deco)`
 
-还记得在[第二章](2_other_event#关于-dispatcher)讲过，dispatcher 会解析你所需要的参数吗？  
+还记得在[第二章](./2_other_event.md#关于-dispatcher)讲过，dispatcher 会解析你所需要的参数吗？  
 事实上，Depend 所封装的函数也会被 dispatcher 解析
 
 而`check_group_deco` 这个函数中，当发送消息的群**并不在我们所设定的群**的时候  

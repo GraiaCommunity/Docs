@@ -8,7 +8,7 @@
 
 在这一篇章，我们将会教大家如何**发涩图**
 
-我们来回顾一下，在我们的[第一篇](1_hello_ero)中是通过什么办法来发送的消息
+我们来回顾一下，在我们的[第一篇](./1_hello_ero.md)中是通过什么办法来发送的消息
 
 ```python
 await app.sendGroupMessage(group, MessageChain.create(
@@ -65,7 +65,7 @@ MessageChain.create("你好", At(1919810), [Plain(", 你是不是喜欢"), At(11
 
 ::: warning 注意一下
 这只是举例，千万不要在你的业务代码中写出这么离谱的玩意儿  
-<Curtain type="warning">否则<MoreInfo words="蓝玻璃块"><img src="/images/3_BGB_watching.webp"></MoreInfo>大概率会提刀撒了你</Curtain><Curtain type="warning">撒日朗</Curtain>
+<Curtain type="warning">否则<MoreInfo words="蓝玻璃块"><img src="/images/tutorials/3_BGB_watching.webp"></MoreInfo>大概率会提刀撒了你</Curtain><Curtain type="warning">撒日朗</Curtain>
 <div style="height:1em"></div>
 :::
 
@@ -93,6 +93,8 @@ message[Image]
 MessageChain.create("ApplePen") + MessageChain.create("PineapplePen") == MessageChain.create("ApplePenPineapplePen")
 # 过滤一遍消息链让其只有 Plain 和 At
 message.include(At, Plain)
+# 把 At 机器人的元素变成 "[bot]"
+message.replace(At(app.account), Plain("[bot]"))
 ```
 
 ## 5. 怎么把 MessageChain 变成其他形式
