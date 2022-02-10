@@ -35,7 +35,7 @@ This command will guide you through creating your pyproject.toml config.
 Package name [EroEroBot]:
 Version [0.1.0]:
 Description []:
-Author [Graiax-Community <example@graiax.cn>, n to skip]:
+Author [GraiaCommunity <example@graiax.cn>, n to skip]:
 License []:
 Compatible Python versions [^3.9]:
 Would you like to define your main dependencies interactively? (yes/no) [yes] no # 注意，这里要你自己填写 no
@@ -46,7 +46,7 @@ Generated file
 name = "EroEroBot"
 version = "0.1.0"
 description = ""
-authors = ["Graiax-Community <example@graiax.cn>"]
+authors = ["GraiaCommunity <example@graiax.cn>"]
 
 [tool.poetry.dependencies]
 python = "^3.9"
@@ -94,7 +94,23 @@ poetry add graia-ariadne[full]
 :::
 
 ::: tip TIP2
-假设你不怎么喜欢将包
+假设你不怎么喜欢整虚拟环境  
+也可以输入
+
+```bash
+poetry config virtualenvs.create false
+```
+
+来取消虚拟环境的创建
+:::
+
+:::tip TIP3
+虽然说 `Ariadne` 支持 Python3.8  
+但是为了最佳体验，我们建议你最好升级到 Python3.9+
+:::
+
+:::tip 还有一件事
+老爹怕你一下子看太多缓不过来，休息一下好不好
 :::
 
 注：你的运行结果可能跟我有所不同，但是大致应该是差不多的
@@ -191,11 +207,11 @@ Package operations: 14 installs, 0 updates, 0 removals
     ```bash
     $ poetry run python bot.py
 
-                  _           _
+                   _           _
         /\        (_)         | |
-      /  \   _ __ _  __ _  __| |_ __   ___
+       /  \   _ __ _  __ _  __| |_ __   ___
       / /\ \ | '__| |/ _` |/ _` | '_ \ / _ \
-    / ____ \| |  | | (_| | (_| | | | |  __/
+     / ____ \| |  | | (_| | (_| | | | |  __/
     /_/    \_\_|  |_|\__,_|\__,_|_| |_|\___|
     Ariadne version: 0.5.1
     Broadcast version: 0.14.5
@@ -216,7 +232,11 @@ Package operations: 14 installs, 0 updates, 0 removals
   2021-12-03 10:49:45.478 | INFO     | graia.ariadne.app:sendFriendMessage:114 - [BOT 1919810] Friend(114514) <- '不要说你好，来点涩图'
   ```
 
-  <ChatPanel title="GraiaX-Community">
+  <ChatPanel title="GraiaCommunity">
   <ChatMessage name="GraiaX" onright>你好</ChatMessage>
   <ChatMessage name="EroEroBot" :avatar="$withBase('/avatar/ero.webp')">不要说你好，来点涩图</ChatMessage>
   </ChatPanel>
+
+:::interlink
+**相关链接:** <https://graia.readthedocs.io/quickstart/>
+:::

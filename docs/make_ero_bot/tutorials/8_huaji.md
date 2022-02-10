@@ -1,7 +1,11 @@
-# 9. /斜眼笑
+# 8. /斜眼笑
 
 ::: warning
 虽然说 `mirai` 支持了商城表情，但是 `mirai-api-http` 不支持
+:::
+
+:::tip
+你知道吗，这篇文档很水
 :::
 
 想必大家在 QQ 聊天的时候，或多或少都会用到QQ的一些表情包（如<img src="/images/tutorials/9_huaji.webp" height=20 style="vertical-align:text-bottom">和<img src="/images/tutorials/9_wangwang.webp" height=20 style="vertical-align:text-bottom">）。  
@@ -57,3 +61,7 @@ Formatter("在新的一年里，祝你"
 ```
 
 这样子是不是方便多了？
+
+:::interlink
+相关文档：<https://graia.readthedocs.io/extra/msg-chain-tool/>
+:::

@@ -1,4 +1,4 @@
-# 7. 来点 xxx 涩图
+# 6. 来点 xxx 涩图
 
 [>_<]: 真的好多东西啊，好难写，哭唧唧
 
@@ -64,7 +64,7 @@ async def baka(app: Ariadne, group: Group, tag: MessageChain = DetectSuffix("是
     await app.sendGroupMessage(group, tag + MessageChain.create("是笨蛋"))
 ```
 
-<ChatPanel title="GraiaX-Community">
+<ChatPanel title="GraiaCommunity">
   <ChatMessage name="GraiaX" onright>我是GraiaX</ChatMessage>
   <ChatMessage name="EroEroBot" :avatar="$withBase('/avatar/ero.webp')">你是GraiaX</ChatMessage>
   <ChatMessage name="GraiaX" onright>GraiaX是谁</ChatMessage>

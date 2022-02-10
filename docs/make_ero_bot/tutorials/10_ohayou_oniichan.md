@@ -1,4 +1,4 @@
-# 11. 哦嗨哟，欧尼酱
+# 10. 哦嗨哟，欧尼酱
 
 ::: danger
 本文档还没有写完
@@ -13,9 +13,11 @@
 然后，自从你学习了如何写出一个机器人脚本  
 就想，能不能通过机器人脚本来间接实现这个幻想呢
 
-<ChatPanel title="GraiaX-Community">
+懂得都懂 <AudioBar></AudioBar>
+
+<ChatPanel title="GraiaCommunity">
 <p style = "text-align:center; font-size:0.75em">07:30</p>
-  <ChatMessage name="Hanser" :avatar="$withBase('/avatar/hanser.webp')"><a>@GraiaX</a></ChatMessage>
+  <ChatMessage name="Hanser" :avatar="$withBase('/avatar/hanser.webp')"><a>@GraiaX</a> おはよう</ChatMessage>
   <ChatMessage name="Hanser" :avatar="$withBase('/avatar/hanser.webp')">
     <SimpleAudio audio="/voices/11_欧尼酱快起床.mp3"></SimpleAudio> <span style="margin-right:20px;"></span>7'
   </ChatMessage>
@@ -99,7 +101,7 @@ async def every_minute_speaking(app: Ariadne):
 否则你的机器人可能会在协调世界时的早上7点半（北京时间15点半）叫你起床
 :::
 
-<ChatPanel title="GraiaX-Community">
+<ChatPanel title="GraiaCommunity">
 <p style = "text-align:center; font-size:0.75em">07:30</p>
   <ChatMessage name="Hanser" :avatar="$withBase('/avatar/hanser.webp')"><a>@GraiaX</a></ChatMessage>
   <ChatMessage name="Hanser" :avatar="$withBase('/avatar/hanser.webp')">

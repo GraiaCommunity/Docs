@@ -1,4 +1,4 @@
-# 8. 看完了吗，我撤回了
+# 7. 看完了吗，我撤回了
 
 ::: danger
 本文档有点混乱，可能需要重排版
@@ -27,7 +27,7 @@ app.recallMessage()  # 实际使用时请不要忘记 await
 ### Source —— 消息的识别ID
 
 再将这些之前，现给大家扯点别的  
-假设（是的，又是假设）你还记得[第3章](./3_ero_comes.md#_4-怎么操作-messagechain)曾经介绍过的`MessageChain.onlyContains`方法  
+假设（是的，又是假设）你还记得[第3章](./3_1_ero_comes.md#_4-怎么操作-messagechain)曾经介绍过的`MessageChain.onlyContains`方法  
 就会发现很诡异的事情
 
 ```python
@@ -37,7 +37,7 @@ async def test(app: Ariadne, message: MessageChain):
 ```
 
 ```bash
-2022-01-14 00:42:38.651 | INFO     | graia.ariadne.model:log_group_message:106 - 114514: [GraiaX-Community(1919810)] GraiaX(10086) -> '测试'
+2022-01-14 00:42:38.651 | INFO     | graia.ariadne.model:log_group_message:106 - 114514: [GraiaCommunity(1919810)] GraiaX(10086) -> '测试'
 False
 ```
 
@@ -111,7 +111,7 @@ async def test(app: Ariadne, message: MessageChain):
 可是当你满怀激动的将你的bot给群友用了之后  
 却是这样的局面
 
-<ChatPanel title="GraiaX-Community">
+<ChatPanel title="GraiaCommunity">
   <p style = "text-align:center; font-size:0.75em">03:38</p>
   <ChatMessage name="群菜鸮" avatar="http://q1.qlogo.cn/g?b=qq&nk=2948531755&s=640">涩图来</ChatMessage>
   <ChatMessage name="EroEroBot" :avatar="$withBase('/avatar/ero.webp')"><img height="100" src="/images/tutorials/8_ero_pic_1.webp"></ChatMessage>

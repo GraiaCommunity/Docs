@@ -1,8 +1,8 @@
 {
-  "name": "GraiaxHomePage",
+  "name": "graiax_homepage",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "https://github.com/Graiax-Community/HomePage",
+  "repository": "https://github.com/GraiaCommunity/HomePage",
   "license": "MIT",
   "devDependencies": {
     "@vuepress/plugin-register-components": "^2.0.0-beta.27",

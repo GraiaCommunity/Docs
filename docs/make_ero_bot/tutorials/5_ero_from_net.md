@@ -1,4 +1,4 @@
-# 6. 来点网上的涩图
+# 5. 来点网上的涩图
 
 ::: danger
 本章文档**可能还没写完**，还有部分地方**需要斟酌**
@@ -110,13 +110,17 @@ async def test():
 那，我们能不能直接白嫖 Ariadne 的 session 呢  
 Of course you can
 
+:::tip
+适用于 0.5.3rc1+
+:::
+
 ```python
-from graia.ariadne.context import adapter_ctx
+from graia.ariadne.adapter import Adapter
 ...
 
 @bcc.receiver(GroupMessage)
-async def test():
-    session = adapter_ctx.get().session
+async def test(app: Ariadne):
+    session = app.get_running(Adapter).session
     async with session.get("https://i1.hdslb.com/bfs/archive/5242750857121e05146d5d5b13a47a2a6dd36e98.jpg") as r:
         data = await r.read()
 ```

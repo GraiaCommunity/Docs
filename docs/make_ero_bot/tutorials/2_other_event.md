@@ -26,7 +26,7 @@ async def getup(app: Ariadne, event: NudgeEvent):
 ...
 ```
 
-<ChatPanel title="GraiaX-Community">
+<ChatPanel title="GraiaCommunity">
   <p align="center" style="font-size:0.5em">GraiaX <span style="display: inline-block; width: 1.5em; height: 1.5em;-webkit-mask:url(/images/tutorials/2_poke.webp) no-repeat; -webkit-mask-size: 100% 100%;mask:url(/images/tutorials/2_poke.webp) no-repeat; mask-size: 100% 100%;background:var(--c-text)"/> 戳了戳 EroEroBot 的 腰部</p>
   <ChatMessage name="EroEroBot" :avatar="$withBase('/avatar/ero.webp')">别戳我，好痒</ChatMessage>
 </ChatPanel>
@@ -115,3 +115,7 @@ async def test(app: Ariadne, group: Group, target: Member):
 ```
 
 ::::
+
+:::interlink
+**相关链接:** <https://graia.readthedocs.io/basic/params/>
+:::

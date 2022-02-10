@@ -2,13 +2,13 @@ const { path } = require("@vuepress/utils");
 
 module.exports = {
   lang: "zh-CN",
-  title: "GraiaX社区文档",
-  description: "GraiaX社区文档",
+  title: "GraiaX文档",
+  description: "GraiaX文档",
 
   themeConfig: {
     head: [['link', { rel: 'icon', href: "/favicon.ico" }]],
     logo: "/logo.svg",
-    repo: "Graiax-Community/Docs",
+    repo: "GraiaCommunity/Docs",
     editLink: false,
     notFound: [
       "你在翻什么，这里可没有涩图哦",
@@ -41,17 +41,28 @@ module.exports = {
           children: [
             "/make_ero_bot/tutorials/1_hello_ero.md",
             "/make_ero_bot/tutorials/2_other_event.md",
-            "/make_ero_bot/tutorials/3_ero_comes.md",
-            "/make_ero_bot/tutorials/4_kugimiya.md",
-            "/make_ero_bot/tutorials/5_forward_message.md",
-            "/make_ero_bot/tutorials/6_ero_from_net.md",
-            "/make_ero_bot/tutorials/7_setu_tag.md",
-            "/make_ero_bot/tutorials/8_leave_no_evidence.md",
-            "/make_ero_bot/tutorials/9_huaji.md",
-            "/make_ero_bot/tutorials/10_not_everyone_have_st.md",
-            "/make_ero_bot/tutorials/11_ohayou_oniichan.md",
-            "/make_ero_bot/tutorials/12_classification.md",
-            "/make_ero_bot/tutorials/13_setu_tag_pls.md"
+            {
+              text: "3.关于消息链的故事",
+              children: [
+                "/make_ero_bot/tutorials/3_1_ero_comes.md",
+                "/make_ero_bot/tutorials/3_2_kugimiya.md"
+              ]
+            },
+            "/make_ero_bot/tutorials/4_forward_message.md",
+            "/make_ero_bot/tutorials/5_ero_from_net.md",
+            {
+              text: "6. 来点 xxx 涩图",
+              link:"/make_ero_bot/tutorials/6_0_setu_tag.md",
+              children: [
+                "/make_ero_bot/tutorials/6_1_base_parser.md",
+              ]
+            },
+            "/make_ero_bot/tutorials/7_leave_no_evidence.md",
+            "/make_ero_bot/tutorials/8_huaji.md",
+            "/make_ero_bot/tutorials/9_not_everyone_have_st.md",
+            "/make_ero_bot/tutorials/10_ohayou_oniichan.md",
+            "/make_ero_bot/tutorials/11_classification.md",
+            "/make_ero_bot/tutorials/12_setu_tag_pls.md"
           ]
         },
         {
@@ -83,6 +94,23 @@ module.exports = {
           },
         },
       },
+    ],
+    [
+      "@vuepress/plugin-container",
+      {
+        type: "interlink",
+      }
+    ],
+    [
+      "@vuepress/plugin-container",
+      {
+        type: "tsukkomi",
+        locales: {
+          "/": {
+            defaultInfo: "吐槽"
+          }
+        },
+      }
     ],
   ],
 };

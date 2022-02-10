@@ -1,4 +1,4 @@
-# 12. 东西要分类好
+# 11. 东西要分类好
 
 ::: danger
 暂未完工，敬请期待
@@ -315,3 +315,7 @@ async def wyy(app: Ariadne):
 ```
 
 这样，我们就成功写出了一个每天 0000 准时网易云时间的模组了
+
+:::interlink
+相关链接：<https://graia.readthedocs.io/projects/dev/extra/saya/start/>
+:::

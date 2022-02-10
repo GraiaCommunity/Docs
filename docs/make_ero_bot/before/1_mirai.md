@@ -61,6 +61,15 @@ brew cask install java
 ```
 
 :::
+:::code-group-item termux
+
+```bash
+# 不太建议在 termux 运行 mcl
+# 可以看看后面的 MiraiAndroid，占用会低一点
+pkg install openjdk-17
+```
+
+:::
 ::::
 
 ### 2. 试试 `openj9`
@@ -192,10 +201,21 @@ adapterSettings:
 假设成功了，那么恭喜你  
 假设没有成功，这边建议拜一下企鹅
 
+## 附：使用 Docker
+
+Docker 嘛，应该不用我介绍了吧，懂得都懂  
+事实上，我们有现成的 Docker 来解决这个问题  
+[这里](https://github.com/ZhaoZuohong/mirai-mah-docker)有现成的Dockerfile
+
 ## 附: `MiraiAndroid` 运行 `Mirai-api-http`
 
 对于那些想要**在安卓手机上**跑 bot 的人来说，`MiraiAndroid` 绝对是跑 `Mirai-api-http` 的不二之选  
 所以，在这里也教一下大家怎么在 `MiraiAndroid` 上运行 `Mirai-api-http`
+
+::: tip
+假设你不怎么喜欢使用 `MiraiAndroid`  
+可以试试使用 `termux` + `openjdk-17` 来运行 `mcl`
+:::
 
 ::: warning 注意
 `MiraiAndroid` 要求的最低 Android 版本是 Android 8.0
