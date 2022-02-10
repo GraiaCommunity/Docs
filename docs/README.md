@@ -2,12 +2,12 @@
 title: 主页
 home: true
 
-heroText: Graiax Community
+heroText: Graia Community
 tagline: Community of Graia Project
 
 actions:
   - text: 快速实战——涩图机器人制作
-    link: /make_ero_bot/README.md
+    link: /make_ero_bot/
 
 features:
   - title: 框架式开发

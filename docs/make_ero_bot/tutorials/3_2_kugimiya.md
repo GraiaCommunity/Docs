@@ -1,6 +1,8 @@
-# 4. 八嘎 hentai 无路赛
+# 3.2. 八嘎 hentai 无路赛
 
 [>_<]: 因为不知道怎么样才能把script写在md里面，没办法只能用';'来硬生生把代码连起来了
+
+<audio id="thtlb" src="/voices/4_太好听了8.mp3"></audio>
 
 ::: danger
 本文档还没有写完  <Curtain type="danger">比如没准备好钉宫三连语音包，欢迎<RubyCurtain up="hentai xiong di" type="danger">有志之士</RubyCurtain>提供</Curtain>  
@@ -9,64 +11,14 @@
 
 虽然有点突然，但是你是否有想过机器人能够对你[钉宫三连](https://zh.moegirl.org.cn/%E9%92%89%E5%AE%AB%E7%90%86%E6%83%A0)呢
 
-<ChatPanel title="GraiaX-Community">
+<ChatPanel title="GraiaCommunity">
   <ChatMessage name="GraiaX" onright>无路赛</ChatMessage>
   <ChatMessage name="EroEroBot" :avatar="$withBase('/avatar/ero.webp')">
     <SimpleAudio audio="/voices/4_夏娜_无路赛_钉宫理惠.mp3"></SimpleAudio> <span style="margin-right:20px;"></span>3'
   </ChatMessage>
 </ChatPanel>
 
-贴心的音量键 <input id="range" type="range" min="0" max="100" value="100" oninput="var range = document.getElementById('range');  range.style.backgroundSize = `${range.value}%, 100%`; document.getElementById('thtlb').volume=range.value / 100; document.getElementById('/voices/4_夏娜_无路赛_钉宫理惠.mp3').volume=range.value / 100; document.getElementById('volume').innerHTML = `${value}%`"/><p id="volume" style="display:inline;margin-left:10px">100%</p>
-<audio id="thtlb" src="/voices/4_太好听了8.mp3"></audio>
-<style>
-  input[type=range] {
-      -webkit-appearance: none;
-      width: 200px;
-      border-radius: 10px; /*这个属性设置使填充进度条时的图形为圆角*/
-      background: linear-gradient(var(--c-text), var(--c-text)) no-repeat;
-      background-size: 100% 100%
-  }
-  input[type=range]::-webkit-slider-thumb {
-      -webkit-appearance: none;
-  }
-  /*轨道设计*/
-  input[type=range]::-webkit-slider-runnable-track {
-    height: 15px;
-    border-radius: 10px; /*将轨道设为圆角的*/
-    box-shadow: 0 1px 1px #def3f8, inset 0 .125em .125em #0d1112;
-  }
-  input[type=range]::-moz-range-track {
-    height: 17px;
-    border-radius: 10px; /*将轨道设为圆角的*/
-    box-shadow: 0 1px 1px #def3f8, inset 0 .125em .125em #0d1112;
-  }
-  /*删除内框*/
-  input[type=range]:focus {
-      outline: none;
-  }
-  /*滑块*/
-  input[type=range]::-webkit-slider-thumb {
-      -webkit-appearance: none;
-      height: 25px;
-      width: 25px;
-      margin-top: -5px; /*使滑块超出轨道部分的偏移量相等*/
-      background: var(--c-text);
-      border-radius: 50%; /*外观设置为圆形*/
-  }
-  input[type=range]::-moz-range-thumb {
-      height: 25px;
-      width: 25px;
-      margin-top: -5px; /*使滑块超出轨道部分的偏移量相等*/
-      background: var(--c-text);
-      border-radius: 50%; /*外观设置为圆形*/
-  }
-  /*Firefox用*/
-  input[type=range]::-moz-range-progress {
-    background: linear-gradient(var(--c-text), var(--c-text)) no-repeat;
-    height: 13px;
-    border-radius: 10px;
-  }
-</style>
+贴心的音量键 <AudioBar></AudioBar>
 
 还记得上一篇我们简单的讲解了一下消息链时候，给出了这样一个构建图片元素的办法
 
@@ -133,4 +85,10 @@ Voice(data_bytes=audio_bytes)
 ::: tip
 详细用法请去其[Github 页面查看](https://pypi.org/project/graiax-silkcoder/)  
 这次就不能说我逊了因为<RubyCurtain up="我写的 $h!t Mountain" type="tip">这就是我写的</RubyCurtain>
+:::
+
+:::interlink
+相关链接：  
+<https://graia.readthedocs.io/basic/msg-chain/>
+<https://graia.readthedocs.io/advance/msg-chain/>
 :::

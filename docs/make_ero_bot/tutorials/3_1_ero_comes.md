@@ -1,4 +1,4 @@
-# 3. 涩图来
+# 3.1. 涩图来
 
 ::: danger
 本文档**可能**还没有写完
@@ -164,3 +164,9 @@ MessageChain.asPersistentString(binary=True)
 这个办法其实很简单  
 说白了就是将所有非 Plain 的消息全都用别的字符串代替  
 然后用一个字典储存被替换成字符串的元素
+
+:::interlink
+相关链接：  
+<https://graia.readthedocs.io/basic/msg-chain/>
+<https://graia.readthedocs.io/advance/msg-chain/>
+:::

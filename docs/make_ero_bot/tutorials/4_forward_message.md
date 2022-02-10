@@ -1,11 +1,16 @@
-# 5. 好大的奶
+# 4. 好大的奶
 
 ::: danger
 这篇文档除了例子<Curtain type="danger">与乐子</Curtain>啥也没写
 :::
 
+:::tsukkomi
+本来这一篇应该算是 MessageChain 的一个子章节  
+但是一想到平时也没什么人用，还是单独开一章罢
+:::
+
 你可能曾经看到过这样的合并消息
-<ChatPanel title="GraiaX-Community">
+<ChatPanel title="GraiaCommunity">
   <ChatMessage name="EroEroBot" :avatar="$withBase('/avatar/ero.webp')">
     <div style="width:200px">
       <div style="font-size:1.2em;margin-bottom:5px">群聊的聊天记录</div>
@@ -82,4 +87,10 @@ ForwardNode(
 **你可以自己无中生有生成消息链然后传播出去**  
 请不要通过该方法**传播谣言**  
 要不然我就要用我的靴子狠狠的踢你的屁股
+:::
+
+:::interlink
+相关链接：  
+<https://graia.readthedocs.io/basic/msg-chain/>
+<https://graia.readthedocs.io/advance/msg-chain/>
 :::
