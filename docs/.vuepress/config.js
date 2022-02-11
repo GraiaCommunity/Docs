@@ -55,6 +55,8 @@ module.exports = {
               link:"/make_ero_bot/tutorials/6_0_setu_tag.md",
               children: [
                 "/make_ero_bot/tutorials/6_1_base_parser.md",
+                "/make_ero_bot/tutorials/6_2_twilight.md",
+                "/make_ero_bot/tutorials/6_3_commander.md",
               ]
             },
             "/make_ero_bot/tutorials/7_leave_no_evidence.md",
