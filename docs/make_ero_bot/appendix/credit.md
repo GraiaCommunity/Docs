@@ -12,6 +12,8 @@ title: 鸣谢
   - [GreyElaina](https://github.com/GreyElaina): `Graia Project` 的 主要作者
   - [BlueGlassBlock](https://github.com/BlueGlassBlock): `Ariadne` 的 主要维护者
   - [Bryan不可思议 (ProgramRipper)](https://github.com/ProgramRipper): `Graia Project` 的 协作者
+- [ArcletProject](https://github.com/ArcletProject)
+  - [RF-Tar-Railt](https://github.com/RF-Tar-Railt): `Alconna` 的作者
 - [Chase小念念](https://github.com/Little-LinNian): 提供了该文档部署的服务器以及域名
 - [I_Love_Study](https://github.com/I-love-study): 该文档的主要编写者
 - [ZhaoZuohong](https://github.com/ZhaoZuohong): 文档 `ChatMessage` 模块的构建者

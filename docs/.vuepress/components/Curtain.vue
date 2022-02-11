@@ -3,8 +3,7 @@
     :title="title"
     class="heimu"
     :style="
-      '--text: var(--c-' + type + '-text);' +
-      '--bg: var(--c-' + type + '-bg)'
+      '--text: var(--c-' + type + '-text);' + '--bg: var(--c-' + type + '-bg)'
     "
   >
     <slot></slot>
