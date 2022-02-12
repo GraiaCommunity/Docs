@@ -1,7 +1,8 @@
 <template>
   <a :href="`https://github.com/${user}/${repo}`">
     <svg
-      width="400"
+      width="100%"
+      max-width="400"
       height="120"
       viewBox="0 0 400 120"
       fill="none"

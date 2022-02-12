@@ -25,6 +25,11 @@
   <ChatMessage name="GraiaX" onright>哦嗨哟</ChatMessage>
 </ChatPanel>
 
+:::tip
+你可能会问上面这位叫你起床的是谁  
+这位是 [Hanser](https://zh.moegirl.org.cn/Hanser)，B站账号是[这个](https://space.bilibili.com/11073)  
+:::
+
 想想就得劲 <Curtain>虽然一个At跟语音八成不能成功叫你起床</Curtain>  
 那么，就开始我们今天的艺术创想吧(bushi)
 
@@ -86,7 +91,11 @@ async def every_minute_speaking(app: Ariadne):
 该方法支持传入一个 `crontab` 时间格式来进行时间计算  
 `crontab` 具体语法你可以看一下[菜鸟教程对crontab的讲解](https://www.runoob.com/linux/linux-comm-crontab.html)
 
-::: tip
+:::tip
+看清楚了，方法是 `timers.crontabify` 而不是 `timers.croniter`
+:::
+
+:::tip
 事实上，`graia-scheduler` 所使用的 crontab 语法分析库支持将**秒**作为第六个参数导入，如
 
 ``` python
