@@ -21,6 +21,10 @@
 - `MatchContent`: 检测消息链是否与对应消息链相等
 - `MatchRegex`: 检测消息链是否匹配指定正则表达式
 
+:::tip
+在 `graia.ariadne.message.parser.base` 中
+:::
+
 ## DetectPrefix
 
 ```python
@@ -76,7 +80,8 @@ async def on_message(messagechain: MessageChain = DetectSuffix("好涩")):
 ## MentionMe
 
 ```python
-# "@EroEroBot 在吗" "EroEroBot 在吗" "把 EroEroBot 给我交出来"
+# "@EroEroBot 在吗" "EroEroBot 在吗" "EroEroBot，帮我涩涩"
+# 要求名字/At在最前面
 @broadcast.receiver(GroupMessage, decorators=[MentionMe()]) # 注意要实例化
 async def on_mention_me(app: Ariadne, group: Group, member: Member):
     await app.sendGroupMessage(group, MessageChain.create(At(member.id), "叫我？"))
@@ -85,7 +90,8 @@ async def on_mention_me(app: Ariadne, group: Group, member: Member):
 ## Mention
 
 ```python
-# "Graiax 人呢" "在吗，Graiax，今晚一起去涩涩"
+# "Graiax 人呢" "Graiax，今晚一起去涩涩"
+# 要求名字/At在最前面
 @broadcast.receiver(..., decorators=[Mention(target=...)]) # target: int | str  
 # int: 用户 QQ 号, str: 用户的名字
 async def on_mention(app: Ariadne, group: Group):
