@@ -38,7 +38,9 @@
 
 <p align="center" style="font-size: 30px"><strong>前面的区域，以后再来探索吧</strong></p>
 
-:::interlink
+<Loading></Loading>
+
+::: interlink
 **相关链接：** <https://graia.readthedocs.io/advance/commander/>
 :::
 
