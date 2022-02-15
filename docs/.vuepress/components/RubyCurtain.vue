@@ -1,11 +1,10 @@
 <template>
     <ruby>
         <slot></slot>
-        <rp>(</rp><rt style="font-size:0.75em">
-            <curtain :title="title" :type="type">{{up}}</curtain>
+        <rp>(</rp><rt>
+            <curtain :title="title" :type="type" style="height: 100px；">{{up}}</curtain>
         </rt><rp>)</rp>
     </ruby>
-  
 </template>
 
 <script>
@@ -23,3 +22,9 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+rt .heimu {
+  padding-bottom: 0 !important;
+}
+</style>
