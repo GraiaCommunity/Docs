@@ -2,6 +2,11 @@
 
 [^_^]: 其实，真实想法都在注释里
 
+## 2022.02.15
+
+扯点离谱的，你猜猜我写中断控制器参考了什么文档  
+是 [`yiri-mirai` 文档](https://yiri-mirai.wybxc.cc/docs/extensions/trigger/interrupt)哦（:herb:）
+
 ## 2022.02.14
 
 写文档，写到一半，发现我忘记跟大家扯关于 broadcast 优先级的问题了  

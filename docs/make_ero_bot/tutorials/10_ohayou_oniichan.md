@@ -117,3 +117,7 @@ async def every_minute_speaking(app: Ariadne):
     <SimpleAudio audio="/voices/11_起床搬砖辣.mp3"></SimpleAudio> <span style="margin-right:20px;"></span>7'
   </ChatMessage>
 </ChatPanel>
+
+:::interlink
+**相关链接：**<https://graia.readthedocs.io/extra/scheduler/>
+:::

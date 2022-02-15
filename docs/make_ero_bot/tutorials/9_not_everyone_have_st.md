@@ -129,7 +129,7 @@ def check_group(*groups: int):
 而`check_group_deco` 这个函数中，当发送消息的群**并不在我们所设定的群**的时候  
 将会发送消息，并且抛出 `ExecutionStop`
 
-在 `broadcast` 接到运行错误之后，将会中断这个 `Listener` 的运行
+在 `broadcast` 接到 `ExecutionStop` 错误之后，将会中断这个 `Listener` 的运行
 
 :::tip
 事实上，假设你需要 `Depend` 中被修饰函数的返回值，可以这么写

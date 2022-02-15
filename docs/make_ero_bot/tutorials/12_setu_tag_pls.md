@@ -56,12 +56,8 @@ from graia.broadcast.interrupt import InterruptControl
 from graia.broadcast.interrupt.waiter import Waiter
 ...
 
-class SetuTagWaiter(Waiter):
-    listening_events = [GroupMessage]
-    using_dispatchers = None
-    using_decorators = None
-    priority = 15
-    block_propagation = False
+class SetuTagWaiter(Waiter.create([GroupMessage])):
+    "涩图 tag 接收器"
 
     def __init__(self, group: Union[Group, int], member: Union[Member, int]):
         self.group = group if isinstance(group, int) else group.id
@@ -85,3 +81,131 @@ async def ero(app: Ariadne, group: Group, member: Member, message: MessageChain)
     ret_msg = await inc.wait(SetuTagWaiter(group, member))
     await app.sendGroupMessage(group, MessageChain.create(Image(data_bytes=await setu(ret_msg.split()))))
 ```
+
+## 原理讲解
+
+首先我们先把目光着重放在这个 `SetuTagWaiter` 上面
+
+```python
+class SetuTagWaiter(Waiter.create([GroupMessage])):
+    "涩图 tag 接收器"
+
+    def __init__(self, group: Union[Group, int], member: Union[Member, int]):
+        self.group = group if isinstance(group, int) else group.id
+        self.member = member if isinstance(member, int) else member.id
+
+    async def detected_event(group: Group, member: Member, message: MessageChain):
+        if self.group == group.id and self.member == member.id:
+            return message
+```
+
+首先是第一行的 `Waiter.create([GroupMessage])`  
+假设我们翻阅过其文档，就会知道  
+在这里传递的消息，其实跟我们一般填写在 `Listener` 里面的参数是一样的
+
+```python
+def create(
+        cls,
+        listening_events: List[Type[Dispatchable]],
+        using_dispatchers: List[T_Dispatcher] = None,
+        using_decorators: List[Decorator] = None,
+        priority: int = 15,  # 默认情况下都是需要高于默认 16 的监听吧...
+        block_propagation: bool = False,
+    ) -> Type["Waiter"]:
+```
+
+事实上，`Waiter` 的原理很简单  
+
+当你 `inc.wait` 的时候，BCC 内将会新增一个 `Listener`  
+其行为跟其他 `Listener` 一模一样  
+但是不一样的是，当这个 `Listener` 的返回值不为 `None` 时  
+该 `Listener` 将会自动删除
+
+:::tip
+假设你真的很想返回一个 `None`  
+你可以从 `graia.broadcast.entities.signatures` 中导入 `Force`  
+然后返回 `Force(None)`
+:::
+
+关于 `Listener` 构建时候的参数我们应该扯了挺多的了
+不过有几个参数我们在之前并没有扯到  
+那就是 `priority` 和 `block_propagation`
+
+### 优先级（priority）
+
+事实上，每一个 Listener 都有其优先级  
+事实上，你可以通过调节优先级数字来调整
+
+比如说只有在优先级为 15 的 Listener 处理完  
+优先级为 16 的 Listener 才会开始运行
+
+:::tip
+`Listener` 的默认优先级是 16  
+`Waiter` 的默认优先级是 15  
+在统一优先级的情况下，函数将会通过交给 `asyncio.gather` 处理
+:::
+
+### ExecutionStop 与 PropagationCancelled 的故事
+
+回想一下[第九章](./9_not_everyone_have_st.md)的内容  
+你应该还记得 `ExecutionStop` 这个错误吧
+
+> 在 `broadcast` 接到 `ExecutionStop` 错误之后，将会中断这个 `Listener` 的运行
+
+事实上，除了 `ExecutionStop`，还有一个特殊的错误，叫做 `PropagationCancelled`  
+这个错误跟 `ExecutionStop` 一样，在报错之后，就会停止该 `Listener` 的运行  
+不过不同的是，这个报错将会阻止所有优先级在他后面的 `Listener` 运行  
+
+正是因为这样，出现了一个
+
+:::tip
+你在 `Listener` 里面报 `PropagationCancelled`  
+也会阻止后面优先级的 `Listener` 运行
+:::
+
+而 `Waiter.create` 的 `block_propagation` 就是 `PropagationCancelled` 的开关  
+假设 `block_propagation` 为 True，则当接收到所需要的消息的时候，报 `PropagationCancelled`
+
+## 通过函数创建 `Waiter`
+
+假设你觉得，仅仅是为了一个 `Waiter` 而大费周章的创建一个类太麻烦了
+事实上，你也可以通过创建局部函数来达到相同效果哦
+
+```python
+...
+from graia.ariadne.message.parser.base import MatchContent
+from graia.broadcast.interrupt import InterruptControl
+from graia.broadcast.interrupt.waiter import Waiter
+...
+
+async def setu(tag: List[str]) -> bytes:
+    # 都说了，涩图 api 可是至宝，怎么可能轻易给你
+    return Path("src/dio.jpg").read_bytes()
+
+@channel.use(ListenerSchema(
+    listening_events=[GroupMessage],
+    decorators=[MatchContent("涩图来")]
+))
+async def ero(app: Ariadne, group: Group, member: Member, message: MessageChain):
+    await app.sendGroupMessage(group, MessageChain.create("你想要什么 tag 的涩图"))
+
+    @Waiter.create_using_function([GroupMessage])
+    async def setu_tag_waiter(g: Group, m: Member, msg: MessageChain):
+        if group.id == g.id and member.id == m.id:
+            return msg
+
+    inc = InterruptControl(app.broadcast)
+    ret_msg = await inc.wait(SetuTagWaiter(group, member))
+    await app.sendGroupMessage(group, MessageChain.create(Image(data_bytes=await setu(ret_msg.split()))))
+```
+
+:::tsukkomi
+事实上，因为相关文档的缺失  
+通过创建局部函数来创建 `Waiter` 的方法在很长一段时间  
+都被社区成员认为是唯一构建 `Waiter` 的办法  
+直到该章节被创建......
+:::
+
+:::interlink
+**相关链接：**<https://graia.readthedocs.io/advance/broadcast/interrupt/>
+:::
