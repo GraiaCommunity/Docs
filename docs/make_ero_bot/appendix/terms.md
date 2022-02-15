@@ -7,7 +7,7 @@ title: 术语
 |:--:|:--|
 |v4|即[Graia-application-mirai](https://pypi.org/project/graia-application-mirai/)|
 |v4+|即[Graia-Ariadne](https://pypi.org/project/graia-ariadne/)|
-|v5|即[Avilla](https://pypi.org/project/avilla-core/), 截至 2021.12.18, 还在 WIP|
+|v5|即[Avilla](https://pypi.org/project/avilla-core/)，截至 2021.12.18，还在 WIP|
 |Kanata|`v4`时期使用的消息链解释器|
 |MAH|即[mirai-api-http](https://github.com/project-mirai/mirai-api-http)|
 |MCL|即[Mirai Console Lodaer](https://github.com/iTXTech/mirai-console-loader)|

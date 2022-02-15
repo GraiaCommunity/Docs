@@ -61,7 +61,7 @@ brew cask install java
 ```
 
 :::
-:::code-group-item termux
+::: code-group-item termux
 
 ```bash
 # 不太建议在 termux 运行 mcl
@@ -143,9 +143,9 @@ adapters:
   - ws
 debug: false
 enableVerify: true
-verifyKey: GraiaxVerifyKey # 你可以自己设定, 这里作为示范
+verifyKey: GraiaxVerifyKey # 你可以自己设定，这里作为示范
 singleMode: false
-cacheSize: 4096 # 可选, 缓存大小, 默认4096. 缓存过小会导致引用回复与撤回消息失败
+cacheSize: 4096 # 可选，缓存大小，默认4096. 缓存过小会导致引用回复与撤回消息失败
 adapterSettings:
 
   ## 详情看 http adapter 使用说明 配置
@@ -165,7 +165,7 @@ adapterSettings:
 
 执行 `./mcl` 启动 mirai-console  
 如果直接显示 `Event: BotOnlineEvent(bot=Bot(<你的QQ号>))` 那么恭喜你，接下来不用看了  
-但是... 如果像下面那样弹出一个弹窗, 那你还要往下看
+但是... 如果像下面那样弹出一个弹窗，那你还要往下看
 
 ![captcha](/images/before/1_captcha_box.webp)
 
@@ -229,7 +229,7 @@ Docker 嘛，应该不用我介绍了吧，懂得都懂
 6. 点击右上角的 "+"，然后选择 `mirai-api-http-v2.x.x.mirai.jar`  
     当选择成功的时候，选择 `编译并安装` 并且选择 `脱糖(desugaring)`  
     后面，输入文件名的时候，输入 `mirai-api-http.jar`
-    :::tip
+    ::: tip
     有可能会出现无法选择的情况，假设遇到这类问题  
     推荐在手机上安装 `Mixplorer`，然后在点击 `+` 的时候使用 `Mixplorer` 图标的 `选择`
     :::
@@ -242,9 +242,9 @@ Docker 嘛，应该不用我介绍了吧，懂得都懂
     - ws
     debug: false
     enableVerify: true
-    verifyKey: GraiaxVerifyKey # 你可以自己设定, 这里作为示范
+    verifyKey: GraiaxVerifyKey # 你可以自己设定，这里作为示范
     singleMode: false
-    cacheSize: 4096 # 可选, 缓存大小, 默认4096. 缓存过小会导致引用回复与撤回消息失败
+    cacheSize: 4096 # 可选，缓存大小，默认4096. 缓存过小会导致引用回复与撤回消息失败
     adapterSettings:
 
     ## 详情看 http adapter 使用说明 配置
@@ -261,6 +261,6 @@ Docker 嘛，应该不用我介绍了吧，懂得都懂
     ```
 8. 重启 `MiraiAndroid`
 
-:::tip
+::: tip
 你可以选择使用 `termux` 来跑 Python 哦
 :::

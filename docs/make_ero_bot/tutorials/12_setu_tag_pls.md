@@ -1,6 +1,6 @@
 # 12. 请问今天你想要怎么样的涩图
 
-:::danger
+::: danger
 还没写完
 :::
 
@@ -16,7 +16,7 @@
 <ChatMessage name="EroEroBot" :avatar="$withBase('/avatar/ero.webp')">学园都市的天气是...</ChatMessage>
 </ChatPanel>
 
-:::tip
+::: tip
 其实原例子是**上海**而不是[**学园都市**](https://zh.moegirl.org.cn/%E5%AD%A6%E5%9B%AD%E9%83%BD%E5%B8%82)来着
 :::
 
@@ -26,12 +26,12 @@
 之前我们学到的，叫做回复（reply），即一问一答的形式  
 而上面这种呢，则叫流程（flow），即通过多次问答的一种流程
 
-:::warning
+::: warning
 我不怎么建议你去将 `Ariadne` 跟友商的代码进行对比  
 `Ariadne` 跟友商从整体思路上就已经有所不同了  
 :::
 
-虽然说这个例子挺好的，但不太符合我们对 EroEroBot 的设定 <Curtain>啥，这玩意儿还有设定？</Curtain>  
+虽然说这个例子挺好的，但不太符合我们对 EroEroBot 的设定<Curtain>啥，这玩意儿还有设定？</Curtain> 
 所以我们稍稍改了一下
 
 <ChatPanel title="GraiaCommunity">
@@ -42,9 +42,9 @@
 <ChatMessage name="GraiaX" onright>草</ChatMessage>
 </ChatPanel>
 
-:::tip
+::: tip
 根据[萌娘百科具有"死库水"属性的典型角色](https://zh.moegirl.org.cn/死库水#具有本属性的典型角色)中  
-确实有 DIO <Curtain>虽然说跟我这个一样使用黑幕包裹着的</Curtain>
+确实有 DIO<Curtain>虽然说跟我这个一样使用黑幕包裹着的</Curtain>
 :::
 
 ## 上例子

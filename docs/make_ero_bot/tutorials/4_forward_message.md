@@ -4,7 +4,7 @@
 这篇文档除了例子<Curtain type="danger">与乐子</Curtain>啥也没写
 :::
 
-:::tsukkomi
+::: tsukkomi
 本来这一篇应该算是 MessageChain 的一个子章节  
 但是一想到平时也没什么人用，还是单独开一章罢
 :::
@@ -34,7 +34,7 @@
 </ChatPanel>
 
 不知道是因为你没看到你想要看的东西，还是说你觉得这个奶完全不够大  
-反正你发现你被骗了<Curtain>You're Rickrolling</Curtain>  
+反正你发现你被骗了<Curtain>You're Rickrolling</Curtain> 
 然后在下一秒，你突发奇想，能不能让机器人也整一个这个来骗人呢？  
 
 **当然可以**，我们现在就通过代码来直接复刻上面的效果
@@ -89,7 +89,7 @@ ForwardNode(
 要不然我就要用我的靴子狠狠的踢你的屁股
 :::
 
-:::interlink
+::: interlink
 相关链接：  
 <https://graia.readthedocs.io/basic/msg-chain/>
 <https://graia.readthedocs.io/advance/msg-chain/>

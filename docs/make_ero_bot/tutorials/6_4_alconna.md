@@ -1,4 +1,4 @@
-# 6.4. Alconna
+# 6.4 Alconna
 
 ::: tsukkomi 注
 因为是外星来客，所以研究需要久一点也是合理的嘛

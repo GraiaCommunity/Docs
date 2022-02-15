@@ -1,6 +1,6 @@
 # 9. 不是所有人都能看涩图
 
-## 情景导入
+## 9.1 情景导入
 
 众所周知，这涩图，十分的珍贵，应该让管理员先看 ~~[催涩员](https://zh.moegirl.org.cn/%E5%82%AC%E9%80%9D%E5%91%98)~~  
 所以，你写出了这样的代码
@@ -90,15 +90,15 @@ async def setu(app: Ariadne, group: Group):
 这不是更长了嘛 kora！  
 别急，让我慢慢讲解...
 
-## `Depend` 是什么
+## 9.2 `Depend` 是什么
 
 `Depend`
 
-:::tip
+::: tip
 不要将本文提及的 `decorator` 跟 `Python` 本身语法中的 `decorator` 搞混
 :::
 
-## `Depend` 的好处
+## 9.3 `Depend` 的好处
 
 ~~Depend好处都有啥，谁说对了就给他~~
 
@@ -107,7 +107,7 @@ async def setu(app: Ariadne, group: Group):
 - `Listener` 所需要的参数只有 `Ariadne` 实例跟 `Group` 实例
 - 只需要调整 `Decorator` 顺序就能直接调整判断优先级，而不是改 if..else..
 
-## 怎么用 `Depend` 写一个 `Decorator`
+## 9.4 怎么用 `Depend` 写一个 `Decorator`
 
 我们先掏出其中的一个 decorator 来详细讲解一下吧
 
@@ -131,7 +131,7 @@ def check_group(*groups: int):
 
 在 `broadcast` 接到 `ExecutionStop` 错误之后，将会中断这个 `Listener` 的运行
 
-:::tip
+::: tip
 事实上，假设你需要 `Depend` 中被修饰函数的返回值，可以这么写
 
 ```python

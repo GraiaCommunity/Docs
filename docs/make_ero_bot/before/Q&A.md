@@ -23,15 +23,15 @@
 
 ## 3. 关于 Mirai 环境
 
-请容许我先介绍一下 <Curtain>虽然说不知道已经说了多少遍了</Curtain>
+请容许我先介绍一下<Curtain>虽然说不知道已经说了多少遍了</Curtain>
 
 - [`mirai`](https://github.com/mamoe/mirai)，是一个高性能，高可扩展性的 QQ 协议库
 - [`mirai-console`](https://github.com/mamoe/mirai-console): 一个基于 `mirai` 开发的插件式可扩展开发平台
-- [`mirai-api-http`](https://github.com/project-mirai/mirai-api-http): 一个 `mirai-console` 插件(简称 mah)，在 `Graia-Ariadne` 和 `mirai` 之间提供了交互方式
+- [`mirai-api-http`](https://github.com/project-mirai/mirai-api-http): 一个 `mirai-console` 插件(简称 mah)，在 `graia-ariadne` 和 `mirai` 之间提供了交互方式
 
-简单来说，`Graia-Ariadne` 是通过 `mirai-api-http` 与 `mirai` 间接连接到 QQ 服务器的
+简单来说，`graia-ariadne` 是通过 `mirai-api-http` 与 `mirai` 间接连接到 QQ 服务器的
 
-如果只下载了 `Graia-Ariadne` 而没有配置好 `mirai-api-http` ，则无法启动 `Graia-Ariadne`。所以，想要使用 `Graia-Ariadne`，就必须先把 `mirai` 和 `mirai-api-http` 连接好
+如果只下载了 `graia-ariadne` 而没有配置好 `mirai-api-http` ，则无法启动 `graia-ariadne`。所以，想要使用 `graia-ariadne`，就必须先把 `mirai` 和 `mirai-api-http` 连接好
 
 配置 `mirai` 和 `mirai-api-http` 的方法，推荐您阅读[Ariadne 官方文档关于 mah 的配置方法](https://graia.readthedocs.io/appendix/mah-install/)
 
@@ -126,8 +126,8 @@ curl -sSL https://install.python-poetry.org | python3 -
 ## 6. 关于涩图机器人
 
 1. 为了防止~~作者写文档写一半跑去看别的网站~~教程飞了，该文档不会有符合碳基生物审美的涩图
-2. 本教程不单单会将思维局限于"发涩图"这件事上，还会有其他有趣的小功能 <Curtain>虽然浓度都不低</Curtain>
-3. 不建议用真·涩图测试机器人，极有可能被风控 <Curtain>涩图发给我就好</Curtain>
+2. 本教程不单单会将思维局限于"发涩图"这件事上，还会有其他有趣的小功能<Curtain>虽然浓度都不低</Curtain>
+3. 不建议用真·涩图测试机器人，极有可能被风控<Curtain>涩图发给我就好</Curtain>
 
 ## 7. 最近怎么没有更新
 

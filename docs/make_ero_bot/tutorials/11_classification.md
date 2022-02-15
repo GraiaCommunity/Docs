@@ -5,10 +5,10 @@
 :::
 
 虽然有点突然，但是，能可以看一下你已经写了多少行代码了吗？  
-你应该，已经在你的 `main.py` 里面，写了100+行的代码了吧
+你应该，已经在你的 `main.py` 里面，写了 200+ 行代码了吧
 
-你是不是以为我现在夸你好棒棒什么的？  
-那当然不是，你现在再重新阅读一下你的代码  
+你是不是以为我现在夸你好棒棒？  
+想多了，你现在再重新阅读一下你的代码  
 虽然我并不能像乔瑟夫·乔斯达先生那样预言[你的下一句话是什么](https://zh.moegirl.org.cn/%E4%BD%A0%E7%9A%84%E4%B8%8B%E4%B8%80%E5%8F%A5%E8%AF%9D%E6%98%AF)  
 但是我有 70% 的自信认为，你一定会觉得**乱**
 
@@ -29,11 +29,11 @@
 
 |名称|作用|
 |:--:|:--|
-Saya Controller<br/>(控制器)|负责控制各个模块, 分配 Channel, 管理模块启停, Behaviour 的注册和调用.
-Module Channel<br/>(模块容器)|负责对模块服务, 收集模块的各式信息, 像 模块的名称, 作者, 长段的描述 之类, 并负责包装模块的内容为 Cube, 用以 Behaviour 对底层接口的操作.
-Cube<br/>(内容容器)|对模块提供的内容附加一个由 Schema 实例化来的 metadata, 即 "元信息", 用于给 Behaviour 进行处理.
-Schema<br/>(元信息模板)|用于给模块提供的内容附加不同类型的元信息, 给 Behaviour isinstance 处理用.
-Behaviour<br/>(行为)|根据 Cube 及其元信息, 对底层接口(例如 Broadcast, Scheduler 等)进行操作. 包括 allocate 与 uninstall 两个操作.
+Saya Controller<br/>(控制器)|负责控制各个模块，分配 Channel，管理模块启停，Behaviour 的注册和调用.
+Module Channel<br/>(模块容器)|负责对模块服务，收集模块的各式信息，像 模块的名称，作者，长段的描述 之类，并负责包装模块的内容为 Cube，用以 Behaviour 对底层接口的操作.
+Cube<br/>(内容容器)|对模块提供的内容附加一个由 Schema 实例化来的 metadata，即 "元信息"，用于给 Behaviour 进行处理.
+Schema<br/>(元信息模板)|用于给模块提供的内容附加不同类型的元信息，给 Behaviour isinstance 处理用.
+Behaviour<br/>(行为)|根据 Cube 及其元信息，对底层接口(例如 Broadcast，Scheduler 等)进行操作. 包括 allocate 与 uninstall 两个操作.
 
 说白了，每一个模块，都会有一个 `Channel`，用来保存作者信息什么的  
 而每一个 `Channel`，都会有一个及以上的 `Cube`  
@@ -77,25 +77,24 @@ from graia.ariadne.app import Ariadne
 from graia.ariadne.model import MiraiSession
 from graia.broadcast import Broadcast
 
-loop = asyncio.new_event_loop()
-
-bcc = Broadcast(loop=loop)
 app = Ariadne(
-    broadcast=bcc,
-    connect_info=MiraiSession(
+    MiraiSession(
         host="http://localhost:8080",
         verify_key="GraiaxVerifyKey",
         account=1919810,
     ),
 )
+bcc = app.broadcast
+
+...
 
 app.launch_blocking()
 ```
 
 上图所示，是启动一个 `Ariadne` 实例需要的最小办法  
-那么下面，就让我给
+那么下面，就让我魔改一下
 
-``` python{19-20,22-23}
+``` python{17-20,22-23}
 import asyncio
 
 from graia.ariadne.app import Ariadne
@@ -104,18 +103,18 @@ from graia.broadcast import Broadcast
 from graia.saya import Saya
 from graia.saya.builtins.broadcast import BroadcastBehaviour
 
-loop = asyncio.new_event_loop()
-bcc = Broadcast(loop=loop)
 app = Ariadne(
-    broadcast=bcc,
-    connect_info=MiraiSession(
+    MiraiSession(
         host="http://localhost:8080",
         verify_key="GraiaxVerifyKey",
         account=1919810,
     ),
 )
-saya = Saya(bcc)
-saya.install_behaviours(BroadcastBehaviour(bcc))
+bcc = app.broadcast
+saya = app.create(Saya)
+saya.install_behaviours(
+    app.create(BroadcastBehaviour)
+)
 
 with saya.module_context():
     saya.require("modules.ero")
@@ -128,50 +127,46 @@ app.launch_blocking()
 ### 原理解析
 
 ``` python
-saya = Saya(bcc)
-saya.install_behaviours(BroadcastBehaviour(bcc))
+saya = app.create(Saya)
+saya.install_behaviours(app.create(BroadcastBehaviour))
 ```
 
-这一步就是创建 `saya` 实例，并且安装 `BroadcastBehaviour`  
+这一步就是创建 `saya` 实例，并安装 `BroadcastBehaviour`  
 
 ``` python
 with saya.module_context():
     saya.require("modules.ero")
 ```
 
-注意一下，这个 `with` 上下文处理是很有必要的  
-你的所有模块导入都必须在这个上下文处理器当中  
+首先这里有一个上下文，注意一下，这个 `with` 上下文处理是很有必要的，  
+你的所有模块导入操作都必须在这个上下文处理器当中。  
+然后在上下文中导入（`saya.require`）模组 `modules.ero`
 
-然后导入了模组 `modules.ero`  
-模组的形式可以是如下两种
-
+模组的形式可以是如下两种：
 :::: code-group
-::: code-group-item 以单文件作为模组
+::: code-group-item 单文件模组
 
 ``` bash
 EroEroBot
-│  main.py
-│  pyproject.toml
-│
+├─ main.py
+├─ pyproject.toml
 └─ modules
-    └─  ero.py
+   └─ ero.py
 ```
 
 :::
-::: code-group-item 以单文件夹作为模组
+::: code-group-item 文件夹模组
 
 ``` bash
 EroEroBot
-│  main.py
-│  pyproject.toml
-│
+├─ main.py
+├─ pyproject.toml
 └─ modules
-    └─ ero
-        │ # 注仅调用 __init__.py 下的内容
-        └─__init__.py
+   └─ ero
+      ├─ __init__.py  # 注仅调用 __init__.py 下的内容
+      └─ util.py
 ```
 
-:::
 ::::
 
 ### 导入文件夹里所有模组的例子
@@ -316,6 +311,6 @@ async def wyy(app: Ariadne):
 
 这样，我们就成功写出了一个每天 0000 准时网易云时间的模组了
 
-:::interlink
+::: interlink
 相关链接：<https://graia.readthedocs.io/projects/dev/extra/saya/start/>
 :::

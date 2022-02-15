@@ -4,7 +4,7 @@
 虽然说 `mirai` 支持了商城表情，但是 `mirai-api-http` 不支持
 :::
 
-:::tip
+::: tip
 你知道吗，这篇文档很水
 :::
 
@@ -62,6 +62,6 @@ Formatter("在新的一年里，祝你"
 
 这样子是不是方便多了？
 
-:::interlink
+::: interlink
 相关文档：<https://graia.readthedocs.io/extra/msg-chain-tool/>
 :::
