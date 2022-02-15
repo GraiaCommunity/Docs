@@ -1,45 +1,54 @@
 # 1. 来点涩图
 
-## 注意
+## 注意事项
 
-本文将会使用 `poetry` 作为依赖管理和打包的工具。  
+1. **本文将会使用 `poetry` 作为依赖管理和打包的工具。**
+2. **本文将假设你具有一定的英语阅读并对工具软件的提示有自己作出决定的能力**
+3. **本文将使用 `graia-ariadne` 0.5.3 及以上的版本**
+4. 虽然 `Ariadne` 支持 Python 3.8 - 3.10 但为了最佳体验，我们建议你最好升级到 Python3.9+
+
 你可能会疑惑为什么不直接使用 `pip` + `venv` 而是使用 `poetry`？
 
-`poetry` 能够让我们更好地管理你机器人的依赖  
-如果不使用 `poetry` 虽然可能在你在刚开始制作 QQ 机器人的时候还没有什么问题  
-但等到功能增多、依赖变多以后，你就会知道 `poetry` 有多爽了  
-（详细请看[这](../before/Q&A.md#_4-关于-poetry)）
+> `poetry` 能够更好地管理依赖但你直接用 pip 也行  
+> 只是不推荐（不会有人想因为依赖冲突把系统环境炸掉吧）
+>
+> &nbsp;
+>
+> 至于你问我如何用 pip 创建虚拟环境？👉 [看这](../before/Q&A.md#_9-当你遇到不会的东西的时候)
+>
+> 虽然可能在刚开始写 QQ 机器人时不用 `poetry` 没啥问题  
+> 但等依赖多了以后，你就会知道 `poetry` 有多好用了（详细请看[这](../before/Q&A.md#_4-关于-poetry)）
 
-:::tip
-（当然，你直接用 pip 也行，只是并不推荐）
+## 1.1 创建项目
 
-至于你问我如何用 pip 创建虚拟环境？[看这](../before/Q&A.md#_9-当你遇到不会的东西的时候)
+新建一个项目文件夹，这里我们就叫 `EroEroBot` 吧 （<Curtain>PeroPero 震怒</Curtain>），并进入该文件夹里面
+
+::: tip
+国内连接 Pypi 非常慢，所以我们在定义依赖与开发依赖时填 no  
+后面设置了镜像源之后再自己添加依赖
 :::
-
-## 1.创建项目
-
-新建一个项目文件夹(在这里我们就叫 `EroEroBot` 吧) <Curtain>PeroPero 震怒</Curtain> ，并进入到该文件夹里面
 
 ```bash
 mkdir EroEroBot
 cd EroEroBot
 ```
 
-然后输入 `poetry init` 开始创建环境
+然后输入 `poetry init` 开始创建环境，你就会看到类似下面的提示：
 
 ```bash
-root@Graiax-Server:/Graiax/EroEroBot$ poetry init
+$ poetry init
 
 This command will guide you through creating your pyproject.toml config.
 
 Package name [EroEroBot]:
 Version [0.1.0]:
 Description []:
-Author [GraiaCommunity <example@graiax.cn>, n to skip]:
+Author [GraiaCommunity <example@graiax.cn>, n to skip]:  n # 注意，这里要你自己填写 n
 License []:
 Compatible Python versions [^3.9]:
-Would you like to define your main dependencies interactively? (yes/no) [yes] no # 注意，这里要你自己填写 no
-Would you like to define your development dependencies interactively? (yes/no) [yes] no # 注意，这里要你自己填写 no
+
+Would you like to define your main dependencies interactively? (yes/no) [yes] n # 注意，这里要你自己填写 n
+Would you like to define your development dependencies interactively? (yes/no) [yes] n # 注意，这里要你自己填写 n
 Generated file
 
 [tool.poetry]
@@ -58,62 +67,47 @@ requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
 
 
-Do you confirm generation? (yes/no) [yes]
+Do you confirm generation? (yes/no) [yes] y # 注意，这里要你自己填写 y
 ```
 
-注：因为国内对 Pypi 的连接问题实在是太离谱了，所以我们在定义依赖与开发依赖的时候填写 no
+完成之后，你的项目文件夹内应该会出现一个 `pyproject.toml`
 
-后面，你的文件夹里面应该会出现一个 `pyproject.toml`
-
-:::tip
-为了防止后续的包解析及安装等待时间过长，可以预先修改项目根目录下的 `pyproject.toml` 来添加国内镜像加速站，打开该文件后在文件末尾添加如下内容
+为了防止后续添加依赖时等待太久，可以修改 `pyproject.toml` 来添加国内镜像加速站，打开该文件后在文件末尾添加如下内容即可。
 
 ```toml
 [[tool.poetry.source]]
 # 这里以清华源举例，你也可以使用其他源
-name = "tsinghua"
+name = "tuna-tsinghua"
 url = "https://pypi.tuna.tsinghua.edu.cn/simple"
-default = true
+default = false
 ```
 
-:::
+## 1.2 启用虚拟环境并安装 `graia-ariadne`
 
-## 2.启用虚拟环境并安装 `graia-ariadne`
-
-在配置好环境之后，你需要给你的项目创建一个虚拟环境并且安装 `graia-ariadne`
-还是刚刚那个目录
-输入如下指令
+在配置好环境之后，你需要给你的项目创建一个虚拟环境并且安装 `graia-ariadne`  
+在项目根目录执行如下命令：
 
 ```bash
-poetry env use python3.9
+poetry env use python3.9 # 如果你设备里只有一个版本的 Python 或你想使用最新版本，则这一条命令可以不执行
 poetry add graia-ariadne[full]
 ```
 
-::: tip
-`graia-ariadne[full]` 是安装 `graia-ariadne` 功能所需要的所有非必要组件（比如[第11章](./11_ohayou_oniichan.md)中的 `graia-scheduler`）
+::: tip TIPS
+
+1. `graia-ariadne[full]` 是安装 `graia-ariadne` 功能所需要的所有非必要组件，如下所示：
+
+   - graia-saya —— 模块化（[第11章](./11_classification.md)用到）
+   - graia-scheduler —— 定时任务（[第10章](./10_ohayou_oniichan.md)用到）
+   - arclet-alconna —— 消息链处理器（[第6章第4节](./6_4_alconna.md)）
+
+2. 假设你不怎么喜欢整虚拟环境也可以使用如下命令来取消虚拟环境的创建
+
+   ```bash
+   poetry config virtualenvs.create false
+   ```
+
+3. 你的运行结果可能跟我有所不同，但是大致应该是差不多的
 :::
-
-::: tip TIP2
-假设你不怎么喜欢整虚拟环境  
-也可以输入
-
-```bash
-poetry config virtualenvs.create false
-```
-
-来取消虚拟环境的创建
-:::
-
-:::tip TIP3
-虽然说 `Ariadne` 支持 Python3.8  
-但是为了最佳体验，我们建议你最好升级到 Python3.9+
-:::
-
-:::tip 还有一件事
-老爹怕你一下子看太多缓不过来，休息一下好不好
-:::
-
-注：你的运行结果可能跟我有所不同，但是大致应该是差不多的
 
 ```bash
 $ poetry env use 3.9
@@ -123,34 +117,45 @@ Using virtualenv: /root/.cache/pypoetry/virtualenvs/EroEroBot-BexBd8Xq-py3.9
 ```
 
 ```bash
-$ poetry add graia-ariadne
+$ poetry add graia-ariadne[full]
 
-Using version ^0.4.8.1 for graia-ariadne
+Creating virtualenv EroEroBot-BexBd8Xq-py3.9 in /root/.cache/pypoetry/virtualenvs
+Using version ^0.5.3 for graia-ariadne
 
 Updating dependencies
-Resolving dependencies... (38.9s)
+Resolving dependencies...
 
 Writing lock file
 
-Package operations: 14 installs, 0 updates, 0 removals
+Package operations: 24 installs, 0 updates, 0 removals
 
-  • Installing frozenlist (1.2.0)
+  • Installing six (1.16.0)
+  • Installing colorama (0.4.4)
+  • Installing frozenlist (1.3.0)
   • Installing idna (3.3)
-  • Installing multidict (5.2.0)
-  • Installing typing-extensions (3.10.0.2)
+  • Installing multidict (6.0.2)
+  • Installing python-dateutil (2.8.2)
+  • Installing win32-setctime (1.1.0)
   • Installing aiosignal (1.2.0)
-  • Installing async-timeout (4.0.1)
-  • Installing attrs (21.2.0)
-  • Installing charset-normalizer (2.0.8)
+  • Installing async-timeout (4.0.2)
+  • Installing croniter (1.2.0)
+  • Installing graia-broadcast (0.15.6)
+  • Installing attrs (21.4.0)
+  • Installing typing-extensions (4.1.1)
+  • Installing charset-normalizer (2.0.12)
+  • Installing loguru (0.6.0)
+  • Installing wcwidth (0.2.5)
   • Installing yarl (1.7.2)
   • Installing aiohttp (3.8.1)
-  • Installing graia-broadcast (0.14.3)
-  • Installing loguru (0.5.3)
-  • Installing pydantic (1.8.2)
-  • Installing graia-ariadne (0.4.7)
+  • Installing arclet-alconna (0.4.3)
+  • Installing graia-scheduler (0.0.6)
+  • Installing pydantic (1.9.0)
+  • Installing graia-saya (0.0.14)
+  • Installing prompt-toolkit (3.0.28)
+  • Installing graia-ariadne (0.5.3.post3)
 ```
 
-## 3.快速创建一个最小实例
+## 1.3 快速创建一个最小实例
 
 1. 在文件夹下新建一个文件 `main.py`
 2. 使用你喜欢的编辑器打开 `main.py` (e.g: Visual Studio Code)
@@ -159,26 +164,21 @@ Package operations: 14 installs, 0 updates, 0 removals
    ```python
    import asyncio
 
-   from graia.broadcast import Broadcast
-
    from graia.ariadne.app import Ariadne
    from graia.ariadne.event.message import GroupMessage
    from graia.ariadne.message.chain import MessageChain
    from graia.ariadne.message.element import Plain
    from graia.ariadne.model import Group, MiraiSession
 
-   loop = asyncio.new_event_loop()
-
-   bcc = Broadcast(loop=loop)
    app = Ariadne(
-       broadcast=bcc,
-       connect_info=MiraiSession(
+       MiraiSession(
            host="http://localhost:8080",
            verify_key="GraiaxVerifyKey",
            account=1919810,
            # 此处的内容请按照你的 MAH 配置来填写
        ),
    )
+   bcc = app.broadcast
 
 
    @bcc.receiver(GroupMessage)
@@ -191,52 +191,47 @@ Package operations: 14 installs, 0 updates, 0 removals
    app.launch_blocking()
    ```
 
-4. 保存，并且使用如下命令运行
+4. 保存，并且使用命令 `poetry run python bot.py` 运行
 
    ::: tip 注意
-   一定要记得在运行之前启动 `mcl`  
-   关于 `mcl` 的配置，看[这里](../before/Q&A.md#_3-关于-mirai-环境)
+   一定要记得在运行之前启动 `mcl (mirai-console-loader)`  
+   关于 `mcl` 的配置，请看 👉 [这里](../before/Q&A.md#_3-关于-mirai-环境)
    :::
-  
-   ```bash
-   poetry run python bot.py
-   ```
-  
-   之后，你会看到显示如下画面
+
+   之后，你会看到显示如下信息输出：
 
     ```bash
     $ poetry run python bot.py
-
-                   _           _
-        /\        (_)         | |
-       /  \   _ __ _  __ _  __| |_ __   ___
-      / /\ \ | '__| |/ _` |/ _` | '_ \ / _ \
-     / ____ \| |  | | (_| | (_| | | | |  __/
-    /_/    \_\_|  |_|\__,_|\__,_|_| |_|\___|
-    Ariadne version: 0.5.1
-    Broadcast version: 0.14.5
-    Saya version: 0.0.13
+                    _           _
+         /\        (_)         | |
+        /  \   _ __ _  __ _  __| |_ __   ___
+       / /\ \ | '__| |/ _` |/ _` | '_ \ / _ \
+      / ____ \| |  | | (_| | (_| | | | |  __/
+     /_/    \_\_|  |_|\__,_|\__,_|_| |_|\___|
+    Ariadne version: 0.5.3.post3
+    Saya version: 0.0.14
+    Broadcast version: 0.15.6
     Scheduler version: 0.0.6
-    2022-01-15 22:15:58.85 | INFO     | graia.ariadne.app - Launching app...
-    2022-01-15 22:15:58.86 | INFO     | graia.ariadne.adapter - websocket: connected
-    2022-01-15 22:15:58.86 | INFO     | graia.ariadne.adapter - websocket: ping task created
-    2022-01-15 22:15:58.87 | INFO     | graia.ariadne.app - Remote version: 2.4.0
-    2022-01-15 22:15:58.87 | INFO     | graia.ariadne.app - Application launched with 0.019s
-    2022-01-15 22:15:58.87 | INFO     | graia.ariadne.app - daemon: adapter started
+    2022-02-15 17:12:16.320 | INFO     | graia.ariadne.app - Launching app...
+    2022-02-15 17:12:16.321 | INFO     | graia.ariadne.adapter - websocket: connected
+    2022-02-15 17:12:16.332 | INFO     | graia.ariadne.adapter - websocket: ping task created
+    2022-02-15 17:12:16.333 | INFO     | graia.ariadne.app - Remote version: 2.4.0
+    2022-02-15 17:12:16.334 | INFO     | graia.ariadne.app - Application launched with 0.012s
+    2022-02-15 17:12:16.335 | INFO     | graia.ariadne.app - daemon: adapter started
     ```
 
 5. 给你的 bot 随便发一条消息
 
-  ```bash
-  2021-12-03 10:49:45.350 | INFO     | graia.ariadne.model:log_friend_message:114 - 1919810: [Graiax(114514)] -> '你好'
-  2021-12-03 10:49:45.478 | INFO     | graia.ariadne.app:sendFriendMessage:114 - [BOT 1919810] Friend(114514) <- '不要说你好，来点涩图'
-  ```
+   ```bash
+   2021-12-03 10:49:45.350 | INFO     | graia.ariadne.model:log_friend_message:114 - 1919810: [Graiax(114514)] -> '你好'
+   2021-12-03 10:49:45.478 | INFO     | graia.ariadne.app:sendFriendMessage:114 - [BOT 1919810] Friend(114514) <- '不要说你好，来点涩图'
+   ```
 
-  <ChatPanel title="GraiaCommunity">
-  <ChatMessage name="GraiaX" onright>你好</ChatMessage>
-  <ChatMessage name="EroEroBot" :avatar="$withBase('/avatar/ero.webp')">不要说你好，来点涩图</ChatMessage>
-  </ChatPanel>
+   <ChatPanel title="GraiaCommunity">
+   <ChatMessage name="GraiaX" onright>你好</ChatMessage>
+   <ChatMessage name="EroEroBot" :avatar="$withBase('/avatar/ero.webp')">不要说你好，来点涩图</ChatMessage>
+   </ChatPanel>
 
-:::interlink
+::: interlink
 **相关链接:** <https://graia.readthedocs.io/quickstart/>
 :::

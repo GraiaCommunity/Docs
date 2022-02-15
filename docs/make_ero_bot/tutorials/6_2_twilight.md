@@ -1,6 +1,6 @@
-# 6.2. Twilight
+# 6.2 Twilight
 
-`Twilight`, 是 `graia-ariadne` 所使用的消息链匹配工具之一  
+`Twilight`，是 `graia-ariadne` 所使用的消息链匹配工具之一  
 我们就直接通过例子来向各位讲解如何使用 `Twilight`
 
 :::: code-group
@@ -40,7 +40,7 @@ async def test(app: Ariadne, group: Group):
 
 下面我们来介绍一下 Twilight(0.5.0+)
 
-## 1. Twilight 是什么
+## 6.2.1 Twilight 是什么
 
 `Twilight` 是 Ariadne 使用的一种标准消息链匹配工具（有点类似于 v4 的 Kanata，但其增加了类似 argparse 的操作）
 

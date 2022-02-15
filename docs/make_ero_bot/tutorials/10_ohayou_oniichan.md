@@ -1,10 +1,7 @@
 # 10. 哦嗨哟，欧尼酱
 
 ::: danger
-本文档还没有写完
-:::
-
-::: danger DANGER 二次元浓度爆表了<div style="height:0.5em"></div>
+本文档还没有写完<Curtain type="danger">且二次元浓度爆表了</Curtain>
 :::
 
 想必每一个二刺螈都曾今都会幻想过  
@@ -25,19 +22,19 @@
   <ChatMessage name="GraiaX" onright>哦嗨哟</ChatMessage>
 </ChatPanel>
 
-:::tip
+::: tip
 你可能会问上面这位叫你起床的是谁  
 这位是 [Hanser](https://zh.moegirl.org.cn/Hanser)，B站账号是[这个](https://space.bilibili.com/11073)  
 :::
 
-想想就得劲 <Curtain>虽然一个At跟语音八成不能成功叫你起床</Curtain>  
+想想就得劲<Curtain>虽然一个At跟语音八成不能成功叫你起床</Curtain> 
 那么，就开始我们今天的艺术创想吧(bushi)
 
 ## 什么是 `Graia-Scheduler`
 
-`Graia-Scheduler`是一个基于 asyncio, 设计简洁, 代码简单的计划任务库  
+`Graia-Scheduler`是一个基于 asyncio，设计简洁，代码简单的计划任务库
 
-## 安装
+## 安装 `Graia-Scheduler`
 
 ::: tip
 假设你之前用的是 `graia-ariadne[full]`，你可以直接跳过
@@ -59,14 +56,14 @@ pip install graia-scheduler
 
 ::::
 
-## 初始化
+## 初始化 `Graia-Scheduler`
 
 在你的代码中加入这些
 
 ```python
 from graia.scheduler import GraiaScheduler
 ...
-sche = GraiaScheduler(loop=loop, broadcast=bcc)
+sche = app.create(GraiaScheduler)
 ```
 
 ## 一个最简单的例子
@@ -91,11 +88,12 @@ async def every_minute_speaking(app: Ariadne):
 该方法支持传入一个 `crontab` 时间格式来进行时间计算  
 `crontab` 具体语法你可以看一下[菜鸟教程对crontab的讲解](https://www.runoob.com/linux/linux-comm-crontab.html)
 
-:::tip
-看清楚了，方法是 `timers.crontabify` 而不是 `timers.croniter`
-:::
+> 假设你是在例如树莓派什么的地方运行，最好先检查一下你有没有设置好时区  
+> 否则你的机器人可能会在协调世界时的早上7点半（北京时间15点半）叫你起床
 
-:::tip
+::: tip
+看清楚了，方法是 `timers.crontabify` 而不是 `timers.croniter`
+
 事实上，`graia-scheduler` 所使用的 crontab 语法分析库支持将**秒**作为第六个参数导入，如
 
 ``` python
@@ -105,10 +103,7 @@ async def every_minute_speaking(app: Ariadne):
 
 :::
 
-::: tip
-假设你是在例如树莓派什么的地方运行，最好先检查一下你有没有设置好时区  
-否则你的机器人可能会在协调世界时的早上7点半（北京时间15点半）叫你起床
-:::
+
 
 <ChatPanel title="GraiaCommunity">
 <p style = "text-align:center; font-size:0.75em">07:30</p>

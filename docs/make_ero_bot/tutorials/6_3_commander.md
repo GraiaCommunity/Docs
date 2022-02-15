@@ -1,6 +1,6 @@
-# 6.3. Commander
+# 6.3 Commander
 
-:::warning
+::: warning
 虽然现在还有一大堆没写，但是还要扯一句  
 现阶段 `Commander` 并不怎么适合给 `Ariadne` 使用  
 即<Curtain type="warning">强制缝合不可取desu</Curtain>
@@ -24,13 +24,13 @@
 事实上，他就是个 `command`（命令）和 `-er`（的东西<sup>[1]</sup>）组成  
 说白了就是一个`命令解析器`
 
-:::tip
+::: tip
 有一点点像是 `Twilight.from_command`<Curtain>不过截至目前社区文档还没介绍到那</Curtain>
 :::
 
 ## 使用 Commander
 
-:::tip
+::: tip
 以下内容有一部分涉及到[第11章](./11_classification.md)的内容  
 可以尝试先去看看那边  
 相信我，你一定会受益匪浅
@@ -46,5 +46,5 @@
 
 <hr size=3/>
 
-注：  
+**注：**  
 [1]：来自维基词典 <https://zh.wiktionary.org/wiki/-er>
