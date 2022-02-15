@@ -257,9 +257,9 @@ saya = Saya.current()
 for module, channel in saya.channels.items():
     print(
         f"module: {module}\n"
-        f"name:{channel._name}"
-        f"author:{' '.join(channel._author)}\n"
-        f"description:{channel._description}"
+        f"name:{channel.meta['name']}"
+        f"author:{' '.join(channel.meta['author'])}\n"
+        f"description:{channel.meta['description']}"
     )
 ```
 
