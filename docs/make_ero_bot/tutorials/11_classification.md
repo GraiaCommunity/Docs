@@ -99,7 +99,6 @@ import asyncio
 
 from graia.ariadne.app import Ariadne
 from graia.ariadne.model import MiraiSession
-from graia.broadcast import Broadcast
 from graia.saya import Saya
 from graia.saya.builtins.broadcast import BroadcastBehaviour
 
@@ -110,7 +109,6 @@ app = Ariadne(
         account=1919810,
     ),
 )
-bcc = app.broadcast
 saya = app.create(Saya)
 saya.install_behaviours(
     app.create(BroadcastBehaviour)
@@ -128,7 +126,9 @@ app.launch_blocking()
 
 ``` python
 saya = app.create(Saya)
-saya.install_behaviours(app.create(BroadcastBehaviour))
+saya.install_behaviours(
+    app.create(BroadcastBehaviour)
+)
 ```
 
 这一步就是创建 `saya` 实例，并安装 `BroadcastBehaviour`  

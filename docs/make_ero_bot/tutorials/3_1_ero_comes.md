@@ -57,7 +57,9 @@ MessageChain.create("你好")
 
 第一种方法是最基本的构建方法，也是 v4 唯一合法的构建方法
 
-> 我们称 `graia-application-mirai` 为 v4，`graia-ariadne` 为 v4p/v4+
+::: tip
+v4, v4p 等缩写词语的意思可以在[这里](../appendix/terms.md)找到
+:::
 
 而剩下两种则是 `graia-ariadne` 新增的方法，以帮助用户能够更加简单的创建消息链  
 当然，实际上 `create` 方法并没有严格限定方法就必须是这三类中的一类，他们可以任意组合  
@@ -182,7 +184,7 @@ True
 然后用一个字典储存被替换成字符串的元素
 
 ::: interlink
-相关链接：  
-<https://graia.readthedocs.io/basic/msg-chain/>
+**相关链接：**  
+<https://graia.readthedocs.io/basic/msg-chain/>  
 <https://graia.readthedocs.io/advance/msg-chain/>
 :::
