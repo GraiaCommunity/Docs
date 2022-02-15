@@ -66,7 +66,7 @@ input[type="range"]::-moz-range-track {
   height: 5px;
   border-radius: 10px; /*将轨道设为圆角的*/
 }
-/* 删除内框*/
+/*删除内框*/
 input[type="range"]:focus {
   outline: none;
 }
