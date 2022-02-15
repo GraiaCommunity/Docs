@@ -26,7 +26,7 @@ app.recallMessage()  # 实际使用时请不要忘记 await
 
 ### Source —— 消息的识别ID
 
-再将这些之前，现给大家扯点别的  
+在将这些之前，先给大家扯点别的  
 假设（是的，又是假设）你还记得[第3章](./3_1_ero_comes.md#_4-怎么操作-messagechain)曾经介绍过的`MessageChain.onlyContains`方法  
 就会发现很诡异的事情
 

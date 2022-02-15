@@ -49,3 +49,7 @@ async def test(app: Ariadne, group: Group):
 <Curtain type="tip">来点暮光闪闪涩图<Curtain type="tip"> 人不能，至少不应该</Curtain></Curtain>
 <div style="height:1em"></div>
 :::
+
+:::interlink
+**相关链接：**<https://graia.readthedocs.io/advance/twilight/>
+:::
