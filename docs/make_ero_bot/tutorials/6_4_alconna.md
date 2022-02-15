@@ -1,58 +1,77 @@
 # 6.4. Alconna
 
-:::tsukkomi 注
+::: tsukkomi 注
 因为是外星来客，所以研究需要久一点也是合理的嘛
 :::
 
-<p align="center" style="margin: 0px 0px 0px 0px"><Curtain>这个 Loading 只是在告诉你“在研究了在研究了”</Curtain></p>
-<p align="center" style="margin: 0px 0px 0px 0px"><Curtain>除非看到我下次更新，不然是不会加载成功的 desu</Curtain></p>
-<p align="center" style="font-size: 2em; margin: 0px 0px 0px 0px">Loading</p>
-<div class="loading">  
-    <span></span>  
-    <span></span>  
-    <span></span>  
-    <span></span>  
-    <span></span>  
+<p align="center" style="font-size: 1.6rem; margin: 5px auto">loading...</p>
+<p align="center" style="margin: 5px auto"><Curtain>在研究了在研究了</Curtain></p>
+<p align="center" style="margin: 5px auto"><Curtain>在我下次更新是不会加载成功的 desu</Curtain></p>
+<div class="loading">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
 </div>
 
 <style>
-.loading{
-        width: 150px;
-        height: 15px;
-        margin: 0 auto;
-        position: relative;
+.loading {
+    width: 80px;
+    height: 30px;
+    margin: 0 auto;
+    position: relative;
 }
-.loading span{
+.loading span {
     position: absolute;
-    width: 15px;
+    width: 10px;
     height: 100%;
-    border-radius: 50%;
-    background: var(--c-text);
-    -webkit-animation: load 1.04s ease-in infinite alternate;
+    bottom: 0px;
+    border-radius: 10px;
+    background: var(--c-text-lighter);
+    animation: loading 3s infinite ease-in-out;
 }
-@-webkit-keyframes load{
-    0%{
-        opacity: 1;
-        -webkit-transform: translate(0px);
+.loading span:nth-child(2) {
+    left: 14px;
+    animation-delay: 0.2s;
+}
+.loading span:nth-child(3) {
+    left: 28px;
+    animation-delay: 0.4s;
+}
+.loading span:nth-child(4) {
+    left: 42px;
+    animation-delay: 0.6s;
+}
+.loading span:nth-child(5) {
+    left: 56px;
+    animation-delay: 0.8s;
+}
+.loading span:nth-child(6) {
+    left: 70px;
+    animation-delay: 1s;
+}
+@keyframes loading {
+    0% {
+        height: 5px;
+        transform: translateY(0px);
+        background: var(--c-text-lighter);
     }
-    100%{
-        opacity: 0.2;
-        -webkit-transform: translate(150px);
+    25% {
+        height: 50px;
+        transform: translateY(25px);
+        background: var(--c-text-lightest);
     }
-}
-.loading span:nth-child(1){
-    -webkit-animation-delay:0.13s;
-}
-.loading span:nth-child(2){
-    -webkit-animation-delay:0.26s;
-}
-.loading span:nth-child(3){
-    -webkit-animation-delay:0.39s;
-}
-.loading span:nth-child(4){
-    -webkit-animation-delay:0.52s;
-}
-.loading span:nth-child(5){
-    -webkit-animation-delay:0.65s;
+    50% {
+        height: 5px;
+        transform: translateY(0px);
+        background: var(--c-text-lighter);
+    }
+    100% {
+        height: 5px;
+        transform: translateY(0px);
+        background: var(--c-text-lighter);
+    }
 }
 </style>
