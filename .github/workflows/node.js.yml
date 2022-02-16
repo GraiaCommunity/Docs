@@ -1,24 +1,24 @@
 name: Node.js CI
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - uses: actions/setup-node@v2
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
         with:
           node-version: "17"
           cache: "yarn"
-    - uses: actions/setup-python@v2
+      - uses: actions/setup-python@v2
         with:
           python-version: "3.10.x"
           architecture: "x64"
-    - run: yarn install
-    - run: yarn docs:build
-    - run: python3 -m pip install coscmd
-    - run: coscmd config -a ${{ secrets.SecretId }} -s ${{ secrets.SecretKey }} -b graiax-1302360504 -r ap-hongkong
-    - run: coscmd upload -r docs/.vuepress/dist/ /
+      - run: yarn install
+      - run: yarn docs:build
+      - run: python3 -m pip install coscmd
+      - run: coscmd config -a ${{ secrets.SecretId }} -s ${{ secrets.SecretKey }} -b graiax-1302360504 -r ap-hongkong
+      - run: coscmd upload -r docs/.vuepress/dist/ /
