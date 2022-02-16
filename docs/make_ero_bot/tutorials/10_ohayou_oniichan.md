@@ -107,7 +107,7 @@ async def every_minute_speaking(app: Ariadne):
 <p style = "text-align:center; font-size:0.75em">07:30</p>
   <ChatMessage name="Hanser" :avatar="$withBase('/avatar/hanser.webp')"><a>@GraiaX</a></ChatMessage>
   <ChatMessage name="Hanser" :avatar="$withBase('/avatar/hanser.webp')">
-    <SimpleAudio audio="/voices/11_起床搬砖辣.mp3" time=7></SimpleAudio>
+    <SimpleAudio audio="/voices/11_起床搬砖辣.mp3" time=14></SimpleAudio>
   </ChatMessage>
 </ChatPanel>
 
