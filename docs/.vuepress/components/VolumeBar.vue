@@ -1,5 +1,5 @@
 <template>
-  <span id="volume">
+  <span id="volume-bar">
     <div class="volume">
       <input
         id="range"
@@ -21,17 +21,17 @@
 </template>
 
 <style scoped>
-#volume {
+#volume-bar {
   display: inline-block;
   vertical-align: middle;
   width: 50%;
   height: 1rem;
 }
 #volume-num {
-  padding: .1rem .3rem;
+  padding: 0.1rem 0.3rem;
   margin-left: 4px;
   width: 46px;
-  font-size: .9rem;
+  font-size: 0.9rem;
   text-align: right;
   background: var(--c-bg-lighter);
   border-radius: 5px;
@@ -60,7 +60,7 @@ input[type="range"]::-webkit-slider-thumb {
 input[type="range"]::-webkit-slider-runnable-track {
   height: 5px;
   border-radius: 10px; /*将轨道设为圆角的*/
-  padding-bottom: .3rem;
+  padding-bottom: 0.3rem;
 }
 input[type="range"]::-moz-range-track {
   height: 5px;
@@ -75,14 +75,14 @@ input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
   height: 1rem;
   width: 1rem;
-  margin-top: -.3rem; /*使滑块超出轨道部分的偏移量相等*/
+  margin-top: -0.3rem; /*使滑块超出轨道部分的偏移量相等*/
   background: var(--c-text);
   border-radius: 50%; /*外观设置为圆形*/
 }
 input[type="range"]::-moz-range-thumb {
   height: 1rem;
   width: 1rem;
-  margin-top: -.3rem; /*使滑块超出轨道部分的偏移量相等*/
+  margin-top: -0.3rem; /*使滑块超出轨道部分的偏移量相等*/
   background: var(--c-text);
   border-radius: 50%; /*外观设置为圆形*/
 }
