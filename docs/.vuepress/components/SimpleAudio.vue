@@ -2,7 +2,7 @@
   <div class="simple-audio" :style="'width:' + time / 1.5 + 'rem'" @click="play">
     <span class="play"></span>
     <audio :src="audio" :id="audio" @ended="reset"></audio>
-    <span>{{ this.time }}'</span>
+    <span>{{ time }}'</span>
   </div>
 </template>
 
