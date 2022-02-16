@@ -5,12 +5,17 @@
 .tsukkomi{
     border-radius: 0.3rem;
     border-left-width: 0.5rem;
+}
+
+.interlink,
+.tsukkomi{
     a {
         color: var(--c-warning-text-accent);
       }
 }
 
 :root{
+    scroll-behavior: smooth;
     --c-interlink-bg: #E5E9FF;
     --c-interlink: #0022E6;
     --c--tsukkomi-text: #440066;
