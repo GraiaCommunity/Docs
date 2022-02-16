@@ -1,5 +1,7 @@
 <template>
-  <span :title="title" class="curtain"><slot></slot></span>
+  <span :title="title" class="curtain">
+    <slot></slot>
+  </span>
 </template>
 
 <script>
@@ -10,7 +12,7 @@ export default {
       default: "你知道的太多了",
     },
   },
-};
+}
 </script>
 
 <style scoped>

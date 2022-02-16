@@ -4,23 +4,11 @@
       <img v-if="avatar" :src="avatar" />
       <div v-else class="avatar-text">{{ name[0] }}</div>
     </div>
-    <div
-      class="inner"
-      :class="{ 'inner-left': !onright, 'inner-right': onright }"
-    >
-      <div
-        class="circle circle1"
-        :class="{ 'circle1-left': !onright, 'circle1-right': onright }"
-      ></div>
-      <div
-        class="circle circle2"
-        :class="{ 'circle2-left': !onright, 'circle2-right': onright }"
-      ></div>
+    <div class="inner" :class="{ 'inner-left': !onright, 'inner-right': onright }">
+      <div class="circle circle1" :class="{ 'circle1-left': !onright, 'circle1-right': onright }"></div>
+      <div class="circle circle2" :class="{ 'circle2-left': !onright, 'circle2-right': onright }"></div>
       <div class="name" :class="{ 'name-right': onright }">{{ name }}</div>
-      <div
-        class="message"
-        :class="{ 'message-left': !onright, 'message-right': onright }"
-      >
+      <div class="message" :class="{ 'message-left': !onright, 'message-right': onright }">
         <slot></slot>
       </div>
     </div>
@@ -32,9 +20,9 @@ export default {
   props: {
     name: { type: String, required: true },
     avatar: String,
-    onright: Boolean
-  }
-};
+    onright: Boolean,
+  },
+}
 </script>
 
 <style scoped>
