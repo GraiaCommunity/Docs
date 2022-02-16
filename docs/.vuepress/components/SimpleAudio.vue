@@ -43,7 +43,7 @@ export default {
 .simple-audio {
   display: flex;
   min-width: 4rem;
-  max-width: 18rem;
+  max-width: 30vw;
   flex-direction: row;
   flex-wrap: nowrap;
   align-content: center;
