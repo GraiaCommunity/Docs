@@ -2,9 +2,7 @@
   <span
     :title="title"
     class="heimu"
-    :style="
-      '--text: var(--c-' + type + '-text);' + '--bg: var(--c-' + type + '-bg)'
-    "
+    :style="'--text: var(--c-' + type + '-text);' + '--bg: var(--c-' + type + '-bg)'"
   >
     <slot></slot>
   </span>
@@ -22,7 +20,7 @@ export default {
       default: "",
     },
   },
-};
+}
 </script>
 
 <style scoped>
@@ -33,8 +31,8 @@ a .heimu {
   color: var(--text, var(--c-text));
   text-shadow: none;
   border-radius: 3px;
-  padding: .1rem .3rem;
-  margin: 0 .2rem;
+  padding: 0.1rem 0.3rem;
+  margin: 0 0.2rem;
   font-size: 1rem;
   transition: color 0.13s linear;
 }

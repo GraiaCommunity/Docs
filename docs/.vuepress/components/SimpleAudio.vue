@@ -18,25 +18,25 @@
 </template>
 
 <script>
-var tag = false;
+var tag = false
 export default {
   props: {
     audio: String,
   },
   methods: {
     play: function () {
-      var audio = document.getElementById(this.audio);
+      var audio = document.getElementById(this.audio)
       if (tag) {
-        audio.pause();
-        tag = false;
+        audio.pause()
+        tag = false
       } else {
-        audio.play();
-        tag = true;
+        audio.play()
+        tag = true
       }
     },
     reset: function () {
-      tag = false;
+      tag = false
     },
   },
-};
+}
 </script>

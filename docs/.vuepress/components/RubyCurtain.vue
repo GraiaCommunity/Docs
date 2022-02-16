@@ -1,10 +1,12 @@
 <template>
-    <ruby>
-        <slot></slot>
-        <rp>(</rp><rt>
-            <curtain :title="title" :type="type" style="height: 100px; font-size: 0.75em">{{up}}</curtain>
-        </rt><rp>)</rp>
-    </ruby>
+  <ruby>
+    <slot></slot>
+    <rp>(</rp>
+    <rt>
+      <curtain :title="title" :type="type" style="height: 100px; font-size: 0.75em">{{ up }}</curtain>
+    </rt>
+    <rp>)</rp>
+  </ruby>
 </template>
 
 <script>
@@ -18,9 +20,9 @@ export default {
     type: {
       type: String,
       default: "",
-    }
+    },
   },
-};
+}
 </script>
 
 <style scoped>
