@@ -9,7 +9,7 @@
         value="100"
         oninput='
           var range = document.getElementById("range");
-          range.style.backgroundSize = `${range.value}%, 100%`;
+          range.style.backgroundSize = `${range.value}% 100%`;
           for (let i of document.getElementsByTagName("audio")) {
             i.volume = range.value / 100;
           };
