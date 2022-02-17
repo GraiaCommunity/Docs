@@ -8,14 +8,14 @@
 你知道吗，这篇文档很水
 :::
 
-想必大家在 QQ 聊天的时候，或多或少都会用到QQ的一些表情包（如<img src="/images/tutorials/9_huaji.webp" height=20 style="vertical-align:text-bottom">和<img src="/images/tutorials/9_wangwang.webp" height=20 style="vertical-align:text-bottom">）。  
+想必大家在 QQ 聊天的时候，或多或少都会用到QQ的一些表情包（如<img src="/images/tutorials/8_huaji.webp" height=20 style="vertical-align:text-bottom">和<img src="/images/tutorials/8_wangwang.webp" height=20 style="vertical-align:text-bottom">）。  
 不可否认，这些 QQ 自带的表情符号已经成为 QQ 日常交流中不可缺少的一部分。  
 不过，当你想要通过 `Ariadne` 来构造这样充满表情符号的句子时，问题就大的去了：
 
 你的目标：
 
 <ChatPanel>
-<ChatMessage name="EroEroBot" :avatar="$withBase('/avatar/ero.webp')">来点涩图<img src="/images/tutorials/9_wangwang.webp" height=20 style="vertical-align:text-bottom"></ChatMessage>
+<ChatMessage name="EroEroBot" :avatar="$withBase('/avatar/ero.webp')">来点涩图<img src="/images/tutorials/8_wangwang.webp" height=20 style="vertical-align:text-bottom"></ChatMessage>
 </ChatPanel>
 
 你的构造：
@@ -28,8 +28,8 @@ MessageChain.create("来点涩图", Face(277))
 
 <ChatPanel>
 <ChatMessage name="EroEroBot" :avatar="$withBase('/avatar/ero.webp')">在新的一年里，祝你<br/>
-身<img src="/images/tutorials/9_wangwang.webp" height=20 style="vertical-align:text-bottom">体<img src="/images/tutorials/9_wangwang.webp" height=20 style="vertical-align:text-bottom">健<img src="/images/tutorials/9_wangwang.webp" height=20 style="vertical-align:text-bottom">康<br/>
-万<img src="/images/tutorials/9_wangwang.webp" height=20 style="vertical-align:text-bottom">事<img src="/images/tutorials/9_wangwang.webp" height=20 style="vertical-align:text-bottom">如<img src="/images/tutorials/9_wangwang.webp" height=20 style="vertical-align:text-bottom">意</ChatMessage>
+身<img src="/images/tutorials/8_wangwang.webp" height=20 style="vertical-align:text-bottom">体<img src="/images/tutorials/8_wangwang.webp" height=20 style="vertical-align:text-bottom">健<img src="/images/tutorials/8_wangwang.webp" height=20 style="vertical-align:text-bottom">康<br/>
+万<img src="/images/tutorials/8_wangwang.webp" height=20 style="vertical-align:text-bottom">事<img src="/images/tutorials/8_wangwang.webp" height=20 style="vertical-align:text-bottom">如<img src="/images/tutorials/8_wangwang.webp" height=20 style="vertical-align:text-bottom">意</ChatMessage>
 </ChatPanel>
 
 你的构造：

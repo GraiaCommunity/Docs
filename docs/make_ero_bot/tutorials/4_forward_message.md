@@ -27,14 +27,14 @@
 但很可惜，也不知道你在可惜什么，当你点开聊天记录的时候，你看到的是这种景象
 
 <ChatPanel title="转发的合并消息">
-  <ChatMessage name="EroEroBot" :avatar="$withBase('/avatar/ero.webp')"><img src="/images/tutorials/5_huge_milk.webp"></ChatMessage>
+  <ChatMessage name="EroEroBot" :avatar="$withBase('/avatar/ero.webp')"><img src="/images/tutorials/4_huge_milk.webp"></ChatMessage>
   <ChatMessage name="群菜鸮" avatar="http://q1.qlogo.cn/g?b=qq&nk=2948531755&s=640">好大的奶</ChatMessage>
   <ChatMessage name="群菜鸡" avatar="http://q1.qlogo.cn/g?b=qq&nk=1450069615&s=640">好大的奶</ChatMessage>
   <ChatMessage name="群菜龙" avatar="http://q1.qlogo.cn/g?b=qq&nk=2544704967&s=640">好大的奶</ChatMessage>
 </ChatPanel>
 
 不知道是因为你没看到你想要看的东西，还是说你觉得这个奶完全不够大  
-反正你发现你被骗了<Curtain>You're Rickrolling</Curtain> 
+反正你发现你被骗了<Curtain>You're Rickrolling</Curtain>
 然后在下一秒，你突发奇想，能不能让机器人也整一个这个来骗人呢？  
 
 **当然可以**，我们现在就通过代码来直接复刻上面的效果
