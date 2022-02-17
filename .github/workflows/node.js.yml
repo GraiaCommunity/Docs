@@ -7,13 +7,23 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+
+      - name: setup node
+        uses: actions/setup-node@v2
         with:
           node-version: ">=17"
           cache: "yarn"
-      - uses: actions/setup-python@v2
-      - run: yarn install
-      - run: yarn docs:build
-      - run: python3 -m pip install coscmd
-      - run: coscmd config -a ${{ secrets.SecretId }} -s ${{ secrets.SecretKey }} -b graiax-1302360504 -r ap-hongkong
-      - run: coscmd upload -r docs/.vuepress/dist/ /
+
+      - name: setup python
+        uses: actions/setup-python@v2
+
+      - name: build docs
+        run: |
+          yarn install
+          yarn docs:build
+
+      - name: Upload dist
+        run: |
+          python3 -m pip install coscmd
+          coscmd config -a ${{ secrets.SecretId }} -s ${{ secrets.SecretKey }} -b graiax-1302360504 -r ap-hongkong
+          coscmd upload -r docs/.vuepress/dist/ /
