@@ -14,7 +14,7 @@
 <ChatPanel title="GraiaCommunity">
   <ChatMessage name="GraiaX" onright>无路赛</ChatMessage>
   <ChatMessage name="EroEroBot" :avatar="$withBase('/avatar/ero.webp')">
-    <SimpleAudio audio="/voices/4_夏娜_无路赛_钉宫理惠.mp3" time=3></SimpleAudio>
+    <SimpleAudio audio="/voices/4_夏娜_无路赛_钉宫理惠.mp3"></SimpleAudio>
   </ChatMessage>
 </ChatPanel>
 

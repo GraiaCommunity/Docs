@@ -1,51 +1,70 @@
 <template>
-  <div class="simple-audio" :style="'width:' + time / 1.5 + 'rem'" @click="play">
-    <div class="player-symbol" :class="{'on-play': isActive}">
-            <div class="player-circle first"></div>
-            <div class="player-circle second"></div>
-            <div class="player-circle third"></div>
+  <div
+    class="simple-audio"
+    :style="'width:' + duration / 1.5 + 'rem'"
+    @click="play"
+  >
+    <div class="player-symbol" :class="{ 'on-play': isActive }">
+      <div class="player-circle first"></div>
+      <div class="player-circle second"></div>
+      <div class="player-circle third"></div>
     </div>
-    <audio :src="audio" :id="audio" @ended="reset"></audio>
-    <span>{{ time }}'</span>
+    <audio
+      :src="audio"
+      :id="audio"
+      @ended="reset"
+      @loadedmetadata="onLoadedmetadata"
+    ></audio>
+    <span>{{ f_duration }}</span>
   </div>
 </template>
 
 <script>
-var tag = false
+var tag = false;
 export default {
   props: {
     audio: String,
-    time: Number,
   },
   data() {
-    return { isActive: false }
+    return {
+      isActive: false,
+      duration: 0,
+      f_duration: "123",
+    };
   },
   methods: {
     play: function () {
-      var audio = document.getElementById(this.audio)
+      var audio = document.getElementById(this.audio);
       if (tag) {
-        audio.pause()
-        this.isActive = false
-        tag = false
+        audio.pause();
+        this.isActive = false;
+        tag = false;
       } else {
-        audio.play()
-        this.isActive = true
-        tag = true
+        audio.play();
+        this.isActive = true;
+        tag = true;
       }
     },
     reset: function () {
-      this.isActive = false
-      tag = false
+      this.isActive = false;
+      tag = false;
+    },
+    onLoadedmetadata: function () {
+      var audio = document.getElementById(this.audio);
+      this.duration = audio.duration;
+      var m = Math.floor(audio.duration / 60);
+      var s = Math.round(audio.duration % 60);
+      this.f_duration = m > 0 ? `${m}'${s}"` : `${s}"`;
     },
   },
-}
+};
 </script>
 
 <style scoped>
 .simple-audio {
   display: flex;
   min-width: 4rem;
-  max-width: 30vw;
+  max-width: 15vw;
   flex-direction: row;
   flex-wrap: nowrap;
   align-content: center;
@@ -54,7 +73,7 @@ export default {
   cursor: pointer;
 }
 
- .player-symbol {
+.player-symbol {
   width: 1.1rem;
   height: 1.1rem;
   box-sizing: border-box;
@@ -89,11 +108,11 @@ export default {
   left: 2px;
 }
 
-.player-symbol.on-play .second{
+.player-symbol.on-play .second {
   animation: fadeInOut 1s infinite 0.2s;
 }
 
-.player-symbol.on-play .third{
+.player-symbol.on-play .third {
   animation: fadeInOut 1s infinite 0.4s;
 }
 
