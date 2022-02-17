@@ -1,6 +1,6 @@
 <template>
   <div class="simple-audio" :style="'width:' + time / 1.5 + 'rem'" @click="play">
-    <div class="player-symbol" id="player">
+    <div class="player-symbol" :class="{'on-play': isActive}">
             <div class="player-circle first"></div>
             <div class="player-circle second"></div>
             <div class="player-circle third"></div>
@@ -17,22 +17,24 @@ export default {
     audio: String,
     time: Number,
   },
+  data() {
+    return { isActive: false }
+  },
   methods: {
     play: function () {
       var audio = document.getElementById(this.audio)
-      var player = document.getElementById("player")
       if (tag) {
         audio.pause()
-        player.className = "player-symbol"
+        this.isActive = false
         tag = false
       } else {
         audio.play()
-        player.className = "player-symbol on-play"
+        this.isActive = true
         tag = true
       }
     },
     reset: function () {
-      document.getElementById("player").className = "player-symbol"
+      this.isActive = false
       tag = false
     },
   },
