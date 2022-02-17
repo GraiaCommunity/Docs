@@ -8,7 +8,7 @@
   <ChatMessage name="GraiaX" onright>来一打紧身衣涩图</ChatMessage>
   <ChatMessage name="EroEroBot" :avatar="$withBase('/avatar/ero.webp')">
     <div style="width: 250px">
-      <img src="/images/tutorials/13_compressed_file.svg" style="
+      <img src="/images/tutorials/13_compressed_file.svg" class="no-zoom" style="
         width: 30px;
         border-radius:10px;
         border: solid 10px var(--c-details-bg);
