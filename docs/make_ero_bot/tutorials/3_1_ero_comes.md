@@ -70,7 +70,7 @@ MessageChain.create("你好", At(1919810), [Plain(", 你是不是喜欢"), At(11
 ```
 
 ::: warning 注意一下
-这只是举例，千万不要在你的业务代码中写出这么离谱的玩意儿<br><Curtain type="warning">否则<MoreInfo words="蓝玻璃块"><img src="/images/tutorials/3_BGB_watching.webp"></MoreInfo>大概率会提刀撒了你（撒日朗）</Curtain>
+这只是举例，千万不要在你的业务代码中写出这么离谱的玩意儿<br><Curtain type="warning">否则<MoreInfo words="蓝玻璃块"><img src="/images/tutorials/3_1_BGB_watching.webp"></MoreInfo>大概率会提刀撒了你（撒日朗）</Curtain>
 :::
 
 ## 3.1.4 怎么操作 MessageChain

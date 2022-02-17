@@ -59,6 +59,7 @@ module.exports = {
             "/make_ero_bot/tutorials/10_ohayou_oniichan.md",
             "/make_ero_bot/tutorials/11_classification.md",
             "/make_ero_bot/tutorials/12_setu_tag_pls.md",
+            "/make_ero_bot/tutorials/13_encrypt_compressed_file.md",
           ],
         },
         {

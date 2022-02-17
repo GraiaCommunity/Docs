@@ -122,16 +122,16 @@ async def test(app: Ariadne, message: MessageChain):
 <ChatPanel title="GraiaCommunity">
   <p style = "text-align:center; font-size:0.75em">03:38</p>
   <ChatMessage name="群菜鸮" avatar="http://q1.qlogo.cn/g?b=qq&nk=2948531755&s=640">涩图来</ChatMessage>
-  <ChatMessage name="EroEroBot" :avatar="$withBase('/avatar/ero.webp')"><img height="100" src="/images/tutorials/8_ero_pic_1.webp"></ChatMessage>
+  <ChatMessage name="EroEroBot" :avatar="$withBase('/avatar/ero.webp')"><img height="100" src="/images/tutorials/7_ero_pic_1.webp"></ChatMessage>
   <ChatMessage name="群菜鸡" avatar="http://q1.qlogo.cn/g?b=qq&nk=1450069615&s=640">涩图来</ChatMessage>
   <ChatMessage name="群菜鸡" avatar="http://q1.qlogo.cn/g?b=qq&nk=1450069615&s=640">？我涩图呢</ChatMessage>
   <ChatMessage name="群菜鸡" avatar="http://q1.qlogo.cn/g?b=qq&nk=1450069615&s=640"><a>@GraiaX</a> 我涩图呢</ChatMessage>
   <ChatMessage name="GraiaX" onright>涩图来</ChatMessage>
   <ChatMessage name="GraiaX" onright>az?</ChatMessage>
   <p style = "text-align:center; font-size:0.75em">03:40</p>
-  <ChatMessage name="EroEroBot" :avatar="$withBase('/avatar/ero.webp')"><img height="100" src="/images/tutorials/8_ero_pic_2.webp"></ChatMessage>
+  <ChatMessage name="EroEroBot" :avatar="$withBase('/avatar/ero.webp')"><img height="100" src="/images/tutorials/7_ero_pic_2.webp"></ChatMessage>
   <p style = "text-align:center; font-size:0.75em">03:42</p>
-  <ChatMessage name="EroEroBot" :avatar="$withBase('/avatar/ero.webp')"><img height="100" src="/images/tutorials/8_ero_pic_3.webp"></ChatMessage>
+  <ChatMessage name="EroEroBot" :avatar="$withBase('/avatar/ero.webp')"><img height="100" src="/images/tutorials/7_ero_pic_3.webp"></ChatMessage>
 </ChatPanel>
 
 你可以猜一下是什么原因吗

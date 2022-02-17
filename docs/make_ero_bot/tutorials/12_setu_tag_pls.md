@@ -31,7 +31,7 @@
 `Ariadne` 跟友商从整体思路上就已经有所不同了  
 :::
 
-虽然说这个例子挺好的，但不太符合我们对 EroEroBot 的设定<Curtain>啥，这玩意儿还有设定？</Curtain> 
+虽然说这个例子挺好的，但不太符合我们对 EroEroBot 的设定<Curtain>啥，这玩意儿还有设定？</Curtain>
 所以我们稍稍改了一下
 
 <ChatPanel title="GraiaCommunity">
