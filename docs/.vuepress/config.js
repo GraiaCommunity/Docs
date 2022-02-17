@@ -125,5 +125,16 @@ module.exports = {
         // ]
       },
     ],
+    [
+      '@vuepress/medium-zoom',
+       {
+        selector: '.theme-default-content :not(a) > img:not(.no-zoom)',
+        // medium-zoom options here
+        // See: https://github.com/francoischalifour/medium-zoom#options
+        options: {
+          margin: 16
+        }
+      }
+    ],
   ],
 }

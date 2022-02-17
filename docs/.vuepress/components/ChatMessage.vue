@@ -1,7 +1,7 @@
 <template>
   <div class="outer" :class="{ 'outer-right': onright }">
     <div class="avatar">
-      <img v-if="avatar" :src="avatar" />
+      <img v-if="avatar" :src="avatar" class="no-zoom" />
       <div v-else class="avatar-text">{{ name[0] }}</div>
     </div>
     <div class="inner" :class="{ 'inner-left': !onright, 'inner-right': onright }">
