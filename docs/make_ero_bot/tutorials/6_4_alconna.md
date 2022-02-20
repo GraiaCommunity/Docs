@@ -4,12 +4,9 @@
 因为是外星来客，所以研究需要久一点也是合理的嘛
 :::
 
-<p align="center" style="font-size: 1.6rem; margin: 5px auto">loading...</p>
-<p align="center" style="margin: 5px auto"><Curtain>在研究了在研究了</Curtain></p>
-<p align="center" style="margin: 5px auto"><Curtain>在我下次更新是不会加载成功的 desu</Curtain></p>
-<Loading></Loading>
-
-`Alconna`， 全称 [`Arclet-Alconna`](https://github.com/ArcletProject/Alconna), 是由 [`Arclet Project`](https://github.com/ArcletProject) 维护的一个功能强大的 **命令** 解析器， 简单一点来讲就是 `click` 的高级版 (bushi
+`Alconna`， 全称 [`Arclet-Alconna`](https://github.com/ArcletProject/Alconna)  
+是由 [`Arclet Project`](https://github.com/ArcletProject) 维护的一个功能强大的 **命令** 解析器  
+简单一点来讲就是 `click` 的高级版 (bushi
 
 ::: tip
 `Alconna` 由两个[`尼希语`](http://tieba.baidu.com/p/7268094994) 单词组成， `alco` 和 `conna`
@@ -23,13 +20,13 @@
 
 设想我们要给机器人加一个搜索涩图的指令，
 
-```
+``` bash
 .setu搜索 <content>
 ```
 
 然后你给加上了很多的选项，并且某个选项会影响其他几个选项的有效性
 
-```
+``` bash
 --page <count>
 --tags <tags>
 --illust <illust_name>
@@ -93,9 +90,14 @@ _~~左: 莱塔尼亚权杖 右: 荒地龙舌兰~~_
 要想写好一个 `Alconna`, 你首先需要理清楚自己的**命令结构**
 
 一般, 你需要把命令分为四个部分:
-1. 命令名称: 作为一个命令的标识符  
+
+1. 命令名称: 作为一个命令的标识符
 2. 命令分隔符: 一般是空格
 3. 命令参数: 命令需要的参数（？
-4. 命令选项: 命令需要的选项（（？ 
+4. 命令选项: 命令需要的选项（（？
 
+<Loading></Loading>
+
+:::interlink
 **相关链接：**<https://arcletproject.github.io/docs/alconna/tutorial>
+:::
