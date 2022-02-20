@@ -12,6 +12,12 @@ module.exports = {
     editLink: false,
     notFound: ["你在翻什么，这里可没有涩图哦", "朋友，你是不是迷路了", "不要乱翻，会乱的"],
     backToHome: "返回首页",
+
+    // medium-zoom 配置项
+    selector: ".theme-default-content :not(a) > img:not(.no-zoom)",
+    zoomOptions: {
+      margin: 16
+    },
     navbar: [
       {
         text: "Graia Ariadne 官方文档",
@@ -113,28 +119,7 @@ module.exports = {
       "@vuepress/plugin-shiki",
       {
         theme: "one-dark-pro",
-        // langs: [
-        //   "py",
-        //   "json",
-        //   "toml",
-        //   "yaml",
-        //   "md",
-        //   "ps",
-        //   "sh",
-        //   "bat",
-        // ]
       },
-    ],
-    [
-      '@vuepress/medium-zoom',
-       {
-        selector: '.theme-default-content :not(a) > img:not(.no-zoom)',
-        // medium-zoom options here
-        // See: https://github.com/francoischalifour/medium-zoom#options
-        options: {
-          margin: 16
-        }
-      }
     ],
   ],
 }
