@@ -31,7 +31,7 @@ a .heimu {
   color: var(--text, var(--c-text));
   text-shadow: none;
   border-radius: 3px;
-  padding: 0.1rem 0.3rem;
+  padding: 0 0.2rem;
   margin: 0 0.2rem;
   font-size: 1rem;
   transition: color 0.13s linear;
