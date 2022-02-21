@@ -56,7 +56,7 @@ async def on_message(app: Ariadne, group: Group, message: MessageChain = DetectP
 ## DetectSuffix
 
 ```python
-# 消息必须以 "涩" 开头
+# 消息必须以 "好涩" 结尾
 # 如 "这个好涩"
 @bcc.receiver(GroupMessage, decorators=[DetectSuffix("好涩")])
 async def on_message(message: MessageChain):
@@ -65,7 +65,7 @@ async def on_message(message: MessageChain):
 ```
 
 ```python
-# 消息必须以 "涩" 开头
+# 消息必须以 "好涩" 结尾
 # 如 "这个好涩"
 @bcc.receiver(GroupMessage)
 async def on_message(message: MessageChain = DetectSuffix("好涩")):
@@ -93,7 +93,7 @@ async def on_mention_me(app: Ariadne, group: Group, member: Member):
 ```python
 # "Graiax 人呢" "Graiax，今晚一起去涩涩"
 # 要求名字/At在最前面
-@bcc.receiver(..., decorators=[Mention(target=...)]) # target: int | str  
+@bcc.receiver(..., decorators=[Mention(target=...)]) # target: int | str
 # int: 用户 QQ 号，str: 用户的名字
 async def on_mention(app: Ariadne, group: Group):
     await app.sendGroupMessage(group, MessageChain.create("你找我主人有什么事吗"))
