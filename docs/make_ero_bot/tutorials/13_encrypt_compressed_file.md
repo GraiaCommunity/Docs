@@ -7,7 +7,7 @@
 :::
 
 ::: warning
-还没写完，所以感觉挺乱的
+有种草草收尾的感觉。。。
 :::
 
 众所周知，QQ 因为某种原因，是不能出现那种很涩的图片的  
@@ -126,7 +126,8 @@ target 的 `Type Hint` 有 `Friend` 的原因仅仅是因为 `万一哪一天支
 
 大致是长这样：
 
-``` python
+``` python{3,8}
+class FileInfo(AriadneBaseModel):
     name: str # 文件名
     path: str # 路径
     id: Optional[str] # 文件 ID
@@ -137,9 +138,55 @@ target 的 `Type Hint` 有 `Friend` 的原因仅仅是因为 `万一哪一天支
     download_info: Optional[DownloadInfo] # 下载信息
 ```
 
-其他
-事实上，QQ 使用 `文件 ID` 作为文件的唯一识别码<Curtain>要不然你用 QQ 群文件怎么会允许同名群文件</Curtain>
+讲一下画高亮的部分
 
-<p align="center" style="font-size: 1.6rem; margin: 5px auto">loading...</p>
-<p align="center" style="margin: 5px auto"><Curtain>等一下先</Curtain></p>
-<Loading></Loading>
+1. `id`  
+    QQ 使用 `文件 ID` 作为文件的唯一识别码<Curtain>要不然你用 QQ 群文件怎么会允许同名群文件</Curtain><br/>
+    事实上，后面会讲的一切操作（如重命名，移动文件），都会需要 `文件 ID`
+
+2. `download_info`
+    如变量名所说，这个就是下载信息  
+    这其中包含了包括文件 MD5 等一系列下载所需要的东西
+
+    ``` python
+    class DownloadInfo(AriadneBaseModel):
+        sha: str # 文件 SHA256
+        md5: str # 文件 MD5
+        download_times: int # 下载次数
+        uploader_id: int # 上传者 QQ 号
+        upload_time: datetime # 上传时间
+        last_modify_time: datetime # 最后修改时间（如重命名则为修改）
+        url: Optional[str] # 下载 url
+    ```
+
+## 批量下载
+
+事实上，我们已经大致了解了群文件的大致构造  
+那就让我们来做一个批量下载群文件中图片的代码例子吧~
+
+::: warning
+以下代码使用了 0.6.0 新增的 `getFileIterator` 方法  
+假设你不是 0.6.0 就不要尝试了
+:::
+
+``` python
+# 全是缩进警告
+async def download_setu(app: Ariadne, group: Group):
+    os.makedirs("download", exist_ok=True) # 创建一个 download 文件夹
+    async for file in app.getFileIterator(group):
+        if file.name.split(".")[-1] in ["jpg", "jpeg", "png"]:
+            download_info = (await app.getFileInfo(group, file.id, with_download_info=True)).download_info
+            async with aiohttp.request("GET", download_info.url) as r:
+                with open(f"download/{file.name}", "wb") as f:
+                    while chunk := await resp.content.read(8192):
+                        f.write(chunk)
+      
+```
+
+::: tip
+事实上，获取 `DownloadInfo` 会需要额外调用 API  
+所以在遍历的情况下，我们不太建议将 `getFileIterator` 的 `with_download_info` 参数设置为 `True`  
+要不然会让速度变慢（假设你群文件全是图片的话可能情况就又不相同了）
+
+建议不要下载太快，要不然可能群文件相关 API 会被风控
+:::
