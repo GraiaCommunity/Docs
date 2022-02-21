@@ -58,6 +58,8 @@ from graia.broadcast.interrupt import InterruptControl
 from graia.broadcast.interrupt.waiter import Waiter
 ...
 
+inc = InterruptControl(app.broadcast)
+
 class SetuTagWaiter(Waiter.create([GroupMessage])):
     "涩图 tag 接收器"
 
@@ -79,11 +81,7 @@ async def setu(tag: List[str]) -> bytes:
 ))
 async def ero(app: Ariadne, group: Group, member: Member, message: MessageChain):
     await app.sendGroupMessage(group, MessageChain.create("你想要什么 tag 的涩图"))
-    inc = InterruptControl(app.broadcast)
-    try:
-        ret_msg = await inc.wait(SetuTagWaiter(group, member), timeout=10) # 不设置 timeout 的情况下，则会永远等待，直到成功获得
-    except asyncio.TimeoutError: # 假设超过了10秒
-        await app.sendGroupMessage(group, MessageChain.create("你咋不说话捏，不说话就不看了，再见"))
+    ret_msg = await inc.wait(SetuTagWaiter(group, member))
     await app.sendGroupMessage(group, MessageChain.create(Image(data_bytes=await setu(ret_msg.split()))))
 ```
 
@@ -121,7 +119,7 @@ def create(
 
 事实上，`Waiter` 的原理很简单  
 
-当你 `inc.wait` 的时候，BCC 内将会新增一个 `Listener`  
+当你调用 `inc.wait` 的时候，BCC 内将会新增一个 `Listener`  
 其行为跟其他 `Listener` 一模一样  
 但是不一样的是，当这个 `Listener` 的返回值不为 `None` 时  
 该 `Listener` 将会自动删除
@@ -135,6 +133,47 @@ def create(
 关于 `Listener` 构建时候的参数我们应该扯了挺多的了
 不过有几个参数我们在之前并没有扯到  
 那就是 `priority` 和 `block_propagation`
+
+### 超时取消
+
+假如你不想 `inc.wait` 永久等待下去，希望他在一段时间后自动取消的话  
+你可以在调用 `inc.wait` 的时候传入一个 `timeout` 参数  
+当 `timeout` 参数被指定时，`inc.wait` 将自动使用 `asyncio.wait_for` 来等待
+
+:::warning
+默认情况下，`timeout` 是没有被指定的，因此若你的 waiter 设定了一些条件才会返回非 `None` 值，
+那么当这些条件没有被满足时，`inc.wait` 将永远等待下去  
+（虽然这样并不会影响 bot 的正常运行，但可能过了很久以后，
+你所设定的条件突然被满足而使得你的 bot 突然说了一句莫名其妙的话，
+就会显得很奇怪）
+
+因此推荐你在调用 `inc.wait` 的时候指定一个 `timeout` 参数
+:::
+
+当等待了你所指定的超时时长且 waiter 没有返回非 `None` 值后，
+`asyncio.wait_for` 将会抛出一个 `asyncio.exceptions.TimeoutError`错误，
+通过捕捉这个错误，可以知道等待超时并作出相应的处理了
+
+```python
+    ...
+    await app.sendGroupMessage(group, MessageChain.create("你想要什么 tag 的涩图"))
+    try:
+        ret_msg = await inc.wait(SetuTagWaiter(group, member), timeout=10)
+    except asyncio.exceptions.TimeoutError:
+        await app.sendGroupMessage(group, MessageChain.create("已超时取消"))
+    else:
+        await app.sendGroupMessage(group, MessageChain.create(Image(data_bytes=await setu(ret_msg.split()))))
+```
+
+:::tip
+在 Python 中，`try...except` 是非常灵活的
+
+你可以在 `except` 块后使用 `else` 块来指定未发生异常时的处理方式  
+（当然你也可以在 `except` 块中使用 `return`、`break`、`continue` 等方法而不是 `else` 块来避开不应被执行的部分）
+
+除了 `else` 块外，你也可以指定一个 `finally` 块，该块表示无论是否发生错误，均会执行  
+（假如发生了错误，会在 `except` 块执行完毕后再执行 `finally` 块中的内容）
+:::
 
 ### 优先级（priority）
 
@@ -183,6 +222,8 @@ from graia.broadcast.interrupt import InterruptControl
 from graia.broadcast.interrupt.waiter import Waiter
 ...
 
+inc = InterruptControl(app.broadcast)
+
 async def setu(tag: List[str]) -> bytes:
     # 都说了，涩图 api 可是至宝，怎么可能轻易给你
     return Path("src/dio.jpg").read_bytes()
@@ -199,8 +240,7 @@ async def ero(app: Ariadne, group: Group, member: Member, message: MessageChain)
         if group.id == g.id and member.id == m.id:
             return msg
 
-    inc = InterruptControl(app.broadcast)
-    ret_msg = await inc.wait(SetuTagWaiter(group, member))
+    ret_msg = await inc.wait(setu_tag_waiter)
     await app.sendGroupMessage(group, MessageChain.create(Image(data_bytes=await setu(ret_msg.split()))))
 ```
 
