@@ -51,6 +51,8 @@
 
 ```python
 ...
+import asyncio
+
 from graia.ariadne.message.parser.base import MatchContent
 from graia.broadcast.interrupt import InterruptControl
 from graia.broadcast.interrupt.waiter import Waiter
@@ -78,7 +80,10 @@ async def setu(tag: List[str]) -> bytes:
 async def ero(app: Ariadne, group: Group, member: Member, message: MessageChain):
     await app.sendGroupMessage(group, MessageChain.create("你想要什么 tag 的涩图"))
     inc = InterruptControl(app.broadcast)
-    ret_msg = await inc.wait(SetuTagWaiter(group, member))
+    try:
+        ret_msg = await inc.wait(SetuTagWaiter(group, member), timeout=10) # 不设置 timeout 的情况下，则会永远等待，直到成功获得
+    except asyncio.TimeoutError: # 假设超过了10秒
+        await app.sendGroupMessage(group, MessageChain.create("你咋不说话捏，不说话就不看了，再见"))
     await app.sendGroupMessage(group, MessageChain.create(Image(data_bytes=await setu(ret_msg.split()))))
 ```
 

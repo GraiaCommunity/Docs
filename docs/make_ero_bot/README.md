@@ -39,13 +39,13 @@
     2. :heavy_minus_sign: [Twilight](./tutorials/6_2_twilight.md) —— `Kanata` 的精神续作  
     3. :heavy_minus_sign: [Commander](./tutorials/6_3_commander.md) —— 字符串创建命令  
     4. :heavy_minus_sign: [Alconna](./tutorials/6_4_alconna.md) —— <MoreInfo words="外  星  来  客"><div style="background: var(--c-bg);border:3px solid var(--c-brand)">（奥特曼也算是外星来客）<img src="/images/alien.webp" style="vertical-align:top"/></div></MoreInfo>  
- 7. :heavy_minus_sign: [看完了吗，我撤回了](./tutorials/7_leave_no_evidence.md) —— `异步延时` 和 Ariadne 实例的其他方法介绍
+ 7. :white_check_mark: [看完了吗，我撤回了](./tutorials/7_leave_no_evidence.md) —— `异步延时` 和 Ariadne 实例的其他方法介绍
  8. :white_check_mark: [/斜眼笑](./tutorials/8_huaji.md) —— `Formatter` 与 `Component` 的运用
  9. :white_check_mark: [不是所有人都能看涩图](./tutorials/9_not_everyone_have_st.md) —— `Depend` 的简单运用
 10. :white_check_mark: [哦嗨哟，欧尼酱](./tutorials/10_ohayou_oniichan.md) —— 任务计划器 `graia-scheduler` 的使用
 11. :white_check_mark: [东西要分类好](./tutorials/11_classification.md) —— 插件管理器 `graia-saya` 的使用
-12. :heavy_minus_sign: [请问您这次要怎么样的涩图](./tutorials/12_setu_tag_pls.md) —— `interrupt` 的简单运用
-13. :x: [无内鬼，来点加密压缩包](./tutorials/13_encrypt_compressed_file.md) —— 关于`文件操作`的简单实例
+12. :white_check_mark: [请问您这次要怎么样的涩图](./tutorials/12_setu_tag_pls.md) —— `interrupt` 的简单运用
+13. :white_check_mark: [无内鬼，来点加密压缩包](./tutorials/13_encrypt_compressed_file.md) —— 关于`文件操作`的简单实例
 14. :x: [后台对线]() —— 关于 `Console` 的介绍
 15. :x: [加速画~~涩~~图速度]() —— `cpu_bound` 的运用
 16. :x: [一条龙涩涩]() —— `saya` 跨模块运用
