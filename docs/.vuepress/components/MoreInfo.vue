@@ -10,8 +10,7 @@
     <span class="mbox" style="width: 200px">
       <div style="height: 1.4em"></div>
       <slot></slot>
-    </span>
-    {{ words }}
+    </span>{{ words }}
   </span>
 </template>
 
