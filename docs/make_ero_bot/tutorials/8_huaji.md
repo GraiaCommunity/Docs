@@ -1,40 +1,59 @@
 # 8. /斜眼笑
 
 ::: warning
-虽然说 `mirai` 支持了商城表情，但是 `mirai-api-http` 不支持
+虽然 `mirai` 支持了商城表情，但是 `mirai-api-http` 不支持！
 :::
 
 ::: tip
-你知道吗，这篇文档很水
+你知道吗，这章很水
 :::
 
-想必大家在 QQ 聊天的时候，或多或少都会用到QQ的一些表情包（如<img src="/images/tutorials/8_huaji.webp" height=20 style="vertical-align:text-bottom">和<img src="/images/tutorials/8_wangwang.webp" height=20 style="vertical-align:text-bottom">）。  
-不可否认，这些 QQ 自带的表情符号已经成为 QQ 日常交流中不可缺少的一部分。  
+想必大家在 QQ 聊天的时候，或多或少都会用到QQ的一些表情包（如
+<img
+    src="/images/tutorials/8_huaji.webp"
+    height=20
+    style="vertical-align:text-bottom"
+/>
+和
+<img
+    src="/images/tutorials/8_wangwang.webp"
+    height=20
+    style="vertical-align:text-bottom"
+/>
+）。不可否认，这些 QQ 自带的表情符号已经成为 QQ 日常交流中不可缺少的一部分。
+
 不过，当你想要通过 `Ariadne` 来构造这样充满表情符号的句子时，问题就大的去了：
 
 你的目标：
 
 <ChatPanel>
-<ChatMessage name="EroEroBot" :avatar="$withBase('/avatar/ero.webp')">来点涩图<img src="/images/tutorials/8_wangwang.webp" height=20 style="vertical-align:text-bottom"></ChatMessage>
+    <ChatMessage
+        name="EroEroBot"
+        :avatar="$withBase('/avatar/ero.webp')"
+    >来点涩图<img
+        src="/images/tutorials/8_wangwang.webp"
+        height=20
+        style="vertical-align:text-bottom"
+    /></ChatMessage>
 </ChatPanel>
 
 你的构造：
 
-```python
+``` python
 MessageChain.create("来点涩图", Face(277))
 ```
 
 这还算比较好的，但要是你想做到下面的效果呢？
 
 <ChatPanel>
-<ChatMessage name="EroEroBot" :avatar="$withBase('/avatar/ero.webp')">在新的一年里，祝你<br/>
-身<img src="/images/tutorials/8_wangwang.webp" height=20 style="vertical-align:text-bottom">体<img src="/images/tutorials/8_wangwang.webp" height=20 style="vertical-align:text-bottom">健<img src="/images/tutorials/8_wangwang.webp" height=20 style="vertical-align:text-bottom">康<br/>
+<ChatMessage name="EroEroBot" :avatar="$withBase('/avatar/ero.webp')">在新的一年里，祝你<br>
+身<img src="/images/tutorials/8_wangwang.webp" height=20 style="vertical-align:text-bottom">体<img src="/images/tutorials/8_wangwang.webp" height=20 style="vertical-align:text-bottom">健<img src="/images/tutorials/8_wangwang.webp" height=20 style="vertical-align:text-bottom">康<br>
 万<img src="/images/tutorials/8_wangwang.webp" height=20 style="vertical-align:text-bottom">事<img src="/images/tutorials/8_wangwang.webp" height=20 style="vertical-align:text-bottom">如<img src="/images/tutorials/8_wangwang.webp" height=20 style="vertical-align:text-bottom">意</ChatMessage>
 </ChatPanel>
 
 你的构造：
 
-```python
+``` python
 MessageChain.create(
     "在新的一年里，祝你\n", 
     "身", Face(277), "体", Face(277), "健", Face(277), "康\n",
@@ -42,17 +61,15 @@ MessageChain.create(
     )
 ```
 
-牙白，牙白，红豆泥牙白desu捏  
-那该怎么办好呢？
+牙白，牙白，红豆泥牙白desu捏~ 那该怎么办好呢？
 
-当然有啊
+当然有有办法！
 
 ## Formatter
 
-通俗来讲，`Formatter` 差不多就是一个给 `MessasgeChain` 用的 `str.format`  
-使用方法如下
+通俗来讲，`Formatter` 差不多就是一个给 `MessasgeChain` 用的 `str.format`，使用方法如下：
 
-```python
+``` python
 from graia.ariadne.message.formatter import Formatter
 
 Formatter("在新的一年里，祝你"
@@ -60,7 +77,7 @@ Formatter("在新的一年里，祝你"
           "万{doge}事{doge}如{doge}意").format(doge=Face(277))
 ```
 
-这样子是不是方便多了？
+你看这样子是不是方便多了？
 
 ::: interlink
 相关文档：<https://graia.readthedocs.io/extra/msg-chain-tool/>

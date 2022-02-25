@@ -6,7 +6,7 @@
 :::: code-group
 ::: code-group-item 0.5.0 +
 
-```python
+``` python
 ...
 from graia.ariadne.message.parser.twilight import Twilight
 ...
@@ -15,13 +15,13 @@ from graia.ariadne.message.parser.twilight import Twilight
     dispatchers=[Twilight.from_command("涩图来")]
 )
 async def test(app: Ariadne, group: Group):
-    await app.sendGroupMessage(group, Message.create(Image(path="/Graiax/EroEroBot/eropic.jpg")))
+    await app.sendGroupMessage(group, Message.create(Image(path="./Graiax/EroEroBot/eropic.jpg")))
 ```
 
 :::
 ::: code-group-item 0.5.0 -
 
-```python
+``` python
 ...
 from graia.ariadne.message.parser.pattern import FullMatch
 from graia.ariadne.message.parser.twilight import Sparkle, Twilight
@@ -31,7 +31,7 @@ from graia.ariadne.message.parser.twilight import Sparkle, Twilight
     dispatchers=[Twilight([FullMatch("涩图来")])]
 )
 async def test(app: Ariadne, group: Group):
-    await app.sendGroupMessage(group, Message.create(Image(path="/Graiax/EroEroBot/eropic.jpg")))
+    await app.sendGroupMessage(group, Message.create(Image(path="./Graiax/EroEroBot/eropic.jpg")))
 ```
 
 :::
@@ -50,6 +50,6 @@ async def test(app: Ariadne, group: Group):
 <div style="height:1em"></div>
 :::
 
-:::interlink
+::: interlink
 **相关链接：**<https://graia.readthedocs.io/advance/twilight/>
 :::
