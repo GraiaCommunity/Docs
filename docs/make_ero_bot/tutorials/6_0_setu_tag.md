@@ -3,21 +3,22 @@
 [>_<]: 真的好多东西啊，好难写，哭唧唧
 
 ::: danger 警告
-因为文档作者本人也没有完全搞懂每一种消息适配器  
-所以这篇文档大概是这个情况  
-进度 <progress value="20" max="100"></progress> 20%
+本章进度： <progress value="20" max="100"></progress> 20%
+
+因为文档的作者们也没有完全搞懂每一种消息适配器，
+所以这章大概就是这么个情况。
 
 下面你将看到：
 
 - 戛然而止的句子
-- 除了例子什么都没有的组件介绍
+- 除了例子什么都没有的介绍
 - 明明说了下面讲解一下原理但是却什么没有的谎言
-- 只有"敬请期待"的模块介绍
+- 只有“敬请期待”的介绍
 :::
 
-在看了之前的教程，你应该写出了一个简单的涩图机器人
+在看了之前的教程，你应该写出一个简单的涩图机器人了。
 
-```python
+``` python
 ...
 @bcc.receiver(GroupMessage)
 async def ero(app: Ariadne, group: Group, message: MessageChain):
@@ -31,22 +32,36 @@ async def ero(app: Ariadne, group: Group, message: MessageChain):
 ...
 ```
 
-不过说句实在话，用 `if` 来判断实在有点难受  
-（比如缩进太多，那你匹配 `涩图来 %涩图tag%` 什么的）  
-什么？你都有解决办法？
+你有没有觉得，每次都要用 `if` 来判断实在有点难受（比如缩进太多或者匹配如 `涩图来 {涩图tag} {涩图数量}` 这样需要二级三级命令的地方）。
 
-```python
-# 缩进
-if message.asDisplay() != "涩图来": return
+:::: details 举个栗子
 
-# 匹配"涩图来 %涩图tag%"
+``` python
+if message.asDisplay() != "涩图来":
+    return
+...
+
+# 缩进多
+# 匹配 "涩图来 {涩图tag} {涩图数量}" 且 {涩图数量} 可选
 if message.startswith("涩图来"):
-    message.removeprefix("涩图来")
+    message = message.removeprefix("涩图来")
+    message = message.lstrip()  # 请少一点链式调用
+    message_list = message.split()
+    if len(message_list) == 2:
+        tag = message_list[0]
+        num = int(message_list[1])
+    elif len(message_list) == 1：
+        tag = message_list[0]
+        num = 1
+    else:
+        ...
 ```
 
-我不管，反正就是有点难受啦 o(≧口≦)o
+::::
 
-所以，今天给各位介绍一下 Ariadne 中的消息匹配器**们**
+什么？你有解决办法？难道跟上面的栗子差不多？那你真的很机车欸~ 不管不管，反正伦家就是有点难受想要把知识塞给你啦。 o(≧口≦)o
+
+如果你饱受多层嵌套 `if` 的话，那不妨阅读一下本章，我们将给各位介绍一下 Ariadne 中的消息匹配器**们**。
 
 <style>
 progress {

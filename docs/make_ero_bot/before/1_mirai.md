@@ -26,7 +26,7 @@ Java 也有很多种 JVM 选择
 :::: code-group
 ::: code-group-item Ubuntu
 
-```bash
+``` bash
 # 非 root 的情况下记得最前面加上 sudo
 apt install openjdk-17-jre
 ```
@@ -34,7 +34,7 @@ apt install openjdk-17-jre
 :::
 ::: code-group-item CentOS 8 / Rocky Linux 8
 
-```bash
+``` bash
 # 非 root 的情况下记得最前面加上 sudo
 dnf install java-latest-openjdk
 ```
@@ -42,7 +42,7 @@ dnf install java-latest-openjdk
 :::
 ::: code-group-item Windows 10 / 11
 
-```bash
+``` bash
 # 假设你的电脑安装了 Winget
 # 事实上，截至目前，winget 上有足足 7 个厂商的 JDK
 # 因为是 Windows嘛，所以就以 Microsoft 发行的 JDK 举例
@@ -52,7 +52,7 @@ winget install Microsoft.OpenJDK.17
 :::
 ::: code-group-item MacOS
 
-```bash
+``` bash
 # 假设你提前安装了 brew cask
 # 没有，就先 "brew install brew-cask-completion"
 # 事实上，brew能够安装足足 4 个厂商的 JDK
@@ -63,7 +63,7 @@ brew cask install java
 :::
 ::: code-group-item termux
 
-```bash
+``` bash
 # 不太建议在 termux 运行 mcl
 # 可以看看后面的 MiraiAndroid，占用会低一点
 pkg install openjdk-17
@@ -94,7 +94,7 @@ pkg install openjdk-17
 
 再说说 Linux 用户，这个也很简单
 
-```bash
+``` bash
 # 假设你的系统十分的精简，记得安装 wget 和 unzip
 wget https://github.com/iTXTech/mirai-console-loader/releases/download/v1.2.2/mcl-1.2.2.zip
 unzip mcl-1.2.2.zip -d mcl-1.2.2
@@ -110,7 +110,7 @@ unzip mcl-1.2.2.zip -d mcl-1.2.2
 首先需要进入到 `mcl-1.2.2` 文件夹中  
 然后，跟着我的命令来
 
-```bash
+``` bash
 ./mcl --update-package net.mamoe:mirai-api-http --channel stable-v2 --type plugin
 ./mcl -u
 ```
@@ -118,7 +118,7 @@ unzip mcl-1.2.2.zip -d mcl-1.2.2
 然后，稍作等待，等到显示这个  
 然后你就成功启动了 mirai
 
-```bash
+``` bash
 xxxx-xx-xx xx:xx:xx I/main: mirai-console started successfully.
 
 >
@@ -126,7 +126,7 @@ xxxx-xx-xx xx:xx:xx I/main: mirai-console started successfully.
 
 然后让我们添加一下自动登录的账号
 
-```bash
+``` bash
 /autoLogin add <你的QQ号> <你的QQ密码>
 ```
 
@@ -136,7 +136,7 @@ xxxx-xx-xx xx:xx:xx I/main: mirai-console started successfully.
 
 进入 `./config/net.mamoe.mirai-api-http`，修改 `setting.yml`
 
-```yaml
+``` yaml
 # "./config/net.mamoe.mirai-api-http/setting.yml"
 adapters:
   - http
@@ -183,7 +183,7 @@ adapterSettings:
     在登录成功之前可能会出现很多奇奇怪怪的验证  
     但是到了最后，当控制台显示这个的时候，你就成功了
 
-    ```bash
+    ``` bash
     [INFO] Login successful.
     [INFO]Bot login successful.
     [INFO] EroEroBot (114514) Login successful
@@ -236,7 +236,7 @@ Docker 嘛，应该不用我介绍了吧，懂得都懂
 7. 进入到 `/storage/emulated/0/Android/data/io.github.mzdluo123.mirai.android/files/config/net.mamoe.mirai-api-http/setting.yml`
     输入配置文件
 
-    ```yaml
+    ``` yaml
     adapters:
     - http
     - ws

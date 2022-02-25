@@ -53,7 +53,7 @@
 （比如用来作图的 Pillow / PIL，用来做图标的 matplotlib）  
 举个例子，这是 `graia-ariadne 0.5.2.post1` 的依赖
 
-```bash
+``` bash
 graia-ariadne==0.5.2.post1
   - aiohttp [required: >=3.7.4,<4.0.0]
     - async-timeout [required: >=3.0,<4.0]
@@ -85,12 +85,12 @@ graia-ariadne==0.5.2.post1
 
 ### 4.3 Poetry 的安装
 
-```bash
+``` bash
 # osx / linux / bashonwindows
 curl -sSL https://install.python-poetry.org | python3 -
 ```
 
-```powershell
+``` powershell
 # windows powershell
 (Invoke-WebRequest -Uri https://install.python-poetry.org -UseBasicParsing).Content | python -
 ```
