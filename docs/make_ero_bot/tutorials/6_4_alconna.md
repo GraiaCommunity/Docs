@@ -48,7 +48,7 @@ SetuFind = Alconna.from_string(
 )
 ```
 
-:::note
+::: tip
 为了方便入门, 这里没有选择 `Alconna` 标准的构造方式
 :::
 
