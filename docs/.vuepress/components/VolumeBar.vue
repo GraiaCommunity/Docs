@@ -1,4 +1,5 @@
 <template>
+  <p v-if="front_word" id="volume-front">{{ front_word }}</p>
   <span id="volume-bar">
     <div class="volume">
       <input
@@ -20,6 +21,14 @@
   </span>
 </template>
 
+<script>
+export default {
+  props: {
+    front_word: String
+  },
+}
+</script>
+
 <style scoped>
 #volume-bar {
   display: inline-block;
@@ -35,6 +44,12 @@
   text-align: right;
   background: var(--c-bg-lighter);
   border-radius: 5px;
+}
+#volume-front {
+    display: inline-block;
+    margin-right: 0.5em;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
 }
 .volume {
   display: flex;

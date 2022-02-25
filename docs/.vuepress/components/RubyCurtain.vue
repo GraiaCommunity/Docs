@@ -3,7 +3,7 @@
     <slot></slot>
     <rp>(</rp>
     <rt>
-      <curtain :title="title" :type="type" style="height: 100px; font-size: 0.75em">{{ up }}</curtain>
+      <curtain :title="title" :type="type">{{ up }}</curtain>
     </rt>
     <rp>)</rp>
   </ruby>
@@ -27,6 +27,8 @@ export default {
 
 <style scoped>
 rt .heimu {
+  height: 100px;
+  font-size: 1em;
   padding-bottom: 0 !important;
 }
 </style>

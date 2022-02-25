@@ -18,7 +18,7 @@
   </ChatMessage>
 </ChatPanel>
 
-贴心的音量键 <VolumeBar></VolumeBar>
+<VolumeBar front_word="贴心的音量键"></VolumeBar>
 
 还记得上一篇我们简单的讲解了一下消息链时候，给出了这样一个构建图片元素的办法
 
