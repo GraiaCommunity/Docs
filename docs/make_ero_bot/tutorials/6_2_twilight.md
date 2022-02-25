@@ -28,7 +28,7 @@ from graia.ariadne.message.parser.twilight import Sparkle, Twilight
 ...
 @bcc.receiver(
     GroupMessage,
-    dispatchers=[Twilight(Sparkle([FullMatch("涩图来")]))]
+    dispatchers=[Twilight([FullMatch("涩图来")])]
 )
 async def test(app: Ariadne, group: Group):
     await app.sendGroupMessage(group, Message.create(Image(path="/Graiax/EroEroBot/eropic.jpg")))

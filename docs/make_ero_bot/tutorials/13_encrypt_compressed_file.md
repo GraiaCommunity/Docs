@@ -43,22 +43,17 @@
 
 ## 文件操作（上传）
 
-::: tip
-因为[某种因素](https://github.com/GraiaProject/Ariadne/issues/108)  
-中文文件名会被 UrlEncode  
-不过该问题已经在 `Ariadne 0.6.0rc1` 被修复
-:::
-
 首先，又到了我们经典的举例子时间~
 
 ``` python{15}
 ...
+from graia.ariadne.message.parser.twilight import MatchResult
 
 @channel.use(ListenerSchema(
     listening_events=[GroupMessage],
     decorators=[Twilight.from_command("涩图来 {tag}")]
 ))
-async def upload_file(app: Ariadne, group: Group, tag: ParamMatch):
+async def upload_file(app: Ariadne, group: Group, tag: MatchResult):
     if tag.result.asDisplay() != "紧身衣":
         return # 因为这只是一个简单的教程，所以我们就指定tag好了
 
@@ -164,11 +159,6 @@ class FileInfo(AriadneBaseModel):
 事实上，我们已经大致了解了群文件的大致构造  
 那就让我们来做一个批量下载群文件中图片的代码例子吧~
 
-::: warning
-以下代码使用了 0.6.0 新增的 `getFileIterator` 方法  
-假设你不是 0.6.0 就不要尝试了
-:::
-
 ``` python
 # 全是缩进警告
 async def download_setu(app: Ariadne, group: Group):
@@ -180,7 +170,6 @@ async def download_setu(app: Ariadne, group: Group):
                 with open(f"download/{file.name}", "wb") as f:
                     while chunk := await resp.content.read(8192):
                         f.write(chunk)
-      
 ```
 
 ::: tip

@@ -48,7 +48,7 @@ from graia.ariadne.message.element import At, Plain, Image, Forward, ForwardNode
 
 @bcc.receiver(
     GroupMessage,
-    dispatchers=[Twilight(Sparkle([FullMatch("好大的奶")]))]
+    dispatchers=[Twilight([FullMatch("好大的奶")])]
 )
 async def create_forward(app: Ariadne, member: Member):
     fwd_nodeList = [

@@ -66,16 +66,15 @@ EroEroBot>
 
  ``` python
 from graia.ariadne.app import Ariadne
-from graia.ariadne.message.parser.twilight import Sparkle, Twilight, ParamMatch
+from graia.ariadne.message.parser.twilight import MatchResult, ParamMatch, Twilight
 from graia.ariadne.console.saya import ConsoleSchema
 from graia.saya import Channel
 
 channel = Channel.current()
 
-@channel.use(ConsoleSchema([Twilight.from_command("laning {0} {1}")]))
-async def console_chat(app: Ariadne, sparkle: Sparkle):
-    group, message = sparkle[ParamMatch]
-    group_id = group.result.asDisplay()
+@channel.use(ConsoleSchema([Twilight.from_command("laning {id} {message}")]))
+async def console_chat(app: Ariadne, id: MatchResult, message: MatchResult):
+    group_id = id.result.asDisplay()
     await app.sendGroupMessage(int(group_id), message.result)
  ```
 

@@ -4,7 +4,7 @@
 
 1. **本文将会使用 `poetry` 作为依赖管理和打包的工具。**
 2. **本文将假设你具有一定的英语阅读并对工具软件的提示有自己作出决定的能力**
-3. **本文将使用 `graia-ariadne` 0.5.3 及以上的版本**
+3. **本文将使用 `graia-ariadne` 0.6.0.post1 及以上的版本**，部分内容可能仍为旧版本但不影响食用
 4. 虽然 `Ariadne` 支持 Python 3.8 - 3.10 但为了最佳体验，我们建议你最好升级到 Python3.9+
 
 你可能会疑惑为什么不直接使用 `pip` + `venv` 而是使用 `poetry`？
@@ -120,7 +120,7 @@ Using virtualenv: /root/.cache/pypoetry/virtualenvs/EroEroBot-BexBd8Xq-py3.9
 $ poetry add graia-ariadne[full]
 
 Creating virtualenv EroEroBot-BexBd8Xq-py3.9 in /root/.cache/pypoetry/virtualenvs
-Using version ^0.5.3 for graia-ariadne
+Using version ^0.6.0.post1 for graia-ariadne
 
 Updating dependencies
 Resolving dependencies...
@@ -138,7 +138,7 @@ Package operations: 24 installs, 0 updates, 0 removals
   • Installing win32-setctime (1.1.0)
   • Installing aiosignal (1.2.0)
   • Installing async-timeout (4.0.2)
-  • Installing croniter (1.2.0)
+  • Installing croniter (1.3.4)
   • Installing graia-broadcast (0.15.6)
   • Installing attrs (21.4.0)
   • Installing typing-extensions (4.1.1)
@@ -147,12 +147,12 @@ Package operations: 24 installs, 0 updates, 0 removals
   • Installing wcwidth (0.2.5)
   • Installing yarl (1.7.2)
   • Installing aiohttp (3.8.1)
-  • Installing arclet-alconna (0.4.3)
+  • Installing arclet-alconna (0.6.3)
   • Installing graia-scheduler (0.0.6)
   • Installing pydantic (1.9.0)
   • Installing graia-saya (0.0.14)
   • Installing prompt-toolkit (3.0.28)
-  • Installing graia-ariadne (0.5.3.post3)
+  • Installing graia-ariadne (0.6.0.post1)
 ```
 
 ## 1.3 快速创建一个最小实例
@@ -208,14 +208,14 @@ Package operations: 24 installs, 0 updates, 0 removals
        / /\ \ | '__| |/ _` |/ _` | '_ \ / _ \
       / ____ \| |  | | (_| | (_| | | | |  __/
      /_/    \_\_|  |_|\__,_|\__,_|_| |_|\___|
-    Ariadne version: 0.5.3.post3
+    Ariadne version: 0.6.0.post1
     Saya version: 0.0.14
     Broadcast version: 0.15.6
     Scheduler version: 0.0.6
     2022-02-15 17:12:16.320 | INFO     | graia.ariadne.app - Launching app...
     2022-02-15 17:12:16.321 | INFO     | graia.ariadne.adapter - websocket: connected
     2022-02-15 17:12:16.332 | INFO     | graia.ariadne.adapter - websocket: ping task created
-    2022-02-15 17:12:16.333 | INFO     | graia.ariadne.app - Remote version: 2.4.0
+    2022-02-15 17:12:16.333 | INFO     | graia.ariadne.app - Remote version: 2.5.0
     2022-02-15 17:12:16.334 | INFO     | graia.ariadne.app - Application launched with 0.012s
     2022-02-15 17:12:16.335 | INFO     | graia.ariadne.app - daemon: adapter started
     ```
