@@ -10,7 +10,7 @@
 然后，自从你学习了如何写出一个机器人脚本  
 就想，能不能通过机器人脚本来间接实现这个幻想呢
 
-懂得都懂 <VolumeBar></VolumeBar>
+<VolumeBar front_word="懂得都懂"></VolumeBar>
 
 <ChatPanel title="GraiaCommunity">
 <p style = "text-align:center; font-size:0.75em">07:30</p>
