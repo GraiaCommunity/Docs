@@ -1,6 +1,6 @@
 import { defineUserConfig } from 'vuepress'
 import type { DefaultThemeOptions } from 'vuepress'
-import { resolve } from 'path'
+import { path } from '@vuepress/utils'
 
 
 export default defineUserConfig<DefaultThemeOptions>({
@@ -9,6 +9,7 @@ export default defineUserConfig<DefaultThemeOptions>({
     title: "GraiaX文档",
     description: "GraiaX文档",
 
+    theme: path.resolve(__dirname, './theme'),
     themeConfig: {
         head: [["link", { rel: "icon", href: "/favicon.ico" }]],
         logo: "/logo.svg",
@@ -93,7 +94,7 @@ export default defineUserConfig<DefaultThemeOptions>({
         [
             "@vuepress/register-components",
             {
-                componentsDir: resolve(__dirname, "./components"),
+                componentsDir: path.resolve(__dirname, "./components"),
             },
         ],
         [
