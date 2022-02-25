@@ -50,6 +50,7 @@ export default defineUserConfig<DefaultThemeOptions>({
                         "/make_ero_bot/tutorials/2_other_event.md",
                         {
                             text: "3.关于消息链的故事",
+                            link: "/make_ero_bot/tutorials/3_1_ero_comes.md",
                             children: [
                                 "/make_ero_bot/tutorials/3_1_ero_comes.md",
                                 "/make_ero_bot/tutorials/3_2_kugimiya.md"
