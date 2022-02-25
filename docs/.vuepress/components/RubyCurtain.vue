@@ -27,8 +27,8 @@ export default {
 
 <style scoped>
 rt .heimu {
-  height: 100px;
-  font-size: 1em;
-  padding-bottom: 0 !important;
+  font-size: 0.75em;  /* 与其他 Ruby 默认的字体大小保持同步 */
+  padding-top: 0;  /* 尽量使黑幕不要挡住上一行 */
+  padding-bottom: 0;  /* 尽量使黑幕不要挡住当前行的内容 */
 }
 </style>
