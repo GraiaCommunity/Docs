@@ -54,11 +54,7 @@ export default {
 .volume {
   display: flex;
   height: 1rem;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  align-content: center;
   align-items: center;
-  justify-content: space-between;
 }
 input[type="range"] {
   -webkit-appearance: none;

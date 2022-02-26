@@ -65,11 +65,7 @@ export default {
   display: flex;
   min-width: 4rem;
   max-width: 15vw;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  align-content: center;
   justify-content: space-between;
-  align-items: center;
   cursor: pointer;
 }
 
