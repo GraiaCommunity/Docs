@@ -13,4 +13,5 @@ title: 社区可供参考的 bot
     <GithubRepo user="Redlnn" repo="redbot">一个以 Graia Ariadne 框架为基础的 QQ 机器人</GithubRepo>
     <GithubRepo user="SAGIRI-kawaii" repo="sagiri-bot">基于Graia和Mirai的QQ机器人 SAGIRI-BOT</GithubRepo>
     <GithubRepo user="zzzzz167" repo="Yuki"></GithubRepo>
+    <GithubRepo user="BlueGlassBlock" repo="Xenon">An elegant QQ bot based on Mirai and Graia Project.</GithubRepo>
 </div>
