@@ -170,12 +170,9 @@ Package operations: 24 installs, 0 updates, 0 removals
 3. 写入如下内容
 
    ``` python
-   import asyncio
-
    from graia.ariadne.app import Ariadne
    from graia.ariadne.event.message import GroupMessage
    from graia.ariadne.message.chain import MessageChain
-   from graia.ariadne.message.element import Plain
    from graia.ariadne.model import Group, MiraiSession
 
    app = Ariadne(
