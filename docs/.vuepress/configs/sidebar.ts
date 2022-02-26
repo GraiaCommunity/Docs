@@ -47,6 +47,7 @@ export const sidebar: SidebarConfig = {
                 "/make_ero_bot/tutorials/12_setu_tag_pls.md",
                 "/make_ero_bot/tutorials/13_encrypt_compressed_file.md",
                 "/make_ero_bot/tutorials/14_backend_laning.md",
+                "/make_ero_bot/tutorials/15_async_drawing.md",
             ],
         },
         {
