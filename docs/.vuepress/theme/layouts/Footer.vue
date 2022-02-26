@@ -5,8 +5,10 @@ import ParentLayout from "@vuepress/theme-default/lib/client/layouts/Layout.vue"
 <template>
   <ParentLayout>
     <template #page-bottom>
-      <div class="my-footer">
-        <p><strong>Tip: </strong><span v-html="random"></span></p>
+      <div class="custom-footer">
+        <div class="custom-footer-container">
+          <p><strong>Tip: </strong><span v-html="random"></span></p>
+        </div>
       </div>
     </template>
   </ParentLayout>
@@ -33,9 +35,39 @@ export default {
 };
 </script>
 
-<style lang="css">
-.my-footer {
+<!-- 此处的 scoped 不生效，注意 css 名在其他位置是否重复 -->
+<style scope>
+.custom-footer {
+  display: flex;
+  justify-content: center;
+}
+
+/* 保持与文章区域宽度及边距一致 */
+.custom-footer-container {
+  width: var(--content-width);
   text-align: center;
-  margin: 0 2em;
+  padding: 0 2.5rem;
+}
+
+@media (max-width: 959px) {
+  .custom-footer-container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+@media (max-width: 419px) {
+  .custom-footer-container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+.custom-footer-container > hr {
+  margin-bottom: 1.5rem;
+}
+
+.custom-footer-container > p {
+  margin: 0;
 }
 </style>
