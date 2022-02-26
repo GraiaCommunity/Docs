@@ -115,7 +115,7 @@ async def ero(app: Ariadne, group: Group, result: Arpamar):
 在p站中搜索条件达成的插图并返回<br>可用的选项有:<br>
 # 在所有搜索结果中指定页数<br>  --page &lt;count, default=1&gt;<br>
 # 指定插图的标签，可以使用空格分隔多个标签<br>  --tags &lt;*tags&gt;<br>
-# 指定插图画师<br>  --illust &lt;illust_name:str&gt;<br>
+# 指定插图画师<br>  --illust &lt;illust_name&gt;<br>
 # 设定插图的点赞数范围<br>  --click &lt;min, default=1&gt; &lt;max&gt;</ChatMessage>
 <ChatMessage name="群菜龙" avatar="http://q1.qlogo.cn/g?b=qq&nk=2544704967&s=640">好</ChatMessage>
 </ChatPanel>
