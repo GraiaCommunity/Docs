@@ -1,9 +1,5 @@
 # 14. 后台对线
 
-::: danger
-总感觉有哪里忘记讲了
-:::
-
 还记得 `mcl` 吗？你应该对他底下的这个 `>` 印象深刻吧。
 
 ``` bash
@@ -59,14 +55,23 @@ EroEroBot>
 <br><Curtain>谁叫人家是 python 为数不多的支持多平台的 tui 库呢（摊手）</Curtain>
 :::
 
-## 写一个后台发送消息吧~
+## Console 能做什么？
+
+你可能会说，我要一个后台（控制台）又有什么用呢？
+
+我可以告诉你两个最简单的栗子：
+
+1. 你可以在后台通过 Bot 的账号主动发送群/私聊消息了（当然，只要你想，你也可以执行更多的操作），你的 Bot 再也不是只能一应一答或者定时发消息的“傻孩纸”了
+2. 你觉不觉得每次关闭 Ariadne 都要按 `ctrl+c` 手指要伸很长很累，现在你可以通过命令退出 Ariadne 了！
+
+### 后台发送消息吧~
 
 来，让我们在 `module` 文件夹中新建一个 `backend_laning.py`：
 
 ``` python
 from graia.ariadne.app import Ariadne
-from graia.ariadne.message.parser.twilight import MatchResult, ParamMatch, Twilight
 from graia.ariadne.console.saya import ConsoleSchema
+from graia.ariadne.message.parser.twilight import MatchResult, ParamMatch, Twilight
 from graia.saya import Channel
 
 channel = Channel.current()
@@ -77,14 +82,89 @@ async def console_chat(app: Ariadne, id: MatchResult, message: MatchResult):
     await app.sendGroupMessage(int(group_id), message.result)
 ```
 
+启动你的 Bot，然后在 `EroEroBot>` 后输入 `laning 114514 19180` 并按下回车键，
+你就会惊喜地发现，你的 Bot 在群号为 114514 的这个群里发了一条内容为 19180 的消息（假设你的 Bot 真的加入了群号为 114514 的群）。
+
+#### 原理解析
+
 首先，先从「为什么 Console 能用 Twilight」这个问题开始吧~
+你可能会很好奇为什么明明是在后台输入命令，但是还是可以用 Twilight 这样的“消息链处理器（解析器）”。
 
-事实上，`Console` 为了能够多用用现成的管理器，会将获取的输入转换为 MessageChain 来让现有的**一堆消息匹配器**可用。
+事实上，`Console` 为了能够多多复用现成的各种设施，会将他获取到的输入转换为消息链来处理。
+你只需要把 `ConsoleSchema` 替换成 `ListenerSchema` 来理解就可以了，
+在 `ConsoleSchema` 里除了没法像 `group: Group`、`member: Member` 外，
+其他方面都跟你写普通的各种功能差不多。
 
-<p align="center" style="font-size: 30px"><strong>前面的区域，以后再来探索吧</strong></p>
+### 通过命令退出 Ariadne
 
-<Loading></Loading>
+以下是一个栗子，当你执行 `stop` 命令时，Console 会询问你是否需要需要退出，
+此时，你输入 `y`/`yes` 即可退出 Ariadne 了！
+
+```python
+from graia.ariadne.app import Ariadne
+from graia.ariadne.console import Console
+from graia.ariadne.console.saya import ConsoleSchema
+from graia.ariadne.message.parser.twilight import FullMatch, Twilight
+from graia.saya import Channel
+
+channel = Channel.current()
+
+@channel.use(ConsoleSchema([Twilight([FullMatch('stop')])]))
+async def stop(app: Ariadne, console: Console):
+    res: str = await console.prompt(
+        l_prompt=[('class:warn', ' 你确定要退出吗? '), ('', ' (y/n) ')],
+        style=Style([('warn', 'bg:#cccccc fg:#d00000')]),
+    )
+    if res.lower() in ('y', 'yes'):
+        await app.stop()
+        console.stop()
+```
+
+## 个性化
+
+:::warning
+若模仿本小节内容进行设置但设置不当，则可能会带来一些 Bug，请经过测试后再使用。
+
+- 本小节内容需要你的终端所使用的字体支持 [Powerline](https://github.com/powerline/powerline) 或 [Nerd](https://www.nerdfonts.com/)，
+否则你可能会见到未知字符（如问号、方框等）。
+- 本小节代码中有两个字符需要你的浏览器调用的等宽字体支持 [Powerline](https://github.com/powerline/powerline) 或 [Nerd](https://www.nerdfonts.com/)，
+否则你可能会见到未知字符（如问号、方框等）。
+
+对于本栗子及更多类似的效果的预览图，
+你可以点击[这里](https://github.com/powerline/powerline#screenshots)或[这里](https://ohmyposh.dev/docs/themes)或[这里](https://github.com/ohmyzsh/ohmyzsh/wiki/Themes)了解一下。
+:::
+
+假如你不满足于像 `prompt="EroEroBot> "` 这样只能自定义一个普通的字符串作为 Console 的输入提示，
+假如你想要和 `oh my zsh` 或者 `oh my posh` 那样彩色的各种特殊字符的样子，可以吗？
+
+**当然可以！**
+
+你只需要在初始化 `Console` 的时候传入一些参数就可以实现了，下面就是一个栗子：
+
+```python
+...
+from prompt_toolkit.formatted_text import HTML
+from prompt_toolkit.styles import Style
+...
+
+con = Console(
+    broadcast=app.broadcast,
+    prompt=HTML('<split_1></split_1><eroerobot> EroEroBot </eroerobot><split_2></split_2> '),
+    style=Style(
+        [
+            ('split_1', 'fg:#61afef'),
+            ('eroerobot', 'bg:#61afef fg:#ffffff'),
+            ('split_2', 'fg:#61afef'),
+        ]
+    ),
+    replace_logger=False,
+)
+```
 
 ::: interlink
-**相关链接：**<https://graia.readthedocs.io/extra/console/>
+**相关链接：**
+
+- <https://graia.readthedocs.io/extra/console/>
+- <https://python-prompt-toolkit.readthedocs.io/en/master/pages/reference.html?highlight=html#prompt_toolkit.formatted_text.HTML>
+- <https://python-prompt-toolkit.readthedocs.io/en/master/pages/reference.html?highlight=html#prompt_toolkit.styles.Style>
 :::
