@@ -153,6 +153,7 @@ _~~左：莱塔尼亚权杖 右：荒地龙舌兰~~_
 ## 6.4.3 竟然是整活
 
 ### 元素匹配
+
 一定要记住, Alconna是支持元素匹配的(Plain元素或Source等元素除外)
 
 所以, 如果你要写一个以图搜图的功能, 这么写就好了:
@@ -169,6 +170,7 @@ pic_search = Alconna(
 ```
 
 ### 不规则命令
+
 你可以在`command`中塞正则表达式, 其在头部解析后会将匹配结果返回
 
 类似`.r100`或者`查询XX人品`的指令, 这么写就好了:
@@ -190,5 +192,7 @@ async def roll_dice(app: Ariadne, group: Group, result: Arpamar):
 <Loading></Loading>
 
 ::: interlink
-**相关链接：**<https://arcletproject.github.io/docs/alconna/tutorial>
+**相关链接：**  
+<https://graia.readthedocs.io/advance/alconna/quickstart/>  
+<https://arcletproject.github.io/docs/alconna/tutorial>
 :::
