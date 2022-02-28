@@ -1,5 +1,9 @@
 # 15. 异步画~~涩~~图
 
+::: danger
+知道拼积木吗？现在这一章差不多可以认为是零件乱放。
+:::
+
 在看了那么多篇文档以及 [其他 bot](../appendix/awesome_bot.md) 的源码，
 想必你已经做了一个**带有 Pillow / PIL 的制图**的模组吧~
 
@@ -20,7 +24,79 @@
 
 ## 快速实例
 
+:::: code-group
+::: code-group-item 原来的
 
+``` python
+from io import BytesIO
+
+# 切记，PIL 的 Image 跟 ariadne 的 Image Element 名字重了
+from PIL import Image as IMG
+...
+
+def make_pic(size = (100, 100), color = (255, 0, 0)):
+    img = IMG.new('RGB', size, color)
+    img.save(b := BytesIO(), 'JPEG')
+    return b.getvalue()
+
+@channel.use([GroupMessage])
+async def drawing():
+    pic = make_pic()
+    await app.sendGroupMessage(group_id, MessageChain.create(Image(pic)))
+
+```
+
+:::
+::: code-group-item 用 io_bound
+
+``` python
+from io import BytesIO
+
+# 切记，PIL 的 Image 跟 ariadne 的 Image Element 名字重了
+from PIL import Image as IMG
+from graia.ariadne.utils import io_bound, cpu_bound
+...
+
+@io_bound
+def make_pic(size = (100, 100), color = (255, 0, 0)):
+    img = IMG.new('RGB', size, color)
+    img.save(b := BytesIO(), 'JPEG')
+    return b.getvalue()
+
+@channel.use([GroupMessage])
+async def drawing():
+    pic = await make_pic()
+    await app.sendGroupMessage(group_id, MessageChain.create(Image(pic)))
+```
+
+:::
+::: code-group-item 用 asyncio.to_thread
+
+``` python
+from io import BytesIO
+import asyncio
+
+# 切记，PIL 的 Image 跟 ariadne 的 Image Element 名字重了
+from PIL import Image as IMG
+...
+
+def make_pic(size = (100, 100), color = (255, 0, 0)):
+    img = IMG.new('RGB', size, color)
+    img.save(b := BytesIO(), 'JPEG')
+    return b.getvalue()
+
+@channel.use([GroupMessage])
+async def drawing():
+    pic = await asyncio.to_thread(make_pic())
+    await app.sendGroupMessage(group_id, MessageChain.create(Image(pic)))
+```
+
+:::
+::::
+
+::: tip
+`io_bound` 跟 `asyncio.to_thread` 除了使用方法可能有所不同外，本质其实没有多大区别
+:::
 
 <p align="center" style="font-size: 30px"><strong>Moyuing~</strong></p>
 
