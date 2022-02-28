@@ -6,7 +6,7 @@ heroText: Graia Community
 tagline: Community of Graia Project
 
 actions:
-  - text: 快速实战 👉 涩图机器人制作
+  - text: 快速实战 :point_right: 涩图机器人制作
     link: /make_ero_bot/
 
 features:

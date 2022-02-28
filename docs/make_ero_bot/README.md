@@ -4,7 +4,7 @@
 
 所以我们将创建**大家最喜欢的涩图机器人**为例子，将你们带入机器人的世界
 
-本文档的所有例子都在 👉 [co ↗ co ↘](https://github.com/GraiaCommunity/EroEroBot)
+本文档的所有例子都在 :point_right: [co ↗ co ↘](https://github.com/GraiaCommunity/EroEroBot)
 
 假设文档有一些专有名词不了解，也可以看看[这里](terms)。
 
