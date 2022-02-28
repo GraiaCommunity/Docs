@@ -33,7 +33,7 @@ a .heimu {
   border-radius: 3px;
   padding: 2px 5px; /* 尽量与 code 标签的样式保持一致提升观感 */
   margin: 0 3px;
-  font-size: 0.85em; /* 与 code 标签的样式保持一致提升观感 */
+  /*font-size: 0.85em;  要是黑幕跟其他字体不一样大，就没那味了啊 */
   transition: color 0.13s linear;
 }
 .heimu:hover,
