@@ -53,6 +53,7 @@ export const sidebar: SidebarConfig = {
         {
             text: "附录",
             children: [
+                "/make_ero_bot/appendix/small_question.md",
                 "/make_ero_bot/appendix/terms.md",
                 "/make_ero_bot/appendix/credit.md",
                 "/make_ero_bot/appendix/awesome_bot.md",
