@@ -35,7 +35,7 @@
 ## 安装 `Graia-Scheduler`
 
 ::: tip
-假设你之前用的是 `graia-ariadne[full]`，你可以直接跳过本小节。
+假设你之前用的是 `graia-ariadne[full]` 或 `graia-ariadne[graia]`，你可以直接跳过本小节。
 :::
 
 :::: code-group

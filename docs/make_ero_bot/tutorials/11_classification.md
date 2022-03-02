@@ -41,7 +41,7 @@ Behaviour<br>(行为)|根据 Cube 及其元信息，对底层接口(例如 Broad
 ## `Saya` 的安装
 
 ::: tip
-假设你之前用的是 `graia-ariadne[full]`，你可以直接跳过本小节。
+假设你之前用的是 `graia-ariadne[full]` 或 `graia-ariadne[graia]`，你可以直接跳过本小节。
 :::
 
 :::: code-group

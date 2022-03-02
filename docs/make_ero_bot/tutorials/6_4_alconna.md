@@ -15,6 +15,32 @@
 
 :::
 
+## 6.4.0 凡事都要先安装
+
+::: tip
+假设你之前用的是 `graia-ariadne[full]` 或 `graia-ariadne[alconna]`，你可以直接跳过本小节。
+:::
+
+:::: code-group
+::: code-group-item poetry
+
+``` bash
+# 顺便选一个输进去就完事了
+poetry add arclet-alconna
+poetry add graia-ariadne[alconna]
+```
+
+:::
+::: code-group-item pip
+
+``` bash
+# 顺便选一个输进去就完事了
+pip install arclet-alconna
+pip install graia-ariadne[alconna]
+```
+
+::::
+
 ## 6.4.1 为什么是外星来客 (大雾)
 
 设想我们要给机器人加一个搜索涩图的指令，

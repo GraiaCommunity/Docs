@@ -6,7 +6,7 @@
 2. **本文档将假设你具有一定的英语阅读能力，并能对工具软件的提示作出自己的决定；**
 3. **本文档将会使用 `poetry` 作为依赖和虚拟环境管理工具；**
 
-   ::: warning Q and A
+   ::: warning Q & A
    **Q1:** 为什么不直接使用 `pip` + `venv` 而是使用 `poetry`？  
    **A1:**  
    `poetry` 能够更好地管理依赖，当然你直接用 pip 也行，只是不推荐（不会有人想因为依赖冲突把系统环境炸掉吧）  
@@ -15,7 +15,8 @@
    > 至于你问我如何用 pip 创建虚拟环境？:point_right: [看这](../before/Q&A.md#_9-当你遇到不会的东西的时候)
 
    **Q2:** 为什么不用 `conda` 或 `pdm`  
-   **A1:** 可以可以都可以，你喜欢你开心就好
+   **A1:**  
+   ~~啊对对对（开摆）~~ 因为社区内大部分机器人都是使用 `poetry`，所以我们也向各位推荐 `poetry`
    :::
 
 4. **本文档将使用 `graia-ariadne` 0.6.0.post1 及以上的版本**，部分内容可能仍为旧版本但不影响食用；
@@ -99,11 +100,21 @@ poetry add graia-ariadne[full]
 
 ::: tip TIPS
 
-1. `graia-ariadne[full]` 是安装 `graia-ariadne` 功能所需要的所有非必要组件，如下所示：
+1. `graia-ariadne` 有很多非必要的组件，例如：
 
-   - graia-saya —— 模块化（[第11章](./11_classification.md)用到）
-   - graia-scheduler —— 定时任务（[第10章](./10_ohayou_oniichan.md)用到）
-   - arclet-alconna —— 消息链处理器（[第6章第4节](./6_4_alconna.md)）
+   - graia-ariadne[graia]
+      - graia-saya —— 模块化（[第11章](./11_classification.md)用到）
+      - graia-scheduler —— 定时任务（[第10章](./10_ohayou_oniichan.md)用到）
+   - graia-ariadne[alconna]
+      - arclet-alconna —— 消息链处理器（[第6章第4节](./6_4_alconna.md)）
+   - graia-ariadne[server]
+      - fastapi —— 用于 `ReverseAdapter` 反向连接器（挖坑）
+      - uvicorn —— 运行 `fastapi` 所需要的容器
+
+   而 `graia-ariadne[full]` 则会安装以上所有非必要组件
+
+   假设你确实不需要所有非必要组件，你可以通过安装其他 Extras 设定，例如  
+   `pip install graia-ariadne[graia,alconna]`
 
 2. 假设你不怎么喜欢整虚拟环境也可以使用如下命令来取消虚拟环境的创建
 
