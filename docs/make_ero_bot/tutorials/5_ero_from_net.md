@@ -11,6 +11,11 @@
 
 先来介绍一下安装
 
+::: tip
+虽然说 `graia-ariadne` 的依赖项里面是有 `aiohttp` 的，
+但是为了让你能够记得你用了什么库，我们还是建议你写一下
+:::
+
 ``` bash
 poetry add aiohttp
 # 👇假设你想要极致的速度
