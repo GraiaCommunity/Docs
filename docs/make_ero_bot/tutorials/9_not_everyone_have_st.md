@@ -93,6 +93,8 @@ async def setu(app: Ariadne, group: Group):
 
 ## 9.2 `Depend` 是什么
 
+首先，**Depend** 是 **Graia-Broadcast** 提供的一种 **Decorator**。
+
 ::: warning
 不要将本文提及的 `decorator` 跟 `Python` 本身语法中的 `decorator` 搞混
 :::

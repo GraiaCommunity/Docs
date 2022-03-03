@@ -227,7 +227,7 @@ async def ero(app: Ariadne, group: Group, message: MessageChain):
 
 <h3>发生了什么</h3>
 
-<h4>`Channel.current()`</h4>
+<h4><code>Channel.current()</code></h4>
 
 ``` python
 channel = Channel.current()
@@ -263,7 +263,7 @@ for module, channel in saya.channels.items():
 
 :::
 
-<h4>`Channel.use()`</h4>
+<h4><code>Channel.use()</code></h4>
 
 ``` python
 @channel.use(ListenerSchema(listening_events=[GroupMessage]))
@@ -314,6 +314,106 @@ async def wyy(app: Ariadne):
 
 这样，我们就成功写出了一个每天 0000 准时网易云时间的模组了！
 
+## 11.6 迁移 Depend 与 Dispatcher
+
+::: tip
+
+- 忘记了 **Depend**（一种 **Decorator**）是什么的话可以去[第9章](./9_not_everyone_have_st.md)复习一下噢。
+- 忘记了 **Dispatcher** 是什么的话可以去[第2章](./2_other_event.md)复习一下噢。
+
+:::
+
+你可能会很好奇下面这样的事情：
+
+> 我之前学了第6章和第9章，写了几个自己的 Depend 还用了 Twilight 和 Alconna 之类的消息链解析器，
+> 我当时是把他们放在 `@bcc.reciver` 里面，现在没有 `@bcc.reciver` 了我该怎么办呢？
+
+所以怎么办呢？~~那你能帮帮我吗？~~
+
+不要担心，Saya 的作者（与 BCC 作者是同一位噢）都帮我们想好了，参考下面的例子进行迁移即可。
+
+### 消息事件 —— 使用 `ListenerSchema`
+
+#### 原代码（使用 `@bcc.reciver`）
+
+``` python
+@bcc.reciver(
+    GroudMessage,
+    dispatchers=[Twilight([FullMatch('涩图来')])],
+    decorators=[my_depend(), your_depend(), our_depend()],
+)
+async def on_msg(app: Ariadne, group: Group, member: Member, message: MessageChain):
+    pass
+```
+
+#### 迁移后代码（使用 `@channel.use`）
+
+``` python
+@channel.use(
+    ListenerSchema(
+        listening_events=[GroupMessage],
+        inline_dispatchers=[Twilight([FullMatch('涩图来')])],
+        decorators=[my_depend(), your_depend(), our_depend()],
+    ),
+)
+async def on_msg(app: Ariadne, group: Group, member: Member, message: MessageChain):
+    pass
+```
+
+### 定时任务 —— 使用 `SchedulerSchema`
+
+#### 原代码（使用 `@sche.schedule`）
+
+``` python
+@sche.schedule(
+    timers.every_minute(),
+    dispatchers=[something_here()],
+    decorators=[my_depend(), your_depend(), our_depend()],
+)
+async def on_msg(app: Ariadne):
+    pass
+```
+
+#### 迁移后代码（使用 `@channel.use`）
+
+``` python
+@channel.use(
+    SchedulerSchema(
+        timers.every_minute(),
+        dispatchers=[something_here()],
+        decorators=[my_depend(), your_depend(), our_depend()],
+    ),
+)
+async def on_msg(app: Ariadne):
+    pass
+```
+
+### 控制台 —— 使用 `ConsoleSchema`
+
+#### 原代码（使用 `@console.register`）
+
+``` python
+@console.register(
+    dispatchers=[Twilight([FullMatch('涩图来')])],
+    decorators=[my_depend(), your_depend(), our_depend()],
+)
+async def on_msg(app: Ariadne):
+    pass
+```
+
+#### 迁移后代码（使用 `@channel.use`）
+
+``` python
+@channel.use(
+    ConsoleSchema(
+        dispatchers=[Twilight([FullMatch('涩图来')])],
+        decorators=[my_depend(), your_depend(), our_depend()],
+    ),
+)
+async def on_msg(app: Ariadne):
+    pass
+```
+
 ::: interlink
-相关链接：<https://graia.readthedocs.io/projects/dev/extra/saya/start/>
+相关链接：<https://graia.readthedocs.io/extra/saya/start/>
 :::
