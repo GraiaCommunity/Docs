@@ -261,6 +261,23 @@ async def test(app: Ariadne, group: Group):
 
 那么就让我们分别介绍一下每一种 **Match** 吧~
 
+### 共有选项
+
+先等一下，在此之前，我需要向大家介绍一下大部分 `XxxxxMatch` 都有的 `optional` 选项。
+这个选项的真假代表了这个 `XxxxxMatch` 是否是**可选项**
+
+举个栗子
+
+``` python
+Twilight(
+    [
+        FullMatch("涩图"), FullMatch("来", optional=True)
+    ]
+)
+```
+
+以上栗子可以同时通过 `涩图` 和 `涩图来` 触发
+
 ### RegexMatch
 
 `RegexMatch` 是 Twilight 的基础，它可以匹配指定的正则表达式。
@@ -303,6 +320,10 @@ async def test(app: Ariadne, group: Group):
 - `NOSPACE` ： 不附带尾随空格（即该 Match 的匹配内容后面必须不是空格）
 - `PRESERVE` ： 预留尾随空格（即该 Match 的匹配内容后面有没有空格都没关系）
 - `FORCE` ： 强制需要尾随空格（即该 Match 的匹配内容后面必须有空格）
+
+:::tip
+`PRESERVE` 和 `FORCE` 的情况下，不管尾随了多少个空格，都会被去掉desu
+:::
 
 ### FullMatch
 
@@ -354,7 +375,17 @@ ElementMatch 可以用来匹配各种在消息链中可以与文字共存的消�
 
 例如，有一个 Twilight：
 
+:::: code-group
+::: code-group-item from_command 方式
+
 ``` python
+Twilight.from_command("歌词 {lyrics} 好耶")
+```
+
+:::
+::: code-group-item 普通方式
+
+```python
 Twilight(
     [
         FullMatch("歌词").space(SpacePolicy.FORCE),
@@ -362,9 +393,9 @@ Twilight(
         FullMatch("好耶"),
     ],
 )
-# 上面的等价于下面这个
-Twilight.from_command("歌词 {lyrics} 好耶")
 ```
+
+::::
 
 那么，这个 Twilight 可以成功匹配到下面这几种字符串：
 
@@ -408,9 +439,36 @@ ArgumentMatch 是 Twilight 的一大亮点，他可以像一般的命令行程�
 **当然有！**我们可以通过**参数分配**及 `MatchResule` 来获取每一个 Match 的匹配结果，
 这样就可以省去非常多的我们自己解析消息参数的时间和步骤了。
 
-<p align="center" style="font-size: 30px"><strong>前面的区域，以后再来探索吧</strong></p>
+老规矩，上实例
 
-<Loading></Loading>
+``` python
+from graia.ariadne.message.parser.twilight import Twilight, MatchResult
+...
+
+@bcc.receiver(GroupMessage, dispatcher=[Twilight.from_command("歌词 {lyrics} 好耶")])
+async def lyric_xxx(app: Ariadne, group: Group, lyrics: MatchResult):
+    lyrics = str(lyrics.result)
+```
+
+`MatchResult` 一共就有三个属性
+
+- `MatchResult.matched`: 对应的 Match 对象是否匹配（当 `Optional` 为 `False` 时必为 `True`）
+- `MatchResult.origin`: 原始 Match 对象（就是 `XxxxxMatch` 本身）
+- `MatchResult.result`: 匹配结果（一般为 `MessageChain`，`ElementMatch` 为 `Element`）
+
+::: tip
+虽然可能没啥用，但是假设你只需要 `MatchResult.origin`，也可以使用一下办法
+
+``` python
+from graia.ariadne.message.parser.twilight import Twilight, ParamMatch
+...
+
+@bcc.receiver(GroupMessage, dispatcher=[Twilight.from_command("歌词 {lyrics} 好耶")])
+async def lyric_xxx(app: Ariadne, group: Group, lyrics: ParamMatch):
+    ...
+```
+
+:::
 
 ::: interlink
 **相关链接：**<https://graia.readthedocs.io/advance/twilight/>
