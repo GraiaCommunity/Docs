@@ -307,7 +307,7 @@ channel.name("Wyy")
 channel.description("网易云时间提醒器")
 channel.author("GraiaX")
 
-@channel.use(SchedulerSchema(timers.crontabify('0 0 * * *')))
+@channel.use(SchedulerSchema(timers.crontabify("0 0 * * *")))
 async def wyy(app: Ariadne):
     await app.sendGroupMessage(1919810, MessageChain.create("现在是网易云时间"))
 ```
@@ -339,7 +339,7 @@ async def wyy(app: Ariadne):
 ``` python
 @bcc.reciver(
     GroudMessage,
-    dispatchers=[Twilight([FullMatch('涩图来')])],
+    dispatchers=[Twilight([FullMatch("涩图来")])],
     decorators=[my_depend(), your_depend(), our_depend()],
 )
 async def on_msg(app: Ariadne, group: Group, member: Member, message: MessageChain):
@@ -352,7 +352,7 @@ async def on_msg(app: Ariadne, group: Group, member: Member, message: MessageCha
 @channel.use(
     ListenerSchema(
         listening_events=[GroupMessage],
-        inline_dispatchers=[Twilight([FullMatch('涩图来')])],
+        inline_dispatchers=[Twilight([FullMatch("涩图来")])],
         decorators=[my_depend(), your_depend(), our_depend()],
     ),
 )
@@ -394,7 +394,7 @@ async def on_msg(app: Ariadne):
 
 ``` python
 @console.register(
-    dispatchers=[Twilight([FullMatch('涩图来')])],
+    dispatchers=[Twilight([FullMatch("涩图来")])],
     decorators=[my_depend(), your_depend(), our_depend()],
 )
 async def on_msg(app: Ariadne):
@@ -406,7 +406,7 @@ async def on_msg(app: Ariadne):
 ``` python
 @channel.use(
     ConsoleSchema(
-        dispatchers=[Twilight([FullMatch('涩图来')])],
+        dispatchers=[Twilight([FullMatch("涩图来")])],
         decorators=[my_depend(), your_depend(), our_depend()],
     ),
 )

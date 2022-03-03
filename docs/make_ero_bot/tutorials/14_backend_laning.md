@@ -109,13 +109,13 @@ from graia.saya import Channel
 
 channel = Channel.current()
 
-@channel.use(ConsoleSchema([Twilight([FullMatch('stop')])]))
+@channel.use(ConsoleSchema([Twilight([FullMatch("stop")])]))
 async def stop(app: Ariadne, console: Console):
     res: str = await console.prompt(
-        l_prompt=[('class:warn', ' 你确定要退出吗? '), ('', ' (y/n) ')],
-        style=Style([('warn', 'bg:#cccccc fg:#d00000')]),
+        l_prompt=[("class:warn", " 你确定要退出吗? "), ("", " (y/n) ")],
+        style=Style([("warn", "bg:#cccccc fg:#d00000")]),
     )
-    if res.lower() in ('y', 'yes'):
+    if res.lower() in ("y", "yes"):
         await app.stop()
         console.stop()
 ```
@@ -149,12 +149,12 @@ from prompt_toolkit.styles import Style
 
 con = Console(
     broadcast=app.broadcast,
-    prompt=HTML('<split_1></split_1><eroerobot> EroEroBot </eroerobot><split_2></split_2> '),
+    prompt=HTML("<split_1></split_1><eroerobot> EroEroBot </eroerobot><split_2></split_2> "),
     style=Style(
         [
-            ('split_1', 'fg:#61afef'),
-            ('eroerobot', 'bg:#61afef fg:#ffffff'),
-            ('split_2', 'fg:#61afef'),
+            ("split_1", "fg:#61afef"),
+            ("eroerobot", "bg:#61afef fg:#ffffff"),
+            ("split_2", "fg:#61afef"),
         ]
     ),
     replace_logger=False,

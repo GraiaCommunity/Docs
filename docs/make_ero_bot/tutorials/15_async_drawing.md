@@ -35,8 +35,8 @@ from PIL import Image as IMG
 ...
 
 def make_pic(size = (100, 100), color = (255, 0, 0)):
-    img = IMG.new('RGB', size, color)
-    img.save(b := BytesIO(), 'JPEG')
+    img = IMG.new("RGB", size, color)
+    img.save(b := BytesIO(), "JPEG")
     return b.getvalue()
 
 @channel.use([GroupMessage])
@@ -59,8 +59,8 @@ from graia.ariadne.utils import io_bound, cpu_bound
 
 @io_bound
 def make_pic(size = (100, 100), color = (255, 0, 0)):
-    img = IMG.new('RGB', size, color)
-    img.save(b := BytesIO(), 'JPEG')
+    img = IMG.new("RGB", size, color)
+    img.save(b := BytesIO(), "JPEG")
     return b.getvalue()
 
 @channel.use([GroupMessage])
@@ -81,8 +81,8 @@ from PIL import Image as IMG
 ...
 
 def make_pic(size = (100, 100), color = (255, 0, 0)):
-    img = IMG.new('RGB', size, color)
-    img.save(b := BytesIO(), 'JPEG')
+    img = IMG.new("RGB", size, color)
+    img.save(b := BytesIO(), "JPEG")
     return b.getvalue()
 
 @channel.use([GroupMessage])
