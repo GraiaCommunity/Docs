@@ -161,7 +161,7 @@ async def ero(app: Ariadne, group: Group, result: Arpamar):
 
 ## 6.4.2 直面灾厄
 
-_~~左：莱塔尼亚权杖 右：荒地龙舌兰~~_
+~~左：莱塔尼亚权杖 右：荒地龙舌兰~~
 
 要想写好一个 `Alconna`，你首先需要理清楚自己的**命令结构**
 
@@ -198,7 +198,9 @@ alc = AlconnaFire(test_func)
 :::
 
 ## 6.4.3 亮出你的本事吧! 外星人
-> __“やってみせろよ、ウチュウジンー！”__
+
+> **「やってみせろよ、ウチュウジンー！」**
+
 ### 创建 Alconna
 
 以下将展示Alconna创建的5种方式:
@@ -314,7 +316,6 @@ async def test(app: Ariadne, group: Group):
 
 下面我们说说其中的`typical`方法与`String`方法
 
-
 #### 标准形式: 直接使用 `Alconna()`
 
 在**标准形式**中, 你需要传入较多的命令组件, 但同时其可以清晰的表达命令结构.
@@ -368,9 +369,10 @@ async def test(app: Ariadne, group: Group):
 :::
 
 ## 6.4.4 总会有参数的
-> __“何とでもなるはずだ！”__
 
-#### Args
+> **「何とでもなるはずだパラメータ！」**
+
+### Args
 
 `Args`在Alconna中有非常重要的地位, 有一半的bug皆因其引发(迫真)
 
@@ -378,8 +380,10 @@ async def test(app: Ariadne, group: Group):
 
 其中, key一定是字符串, 而var一般为参数的类型, default为具体的值
 
-##### var
+### var
+
 var 可以是以下几类:
+
 - 存在于`arclet.alconna.types.check_list`中的类型/字符串, 用以替换为预制好的ArgPattern
 - 字符串, 会转换为正则表达式
 - 列表, 其中可存放ArgPattern、类型或者任意参数值, 如字符串或者数字
@@ -390,18 +394,21 @@ var 可以是以下几类:
 内置的类型检查包括int、str、float、bool、'url'、'ip'、'email'
 
 :::tip
-若想增加类型检查, 我们可以通过`arclet.alconna.types.add_check`传入自己的ArgPattern,
+若想增加类型检查, 我们可以通过`arclet.alconna.types.add_check`传入自己的ArgPattern：
+
 ```python
 >>> add_check(ArgPattern("app", PatternToken.REGEX_TRANSFORM, Ariadne, lambda x: app))
 ```
 
-或通过`arclet.alconna.types.ObjectPattern`并传入一个类型来向check_list中注册检查类型.
+或通过`arclet.alconna.types.ObjectPattern`并传入一个类型来向check_list中注册检查类型：
+
 ```python
 ObjectPattern(Image, limit=("url",))
 ```
+
 :::
 
-##### key
+### key
 
 `key`的作用是用以标记解析出来的参数并存放于Arpamar中, 以方便用户调用.
 
@@ -410,12 +417,13 @@ ObjectPattern(Image, limit=("url",))
 `*` 前缀表示当前参数为可变长参数, 类似函数中的`*args`, 可以传入0至任意个参数.
 `!` 前缀表示该处传入的参数应不是规定的类型, 或不在指定的值中.
 
-#### Arpamar
+### Arpamar
 
 <Loading></Loading>
 
 ## 6.4.5 居然是整活？
-> __”コッケイナだと！“__
+
+> **「コッケイナだと！」**
 
 ### 元素匹配
 
