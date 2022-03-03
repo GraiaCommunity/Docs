@@ -1,7 +1,11 @@
 # 6.4 Alconna
 
 ::: tsukkomi 注
-因为是外星来客，所以研究需要久一点也是合理的嘛
+本章节由 `Alconna` 作者本人编辑，所以你将会看到
+
+- 令人窒息的浓度
+- 画风突变的标题
+- 意义不明的日语翻译 ~~熟肉反生~~
 :::
 
 `Alconna`， 全称 [`Arclet-Alconna`](https://github.com/ArcletProject/Alconna)，
@@ -341,7 +345,7 @@ async def test(app: Ariadne, group: Group):
 
 :::tip
 为什么会有两个option呢? 因为所有的Alconna都内置了`--help`这个选项
-::
+:::
 
 #### Koishi-like: 使用 `AlconnaString()`
 
