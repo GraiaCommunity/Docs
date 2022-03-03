@@ -5,25 +5,15 @@
 1. **本文档将会默认你至少学过一点点 `Python`，假设你连 Python 都不会，建议至少学点 Python 基础再来看；**
 2. **本文档将假设你具有一定的英语阅读能力，并能对工具软件的提示作出自己的决定；**
 3. **本文档将会使用 `poetry` 作为依赖和虚拟环境管理工具；**
-
-   ::: warning Q & A
-   **Q1:** 为什么不直接使用 `pip` + `venv` 而是使用 `poetry`？  
-   **A1:**
-   > 因为 `poetry` 能够更好地管理依赖，当然你直接用 pip 也行，只是不推荐（不会有人想因为依赖冲突把系统环境炸掉吧）。
-   > 虽然可能在刚开始不用 `poetry` 没啥问题，但等依赖多了以后，你就会后悔了（详细请:point_right: [看这](../before/Q&A.md#_4-关于-poetry)）。
-   >
-   > &nbsp;
-   >
-   > 至于你问我如何用 pip 创建虚拟环境？:point_right: [看这](../before/Q&A.md#_9-当你遇到不会的东西的时候)
-
-   <hr>
-
-   **Q2:** 为什么不用 `conda` 或 `pdm`  
-   **A2:**
-   > ~~啊对对对（开摆）~~ 因为社区内大部分机器人都是使用 `poetry`，所以我们也向各位推荐 `poetry`
+   ::: warning
+   关于为什么用 `poetry`，你可以看这里 :point_right: [看这](../before/Q&A.md#_4-关于-poetry)
    :::
 
-4. **本文档将使用 `graia-ariadne` 0.6.1 及以上的版本**，部分内容可能仍为旧版本但不影响食用；
+4. **本文档将使用 `graia-ariadne` 0.6.1 及以上的版本**，部分内容可能仍为旧版本但不影响食用；  
+   ::: tip
+   因为文档在书写的时候会时刻更新文档，所以我**强烈推荐**你直接安装最新版本（latest）  
+   现在的 `graia-ariadne` 的最新版本为 <img src="https://img.shields.io/pypi/v/graia-ariadne?color=2970b6&amp;label=PyPI版本&amp;style=for-the-badge" alt="PyPI版本" style="vertical-align: middle">
+   :::
 5. 虽然 `Ariadne` 支持 Python 3.8~3.10 但为了**最佳体验**，我们建议你最好升级到 `Python3.9+`；
 6. **本文档部分内容可能未及时更新或不全**，因此你可以在本文档的一些页面见到如下的提示框，他们通常指向相关的文档。
    ::: interlink
