@@ -49,13 +49,16 @@
 ...
 from graia.ariadne.message.parser.twilight import MatchResult
 
-@channel.use(ListenerSchema(
-    listening_events=[GroupMessage],
-    decorators=[Twilight.from_command("涩图来 {tag}")]
-))
+
+@channel.use(
+    ListenerSchema(
+        listening_events=[GroupMessage],
+        decorators=[Twilight.from_command("涩图来 {tag}")]
+    )
+)
 async def upload_file(app: Ariadne, group: Group, tag: MatchResult):
     if tag.result.asDisplay() != "紧身衣":
-        return # 因为这只是一个简单的教程，所以我们就指定tag好了
+        return  # 因为这只是一个简单的教程，所以我们就指定tag好了
 
     # 破天荒出现的秘密文件desu
     url = "https://raw.githubusercontent.com/GraiaCommunity/EroEroBot/master/data/secret.pdf"
@@ -70,11 +73,11 @@ async def upload_file(app: Ariadne, group: Group, tag: MatchResult):
 ``` python{3,6-7}
 async def uploadFile(
     self,
-    data: Union[bytes, io.IOBase, os.PathLike], # 要上传的数据/数据流
-    method: Union[str, UploadMethod] = None, # 上传方法，不用管
-    target: Union[Friend, Group, int] = -1, # 要上传的群
-    path: str = "", # 群文件路径
-    name: str = "", # 文件名字
+    data: Union[bytes, io.IOBase, os.PathLike],  # 要上传的数据/数据流
+    method: Union[str, UploadMethod] = None,  # 上传方法，不用管
+    target: Union[Friend, Group, int] = -1,  # 要上传的群
+    path: str = "",  # 群文件路径
+    name: str = "",  # 文件名字
 ) -> "FileInfo":
 ```
 
@@ -121,14 +124,14 @@ target 的 `Type Hint` 有 `Friend` 的原因仅仅是因为 `万一哪一天支
 
 ``` python{3,8}
 class FileInfo(AriadneBaseModel):
-    name: str # 文件名
-    path: str # 路径
-    id: Optional[str] # 文件 ID
-    parent: Optional["FileInfo"] # 文件所在目录，如果没有这个属性则说明在根目录
-    contact: Optional[Union[Group, Friend]] # 文件所在位置 (群组)
-    is_file: bool # 是否为文件
-    is_directory: bool # 是否为目录
-    download_info: Optional[DownloadInfo] # 下载信息
+    name: str  # 文件名
+    path: str  # 路径
+    id: Optional[str]  # 文件 ID
+    parent: Optional["FileInfo"]  # 文件所在目录，如果没有这个属性则说明在根目录
+    contact: Optional[Union[Group, Friend]]  # 文件所在位置 (群组)
+    is_file: bool  # 是否为文件
+    is_directory: bool  # 是否为目录
+    download_info: Optional[DownloadInfo]  # 下载信息
 ```
 
 讲一下画高亮的部分：
@@ -140,13 +143,13 @@ class FileInfo(AriadneBaseModel):
 
     ``` python
     class DownloadInfo(AriadneBaseModel):
-        sha: str # 文件 SHA256
-        md5: str # 文件 MD5
-        download_times: int # 下载次数
-        uploader_id: int # 上传者 QQ 号
-        upload_time: datetime # 上传时间
-        last_modify_time: datetime # 最后修改时间（如重命名则为修改）
-        url: Optional[str] # 下载 url
+        sha: str  # 文件 SHA256
+        md5: str  # 文件 MD5
+        download_times: int  # 下载次数
+        uploader_id: int  # 上传者 QQ 号
+        upload_time: datetime  # 上传时间
+        last_modify_time: datetime  # 最后修改时间（如重命名则为修改）
+        url: Optional[str]  # 下载 url
     ```
 
 ## 13.3 批量下载
@@ -156,7 +159,7 @@ class FileInfo(AriadneBaseModel):
 ``` python
 # 全是缩进警告
 async def download_setu(app: Ariadne, group: Group):
-    os.makedirs("download", exist_ok=True) # 创建一个 download 文件夹
+    os.makedirs("download", exist_ok=True)  # 创建一个 download 文件夹
     async for file in app.getFileIterator(group):
         if file.name.split(".")[-1] in ["jpg", "jpeg", "png"]:
             download_info = (await app.getFileInfo(group, file.id, with_download_info=True)).download_info

@@ -46,7 +46,7 @@ Face(127)
 ``` python
 MessageChain.create([Plain("你好")])
 MessageChain.create(Plain("你好"))
-MessageChain.create("你好")
+MessageChain.create("你好")  # 仅限纯文本
 ```
 
 这三种方法都是调用 `MessageChain` 的 `create` 方法进行构建：

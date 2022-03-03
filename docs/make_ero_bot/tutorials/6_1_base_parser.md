@@ -104,7 +104,7 @@ async def on_message(message: MessageChain = DetectSuffix("好涩")):
 ``` python
 # "@EroEroBot 在吗" "EroEroBot 在吗" "EroEroBot，帮我涩涩"
 # 要求名字/At在最前面
-@bcc.receiver(GroupMessage, decorators=[MentionMe()]) # 注意要实例化
+@bcc.receiver(GroupMessage, decorators=[MentionMe()])  # 注意要实例化
 async def on_mention_me(app: Ariadne, group: Group, member: Member):
     await app.sendGroupMessage(group, MessageChain.create(At(member.id), "叫我？"))
 ```
@@ -120,7 +120,7 @@ async def on_mention_me(app: Ariadne, group: Group, member: Member):
 ``` python
 # "Graiax 人呢" "Graiax，今晚一起去涩涩"
 # 要求名字/At在最前面
-@bcc.receiver(..., decorators=[Mention(target=...)]) # target: int | str
+@bcc.receiver(..., decorators=[Mention(target=...)])  # target: int | str
 # int: 用户 QQ 号，str: 用户的名字
 async def on_mention(app: Ariadne, group: Group):
     await app.sendGroupMessage(group, MessageChain.create("你找我主人有什么事吗"))
@@ -172,7 +172,7 @@ async def on_match_content(app: Ariadne, group: Group):
 
 ``` python
 # "1" "2" "114514"
-@bcc.receiver(..., decorators=[MatchRegex(regex=r"\d+")]) # regex 参数为 regex 表达式
+@bcc.receiver(..., decorators=[MatchRegex(regex=r"\d+")] regex 参数为 regex 表达式
 async def on_match_regex(app: Ariadne, group: Group, message: MessageChain):
     await app.sendGroupMessage(group, MessageChain.create("发数字干什么，是神秘钥匙吗？"))
     ...
@@ -193,7 +193,7 @@ async def on_match_regex(app: Ariadne, group: Group, message: MessageChain):
 ``` python
 # 需要 "*搜图 [图片]" 才能匹配 (*为任意多字符)
 @bcc.receiver(..., decorators=[MatchTemplate([Plain, Plain("搜图"), Image])]) 
-    async def on_match_regex(chain: MessageChain): # 不会改动消息链
+    async def on_match_regex(chain: MessageChain):  # 不会改动消息链
         ...
 ```
 

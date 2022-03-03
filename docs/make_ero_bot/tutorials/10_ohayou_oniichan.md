@@ -64,6 +64,7 @@ pip install graia-scheduler
 ``` python
 from graia.scheduler import GraiaScheduler
 ...
+
 sche = app.create(GraiaScheduler)
 ```
 

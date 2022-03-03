@@ -13,7 +13,7 @@
 @bcc.receiver(GroupMessage, dispatchers=[Twilight.from_command("涩图来")])
 async def setu(app: Ariadne, member: Member, group: Group):
     if member.permission != MemberPerm.Member:
-        ... # 发涩图
+        .. 发涩图
 ```
 
 这代码，能够正常的运作，很好，但是到了后面，随着 tx 对涩图的打击力度愈发强大，
@@ -26,7 +26,7 @@ async def setu(app: Ariadne, member: Member, group: Group):
         await app.sendGroupMessage(group, MessageChain.create("对不起，该群并不能发涩图"))
     elif member.id not in [114514, 1919810]:
         await app.sendGroupMessage(group, MessageChain.create(At(member.id), "对不起，您的权限并不够"))
-    elif frequency(group, member) >= 10: # 频率判断，详细实现略
+    elif frequency(group, member) >= 10:  # 频率判断，详细实现略
         await app.sendGroupMessage(group, MessageChain.create(At(member.id), "你太快了，能不能持久点"))
     else:
         async with aiohttp.request("GET", "https://setu.example.com/limit") as r:
@@ -34,7 +34,7 @@ async def setu(app: Ariadne, member: Member, group: Group):
         if is_max:
             await app.sendGroupMessage(group, MessageChain.create(At(member.id), "对不起，今天的涩图已经达到上限了哦"))
         else:
-            ... # 获取涩图
+            ...  # 获取涩图
             await app.sendGroupMessage(group, MessageChain.create(Image(data_bytes=setu)))
 ```
 
@@ -50,12 +50,14 @@ async def setu(app: Ariadne, member: Member, group: Group):
 from graia.broadcast.builtin.decorators import Depend
 from graia.broadcast.exceptions import ExecutionStop
 
+
 def check_group(*groups: int):
     async def check_group_deco(app: Ariadne, group: Group):
         if group.id not in groups:
             await app.sendGroupMessage(group, MessageChain.create("对不起，该群并不能发涩图"))
             raise ExecutionStop
     return Depend(check_group_deco)
+
 
 def check_member(*members: int):
     async def check_member_deco(app: Ariadne, group: Group, member: Member):
@@ -64,6 +66,7 @@ def check_member(*members: int):
             raise ExecutionStop
     return Depend(check_member_deco)
 
+
 def check_frequency(max_frequency: int):
     async def check_frequency_deco(app: Ariadne, group: Group, member: Member):
         if frequency(member.id) >= max_frequency:
@@ -71,20 +74,23 @@ def check_frequency(max_frequency: int):
             raise ExecutionStop
     return Depend(check_frequency_deco)
 
-@bcc.receiver(GroupMessage,
-              decorators=[
-                  check_group(114514, 1919810),
-                  check_member(114514, 1919810),
-                  check_frequency(10),
-              ],
-              dispatchers=[Twilight.from_command("涩图来")])
+
+@bcc.receiver(
+    GroupMessage,
+    decorators=[
+        check_group(114514, 1919810),
+        check_member(114514, 1919810),
+        check_frequency(10),
+    ],
+    dispatchers=[Twilight.from_command("涩图来")]
+)
 async def setu(app: Ariadne, group: Group):
     async with aiohttp.request("GET", "https://setu.example.com/limit") as r:
         is_max = (await r.json())["is_limit"]
     if is_max:
         await app.sendGroupMessage(group, MessageChain.create(At(member.id), "对不起，今天的涩图已经达到上限了哦"))
     else:
-        ... # 获取涩图
+        ...  # 获取涩图
         await app.sendGroupMessage(group, MessageChain.create(Image(data_bytes=setu)))
 ```
 

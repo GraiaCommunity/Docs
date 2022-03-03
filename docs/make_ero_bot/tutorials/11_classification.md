@@ -255,7 +255,7 @@ saya = Saya.current()
 for module, channel in saya.channels.items():
     print(
         f"module: {module}\n"
-        f"name:{channel.meta['name']}"
+        f"name:{channel.meta['name']}\n"
         f"author:{' '.join(channel.meta['author'])}\n"
         f"description:{channel.meta['description']}"
     )
@@ -273,7 +273,7 @@ for module, channel in saya.channels.items():
 因为其中有一些参数的名称可能有所变化：
 
 ``` txt
-event -> listening_events # 因为是events，所有要传的是有一个及以上 Event 的 list
+event -> listening_events  # 因为是events，所有要传的是有一个及以上 Event 的 list
 dispatchers -> inline_dispatchers
 ```
 
@@ -306,6 +306,7 @@ channel = Channel.current()
 channel.name("Wyy")
 channel.description("网易云时间提醒器")
 channel.author("GraiaX")
+
 
 @channel.use(SchedulerSchema(timers.crontabify("0 0 * * *")))
 async def wyy(app: Ariadne):

@@ -30,12 +30,19 @@ Friendship is magic!
 ...
 from graia.ariadne.message.parser.twilight import Twilight
 ...
+
+
 @bcc.receiver(
     GroupMessage,
-    dispatchers=[Twilight.from_command("涩图来")]
+    dispatchers=[Twilight.from_command("涩图来")],
 )
 async def test(app: Ariadne, group: Group):
-    await app.sendGroupMessage(group, Message.create(Image(path="./Graiax/EroEroBot/eropic.jpg")))
+    await app.sendGroupMessage(
+        group,
+        MessageChain.create(
+            Image(path="./Graiax/EroEroBot/eropic.jpg")
+        ),
+    )
 ```
 
 :::
@@ -46,12 +53,19 @@ async def test(app: Ariadne, group: Group):
 from graia.ariadne.message.parser.pattern import FullMatch
 from graia.ariadne.message.parser.twilight import Sparkle, Twilight
 ...
+
+
 @bcc.receiver(
     GroupMessage,
     dispatchers=[Twilight([FullMatch("涩图来")])]
 )
 async def test(app: Ariadne, group: Group):
-    await app.sendGroupMessage(group, Message.create(Image(path="./Graiax/EroEroBot/eropic.jpg")))
+    await app.sendGroupMessage(
+        group,
+        MessageChain.create(
+            Image(path="./Graiax/EroEroBot/eropic.jpg")
+        )
+    )
 ```
 
 :::
@@ -59,17 +73,23 @@ async def test(app: Ariadne, group: Group):
 
 ``` python
 ...
-from graia.ariadne.message.parser.pattern import FullMatch
 from graia.ariadne.message.parser.parser import Sparkle
+from graia.ariadne.message.parser.pattern import FullMatch
 from graia.ariadne.message.parser.twilight import Twilight
 ...
+
 
 @bcc.receiver(
     GroupMessage,
     dispatchers=[Twilight(Sparkle([FullMatch("涩图来")]))]
 )
 async def test(app: Ariadne, group: Group):
-    await app.sendGroupMessage(group, Message.create(Image(path="./Graiax/EroEroBot/eropic.jpg")))
+    await app.sendGroupMessage(
+        group,
+        MessageChain.create(
+            Image(path="./Graiax/EroEroBot/eropic.jpg")
+        )
+    )
 ```
 
 :::
@@ -119,9 +139,10 @@ BCC 就会把 GroupMessage 中的消息链交给 Twilight 进行解析，当 Twi
 from graia.ariadne.message.parser.twilight import Sparkle, Twilight
 ...
 
+
 @bcc.receiver(
     GroupMessage,
-    dispatchers=[Twilight.from_command("涩图来 {at} {any}")]
+    dispatchers=[Twilight.from_command("涩图来 {at} {any}")],
 )
 async def test(app: Ariadne, group: Group):
     pass
@@ -141,6 +162,7 @@ from graia.ariadne.message.parser.twilight import (
 )
 ...
 
+
 @bcc.receiver(
     GroupMessage,
     dispatchers=[
@@ -148,7 +170,7 @@ from graia.ariadne.message.parser.twilight import (
             [
                 FullMatch("涩图来").space(SpacePolicy.FORCE),
                 "at" @ ElementMatch(At).space(SpacePolicy.FORCE),
-                "any" @ WildcardMatch()
+                "any" @ WildcardMatch(),
             ]
         )
     ]
@@ -197,7 +219,7 @@ async def test(app: Ariadne, group: Group):
 ...     [
 ...         FullMatch("涩图来").space(SpacePolicy.FORCE),
 ...         "at" @ ElementMatch(At).space(SpacePolicy.FORCE),
-...         "any" @ WildcardMatch()
+...         "any" @ WildcardMatch(),
 ...     ]
 ... )
 <Twilight: [ElementMatch(<class 'graia.ariadne.message.element.At'>, space='FORCE', flags=), WildcardMatch('.*', space='PRESERVE', flags=)]>
@@ -257,7 +279,7 @@ async def test(app: Ariadne, group: Group):
 你可以通过该方法设置正则表达式的匹配标记，例如：
 
 ``` python
->>> RegexMatch(r"\d+ # digits").flags(re.V) # 设置 re.VERBOSE 标记
+>>> RegexMatch(r"\d+ # digits").flags(re.V)  # 设置 re.VERBOSE 标记
 ```
 
 > 什么？你不会正则？那你可以去学学噢~

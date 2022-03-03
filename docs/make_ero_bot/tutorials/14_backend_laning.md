@@ -29,7 +29,8 @@ con = Console(broadcast=bcc, prompt="EroEroBot> ")
 ...
 saya.install_behaviours(
     ...
-    ConsoleBehaviour(con))
+    ConsoleBehaviour(con)
+)
 ```
 
 然后让你再次启用程序的时候，铛铛：
@@ -55,6 +56,23 @@ EroEroBot>
 <br><Curtain>谁叫人家是 python 为数不多的支持多平台的 tui 库呢（摊手）</Curtain>
 :::
 
+::: danger
+一般情况下，请不要在启用 Console 之后在代码种使用如下方式进行输出，包括但不限于：
+
+- `print()`
+- `sys.stdout.write()`
+
+如要输出普通字符串，你可以这样做：
+
+``` python
+from loguru import logger
+
+logger.info("测试")
+logger.opt(raw=True).log("测试")
+```
+
+:::
+
 ## 14.3 Console 能做什么？
 
 你可能会说，我要一个后台（控制台）又有什么用呢？
@@ -75,6 +93,7 @@ from graia.ariadne.message.parser.twilight import MatchResult, ParamMatch, Twili
 from graia.saya import Channel
 
 channel = Channel.current()
+
 
 @channel.use(ConsoleSchema([Twilight.from_command("laning {id} {message}")]))
 async def console_chat(app: Ariadne, id: MatchResult, message: MatchResult):
@@ -108,6 +127,7 @@ from graia.ariadne.message.parser.twilight import FullMatch, Twilight
 from graia.saya import Channel
 
 channel = Channel.current()
+
 
 @channel.use(ConsoleSchema([Twilight([FullMatch("stop")])]))
 async def stop(app: Ariadne, console: Console):

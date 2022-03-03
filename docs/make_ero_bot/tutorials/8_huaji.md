@@ -55,10 +55,10 @@ MessageChain.create("来点涩图", Face(277))
 
 ``` python
 MessageChain.create(
-    "在新的一年里，祝你\n", 
-    "身", Face(277), "体", Face(277), "健", Face(277), "康\n",
-    "万", Face(277), "事", Face(277), "如", Face(277), "意\n"
-    )
+    "在新的一年里，祝你\n",  # 这里有没有逗号均可
+    "身", Face(277), "体", Face(277), "健", Face(277), "康\n",  # 这里有没有逗号均可
+    "万", Face(277), "事", Face(277), "如", Face(277), "意\n",  # 这里有没有逗号均可
+)
 ```
 
 牙白，牙白，红豆泥牙白desu捏~ 那该怎么办好呢？
@@ -72,9 +72,11 @@ MessageChain.create(
 ``` python
 from graia.ariadne.message.formatter import Formatter
 
-Formatter("在新的一年里，祝你"
-          "身{doge}体{doge}健{doge}康\n"
-          "万{doge}事{doge}如{doge}意").format(doge=Face(277))
+Formatter(
+    "在新的一年里，祝你\n"  # 注意这里没有逗号，等于上下两个字符串直接连在一起
+    "身{doge}体{doge}健{doge}康\n"  # 注意这里没有逗号
+    "万{doge}事{doge}如{doge}意").format(doge=Face(277)
+)
 ```
 
 你看这样子是不是方便多了？

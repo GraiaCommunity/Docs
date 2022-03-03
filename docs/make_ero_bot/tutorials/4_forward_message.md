@@ -42,12 +42,14 @@
 ...
 import random
 from datetime import datetime
+
 from graia.ariadne.message.element import At, Plain, Image, Forward, ForwardNode
 ...
 
+
 @bcc.receiver(
     GroupMessage,
-    dispatchers=[Twilight([FullMatch("好大的奶")])]
+    dispatchers=[Twilight([FullMatch("好大的奶")])],
 )
 async def create_forward(app: Ariadne, member: Member):
     fwd_nodeList = [
@@ -84,8 +86,7 @@ ForwardNode(
 ::: danger 注意
 通过上面的例子你一定意识到了一个很严肃的问题：  
 **你可以自己无中生有生成消息链然后传播出去**  
-请不要通过该方法**传播谣言**，
-要不然我就要用我的靴子狠狠的踢你的屁股
+请不要通过该方法**传播谣言**，要不然我就要用我的靴子狠狠的踢你的屁股
 :::
 
 ::: interlink

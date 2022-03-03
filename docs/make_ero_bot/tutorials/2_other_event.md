@@ -21,17 +21,24 @@
 
 ``` python
 ...
-#from graia.ariadne.event.message import GroupMessage
+# from graia.ariadne.event.message import GroupMessage
 from graia.ariadne.event.mirai import NudgeEvent
 ...
 
-#@bcc.receiver(GroupMessage)
+
+# @bcc.receiver(GroupMessage)
 @bcc.receiver(NudgeEvent)
 async def getup(app: Ariadne, event: NudgeEvent):
     if event.context_type == "group":
-        await app.sendGroupMessage(event.group_id, MessageChain.create("别戳我，好痒"))
+        await app.sendGroupMessage(
+            event.group_id,
+            MessageChain.create("别戳我，好痒")
+        )
     else:
-        await app.sendFriendMessage(event.friend_id, MessageChain.create("别戳我，好痒"))
+        await app.sendFriendMessage(
+            event.friend_id,
+            MessageChain.create("别戳我，好痒")
+        )
 ...
 ```
 

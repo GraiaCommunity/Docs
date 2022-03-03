@@ -50,6 +50,7 @@ from pathlib import Path
 
 import requests
 
+
 def very_simple_example():
     ero_url = "https://www.bing.com/HPImageArchive.aspx?format=js&n=1"
     ss = requests.session()
@@ -115,6 +116,7 @@ Of course you can
 from graia.ariadne import get_running
 from graia.ariadne.adapter import Adapter
 ...
+
 
 @bcc.receiver(GroupMessage)
 async def test(app: Ariadne):

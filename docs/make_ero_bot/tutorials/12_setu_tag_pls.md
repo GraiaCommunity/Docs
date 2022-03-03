@@ -53,6 +53,7 @@ from graia.broadcast.interrupt.waiter import Waiter
 
 inc = InterruptControl(app.broadcast)
 
+
 class SetuTagWaiter(Waiter.create([GroupMessage])):
     "涩图 tag 接收器"
 
@@ -64,18 +65,27 @@ class SetuTagWaiter(Waiter.create([GroupMessage])):
         if self.group == group.id and self.member == member.id:
             return message
 
+
 async def setu(tag: List[str]) -> bytes:
     # 都说了，涩图 api 可是至宝，怎么可能轻易给你
     return Path("src/dio.jpg").read_bytes()
 
-@channel.use(ListenerSchema(
-    listening_events=[GroupMessage],
-    decorators=[MatchContent("涩图来")]
-))
+
+@channel.use(
+    ListenerSchema(
+        listening_events=[GroupMessage],
+        decorators=[MatchContent("涩图来")],
+    )
+)
 async def ero(app: Ariadne, group: Group, member: Member, message: MessageChain):
     await app.sendGroupMessage(group, MessageChain.create("你想要什么 tag 的涩图"))
     ret_msg = await inc.wait(SetuTagWaiter(group, member))
-    await app.sendGroupMessage(group, MessageChain.create(Image(data_bytes=await setu(ret_msg.split()))))
+    await app.sendGroupMessage(
+        group,
+        MessageChain.create(
+            Image(data_bytes=await setu(ret_msg.split()))
+        )
+    )
 ```
 
 ## 12.3 原理讲解
@@ -100,13 +110,13 @@ class SetuTagWaiter(Waiter.create([GroupMessage])):
 
 ``` python
 def create(
-        cls,
-        listening_events: List[Type[Dispatchable]],
-        using_dispatchers: List[T_Dispatcher] = None,
-        using_decorators: List[Decorator] = None,
-        priority: int = 15,  # 默认情况下都是需要高于默认 16 的监听吧...
-        block_propagation: bool = False,
-    ) -> Type["Waiter"]:
+    cls,
+    listening_events: List[Type[Dispatchable]],
+    using_dispatchers: List[T_Dispatcher] = None,
+    using_decorators: List[Decorator] = None,
+    priority: int = 15,  # 默认情况下都是需要高于默认 16 的监听吧...
+    block_propagation: bool = False,
+) -> Type["Waiter"]:
 ```
 
 事实上，`Waiter` 的原理很简单。
@@ -130,7 +140,7 @@ def create(
 
 ::: warning
 默认情况下，`timeout` 是没有被指定的，因此若你的 waiter 设定了一些条件才会返回非 `None` 值，
-那么当这些条件没有被满足时，`inc.wait` 将永远等待下去  
+那么当这些条件没有被满足时，`inc.wait` 将永远等待下去。  
 （虽然这样并不会影响 bot 的正常运行，但可能过了很久以后，
 你所设定的条件突然被满足而使得你的 bot 突然说了一句莫名其妙的话，
 就会显得很奇怪）
@@ -150,7 +160,12 @@ def create(
     except asyncio.exceptions.TimeoutError:
         await app.sendGroupMessage(group, MessageChain.create("已超时取消"))
     else:
-        await app.sendGroupMessage(group, MessageChain.create(Image(data_bytes=await setu(ret_msg.split()))))
+        await app.sendGroupMessage(
+            group,
+            MessageChain.create(
+                Image(data_bytes=await setu(ret_msg.split()))
+            )
+        )
 ```
 
 ::: tip
@@ -209,14 +224,18 @@ from graia.broadcast.interrupt.waiter import Waiter
 
 inc = InterruptControl(app.broadcast)
 
+
 async def setu(tag: List[str]) -> bytes:
     # 都说了，涩图 api 可是至宝，怎么可能轻易给你
     return Path("src/dio.jpg").read_bytes()
 
-@channel.use(ListenerSchema(
-    listening_events=[GroupMessage],
-    decorators=[MatchContent("涩图来")]
-))
+
+@channel.use(
+    ListenerSchema(
+        listening_events=[GroupMessage],
+        decorators=[MatchContent("涩图来")]
+    )
+)
 async def ero(app: Ariadne, group: Group, member: Member, message: MessageChain):
     await app.sendGroupMessage(group, MessageChain.create("你想要什么 tag 的涩图"))
 
@@ -226,7 +245,12 @@ async def ero(app: Ariadne, group: Group, member: Member, message: MessageChain)
             return msg
 
     ret_msg = await inc.wait(setu_tag_waiter)
-    await app.sendGroupMessage(group, MessageChain.create(Image(data_bytes=await setu(ret_msg.split()))))
+    await app.sendGroupMessage(
+        group,
+        MessageChain.create(
+            Image(data_bytes=await setu(ret_msg.split()))
+        )
+    )
 ```
 
 ::: tsukkomi

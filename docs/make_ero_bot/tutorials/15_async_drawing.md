@@ -34,10 +34,12 @@ from io import BytesIO
 from PIL import Image as IMG
 ...
 
+
 def make_pic(size = (100, 100), color = (255, 0, 0)):
     img = IMG.new("RGB", size, color)
     img.save(b := BytesIO(), "JPEG")
     return b.getvalue()
+
 
 @channel.use([GroupMessage])
 async def drawing():
@@ -57,11 +59,13 @@ from PIL import Image as IMG
 from graia.ariadne.utils import io_bound, cpu_bound
 ...
 
+
 @io_bound
 def make_pic(size = (100, 100), color = (255, 0, 0)):
     img = IMG.new("RGB", size, color)
     img.save(b := BytesIO(), "JPEG")
     return b.getvalue()
+
 
 @channel.use([GroupMessage])
 async def drawing():
@@ -73,17 +77,19 @@ async def drawing():
 ::: code-group-item 用 asyncio.to_thread
 
 ``` python
-from io import BytesIO
 import asyncio
+from io import BytesIO
 
 # 切记，PIL 的 Image 跟 ariadne 的 Image Element 名字重了
 from PIL import Image as IMG
 ...
 
+
 def make_pic(size = (100, 100), color = (255, 0, 0)):
     img = IMG.new("RGB", size, color)
     img.save(b := BytesIO(), "JPEG")
     return b.getvalue()
+
 
 @channel.use([GroupMessage])
 async def drawing():

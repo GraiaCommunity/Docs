@@ -49,12 +49,12 @@ This command will guide you through creating your pyproject.toml config.
 Package name [EroEroBot]:
 Version [0.1.0]:
 Description []:
-Author [GraiaCommunity <example@graiax.cn>, n to skip]:  n # 注意，这里要你自己填写 n
+Author [GraiaCommunity <example@graiax.cn>, n to skip]:  n  # 注意，这里要你自己填写 n
 License []:
 Compatible Python versions [^3.9]:
 
-Would you like to define your main dependencies interactively? (yes/no) [yes] n # 注意，这里要你自己填写 n
-Would you like to define your development dependencies interactively? (yes/no) [yes] n # 注意，这里要你自己填写 n
+Would you like to define your main dependencies interactively? (yes/no) [yes] n  # 注意，这里要你自己填写 n
+Would you like to define your development dependencies interactively? (yes/no) [yes] n  # 注意，这里要你自己填写 n
 Generated file
 
 [tool.poetry]
@@ -73,7 +73,7 @@ requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
 
 
-Do you confirm generation? (yes/no) [yes] y # 注意，这里要你自己填写 y
+Do you confirm generation? (yes/no) [yes] y  # 注意，这里要你自己填写 y
 ```
 
 ::: tip
@@ -98,7 +98,7 @@ default = false
 在配置好环境之后，你需要给你的项目创建一个虚拟环境并安装 `graia-ariadne`，在项目根目录执行如下命令：
 
 ``` bash
-poetry env use python3.9 # 如果你设备里只有一个版本的 Python 或你想使用最新版本，则这一条命令可以不执行
+poetry env use python3.9  # 如果你设备里只有一个版本的 Python 或你想使用最新版本，则这一条命令可以不执行
 poetry add graia-ariadne[full]
 ```
 
@@ -205,9 +205,10 @@ Package operations: 24 installs, 0 updates, 0 removals
 
    @bcc.receiver(GroupMessage)
    async def setu(app: Ariadne, group: Group, message: MessageChain):
-       await app.sendGroupMessage(group, MessageChain.create(
-           f"不要说{message.asDisplay()}，来点涩图"
-       ))
+       await app.sendGroupMessage(
+           group,
+           MessageChain.create(f"不要说{message.asDisplay()}，来点涩图"),
+       )
 
 
    app.launch_blocking()
