@@ -61,7 +61,7 @@ def very_simple_example():
 very_simple_example()
 ```
 
-## 为啥要用 aiohttp
+## 5.1 为啥要用 aiohttp
 
 ::: tip
 这里并发使用的是 aiohttp 只是因为 Ariadne 本身就有 aiohttp，不用装额外的库。
@@ -104,7 +104,7 @@ async def test():
 你要是写出了这种东西，还是速速 remake （指重看 asyncio 文档）吧
 :::
 
-## 直接使用 Ariadne 自带的 session 进行请求
+## 5.2 直接使用 Ariadne 自带的 session 进行请求
 
 在上面我们提到了，Ariadne 也使用了 aiohttp，而使用 aiohttp 一般需要先获取一个 session，
 那么我们能不能直接白嫖 Ariadne 的 session 呢？

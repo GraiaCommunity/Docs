@@ -28,11 +28,11 @@
 想想就得劲<Curtain>虽然一个 At 跟语音八成不能成功叫你起床</Curtain>。  
 那么，就开始我们今天的艺术创想吧（bushi）
 
-## 什么是 `Graia-Scheduler`？
+## 10.1 什么是 `Graia-Scheduler`？
 
 `Graia-Scheduler` 是一个基于 asyncio，设计简洁，代码简单的计划任务库。
 
-## 安装 `Graia-Scheduler`
+## 10.2 安装 `Graia-Scheduler`
 
 ::: tip
 假设你之前用的是 `graia-ariadne[full]` 或 `graia-ariadne[graia]`，你可以直接跳过本小节。
@@ -54,7 +54,7 @@ pip install graia-scheduler
 
 ::::
 
-## 初始化 `Graia-Scheduler`
+## 10.3 初始化 `Graia-Scheduler`
 
 在你的代码中加入这些：
 
@@ -64,7 +64,7 @@ from graia.scheduler import GraiaScheduler
 sche = app.create(GraiaScheduler)
 ```
 
-## 一个最简单的例子
+## 10.4 一个最简单的例子
 
 以**每分钟都在群里发垃圾消息的机器人**为例子：
 
@@ -76,7 +76,7 @@ async def every_minute_speaking(app: Ariadne):
     await app.sendGroupMessage(1919810, MessageChain.create("我又来了"))
 ```
 
-## 通过 crontab 来设定时间
+## 10.5 通过 crontab 来设定时间
 
 在上面的例子中，你一定会发现，timers 中绝大多数 timer 都是**每隔一段间隔后触发**的模式，
 这明显跟我们**让机器人每天早上7点半准时叫我们起床**相违背。

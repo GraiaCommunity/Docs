@@ -6,7 +6,7 @@
 
 本章将会教你从 Java 的选择到 mcl 安装  
 
-## 1. 安装 `Java`
+## 1.1 安装 `Java`
 
 当你看到这个，你肯定会说  
 “这有什么好教的”，这你就不懂了  
@@ -19,7 +19,7 @@ Java 也有很多种 JVM 选择
 所以只要是 JDK 11+，剩下的请随便
 :::
 
-### 1. 最简单的安装方法
+### 1.1.1 最简单的安装方法
 
 如果你怕麻烦，那我们先从最简单的安装方式说起
 
@@ -72,7 +72,7 @@ pkg install openjdk-17
 :::
 ::::
 
-### 2. 试试 `openj9`
+### 1.1.2 试试 `openj9`
 
 以笔者的电脑（Windows 11）举例  
 在 `mirai` 启动完毕后，占用内存大概 232Mb  
@@ -86,7 +86,7 @@ pkg install openjdk-17
 
 啥？不会？[那看这里](Q&A.html#_9-当你遇到不会的东西的时候)
 
-## 2. 下载并解压 `mcl`
+## 1.2 下载并解压 `mcl`
 
 先说 Windows 用户，这个特别简单  
 首先点[这里](https://github.com/iTXTech/mirai-console-loader/releases/download/v1.2.2/mcl-1.2.2.zip)，
@@ -100,7 +100,7 @@ wget https://github.com/iTXTech/mirai-console-loader/releases/download/v1.2.2/mc
 unzip mcl-1.2.2.zip -d mcl-1.2.2
 ```
 
-## 3. 添加 `mirai-api-http` 并启动 `mcl`
+## 1.3 添加 `mirai-api-http` 并启动 `mcl`
 
 ::: tip
 对于 Windows 用户来说，剩下的步骤是需要在文件夹中打开命令行的  
@@ -132,7 +132,7 @@ xxxx-xx-xx xx:xx:xx I/main: mirai-console started successfully.
 
 然后输入 `Ctrl + C` 退出一下 mcl
 
-## 3. 配置 `mirai-api-http` 参数
+## 1.4 配置 `mirai-api-http` 参数
 
 进入 `./config/net.mamoe.mirai-api-http`，修改 `setting.yml`
 
@@ -161,7 +161,7 @@ adapterSettings:
     reservedSyncId: -1 # 确保为 -1
 ```
 
-## 4. 登录
+## 1.5 登录
 
 执行 `./mcl` 启动 mirai-console  
 如果直接显示 `Event: BotOnlineEvent(bot=Bot(<你的QQ号>))` 那么恭喜你，接下来不用看了  
@@ -201,13 +201,13 @@ adapterSettings:
 假设成功了，那么恭喜你  
 假设没有成功，这边建议拜一下企鹅
 
-## 附：使用 Docker
+<h2>附：使用 Docker</h2>
 
 Docker 嘛，应该不用我介绍了吧，懂得都懂  
 事实上，我们有现成的 Docker 来解决这个问题  
 [这里](https://github.com/ZhaoZuohong/mirai-mah-docker)有现成的Dockerfile
 
-## 附: `MiraiAndroid` 运行 `Mirai-api-http`
+<h2>附: 在 <code>MiraiAndroid</code> 中运行 <code>mirai-api-http</code></h2>
 
 对于那些想要**在安卓手机上**跑 bot 的人来说，`MiraiAndroid` 绝对是跑 `Mirai-api-http` 的不二之选  
 所以，在这里也教一下大家怎么在 `MiraiAndroid` 上运行 `Mirai-api-http`

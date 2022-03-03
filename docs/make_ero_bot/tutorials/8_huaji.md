@@ -1,4 +1,4 @@
-# 8. /斜眼笑
+# 8. /斜眼笑（`Formatter`）
 
 ::: warning
 虽然 `mirai` 支持了商城表情，但是 `mirai-api-http` 不支持！
@@ -65,7 +65,7 @@ MessageChain.create(
 
 当然有有办法！
 
-## Formatter
+<h2>所以 Formatter 是什么？</h2>
 
 通俗来讲，`Formatter` 差不多就是一个给 `MessasgeChain` 用的 `str.format`，使用方法如下：
 

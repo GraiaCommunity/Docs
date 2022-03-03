@@ -22,7 +22,7 @@
 那么建议你去试试 `opencv-python` 之类的库。<br/><Curtain type="warning"> opencv-python 虽然使用方法跟 Pillow 完全不同，但就速度而言基本上算得上是降维打击了</Curtain>
 :::
 
-## 快速实例
+## 15.1 快速实例
 
 :::: code-group
 ::: code-group-item 原来的

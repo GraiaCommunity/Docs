@@ -4,7 +4,7 @@
 本章还没写完
 :::
 
-## 情景导入
+## 12.1 情景导入
 
 让我们回顾一下至今我们学习的所有东西，假设你曾经看过友商的代码，想必曾今看到过这样子的对话：
 
@@ -40,7 +40,7 @@
 根据[萌娘百科具有"死库水"属性的典型角色](https://zh.moegirl.org.cn/死库水#具有本属性的典型角色)，确实有 DIO（<Curtain>虽然说跟我这个一样使用黑幕包裹着的</Curtain>）。
 :::
 
-## 举个栗子
+## 12.2 举个栗子
 
 ``` python
 ...
@@ -78,7 +78,7 @@ async def ero(app: Ariadne, group: Group, member: Member, message: MessageChain)
     await app.sendGroupMessage(group, MessageChain.create(Image(data_bytes=await setu(ret_msg.split()))))
 ```
 
-## 原理讲解
+## 12.3 原理讲解
 
 首先我们先把目光着重放在这个 `SetuTagWaiter` 上面：
 
@@ -196,7 +196,7 @@ def create(
 而 `Waiter.create` 的 `block_propagation` 就是 `PropagationCancelled` 的开关。
 假设 `block_propagation` 为 True，则当接收到所需要的消息的时候，就会抛出 `PropagationCancelled` 错误。
 
-## 通过函数创建 `Waiter`
+## 12.4 通过函数创建 `Waiter`
 
 如股票你觉得，仅仅是为了一个 `Waiter` 而大费周章的创建一个类太麻烦了，那么事实上，你也可以通过创建局部函数来达到相同效果哦。
 

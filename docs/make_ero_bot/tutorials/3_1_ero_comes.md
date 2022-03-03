@@ -115,7 +115,7 @@ True
 
 因此还是有将 `MessageChain` 转换为普通 `str` 的方法的。
 
-### 1. `asDisplay()` 方法
+### `asDisplay()` 方法
 
 这个应该是最简单，也是你最容易理解的办法，还记得最开始例子中的消息日志吗？
 
@@ -131,7 +131,7 @@ True
 事实上，`message.asDisplay()` 跟 `str(message)` 是一样的。
 :::
 
-### 2. `asPersistentString()` 方法
+### `asPersistentString()` 方法
 
 首先，先给各位上一个英语课
 
@@ -170,7 +170,7 @@ True
 这样子，保存的时候就会将图片下载下来并保存了（音频同理）。
 :::
 
-### 3. `asMappingString()` 方法
+### `asMappingString()` 方法
 
 为了方便说明，我们直接举例子吧：
 

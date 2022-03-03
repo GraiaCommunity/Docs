@@ -12,11 +12,11 @@ xxxx-xx-xx xx:xx:xx I/main: mirai-console started successfully.
 
 还别说，真能，你需要的是 `Console`~
 
-## `Console` 是什么
+## 14.1 `Console` 是什么
 
 `Console` 说白了就是一个内建实时控制台，你可以在通过控制台做点什么东西。
 
-## 快速开始
+## 14.2 快速开始
 
 首先我们需要在 `main.py` 加一点东西进行初始化：
 
@@ -55,7 +55,7 @@ EroEroBot>
 <br><Curtain>谁叫人家是 python 为数不多的支持多平台的 tui 库呢（摊手）</Curtain>
 :::
 
-## Console 能做什么？
+## 14.3 Console 能做什么？
 
 你可能会说，我要一个后台（控制台）又有什么用呢？
 
@@ -64,7 +64,7 @@ EroEroBot>
 1. 你可以在后台通过 Bot 的账号主动发送群/私聊消息了（当然，只要你想，你也可以执行更多的操作），你的 Bot 再也不是只能一应一答或者定时发消息的“傻孩纸”了
 2. 你觉不觉得每次关闭 Ariadne 都要按 `ctrl+c` 手指要伸很长很累，现在你可以通过命令退出 Ariadne 了！
 
-### 后台发送消息吧~
+### 在后台发送消息吧~
 
 来，让我们在 `module` 文件夹中新建一个 `backend_laning.py`：
 
@@ -120,7 +120,7 @@ async def stop(app: Ariadne, console: Console):
         console.stop()
 ```
 
-## 个性化
+## 14.4 个性化
 
 :::warning
 若模仿本小节内容进行设置但设置不当，则可能会带来一些 Bug，请经过测试后再使用。
