@@ -41,7 +41,10 @@ Behaviour<br>(行为)|根据 Cube 及其元信息，对底层接口(例如 Broad
 ## 11.2 `Saya` 的安装
 
 ::: tip
-假设你之前用的是 `graia-ariadne[full]` 或 `graia-ariadne[graia]`，你可以直接跳过本小节。
+假设你之前安装 Ariadne 时用的是以下2种选项中的一种，那么你可以直接跳过本小节。
+
+- `graia-ariadne[full]`
+- `graia-ariadne[graia]`
 :::
 
 :::: code-group

@@ -12,6 +12,7 @@ export const sidebar: SidebarConfig = {
                 "/make_ero_bot/before/Q&A.md",
                 "/make_ero_bot/before/1_mirai.md",
                 "/make_ero_bot/before/2_terminal_multiplexer.md",
+                "/make_ero_bot/before/3_small_question.md",
             ],
         },
         {
@@ -20,7 +21,7 @@ export const sidebar: SidebarConfig = {
                 "/make_ero_bot/tutorials/1_hello_ero.md",
                 "/make_ero_bot/tutorials/2_other_event.md",
                 {
-                    text: "3.关于消息链的故事",
+                    text: "3. 关于消息链的故事",
                     link: "/make_ero_bot/tutorials/3_1_ero_comes.md",
                     children: [
                         "/make_ero_bot/tutorials/3_1_ero_comes.md",
@@ -53,7 +54,6 @@ export const sidebar: SidebarConfig = {
         {
             text: "附录",
             children: [
-                "/make_ero_bot/appendix/small_question.md",
                 "/make_ero_bot/appendix/terms.md",
                 "/make_ero_bot/appendix/credit.md",
                 "/make_ero_bot/appendix/awesome_bot.md",

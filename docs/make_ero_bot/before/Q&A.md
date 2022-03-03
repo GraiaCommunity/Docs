@@ -51,34 +51,73 @@
 
 当你写的机器人拥有越来越多功能的时候，代码所需要的第三方库也会越来越多  
 （比如用来作图的 Pillow / PIL，用来做图标的 matplotlib）  
-举个例子，这是 `graia-ariadne 0.5.2.post1` 的依赖
+举个例子，这是 `graia-ariadne 0.6.1 [full]` 的依赖
 
-``` bash
-graia-ariadne==0.5.2.post1
-  - aiohttp [required: >=3.7.4,<4.0.0]
-    - async-timeout [required: >=3.0,<4.0]
-    - attrs [required: >=17.3.0]
-    - chardet [required: >=2.0,<5.0]
-    - multidict [required: >=4.5,<7.0]
-    - typing-extensions [required: >=3.6.5]
-    - yarl [required: >=1.0,<2.0]
-      - idna [required: >=2.0]
-      - multidict [required: >=4.0]
-  - graia-broadcast [required: >=0.15.2,<0.16.0]
-  - loguru [required: >=0.6,<0.7]
-    - colorama [required: >=0.3.4]
-    - win32-setctime [required: >=1.0.0]
-  - prompt-toolkit [required: >=3.0.24,<4.0.0]
-    - wcwidth [required: Any]
-  - pydantic [required: >=1.8.2,<2.0.0]
-    - typing-extensions [required: >=3.7.4.3]
-  - typing-extensions [required: >=4.0.0,<5.0.0]
-  - yarl [required: >=1.7,<2.0]
-    - idna [required: >=2.0]
-    - multidict [required: >=4.0]
+``` txt
+graia-ariadne 0.6.1 Another elegant Python QQ Bot framework for mirai and mirai-api-http v2.
+├── aiohttp >=3.7.4,<4.0.0
+│   ├── aiodns *
+│   │   └── pycares >=4.0.0
+│   │       └── cffi >=1.5.0
+│   │           └── pycparser *
+│   ├── aiosignal >=1.1.2
+│   │   └── frozenlist >=1.1.0
+│   ├── async-timeout >=4.0.0a3,<5.0
+│   ├── attrs >=17.3.0
+│   ├── brotli *
+│   ├── cchardet *
+│   ├── charset-normalizer >=2.0,<3.0
+│   ├── frozenlist >=1.1.1 (circular dependency aborted here)
+│   ├── multidict >=4.5,<7.0
+│   └── yarl >=1.0,<2.0
+│       ├── idna >=2.0
+│       └── multidict >=4.0 (circular dependency aborted here)
+├── arclet-alconna >=0.6,<0.7
+├── fastapi >=0.74.1,<0.75.0
+│   ├── pydantic >=1.6.2,<1.7 || >1.7,<1.7.1 || >1.7.1,<1.7.2 || >1.7.2,<1.7.3 || >1.7.3,<1.8 || >1.8,<1.8.1 || >1.8.1,<2.0.0
+│   │   └── typing-extensions >=3.7.4.3
+│   └── starlette 0.17.1
+│       └── anyio >=3.0.0,<4
+│           ├── idna >=2.8
+│           └── sniffio >=1.1
+├── graia-broadcast 0.16.1
+├── graia-saya >=0.0.14,<0.0.15
+│   ├── graia-broadcast >=0.12.1
+│   └── loguru >=0.5.3,<0.7
+│       ├── colorama >=0.3.4
+│       └── win32-setctime >=1.0.0
+├── graia-scheduler >=0.0.6,<0.0.7
+│   ├── croniter >=1.0.0,<2.0.0
+│   │   └── python-dateutil *
+│   │       └── six >=1.5
+│   └── graia-broadcast >=0.12.1
+├── loguru >=0.6,<0.7
+│   ├── colorama >=0.3.4
+│   └── win32-setctime >=1.0.0
+├── prompt-toolkit >=3.0.24,<4.0.0
+│   └── wcwidth *
+├── pydantic >=1.8.2,<2.0.0
+│   └── typing-extensions >=3.7.4.3
+├── typing-extensions >=4.0.0,<5.0.0
+├── ujson >=5.1.0,<6.0.0
+├── uvicorn >=0.17.5,<0.18.0
+│   ├── asgiref >=3.4.0
+│   ├── click >=7.0
+│   │   └── colorama *
+│   ├── colorama >=0.4 (circular dependency aborted here)
+│   ├── h11 >=0.8
+│   ├── httptools >=0.2.0,<0.4.0
+│   ├── python-dotenv >=0.13
+│   ├── pyyaml >=5.1
+│   ├── uvloop >=0.14.0,<0.15.0 || >0.15.0,<0.15.1 || >0.15.1
+│   ├── watchgod >=0.6
+│   └── websockets >=10.0
+└── yarl >=1.7,<2.0
+    ├── idna >=2.0
+    └── multidict >=4.0
 ```
 
-你以为你只安装了一个库，实际上你安装了17个库  
+你以为你只安装了一个库，实际上你安装了……安装了……总之安装了好多好多个库  
 当你后面想要把你的机器人在别的电脑里运行的时候  
 一切都太迟了，你完全不知道你到底需要哪个库，不需要哪个库  
 甚至升级（pip更行库并不会自动升级依赖）

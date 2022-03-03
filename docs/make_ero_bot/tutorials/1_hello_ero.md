@@ -8,18 +8,22 @@
 
    ::: warning Q & A
    **Q1:** 为什么不直接使用 `pip` + `venv` 而是使用 `poetry`？  
-   **A1:**  
-   `poetry` 能够更好地管理依赖，当然你直接用 pip 也行，只是不推荐（不会有人想因为依赖冲突把系统环境炸掉吧）  
-   虽然可能在刚开始不用 `poetry` 没啥问题，但等依赖多了以后，你就会后悔了（详细请:point_right: [看这](../before/Q&A.md#_4-关于-poetry)）
-
+   **A1:**
+   > 因为 `poetry` 能够更好地管理依赖，当然你直接用 pip 也行，只是不推荐（不会有人想因为依赖冲突把系统环境炸掉吧）。
+   > 虽然可能在刚开始不用 `poetry` 没啥问题，但等依赖多了以后，你就会后悔了（详细请:point_right: [看这](../before/Q&A.md#_4-关于-poetry)）。
+   >
+   > &nbsp;
+   >
    > 至于你问我如何用 pip 创建虚拟环境？:point_right: [看这](../before/Q&A.md#_9-当你遇到不会的东西的时候)
 
+   <hr>
+
    **Q2:** 为什么不用 `conda` 或 `pdm`  
-   **A1:**  
-   ~~啊对对对（开摆）~~ 因为社区内大部分机器人都是使用 `poetry`，所以我们也向各位推荐 `poetry`
+   **A2:**
+   > ~~啊对对对（开摆）~~ 因为社区内大部分机器人都是使用 `poetry`，所以我们也向各位推荐 `poetry`
    :::
 
-4. **本文档将使用 `graia-ariadne` 0.6.0.post1 及以上的版本**，部分内容可能仍为旧版本但不影响食用；
+4. **本文档将使用 `graia-ariadne` 0.6.1 及以上的版本**，部分内容可能仍为旧版本但不影响食用；
 5. 虽然 `Ariadne` 支持 Python 3.8~3.10 但为了**最佳体验**，我们建议你最好升级到 `Python3.9+`；
 6. **本文档部分内容可能未及时更新或不全**，因此你可以在本文档的一些页面见到如下的提示框，他们通常指向相关的文档。
    ::: interlink
@@ -100,7 +104,11 @@ poetry add graia-ariadne[full]
 
 ::: tip TIPS
 
-1. `graia-ariadne` 有很多非必要的组件，例如：
+1. Ariadne 自 0.6.1 版本起添加了 `Reverse Adapter`（反向 HTTP / WebSockets 适配器），
+   假设你并不需要 `ReverseAdapter`，你可以直接把上述的 `graia-ariadne[full]`
+   换成 `graia-ariadne[graia]` 或 `graia-ariadne[graia,alconna]`。
+
+   此外 Ariadne 其实有好几种 Extra deps（可选依赖），如下所示：
 
    - graia-ariadne[graia]
       - graia-saya —— 模块化（[第11章](./11_classification.md)用到）
@@ -111,18 +119,15 @@ poetry add graia-ariadne[full]
       - fastapi —— 用于 `ReverseAdapter` 反向连接器（挖坑）
       - uvicorn —— 运行 `fastapi` 所需要的容器
 
-   而 `graia-ariadne[full]` 则会安装以上所有非必要组件
+   而 `graia-ariadne[full]` 则会安装以上所有非必要组件。
 
-   假设你确实不需要所有非必要组件，你可以通过安装其他 Extras 设定，例如  
-   `pip install graia-ariadne[graia,alconna]`
-
-2. 假设你不怎么喜欢整虚拟环境也可以使用如下命令来取消虚拟环境的创建
+2. 假设你不怎么喜欢整虚拟环境也可以使用如下命令来取消虚拟环境的创建。
 
    ``` bash
    poetry config virtualenvs.create false
    ```
 
-3. 你的运行结果可能跟我有所不同，但是大致应该是差不多的
+3. 你的运行结果可能跟我有所不同，但是大致应该是差不多的。
 :::
 
 :::: details 命令输出
@@ -138,7 +143,7 @@ Using virtualenv: /root/.cache/pypoetry/virtualenvs/EroEroBot-BexBd8Xq-py3.9
 $ poetry add graia-ariadne[full]
 
 Creating virtualenv EroEroBot-BexBd8Xq-py3.9 in /root/.cache/pypoetry/virtualenvs
-Using version ^0.6.0.post1 for graia-ariadne
+Using version ^x.x.x for graia-ariadne
 
 Updating dependencies
 Resolving dependencies...
@@ -147,30 +152,30 @@ Writing lock file
 
 Package operations: 24 installs, 0 updates, 0 removals
 
-  • Installing six (1.16.0)
-  • Installing colorama (0.4.4)
-  • Installing frozenlist (1.3.0)
-  • Installing idna (3.3)
-  • Installing multidict (6.0.2)
-  • Installing python-dateutil (2.8.2)
-  • Installing win32-setctime (1.1.0)
-  • Installing aiosignal (1.2.0)
-  • Installing async-timeout (4.0.2)
-  • Installing croniter (1.3.4)
-  • Installing graia-broadcast (0.15.6)
-  • Installing attrs (21.4.0)
-  • Installing typing-extensions (4.1.1)
-  • Installing charset-normalizer (2.0.12)
-  • Installing loguru (0.6.0)
-  • Installing wcwidth (0.2.5)
-  • Installing yarl (1.7.2)
-  • Installing aiohttp (3.8.1)
-  • Installing arclet-alconna (0.6.3)
-  • Installing graia-scheduler (0.0.6)
-  • Installing pydantic (1.9.0)
-  • Installing graia-saya (0.0.14)
-  • Installing prompt-toolkit (3.0.28)
-  • Installing graia-ariadne (0.6.0.post1)
+  • Installing six (x.x.x)
+  • Installing colorama (x.x.x)
+  • Installing frozenlist (x.x.x)
+  • Installing idna (x.x.x)
+  • Installing multidict (x.x.x)
+  • Installing python-dateutil (x.x.x)
+  • Installing win32-setctime (x.x.x)
+  • Installing aiosignal (x.x.x)
+  • Installing async-timeout (x.x.x)
+  • Installing croniter (x.x.x)
+  • Installing graia-broadcast (x.x.x)
+  • Installing attrs (x.x.x)
+  • Installing typing-extensions (x.x.x)
+  • Installing charset-normalizer (x.x.x)
+  • Installing loguru (x.x.x)
+  • Installing wcwidth (x.x.x)
+  • Installing yarl (x.x.x)
+  • Installing aiohttp (x.x.x)
+  • Installing arclet-alconna (x.x.x)
+  • Installing graia-scheduler (x.x.x)
+  • Installing pydantic (x.x.x)
+  • Installing graia-saya (x.x.x)
+  • Installing prompt-toolkit (x.x.x)
+  • Installing graia-ariadne (x.x.x)
 ```
 
 ::::
@@ -226,14 +231,14 @@ Package operations: 24 installs, 0 updates, 0 removals
       / /\ \ | '__| |/ _` |/ _` | '_ \ / _ \
      / ____ \| |  | | (_| | (_| | | | |  __/
     /_/    \_\_|  |_|\__,_|\__,_|_| |_|\___|
-   Ariadne version: 0.6.0.post1
-   Saya version: 0.0.14
-   Broadcast version: 0.15.6
-   Scheduler version: 0.0.6
+   Ariadne version: x.x.x
+   Saya version: x.x.x
+   Broadcast version: x.x.x
+   Scheduler version: x.x.x
    2022-02-15 17:12:16.320 | INFO     | graia.ariadne.app - Launching app...
    2022-02-15 17:12:16.321 | INFO     | graia.ariadne.adapter - websocket: connected
    2022-02-15 17:12:16.332 | INFO     | graia.ariadne.adapter - websocket: ping task created
-   2022-02-15 17:12:16.333 | INFO     | graia.ariadne.app - Remote version: 2.5.0
+   2022-02-15 17:12:16.333 | INFO     | graia.ariadne.app - Remote version: x.x.x
    2022-02-15 17:12:16.334 | INFO     | graia.ariadne.app - Application launched with 0.012s
    2022-02-15 17:12:16.335 | INFO     | graia.ariadne.app - daemon: adapter started
    ```

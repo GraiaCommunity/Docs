@@ -18,7 +18,11 @@
 ## 6.4.0 凡事都要先安装
 
 ::: tip
-假设你之前用的是 `graia-ariadne[full]` 或 `graia-ariadne[alconna]`，你可以直接跳过本小节。
+假设你之前安装 Ariadne 时用的是以下3种选项中的一种，那么你可以直接跳过本小节。
+
+- `graia-ariadne[full]`
+- `graia-ariadne[alconna]`
+- `graia-ariadne[graia,alconna]`
 :::
 
 :::: code-group
@@ -79,7 +83,8 @@ SetuFind = Alconna.from_string(
 
 如此，命令就创建好了。
 
-接下来，在你的机器人中添加一个 `.setu搜索` 命令：
+接下来，在你的机器人中添加一个 `.setu搜索` 命令：  
+（**此处版本号为 `Alconna` 的版本号，非 `Ariadne` 的版本号**）
 
 :::: code-group
 ::: code-group-item 0.6.0 -
@@ -101,7 +106,7 @@ async def ero(app: Ariadne, group: Group, result: Arpamar):
 ```
 
 :::
-::: code-group-item in future
+::: code-group-item 0.6.0 +
 
 ``` python
 ...
