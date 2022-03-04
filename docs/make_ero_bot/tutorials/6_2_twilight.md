@@ -170,7 +170,9 @@ from graia.ariadne.message.parser.twilight import (
             [
                 FullMatch("涩图来").space(SpacePolicy.FORCE),
                 "at" @ ElementMatch(At).space(SpacePolicy.FORCE),
-                "any" @ WildcardMatch(),
+                ParamMatch() @ "sth1",
+                "sth2" << ParamMatch(),
+                WildcardMatch() >> "sth3",
             ]
         ),
     ]
@@ -209,7 +211,13 @@ async def test(app: Ariadne, group: Group):
 在这个这个例子中，没有使用任何 Twilight 的方法，而是直接传入了一个含有多个 Match 的列表来实例化了一个 Twilight 类，
 同时传入了3个 **XxxxxMatch**，并且其中的 `FullMatch` 和 `ElementMatch` 都各自有一个 `.space()`。
 
-并且，`ElementMatch` 和 `WildcardMatch` 前面各有一个 `"at" @` 或 `"any" @`，
+并且，存在了以下4种奇奇怪怪的用法：
+
+- `"at" @ ElementMatch(At)`
+- `ParamMatch() @ "sth1"`
+- `"sth2" << ParamMatch()`
+- `WildcardMatch() >> "sth3"`
+
 这又是在干什么呢？其实，他们是用来指定参数名称的，具体作用我们后面会讲到。
 
 那么这样创建的 Twilight 实例又长什么样呢？让我们来看一看：
@@ -484,36 +492,22 @@ Twilight(
 
 首先，我们要知道何为 **参数分配** 及 `MatchResult`。
 
-在前面几节中，我们出现了类似 `"at" @ ElementMatch(At)` 这样的用法，
+在前面几节中，我们出现了类似 `"at" @ ElementMatch(At)` 或 ``"at" << ElementMatch(At)`` 这样的用法，
 这里的 `"at" @` 就是给 `ElementMatch(At)` 分配了一个名为 `at` 的参数名，
 当然，这里也可以使用任何你喜欢的字符串。
 
-你可能会很好奇，为什么会有 `@` 这样的用法。其实这是 Python 自带的一个运算符，
+你可能会很好奇，为什么会有 `@` 和 `<<` 这样的用法呢？其实这是 Python 自带的一个运算符，
 Twilight 重载了这个运算符使其执行了 `Match.param()` 的这个方法，
 也就是说 `"at" @ ElementMatch(At)` 等价于 `ElementMatch(At).param("at")`。
-另外，因为 `@` 是一个运算符，你也可以把 `"At"` 放到 `ElementMatch(At)` 的后面。
+另外，因为 `@` 与 `<<` 都是运算符，因此也可以把 `"At"` 放到 `ElementMatch(At)` 的后面。
 
-现在就来让我们完整看看给 Match 进行参数分配的两种方式吧：
-
-``` python
-Twilight(
-    [
-        FullMatch("歌词").space(SpacePolicy.FORCE),
-        ElementMatch(At).param("at"),  # 第一种
-        "lyrics1" @ ParamMatch().space(SpacePolicy.FORCE),  # 第二种
-        ParamMatch().space(SpacePolicy.FORCE) @ "lyrics2",  # 第二种的变体
-        FullMatch("好耶"),
-    ]
-)
-```
+::: warning
+请注意，位移运算符 `>>` 与 `<<` 因始终朝向字符串，即由 **Match** 指向 **str**。
+:::
 
 除了 `"at" @ ElementMatch(At)` 这样的用法外，其实我们在 `from_command()` 中也用到了参数分配噢。
 我们刚刚提到 `Twilight.from_command()` 有其对应的 `Twilight([])` 方式，
 易得（bushi）`Twilight.from_command("涩图来 {lyrics}")` 中的 `lyrics` 是给其对应的 `ParamMatch` 进行了参数匹配。
-
-::: warning
-`Twilight.from_command()` 中的 `{}` 内部请不要使用纯数字，以避免出现意外问题。
-:::
 
 ### `MatchResult`
 
@@ -646,7 +640,7 @@ async def lyric_xxx(app: Ariadne, group: Group, sparkle: Sparkle):
 
 `MatchResult` 及其变体们都具有以下三个属性：
 
-- `MatchResult.matched`: 对应的 Match 对象是否匹配（当 `Optional` 为 `False` 时必为 `True`，当 `Optional` 为 `True` 时，可通过类似下面的例子判断匹配是否成功）
+- `MatchResult.matched`: 对应的 Match 对象是否匹配（当 `optional` 为 `False` 时必为 `True`，当 `optional` 为 `True` 时，可通过类似下面的例子判断匹配是否成功）
 
   ``` python
   @bcc.receiver(
@@ -655,8 +649,8 @@ async def lyric_xxx(app: Ariadne, group: Group, sparkle: Sparkle):
           Twilight(
               [
                   FullMatch("歌词").space(SpacePolicy.FORCE),
-                  "lyrics1" @ ParamMatch().space(SpacePolicy.FORCE),
-                  "lyrics2" @ ParamMatch().space(SpacePolicy.FORCE),
+                  "lyrics1" @ ParamMatch(optional=True).space(SpacePolicy.FORCE),
+                  "lyrics2" @ ParamMatch(optional=True).space(SpacePolicy.FORCE),
                   FullMatch("好耶"),
               ]
           ),
@@ -687,6 +681,39 @@ async def lyric_xxx(app: Ariadne, group: Group, lyrics: ParamMatch):
 ```
 
 :::
+
+#### `ResultValue` 装饰器
+
+假设我们只需要拿到匹配结果（也就是必能匹配成功拿到结果的情况下，比如将 **Twilight**
+用在 **dispatcher** 里且你要拿匹配结果的 **Match** 没有设置 `optional=True` 的时候），那么可以不可以更简单一点呢？
+
+**那必须可以啊！**
+
+这时候我们就要祭出 `ResultValue` 装饰器了。
+
+将 `ResultValue` 作为装饰器使用，可以直接获取匹配结果而不需要从 `MatchResult.result` 提取了。
+
+::: tsukkomi
+再也不用忍受 `MatchResult.result.asDisplay()` 被标红的烦恼了！
+:::
+
+用例如下（摘录自 Ariadne 官方文档）：
+
+```python {12}
+@bcc.receiver(
+    MessageEvent,
+    dispatchers=[
+        Twilight(
+            [
+                FullMatch(".command"),
+                "arg" @ RegexMatch(r"\d+", optional=True),
+            ]
+        ),
+    ]
+)
+async def reply(..., arg: MessageChain = ResultValue()):  # 保证不会被正常的流程覆盖
+    ...
+```
 
 ::: interlink
 **相关链接：**<https://graia.readthedocs.io/advance/twilight/>
