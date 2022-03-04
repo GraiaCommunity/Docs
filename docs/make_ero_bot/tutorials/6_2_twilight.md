@@ -15,7 +15,7 @@
 
 Friendship is magic!
 
-<Curtain type="tip">来点暮光闪闪涩图<Curtain type="tip"> 人不能，至少不应该</Curtain></Curtain>
+<Curtain type="tsukkomi">来点暮光闪闪涩图<Curtain type="tsukkomi"> 人不能，至少不应该</Curtain></Curtain>
 <div style="height:1em"></div>
 :::
 

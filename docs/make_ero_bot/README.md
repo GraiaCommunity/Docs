@@ -23,7 +23,7 @@
 
 1. :white_check_mark: [你好，来点涩图](./tutorials/1_hello_ero.md) —— 你与机器人的第一次对话
 2. :white_check_mark: [别戳了](./tutorials/2_other_event.md) —— `Ariadne` 上各类 `Event` 的简单讲解
-3. :white_check_mark: [关于消息链的故事](./tutorials/3_1_ero_comes.md)
+3. :white_check_mark: <MoreInfo :link="true" words="关于消息链的故事"><div style="background: var(--c-bg);border:3px solid var(--c-brand)">这里变绿只是看着好看罢了，并没有超链接</div></MoreInfo>
    1. :white_check_mark: [发涩图](./tutorials/3_1_ero_comes.md) —— `MessageChain` 的介绍
    2. :white_check_mark: [八嘎 hentai 无路赛](./tutorials/3_2_kugimiya.md) —— 对于 ` 多媒体消息 ` 发送的一点补充
 4. :white_check_mark: [好大的奶](./tutorials/4_forward_message.md) —— 合并消息的构建与解析

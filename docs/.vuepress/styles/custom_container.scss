@@ -1,14 +1,41 @@
-// 为 tip 的标题带色，与其他 custom-container 一致
 :root {
     --c-tip-title: #2ba36d;
+
+    --c-warning-text-accent: #d1b62c;
+    --c-danger-text-accent: #e05b5b;
+
+    --c-interlink: #0022e6;
+    --c-interlink-bg: #e5e9ff;
+    --c-interlink-text: var(--c-interlink);
+    --c-interlink-title: var(--c-interlink);
+    --c-interlink-text-accent: var(--c-text);
+
+    --c-tsukkomi: #aa00ff;
+    --c-tsukkomi-bg: #f7e5ff;
+    --c-tsukkomi-text: #440066;
+    --c-tsukkomi-title: var(--c-tsukkomi);
+    --c-tsukkomi-text-accent: var(--c-tsukkomi);
 }
 
 html.dark {
     --c-tip-title: var(--c-tip);
+
+    --c-warning-text-accent: var(--c-warning-title);
+    --c-danger-text-accent: var(--c-danger-title);
+
+    --c-interlink: #3e53ce;
+    --c-interlink-bg: #2c324d;
+    --c-interlink-text: #bac3f5;
+    --c-interlink-text-accent: #d7e1ec;
+
+    --c-tsukkomi: #b37fce;
+    --c-tsukkomi-bg: #5d4d66;
+    --c-tsukkomi-text: #c5b8cc;
 }
 
-// 使 custom-container 变圆角
+// custom-container 基本样式
 .custom-container {
+    // 圆角
     border-radius: 0.3rem;
 }
 
@@ -21,53 +48,17 @@ html.dark {
     margin: 1rem 0;
 }
 
-// 相关链接 interlink
-:root {
-    --c-interlink: #0022e6;
-    --c-interlink-bg: #e5e9ff;
-    --c-interlink-text: var(--c-interlink);
-    --c-interlink-title: var(--c-interlink);
-}
-
-html.dark {
-    // 黑暗模式
-    --c-interlink: #3e53ce;
-    --c-interlink-bg: #2c324d;
-    --c-interlink-text: #bac3f5;
-    --c-interlink-title: var(--c-interlink);
-}
-
-.interlink {
+.custom-container.interlink {
     border-color: var(--c-interlink);
     background-color: var(--c-interlink-bg);
     color: var(--c-interlink-text);
 
     a {
-        color: var(--c-text);
+        color: var(--c-interlink-text-accent);
     }
 }
 
-html.dark .interlink a {
-    color: #d7e1ec;
-}
-
-// 吐槽 tsukkomi
-:root {
-    --c-tsukkomi: #aa00ff;
-    --c-tsukkomi-bg: #f7e5ff;
-    --c-tsukkomi-text: #440066;
-    --c-tsukkomi-title: var(--c-tsukkomi);
-}
-
-html.dark {
-    // 黑暗模式
-    --c-tsukkomi: #b37fce;
-    --c-tsukkomi-bg: #5d4d66;
-    --c-tsukkomi-text: #c5b8cc;
-    --c-tsukkomi-title: var(--c-tsukkomi);
-}
-
-.tsukkomi {
+.custom-container.tsukkomi {
     border-color: var(--c-tsukkomi);
     background-color: var(--c-tsukkomi-bg);
     color: var(--c-tsukkomi-text);
@@ -81,34 +72,23 @@ html.dark {
     }
 }
 
-// 改变 custom-container 中链接的颜色，跟随 tip 的样式
-.custom-container.warning a {
-    color: #d1b62c;
-}
-html.dark .custom-container.warning a {
-    color: var(--c-warning-title);
-}
-.custom-container.danger a {
-    color: #e05b5b;
-}
-html.dark .custom-container.danger a {
-    color: var(--c-danger-title);
-}
+
 
 // 使 custom-container 中 code 不要这么黑
-.custom-container code {
+.custom-container > p code {
     background-color: #ffffff99; // 用透明的方式透出背景颜色使其看起来没这么维和
 }
 
-html.dark .custom-container code {
+html.dark .custom-container > p code {
     background-color: #33333399; // 用透明的方式透出背景颜色使其看起来没这么维和
 }
 
-html.dark .custom-container.tip code {
+html.dark .custom-container.tip > p code {
     background-color: #44444499; // 用透明的方式透出背景颜色使其看起来没这么维和
 }
 
-// 修复 custom-container 中 quote 的样式
+
+// 修改 custom-container 中 quote 的样式
 .custom-container.warning blockquote {
     border-left-color: #ecdc89;
     color: #c2b46d;
