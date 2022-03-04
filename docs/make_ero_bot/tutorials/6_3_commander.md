@@ -43,6 +43,7 @@
 
 <hr size=3/>
 
-<Strong id="anno">注：</Strong>
+<a id="anno"></a>
 
+**注：**
 [1]：来自维基词典 <https://zh.wiktionary.org/wiki/-er>
