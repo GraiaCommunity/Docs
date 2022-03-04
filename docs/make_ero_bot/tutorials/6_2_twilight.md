@@ -118,10 +118,10 @@ class Twilight(Generic[T_Sparkle], BaseDispatcher):
     """暮光"""
 ```
 
-从本质上来说，Twilight 是一种 Dispatcher，他继承了 BCC 的 BaseDispatcher 类。  
-当他作为 Dispatcher 传给 BCC 时，假设 BCC 接收到了我们指定的事件（如：GroupMessage），
-BCC 就会把 GroupMessage 中的消息链交给 Twilight 进行解析，当 Twilight 解析失败的时候，
-他就会抛出 `ExecutionStop` 错误，然后 BCC 捕获到该错误就不会调用我们注册的函数了。
+从本质上来说，Twilight 是一种 **Dispatcher**，他继承了 BCC 的 **BaseDispatcher** 类。  
+当把他作为 **Dispatcher** 传给 **BCC** 时，假设 **BCC** 接收到了我们指定的事件（如：**GroupMessage**），
+**BCC** 就会把 **GroupMessage** 中的消息链交给 **Twilight** 进行解析，当 **Twilight** 解析失败的时候，
+他就会抛出 `ExecutionStop` 错误，然后 **BCC** 捕获到该错误就不会调用我们注册的函数了。
 
 ## 6.2.3 创建 Twilight
 
@@ -172,7 +172,7 @@ from graia.ariadne.message.parser.twilight import (
                 "at" @ ElementMatch(At).space(SpacePolicy.FORCE),
                 "any" @ WildcardMatch(),
             ]
-        )
+        ),
     ]
 )
 async def test(app: Ariadne, group: Group):
@@ -214,7 +214,7 @@ async def test(app: Ariadne, group: Group):
 
 那么这样创建的 Twilight 实例又长什么样呢？让我们来看一看：
 
-```python
+``` python
 >>> Twilight(
 ...     [
 ...         FullMatch("涩图来").space(SpacePolicy.FORCE),
@@ -251,13 +251,13 @@ async def test(app: Ariadne, group: Group):
 那么就让我们来康一康目前 Ariadne 有哪些 **Match** 吧。
 首先需要声明一下，`Match` 类本身仅为**抽象基类**，无法被直接实例化，他有以下几种变体：
 
-- `RegexMatch` ： 正则表达式匹配
-- `FullMatch` ： 严格全匹配（匹配字符串）
-- `UnionMatch` ： 多重全匹配（匹配时满足其传入的多个字符串中的一个即为匹配成功）
-- `ElementMatch` ： 消息元素匹配（如 `At`、`Image`等）
-- `WildcardMatch` ： 泛匹配（任意匹配/贪婪匹配，包括空格等）
-- `ParamMatch` ： 泛匹配（任意匹配，可通过引号与空格确定匹配起止）
-- `ArgumentMatch` ： 参数匹配（即：`-t xx`、`--type xx` 等）
+- `RegexMatch`: 正则表达式匹配
+- `FullMatch`: 严格全匹配（匹配字符串）
+- `UnionMatch`: 多重全匹配（匹配时满足其传入的多个字符串中的一个即为匹配成功）
+- `ElementMatch`: 消息元素匹配（如 `At`、`Image`等）
+- `WildcardMatch`: 泛匹配（任意匹配/贪婪匹配，包括空格等）
+- `ParamMatch`: 泛匹配（任意匹配，可通过引号与空格确定匹配起止）
+- `ArgumentMatch`: 参数匹配（即：`-t xx`、`--type xx` 等）
 
 那么就让我们分别介绍一下每一种 **Match** 吧~
 
@@ -271,7 +271,8 @@ async def test(app: Ariadne, group: Group):
 ``` python
 Twilight(
     [
-        FullMatch("涩图"), FullMatch("来", optional=True)
+        FullMatch("涩图"),
+        FullMatch("来", optional=True),
     ]
 )
 ```
@@ -289,7 +290,7 @@ Twilight(
 ```
 
 另外，下面即将介绍到的 `FullMatch`、`UnionMatch`、`ParamMatch`、`WildcardMatch`
-都是基于 `RegexMatch` 的包装类（即 `RegexMatch` 可以用的方法，这几种 Match 也可以用噢）。
+都是基于 `RegexMatch` 的包装类（即 `RegexMatch` 拥有的方法及选项，这几种 Match 也可以用噢）。
 
 #### `flags` 方法
 
@@ -299,7 +300,10 @@ Twilight(
 >>> RegexMatch(r"\d+ # digits").flags(re.V)  # 设置 re.VERBOSE 标记
 ```
 
-> 什么？你不会正则？那你可以去学学噢~
+::: interlink
+什么？你不会正则？那你可以去学学噢~  
+要是你想去学的话，你可以看看[这篇来自 Python 官方的文档](https://docs.python.org/zh-cn/3/howto/regex.html)（中文）。
+:::
 
 #### `space` 方法
 
@@ -317,9 +321,9 @@ Twilight(
 
 其中 `SpacePolicy` 具有如下常量:
 
-- `NOSPACE` ： 不附带尾随空格（即该 Match 的匹配内容后面必须不是空格）
-- `PRESERVE` ： 预留尾随空格（即该 Match 的匹配内容后面有没有空格都没关系）
-- `FORCE` ： 强制需要尾随空格（即该 Match 的匹配内容后面必须有空格）
+- `NOSPACE`: 不附带尾随空格（即该 Match 的匹配内容后面必须不是空格）
+- `PRESERVE`: 预留尾随空格（即该 Match 的匹配内容后面有没有空格都没关系）
+- `FORCE`: 强制需要尾随空格（即该 Match 的匹配内容后面必须有空格）
 
 :::tip
 `PRESERVE` 和 `FORCE` 的情况下，不管尾随了多少个空格，都会被去掉desu
@@ -373,7 +377,7 @@ ElementMatch 可以用来匹配各种在消息链中可以与文字共存的消�
 泛匹配/任意匹配，他与 WildcardMatch 相似，但他要求至少一个字符，
 并且可以匹配到被引号包含起来的含空格的字符串。
 
-例如，有一个 Twilight：
+例如，有一个 Twilight（以下两种创建 Twilight 的方式等价）：
 
 :::: code-group
 ::: code-group-item from_command 方式
@@ -383,9 +387,9 @@ Twilight.from_command("歌词 {lyrics} 好耶")
 ```
 
 :::
-::: code-group-item 普通方式
+::: code-group-item Match 方式
 
-```python
+``` python
 Twilight(
     [
         FullMatch("歌词").space(SpacePolicy.FORCE),
@@ -406,12 +410,12 @@ Twilight(
 但无法匹配到以下的字符串：
 
 - `歌词 我有一只小毛驴 我从来都不骑 好耶`
-- <code>歌词 &#96;我有一只小毛驴 我从来都不骑&#96; 好耶</code> ： <code>&#96;</code> 不是引号
-- `歌词 “我有一只小毛驴 我从来都不骑” 好耶` ： 不包含中文引号
-- `歌词 ‘我有一只小毛驴 我从来都不骑’ 好耶` ： 不包含中文引号
-- `歌词 [我有一只小毛驴 我从来都不骑] 好耶` ： 括号不是引号
-- `歌词 {我有一只小毛驴 我从来都不骑} 好耶` ： 括号不是引号
-- `歌词 【我有一只小毛驴 我从来都不骑】 好耶` ： 括号不是引号
+- <code>歌词 &#96;我有一只小毛驴 我从来都不骑&#96; 好耶</code>: <code>&#96;</code> 不是引号
+- `歌词 “我有一只小毛驴 我从来都不骑” 好耶`: 不包含中文引号
+- `歌词 ‘我有一只小毛驴 我从来都不骑’ 好耶`: 不包含中文引号
+- `歌词 [我有一只小毛驴 我从来都不骑] 好耶`: 括号不是引号
+- `歌词 {我有一只小毛驴 我从来都不骑} 好耶`: 括号不是引号
+- `歌词 【我有一只小毛驴 我从来都不骑】 好耶`: 括号不是引号
 
 ::: warning
 请注意，此处的的引号仅指 **竖直** 的引号，即 `"` 与 `'`，不包含以下几种引号/符号：
@@ -430,34 +434,248 @@ Twilight(
 ArgumentMatch 是 Twilight 的一大亮点，他可以像一般的命令行程序一样，
 识别诸如 `-t group` 及 `--type member` 这样的命令格式。
 
-<Loading></Loading>
+先来认识以下 **ArgumentMatch**，他的思路与 **RegexMatch** 不同，他基于 **argparse** 进行参数解析，
+他也是目前 **Twilight** 唯一一个不是继承自 **RegexMatch** 的 **Match**。
 
-## 6.4 参数分配与 `MatchResule`
+**ArgumentMatch** 的初始化方法与 **add_argument** 非常相似。
+
+::: interlink
+有关 **add_argument** 的用法及定义，可以的点击[这里查看这篇 Python 官方的文档](https://docs.python.org/zh-cn/3/library/argparse.html#argparse.ArgumentParser.add_argument)（中文）。
+:::
+
+受限于篇幅及其理解难度，这里不详细展开（~~其实是因为作者也不太会用~~）。  
+只能给出几个官方用例:
+
+``` python
+>>> ArgumentMatch("-s", "--switch", action="store_true")  # 开关
+>>> ArgumentMatch("-o", "--opt", type=str, choices=["head", "body"])  # 只允许 "head" 或 "body"
+>>> ArgumentMatch("-m", choices=MessageChain(["choice_a", "choice_b"]))  # 注意默认是 MessageChain, 所以要这样写
+```
+
+以及几个常见用例：
+
+``` python
+>>> ArgumentMatch("-t", "--type", default="group")  # 可指定默认值，即匹配不成功时使用该默认值作为匹配结果
+>>> ArgumentMatch("-a", optional=True)  # 同样的，ArgumentMatch 也可以为可选项
+```
+
+::: warning
+如果有多个 **ArgumentMatch**，请不要指定相同的参数！例如下面的错误示范：
+
+``` python
+Twilight(
+    [
+        ArgumentMatch("-t", "--type"),
+        ArgumentMatch("-t", "--target"),
+    ]
+)
+```
+
+:::
+
+## 6.4 参数分配与 `MatchResult`
 
 既然 Twilight 有这么多种 Match，而且我们搞这么麻烦用没有意义呢？
 
-**当然有！**我们可以通过**参数分配**及 `MatchResule` 来获取每一个 Match 的匹配结果，
+**当然有！**我们可以通过**参数分配**及 `MatchResult` 来获取每一个 Match 的匹配结果，
 这样就可以省去非常多的我们自己解析消息参数的时间和步骤了。
 
-老规矩，上实例
+### 参数分配
+
+首先，我们要知道何为 **参数分配** 及 `MatchResult`。
+
+在前面几节中，我们出现了类似 `"at" @ ElementMatch(At)` 这样的用法，
+这里的 `"at" @` 就是给 `ElementMatch(At)` 分配了一个名为 `at` 的参数名，
+当然，这里也可以使用任何你喜欢的字符串。
+
+你可能会很好奇，为什么会有 `@` 这样的用法。其实这是 Python 自带的一个运算符，
+Twilight 重载了这个运算符使其执行了 `Match.param()` 的这个方法，
+也就是说 `"at" @ ElementMatch(At)` 等价于 `ElementMatch(At).param("at")`。
+另外，因为 `@` 是一个运算符，你也可以把 `"At"` 放到 `ElementMatch(At)` 的后面。
+
+现在就来让我们完整看看给 Match 进行参数分配的两种方式吧：
 
 ``` python
-from graia.ariadne.message.parser.twilight import Twilight, MatchResult
-...
-
-@bcc.receiver(GroupMessage, dispatcher=[Twilight.from_command("歌词 {lyrics} 好耶")])
-async def lyric_xxx(app: Ariadne, group: Group, lyrics: MatchResult):
-    lyrics = str(lyrics.result)
+Twilight(
+    [
+        FullMatch("歌词").space(SpacePolicy.FORCE),
+        ElementMatch(At).param("at"),  # 第一种
+        "lyrics1" @ ParamMatch().space(SpacePolicy.FORCE),  # 第二种
+        ParamMatch().space(SpacePolicy.FORCE) @ "lyrics2",  # 第二种的变体
+        FullMatch("好耶"),
+    ]
+)
 ```
 
-`MatchResult` 一共就有三个属性
+除了 `"at" @ ElementMatch(At)` 这样的用法外，其实我们在 `from_command()` 中也用到了参数分配噢。
+我们刚刚提到 `Twilight.from_command()` 有其对应的 `Twilight([])` 方式，
+易得（bushi）`Twilight.from_command("涩图来 {lyrics}")` 中的 `lyrics` 是给其对应的 `ParamMatch` 进行了参数匹配。
 
-- `MatchResult.matched`: 对应的 Match 对象是否匹配（当 `Optional` 为 `False` 时必为 `True`）
+::: warning
+`Twilight.from_command()` 中的 `{}` 内部请不要使用纯数字，以避免出现意外问题。
+:::
+
+### `MatchResult`
+
+我们刚刚说过，我们可以获取每一个 Match 的匹配结果，那到底该怎么做呢？
+
+这里我们就不多说废话，老规矩，直接上实例:
+
+:::: code-group
+::: code-group-item MatchResult
+
+``` python
+...
+from graia.ariadne.message.parser.twilight import (
+    FullMatch,
+    ParamMatch,
+    RegexResult,
+    Twilight,
+)
+...
+
+
+@bcc.receiver(
+    GroupMessage,
+    dispatcher=[Twilight.from_command("歌词 {lyrics1} {lyrics2} 好耶")],
+)
+async def lyric_xxx(app: Ariadne, group: Group, lyrics1: RegexResult, lyrics2: RegexResult):
+    print(lyrics1.result)
+    print(type(lyrics1.result))
+    print(lyrics1.result.__repr__)
+
+    print(lyrics2.result)
+    print(type(lyrics2.result))
+    print(lyrics2.result.__repr__)
+
+
+@bcc.receiver(
+    GroupMessage,
+    dispatcher=[
+        Twilight(
+            [
+                FullMatch("歌词").space(SpacePolicy.FORCE),
+                "lyrics1" @ ParamMatch().space(SpacePolicy.FORCE),
+                "lyrics2" @ ParamMatch().space(SpacePolicy.FORCE),
+                FullMatch("好耶"),
+            ]
+        ),
+    ]
+)
+async def lyric_xxx(app: Ariadne, group: Group, lyrics1: RegexResult, lyrics2: RegexResult):
+    print(lyrics1.result)
+    print(type(lyrics1.result))
+    print(lyrics1.result.__repr__)
+
+    print(lyrics2.result)
+    print(type(lyrics2.result))
+    print(lyrics2.result.__repr__)
+```
+
+:::
+::: code-group-item Sparkle
+
+``` python
+...
+# 本方法不受推荐，也不属于 MatchResult，放在这里只是因为这样也可以获得匹配结果
+# 请不要问此处的 Sparkle 是什么，他是 Twilight 的内部类，你只需要会用即可
+from graia.ariadne.message.parser.twilight import (
+    FullMatch,
+    ParamMatch,
+    RegexResult,
+    Sparkle,
+    Twilight,
+)
+...
+
+
+@bcc.receiver(
+    GroupMessage,
+    dispatcher=[Twilight.from_command("歌词 {lyrics1} {lyrics2} 好耶")],
+)
+async def lyric_xxx(app: Ariadne, group: Group, sparkle: Sparkle):
+    print(sparkle.__repr__)
+
+    lyrics1 = sparkle["lyrics1"]
+    print(lyrics1.result)
+    print(type(lyrics1.result))
+    print(lyrics1.result.__repr__)
+
+    lyrics1 = sparkle["lyrics2"]
+    print(lyrics2.result)
+    print(type(lyrics2.result))
+    print(lyrics2.result.__repr__)
+
+
+@bcc.receiver(
+    GroupMessage,
+    dispatcher=[
+        Twilight(
+            [
+                FullMatch("歌词").space(SpacePolicy.FORCE),
+                "lyrics1" @ ParamMatch().space(SpacePolicy.FORCE),
+                "lyrics2" @ ParamMatch().space(SpacePolicy.FORCE),
+                FullMatch("好耶"),
+            ]
+        ),
+    ]
+)
+async def lyric_xxx(app: Ariadne, group: Group, sparkle: Sparkle):
+    print(sparkle.__repr__)
+
+    lyrics1 = sparkle["lyrics1"]
+    print(lyrics1.result)
+    print(type(lyrics1.result))
+    print(lyrics1.result.__repr__)
+
+    lyrics1 = sparkle["lyrics2"]
+    print(lyrics2.result)
+    print(type(lyrics2.result))
+    print(lyrics2.result.__repr__)
+```
+
+:::
+::::
+
+`MatchResult` 除了他本身外还有三种变体，分别是 `RegexResult`、`ArgResult`、`ElementResult`，
+这三个分别对应了 `RegexMatch` 及从其继承出来的其他几种 Match（不含 **ElementMatch**），
+还有 **ArgumentMatch** 和 **ElementMatch**。
+
+~~这3种变体具体的区别是什么，作者目前也不太清楚（毕竟作者看代码的水平也不高），~~
+但是推荐你在获取匹配结果的时候首选 Match 对应的 Result。
+
+`MatchResult` 及其变体们都具有以下三个属性：
+
+- `MatchResult.matched`: 对应的 Match 对象是否匹配（当 `Optional` 为 `False` 时必为 `True`，当 `Optional` 为 `True` 时，可通过类似下面的例子判断匹配是否成功）
+
+  ``` python
+  @bcc.receiver(
+      GroupMessage,
+      dispatcher=[
+          Twilight(
+              [
+                  FullMatch("歌词").space(SpacePolicy.FORCE),
+                  "lyrics1" @ ParamMatch().space(SpacePolicy.FORCE),
+                  "lyrics2" @ ParamMatch().space(SpacePolicy.FORCE),
+                  FullMatch("好耶"),
+              ]
+          ),
+      ]
+  )
+  async def lyric_xxx(app: Ariadne, group: Group, lyrics1: ParamMatch, lyrics2: ParamMatch):
+      if lyrics1.matched:
+          ...
+      if lyrics2.matched:
+          ...
+      if not lyrics1.matched and not lyrics2.matched:
+          ...
+  ```
+
 - `MatchResult.origin`: 原始 Match 对象（就是 `XxxxxMatch` 本身）
 - `MatchResult.result`: 匹配结果（一般为 `MessageChain`，`ElementMatch` 为 `Element`）
 
 ::: tip
-虽然可能没啥用，但是假设你只需要 `MatchResult.origin`，也可以使用一下办法
+虽然可能没啥用，但是假设你只需要 `MatchResult.origin`，也可以使用以下办法
 
 ``` python
 from graia.ariadne.message.parser.twilight import Twilight, ParamMatch
