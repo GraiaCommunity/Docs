@@ -72,21 +72,21 @@ html.dark {
     }
 }
 
-
-
 // 使 custom-container 中 code 不要这么黑
-.custom-container > p code {
-    background-color: #ffffff99; // 用透明的方式透出背景颜色使其看起来没这么维和
+.custom-container > *:not(div[class*='language-']) code {
+    background-color: #ffffffaa; // 用透明的方式透出背景颜色使其看起来没这么违和
+}
+html.dark .custom-container > *:not(div[class*='language-']) code {
+    background-color: #181818aa; // 用透明的方式透出背景颜色使其看起来没这么违和
 }
 
-html.dark .custom-container > p code {
-    background-color: #33333399; // 用透明的方式透出背景颜色使其看起来没这么维和
+// 使 custom-container.tip 中 code 颜色与背景不要这么相近
+.custom-container.tip > *:not(div[class*='language-']) code {
+    background-color: white;
 }
-
-html.dark .custom-container.tip > p code {
-    background-color: #44444499; // 用透明的方式透出背景颜色使其看起来没这么维和
+html.dark .custom-container.tip > *:not(div[class*='language-']) code {
+    background-color: #20252c;
 }
-
 
 // 修改 custom-container 中 quote 的样式
 .custom-container.warning blockquote {
