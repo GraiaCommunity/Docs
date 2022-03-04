@@ -11,7 +11,7 @@
 
 4. **本文档将使用 `graia-ariadne` 0.6.1 及以上的版本**，部分内容可能仍为旧版本但不影响食用；  
    ::: tip
-   因为文档在书写的时候会时刻更新文档，所以我**强烈推荐**你直接安装最新版本（latest）  
+   因为文档会随着 `graia-ariadne` 版本的更新而更新，所以我**强烈推荐**你直接安装最新版本（latest）  
    现在的 `graia-ariadne` 的最新版本为 <img src="https://img.shields.io/pypi/v/graia-ariadne?color=2970b6&amp;label=PyPI版本&amp;style=for-the-badge" alt="PyPI版本" style="vertical-align: middle">
    :::
 5. 虽然 `Ariadne` 支持 Python 3.8~3.10 但为了**最佳体验**，我们建议你最好升级到 `Python3.9+`；

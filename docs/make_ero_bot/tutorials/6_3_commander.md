@@ -20,7 +20,7 @@
 
 <Curtain>什么碧蓝航线（划掉）</Curtain>
 
-事实上，他就是个 `command`（命令）和 `-er`（的东西<sup style="font-size:0.75em;">[1]</sup>）组成，说白了就是一个`命令解析器`。
+事实上，他就是个 `command`（命令）和 `-er`（的东西<sup>[[1]](#anno)</sup>）组成，说白了就是一个`命令解析器`。
 
 ::: tip
 有一点点像是 `Twilight.from_command`<Curtain>不过截至目前社区文档还没介绍到那</Curtain>
@@ -43,5 +43,6 @@
 
 <hr size=3/>
 
-**注：**  
+<Strong id="anno">注：</Strong>
+
 [1]：来自维基词典 <https://zh.wiktionary.org/wiki/-er>

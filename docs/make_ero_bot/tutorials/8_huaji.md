@@ -1,7 +1,8 @@
 # 8. /斜眼笑（`Formatter`）
 
 ::: warning
-虽然 `mirai` 支持了商城表情，但是 `mirai-api-http` 不支持！
+~~虽然 `mirai` 支持了商城表情，但是 `mirai-api-http` 不支持！~~  
+`mirai-api-http` 在 2.5.0 版本支持了商城表情，而 `graia-ariadne` 也在 0.5.3 支持了商城表情。
 :::
 
 ::: tip
