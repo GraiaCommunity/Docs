@@ -572,7 +572,8 @@ async def lyric_xxx(app: Ariadne, group: Group, lyrics1: RegexResult, lyrics2: R
 ``` python
 ...
 # 本方法不受推荐，也不属于 MatchResult，放在这里只是因为这样也可以获得匹配结果
-# 请不要问此处的 Sparkle 是什么，他是 Twilight 的内部类，你只需要会用即可
+# 请不要问此处的 Sparkle 是什么，他是 Twilight 的内部类，用于暴露内部的 MatchResult
+# 提供 Sparkle 是为了方便你动态获取 MatchResult, 虽然并不推荐你动态创建 Twilight
 from graia.ariadne.message.parser.twilight import (
     FullMatch,
     ParamMatch,
@@ -635,8 +636,7 @@ async def lyric_xxx(app: Ariadne, group: Group, sparkle: Sparkle):
 这三个分别对应了 `RegexMatch` 及从其继承出来的其他几种 Match（不含 **ElementMatch**），
 还有 **ArgumentMatch** 和 **ElementMatch**。
 
-~~这3种变体具体的区别是什么，作者目前也不太清楚（毕竟作者看代码的水平也不高），~~
-但是推荐你在获取匹配结果的时候首选 Match 对应的 Result。
+推荐你在获取匹配结果的时候首选 Match 对应的 Result, 因为这几个变体提供了对应的类型推断与代码补全, 从而防止静态检查器找你的麻烦。
 
 `MatchResult` 及其变体们都具有以下三个属性：
 
