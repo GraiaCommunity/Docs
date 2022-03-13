@@ -73,18 +73,18 @@ html.dark {
 }
 
 // 使 custom-container 中 code 不要这么黑
-.custom-container > *:not(div[class*='language-']) code {
+.custom-container *:not(pre) > code {
     background-color: #ffffffaa; // 用透明的方式透出背景颜色使其看起来没这么违和
 }
-html.dark .custom-container > *:not(div[class*='language-']) code {
+html.dark .custom-container *:not(pre) > code {
     background-color: #181818aa; // 用透明的方式透出背景颜色使其看起来没这么违和
 }
 
 // 使 custom-container.tip 中 code 颜色与背景不要这么相近
-.custom-container.tip > *:not(div[class*='language-']) code {
+.custom-container.tip *:not(pre) > code {
     background-color: white;
 }
-html.dark .custom-container.tip > *:not(div[class*='language-']) code {
+html.dark .custom-container.tip *:not(pre) > code {
     background-color: #20252c;
 }
 
