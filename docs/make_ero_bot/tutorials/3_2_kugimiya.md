@@ -21,12 +21,10 @@
 
 虽然有点突然，但你是否有想过机器人能够对你[钉宫三连](https://zh.moegirl.org.cn/%E9%92%89%E5%AE%AB%E7%90%86%E6%83%A0)呢？
 
-<ChatPanel title="GraiaCommunity">
-  <ChatMessage name="GraiaX" onright>无路赛</ChatMessage>
-  <ChatMessage name="EroEroBot" :avatar="$withBase('/avatar/ero.webp')">
-    <SimpleAudio audio="/voices/4_夏娜_无路赛_钉宫理惠.mp3"></SimpleAudio>
-  </ChatMessage>
-</ChatPanel>
+<ChatWindow title="Graia Framework Community">
+  <ChatMsg name="GraiaX" onright>无路赛</ChatMsg>
+  <ChatVoice name="EroEroBot" avatar="/avatar/ero.webp" audio="/voices/4_夏娜_无路赛_钉宫理惠.mp3">别戳我，好痒</ChatVoice>
+</ChatWindow>
 
 <VolumeBar front_word="贴心的音量键"></VolumeBar>
 

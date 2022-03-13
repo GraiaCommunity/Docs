@@ -48,26 +48,10 @@ async def getup(app: Ariadne, event: NudgeEvent):
 
 此时运行机器人，然后在群里戳一下他，你就会得到如下结果
 
-<ChatPanel title="GraiaCommunity">
-  <p
-    align="center"
-    style="font-size:0.5em"
-  >GraiaX <span
-    style="
-      display: inline-block;
-      width: 1.5em;
-      height: 1.5em;
-      -webkit-mask: url(/images/tutorials/2_poke.webp) no-repeat;
-      -webkit-mask-size: 100% 100%;
-      mask: url(/images/tutorials/2_poke.webp) no-repeat;
-      mask-size: 100% 100%;
-      background: var(--c-text)"
-  /> 戳了戳 EroEroBot 的 腰部</p>
-  <ChatMessage
-    name="EroEroBot"
-    :avatar="$withBase('/avatar/ero.webp')"
-  >别戳我，好痒</ChatMessage>
-</ChatPanel>
+<ChatWindow title="Graia Framework Community">
+  <ChatToast>GraiaX 👉 戳了戳 EroEroBot 的腰</ChatToast>
+  <ChatMsg name="EroEroBot" avatar="/avatar/ero.webp">别戳我，好痒</ChatMsg>
+</ChatWindow>
 
 ## 2.1 关于 `BroadcastControl` 的超简单介绍
 

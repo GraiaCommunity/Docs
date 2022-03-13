@@ -242,10 +242,10 @@ Package operations: 24 installs, 0 updates, 0 removals
    2021-12-03 10:49:45.478 | INFO     | graia.ariadne.app:sendFriendMessage:114 - [BOT 1919810] Friend(114514) <- '不要说你好，来点涩图'
    ```
 
-   <ChatPanel title="GraiaCommunity">
-      <ChatMessage name="GraiaX" onright>你好</ChatMessage>
-      <ChatMessage name="EroEroBot" :avatar="$withBase('/avatar/ero.webp')">不要说你好，来点涩图</ChatMessage>
-   </ChatPanel>
+   <ChatWindow title="Graia Framework Community">
+      <ChatMsg name="GraiaX" onright>你好</ChatMsg>
+      <ChatMsg name="EroEroBot" avatar="/avatar/ero.webp">不要说你好，来点涩图</ChatMsg>
+   </ChatWindow>
 
 ::: interlink
 **相关链接:** <https://graia.readthedocs.io/quickstart/>

@@ -8,12 +8,12 @@
 
 让我们回顾一下至今我们学习的所有东西，假设你曾经看过友商的代码，想必曾今看到过这样子的对话：
 
-<ChatPanel title="GraiaCommunity">
-    <ChatMessage name="GraiaX" onright>天气</ChatMessage>
-    <ChatMessage name="EroEroBot" :avatar="$withBase('/avatar/ero.webp')">你想查询哪个城市的天气呢？</ChatMessage>
-    <ChatMessage name="GraiaX" onright>学园都市</ChatMessage>
-    <ChatMessage name="EroEroBot" :avatar="$withBase('/avatar/ero.webp')">学园都市的天气是...</ChatMessage>
-</ChatPanel>
+<ChatWindow title="Graia Framework Community">
+  <ChatMsg name="GraiaX" onright>天气</ChatMsg>
+  <ChatMsg name="EroEroBot" avatar="/avatar/ero.webp">你想查询哪个城市的天气呢？</ChatMsg>
+  <ChatMsg name="GraiaX" onright>学园都市</ChatMsg>
+  <ChatMsg name="EroEroBot" avatar="/avatar/ero.webp">学园都市的天气是...</ChatMsg>
+</ChatWindow>
 
 ::: tip
 其实原例子是**上海**而不是[**学园都市**](https://zh.moegirl.org.cn/%E5%AD%A6%E5%9B%AD%E9%83%BD%E5%B8%82)来着。
@@ -28,13 +28,13 @@
 虽然说这个例子挺好的，但不太符合我们对 EroEroBot 的设定（<Curtain>啥，这玩意儿还有设定？</Curtain>），
 所以我们稍稍改了一下：
 
-<ChatPanel title="GraiaCommunity">
-    <ChatMessage name="GraiaX" onright>涩图来</ChatMessage>
-    <ChatMessage name="EroEroBot" :avatar="$withBase('/avatar/ero.webp')">你想要什么 tag 的涩图</ChatMessage>
-    <ChatMessage name="GraiaX" onright>死库水</ChatMessage>
-    <ChatMessage name="EroEroBot" :avatar="$withBase('/avatar/ero.webp')"><img height="250" src="/images/tutorials/12_high_DIO.webp"></ChatMessage>
-    <ChatMessage name="GraiaX" onright>草</ChatMessage>
-</ChatPanel>
+<ChatWindow title="Graia Framework Community">
+  <ChatMsg name="GraiaX" onright>涩图来</ChatMsg>
+  <ChatMsg name="EroEroBot" avatar="/avatar/ero.webp">你想要什么 tag 的涩图</ChatMsg>
+  <ChatMsg name="GraiaX" onright>死库水</ChatMsg>
+  <ChatImg name="EroEroBot" avatar="/avatar/ero.webp" src="/images/tutorials/12_high_DIO.webp"></ChatImg>
+  <ChatMsg name="GraiaX" onright>草</ChatMsg>
+</ChatWindow>
 
 ::: tip
 根据[萌娘百科具有"死库水"属性的典型角色](https://zh.moegirl.org.cn/死库水#具有本属性的典型角色)，确实有 DIO（<Curtain>虽然说跟我这个一样使用黑幕包裹着的</Curtain>）。

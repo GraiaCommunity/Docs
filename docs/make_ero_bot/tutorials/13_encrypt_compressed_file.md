@@ -15,29 +15,17 @@
 不过呢，我们可以通过一些奇奇怪怪的方法来绕过这些限制。
 比如说，群文件<img src="/images/tutorials/8_wangwang.webp" height=20 style="vertical-align:text-bottom">。
 
-<ChatPanel title="GraiaCommunity">
-  <ChatMessage name="GraiaX" onright>来一打紧身衣涩图</ChatMessage>
-  <ChatMessage name="EroEroBot" :avatar="$withBase('/avatar/ero.webp')">
-    <div style="width: 200px">
-      <img src="/images/tutorials/13_compressed_file.svg" class="no-zoom" style="
-        width: 30px;
-        border-radius:10px;
-        border: solid 10px var(--c-details-bg);
-        background-color: var(--c-details-bg);
-        vertical-align:top;
-        margin-right: 10px"/>
-      <strong>secret.zip</strong> (6.33Mb)
-    </div>
-    <hr style="border-top: 2px solid var(--c-details-bg); color: var(--c-details-bg)"/>
-    <div style="float:left; font-size: 0.75em">来自群文件</div>
-    <div style="float:right; font-size: 0.75em; color: #12B7F5">
-      <a onclick="window.open('https:\/\/www.bilibili.com/video/BV1GJ411x7h7', '_blank')" target="_blank" style="color: #12B7F5">打开</a>&nbsp;
-      <a onclick="window.open('https:\/\/www.bilibili.com/video/BV1GJ411x7h7', '_blank')" target="_blank" style="color: #12B7F5">打开文件夹</a>&nbsp;
-      <a onclick="window.open('http:\/\/connect.qq.com/widget/shareqq/index.html?url=https:\/\/www.bilibili.com/video/BV1GJ411x7h7&sharesource=qzone&title=你被骗了&pics=https:\/\/i1.hdslb.com/bfs/archive/5242750857121e05146d5d5b13a47a2a6dd36e98.jpg&summary=NeverGonnaGiveYouUp&desc=NeverGonnaGiveYouUp', '_blank')" target="_blank" style="color: #12B7F5">转发</a>&nbsp;
-      <div style="width:10px; height:2px;border-top:6px double;border-bottom:2px solid;display: inline-block;" onclick="window.open('https:\/\/www.bilibili.com/video/BV1GJ411x7h7', '_blank')"></div>
-    <div style="width:1px; height:2px;border-top:6px double;border-bottom:2px solid;display: inline-block;"></div></div>
-  </ChatMessage>
-</ChatPanel>
+<ChatWindow title="Graia Framework Community">
+    <ChatMsg name="GraiaX" onright>来一打紧身衣涩图</ChatMsg>
+    <ChatFile
+      name="EroEroBot"
+      avatar="/avatar/ero.webp"
+      filename="secret.zip"
+      filesize="6.33MB"
+      fileicon="/images/tutorials/13_compressed_file.svg"
+      onclick="window.open('https:\/\/www.bilibili.com/video/BV1GJ411x7h7', '_blank')"
+    />
+</ChatWindow>
 
 斯巴拉西，这是什么梦寐以求的功能啊！那就让我们赶快进入今天的涩涩创想吧！
 

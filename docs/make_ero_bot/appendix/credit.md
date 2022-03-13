@@ -6,11 +6,13 @@
 
 ## 本文档的作者们
 
-- [Chase小念念](https://github.com/Little-LinNian): 提供了部署本文档的服务器及对应域名
+- [Chase 小念念](https://github.com/Little-LinNian): 提供了部署本文档的服务器及对应域名
 - [djkcyl (A60)](https://github.com/djkcyl): 本文档的校对者（~~迫害对象~~）
 - [I Love Study](https://github.com/I-love-study): 本文档的主要编写者
-- [Red_lnn](https://github.com/Redlnn): `EroEroBot` 仓库的维护者及本文档的校对者
-- [ZhaoZuohong](https://github.com/ZhaoZuohong): 本文档 `ChatMessage` 组件（聊天记录）的作者
+- [Red_lnn](https://github.com/Redlnn): `EroEroBot` 仓库维护者及本文档校对者
+  - 本文档 `ChatXxxxx` 系列组件及`GitHubRepo`、`Loading` 组件作者
+- [ZhaoZuohong](https://github.com/ZhaoZuohong): 本文档 `ChatMessage`（聊天消息气泡）组件作者（该组件已停用）
+- [小指针（zzzzz167）](https://github.com/zzzzz167): 本文档 `Audio`（语音消息）组件动画作者（该组件已停用）
 
 ## 团队及个人
 
@@ -26,7 +28,7 @@
 - [萌娘百科](https://zh.moegirl.org.cn/Mainpage): 提供了如<Curtain>黑幕</Curtain>还有<RubyCurtain up="RubyH">这种</RubyCurtain>的 css，以及文档各种梗（主要是生草用的）<Curtain>和各种涩图 tag</Curtain>的解释
 - 正在看这篇文档的**你**: 使这篇文档的存在拥有了意义
 
-## 本文档还参考了以下资料
+## 本文档还参考或使用了以下资料
 
 ### 一些官方文档
 
@@ -40,6 +42,7 @@
 
 - [A60 的 MyFirstBot](https://github.com/djkcyl/myfirstbot)
 - Graia Framework Community 群的沙雕群友们的日常（bushi）
+- [伪 QQ 移动端聊天窗口](https://github.com/Redlnn/Fake-QQ-Chat-Window)
 
 ::: tsukkomi Graia Framework Community 群
 QQ 交流群: [邀请链接](https://jq.qq.com/?_wv=1027&k=VXp6plBD)  

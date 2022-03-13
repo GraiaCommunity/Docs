@@ -28,16 +28,13 @@
 
 你的目标：
 
-<ChatPanel>
-    <ChatMessage
-        name="EroEroBot"
-        :avatar="$withBase('/avatar/ero.webp')"
-    >来点涩图<img
-        src="/images/tutorials/8_wangwang.webp"
-        height=20
-        style="vertical-align:text-bottom"
-    /></ChatMessage>
-</ChatPanel>
+<ChatWindow>
+  <ChatMsg name="EroEroBot" avatar="/avatar/ero.webp">来点涩图<img
+    src="/images/tutorials/8_wangwang.webp"
+    height=20
+    style="display: inline-block; vertical-align: text-bottom; margin: 0"
+  /></ChatMsg>
+</ChatWindow>
 
 你的构造：
 
@@ -47,11 +44,13 @@ MessageChain.create("来点涩图", Face(277))
 
 这还算比较好的，但要是你想做到下面的效果呢？
 
-<ChatPanel>
-<ChatMessage name="EroEroBot" :avatar="$withBase('/avatar/ero.webp')">在新的一年里，祝你<br>
-身<img src="/images/tutorials/8_wangwang.webp" height=20 style="vertical-align:text-bottom">体<img src="/images/tutorials/8_wangwang.webp" height=20 style="vertical-align:text-bottom">健<img src="/images/tutorials/8_wangwang.webp" height=20 style="vertical-align:text-bottom">康<br>
-万<img src="/images/tutorials/8_wangwang.webp" height=20 style="vertical-align:text-bottom">事<img src="/images/tutorials/8_wangwang.webp" height=20 style="vertical-align:text-bottom">如<img src="/images/tutorials/8_wangwang.webp" height=20 style="vertical-align:text-bottom">意</ChatMessage>
-</ChatPanel>
+<ChatWindow>
+  <ChatMsg name="EroEroBot" avatar="/avatar/ero.webp">
+    在新的一年里，祝你<br>
+    身<img src="/images/tutorials/8_wangwang.webp" height=20 style="display: inline-block; vertical-align: text-bottom; margin: 0" />体<img src="/images/tutorials/8_wangwang.webp" height=20 style="display: inline-block; vertical-align: text-bottom; margin: 0" />健<img src="/images/tutorials/8_wangwang.webp" height=20 style="display: inline-block; vertical-align: text-bottom; margin: 0" />康<br>
+    万<img src="/images/tutorials/8_wangwang.webp" height=20 style="display: inline-block; vertical-align: text-bottom; margin: 0" />事<img src="/images/tutorials/8_wangwang.webp" height=20 style="display: inline-block; vertical-align: text-bottom; margin: 0" />如<img src="/images/tutorials/8_wangwang.webp" height=20 style="display: inline-block; vertical-align: text-bottom; margin: 0" />意
+   </ChatMsg>
+</ChatWindow>
 
 你的构造：
 

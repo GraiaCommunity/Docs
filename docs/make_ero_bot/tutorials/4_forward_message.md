@@ -10,27 +10,28 @@
 :::
 
 你可能曾经看到过这样的合并消息
-<ChatPanel title="GraiaCommunity">
-  <ChatMessage name="EroEroBot" :avatar="$withBase('/avatar/ero.webp')">
-    <div style="width:200px">
-      <div style="font-size:1.2em;margin-bottom:5px">群聊的聊天记录</div>
-      EroEroBot: [图片]<br>
-      群菜鸮: 好大的奶<br>
-      群菜鸡: 好大的奶<br>
-      <hr/>
-      查看4条合并消息<br>
-    </div>
-  </ChatMessage>
-</ChatPanel>
+
+<ChatWindow title="Graia Framework Community">
+  <ForwardChat
+    name="EroEroBot"
+    avatar="/avatar/ero.webp"
+    title="群聊"
+    :contents="[
+      'EroEroBot: [图片]',
+      '群菜鸮: 好大的奶',
+      '群菜鸡: 好大的奶'
+    ]"
+    counts="4" />
+</ChatWindow>
 
 你很兴奋，想要看一看这奶到底有多大，但很可惜，也不知道你在可惜什么，当你点开聊天记录的时候，你看到的是这种景象：
 
-<ChatPanel title="转发的合并消息">
-  <ChatMessage name="EroEroBot" :avatar="$withBase('/avatar/ero.webp')"><img src="/images/tutorials/4_huge_milk.webp"></ChatMessage>
-  <ChatMessage name="群菜鸮" avatar="http://q1.qlogo.cn/g?b=qq&nk=2948531755&s=640">好大的奶</ChatMessage>
-  <ChatMessage name="群菜鸡" avatar="http://q1.qlogo.cn/g?b=qq&nk=1450069615&s=640">好大的奶</ChatMessage>
-  <ChatMessage name="群菜龙" avatar="http://q1.qlogo.cn/g?b=qq&nk=2544704967&s=640">好大的奶</ChatMessage>
-</ChatPanel>
+<ChatWindow title="转发的合并消息">
+  <ChatImg name="EroEroBot" avatar="/avatar/ero.webp" src="/images/tutorials/4_huge_milk.webp"></ChatImg>
+  <ChatMsg name="群菜鸮" avatar="http://q1.qlogo.cn/g?b=qq&nk=2948531755&s=640">好大的奶</ChatMsg>
+  <ChatMsg name="群菜鸡" avatar="http://q1.qlogo.cn/g?b=qq&nk=1450069615&s=640">好大的奶</ChatMsg>
+  <ChatMsg name="群菜龙" avatar="http://q1.qlogo.cn/g?b=qq&nk=2544704967&s=640">好大的奶</ChatMsg>
+</ChatWindow>
 
 不知道是因为你没看到你想要看的东西，还是说你觉得这个奶完全不够大，
 反正你发现你被骗了<Curtain>You're Rickrolling</Curtain>，

@@ -113,20 +113,20 @@ async def test(app: Ariadne, message: MessageChain):
 
 这确实成功了，可是当你满怀激动的将你的bot给群友用了之后，却是这样的局面：
 
-<ChatPanel title="GraiaCommunity">
-  <p style = "text-align:center; font-size:0.75em">03:38</p>
-  <ChatMessage name="群菜鸮" avatar="http://q1.qlogo.cn/g?b=qq&nk=2948531755&s=640">涩图来</ChatMessage>
-  <ChatMessage name="EroEroBot" :avatar="$withBase('/avatar/ero.webp')"><img height="100" src="/images/tutorials/7_ero_pic_1.webp"></ChatMessage>
-  <ChatMessage name="群菜鸡" avatar="http://q1.qlogo.cn/g?b=qq&nk=1450069615&s=640">涩图来</ChatMessage>
-  <ChatMessage name="群菜鸡" avatar="http://q1.qlogo.cn/g?b=qq&nk=1450069615&s=640">？我涩图呢</ChatMessage>
-  <ChatMessage name="群菜鸡" avatar="http://q1.qlogo.cn/g?b=qq&nk=1450069615&s=640"><a>@GraiaX</a> 我涩图呢</ChatMessage>
-  <ChatMessage name="GraiaX" onright>涩图来</ChatMessage>
-  <ChatMessage name="GraiaX" onright>az?</ChatMessage>
-  <p style = "text-align:center; font-size:0.75em">03:40</p>
-  <ChatMessage name="EroEroBot" :avatar="$withBase('/avatar/ero.webp')"><img height="100" src="/images/tutorials/7_ero_pic_2.webp"></ChatMessage>
-  <p style = "text-align:center; font-size:0.75em">03:42</p>
-  <ChatMessage name="EroEroBot" :avatar="$withBase('/avatar/ero.webp')"><img height="100" src="/images/tutorials/7_ero_pic_3.webp"></ChatMessage>
-</ChatPanel>
+<ChatWindow title="Graia Framework Community">
+  <ChatToast>下午 3:38</ChatToast>
+  <ChatMsg name="群菜鸮" avatar="http://q1.qlogo.cn/g?b=qq&nk=2948531755&s=640">涩图来</ChatMsg>
+  <ChatImg name="EroEroBot" avatar="/avatar/ero.webp" src="/images/tutorials/7_ero_pic_1.webp"></ChatImg>
+  <ChatMsg name="群菜鸡" avatar="http://q1.qlogo.cn/g?b=qq&nk=1450069615&s=640">涩图来</ChatMsg>
+  <ChatMsg name="群菜鸡" avatar="http://q1.qlogo.cn/g?b=qq&nk=1450069615&s=640">？我涩图呢</ChatMsg>
+  <ChatMsg name="群菜鸡" avatar="http://q1.qlogo.cn/g?b=qq&nk=1450069615&s=640"><a>@GraiaX</a> 我涩图呢</ChatMsg>
+  <ChatMsg name="GraiaX" onright>涩图来</ChatMsg>
+  <ChatMsg name="GraiaX" onright>az?</ChatMsg>
+  <ChatToast>下午 3:40</ChatToast>
+  <ChatImg name="EroEroBot" avatar="/avatar/ero.webp" src="/images/tutorials/7_ero_pic_2.webp"></ChatImg>
+  <ChatToast>下午 3:42</ChatToast>
+  <ChatImg name="EroEroBot" avatar="/avatar/ero.webp" src="/images/tutorials/7_ero_pic_3.webp"></ChatImg>
+</ChatWindow>
 
 你可以猜一下是什么原因吗？
 

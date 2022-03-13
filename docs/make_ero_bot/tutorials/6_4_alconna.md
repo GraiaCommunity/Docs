@@ -130,28 +130,30 @@ async def ero(app: Ariadne, group: Group, result: Arpamar):
 
 准备就绪，对着你的机器人~~发情~~发号施令吧：
 
-<ChatPanel title="聊天记录">
-  <ChatMessage name="群菜鸮" avatar="http://q1.qlogo.cn/g?b=qq&nk=2948531755&s=640">.setu搜索 白面鸮 --tags ntr sole-male --page 1 </ChatMessage>
-  <ChatMessage name="EroEroBot" :avatar="$withBase('/avatar/ero.webp')">工口发生~</ChatMessage>
-  <ChatMessage name="群菜龙" avatar="http://q1.qlogo.cn/g?b=qq&nk=2544704967&s=640">草</ChatMessage>
-  <ChatMessage name="群菜鸡" avatar="http://q1.qlogo.cn/g?b=qq&nk=1450069615&s=640">草</ChatMessage>
-  <ChatMessage name="群菜鸮" avatar="http://q1.qlogo.cn/g?b=qq&nk=2948531755&s=640">草</ChatMessage>
-</ChatPanel>
+<ChatWindow title="Graia Framework Community">
+  <ChatMsg name="群菜鸮" avatar="http://q1.qlogo.cn/g?b=qq&nk=2948531755&s=640">.setu搜索 白面鸮 --tags ntr sole-male --page 1 </ChatMsg>
+  <ChatMsg name="EroEroBot" avatar="/avatar/ero.webp">工口发生~</ChatMsg>
+  <ChatMsg name="群菜龙" avatar="http://q1.qlogo.cn/g?b=qq&nk=2544704967&s=640">草</ChatMsg>
+  <ChatMsg name="群菜鸡" avatar="http://q1.qlogo.cn/g?b=qq&nk=1450069615&s=640">草</ChatMsg>
+  <ChatMsg name="群菜鸮" avatar="http://q1.qlogo.cn/g?b=qq&nk=2948531755&s=640">草</ChatMsg>
+</ChatWindow>
 
 ::: tip
 
 在未来的更新后, 你可以通过`reply_help`参数来开启自动回复帮助信息的功能:
 
-<ChatPanel title="聊天记录">
-<ChatMessage name="群菜鸮" avatar="http://q1.qlogo.cn/g?b=qq&nk=2948531755&s=640">.setu搜索 --help</ChatMessage>
-<ChatMessage name="EroEroBot" :avatar="$withBase('/avatar/ero.webp')">.setu搜索 &lt;content:WildMatch&gt;<br>
-在p站中搜索条件达成的插图并返回<br>可用的选项有:<br>
-# 在所有搜索结果中指定页数<br>  --page &lt;count, default=1&gt;<br>
-# 指定插图的标签，可以使用空格分隔多个标签<br>  --tags &lt;*tags&gt;<br>
-# 指定插图画师<br>  --illust &lt;illust_name&gt;<br>
-# 设定插图的点赞数范围<br>  --click &lt;min, default=1&gt; &lt;max&gt;</ChatMessage>
-<ChatMessage name="群菜龙" avatar="http://q1.qlogo.cn/g?b=qq&nk=2544704967&s=640">好</ChatMessage>
-</ChatPanel>
+<ChatWindow title="Graia Framework Community">
+  <ChatMsg name="群菜鸮" avatar="http://q1.qlogo.cn/g?b=qq&nk=2948531755&s=640">.setu搜索 --help</ChatMsg>
+  <ChatMsg name="EroEroBot" avatar="/avatar/ero.webp">
+    .setu搜索 &lt;content:WildMatch&gt;<br>
+    在p站中搜索条件达成的插图并返回<br>可用的选项有:<br>
+    # 在所有搜索结果中指定页数<br>  --page &lt;count, default=1&gt;<br>
+    # 指定插图的标签，可以使用空格分隔多个标签<br>  --tags &lt;*tags&gt;<br>
+    # 指定插图画师<br>  --illust &lt;illust_name&gt;<br>
+    # 设定插图的点赞数范围<br>  --click &lt;min, default=1&gt; &lt;max&gt;
+  </ChatMsg>
+  <ChatMsg name="群菜龙" avatar="http://q1.qlogo.cn/g?b=qq&nk=2544704967&s=640">好</ChatMsg>
+</ChatWindow>
 
 :::
 

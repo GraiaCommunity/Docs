@@ -10,15 +10,13 @@
 
 <VolumeBar front_word="懂得都懂"></VolumeBar>
 
-<ChatPanel title="GraiaCommunity">
-<p style = "text-align:center; font-size:0.75em">07:30</p>
-  <ChatMessage name="Hanser" :avatar="$withBase('/avatar/hanser.webp')"><a>@GraiaX</a> おはよう</ChatMessage>
-  <ChatMessage name="Hanser" :avatar="$withBase('/avatar/hanser.webp')">
-    <SimpleAudio audio="/voices/11_欧尼酱快起床.mp3"></SimpleAudio>
-  </ChatMessage>
-  <p style = "text-align:center; font-size:0.75em">11:30</p>
-  <ChatMessage name="GraiaX" onright>哦嗨哟</ChatMessage>
-</ChatPanel>
+<ChatWindow title="Graia Framework Community">
+  <ChatToast>上午 07:30</ChatToast>
+  <ChatMsg name="Hanser" avatar="/avatar/hanser.webp"><a style="text-decoration: none">@GraiaX</a> おはよう</ChatMsg>
+  <ChatVoice name="Hanser" avatar="/avatar/hanser.webp" audio="/voices/11_欧尼酱快起床.mp3"></ChatVoice>
+  <ChatToast>上午 11:30</ChatToast>
+  <ChatMsg name="GraiaX" onright>哦嗨哟</ChatMsg>
+</ChatWindow>
 
 ::: tip
 你可能会问上面这位叫你起床的是谁，  
@@ -105,13 +103,11 @@ async def every_minute_speaking(app: Ariadne):
 
 :::
 
-<ChatPanel title="GraiaCommunity">
-<p style = "text-align:center; font-size:0.75em">07:30</p>
-  <ChatMessage name="Hanser" :avatar="$withBase('/avatar/hanser.webp')"><a>@GraiaX</a></ChatMessage>
-  <ChatMessage name="Hanser" :avatar="$withBase('/avatar/hanser.webp')">
-    <SimpleAudio audio="/voices/11_起床搬砖辣.mp3"></SimpleAudio>
-  </ChatMessage>
-</ChatPanel>
+<ChatWindow title="Graia Framework Community">
+  <ChatToast>上午 07:30</ChatToast>
+  <ChatMsg name="Hanser" avatar="/avatar/hanser.webp"><a style="text-decoration: none">@GraiaX</a></ChatMsg>
+  <ChatVoice name="Hanser" avatar="/avatar/hanser.webp" audio="/voices/11_起床搬砖辣.mp3"></ChatVoice>
+</ChatWindow>
 
 ::: interlink
 **相关链接：**<https://graia.readthedocs.io/extra/scheduler/>
