@@ -107,3 +107,7 @@ async def drawing():
 <p align="center" style="font-size: 30px"><strong>Moyuing~</strong></p>
 
 <Loading></Loading>
+
+::: interlink
+**相关链接：**<https://graia.readthedocs.io/extra/async-exec/>
+:::
