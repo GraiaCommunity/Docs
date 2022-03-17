@@ -3,7 +3,14 @@
 本节专门来讲解一些不怎么常见的问题。  
 因为这些问题的受众面比较小，所以就在这里给大家汇总一下。
 
-## Termux 安装 uvloop 时出错
+::: tsokkomi
+某些问题，可能跟 GraiaProject 的库没有任何关系，
+仅仅是因为你**有可能**会在机器人上遇到才写上去的
+:::
+
+## Graia 相关
+
+### Termux 安装 uvloop 时出错
 
 ::: tip
 Ariadne 自 0.6.1 版本起添加了 `Reverse Adapter`（反向 HTTP / WebSockets 适配器），假设你并不需要 `ReverseAdapter`，
@@ -19,7 +26,7 @@ Ariadne 自 0.6.1 版本起添加了 `Reverse Adapter`（反向 HTTP / WebSocket
 而 `uvicorn` 在 Linux / Unix 环境下会安装 `uvloop`。
 
 但是直到 uvloop 0.16.0，由于 Termux 中存在一些兼容性的问题，
-所以不能通过 `pip install uvloop` 或 `poetry add uvloop` 之类的便捷方法来安装，否则会报错。
+所以不能通过 `pip install uvloop` 或 `poetry add uvloop` 之类的便捷方法来安装，否则会报错。（[相关问题](https://github.com/MagicStack/uvloop/issues/260)）
 
 那么问题来了，怎么解决这个问题呢？
 
