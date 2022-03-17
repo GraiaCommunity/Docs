@@ -40,6 +40,11 @@ Behaviour<br>(行为)|根据 Cube 及其元信息，对底层接口(例如 Broad
 
 ## 11.2 `Saya` 的安装
 
+::: tip 注意
+在写本章文档的时候，`Graia-Saya` 的版本为 `0.0.15`  
+而最新版本为<img src="https://img.shields.io/pypi/v/graia-saya?color=2970b6&amp;style=for-the-badge" alt="PyPI版本" style="vertical-align: middle">
+:::
+
 ::: tip
 假设你之前安装 Ariadne 时用的是以下2种选项中的一种，那么你可以直接跳过本小节。
 

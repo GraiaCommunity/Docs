@@ -69,6 +69,14 @@ Image(path="./Graiax/EroEroBot/eropic.jpg")
 
 以下我们将会以 `graiax-silkcoder` 举例，首先安装 `graiax-silkcoder`：
 
+::: warning
+该文档最后更新的时候，`graiax-silkcoder` 的版本的 0.2.0  
+现在的最新版本为<img src="https://img.shields.io/pypi/v/graiax-silkcoder?color=2970b6&amp;style=for-the-badge" alt="PyPI版本" style="vertical-align: middle">
+:::
+
+:::: code-group
+::: code-group-item poetry
+
 ``` bash
 # 普通安装
 poetry add graiax-silkcoder
@@ -76,7 +84,33 @@ poetry add graiax-silkcoder
 poetry add graiax-silkcoder[ffmpeg]
 ```
 
+:::
+::: code-group-item pip
+
+``` bash
+# 普通安装
+pip install graiax-silkcoder
+# 假设你的环境中没有安装 ffmpeg 但又需要 wav 以外的音频格式转换
+pip install graiax-silkcoder[ffmpeg]
+```
+
+:::
+::::
+
 快速简单地创建一个 Voice 对象：
+
+:::: code-group
+::: code-group-item 0.2.0 +
+
+``` python
+from graiax import silkcoder
+
+audio_bytes = await silkcoder.async_encode("Graiax/EroEroBot/hentai.mp3")
+Voice(data_bytes=audio_bytes)
+```
+
+:::
+::: code-group-item 0.1.x
 
 ``` python
 from graiax import silkcoder
@@ -85,8 +119,11 @@ audio_bytes = await silkcoder.encode("Graiax/EroEroBot/hentai.mp3")
 Voice(data_bytes=audio_bytes)
 ```
 
+:::
+::::
+
 ::: tip
-详细用法请去其[Github 页面查看](https://pypi.org/project/graiax-silkcoder/)
+详细用法请去其[Pypi 页面查看](https://pypi.org/project/graiax-silkcoder/)
 
 这次就不能说我逊了，因为<RubyCurtain up="我写的 $h!t Mountain" type="tip">这就是我写的</RubyCurtain>  
 （注：此处的“我”指该文档的主要作者 —— I Love Study）
