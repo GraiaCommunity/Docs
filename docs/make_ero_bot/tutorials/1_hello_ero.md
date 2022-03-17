@@ -195,10 +195,11 @@ Package operations: 24 installs, 0 updates, 0 removals
 
    @bcc.receiver(GroupMessage)
    async def setu(app: Ariadne, group: Group, message: MessageChain):
-       await app.sendGroupMessage(
-           group,
-           MessageChain.create(f"不要说{message.asDisplay()}，来点涩图"),
-       )
+      if str(message) == "你好":
+         await app.sendMessage(
+            group,
+            MessageChain.create(f"不要说{message.asDisplay()}，来点涩图"),
+         )
 
 
    app.launch_blocking()

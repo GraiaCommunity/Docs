@@ -25,6 +25,7 @@
 
 ``` python
 ...
+from typing import Union
 # from graia.ariadne.event.message import GroupMessage
 from graia.ariadne.event.mirai import NudgeEvent
 ...
@@ -32,17 +33,10 @@ from graia.ariadne.event.mirai import NudgeEvent
 
 # @bcc.receiver(GroupMessage)
 @bcc.receiver(NudgeEvent)
-async def getup(app: Ariadne, event: NudgeEvent):
-    if event.context_type == "group":
-        await app.sendGroupMessage(
-            event.group_id,
-            MessageChain.create("别戳我，好痒")
-        )
-    else:
-        await app.sendFriendMessage(
-            event.friend_id,
-            MessageChain.create("别戳我，好痒")
-        )
+async def getup(app: Ariadne, event: NudgeEvent, target: Union[Group, Friend]):
+    msg = MessageChain.create("你不要光天化日之下在这里戳我啊"
+        if event.context_type == "group" else "别戳我，好痒")
+    await app.sendMessage(target, msg)
 ...
 ```
 
