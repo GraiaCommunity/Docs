@@ -12,9 +12,9 @@
 4. **本文档将使用 `graia-ariadne` 0.6.1 及以上的版本**，部分内容可能仍为旧版本但不影响食用；  
    ::: tip
    因为文档会随着 `graia-ariadne` 版本的更新而更新，所以我**强烈推荐**你直接安装最新版本（latest）  
-   现在的 `graia-ariadne` 的最新版本为 <img src="https://img.shields.io/pypi/v/graia-ariadne?color=2970b6&amp;label=PyPI版本&amp;style=for-the-badge" alt="PyPI版本" style="vertical-align: middle">
+   现在的 `graia-ariadne` 的最新版本为 <img src="https://img.shields.io/pypi/v/graia-ariadne?color=2970b6&amp;label=&amp;style=flat-square" alt="PyPI版本" style="vertical-align: middle">
    :::
-5. 虽然 `Ariadne` 支持 Python 3.8~3.10 但为了**最佳体验**，我们建议你最好升级到 `Python3.9+`；
+5. 虽然 `Ariadne` 支持 <img src="https://img.shields.io/pypi/pyversions/graia-ariadne?color=2970b6&amp;label=Python&amp;style=flat-square" alt="Python版本" style="vertical-align: middle">, 但为了**最佳体验**，我们建议你最好升级到 `Python3.9+`；
 6. **本文档部分内容可能未及时更新或不全**，因此你可以在本文档的一些页面见到如下的提示框，他们通常指向相关的文档。
    ::: interlink
    **相关链接：**<https://graia.readthedocs.io/>
@@ -67,7 +67,7 @@ Do you confirm generation? (yes/no) [yes] y  # 注意，这里要你自己填写
 ```
 
 ::: tip
-国内连接 Pypi 非常慢，所以我们在定义依赖与开发依赖时填 no  
+国内连接 PyPI 非常慢，所以我们在定义依赖与开发依赖时填 no  
 后面设置了镜像源之后再自己添加依赖
 :::
 
@@ -109,7 +109,16 @@ poetry add graia-ariadne[full]
       - fastapi —— 用于 `ReverseAdapter` 反向连接器（挖坑）
       - uvicorn —— 运行 `fastapi` 所需要的容器
 
-   而 `graia-ariadne[full]` 则会安装以上所有非必要组件。
+   而 `graia-ariadne[full]` 则会安装以上所有非必要组件，以及 `prompt-toolkit`（[第14章](./14_backend_laning.md)用到）。
+
+
+   ::: tip 
+      如果你在安装 `graia-ariadne[full]` 时遇到了某些问题，
+      
+      可以尝试更换 `graia-ariadne[full]` 为 `graia-ariadne[standard]`。
+
+      它包括了 `[graia]` 与 `[alconna]` 两个额外部分。
+   :::
 
 2. 假设你不怎么喜欢整虚拟环境也可以使用如下命令来取消虚拟环境的创建。
 

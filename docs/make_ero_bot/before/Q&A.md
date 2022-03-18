@@ -6,19 +6,28 @@
 
 ## 2. 我是应该先看官方的文档还是这个
 
-事实上，我还是比较推荐先去看官方文档的
+一个简单的类比: 这个文档就相当于 [`Python 官方教程`](https://docs.python.org/zh-cn/3/tutorial/index.html),
+而官方文档更像 [`Python 语言参考`](https://docs.python.org/zh-cn/3/reference/index.html)
 
 该教程的目的在于**通过一些实际的应用场景**来向你介绍一些关于 `Ariadne` 的使用方法  
 正是因为专注于实际的应用场景，所以也仅受限于本教程所预设的应用场景
 
+官方文档可以深入地介绍 `Ariadne` 所有的特性, 但是在通俗性上肯定无法像这个文档做得那么好。
+同时, 官方文档中会不时穿插一些 “实现原理”。
+就使用而言, 这些解释并不必要，但是对于你理解 `Ariadne` 的工作原理与行为会有很大帮助。
+
 本教程很多东西的讲解可能只是走一个过场，并不能介绍清楚框架的**方方面面**，仅作为官方文档的**辅助**  
 就像瑞士军刀一样，我通过一些例子来帮助你理解功能，但是我不会介绍其的所有功能
 
-多看文档desu
+所以，推荐你按照这篇文档循序渐进地了解 `Ariadne` 的强大功能，
+同时你随时可以参考官方文档来进一步了解你所困惑的地方。
 
 ::: tip
 官方文档链接在文档右上角有哦  
 （假设你是手机端就是左上角）
+
+同时，每篇文章下方都会有对应的官方文档链接，
+里面对本篇运用到的特性进行了详细介绍
 :::
 
 ## 3. 关于 Mirai 环境
@@ -141,6 +150,8 @@ graia-ariadne 0.6.1 Another elegant Python QQ Bot framework for mirai and mirai-
 
 ### 4.5 Poetry 的安装
 
+:::: code-group
+::: code-group-item 使用官方脚本
 ``` bash
 # osx / linux / bashonwindows
 curl -sSL https://install.python-poetry.org | python3 -
@@ -150,6 +161,22 @@ curl -sSL https://install.python-poetry.org | python3 -
 # windows powershell
 (Invoke-WebRequest -Uri https://install.python-poetry.org -UseBasicParsing).Content | python -
 ```
+:::
+::: code-group-item 使用 pipx
+
+``` bash
+# 如果没有安装 pipx
+pip install pipx
+
+pipx install poetry
+```
+
+::: warning
+我们不推荐你直接用 `pip` 安装 `poetry`, 因为 `poetry` 的大量依赖大概率会污染你的机器环境。
+:::
+:::
+
+::::
 
 ## 5. 关于风控
 
@@ -193,6 +220,24 @@ curl -sSL https://install.python-poetry.org | python3 -
 
 当你思考到这个问题的时候，就说明，你的浓度也不低
 
-## 9. 当你遇到不会的东西的时候
+## 9. 当你遇到问题的时候
+
+鉴于 QQ Bot 社区的特殊性，我们建议你遵循以下步骤：
+
+1. 立刻查看 [官方文档](https://graia.readthedocs.io)
+
+2. 如果你发现官方文档没有提及。。。
+
+    1. 如果模块以 `graia` 开头，立刻到 [交流群](https://jq.qq.com/?_wv=1027&k=VXp6plBD) 里问（可以 `@群菜鸡`，不行就 `@群菜块`）
+
+    2. 否则，去翻对应的文档（或者 `Stack Overflow` 之类的地方，同时善用搜索引擎）~~（不过请远离CSDN）~~
+
+    ~~如果以 `arclet` 开头立刻在群里 `@[Arclet]RF`~~
+
+::: warning
+**请学会到群里提问，因为你提的问题有一定概率是我们的潜在 bug**
+
+不过请先确认你的 Python 版本与 Graia 版本是受到支持的 (Python 3.8+, Graia 0.6+)
+:::
 
 ![baidu](/images/before/0_baidu.webp)
