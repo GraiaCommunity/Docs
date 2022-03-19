@@ -1,6 +1,6 @@
 <template>
   <div class="qq-chat">
-    <div class="qq-header" v-if="title">
+    <div v-if="title" class="qq-header">
       <span class="chat-title">{{ title }}</span>
     </div>
     <div class="chat-area">

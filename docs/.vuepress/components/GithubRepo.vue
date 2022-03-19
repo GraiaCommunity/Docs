@@ -18,9 +18,7 @@
         </svg>
         <a :href="`https://github.com/${user}/${repo}`">{{ user }}/{{ repo }}</a>
       </div>
-      <p
-        class="repo-description"
-      >&#9889; <slot>No description here!</slot></p>
+      <p class="repo-description">&#9889; <slot>No description here!</slot></p>
       <p class="repo-meta">
         <span class="repo-meta-lang">
           <span class="repo-meta-lang-ico" style="background-color: #3572a5"></span>
@@ -31,16 +29,19 @@
   </div>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import { defineComponent } from 'vue'
+
+export default defineComponent({
+  name: 'GithubRepo',
   props: {
     user: String,
     repo: String,
   },
-}
+})
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .repo {
   display: inline-block;
   width: 350px;

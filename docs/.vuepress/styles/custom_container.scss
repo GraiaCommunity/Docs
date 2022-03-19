@@ -1,126 +1,126 @@
 :root {
-    --c-tip-title: #2ba36d;
+  --c-tip-title: #2ba36d;
 
-    --c-warning-text-accent: #d1b62c;
-    --c-danger-text-accent: #e05b5b;
+  --c-warning-text-accent: #d1b62c;
+  --c-danger-text-accent: #e05b5b;
 
-    --c-interlink: #0022e6;
-    --c-interlink-bg: #e5e9ff;
-    --c-interlink-text: var(--c-interlink);
-    --c-interlink-title: var(--c-interlink);
-    --c-interlink-text-accent: var(--c-text);
+  --c-interlink: #0022e6;
+  --c-interlink-bg: #e5e9ff;
+  --c-interlink-text: var(--c-interlink);
+  --c-interlink-title: var(--c-interlink);
+  --c-interlink-text-accent: var(--c-text);
 
-    --c-tsukkomi: #aa00ff;
-    --c-tsukkomi-bg: #f7e5ff;
-    --c-tsukkomi-text: #440066;
-    --c-tsukkomi-title: var(--c-tsukkomi);
-    --c-tsukkomi-text-accent: var(--c-tsukkomi);
+  --c-tsukkomi: #aa00ff;
+  --c-tsukkomi-bg: #f7e5ff;
+  --c-tsukkomi-text: #440066;
+  --c-tsukkomi-title: var(--c-tsukkomi);
+  --c-tsukkomi-text-accent: var(--c-tsukkomi);
 }
 
 html.dark {
-    --c-tip-title: var(--c-tip);
+  --c-tip-title: var(--c-tip);
 
-    --c-warning-text-accent: var(--c-warning-title);
-    --c-danger-text-accent: var(--c-danger-title);
+  --c-warning-text-accent: var(--c-warning-title);
+  --c-danger-text-accent: var(--c-danger-title);
 
-    --c-interlink: #3e53ce;
-    --c-interlink-bg: #2c324d;
-    --c-interlink-text: #bac3f5;
-    --c-interlink-text-accent: #d7e1ec;
+  --c-interlink: #3e53ce;
+  --c-interlink-bg: #2c324d;
+  --c-interlink-text: #bac3f5;
+  --c-interlink-text-accent: #d7e1ec;
 
-    --c-tsukkomi: #b37fce;
-    --c-tsukkomi-bg: #5d4d66;
-    --c-tsukkomi-text: #c5b8cc;
+  --c-tsukkomi: #b37fce;
+  --c-tsukkomi-bg: #5d4d66;
+  --c-tsukkomi-text: #c5b8cc;
 }
 
 // custom-container 基本样式
 .custom-container {
-    // 圆角
-    border-radius: 0.3rem;
+  // 圆角
+  border-radius: 0.3rem;
 }
 
 // interlink 和 tsukkomi 基本样式
 .custom-container.interlink,
 .custom-container.tsukkomi {
-    padding: 0.1rem 1.5rem;
-    border-left-style: solid;
-    border-left-width: 0.5rem;
-    margin: 1rem 0;
+  padding: 0.1rem 1.5rem;
+  border-left-style: solid;
+  border-left-width: 0.5rem;
+  margin: 1rem 0;
 }
 
 .custom-container.interlink {
-    border-color: var(--c-interlink);
-    background-color: var(--c-interlink-bg);
-    color: var(--c-interlink-text);
+  border-color: var(--c-interlink);
+  background-color: var(--c-interlink-bg);
+  color: var(--c-interlink-text);
 
-    a {
-        color: var(--c-interlink-text-accent);
-    }
+  a {
+    color: var(--c-interlink-text-accent);
+  }
 }
 
 .custom-container.tsukkomi {
-    border-color: var(--c-tsukkomi);
-    background-color: var(--c-tsukkomi-bg);
-    color: var(--c-tsukkomi-text);
+  border-color: var(--c-tsukkomi);
+  background-color: var(--c-tsukkomi-bg);
+  color: var(--c-tsukkomi-text);
 
-    a {
-        color: var(--c-tsukkomi);
-    }
+  a {
+    color: var(--c-tsukkomi);
+  }
 
-    .custom-container-title {
-        color: var(--c-tsukkomi-title);
-    }
+  .custom-container-title {
+    color: var(--c-tsukkomi-title);
+  }
 }
 
 // 使 custom-container 中 code 不要这么黑
 .custom-container *:not(pre) > code {
-    background-color: #ffffffaa; // 用透明的方式透出背景颜色使其看起来没这么违和
+  background-color: #ffffffaa; // 用透明的方式透出背景颜色使其看起来没这么违和
 }
 html.dark .custom-container *:not(pre) > code {
-    background-color: #181818aa; // 用透明的方式透出背景颜色使其看起来没这么违和
+  background-color: #181818aa; // 用透明的方式透出背景颜色使其看起来没这么违和
 }
 
 // 使 custom-container.tip 中 code 颜色与背景不要这么相近
 .custom-container.tip *:not(pre) > code {
-    background-color: white;
+  background-color: white;
 }
 html.dark .custom-container.tip *:not(pre) > code {
-    background-color: #20252c;
+  background-color: #20252c;
 }
 
 // 修改 custom-container 中 quote 的样式
 .custom-container.warning blockquote {
-    border-left-color: #ecdc89;
-    color: #c2b46d;
+  border-left-color: #ecdc89;
+  color: #c2b46d;
 }
 html.dark .custom-container.warning blockquote {
-    border-left-color: #a3923d;
-    color: #a89f6d;
+  border-left-color: #a3923d;
+  color: #a89f6d;
 }
 
 .custom-container.danger blockquote {
-    border-left-color: #d18686;
-    color: #b38383;
+  border-left-color: #d18686;
+  color: #b38383;
 }
 html.dark .custom-container.danger blockquote {
-    border-left-color: #702e2e;
-    color: #5d2e2e;
+  border-left-color: #702e2e;
+  color: #5d2e2e;
 }
 
 .custom-container.tsukkomi blockquote {
-    border-left-color: #e3baf8;
-    color: #c99be0;
+  border-left-color: #e3baf8;
+  color: #c99be0;
 }
 html.dark .custom-container.tsukkomi blockquote {
-    border-left-color: #866b94;
-    color: #988aa0;
+  border-left-color: #866b94;
+  color: #988aa0;
 }
 
 .custom-container.interlink blockquote {
-    border-left-color: #b7bfeb;
-    color: #929edd;
+  border-left-color: #b7bfeb;
+  color: #929edd;
 }
 html.dark .custom-container.interlink blockquote {
-    border-left-color: #59659e;
-    color: #757ba1;
+  border-left-color: #59659e;
+  color: #757ba1;
 }

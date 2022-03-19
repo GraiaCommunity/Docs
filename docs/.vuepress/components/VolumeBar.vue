@@ -1,5 +1,5 @@
 <template>
-  <p v-if="front_word" id="volume-front">{{ front_word }}</p>
+  <p v-if="frontWord" id="volume-front">{{ frontWord }}</p>
   <span id="volume-bar">
     <div class="volume">
       <input
@@ -21,15 +21,17 @@
   </span>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import { defineComponent } from 'vue'
+
+export default defineComponent({
   props: {
-    front_word: String
+    frontWord: String,
   },
-}
+})
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 #volume-bar {
   display: inline-block;
   vertical-align: middle;
@@ -46,17 +48,17 @@ export default {
   border-radius: 5px;
 }
 #volume-front {
-    display: inline-block;
-    margin-right: 0.5em;
-    margin-top: 0.5em;
-    margin-bottom: 0.5em;
+  display: inline-block;
+  margin-right: 0.5em;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
 }
 .volume {
   display: flex;
   height: 1rem;
   align-items: center;
 }
-input[type="range"] {
+input[type='range'] {
   -webkit-appearance: none;
   width: 100%;
   border-radius: 10px; /*这个属性设置使填充进度条时的图形为圆角*/
@@ -64,25 +66,25 @@ input[type="range"] {
   background-color: var(--c-bg-arrow);
   background-size: 100% 100%;
 }
-input[type="range"]::-webkit-slider-thumb {
+input[type='range']::-webkit-slider-thumb {
   -webkit-appearance: none;
 }
 /*轨道设计*/
-input[type="range"]::-webkit-slider-runnable-track {
+input[type='range']::-webkit-slider-runnable-track {
   height: 5px;
   border-radius: 10px; /*将轨道设为圆角的*/
   padding-bottom: 0.3rem;
 }
-input[type="range"]::-moz-range-track {
+input[type='range']::-moz-range-track {
   height: 5px;
   border-radius: 10px; /*将轨道设为圆角的*/
 }
 /*删除内框*/
-input[type="range"]:focus {
+input[type='range']:focus {
   outline: none;
 }
 /*滑块*/
-input[type="range"]::-webkit-slider-thumb {
+input[type='range']::-webkit-slider-thumb {
   -webkit-appearance: none;
   height: 1rem;
   width: 1rem;
@@ -90,7 +92,7 @@ input[type="range"]::-webkit-slider-thumb {
   background: var(--c-text);
   border-radius: 50%; /*外观设置为圆形*/
 }
-input[type="range"]::-moz-range-thumb {
+input[type='range']::-moz-range-thumb {
   height: 1rem;
   width: 1rem;
   margin-top: -0.3rem; /*使滑块超出轨道部分的偏移量相等*/
@@ -98,7 +100,7 @@ input[type="range"]::-moz-range-thumb {
   border-radius: 50%; /*外观设置为圆形*/
 }
 /*Firefox用*/
-input[type="range"]::-moz-range-progress {
+input[type='range']::-moz-range-progress {
   background: linear-gradient(var(--c-text), var(--c-text)) no-repeat;
   height: 13px;
   border-radius: 10px;
