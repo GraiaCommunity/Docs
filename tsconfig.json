@@ -1,0 +1,31 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "strict": true,
+    "allowJs": false,
+    // "checkJs": true,  // allowJs must be true for this to work
+    "jsx": "preserve",
+    "moduleResolution": "node",
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "useDefineForClassFields": true,
+    "sourceMap": true,
+    "baseUrl": ".",
+    "lib": ["esnext", "dom", "dom.iterable", "scripthost"]
+  },
+  "include": [
+    "./*.js",
+    "./*.jsx",
+    "./*.ts",
+    "./*.tsx",
+    "docs/.vuepress/**/*.js",
+    "docs/.vuepress/**/*.jsx",
+    "docs/.vuepress/**/*.ts",
+    "docs/.vuepress/**/*.tsx",
+    "docs/.vuepress/**/*.vue"
+  ],
+  "exclude": ["node_modules"]
+}

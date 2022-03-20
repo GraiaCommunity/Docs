@@ -1,5 +1,5 @@
-<script setup>
-import ParentLayout from "@vuepress/theme-default/lib/client/layouts/Layout.vue";
+<script setup lang="ts">
+import ParentLayout from '@vuepress/theme-default/lib/client/layouts/Layout.vue' // eslint-disable-line
 </script>
 
 <template>
@@ -7,22 +7,23 @@ import ParentLayout from "@vuepress/theme-default/lib/client/layouts/Layout.vue"
     <template #page-bottom>
       <div class="theme-default-content">
         <div class="tips">
-            <p>
-              <strong>Tip: </strong>
-              <span v-html="random"></span>
-            </p>
+          <p>
+            <strong>Tip: </strong>
+            <span>{{ random }}</span>
+          </p>
         </div>
       </div>
     </template>
   </ParentLayout>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import { defineComponent } from 'vue'
+
+export default defineComponent({
   data() {
     return {
       randomMsg: [
-        // '你知道吗，遇到不会的可以看看<a href="/make_ero_bot/before/Q&A.html">这一章</a>的第9节', 等解决了vue模板问题再用
         '涩图机器人文档真的没有涩图',
         '你瞎了？试试深色模式',
         '阿祖，别刷新了，阿妈叫你洗碗了',
@@ -41,17 +42,17 @@ export default {
         '塔塔开，一自摸塔塔开',
       ],
       random: '',
-    };
+    }
   },
   mounted() {
-    var randomNum = Math.floor(Math.random() * this.randomMsg.length);
-    this.random = this.randomMsg[randomNum];
+    const randomNum = Math.floor(Math.random() * this.randomMsg.length)
+    this.random = this.randomMsg[randomNum]
   },
-};
+})
 </script>
 
 <!-- 此处的 scoped 不生效，注意 css 名在其他位置是否重复 -->
-<style scope>
+<style scope lang="scss">
 .tips {
   margin: 16px auto;
   text-align: center;

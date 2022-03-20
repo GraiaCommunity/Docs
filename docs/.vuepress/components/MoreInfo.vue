@@ -1,29 +1,32 @@
 <template>
-  <span class="text" v-if="link">
+  <span v-if="link" class="text">
     <span class="mbox" style="width: 200px">
       <div style="height: 1.4em"></div>
       <slot></slot>
     </span>
     <a>{{ words }}</a>
   </span>
-  <span class="text" v-else>
+  <span v-else class="text">
     <span class="mbox" style="width: 200px">
       <div style="height: 1.4em"></div>
-      <slot></slot>
-    </span>{{ words }}
+      <slot></slot> </span
+    >{{ words }}
   </span>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import { defineComponent } from 'vue'
+
+export default defineComponent({
+  name: 'MoreInfo',
   props: {
     words: String,
     link: Boolean,
   },
-};
+})
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .mbox {
   position: absolute;
   z-index: 22;

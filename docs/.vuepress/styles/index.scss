@@ -1,11 +1,11 @@
-@import "custom_container.scss";
+@import 'custom_container.scss';
 
 // root
 :root {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 // ruby 的字体大小
 ruby > rt {
-    font-size: 0.75em;
+  font-size: 0.75em;
 }

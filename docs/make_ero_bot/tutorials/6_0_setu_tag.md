@@ -76,11 +76,7 @@ progress::-webkit-progress-bar{
     border-radius: 3px;
 }
 
-progress::-webkit-progress-value{
-    background-color: var(--c-danger-title);
-    border-radius: 3px;
-}
-
+progress::-webkit-progress-value,
 progress::-moz-progress-bar{
     background-color: var(--c-danger-title);
     border-radius: 3px;

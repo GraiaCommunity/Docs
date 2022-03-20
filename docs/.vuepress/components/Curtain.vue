@@ -1,29 +1,28 @@
 <template>
-  <span
-    :title="title"
-    class="heimu"
-    :style="'--text: var(--c-' + type + '-text);' + '--bg: var(--c-' + type + '-bg)'"
-  >
+  <span :title="title" class="heimu" :style="'--text: var(--c-' + type + '-text);' + '--bg: var(--c-' + type + '-bg)'">
     <slot></slot>
   </span>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import { defineComponent } from 'vue'
+
+export default defineComponent({
+  name: 'Curtain',
   props: {
     title: {
       type: String,
-      default: "你知道的太多了",
+      default: '你知道的太多了',
     },
     type: {
       type: String,
-      default: "",
+      default: '',
     },
   },
-}
+})
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .heimu,
 .heimu a,
 a .heimu {
