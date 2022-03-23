@@ -49,19 +49,20 @@ pip install arclet-alconna-graia
 pip install graia-ariadne[alconna]
 ```
 
+:::
 ::::
 
 ## 6.4.1 为什么是外星来客 (大雾)
 
 设想我们要给机器人加一个搜索涩图的指令，
 
-```txt
+``` txt
 .setu搜索 <content>
 ```
 
 然后你给加上了很多的选项，并且某个选项会影响其他几个选项的有效性
 
-```txt
+``` txt
 --page <count>
 --tags <tags>
 --illust <illust_name>
@@ -150,29 +151,30 @@ async def ero(app: Ariadne, group: Group, result: Arpamar):
 
 准备就绪，对着你的机器人~~发情~~发号施令吧：
 
-<ChatPanel title="聊天记录">
-  <ChatMessage name="群菜鸮" avatar="http://q1.qlogo.cn/g?b=qq&nk=2948531755&s=640">.setu搜索 白面鸮 --tags ntr sole-male --page 1 </ChatMessage>
-  <ChatMessage name="EroEroBot" :avatar="$withBase('/avatar/ero.webp')">工口发生~</ChatMessage>
-  <ChatMessage name="群菜龙" avatar="http://q1.qlogo.cn/g?b=qq&nk=2544704967&s=640">草</ChatMessage>
-  <ChatMessage name="群菜鸡" avatar="http://q1.qlogo.cn/g?b=qq&nk=1450069615&s=640">草</ChatMessage>
-  <ChatMessage name="群菜鸮" avatar="http://q1.qlogo.cn/g?b=qq&nk=2948531755&s=640">草</ChatMessage>
-</ChatPanel>
+<ChatWindow title="聊天记录">
+  <ChatMsg name="群菜鸮" avatar="http://q1.qlogo.cn/g?b=qq&nk=2948531755&s=640">.setu搜索 白面鸮 --tags ntr sole-male --page 1 </ChatMsg>
+  <ChatMsg name="EroEroBot" :avatar="$withBase('/avatar/ero.webp')">工口发生~</ChatMsg>
+  <ChatMsg name="群菜龙" avatar="http://q1.qlogo.cn/g?b=qq&nk=2544704967&s=640">草</ChatMsg>
+  <ChatMsg name="群菜鸡" avatar="http://q1.qlogo.cn/g?b=qq&nk=1450069615&s=640">草</ChatMsg>
+  <ChatMsg name="群菜鸮" avatar="http://q1.qlogo.cn/g?b=qq&nk=2948531755&s=640">草</ChatMsg>
+</ChatWindow>
 
 ::: tip
 你可以通过`reply_help`参数来开启自动回复帮助信息的功能:
 
-<ChatPanel title="聊天记录">
-<ChatMessage name="群菜鸮" avatar="http://q1.qlogo.cn/g?b=qq&nk=2948531755&s=640">.setu搜索 --help</ChatMessage>
-<ChatMessage name="EroEroBot" :avatar="$withBase('/avatar/ero.webp')">.setu搜索 &lt;content:WildMatch&gt;<br>
-在p站中搜索条件达成的插图并返回<br>可用的选项有:<br>
-# 在所有搜索结果中指定页数<br>  --page &lt;count, default=1&gt;<br>
-# 指定插图的标签，可以使用空格分隔多个标签<br>  --tags &lt;*tags&gt;<br>
-# 指定插图画师<br>  --illust &lt;illust_name&gt;<br>
-# 设定插图的点赞数范围<br>  --click &lt;min, default=1&gt; &lt;max&gt;</ChatMessage>
-<ChatMessage name="群菜龙" avatar="http://q1.qlogo.cn/g?b=qq&nk=2544704967&s=640">好</ChatMessage>
-</ChatPanel>
+<ChatWindow title="聊天记录">
+  <ChatMsg name="群菜鸮" avatar="http://q1.qlogo.cn/g?b=qq&nk=2948531755&s=640">.setu搜索 --help</ChatMsg>
+  <ChatMsg name="EroEroBot" :avatar="$withBase('/avatar/ero.webp')">.setu搜索 &lt;content:WildMatch&gt;<br>
+  在p站中搜索条件达成的插图并返回<br>可用的选项有:<br>
+  # 在所有搜索结果中指定页数<br>  --page &lt;count, default=1&gt;<br>
+  # 指定插图的标签，可以使用空格分隔多个标签<br>  --tags &lt;*tags&gt;<br>
+  # 指定插图画师<br>  --illust &lt;illust_name&gt;<br>
+  # 设定插图的点赞数范围<br>  --click &lt;min, default=1&gt; &lt;max&gt;</ChatMsg>
+  <ChatMsg name="群菜龙" avatar="http://q1.qlogo.cn/g?b=qq&nk=2544704967&s=640">好</ChatMsg>
+</ChatWindow>
 
 在`Ariadne` 0.6.10 以上版本, `reply_help`变更为`help_flag`, 其可以有三种值:
+
 - `'stay'`: 不处理, 原样返回
 - `'reply'`: `AlconnaDispatcher`会自动回复
 - `'post'`: `AlconnaDispatcher`会广播一个`AlconnaHelpMessage`事件, 你可以通过监听该事件来自定义命令帮助行为
@@ -217,6 +219,7 @@ alc = AlconnaFire(test_func)
 ## 6.4.3 亮出你的本事吧! 外星人
 
 > **「やってみせろよ、ウチュウジンー！」**
+
 ### 创建 Alconna
 
 以下将展示Alconna创建的5种方式:
@@ -341,7 +344,7 @@ async def test(app: Ariadne, group: Group):
 ...     command="我要涩图",
 ...     main_args=Args["count":int],
 ...     options=[
-...         Option("--from", Args["*tag":str])    
+...         Option("--from", Args["*tag":str])
 ...     ]
 ... )
 <ALC.Alconna::我要涩图 with 2 options; args=Args('count': '(\-?\d+)')>
@@ -357,9 +360,11 @@ async def test(app: Ariadne, group: Group):
 
 ::: tsukkomi 注
 Alconna 0.7.6后, 简易的命令构造可用如下方法:
+
 ```python
->>> alc = Alconna("我要涩图") + option("--from", "*tag:str")  
+>>> alc = Alconna("我要涩图") + option("--from", "*tag:str")
 ```
+
 :::
 
 #### Koishi-like: 使用 `AlconnaString()`
@@ -393,6 +398,7 @@ Alconna 0.7.6后, 简易的命令构造可用如下方法:
 
 仍以上面的命令为例, 我们相当于输入了这样一串字符串：`我要涩图 {count} --from {*tags}`
 于是我们就得到了如下的 Alconna 实例：
+
 ``` python
 >>> AlconnaFormat("我要涩图 {count:str} --from {*tags}", {"*tags": str})
 <ALC.Alconna::我要涩图 with 2 options; args=Args('count': 'AnyParam')>
@@ -416,6 +422,7 @@ Alconna 0.7.6后, 简易的命令构造可用如下方法:
 ## 6.4.4 总会有参数的
 
 > **「何とでもなるはずだパラメータ！」**
+
 ### Args
 
 `Args`在Alconna中有非常重要的地位, 有一半的bug皆因其引发(迫真)
@@ -485,12 +492,14 @@ ObjectPattern(Image, limit=("url",))
 `Arpamar`会有如下参数:
 
 调试类:
+
 - matched: 是否匹配成功
 - head_matched: 命令头部是否匹配成功
 - error_data: 解析失败时剩余的数据
 - error_info: 解析失败时的报错信息
 
 分析类:
+
 - main_args: 命令的主参数的解析结果
 - options: 命令所有选项的解析结果
 - subcommands: 命令所有子命令的解析结果
@@ -526,7 +535,7 @@ from graia.ariadne.message.parser.alconna import AlconnaDispatcher
 async def lyric_xxx(app: Ariadne, group: Group, result: Arpamar):
     print(result.matched)
     print(result.error_info)
-    
+
     print(result.options)
     print(result.song)
     if result.has("语种"):
@@ -540,10 +549,10 @@ async def lyric_xxx(app: Ariadne, group: Group, result: Arpamar):
 `ArpamarBehavior`是负责解析`Arpamar`行为的类, 用来更精细的预处理结果
 
 `Alconna` 目前预制了三种`Behavior`, 分别用来:
+
 - `set_default`: 当某个选项未被输入时, 使用该行为添加一个默认值
 - `exclusion`: 当指定的两个选项同时出现时报错
 - `cool_down`: 限制命令调用频率
-
 
 ```python
 ...
@@ -574,6 +583,7 @@ for i in range(4):
 ## 6.4.5 居然是整活？
 
 > **「コッケイナだと！」**
+
 ### 元素匹配
 
 一定要记住, Alconna是支持元素匹配的(Plain元素或Source等元素除外)
