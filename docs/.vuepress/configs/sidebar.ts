@@ -21,6 +21,7 @@ export const sidebar: SidebarConfig = {
       text: '手把手教你写机器人',
       collapsible: true,
       children: [
+        '/make_ero_bot/tutorials/0_environment.md',
         '/make_ero_bot/tutorials/1_hello_ero.md',
         '/make_ero_bot/tutorials/2_other_event.md',
         {

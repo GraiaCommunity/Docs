@@ -9,8 +9,7 @@
 - [Chase 小念念](https://github.com/Little-LinNian): 提供了部署本文档的服务器及对应域名
 - [djkcyl (A60)](https://github.com/djkcyl): 本文档的校对者（~~迫害对象~~）
 - [I Love Study](https://github.com/I-love-study): 本文档的主要编写者
-- [Red_lnn](https://github.com/Redlnn): `EroEroBot` 仓库维护者及本文档校对者
-  - 本文档 `ChatXxxxx` 系列组件及`GitHubRepo`、`Loading` 组件作者
+- [Red_lnn](https://github.com/Redlnn): `EroEroBot` 仓库维护者，本文档校对者以及文档大部分组件作者
 - [ZhaoZuohong](https://github.com/ZhaoZuohong): 本文档 `ChatMessage`（聊天消息气泡）组件作者（该组件已停用）
 - [小指针（zzzzz167）](https://github.com/zzzzz167): 本文档 `Audio`（语音消息）组件动画作者（该组件已停用）
 
@@ -42,7 +41,7 @@
 
 - [A60 的 MyFirstBot](https://github.com/djkcyl/myfirstbot)
 - Graia Framework Community 群的沙雕群友们的日常（bushi）
-- [Github Copilot](copilot.github.com) 提供的各种奇妙~~怪话~~
+- [Github Copilot](copilot.github.com) 提供的各种奇妙~~怪话~~<Curtain>你不知道只按 tab 写文档有多爽</Curtain>
 - [伪 QQ 移动端聊天窗口](https://github.com/Redlnn/Fake-QQ-Chat-Window)
 
 ::: tsukkomi Graia Framework Community 群
