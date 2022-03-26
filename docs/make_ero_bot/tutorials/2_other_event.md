@@ -97,9 +97,22 @@ async def getup(app: Ariadne, event: NudgeEvent, target: Union[Group, Friend]):
 async def getup(app: Ariadne, group: Group):
 ```
 
-该函数需要【类型为 `Ariadne` 的 `app`】和【类型为 `Group` 的`group` 】两个参数，
+该函数需要「类型为 `Ariadne` 的 `app`」和「类型为 `Group` 的 `group`」两个参数，
 而参数解析器（Dispatcher），就会通过**参数名**或**参数类型**为其赋值，通过这项特性，
 `graia-ariadne` 就可以为监听不同事件的不同的函数所需要的参数赋值。
+
+::: tip
+在 `GroupMessage` 中，一般只会判断类型，就是说
+像是这种
+
+``` python
+@bcc.receiver(GroupMessage)
+async def getup(eroerobot: Ariadne, house: Group)
+    ...
+```
+
+也是可以的哦（不过不要想着）
+:::
 
 当然，如果你不喜欢这样子，也可以不用各事件提供的参数解析，像这样
 

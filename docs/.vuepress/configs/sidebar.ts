@@ -4,7 +4,8 @@ export const sidebar: SidebarConfig = {
   '/make_ero_bot/': [
     {
       text: '引言',
-      link: '/make_ero_bot/README.md',
+      link: '/make_ero_bot/',
+      children: [],
     },
     {
       text: '开始之前',
