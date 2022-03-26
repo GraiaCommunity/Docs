@@ -3,6 +3,8 @@
 [>_<]: 真的好多东西啊，好难写，哭唧唧
 
 ::: danger 警告
+在阅读本章之前，请先了解什么是**Dispatcher**，参阅[这里](../before/Q&A.html#_3-3-%E5%85%B3%E4%BA%8E-dispatcher)
+
 本章进度： <progress value="75" max="100"></progress> 75%
 
 因为文档的作者们也没有完全搞懂每一种消息适配器，
@@ -68,17 +70,21 @@ progress {
     -webkit-appearance: none;
     background: var(--c-danger);
     border: 0;
-    border-radius: 3px;
+    border-radius: 7px;
 }
 
-progress::-webkit-progress-bar{
-    background-color: var(--c-danger);
-    border-radius: 3px;
+progress::-webkit-progress-bar {
+    background: var(--c-danger);
+    border-radius: 7px;
 }
 
-progress::-webkit-progress-value,
-progress::-moz-progress-bar{
-    background-color: var(--c-danger-title);
-    border-radius: 3px;
+progress::-webkit-progress-value {
+    background: var(--c-danger-title);
+    border-radius: 7px;
+}
+
+progress::-moz-progress-bar {
+    background: var(--c-danger-title);
+    border-radius: 7px;
 }
 </style>

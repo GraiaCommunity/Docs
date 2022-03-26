@@ -6,7 +6,7 @@
 
 本文档的所有例子都在 :point_right: [co ↗ co ↘](https://github.com/GraiaCommunity/EroEroBot)
 
-假设文档有一些专有名词不了解，也可以看看[这里](terms)。
+假设文档有一些专有名词不了解，也可以看看[这里](./appendix/terms)。
 
 ::: danger 警告一下
 这个文档只是社区的一小部分，不是社区的所有。

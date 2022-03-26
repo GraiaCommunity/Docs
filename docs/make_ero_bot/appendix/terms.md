@@ -5,8 +5,8 @@ title: 术语
 
 | 术语 | 对应的意思 |
 | :--: | :-- |
-| v4 | [Graia-Application-Mirai](https://pypi.org/project/graia-application-mirai/) |
-| v4+ / v4p | [Graia-Ariadne](https://pypi.org/project/graia-ariadne/) |
+| v4 | [Application Mirai](https://pypi.org/project/graia-application-mirai/) |
+| v4+ / v4p | [Ariadne](https://pypi.org/project/graia-ariadne/) |
 | v5 | [Avilla](https://pypi.org/project/avilla-core/)，截至 2021.12.18，还处于 WIP 状态 |
 | Kanata | `v4`时期使用的消息链解释器 |
 | MAH | [mirai-api-http](https://github.com/project-mirai/mirai-api-http) |

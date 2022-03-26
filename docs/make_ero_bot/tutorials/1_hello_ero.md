@@ -9,8 +9,10 @@
    关于为什么用 `poetry`，你可以看这里 :point_right: [看这](../before/Q&A.md#_4-关于-poetry)
    :::
 
-4. **本文档将使用 `graia-ariadne` 0.6.1 及以上的版本**，部分内容可能仍为旧版本但不影响食用；  
+4. **本文档将使用 `graia-ariadne` 0.6.1 及以上的版本**，部分内容可能仍为旧版本但不影响食用；
    ::: tip
+   有关什么是 Ariadne，请参阅[这里](../before/Q&A.html#_2-%E4%BB%80%E4%B9%88%E6%98%AF-ariadne)
+
    因为文档会随着 `graia-ariadne` 版本的更新而更新，所以我**强烈推荐**你直接安装最新版本（latest）  
    现在的 `graia-ariadne` 的最新版本为 <img src="https://img.shields.io/pypi/v/graia-ariadne?color=2970b6&amp;label=&amp;style=flat-square" alt="PyPI版本" style="vertical-align: middle">
    :::
