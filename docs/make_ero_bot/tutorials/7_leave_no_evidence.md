@@ -15,36 +15,36 @@
 
 第一个问题其实挺好解决的，假设你真的会无聊翻阅 `Ariadne` 的 `docstring` 的话，你应该很快就会知道撤回的方法：
 
-``` python
+```python
 app.recallMessage()  # 实际使用时请不要忘记 await
 ```
 
 但问题是，该怎么样才能他知道，你要撤回的消息是什么呢？
 
-### Source —— 消息的识别ID
+### Source —— 消息的识别 ID
 
 在讲这些之前，先给大家扯点别的，
-假设（是的，又是假设）你还记得[第3章](./3_1_ero_comes.md#_3-1-4-怎么操作-messagechain)曾经介绍过的`MessageChain.onlyContains`方法吗？
+假设（是的，又是假设）你还记得[第 3 章](./3_1_ero_comes.md#_3-1-4-怎么操作-messagechain)曾经介绍过的`MessageChain.onlyContains`方法吗？
 
 如果你还记得，就会发现很诡异的事情：
 
-``` python
+```python
 @bcc.receive(GroupMessage)
 async def test(app: Ariadne, message: MessageChain):
     print(message.onlyContains(Plain))
 ```
 
-``` bash
+```txt
 2022-01-14 00:42:38.651 | INFO     | graia.ariadne.model:log_group_message:106 - 114514: [GraiaCommunity(1919810)] GraiaX(10086) -> '测试'
 False
 ```
 
-`False`?! 明明只有测试两个字，但为什么却显示了False？
+`False`?! 明明只有测试两个字，但为什么却显示了 False？
 会不会是 onlyContains 方法的问题呢？
 
 让我们单独测试一下：
 
-``` python
+```python
 >>> msg = MessageChain.create("测试")
 >>> msg.onlyContains(Plain)
 True
@@ -54,13 +54,13 @@ True
 
 这时我们就要仔细地看一下我们接收到的 MessageChain 了：
 
-``` python
+```python
 @bcc.receiver(GroupMessage)
 async def test(app: Ariadne, message: MessageChain):
     print(message.__repr__())
 ```
 
-``` python
+```python
 # 输出结果如下
 MessageChain([Source(id=1366023, time=datetime.datetime(2022, 1, 13, 16, 42, 38, tzinfo=datetime.timezone.utc)), Plain(text='测试')])
 ```
@@ -74,7 +74,7 @@ MessageChain([Source(id=1366023, time=datetime.datetime(2022, 1, 13, 16, 42, 38,
 
 有了消息 ID，我们就可以通过 `app.recallMessage()` 方法撤回消息了：
 
-``` python
+```python
 await app.recallMessage(source)  # 通过 Source 撤回他人的消息
 await app.recallMessage(source.id)  # 通过 Source 中的消息 ID 撤回他人的消息
 # botmessage = await app.sendMessage(...)
@@ -85,7 +85,7 @@ await app.recallMessage(botmessage.messageId)  # 通过 BotMessage 中的消息 
 ::: tip
 这里介绍一个获取消息 ID 相对简单的方法
 
-``` python
+```python
 @bcc.receiver(GroupMessage)
 async def test(app: Ariadne, message: MessageChain, source: Source):
     if str(message) == "撤回测试":
@@ -100,7 +100,7 @@ async def test(app: Ariadne, message: MessageChain, source: Source):
 
 通过以上理论，你分分钟写出了一个带撤回功能的涩图机器人，比如这样：
 
-``` python
+```python
 @bcc.receiver(GroupMessage, dispatchers=[Twilight.from_command("涩图来")])
 async def test(app: Ariadne, message: MessageChain):
     session = adapter_ctx.get().session
@@ -111,7 +111,7 @@ async def test(app: Ariadne, message: MessageChain):
     await app.recallMessage(source)
 ```
 
-这确实成功了，可是当你满怀激动的将你的bot给群友用了之后，却是这样的局面：
+这确实成功了，可是当你满怀激动的将你的 bot 给群友用了之后，却是这样的局面：
 
 <ChatWindow title="Graia Framework Community">
   <ChatToast>下午 3:38</ChatToast>
@@ -132,9 +132,9 @@ async def test(app: Ariadne, message: MessageChain):
 
 ### 关于异步
 
-还记得我们在[第6章](./6_ero_from_net.html#为啥要用-aiohttp)讲过，我们为什么要使用异步吗？
+还记得我们在[第 6 章](./6_ero_from_net.html#为啥要用-aiohttp)讲过，我们为什么要使用异步吗？
 
-``` python{7}
+```python{7}
 @bcc.receiver(GroupMessage, dispatchers=[Twilight.from_command("涩图来")])
 async def test(app: Ariadne, message: MessageChain):
     session = adapter_ctx.get().session
@@ -146,12 +146,12 @@ async def test(app: Ariadne, message: MessageChain):
 ```
 
 `time.sleep()` 方法是一种同步办法，即在 sleep 的这段时间里面**整个程序都会停止不动**！  
-牙白desu捏，那怎么办呢？
+牙白 desu 捏，那怎么办呢？
 
 很简单，实际上，Python 的异步标准库 `asyncio` 已经帮你想好这个问题了。
 他提供了异步用的休眠函数 `asyncio.sleep()`，你只需要做一下小小的替换就好了：
 
-``` python{7}
+```python{7}
 @bcc.receiver(GroupMessage, dispatchers=[Twilight.from_command("涩图来")])
 async def test(app: Ariadne, message: MessageChain):
     session = adapter_ctx.get().session

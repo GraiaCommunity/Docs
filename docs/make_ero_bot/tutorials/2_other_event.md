@@ -10,7 +10,7 @@
 :::: warning
 此处的“戳一戳”所指的是手机 QQ 客户端中**双击头像**的功能，而不是私聊发送戳一戳表情（对应 PC 的**窗口抖动**）
 
-接收 NudgeEvent 需要 Mirai 使用如下3种登陆协议中的一种：
+接收 NudgeEvent 需要 Mirai 使用如下 3 种登陆协议中的一种：
 
 - ANDROID_PHONE
 - IPAD
@@ -26,7 +26,7 @@
 :::: code-group
 ::: code-group-item Python <= 3.9
 
-``` python
+```python
 ...
 from typing import Union
 # from graia.ariadne.event.message import GroupMessage
@@ -57,7 +57,7 @@ async def getup(app: Ariadne, event: NudgeEvent):
 
 ::: code-group-item Python >= 3.10
 
-``` python
+```python
 # 本部分示例使用 Python 3.10 引入的 match...case...语法
 ...
 from typing import Union
@@ -104,7 +104,7 @@ async def getup(app: Ariadne, event: NudgeEvent):
 </ChatWindow>
 
 ::: tip
-有关什么是 Broadcast，各种Event又是什么，请参阅[这里](../before/Q&A.html#_3-%E4%BB%80%E4%B9%88%E6%98%AF-broadcastcontrol)
+有关什么是 Broadcast，各种 Event 又是什么，请参阅[这里](../before/Q&A.html#_3-%E4%BB%80%E4%B9%88%E6%98%AF-broadcastcontrol)
 :::
 
 ::: interlink

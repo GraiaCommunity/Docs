@@ -19,7 +19,7 @@
   - [RF-Tar-Railt](https://github.com/RF-Tar-Railt): `Alconna` 的作者，也是[社区文档 Alconna 部分](../tutorials/6_4_alconna.md)的主要作者
 - [GraiaProject](https://github.com/GraiaProject)
   - [BlueGlassBlock](https://github.com/BlueGlassBlock): `Ariadne` 的 主要维护者
-  - [Bryan不可思议 (ProgramRipper)](https://github.com/ProgramRipper): `Graia Project` 的 协作者
+  - [Bryan 不可思议 (ProgramRipper)](https://github.com/ProgramRipper): `Graia Project` 的 协作者
   - [GreyElaina](https://github.com/GreyElaina): `Graia Project` 的 主要作者
 - [iTXTech](https://github.com/iTXTech): 带来了 `mirai-console-loader` 和 `mcl-installer` 这两个方便部署 `Mirai` 的工具
 - [MamoeTechnologies](https://github.com/mamoe): 带来了 `Mirai` 这样一个高效率 QQ 机器人支持库

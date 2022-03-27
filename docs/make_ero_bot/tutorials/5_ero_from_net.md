@@ -16,7 +16,7 @@
 但是为了让你能够记得你用了什么库，我们还是建议你写一下
 :::
 
-``` bash
+```bash
 poetry add aiohttp
 # 👇假设你想要极致的速度
 poetry add aiohttp[speedups]
@@ -24,7 +24,7 @@ poetry add aiohttp[speedups]
 
 然后介绍一下 aiohttp 最简单的用吧(<ゝω・)～☆
 
-``` python
+```python
 import asyncio
 from pathlib import Path
 
@@ -50,7 +50,7 @@ asyncio.run(very_simple_example())
 
 让我们先整一个与上面相似的使用的 `requests` 办法方便下一小节举例：
 
-``` python
+```python
 from pathlib import Path
 
 import requests
@@ -77,7 +77,7 @@ very_simple_example()
 在此之前，我们再加一个问题，
 我们在每次构建 Listener 的时候都像下面这样，你可以找找，与一般的 Python 的函数构造方法有什么不同：
 
-``` python
+```python
 async def test(app: Ariadne): ...
 ```
 
@@ -102,7 +102,7 @@ async def test(app: Ariadne): ...
 ::: warning
 注意一下，**并不是说把一个函数前面加上 `async` 就是异步了**
 
-``` python
+```python
 async def test():
     r = requests.get("https://i1.hdslb.com/bfs/archive/5242750857121e05146d5d5b13a47a2a6dd36e98.jpg")
 ```
@@ -117,7 +117,7 @@ async def test():
 
 Of course you can
 
-``` python
+```python
 from graia.ariadne import get_running
 from graia.ariadne.adapter import Adapter
 ...
@@ -130,7 +130,7 @@ async def test(app: Ariadne):
         data = await r.read()
 ```
 
-r如此即可，而且这样做有一个好处，那就是**不用在每次请求的时候都创建一个会话**
+如此即可，而且这样做有一个好处，那就是**不用在每次请求的时候都创建一个会话**
 
 在[aiohttp 官方文档的这里](https://docs.aiohttp.org/en/stable/client_quickstart.html#make-a-request)有一个 Note 👇  
 **不要为每一个请求都创造一个会话。 (Don’t create a session per request.)**
@@ -140,4 +140,4 @@ r如此即可，而且这样做有一个好处，那就是**不用在每次请�
 不过这样做也有一定的有缺点 —— **降低了代码移植效率**。  
 假设你想要将你的代码放到其他地方（比如 v5），那你移植的时候，就需要更改获取 session 的代码。
 
-至于要不要用 Ariadne 自带的 session，就是你的选择了。  
+至于要不要用 Ariadne 自带的 session，就是你的选择了。

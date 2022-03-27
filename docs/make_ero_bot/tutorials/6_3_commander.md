@@ -10,13 +10,13 @@
 在看完了前面的章节后，想必你立马把 `Commander` 拖到翻译软件里面，看看结果是什么  
 但是当你扔到翻译软件一看：
 
-|翻译|反向翻译|
-|:--:|:--|
-|指挥官|commander|
-|司令|commander, commanding officer|
-|指挥员|commander|
-|指挥|conductor, commander, director, dictate|
-|舰长|captain, commander, commodore, warship's captain|
+|  翻译  | 反向翻译                                         |
+| :----: | :----------------------------------------------- |
+| 指挥官 | commander                                        |
+|  司令  | commander, commanding officer                    |
+| 指挥员 | commander                                        |
+|  指挥  | conductor, commander, director, dictate          |
+|  舰长  | captain, commander, commodore, warship's captain |
 
 <Curtain>什么碧蓝航线（划掉）</Curtain>
 
@@ -29,7 +29,7 @@
 ## 使用 Commander
 
 ::: tip
-以下内容有一部分涉及到[第11章](./11_classification.md)的内容，
+以下内容有一部分涉及到[第 11 章](./11_classification.md)的内容，
 可以尝试先去看看那边，相信我，你一定会受益匪浅。
 :::
 

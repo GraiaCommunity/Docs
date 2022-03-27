@@ -10,7 +10,7 @@
 你知道吗，这章很水
 :::
 
-想必大家在 QQ 聊天的时候，或多或少都会用到QQ的一些表情包（如
+想必大家在 QQ 聊天的时候，或多或少都会用到 QQ 的一些表情包（如
 <img
     src="/images/tutorials/8_huaji.webp"
     height=20
@@ -38,7 +38,7 @@
 
 你的构造：
 
-``` python
+```python
 MessageChain.create("来点涩图", Face(277))
 ```
 
@@ -54,7 +54,7 @@ MessageChain.create("来点涩图", Face(277))
 
 你的构造：
 
-``` python
+```python
 MessageChain.create(
     "在新的一年里，祝你\n",  # 这里有没有逗号均可
     "身", Face(277), "体", Face(277), "健", Face(277), "康\n",  # 这里有没有逗号均可
@@ -62,7 +62,7 @@ MessageChain.create(
 )
 ```
 
-牙白，牙白，红豆泥牙白desu捏~ 那该怎么办好呢？
+牙白，牙白，红豆泥牙白 desu 捏~ 那该怎么办好呢？
 
 当然有有办法！
 
@@ -70,7 +70,7 @@ MessageChain.create(
 
 通俗来讲，`Formatter` 差不多就是一个给 `MessasgeChain` 用的 `str.format`，使用方法如下：
 
-``` python
+```python
 from graia.ariadne.message.formatter import Formatter
 
 Formatter(

@@ -2,7 +2,7 @@
 
 还记得 `mcl` 吗？你应该对他底下的这个 `>` 印象深刻吧。
 
-``` bash
+```txt:no-line-numbers
 xxxx-xx-xx xx:xx:xx I/main: mirai-console started successfully.
 
 >
@@ -20,7 +20,7 @@ xxxx-xx-xx xx:xx:xx I/main: mirai-console started successfully.
 
 首先我们需要在 `main.py` 加一点东西进行初始化：
 
-``` python
+```python
 from graia.ariadne.console import Console
 from graia.ariadne.console.saya import ConsoleBehaviour
 ...
@@ -35,7 +35,7 @@ saya.install_behaviours(
 
 然后让你再次启用程序的时候，铛铛：
 
-``` bash
+```txt:no-line-numbers
 Ariadne version: A.A.A
 Broadcast version: B.B.B
 Saya version: C.C.C
@@ -64,7 +64,7 @@ EroEroBot>
 
 如要输出普通字符串，你可以这样做：
 
-``` python
+```python
 from loguru import logger
 
 logger.info("测试")
@@ -86,7 +86,7 @@ logger.opt(raw=True).log("测试")
 
 来，让我们在 `module` 文件夹中新建一个 `backend_laning.py`：
 
-``` python
+```python
 from graia.ariadne.app import Ariadne
 from graia.ariadne.console.saya import ConsoleSchema
 from graia.ariadne.message.parser.twilight import MatchResult, ParamMatch, Twilight
@@ -146,9 +146,9 @@ async def stop(app: Ariadne, console: Console):
 若模仿本小节内容进行设置但设置不当，则可能会带来一些 Bug，请经过测试后再使用。
 
 - 本小节内容需要你的终端所使用的字体支持 [Powerline](https://github.com/powerline/powerline) 或 [Nerd](https://www.nerdfonts.com/)，
-否则你可能会见到未知字符（如问号、方框等）。
+  否则你可能会见到未知字符（如问号、方框等）。
 - 本小节代码中有两个字符需要你的浏览器调用的等宽字体支持 [Powerline](https://github.com/powerline/powerline) 或 [Nerd](https://www.nerdfonts.com/)，
-否则你可能会见到未知字符（如问号、方框等）。
+  否则你可能会见到未知字符（如问号、方框等）。
 
 对于本栗子及更多类似的效果的预览图，
 你可以点击[这里](https://github.com/powerline/powerline#screenshots)或[这里](https://ohmyposh.dev/docs/themes)或[这里](https://github.com/ohmyzsh/ohmyzsh/wiki/Themes)了解一下。

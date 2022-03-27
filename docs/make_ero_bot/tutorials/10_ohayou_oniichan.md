@@ -38,7 +38,7 @@
 :::
 
 ::: tip
-假设你之前安装 Ariadne 时用的是以下2种选项中的一种，那么你可以直接跳过本小节。
+假设你之前安装 Ariadne 时用的是以下 2 种选项中的一种，那么你可以直接跳过本小节。
 
 - `graia-ariadne[full]`
 - `graia-ariadne[graia]`
@@ -47,14 +47,14 @@
 :::: code-group
 ::: code-group-item poetry
 
-``` bash
+```bash
 poetry add graia-scheduler
 ```
 
 :::
 ::: code-group-item pip
 
-``` bash
+```bash
 pip install graia-scheduler
 ```
 
@@ -64,7 +64,7 @@ pip install graia-scheduler
 
 在你的代码中加入这些：
 
-``` python
+```python
 from graia.scheduler import GraiaScheduler
 ...
 
@@ -75,7 +75,7 @@ sche = app.create(GraiaScheduler)
 
 以**每分钟都在群里发垃圾消息的机器人**为例子：
 
-``` python
+```python
 from graia.scheduler import timers
 
 @sche.schedule(timers.every_minute())
@@ -86,10 +86,10 @@ async def every_minute_speaking(app: Ariadne):
 ## 10.5 通过 crontab 来设定时间
 
 在上面的例子中，你一定会发现，timers 中绝大多数 timer 都是**每隔一段间隔后触发**的模式，
-这明显跟我们**让机器人每天早上7点半准时叫我们起床**相违背。
+这明显跟我们**让机器人每天早上 7 点半准时叫我们起床**相违背。
 
 > 假设你是在例如树莓派什么的地方运行，最好先检查一下你有没有设置好时区。  
-> 否则你的机器人可能会在协调世界时的早上7点半（北京时间15点半）叫你起床。
+> 否则你的机器人可能会在协调世界时的早上 7 点半（北京时间 15 点半）叫你起床。
 
 难道我们还要每天掐着点算什么时候启动机器人吗？
 
@@ -101,7 +101,7 @@ async def every_minute_speaking(app: Ariadne):
 看清楚了，方法是 `timers.crontabify` 而不是 `timers.croniter`！  
 事实上，`graia-scheduler` 所使用的 crontab 语法分析库支持将**秒**作为第六个参数导入，如：
 
-``` python
+```python
 #每天7点30分30秒发送消息
 @sche.schedule(timers.crontabify("30 7 * * * 30"))
 ```

@@ -1,6 +1,10 @@
 <template>
   <div class="chat-item" :class="[onright ? 'right-chat' : 'left-chat']">
-    <div v-if="avatar" :style="{ 'background-image': `url(${avatar})` }" class="chat-avatar"></div>
+    <div
+      v-if="avatar"
+      :style="{ 'background-image': `url(${avatar})` }"
+      class="chat-avatar"
+    ></div>
     <div v-else class="chat-avatar chat-avatar-text">{{ name[0] }}</div>
     <div class="chat-content">
       <div class="chat-name">{{ name }}</div>
@@ -13,9 +17,19 @@
               d="M35.5,25.324,20.512,14.575a1,1,0,0,0-1.589.815v21.5a1,1,0,0,0,1.589.816L35.5,26.955a1,1,0,0,0,.237-1.394A.988.988,0,0,0,35.5,25.324Z"
             />
           </svg>
-          <audio ref="audio" :src="audio" @ended="reset" @loadedmetadata="onLoadedmetadata"></audio>
+          <audio
+            ref="audio"
+            :src="audio"
+            @ended="reset"
+            @loadedmetadata="onLoadedmetadata"
+          ></audio>
           <span class="voice-bar">
-            <span v-for="item in getLineCount(duration)" :key="item" ref="voice-line" class="line"></span>
+            <span
+              v-for="item in getLineCount(duration)"
+              :key="item"
+              ref="voice-line"
+              class="line"
+            ></span>
           </span>
           {{ formatedDuration }}
         </div>
@@ -66,7 +80,7 @@ export default defineComponent({
       this.formatedDuration = m > 0 ? `${m}'${s}"` : `${s}"`
     },
     sleep: (ms: number) => {
-      return new Promise(resolve => setTimeout(resolve, ms))
+      return new Promise((resolve) => setTimeout(resolve, ms))
     },
     async playVoice() {
       const audioElem = this.$refs.audio as HTMLAudioElement
@@ -74,14 +88,14 @@ export default defineComponent({
       if (this.playFlag) {
         audioElem.pause()
         audioElem.currentTime = 0
-        lines.forEach(line => {
+        lines.forEach((line) => {
           line.style.backgroundColor = 'var(--c-text)'
         })
         this.playFlag = false
       } else {
         audioElem.play()
         this.playFlag = true
-        lines.forEach(line => {
+        lines.forEach((line) => {
           line.style.backgroundColor = '#999999'
         })
         for (let index = 0; index < lines.length; index++) {

@@ -31,7 +31,11 @@ export default defineUserConfig<DefaultThemeOptions>({
     warning: '注意',
     danger: '警告',
 
-    notFound: ['你在翻什么，这里可没有涩图哦', '朋友，你是不是迷路了', '不要乱翻，会乱的'],
+    notFound: [
+      '你在翻什么，这里可没有涩图哦',
+      '朋友，你是不是迷路了',
+      '不要乱翻，会乱的',
+    ],
     backToHome: '返回首页',
 
     openInNewWindow: '在新窗口打开',

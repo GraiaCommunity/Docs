@@ -30,7 +30,7 @@
 
 还记得上一节我们简单的讲解消息链时候，给出了这样一种构建图片元素的办法：
 
-``` python
+```python
 Image(path="./Graiax/EroEroBot/eropic.jpg")
 ```
 
@@ -46,7 +46,7 @@ Image(path="./Graiax/EroEroBot/eropic.jpg")
 
 下面，就让<RubyCurtain up="举例狂魔">我</RubyCurtain>给大家举几个例子：
 
-``` python
+```python
 >>> path_data = "./Graiax/EroEroBot/eropic.jpg"
 >>> bytes_data: bytes = Path("./Graiax/EroEroBot/eropic.jpg").read_bytes()
 >>> base64_data: str = b64encode(bytes_data).decode()
@@ -77,7 +77,7 @@ Image(path="./Graiax/EroEroBot/eropic.jpg")
 :::: code-group
 ::: code-group-item poetry
 
-``` bash
+```bash
 # 普通安装
 poetry add graiax-silkcoder
 # 假设你的环境中没有安装 ffmpeg 但又需要 wav 以外的音频格式转换
@@ -87,7 +87,7 @@ poetry add graiax-silkcoder[ffmpeg]
 :::
 ::: code-group-item pip
 
-``` bash
+```bash
 # 普通安装
 pip install graiax-silkcoder
 # 假设你的环境中没有安装 ffmpeg 但又需要 wav 以外的音频格式转换
@@ -102,7 +102,7 @@ pip install graiax-silkcoder[ffmpeg]
 :::: code-group
 ::: code-group-item 0.2.0 +
 
-``` python
+```python
 from graiax import silkcoder
 
 audio_bytes = await silkcoder.async_encode("Graiax/EroEroBot/hentai.mp3")
@@ -112,7 +112,7 @@ Voice(data_bytes=audio_bytes)
 :::
 ::: code-group-item 0.1.x
 
-``` python
+```python
 from graiax import silkcoder
 
 audio_bytes = await silkcoder.encode("Graiax/EroEroBot/hentai.mp3")

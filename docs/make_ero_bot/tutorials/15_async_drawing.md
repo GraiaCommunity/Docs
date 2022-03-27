@@ -27,7 +27,7 @@
 :::: code-group
 ::: code-group-item 原来的
 
-``` python
+```python
 from io import BytesIO
 
 # 切记，PIL 的 Image 跟 ariadne 的 Image Element 名字重了
@@ -51,7 +51,7 @@ async def drawing():
 :::
 ::: code-group-item 用 io_bound
 
-``` python
+```python
 from io import BytesIO
 
 # 切记，PIL 的 Image 跟 ariadne 的 Image Element 名字重了
@@ -76,7 +76,7 @@ async def drawing():
 :::
 ::: code-group-item 用 asyncio.to_thread
 
-``` python
+```python
 import asyncio
 from io import BytesIO
 

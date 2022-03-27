@@ -9,7 +9,7 @@
 众所周知，这涩图，十分的珍贵，应该让管理员先看 ~~[催涩员](https://zh.moegirl.org.cn/%E5%82%AC%E9%80%9D%E5%91%98)~~（？）  
 所以，你写出了这样的代码：
 
-``` python
+```python
 @bcc.receiver(GroupMessage, dispatchers=[Twilight.from_command("涩图来")])
 async def setu(app: Ariadne, member: Member, group: Group):
     if member.permission != MemberPerm.Member:
@@ -19,7 +19,7 @@ async def setu(app: Ariadne, member: Member, group: Group):
 这代码，能够正常的运作，很好，但是到了后面，随着 tx 对涩图的打击力度愈发强大，
 涩图愈发的稀缺，所以你的判断条件也愈发复杂：
 
-``` python
+```python
 @bcc.receiver(GroupMessage, dispatchers=[Twilight.from_command("涩图来")])
 async def setu(app: Ariadne, member: Member, group: Group):
     if group.id not in [114514, 1919810]:
@@ -46,7 +46,7 @@ async def setu(app: Ariadne, member: Member, group: Group):
 
 那该怎么办？你可以试试 `Depend`：
 
-``` python
+```python
 from graia.broadcast.builtin.decorators import Depend
 from graia.broadcast.exceptions import ExecutionStop
 
@@ -111,7 +111,7 @@ async def setu(app: Ariadne, group: Group):
 
 ## 9.3 `Depend` 的好处
 
-~~Depend好处都有啥，谁说对了就给他。~~
+~~Depend 好处都有啥，谁说对了就给他。~~
 
 - 判断的函数被分成了几个部分
 - 大部分的判断都放在了 `decorators` 参数里面
@@ -122,7 +122,7 @@ async def setu(app: Ariadne, group: Group):
 
 我们先掏出其中的一个 decorator 来详细讲解一下吧：
 
-``` python
+```python
 def check_group(*groups: int):
     async def check_group_deco(app: Ariadne, group: Group):
         if group.id not in groups:
@@ -145,7 +145,7 @@ def check_group(*groups: int):
 ::: tip
 事实上，假设你需要 `Depend` 中被修饰函数的返回值，可以这么写
 
-``` python
+```python
 async def check_vip_deco(app: Ariadne, member: Member):
     vip_status = await get_vip(member.id)
     if vip_status is None:

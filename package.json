@@ -1,26 +1,23 @@
 {
-  "name": "graiax_homepage",
-  "version": "1.0.0",
-  "main": "index.js",
-  "repository": "https://github.com/GraiaCommunity/HomePage",
+  "name": "graiax_docs",
+  "repository": "https://github.com/GraiaCommunity/Docs",
   "license": "MIT",
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.14.0",
-    "@typescript-eslint/parser": "^5.14.0",
+    "@typescript-eslint/eslint-plugin": "^5.16.0",
+    "@typescript-eslint/parser": "^5.16.0",
     "@vue/eslint-config-typescript": "^10.0.0",
     "@vuepress/plugin-register-components": "^2.0.0-beta.36",
     "@vuepress/plugin-search": "^2.0.0-beta.36",
     "@vuepress/plugin-shiki": "^2.0.0-beta.36",
-    "eslint": "^7.32.0",
+    "eslint": "^8.12.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-config-vuepress": "^3.5.0",
     "eslint-config-vuepress-typescript": "^2.5.0",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-vue": "^8.5.0",
     "pre-commit": "^1.2.2",
-    "prettier": "^2.5.1",
-    "prettier-config-vuepress": "^1.3.0",
-    "typescript": "^4.6.2",
+    "prettier": "^2.6.1",
+    "typescript": "^4.6.3",
     "vuepress": "^2.0.0-beta.36"
   },
   "scripts": {
@@ -33,7 +30,6 @@
   },
   "precommit": {
     "run": [
-      "style:fix",
       "lint:fix"
     ]
   }

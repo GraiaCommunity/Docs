@@ -1,11 +1,11 @@
 # 0. 造房之前，打好地基
 
-> 罗马不是一夜建成，机器人也不是一日造好。—— 爷  
+> 罗马不是一夜建成，机器人也不是一日造好。—— 爷
 
 ## 0.0 注意事项
 
 1. **本文档将会默认你至少学过一点点 `Python`，假设你连 Python 都不会，建议至少学点 Python 基础再来看；**
-2. **本文档将假设你具有一定的英语阅读能力<Curtain>通过XX翻译也行</Curtain>，并能对工具软件的提示作出自己的决定；**
+2. **本文档将假设你具有一定的英语阅读能力<Curtain>通过 XX 翻译也行</Curtain>，并能对工具软件的提示作出自己的决定；**
 3. **本文档将会使用 `poetry` 作为依赖和虚拟环境管理工具；**
    ::: warning
    关于为什么用 `poetry`，你可以看这里 :point_right: [看这](../before/Q&A.md#_6-关于-poetry)
@@ -18,6 +18,7 @@
    因为文档会随着 `graia-ariadne` 版本的更新而更新，所以我**强烈推荐**你直接安装最新版本（latest）  
    现在的 `graia-ariadne` 的最新版本为 <img src="https://img.shields.io/pypi/v/graia-ariadne?color=2970b6&amp;label=&amp;style=flat-square" alt="PyPI版本" style="vertical-align: middle">
    :::
+
 5. 虽然 `Ariadne` 支持 <img src="https://img.shields.io/pypi/pyversions/graia-ariadne?color=2970b6&amp;label=Python&amp;style=flat-square" alt="Python版本" style="vertical-align: middle">, 但为了**最佳体验**，我们建议你最好升级到 `Python3.9+` 以保证能够享受到全部功能；
 6. **本文档部分内容可能未及时更新或不全**，因此你可以在本文档的一些页面见到如下的提示框，他们通常指向相关的文档（一般为官方文档）。
    ::: interlink
@@ -28,14 +29,14 @@
 
 新建一个项目文件夹，这里我们就叫 `EroEroBot` 吧 （<Curtain>PeroPero 震怒</Curtain>），并进入该文件夹内：
 
-``` bash
+```bash
 mkdir EroEroBot
 cd EroEroBot
 ```
 
 然后输入 `poetry init` 开始创建环境，你就会看到类似下面的提示：
 
-``` bash
+```bash
 $ poetry init
 
 This command will guide you through creating your pyproject.toml config.
@@ -79,7 +80,7 @@ Do you confirm generation? (yes/no) [yes] y  # 注意，这里要你自己填写
 
 为了防止后续添加依赖时等待太久，可以修改 `pyproject.toml` 来添加国内镜像加速站，打开该文件后在文件末尾添加如下内容即可：
 
-``` toml
+```toml
 [[tool.poetry.source]]
 # 这里以清华源举例，你也可以使用其他源
 name = "tuna-tsinghua"
@@ -91,7 +92,7 @@ default = false
 
 在配置好环境之后，你需要给你的项目创建一个虚拟环境并安装 `graia-ariadne`，在项目根目录执行如下命令：
 
-``` bash
+```bash
 poetry env use python3.9  # 如果你设备里只有一个版本的 Python 或你想使用最新版本，则这一条命令可以不执行
 poetry add graia-ariadne[standard]
 ```
@@ -101,34 +102,35 @@ poetry add graia-ariadne[standard]
 1. Ariadne 其实有好几种 Extra deps（可选依赖），如下所示：
 
    - graia-ariadne[graia]
-      - graia-saya —— 模块化（[第11章](./11_classification.md)）
-      - graia-scheduler —— 定时任务（[第10章](./10_ohayou_oniichan.md)）
+     - graia-saya —— 模块化（[第 11 章](./11_classification.md)）
+     - graia-scheduler —— 定时任务（[第 10 章](./10_ohayou_oniichan.md)）
    - graia-ariadne[alconna]
-      - arclet-alconna —— 消息链处理器（[第6章第4节](./6_4_alconna.md)）
+     - arclet-alconna —— 消息链处理器（[第 6 章第 4 节](./6_4_alconna.md)）
    - graia-ariadne[server]
-      - fastapi —— 用于 `ReverseAdapter` 反向连接器（挖坑）
-      - uvicorn —— 运行 `fastapi` 所需要的容器
+     - fastapi —— 用于 `ReverseAdapter` 反向连接器（挖坑）
+     - uvicorn —— 运行 `fastapi` 所需要的容器
    - graia-ariadne[standard]
-      - graia-ariadne[graia]
-      - graia-ariadne[alconna]
-      - prompt-toolkit —— 实时控制台（[第14章](./14_backend_laning.md)）
+     - graia-ariadne[graia]
+     - graia-ariadne[alconna]
+     - prompt-toolkit —— 实时控制台（[第 14 章](./14_backend_laning.md)）
 
    而 `graia-ariadne[full]` 则会安装以上所有非必要组件。
 
 2. 假设你不怎么喜欢整虚拟环境也可以使用如下命令来取消虚拟环境的创建。
 
-   ``` bash
+   ```bash
    poetry config virtualenvs.create false
    ```
 
 3. 事实上，poetry 创建的虚拟环境并不会在文件夹里面，则是在这些地方
+
    - macOS: `~/Library/Application Support/pypoetry`
    - Windows: `C:\Users\<username>\AppData\Roaming\pypoetry`
    - Unix: `~/.config/pypoetry`
 
    假设你不怎么喜欢的话，可以通过以下方式将虚拟环境创建在项目文件夹的 `.venv` 文件夹里
 
-   ``` bash
+   ```bash
    poetry config virtualenvs.in-project true
    ```
 
@@ -137,14 +139,14 @@ poetry add graia-ariadne[standard]
 
 :::: details 命令输出
 
-``` bash
+```bash
 $ poetry env use 3.9
 
 Creating virtualenv EroEroBot-BexBd8Xq-py3.9 in /root/.cache/pypoetry/virtualenvs
 Using virtualenv: /root/.cache/pypoetry/virtualenvs/EroEroBot-BexBd8Xq-py3.9
 ```
 
-``` bash
+```bash
 $ poetry add graia-ariadne[standard]
 
 Using version ^0.6.12 for graia-ariadne

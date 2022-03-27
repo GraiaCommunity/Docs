@@ -38,7 +38,7 @@ P.s. 一些变量名称为了与本文档其他章节统一而与官方文档有
 
 作为 `Decorator`, 放到 `bcc.receiver` 或 `ListenerSchema` 的 `decorators` 里。
 
-``` python
+```python
 # 消息必须以 "涩" 开头
 # 如 "涩你" "涩涩"
 @bcc.receiver(GroupMessage, decorators=[DetectPrefix("涩")])
@@ -50,7 +50,7 @@ async def on_message(app: Ariadne, group: Group, message: MessageChain):
 
 <h3>用法2</h3>
 
-``` python
+```python
 # 消息必须以 "涩" 开头
 # 如 "涩你" "涩涩"
 @bcc.receiver(GroupMessage)
@@ -73,7 +73,7 @@ async def on_message(app: Ariadne, group: Group, message: MessageChain = DetectP
 
 作为 `Decorator`, 放到 `bcc.receiver` 或 `ListenerSchema` 的 `decorators` 里。
 
-``` python
+```python
 # 消息必须以 "好涩" 结尾
 # 如 "这个好涩"
 @bcc.receiver(GroupMessage, decorators=[DetectSuffix("好涩")])
@@ -84,7 +84,7 @@ async def on_message(message: MessageChain):
 
 <h3>用法2</h3>
 
-``` python
+```python
 # 消息必须以 "好涩" 结尾
 # 如 "这个好涩"
 @bcc.receiver(GroupMessage)
@@ -101,7 +101,7 @@ async def on_message(message: MessageChain = DetectSuffix("好涩")):
 
 放到 `bcc.receiver` 或 `ListenerSchema` 的 `decorators` 里。
 
-``` python
+```python
 # "@EroEroBot 在吗" "EroEroBot 在吗" "EroEroBot，帮我涩涩"
 # 要求名字/At在最前面
 @bcc.receiver(GroupMessage, decorators=[MentionMe()])  # 注意要实例化
@@ -117,7 +117,7 @@ async def on_mention_me(app: Ariadne, group: Group, member: Member):
 
 放到 `bcc.receiver` 或 `ListenerSchema` 的 `decorators` 里。
 
-``` python
+```python
 # "Graiax 人呢" "Graiax，今晚一起去涩涩"
 # 要求名字/At在最前面
 @bcc.receiver(..., decorators=[Mention(target=...)])  # target: int | str
@@ -133,7 +133,7 @@ async def on_mention(app: Ariadne, group: Group):
 
 <h3>用法</h3>
 
-``` python
+```python
 # "今晚一起涩涩吗" "让我涩涩你"
 @bcc.receiver(..., decorators=[ContainKeyword(keyword="涩涩")])
 async def on_contain_keyword(app: Ariadne, group: Group):
@@ -151,7 +151,7 @@ async def on_contain_keyword(app: Ariadne, group: Group):
 
 <h3>用法</h3>
 
-``` python
+```python
 # "[图片]" <- 你控制台天天见的啦
 @bcc.receiver(..., decorators=[MatchContent(content="[图片]")])
 # 当 content 为 str 时，将会与MessageChain.asDisplay()进行比较，当 content 为 MessageChain 时，将会与 MessageChain 进行比较
@@ -170,7 +170,7 @@ async def on_match_content(app: Ariadne, group: Group):
 
 <h3>用法</h3>
 
-``` python
+```python
 # "1" "2" "114514"
 @bcc.receiver(..., decorators=[MatchRegex(regex=r"\d+")] regex 参数为 regex 表达式
 async def on_match_regex(app: Ariadne, group: Group, message: MessageChain):
@@ -190,9 +190,9 @@ async def on_match_regex(app: Ariadne, group: Group, message: MessageChain):
 
 放到 `bcc.receiver` 或 `ListenerSchema` 的 `decorators` 里。
 
-``` python
+```python
 # 需要 "*搜图 [图片]" 才能匹配 (*为任意多字符)
-@bcc.receiver(..., decorators=[MatchTemplate([Plain, Plain("搜图"), Image])]) 
+@bcc.receiver(..., decorators=[MatchTemplate([Plain, Plain("搜图"), Image])])
     async def on_match_regex(chain: MessageChain):  # 不会改动消息链
         ...
 ```

@@ -33,7 +33,7 @@
 
 首先，又到了我们经典的举例子时间~
 
-``` python{15}
+```python{15}
 ...
 from graia.ariadne.message.parser.twilight import MatchResult
 
@@ -58,7 +58,7 @@ async def upload_file(app: Ariadne, group: Group, tag: MatchResult):
 说真的，挺简单的，这里唯一的重点，就是这个 `app.uploadFile`，
 当然，仅仅是这一个例子还是不太够，我们要更深入一点：
 
-``` python{3,6-7}
+```python{3,6-7}
 async def uploadFile(
     self,
     data: Union[bytes, io.IOBase, os.PathLike],  # 要上传的数据/数据流
@@ -110,7 +110,7 @@ target 的 `Type Hint` 有 `Friend` 的原因仅仅是因为 `万一哪一天支
 
 大致是长这样：
 
-``` python{3,8}
+```python{3,8}
 class FileInfo(AriadneBaseModel):
     name: str  # 文件名
     path: str  # 路径
@@ -125,26 +125,26 @@ class FileInfo(AriadneBaseModel):
 讲一下画高亮的部分：
 
 1. `id`：QQ 使用 `文件 ID` 作为文件的唯一识别码<Curtain>要不然你用 QQ 群文件怎么会允许同名群文件</Curtain>。<br>
-    事实上，后面会讲的一切操作（如重命名，移动文件），都会需要 `文件 ID`。
+   事实上，后面会讲的一切操作（如重命名，移动文件），都会需要 `文件 ID`。
 
 2. `download_info`：如变量名所说，这个就是下载信息，这其中包含了包括文件 MD5 等一系列下载所需要的东西。
 
-    ``` python
-    class DownloadInfo(AriadneBaseModel):
-        sha: str  # 文件 SHA256
-        md5: str  # 文件 MD5
-        download_times: int  # 下载次数
-        uploader_id: int  # 上传者 QQ 号
-        upload_time: datetime  # 上传时间
-        last_modify_time: datetime  # 最后修改时间（如重命名则为修改）
-        url: Optional[str]  # 下载 url
-    ```
+   ```python
+   class DownloadInfo(AriadneBaseModel):
+       sha: str  # 文件 SHA256
+       md5: str  # 文件 MD5
+       download_times: int  # 下载次数
+       uploader_id: int  # 上传者 QQ 号
+       upload_time: datetime  # 上传时间
+       last_modify_time: datetime  # 最后修改时间（如重命名则为修改）
+       url: Optional[str]  # 下载 url
+   ```
 
 ## 13.3 批量下载
 
 事实上，我们已经大致了解了群文件的大致构造了，那就让我们来做一个批量下载群文件中图片的代码例子吧~
 
-``` python
+```python
 # 全是缩进警告
 async def download_setu(app: Ariadne, group: Group):
     os.makedirs("download", exist_ok=True)  # 创建一个 download 文件夹

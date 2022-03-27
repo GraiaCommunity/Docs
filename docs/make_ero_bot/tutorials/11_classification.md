@@ -28,15 +28,15 @@
 Nonebot 就是一个比较典型的插件导入式框架（通过导入不同的插件功能来运行），
 而 `Saya`，就能为 `Ariadne` 实现差不多的功能。
 
-下面姑且说一下saya各模块都是什么（现在看不懂也没关系）。
+下面姑且说一下 saya 各模块都是什么（现在看不懂也没关系）。
 
-|名称|作用|
-|:--:|:--|
-Saya Controller<br>(控制器)|负责控制各个模块，分配 Channel，管理模块启停，Behaviour 的注册和调用.
-Module Channel<br>(模块容器)|负责对模块服务，收集模块的各式信息，像 模块的名称，作者，长段的描述 之类，并负责包装模块的内容为 Cube，用以 Behaviour 对底层接口的操作.
-Cube<br>(内容容器)|对模块提供的内容附加一个由 Schema 实例化来的 metadata，即 "元信息"，用于给 Behaviour 进行处理.
-Schema<br>(元信息模板)|用于给模块提供的内容附加不同类型的元信息，给 Behaviour isinstance 处理用.
-Behaviour<br>(行为)|根据 Cube 及其元信息，对底层接口(例如 Broadcast，Scheduler 等)进行操作. 包括 allocate 与 uninstall 两个操作.
+| 名称 | 作用 |
+| :--: | :-- |
+| Saya Controller<br>(控制器) | 负责控制各个模块，分配 Channel，管理模块启停，Behaviour 的注册和调用. |
+| Module Channel<br>(模块容器) | 负责对模块服务，收集模块的各式信息，像 模块的名称，作者，长段的描述 之类，并负责包装模块的内容为 Cube，用以 Behaviour 对底层接口的操作. |
+| Cube<br>(内容容器) | 对模块提供的内容附加一个由 Schema 实例化来的 metadata，即 "元信息"，用于给 Behaviour 进行处理. |
+| Schema<br>(元信息模板) | 用于给模块提供的内容附加不同类型的元信息，给 Behaviour isinstance 处理用. |
+| Behaviour<br>(行为) | 根据 Cube 及其元信息，对底层接口(例如 Broadcast，Scheduler 等)进行操作. 包括 allocate 与 uninstall 两个操作. |
 
 说白了，每一个模块，都会有一个 `Channel`，用来保存作者信息。而每一个 `Channel`，都会有一个及以上的 `Cube`。
 往简单点来说呢，你可以暂时把 `Cube` 当作 `Listener`。
@@ -51,7 +51,7 @@ Behaviour<br>(行为)|根据 Cube 及其元信息，对底层接口(例如 Broad
 :::
 
 ::: tip
-假设你之前安装 Ariadne 时用的是以下2种选项中的一种，那么你可以直接跳过本小节。
+假设你之前安装 Ariadne 时用的是以下 2 种选项中的一种，那么你可以直接跳过本小节。
 
 - `graia-ariadne[full]`
 - `graia-ariadne[graia]`
@@ -61,14 +61,14 @@ Behaviour<br>(行为)|根据 Cube 及其元信息，对底层接口(例如 Broad
 :::: code-group
 ::: code-group-item poetry
 
-``` bash
+```bash
 poetry add graia-saya
 ```
 
 :::
 ::: code-group-item pip
 
-``` bash
+```bash
 pip install graia-saya
 ```
 
@@ -80,7 +80,7 @@ pip install graia-saya
 
 让我们先回到一切的开始：
 
-``` python
+```python
 import asyncio
 
 from graia.ariadne.app import Ariadne
@@ -104,7 +104,7 @@ app.launch_blocking()
 上图所示，是启动一个 `Ariadne` 实例需要的最小办法。
 那么下面，就让我们一起魔改一下：
 
-``` python{15-18,20-21}
+```python{15-18,20-21}
 import asyncio
 
 from graia.ariadne.app import Ariadne
@@ -134,7 +134,7 @@ app.launch_blocking()
 
 <h3>原理解析</h3>
 
-``` python
+```python
 saya = app.create(Saya)
 saya.install_behaviours(
     app.create(BroadcastBehaviour)
@@ -143,7 +143,7 @@ saya.install_behaviours(
 
 这一步就是创建一个 `saya` 实例，并为其安装 `BroadcastBehaviour`。
 
-``` python
+```python
 with saya.module_context():
     saya.require("modules.ero")
 ```
@@ -155,7 +155,7 @@ with saya.module_context():
 :::: code-group
 ::: code-group-item 单文件模组
 
-``` bash
+```txt:no-line-numbers
 EroEroBot
 ├─ main.py
 ├─ pyproject.toml
@@ -166,7 +166,7 @@ EroEroBot
 :::
 ::: code-group-item 文件夹模组
 
-``` bash
+```txt:no-line-numbers
 EroEroBot
 ├─ main.py
 ├─ pyproject.toml
@@ -182,7 +182,7 @@ EroEroBot
 
 当你以后写了更多模组之后，你想必不可能一个一个的去导入，就像下面这样：
 
-``` python
+```python
 with saya.module_context():
     saya.require("modules.ero1")
     saya.require("modules.ero2")
@@ -191,7 +191,7 @@ with saya.module_context():
 
 所以在这里介绍一下用 Python 标准库 `pkgutil` 写的比较简洁的动态导入，代码如下：
 
-``` python
+```python
 import pkgutil
 ...
 
@@ -217,7 +217,7 @@ app.launch_blocking()
 
 我们以上文的单文件模组 `modules.ero`（即 `modules/ero.py`）为例子：
 
-``` python{9,11}
+```python{9,11}
 from graia.ariadne.app import Ariadne
 from graia.ariadne.event.message import GroupMessage
 from graia.ariadne.message.chain import MessageChain
@@ -240,14 +240,14 @@ async def ero(app: Ariadne, group: Group, message: MessageChain):
 
 <h4><code>Channel.current()</code></h4>
 
-``` python
+```python
 channel = Channel.current()
 ```
 
 这行代码是帮你获取属于这个模块的 `channel` 实例。
 事实上，你可以通过这个 `channel` 中写上一些插件信息，比如：
 
-``` python
+```python
 channel.name("Ero")
 channel.description("发送涩涩！")
 channel.author("GraiaX")
@@ -256,13 +256,13 @@ channel.author("GraiaX")
 ::: tip
 `Saya` 实例也可以通过类似的代码得到：
 
-``` python
+```python
 saya = Saya.current()
 ```
 
 然后你可以通过以下代码来获取来获取你导入的所有模块的信息（有可能部分信息会为 `None`）：
 
-``` python
+```python
 for module, channel in saya.channels.items():
     print(
         f"module: {module}\n"
@@ -276,14 +276,14 @@ for module, channel in saya.channels.items():
 
 <h4><code>Channel.use()</code></h4>
 
-``` python
+```python
 @channel.use(ListenerSchema(listening_events=[GroupMessage]))
 ```
 
 你可以将其直接跟 `bcc.receiver` 画上等号，不过不完全相等,
 因为其中有一些参数的名称可能有所变化：
 
-``` txt
+```txt
 event -> listening_events  # 因为是events，所有要传的是有一个及以上 Event 的 list
 dispatchers -> inline_dispatchers
 ```
@@ -292,7 +292,7 @@ dispatchers -> inline_dispatchers
 
 首先，我们还要在我们的 `main.py` 加点东西（高亮部分）：
 
-``` python{2,7}
+```python{2,7}
 from graia.scheduler import GraiaScheduler
 from graia.scheduler.saya.behaviour import GraiaSchedulerBehaviour
 
@@ -305,7 +305,7 @@ saya.install_behaviours(
 
 然后，我们在模组里这么写（注意高亮）：
 
-``` python{5,13}
+```python{5,13}
 from graia.ariadne.app import Ariadne
 from graia.ariadne.message.chain import MessageChain
 from graia.saya import Channel
@@ -330,14 +330,14 @@ async def wyy(app: Ariadne):
 
 ::: tip
 
-- 忘记了 **Depend**（一种 **Decorator**）是什么的话可以去[第9章](./9_not_everyone_have_st.md)复习一下噢。
-- 忘记了 **Dispatcher** 是什么的话可以去[第2章](./2_other_event.md)复习一下噢。
+- 忘记了 **Depend**（一种 **Decorator**）是什么的话可以去[第 9 章](./9_not_everyone_have_st.md)复习一下噢。
+- 忘记了 **Dispatcher** 是什么的话可以去[第 2 章](./2_other_event.md)复习一下噢。
 
 :::
 
 你可能会很好奇下面这样的事情：
 
-> 我之前学了第6章和第9章，写了几个自己的 Depend 还用了 Twilight 和 Alconna 之类的消息链解析器，
+> 我之前学了第 6 章和第 9 章，写了几个自己的 Depend 还用了 Twilight 和 Alconna 之类的消息链解析器，
 > 我当时是把他们放在 `@bcc.reciver` 里面，现在没有 `@bcc.reciver` 了我该怎么办呢？
 
 所以怎么办呢？~~那你能帮帮我吗？~~
@@ -348,7 +348,7 @@ async def wyy(app: Ariadne):
 
 #### 原代码（使用 `@bcc.reciver`）
 
-``` python
+```python
 @bcc.reciver(
     GroudMessage,
     dispatchers=[Twilight([FullMatch("涩图来")])],
@@ -360,7 +360,7 @@ async def on_msg(app: Ariadne, group: Group, member: Member, message: MessageCha
 
 #### 迁移后代码（使用 `@channel.use`）
 
-``` python
+```python
 @channel.use(
     ListenerSchema(
         listening_events=[GroupMessage],
@@ -376,7 +376,7 @@ async def on_msg(app: Ariadne, group: Group, member: Member, message: MessageCha
 
 #### 原代码（使用 `@sche.schedule`）
 
-``` python
+```python
 @sche.schedule(
     timers.every_minute(),
     dispatchers=[something_here()],
@@ -388,7 +388,7 @@ async def on_msg(app: Ariadne):
 
 #### 迁移后代码（使用 `@channel.use`）
 
-``` python
+```python
 @channel.use(
     SchedulerSchema(
         timers.every_minute(),
@@ -404,7 +404,7 @@ async def on_msg(app: Ariadne):
 
 #### 原代码（使用 `@console.register`）
 
-``` python
+```python
 @console.register(
     dispatchers=[Twilight([FullMatch("涩图来")])],
     decorators=[my_depend(), your_depend(), our_depend()],
@@ -415,7 +415,7 @@ async def on_msg(app: Ariadne):
 
 #### 迁移后代码（使用 `@channel.use`）
 
-``` python
+```python
 @channel.use(
     ConsoleSchema(
         dispatchers=[Twilight([FullMatch("涩图来")])],

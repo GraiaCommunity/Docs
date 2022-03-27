@@ -16,7 +16,7 @@
 ## 在这之前你需要的
 
 0. :white_check_mark: [先谈好](./before/Q&A.md) —— 开始之前，你需要知道的事情
-1. :white_check_mark: [Mirai的配置](./before/1_mirai.md) —— 从 0 开始的 `Mirai-api-http` 环境配置
+1. :white_check_mark: [Mirai 的配置](./before/1_mirai.md) —— 从 0 开始的 `Mirai-api-http` 环境配置
 2. :white_check_mark: [复用终端](./before/2_terminal_multiplexer.md) —— 远程服务器跑机器人，你所需要知道的那些事
 
 ## 从零开始的~~异世界~~涩图机器人教程
@@ -25,7 +25,7 @@
 2. :white_check_mark: [别戳了](./tutorials/2_other_event.md) —— `Ariadne` 上各类 `Event` 的简单讲解
 3. :white_check_mark: <MoreInfo :link="true" words="关于消息链的故事"><div style="background: var(--c-bg);border:3px solid var(--c-brand)">这里变绿只是看着好看罢了，并没有超链接</div></MoreInfo>
    1. :white_check_mark: [发涩图](./tutorials/3_1_ero_comes.md) —— `MessageChain` 的介绍
-   2. :white_check_mark: [八嘎 hentai 无路赛](./tutorials/3_2_kugimiya.md) —— 对于 ` 多媒体消息 ` 发送的一点补充
+   2. :white_check_mark: [八嘎 hentai 无路赛](./tutorials/3_2_kugimiya.md) —— 对于 `多媒体消息` 发送的一点补充
 4. :white_check_mark: [好大的奶](./tutorials/4_forward_message.md) —— 合并消息的构建与解析
 5. :white_check_mark: [来点网络上的涩图](./tutorials/5_ero_from_net.md) —— `aiohttp` 的超简单运用
 6. :heavy_minus_sign: [来点 xxx 涩图](./tutorials/6_0_setu_tag.md) —— `Ariadne` 的消息匹配器**们**的介绍

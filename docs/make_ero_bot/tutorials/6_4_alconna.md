@@ -15,14 +15,14 @@
 ::: tip TIPS
 
 1. `Alconna` 由两个[`尼希语`](http://tieba.baidu.com/p/7268094994) 单词组成， `alco` 和 `conna`
-2. `ArcletProject` 是一个新生社区，欢迎各位来交流♂
+2. `ArcletProject` 是一个新生社区，欢迎各位来交流 ♂
 
 :::
 
 ## 6.4.0 凡事都要先安装
 
 ::: tip
-假设你之前安装 Ariadne 时用的是以下3种选项中的一种，那么你可以直接跳过本小节。
+假设你之前安装 Ariadne 时用的是以下 3 种选项中的一种，那么你可以直接跳过本小节。
 
 - `graia-ariadne[full]`
 - `graia-ariadne[alconna]`
@@ -32,7 +32,7 @@
 :::: code-group
 ::: code-group-item poetry
 
-``` bash
+```bash
 # 顺便选一个输进去就完事了
 poetry add arclet-alconna[graia]
 poetry add arclet-alconna-graia
@@ -42,7 +42,7 @@ poetry add graia-ariadne[alconna]
 :::
 ::: code-group-item pip
 
-``` bash
+```bash
 # 顺便选一个输进去就完事了
 pip install arclet-alconna[graia]
 pip install arclet-alconna-graia
@@ -56,13 +56,13 @@ pip install graia-ariadne[alconna]
 
 设想我们要给机器人加一个搜索涩图的指令，
 
-``` txt
+```txt
 .setu搜索 <content>
 ```
 
 然后你给加上了很多的选项，并且某个选项会影响其他几个选项的有效性
 
-``` txt
+```txt
 --page <count>
 --tags <tags>
 --illust <illust_name>
@@ -73,7 +73,7 @@ pip install graia-ariadne[alconna]
 
 这个时候，~~天空一声巨响，Alconna 闪亮登场~~，我们可以使用 `Alconna` 来实现我们想要的功能：
 
-``` python
+```python
 from arclet.alconna import AlconnaString
 SetuFind = AlconnaString(
   ".setu搜索 <content> #在p站中搜索条件达成的插图并返回",
@@ -96,7 +96,7 @@ SetuFind = AlconnaString(
 :::: code-group
 ::: code-group-item 0.6.2 -
 
-``` python
+```python
 ...
 from graia.ariadne.message.parser.alconna import AlconnaDispatcher, Arpamar
 @bcc.receiver(GroupMessage, dispatchers=[AlconnaDispatcher(alconna=SetuFind)])
@@ -114,7 +114,7 @@ async def ero(app: Ariadne, group: Group, result: Arpamar):
 :::
 ::: code-group-item 0.6.2 -- 0.6.10
 
-``` python
+```python
 ...
 from graia.ariadne.message.parser.alconna import AlconnaDispatcher, Arpamar
 @bcc.receiver(GroupMessage, dispatchers=[AlconnaDispatcher(alconna=SetuFind, reply_help=True)])
@@ -131,7 +131,7 @@ async def ero(app: Ariadne, group: Group, result: Arpamar):
 :::
 ::: code-group-item 0.6.10 +
 
-``` python
+```python
 ...
 from arclet.alconna import Arpamar
 from arclet.alconna.graia import AlconnaDispatcher
@@ -194,8 +194,8 @@ async def ero(app: Ariadne, group: Group, result: Arpamar):
 4. 命令选项：为命令添加额外的解释参数, 或以此选择命令的不同功能
 
 ::: tip
-是的, Alconna负责的并不是**消息链解析**, 而是**命令解析**.
-~~虽然说Alconna的实现攘括了消息链解析的功能~~
+是的, Alconna 负责的并不是**消息链解析**, 而是**命令解析**.
+~~虽然说 Alconna 的实现攘括了消息链解析的功能~~
 :::
 
 在上述例子中, `.setu搜索`是命令名称, `<content>`是命令参数, 而剩下的`page`, `tags`都是命令选项.
@@ -222,19 +222,19 @@ alc = AlconnaFire(test_func)
 
 ### 创建 Alconna
 
-以下将展示Alconna创建的5种方式:
+以下将展示 Alconna 创建的 5 种方式:
 
 :::: code-group
 ::: code-group-item typical
 
-``` python
+```python
 ...
 from arclet.alconna import Args
 from arclet.alconna.graia import AlconnaDispatcher
 ...
 alc = Alconna("我要涩图", Args["count":int])
 @bcc.receiver(
-    GroupMessage, 
+    GroupMessage,
     dispatchers=[AlconnaDispatcher(alconna=alc)]
 )
 async def test(app: Ariadne, group: Group):
@@ -244,13 +244,13 @@ async def test(app: Ariadne, group: Group):
 :::
 ::: code-group-item String
 
-``` python
+```python
 ...
 from arclet.alconna import AlconnaString
 from arclet.alconna.graia import AlconnaDispatcher
 ...
 @bcc.receiver(
-    GroupMessage, 
+    GroupMessage,
     dispatchers=[
         AlconnaDispatcher(alconna=AlconnaString("我要涩图 <count:int>"))
     ]
@@ -262,13 +262,13 @@ async def test(app: Ariadne, group: Group):
 :::
 ::: code-group-item Format
 
-``` python
+```python
 ...
 from arclet.alconna import AlconnaFormat
 from arclet.alconna.graia import AlconnaDispatcher
 ...
 @bcc.receiver(
-    GroupMessage, 
+    GroupMessage,
     dispatchers=[
         AlconnaDispatcher(
             alconna=AlconnaFormat("我要涩图 {count}", {"count": int})
@@ -282,7 +282,7 @@ async def test(app: Ariadne, group: Group):
 :::
 ::: code-group-item Decorate
 
-``` python
+```python
 ...
 from arclet.alconna import AlconnaDecorate
 from arclet.alconna.graia import AlconnaDispatcher
@@ -293,7 +293,7 @@ cli = AlconnaDecorate(loop=loop)
 def setu(count: int):
     ...
 @bcc.receiver(
-    GroupMessage, 
+    GroupMessage,
     dispatchers=[AlconnaDispatcher(alconna=setu.command)]
 )
 async def test(app: Ariadne, group: Group):
@@ -303,7 +303,7 @@ async def test(app: Ariadne, group: Group):
 :::
 ::: code-group-item Fire
 
-``` python
+```python
 ...
 from arclet.alconna import AlconnaFire
 from arclet.alconna.graia import AlconnaDispatcher
@@ -311,7 +311,7 @@ from arclet.alconna.graia import AlconnaDispatcher
 def give_me_setu(count: int):
     ...
 @bcc.receiver(
-    GroupMessage, 
+    GroupMessage,
     dispatchers=[
         AlconnaDispatcher(
             alconna=AlconnaFire(give_me_setu, config={"command":我要涩图})
@@ -355,11 +355,11 @@ async def test(app: Ariadne, group: Group):
 `Args`是命令参数的载体, 通过"键-值-默认"传入一系列参数. 具体食用方法我们后面会讲到
 
 :::tip
-为什么会有两个option呢? 因为所有的Alconna都内置了`--help`这个选项
+为什么会有两个 option 呢? 因为所有的 Alconna 都内置了`--help`这个选项
 :::
 
 ::: tsukkomi 注
-Alconna 0.7.6后, 简易的命令构造可用如下方法:
+Alconna 0.7.6 后, 简易的命令构造可用如下方法:
 
 ```python
 >>> alc = Alconna("我要涩图") + option("--from", "*tag:str")
@@ -369,7 +369,7 @@ Alconna 0.7.6后, 简易的命令构造可用如下方法:
 
 #### Koishi-like: 使用 `AlconnaString()`
 
-在**koishi-like**方法中, 你可以用类似`koishi`中编写命令的格式来构造Alconna
+在**koishi-like**方法中, 你可以用类似`koishi`中编写命令的格式来构造 Alconna
 
 在上面的例子中，我们可以给他输入这样一串字符串：`我要涩图 2 --from 纯爱 兽耳`
 
@@ -379,7 +379,7 @@ Alconna 0.7.6后, 简易的命令构造可用如下方法:
 
 于是我们就得到了如下的 Alconna 实例：
 
-``` python
+```python
 >>> AlconnaString("我要涩图 <count:int>", "--from <*tag:str>")
 <ALC.Alconna::我要涩图 with 2 options; args=Args('count': '(\-?\d+)')>
 ```
@@ -394,12 +394,12 @@ Alconna 0.7.6后, 简易的命令构造可用如下方法:
 
 #### Format: 使用 `AlconnaFormat()`
 
-在**format**方法中, 你可以用f-string的格式来构造Alconna
+在**format**方法中, 你可以用 f-string 的格式来构造 Alconna
 
 仍以上面的命令为例, 我们相当于输入了这样一串字符串：`我要涩图 {count} --from {*tags}`
 于是我们就得到了如下的 Alconna 实例：
 
-``` python
+```python
 >>> AlconnaFormat("我要涩图 {count:str} --from {*tags}", {"*tags": str})
 <ALC.Alconna::我要涩图 with 2 options; args=Args('count': 'AnyParam')>
 ```
@@ -425,28 +425,28 @@ Alconna 0.7.6后, 简易的命令构造可用如下方法:
 
 ### Args
 
-`Args`在Alconna中有非常重要的地位, 有一半的bug皆因其引发(迫真)
+`Args`在 Alconna 中有非常重要的地位, 有一半的 bug 皆因其引发(迫真)
 
-通常以`Args[key1:var1:default1, key2:var2, ...]`的方式构造一个Args
+通常以`Args[key1:var1:default1, key2:var2, ...]`的方式构造一个 Args
 
-其中, key一定是字符串, 而var一般为参数的类型, default为具体的值
+其中, key 一定是字符串, 而 var 一般为参数的类型, default 为具体的值
 
 #### var
 
 var 可以是以下几类:
 
-- 存在于`arclet.alconna.types.pattern_map`中的类型/字符串, 用以替换为预制好的ArgPattern
+- 存在于`arclet.alconna.types.pattern_map`中的类型/字符串, 用以替换为预制好的 ArgPattern
 - 字符串, 会转换为正则表达式
-- 列表, 其中可存放ArgPattern、类型或者任意参数值, 如字符串或者数字
-- Union、Optional、Literal、etc. 会尝试转换为List[Type]
+- 列表, 其中可存放 ArgPattern、类型或者任意参数值, 如字符串或者数字
+- Union、Optional、Literal、etc. 会尝试转换为 List[Type]
 - Dict[type1, type2]、List[type]、Set[type]
 - 一般的类型, 其会尝试比较传入参数的类型是否与其相关
 - AnyParam，AllParam, 作为泛匹配的标识符
 
-内置的类型检查包括int、str、float、bool、'url'、'ip'、'email'、list、dict、tuple、set
+内置的类型检查包括 int、str、float、bool、'url'、'ip'、'email'、list、dict、tuple、set
 
 :::tip NOTE
-若想增加类型检查, 我们可以通过`arclet.alconna.types.add_check`传入自己的ArgPattern：
+若想增加类型检查, 我们可以通过`arclet.alconna.types.add_check`传入自己的 ArgPattern：
 
 ```python
 >>> add_check(
@@ -456,7 +456,7 @@ var 可以是以下几类:
 ... )
 ```
 
-或通过`arclet.alconna.types.ObjectPattern`并传入一个类型来向pattern_map中注册检查类型：
+或通过`arclet.alconna.types.ObjectPattern`并传入一个类型来向 pattern_map 中注册检查类型：
 
 ```python
 ObjectPattern(Image, limit=("url",))
@@ -466,13 +466,13 @@ ObjectPattern(Image, limit=("url",))
 
 #### key
 
-`key`的作用是用以标记解析出来的参数并存放于Arpamar中, 以方便用户调用.
+`key`的作用是用以标记解析出来的参数并存放于 Arpamar 中, 以方便用户调用.
 
 其有七种特殊前缀, 为 `*xxx`, `!xxx`, `**xxx`, `#xxx`, `@xxx`, `?xxx`, `_xxx`
 
 以下前缀只能选择一个:
-`*` 前缀表示当前参数为可变长非键值对参数, 类似函数中的`*args`, 可以传入0至任意个参数.
-`**` 前缀表示当前参数为可变长键值对参数, 类似函数中的`**kwargs`, 可传入0至任意个参数.
+`*` 前缀表示当前参数为可变长非键值对参数, 类似函数中的`*args`, 可以传入 0 至任意个参数.
+`**` 前缀表示当前参数为可变长键值对参数, 类似函数中的`**kwargs`, 可传入 0 至任意个参数.
 `!` 前缀表示该处传入的参数应不是规定的类型, 或不在指定的值中.
 `#` 前缀表示该参数的类型不经过类型转换
 
@@ -504,7 +504,7 @@ ObjectPattern(Image, limit=("url",))
 - options: 命令所有选项的解析结果
 - subcommands: 命令所有子命令的解析结果
 - other_args: 除主参数外的其他解析结果
-- all_matched_args: 所有Args的解析结果
+- all_matched_args: 所有 Args 的解析结果
 - header: 当命令头部填入有效表达式时的解析结果
 
 老规矩，直接上实例:
@@ -586,7 +586,7 @@ for i in range(4):
 
 ### 元素匹配
 
-一定要记住, Alconna是支持元素匹配的(Plain元素或Source等元素除外)
+一定要记住, Alconna 是支持元素匹配的(Plain 元素或 Source 等元素除外)
 
 所以, 如果你要写一个以图搜图的功能, 这么写就好了:
 
@@ -634,9 +634,9 @@ async def find(app: Ariadne, group: Group, result: Arpamar):
     ...
 ```
 
-### 隐式构建Args
+### 隐式构建 Args
 
-在Alconna 0.7.2后, args可以由传入的action生成:
+在 Alconna 0.7.2 后, args 可以由传入的 action 生成:
 
 ```python
 from arclet.alconna import Alconna
@@ -649,7 +649,7 @@ tes.args
 "Args('foo': '(.+?)', 'bar': '(\-?\d+)', 'baz': '(True|False|true|false)')"
 ```
 
-在Alconna 0.7.3后, args可以传入一个符合规则的字符串, 其会尝试转换为Args
+在 Alconna 0.7.3 后, args 可以传入一个符合规则的字符串, 其会尝试转换为 Args
 
 ```python
 from arclet.alconna import Alconna
@@ -661,7 +661,7 @@ tes.args
 
 ### 减少 Option 的使用
 
-利用 `@` 与 `?` 前缀, 我们可以在 Args 中模拟出一个option:
+利用 `@` 与 `?` 前缀, 我们可以在 Args 中模拟出一个 option:
 
 ```python
 from arclet.alconna import Alconna, Args

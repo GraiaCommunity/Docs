@@ -26,7 +26,7 @@ Friendship is magic!
 :::: code-group
 ::: code-group-item >=0.5.0
 
-``` python
+```python
 ...
 from graia.ariadne.message.parser.twilight import Twilight
 ...
@@ -48,7 +48,7 @@ async def test(app: Ariadne, group: Group):
 :::
 ::: code-group-item >=0.4.6
 
-``` python
+```python
 ...
 from graia.ariadne.message.parser.pattern import FullMatch
 from graia.ariadne.message.parser.twilight import Sparkle, Twilight
@@ -71,7 +71,7 @@ async def test(app: Ariadne, group: Group):
 :::
 ::: code-group-item >=0.3.5,<0.5.0
 
-``` python
+```python
 ...
 from graia.ariadne.message.parser.parser import Sparkle
 from graia.ariadne.message.parser.pattern import FullMatch
@@ -113,7 +113,7 @@ async def test(app: Ariadne, group: Group):
 
 先看看 Twilight 的定义：
 
-``` python
+```python
 class Twilight(Generic[T_Sparkle], BaseDispatcher):
     """暮光"""
 ```
@@ -134,7 +134,7 @@ class Twilight(Generic[T_Sparkle], BaseDispatcher):
 :::: code-group
 ::: code-group-item from_command
 
-``` python
+```python
 ...
 from graia.ariadne.message.parser.twilight import Sparkle, Twilight
 ...
@@ -151,7 +151,7 @@ async def test(app: Ariadne, group: Group):
 :::
 ::: code-group-item Match
 
-``` python
+```python
 ...
 from graia.ariadne.message.element import At
 from graia.ariadne.message.parser.twilight import (
@@ -199,7 +199,7 @@ async def test(app: Ariadne, group: Group):
 
 于是我们就得到了如下的 Twilight 实例：
 
-``` python
+```python
 >>> Twilight.from_command('涩图来 {at} {any}')
 <Twilight: [ParamMatch('PARAM', space='FORCE', flags=), ParamMatch('PARAM', space='NOSPACE', flags=)]>
 ```
@@ -209,9 +209,9 @@ async def test(app: Ariadne, group: Group):
 #### 直接使用 `Twilight()`
 
 在这个这个例子中，没有使用任何 Twilight 的方法，而是直接传入了一个含有多个 Match 的列表来实例化了一个 Twilight 类，
-同时传入了3个 **XxxxxMatch**，并且其中的 `FullMatch` 和 `ElementMatch` 都各自有一个 `.space()`。
+同时传入了 3 个 **XxxxxMatch**，并且其中的 `FullMatch` 和 `ElementMatch` 都各自有一个 `.space()`。
 
-并且，存在了以下4种奇奇怪怪的用法：
+并且，存在了以下 4 种奇奇怪怪的用法：
 
 - `"at" @ ElementMatch(At)`
 - `ParamMatch() @ "sth1"`
@@ -222,7 +222,7 @@ async def test(app: Ariadne, group: Group):
 
 那么这样创建的 Twilight 实例又长什么样呢？让我们来看一看：
 
-``` python
+```python
 >>> Twilight(
 ...     [
 ...         FullMatch("涩图来").space(SpacePolicy.FORCE),
@@ -276,7 +276,7 @@ async def test(app: Ariadne, group: Group):
 
 举个栗子
 
-``` python
+```python
 Twilight(
     [
         FullMatch("涩图"),
@@ -293,7 +293,7 @@ Twilight(
 
 创建一个 UnionMatch 的方法如下：
 
-``` python
+```python
 >>> RegexMatch(r"\d+")
 ```
 
@@ -304,7 +304,7 @@ Twilight(
 
 你可以通过该方法设置正则表达式的匹配标记，例如：
 
-``` python
+```python
 >>> RegexMatch(r"\d+ # digits").flags(re.V)  # 设置 re.VERBOSE 标记
 ```
 
@@ -320,7 +320,7 @@ Twilight(
 
 该方法的使用例如下：
 
-``` python
+```python
 >>> from graia.ariadne.message.parser.twilight import SpacePolicy
 >>> RegexMatch(r"\d+").space(SpacePolicy.NOSPACE)
 >>> RegexMatch(r"[a-z]+").space(SpacePolicy.FORCE)
@@ -334,7 +334,7 @@ Twilight(
 - `FORCE`: 强制需要尾随空格（即该 Match 的匹配内容后面必须有空格）
 
 :::tip
-`PRESERVE` 和 `FORCE` 的情况下，不管尾随了多少个空格，都会被去掉desu
+`PRESERVE` 和 `FORCE` 的情况下，不管尾随了多少个空格，都会被去掉 desu
 :::
 
 ### FullMatch
@@ -349,7 +349,7 @@ Twilight(
 
 创建一个 UnionMatch 的方法如下：
 
-``` python
+```python
 >>> tmp_list = ["你可以匹配我", "或者我", "我也可以"]
 >>> UnionMatch("你可以匹配我", "或者我", "我也可以")
 >>> UnionMatch(*tmp_list)  # 请注意星号
@@ -367,7 +367,7 @@ ElementMatch 可以用来匹配各种在消息链中可以与文字共存的消�
 
 创建一个 ElementMatch 的方法如下：
 
-``` python
+```python
 >>> ElementMatch(At)
 >>> ElementMatch(At, optional=True)
 ```
@@ -391,14 +391,14 @@ ElementMatch 可以用来匹配各种在消息链中可以与文字共存的消�
 :::: code-group
 ::: code-group-item from_command 方式
 
-``` python
+```python
 Twilight.from_command("歌词 {lyrics} 好耶")
 ```
 
 :::
 ::: code-group-item Match 方式
 
-``` python
+```python
 Twilight(
     [
         FullMatch("歌词").space(SpacePolicy.FORCE),
@@ -435,7 +435,7 @@ ArgumentMatch 是 Twilight 的一大亮点，他可以像一般的命令行程�
 受限于篇幅及其理解难度，这里不详细展开（~~其实是因为作者也不太会用~~）。  
 只能给出几个官方用例:
 
-``` python
+```python
 >>> ArgumentMatch("-s", "--switch", action="store_true")  # 开关
 >>> ArgumentMatch("-o", "--opt", type=str, choices=["head", "body"])  # 只允许 "head" 或 "body"
 >>> ArgumentMatch("-m", choices=MessageChain(["choice_a", "choice_b"]))  # 注意默认是 MessageChain, 所以要这样写
@@ -443,7 +443,7 @@ ArgumentMatch 是 Twilight 的一大亮点，他可以像一般的命令行程�
 
 以及几个常见用例：
 
-``` python
+```python
 >>> ArgumentMatch("-t", "--type", default="group")  # 可指定默认值，即匹配不成功时使用该默认值作为匹配结果
 >>> ArgumentMatch("-a", optional=True)  # 同样的，ArgumentMatch 也可以为可选项
 ```
@@ -451,7 +451,7 @@ ArgumentMatch 是 Twilight 的一大亮点，他可以像一般的命令行程�
 ::: warning
 如果有多个 **ArgumentMatch**，请不要指定相同的参数！例如下面的错误示范：
 
-``` python
+```python
 Twilight(
     [
         ArgumentMatch("-t", "--type"),
@@ -473,7 +473,7 @@ Twilight(
 
 首先，我们要知道何为 **参数分配** 及 `MatchResult`。
 
-在前面几节中，我们出现了类似 `"at" @ ElementMatch(At)` 或 ``"at" << ElementMatch(At)`` 这样的用法，
+在前面几节中，我们出现了类似 `"at" @ ElementMatch(At)` 或 `"at" << ElementMatch(At)` 这样的用法，
 这里的 `"at" @` 就是给 `ElementMatch(At)` 分配了一个名为 `at` 的参数名，
 当然，这里也可以使用任何你喜欢的字符串。
 
@@ -499,7 +499,7 @@ Twilight 重载了这个运算符使其执行了 `Match.param()` 的这个方法
 :::: code-group
 ::: code-group-item MatchResult
 
-``` python
+```python
 ...
 from graia.ariadne.message.parser.twilight import (
     FullMatch,
@@ -550,7 +550,7 @@ async def lyric_xxx(app: Ariadne, group: Group, lyrics1: RegexResult, lyrics2: R
 :::
 ::: code-group-item Sparkle
 
-``` python
+```python
 ...
 # 本方法不受推荐，也不属于 MatchResult，放在这里只是因为这样也可以获得匹配结果
 # 请不要问此处的 Sparkle 是什么，他是 Twilight 的内部类，用于暴露内部的 MatchResult
@@ -623,7 +623,7 @@ async def lyric_xxx(app: Ariadne, group: Group, sparkle: Sparkle):
 
 - `MatchResult.matched`: 对应的 Match 对象是否匹配（当 `optional` 为 `False` 时必为 `True`，当 `optional` 为 `True` 时，可通过类似下面的例子判断匹配是否成功）
 
-  ``` python
+  ```python
   @bcc.receiver(
       GroupMessage,
       dispatcher=[
@@ -652,7 +652,7 @@ async def lyric_xxx(app: Ariadne, group: Group, sparkle: Sparkle):
 ::: tip
 虽然可能没啥用，但是假设你只需要 `MatchResult.origin`，也可以使用以下办法
 
-``` python
+```python
 from graia.ariadne.message.parser.twilight import Twilight, ParamMatch
 ...
 

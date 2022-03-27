@@ -20,7 +20,7 @@
 
 在看了之前的教程，你应该写出一个简单的涩图机器人了。
 
-``` python
+```python
 ...
 @bcc.receiver(GroupMessage)
 async def ero(app: Ariadne, group: Group, message: MessageChain):
@@ -38,7 +38,7 @@ async def ero(app: Ariadne, group: Group, message: MessageChain):
 
 :::: details 举个栗子
 
-``` python
+```python
 if message.asDisplay() != "涩图来":
     return
 ...

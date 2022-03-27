@@ -1,5 +1,9 @@
 <template>
-  <span :title="title" class="heimu" :style="'--text: var(--c-' + type + '-text);' + '--bg: var(--c-' + type + '-bg)'">
+  <span
+    :title="title"
+    class="heimu"
+    :style="`--text: var(--c-${type}-text); --bg: var(--c-${type}-bg)`"
+  >
     <slot></slot>
   </span>
 </template>

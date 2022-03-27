@@ -65,7 +65,7 @@
 
 让我们重新看一下上面例子中实现一个监听函数（Listener）的定义：
 
-``` python
+```python
 async def getup(app: Ariadne, group: Group):
 ```
 
@@ -77,7 +77,7 @@ async def getup(app: Ariadne, group: Group):
 在 `GroupMessage` 中，一般只会判断类型，就是说
 像是这种
 
-``` python
+```python
 @bcc.receiver(GroupMessage)
 async def getup(eroerobot: Ariadne, house: Group)
     ...
@@ -88,7 +88,7 @@ async def getup(eroerobot: Ariadne, house: Group)
 
 当然，如果你不喜欢这样子，也可以不用各事件提供的参数解析，像这样
 
-``` python
+```python
 @bcc.receiver(GroupMessage)
 async def test(event: GroupMessage):
     group = event.group
@@ -101,7 +101,7 @@ async def test(event: GroupMessage):
 (你永远可以相信 GraiaProject 旗下的项目 docstring)  
 :::
 
-``` python
+```python
 # 群消息
 @bcc.receiver(GroupMessage)
 async def test(app: Ariadne, group: Group, member: Member, message: MessageChain, source: Source):
@@ -172,7 +172,7 @@ async def test(app: Ariadne, group: Group, target: Member):
 
 ## 6. 关于 Poetry
 
-本教程将会使用 `poetry` 来管理项目依赖关系  
+本教程将会使用 `poetry` 来管理项目依赖关系
 
 ### 6.1 Poetry 是什么
 
@@ -188,7 +188,7 @@ async def test(app: Ariadne, group: Group, target: Member):
 （比如用来作图的 Pillow / PIL，用来做图标的 matplotlib）  
 举个例子，这是 `graia-ariadne 0.6.12 [standard]` 的依赖
 
-``` txt
+```txt:no-line-numbers
 graia-ariadne 0.6.12 Another elegant Python QQ Bot framework for mirai and mirai-api-http v2.
 ├── aiohttp >=3.7.4,<4.0.0
 │   ├── aiosignal >=1.1.2
@@ -232,7 +232,7 @@ graia-ariadne 0.6.12 Another elegant Python QQ Bot framework for mirai and mirai
 你以为你只安装了一个库，实际上你安装了 25 个库
 当你后面想要把你的机器人在别的电脑里运行的时候  
 一切都太迟了，你完全不知道你到底需要哪个库，不需要哪个库  
-甚至升级（pip更行库并不会自动升级依赖）
+甚至升级（pip 更行库并不会自动升级依赖）
 
 ### 6.3 为什么不用 `pip` + `venv`
 
@@ -256,12 +256,12 @@ graia-ariadne 0.6.12 Another elegant Python QQ Bot framework for mirai and mirai
 :::: code-group
 ::: code-group-item 使用官方脚本
 
-``` bash
+```bash
 # osx / linux / bashonwindows
 curl -sSL https://install.python-poetry.org | python3 -
 ```
 
-``` powershell
+```powershell
 # windows powershell
 (Invoke-WebRequest -Uri https://install.python-poetry.org -UseBasicParsing).Content | python -
 ```
@@ -269,7 +269,7 @@ curl -sSL https://install.python-poetry.org | python3 -
 :::
 ::: code-group-item 使用 pipx
 
-``` bash
+```bash
 # 如果没有安装 pipx
 pip install pipx
 
@@ -329,11 +329,11 @@ pipx install poetry
 
 2. 如果你发现官方文档没有提及。。。
 
-    1. 如果模块以 `graia` 开头，立刻到 [交流群](https://jq.qq.com/?_wv=1027&k=VXp6plBD) 里问（可以 `@群菜鸡`，不行就 `@群菜块`）
+   1. 如果模块以 `graia` 开头，立刻到 [交流群](https://jq.qq.com/?_wv=1027&k=VXp6plBD) 里问（可以 `@群菜鸡`，不行就 `@群菜块`）
 
-    2. 否则，去翻对应的文档（或者 `Stack Overflow` 之类的地方，同时善用搜索引擎）~~（不过请远离CSDN）~~
+   2. 否则，去翻对应的文档（或者 `Stack Overflow` 之类的地方，同时善用搜索引擎）~~（不过请远离 CSDN）~~
 
-    ~~如果以 `arclet` 开头立刻在群里 `@[Arclet]RF`~~
+   ~~如果以 `arclet` 开头立刻在群里 `@[Arclet]RF`~~
 
 ::: warning
 **请学会到群里提问，因为你提的问题有一定概率是我们的潜在 bug**

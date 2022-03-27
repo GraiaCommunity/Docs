@@ -10,7 +10,7 @@
 在这本章，我们将会教大家如何**发涩图**。
 首先来回顾一下，在[第一节](./1_hello_ero.md)中我们是通过什么办法来发送的消息
 
-``` python
+```python
 await app.sendGroupMessage(group, MessageChain.create(
     f"不要说{message.asDisplay()}，来点涩图"
 ))
@@ -31,7 +31,7 @@ await app.sendGroupMessage(group, MessageChain.create(
 所有元素都可在 `graia.ariadne.message.element` 中找到，
 以下是一些常见的消息元素：
 
-``` python
+```python
 At(114514)  # @114514
 AtAll()  # @全体成员
 Poke(PokeMethods.ChuoYiChuo)  # 戳一戳方法
@@ -43,7 +43,7 @@ Face(127)
 
 我们先来康康 MessageChain 的三种构建办法：
 
-``` python
+```python
 MessageChain.create([Plain("你好")])
 MessageChain.create(Plain("你好"))
 MessageChain.create("你好")  # 仅限纯文本
@@ -65,7 +65,7 @@ v4、v4p 等缩写词语的意思可以在[这里](../appendix/terms.md)找到�
 当然，实际上 `create` 方法并没有严格限定方法就必须是这三类中的一类，他们可以任意组合，
 比如下面的骚操作：
 
-``` python
+```python
 MessageChain.create("你好", At(1919810), [Plain(", 你是不是喜欢"), At(114514)])
 ```
 
@@ -85,7 +85,7 @@ MessageChain.create("你好", At(1919810), [Plain(", 你是不是喜欢"), At(11
 
 这边提供一些简简单单的例子：
 
-``` python
+```python
 # 消息中是否有 AtAll Element
 >>> AtAll in message
 True/False
@@ -119,7 +119,7 @@ True
 
 这个应该是最简单，也是你最容易理解的办法，还记得最开始例子中的消息日志吗？
 
-``` bash
+```bash
 2021-12-03 10:49:45.350 | INFO     | graia.ariadne.model:log_friend_message:114 - 1919810: [Graiax(114514)] -> '你好'
 2021-12-03 10:49:45.478 | INFO     | graia.ariadne.app:sendFriendMessage:114 - [BOT 1919810] Friend(114514) <- '不要说你好，来点涩图'
 ```
@@ -137,11 +137,11 @@ True
 
 **persistent** adj. 持久的
 
-所以，顾名思义，这个方法就是用于*持久化保存**消息链的，
+所以，顾名思义，这个方法就是用于**持久化保存**消息链的，
 这种办法可以将消息链所承载的**所有信息**变成字符串的形式，
 比如下面这样：
 
-``` python
+```python
 >>> message = MessageChain.create("你好", At(114514, display="先辈"))
 >>> message.asDisplay()
 '你好@先辈'
@@ -160,7 +160,7 @@ True
 第一种情况中的链接会在一段时间后就失效（别问我为什么，你问腾讯），  
 所以，要想储存其二进制信息，需要使用如下方法：
 
-``` python
+```python
 >>> message = MessageChain.create(Image(url="https://example.com/1.jpg"))
 >>> await message.download_binary()
 >>> message.asPersistentString()
@@ -174,7 +174,7 @@ True
 
 为了方便说明，我们直接举例子吧：
 
-``` python
+```python
 >>> message.asMappingString()
 ('你好\x021_At\x03', {1: At(target=114514, display='先辈')})
 ```

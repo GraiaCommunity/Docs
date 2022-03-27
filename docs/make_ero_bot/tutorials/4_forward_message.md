@@ -39,7 +39,7 @@
 
 **当然可以**，我们现在就通过代码来直接复刻上面的效果：
 
-``` python
+```python
 ...
 import random
 from datetime import datetime
@@ -76,7 +76,7 @@ async def create_forward(app: Ariadne, member: Member):
 
 因为比较简单，所以我们直接说明参数就好了：
 
-``` python
+```python
 ForwardNode(
     target=member,  # 发送者的信息(Member / Friend / Stranger 都行)
     time=datetime.now(),  # 发送时间

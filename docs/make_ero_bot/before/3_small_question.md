@@ -14,7 +14,7 @@
 
 ::: tip
 Ariadne 自 0.6.1 版本起添加了 `Reverse Adapter`（反向 HTTP / WebSockets 适配器），假设你并不需要 `ReverseAdapter`，
-你可以在安装时直接把 `graia-ariadne[full]` 换成以下2种中的一种：
+你可以在安装时直接把 `graia-ariadne[full]` 换成以下 2 种中的一种：
 
 - `graia-ariadne[graia]`
 - `graia-ariadne[graia,alconna]`

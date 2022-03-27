@@ -29,7 +29,7 @@
 :::: code-group
 ::: code-group-item Ubuntu / Debian
 
-``` bash
+```bash
 # 非 root 用户记得前面加 sudo
 apt install tmux
 ```
@@ -37,7 +37,7 @@ apt install tmux
 :::
 ::: code-group-item CentOS 8 / Rocky Linux 8
 
-``` bash
+```bash
 # 非 root 用户记得前面加 sudo
 dnf install tmux
 ```
@@ -45,7 +45,7 @@ dnf install tmux
 :::
 ::: code-group-item CenOS 7
 
-``` bash
+```bash
 # 非 root 用户记得前面加 sudo
 yum install tmux
 ```
@@ -57,7 +57,7 @@ yum install tmux
 
 介绍常用命令
 
-``` bash
+```bash
 # 新建一个叫做 `graia` 的会话并进入
 tmux new -s graia
 # 进入 `graia` 会话
@@ -80,4 +80,4 @@ tmux attach -t graia
 > - Ctrl + B , C 新建窗口
 > - Ctrl + B , N 跳到下一个窗口
 > - Ctrl + B , P 跳到上一个窗口
-> - Ctrl + B , [0-9] 跳转到第n个窗口
+> - Ctrl + B , [0-9] 跳转到第 n 个窗口

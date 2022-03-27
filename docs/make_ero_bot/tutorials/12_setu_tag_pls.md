@@ -42,7 +42,7 @@
 
 ## 12.2 举个栗子
 
-``` python
+```python
 ...
 import asyncio
 
@@ -92,7 +92,7 @@ async def ero(app: Ariadne, group: Group, member: Member, message: MessageChain)
 
 首先我们先把目光着重放在这个 `SetuTagWaiter` 上面：
 
-``` python
+```python
 class SetuTagWaiter(Waiter.create([GroupMessage])):
     "涩图 tag 接收器"
 
@@ -108,7 +108,7 @@ class SetuTagWaiter(Waiter.create([GroupMessage])):
 首先是第一行的 `Waiter.create([GroupMessage])`，假设我们翻阅过其文档，就会知道，
 在这里传递的消息，其实跟我们一般填写在 `Listener` 里面的参数是一样的。
 
-``` python
+```python
 def create(
     cls,
     listening_events: List[Type[Dispatchable]],
@@ -152,7 +152,7 @@ def create(
 `asyncio.wait_for` 将会抛出一个 `asyncio.exceptions.TimeoutError` 异常，
 通过捕捉这个异常，可以知道等待超时并作出相应的处理了。
 
-``` python
+```python
     ...
     await app.sendGroupMessage(group, MessageChain.create("你想要什么 tag 的涩图"))
     try:
@@ -215,7 +215,7 @@ def create(
 
 如股票你觉得，仅仅是为了一个 `Waiter` 而大费周章的创建一个类太麻烦了，那么事实上，你也可以通过创建局部函数来达到相同效果哦。
 
-``` python
+```python
 ...
 from graia.ariadne.message.parser.base import MatchContent
 from graia.broadcast.interrupt import InterruptControl
