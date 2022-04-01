@@ -23,12 +23,14 @@
 
 以下是一段示例代码（不完整，请自行插入到合适的地方，注释为与群消息事件的对比）
 
-:::: code-group
-::: code-group-item Python <= 3.9
+<CodeGroup>
+<CodeGroupItem title="BroadCast">
 
-```python
+<CodeGroup>
+<CodeGroupItem title="Python <= 3.9">
+
+``` python
 ...
-from typing import Union
 # from graia.ariadne.event.message import GroupMessage
 from graia.ariadne.event.mirai import NudgeEvent
 ...
@@ -37,6 +39,7 @@ from graia.ariadne.event.mirai import NudgeEvent
 # 此处注释的意思是用法类比，不是说这里可以用 GroupMessage
 # @bcc.receiver(GroupMessage)
 @bcc.receiver(NudgeEvent)
+async def getup(app: Ariadne, event: NudgeEvent):
 async def getup(app: Ariadne, event: NudgeEvent):
     if event.context_type == "group":
         await app.sendGroupMessage(
@@ -53,14 +56,12 @@ async def getup(app: Ariadne, event: NudgeEvent):
 ...
 ```
 
-:::
+</CodeGroupItem>
+<CodeGroupItem title="Python >= 3.10">
 
-::: code-group-item Python >= 3.10
-
-```python
+``` python
 # 本部分示例使用 Python 3.10 引入的 match...case...语法
 ...
-from typing import Union
 # from graia.ariadne.event.message import GroupMessage
 from graia.ariadne.event.mirai import NudgeEvent
 ...
@@ -86,8 +87,77 @@ async def getup(app: Ariadne, event: NudgeEvent):
 ...
 ```
 
-:::
-::::
+</CodeGroupItem>
+</CodeGroup>
+
+</CodeGroupItem>
+<CodeGroupItem title="graia-saya">
+
+<CodeGroup>
+<CodeGroupItem title="Python <= 3.9">
+
+``` python
+...
+# from graia.ariadne.event.message import GroupMessage
+from graia.ariadne.event.mirai import NudgeEvent
+...
+
+
+# 此处注释的意思是用法类比，不是说这里可以用 GroupMessage
+# @channel.use(ListenerSchema([GroupMessage]))
+@channel.use(ListenerSchema([NudgeEvent]))
+async def getup(app: Ariadne, event: NudgeEvent):
+    if event.context_type == "group":
+        await app.sendGroupMessage(
+            event.target,
+            MessageChain.create("你不要光天化日之下在这里戳我啊")
+        )
+    elif event.context_type == "friend":
+        await app.sendFriendMessage(
+            event.target,
+            MessageChain.create("别戳我，好痒！")
+        )
+    else:
+        return
+...
+```
+
+</CodeGroupItem>
+<CodeGroupItem title="Python >= 3.10">
+
+``` python
+# 本部分示例使用 Python 3.10 引入的 match...case...语法
+...
+# from graia.ariadne.event.message import GroupMessage
+from graia.ariadne.event.mirai import NudgeEvent
+...
+
+
+# 此处注释的意思是用法类比，不是说这里可以用 GroupMessage
+# @channel.use(ListenerSchema([GroupMessage]))
+@channel.use(ListenerSchema([NudgeEvent]))
+async def getup(app: Ariadne, event: NudgeEvent):
+    match event.context_type:
+        case "group":
+            await app.sendGroupMessage(
+                event.target,
+                MessageChain.create("你不要光天化日之下在这里戳我啊")
+            )
+        case "friend":
+            await app.sendFriendMessage(
+                event.target,
+                MessageChain.create("别戳我，好痒！")
+            )
+        case _:
+            return
+...
+```
+
+</CodeGroupItem>
+</CodeGroup>
+
+</CodeGroupItem>
+</CodeGroup>
 
 ::: tip
 
