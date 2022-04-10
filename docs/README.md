@@ -7,7 +7,7 @@ tagline: Community of Graia Project
 
 actions:
   - text: 快速实战 👉 涩图机器人制作
-    link: /make_ero_bot/
+    link: /guide
 
 features:
   - title: 简洁而强大

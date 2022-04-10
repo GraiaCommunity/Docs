@@ -1,24 +1,26 @@
 <template>
-  <p v-if="frontWord" id="volume-front">{{ frontWord }}</p>
-  <span id="volume-bar">
-    <div class="volume">
-      <input
-        id="range"
-        type="range"
-        min="0"
-        max="100"
-        value="100"
-        oninput='
-          var range = document.getElementById("range");
-          range.style.backgroundSize = `${range.value}% 100%`;
-          for (let i of document.getElementsByTagName("audio")) {
-            i.volume = range.value / 100;
-          };
-          document.getElementById("volume-num").innerHTML = `${value}%`;'
-      />
-      <p id="volume-num">100%</p>
-    </div>
-  </span>
+  <div style="margin-top: 1em; margin-bottom: 1em">
+    <p v-if="frontWord" id="volume-front">{{ frontWord }}</p>
+    <span id="volume-bar">
+      <div class="volume">
+        <input
+          id="range"
+          type="range"
+          min="0"
+          max="100"
+          value="100"
+          oninput='
+            var range = document.getElementById("range");
+            range.style.backgroundSize = `${range.value}% 100%`;
+            for (let i of document.getElementsByTagName("audio")) {
+              i.volume = range.value / 100;
+            };
+            document.getElementById("volume-num").innerHTML = `${value}%`;'
+        />
+        <p id="volume-num">100%</p>
+      </div>
+    </span>
+  </div>
 </template>
 
 <script lang="ts">

@@ -30,7 +30,7 @@
   },
   "precommit": {
     "run": [
-      "lint:fix"
+      "lint"
     ]
   }
 }
