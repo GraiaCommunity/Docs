@@ -102,17 +102,13 @@
 2. 在 `main.py` 中复制粘贴这些代码
 
    ```python
-   import asyncio
    import pkgutil
 
    from graia.ariadne.app import Ariadne
    from graia.ariadne.model import MiraiSession
    from graia.broadcast import Broadcast
-   from graia.saya import Saya
    from graia.saya.builtins.broadcast import BroadcastBehaviour
 
-   loop = asyncio.new_event_loop()
-   bcc = Broadcast(loop=loop)
    app = Ariadne(
        MiraiSession(
            host="http://localhost:8080",
@@ -121,8 +117,10 @@
            # 此处的内容请按照你的 MAH 配置来填写
        ),
    )
-   saya = Saya(bcc)
-   saya.install_behaviours(BroadcastBehaviour(bcc))
+   saya = app.create(Saya)
+   saya.install_behaviours(
+      app.create(BroadcastBehaviour)
+   )
 
    with saya.module_context():
        for module_info in pkgutil.iter_modules(["modules"]):
