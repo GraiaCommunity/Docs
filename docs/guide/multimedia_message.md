@@ -76,7 +76,7 @@ Image(path="./Graiax/EroEroBot/eropic.jpg")
 
 ::: warning
 该文档最后更新的时候，`graiax-silkcoder` 的版本的 0.2.0  
-现在的最新版本为<img src="https://img.shields.io/pypi/v/graiax-silkcoder?color=2970b6&amp;style=for-the-badge" alt="PyPI版本" style="vertical-align: middle">
+现在的最新版本为 <img src="https://img.shields.io/pypi/v/graiax-silkcoder?color=2970b6&amp;style=flat-square" alt="PyPI版本" style="vertical-align: middle">
 :::
 
 :::: code-group
@@ -142,7 +142,7 @@ Voice(data_bytes=audio_bytes)
 
 ::: interlink
 **EroEroBot:**  
-本章完整例子可在 [EroEroBot/modules/multimedia_message.py](https://github.com/GraiaCommunity/EroEroBot/blob/master/modules/multimedia_message.py) 找到。
+本章完整示例可在 [EroEroBot/modules/multimedia_message.py](https://github.com/GraiaCommunity/EroEroBot/blob/master/modules/multimedia_message.py) 找到。
 
 **相关链接:**  
 <https://graia.readthedocs.io/basic/msg-chain/>  

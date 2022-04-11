@@ -99,7 +99,7 @@ ForwardNode(
 
 ::: interlink
 **EroEroBot:**  
-本章完整例子可在 [EroEroBot/modules/forward_message.py](https://github.com/GraiaCommunity/EroEroBot/blob/master/modules/forward_message.py) 找到。
+本章完整示例可在 [EroEroBot/modules/forward_message.py](https://github.com/GraiaCommunity/EroEroBot/blob/master/modules/forward_message.py) 找到。
 
 **相关链接:**  
 <https://graia.readthedocs.io/basic/msg-chain/>  

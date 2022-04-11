@@ -191,5 +191,5 @@ async def test(app: Ariadne, message: MessageChain):
 ```
 
 ::: interlink EroEroBot
-本章完整例子可在 [EroEroBot/modules/recall_message.py](https://github.com/GraiaCommunity/EroEroBot/blob/master/modules/recall_message.py) 找到。
+本章完整示例可在 [EroEroBot/modules/recall_message.py](https://github.com/GraiaCommunity/EroEroBot/blob/master/modules/recall_message.py) 找到。
 :::

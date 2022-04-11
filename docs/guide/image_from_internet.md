@@ -142,5 +142,5 @@ async def test(app: Ariadne):
 至于要不要用 Ariadne 自带的 session，就是你的选择了。
 
 ::: interlink EroEroBot
-本章完整例子可在 [EroEroBot/modules/image_from_internet.py](https://github.com/GraiaCommunity/EroEroBot/blob/master/modules/image_from_internet.py) 找到。
+本章完整示例可在 [EroEroBot/modules/image_from_internet.py](https://github.com/GraiaCommunity/EroEroBot/blob/master/modules/image_from_internet.py) 找到。
 :::
