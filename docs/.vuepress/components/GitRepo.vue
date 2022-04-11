@@ -21,11 +21,15 @@
             0 00-.25-.25h-3.5a.25.25 0 00-.25.25z"
           />
         </svg>
-        <a :href="href ? href : `https://github.com/${user}/${repo}`"
+        <a
+          :href="href ? href : `https://github.com/${user}/${repo}`"
+          target="_blank"
           >{{ user }}/{{ repo }}</a
         >
       </div>
-      <p class="repo-description">&#9889; <slot>No description here!</slot></p>
+      <p class="repo-description">
+        <b v-if="!archived">&#9889;</b> <slot>No description here!</slot>
+      </p>
       <p class="repo-meta">
         <span class="repo-meta-lang">
           <span
@@ -48,6 +52,10 @@ export default defineComponent({
     user: String,
     repo: String,
     href: String,
+    archived: {
+      type: Boolean,
+      default: false,
+    },
   },
 })
 </script>

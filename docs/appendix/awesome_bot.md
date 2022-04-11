@@ -5,14 +5,19 @@
 （以下仓库不分排名）
 :::
 
+<h2 align="center">还在更新的 bot</h2>
 <div class="bot-repo">
-  <GitRepo user="djkcyl" repo="ABot-Graia"><b>已停更</b> 一个使用 Graia Ariadne 搭建的 QQ 功能性机器人。</GitRepo>
   <GitRepo user="I-love-study" repo="A_Simple_QQ_Bot">一个普普通通的 QQ 机器人</GitRepo>
   <GitRepo user="Redlnn" repo="redbot">一个以 Graia Ariadne 框架为基础的 QQ 机器人</GitRepo>
   <GitRepo user="SAGIRI-kawaii" repo="sagiri-bot">基于Graia和Mirai的QQ机器人 SAGIRI-BOT</GitRepo>
-  <GitRepo user="zzzzz167" repo="Yuki"><b>已停更</b> No Description</GitRepo>
   <GitRepo user="BlueGlassBlock" repo="Xenon">An elegant QQ bot based on Mirai and Graia Project.</GitRepo>
   <GitRepo user="MadokaProject" repo="Madoka">一个可自定义的，基于Graia和Mirai的集群管、功能、娱乐为一体的QQ插件式机器人</GitRepo>
+</div>
+
+<h2 align="center">已停止更新的 bot</h2>
+<div class="bot-repo">
+  <GitRepo user="djkcyl" repo="ABot-Graia" archived><b>已停更 最后一次更新在2022.04.02</b><br/>一个使用 Graia Ariadne 搭建的 QQ 功能性机器人。</GitRepo>
+  <GitRepo user="zzzzz167" repo="Yuki" archived><b>已停更 最后一次更新在2022.02.28</b><br/>No Description</GitRepo>
 </div>
 
 <style scope>
