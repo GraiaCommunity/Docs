@@ -27,6 +27,8 @@ module.exports = {
       rules: {
         'vue/require-default-prop': 'off',
         'no-undef': 'off',
+        'no-var': 'error',
+        'no-useless-return': 'error',
         'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
         'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
       },
@@ -43,6 +45,8 @@ module.exports = {
         '@typescript-eslint/no-non-null-assertion': 'off',
         '@typescript-eslint/no-var-requires': 'off',
         'no-undef': 'off',
+        'no-var': 'error',
+        'no-useless-return': 'error',
         'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
         'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
       },
