@@ -81,7 +81,7 @@ pip install graia-saya
 
 首先，为了降低新人的理解难度，我们直接拿出一个最小实例：
 
-```python{13-16,18-19}
+```python{14-17,19-20}
 from graia.ariadne.app import Ariadne
 from graia.ariadne.model import MiraiSession
 from graia.saya import Saya
@@ -97,7 +97,7 @@ app = Ariadne(
 )
 saya = app.create(Saya)
 saya.install_behaviours(
-    app.create(BroadcastBehaviour)
+    app.create(BroadcastBehaviour),
 )
 
 with saya.module_context():
@@ -202,26 +202,24 @@ import pkgutil
 
 from graia.ariadne.app import Ariadne
 from graia.ariadne.model import MiraiSession
-from graia.broadcast import Broadcast
+from graia.saya import Saya
 from graia.saya.builtins.broadcast import BroadcastBehaviour
 
 app = Ariadne(
     MiraiSession(
         # 以下3行请按照你的 MAH 配置来填写
-        host="http://localhost:8080",
-        verify_key="GraiaxVerifyKey",
-        account=1919810,
+        host="http://localhost:8080",  # 同 MAH 的 port
+        verify_key="GraiaxVerifyKey",  # 同 MAH 配置的 verifyKey
+        account=1919810,  # 机器人 QQ 账号
     ),
 )
 saya = app.create(Saya)
 saya.install_behaviours(
-   app.create(BroadcastBehaviour)
+    app.create(BroadcastBehaviour),
 )
 
 with saya.module_context():
     for module_info in pkgutil.iter_modules(["modules"]):
-        if module_info.name.startswith("_"):
-            continue
         saya.require("modules." + module_info.name)
 
 app.launch_blocking()
