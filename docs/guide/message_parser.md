@@ -67,7 +67,7 @@ if message.startswith("涩图来"):
 
 如果你饱受多层嵌套 `if` 的话，那不妨阅读一下本章，我们将给各位介绍一下 Ariadne 中的消息匹配器**们**。
 
-<style>
+<style scope>
 progress {
     -webkit-appearance: none;
     background: var(--c-danger);
