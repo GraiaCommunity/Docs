@@ -32,3 +32,9 @@
 ruby > rt {
   font-size: 0.75em;
 }
+
+// 调整侧边栏子标题的左侧距离和字体大小以与上级标题做明显区分
+.sidebar-item:not(.sidebar-heading) + .sidebar-item-children {
+  padding-left: 1.25rem;
+  font-size: 0.93em;
+}
