@@ -3,6 +3,29 @@
 // root
 :root {
   scroll-behavior: smooth;
+  --font-family-code: ui-monospace, 'Cascadia Code', 'Cascadia Mono', Monaco,
+    'Andale Mono', SFMono-Regular, 'SF Mono', 'Ubuntu Mono', Menlo, Monaco,
+    'Liberation Mono', 'Lucida Console', 'Ubuntu Mono', Consolas, monospace;
+}
+
+// 调整代码中中文文本的字体
+@font-face {
+  font-family: 'Consolas';
+  unicode-range: U+2E80-FFFF;
+  src: local('system-ui'), local('-apple-system'), local('Segoe UI'),
+    local('Microsoft YaHei UI');
+}
+
+// Cascadia Mono 优先使用带 Powerline 的字体并指定粗细
+@font-face {
+  font-family: 'Cascadia Mono';
+  src: local('Cascadia Mono PL SemiLight'), local('Cascadia Mono SemiLight');
+}
+
+// Cascadia Code 优先使用带 Powerline 的字体并指定粗细
+@font-face {
+  font-family: 'Cascadia Code';
+  src: local('Cascadia Code PL SemiLight'), local('Cascadia Code SemiLight');
 }
 
 // ruby 的字体大小
