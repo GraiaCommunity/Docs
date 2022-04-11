@@ -1,10 +1,10 @@
 # 引言
 
-众所周知，学习代码最好的办法，就是举例子
+众所周知，学习代码最好的办法，就是举例子。
 
-所以我们将创建**大家最喜欢的涩图机器人**为例子，将你们带入机器人的世界
+所以我们将创建**大家最喜欢的涩图机器人**为例子，将你们带入机器人的世界。
 
-本文档的所有例子都在 :point_right: [co ↗ co ↘](https://github.com/GraiaCommunity/EroEroBot)
+本文档的所有例子都可以在 :point_right: [这里](https://github.com/GraiaCommunity/EroEroBot) 找到。
 
 假设文档有一些专有名词不了解，也可以看看[这里](./appendix/terms)。
 
@@ -28,7 +28,7 @@
 4. :white_check_mark: [不要再戳了](./other_event.md) —— `Ariadne` 上各类 `Event` 的简单讲解
 5. :white_check_mark: [关于消息链的故事](./message_chain.md)
    1. :white_check_mark: [消息链是什么链](./message_chain.md) —— `MessageChain` 的介绍
-   2. :white_check_mark: [八嘎 hentai 无路赛](./multimedia_message.md) —— 对于 `多媒体消息` 发送的一点补充
+   2. :heavy_minus_sign: [八嘎 hentai 无路赛](./multimedia_message.md) —— 对于发送 `多媒体消息` 的补充
 6. :white_check_mark: [好大的奶](./forward_message.md) —— 合并消息的构建与解析
 7. :white_check_mark: [来点网络上的涩图](./image_from_internet.md) —— `aiohttp` 的超简单运用
 8. :heavy_minus_sign: [来点 xxx 涩图](./message_parser.md) —— `Ariadne` 的消息匹配器**们**的介绍
@@ -41,7 +41,7 @@
 11. :white_check_mark: [不是所有人都能看涩图](./depend.md) —— `Depend` 的简单运用
 12. :white_check_mark: [哦嗨哟，欧尼酱](./scheduler.md) —— 任务计划器 `graia-scheduler` 的使用
 13. :white_check_mark: [请问您这次要怎么样的涩图](./interrupt_control.md) —— `interrupt` 的简单运用
-14. :white_check_mark: [无内鬼，来点加密压缩包](./upload_file.md) —— 关于`文件操作`的简单实例
+14. :white_check_mark: [无内鬼，来点加密压缩包](./file_operation.md) —— 关于`文件操作`的简单实例
 15. :heavy_minus_sign: [后台对线](./console.md) —— 关于 `Console` 的介绍
 16. :heavy_minus_sign: [异步画~~涩~~图](./async_exec.md) —— `io_bound` 和 `cpu_bound` 的运用
 17. :x: [一条龙涩涩](./) —— `saya` 跨模块运用

@@ -59,7 +59,7 @@ from graia.ariadne.message.element import At, Plain, Image, Forward, ForwardNode
         inline_dispatchers=[Twilight([FullMatch("好大的奶")])],
     )
 )
-async def create_forward(app: Ariadne, member: Member):
+async def create_forward(app: Ariadne, group: Group, member: Member):
     fwd_nodeList = [
         ForwardNode(
             target=member,
@@ -78,7 +78,7 @@ async def create_forward(app: Ariadne, member: Member):
             )
         )
     message = MessageChain.create(Forward(nodeList=fwd_nodeList))
-    await app.sendGroupMessage(group, message)
+    await app.sendMessage(group, message)
 ```
 
 因为比较简单，所以我们直接说明参数就好了：

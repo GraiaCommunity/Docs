@@ -1,9 +1,7 @@
 # Twilight
 
 ::: danger
-本章还没有写完
-
-本章可能会过时，本章所适用的 Ariadne 版本请参考第一小节。
+本章还没有写完且可能会过时，本章所适用的 Ariadne 版本请参考第一小节。
 :::
 
 ## Twilight 是什么
@@ -39,7 +37,7 @@ from graia.ariadne.message.parser.twilight import Twilight
     )
 )
 async def test(app: Ariadne, group: Group):
-    await app.sendGroupMessage(
+    await app.sendMessage(
         group,
         MessageChain.create(
             Image(path="./Graiax/EroEroBot/eropic.jpg")
@@ -64,7 +62,7 @@ from graia.ariadne.message.parser.twilight import Sparkle, Twilight
     )
 )
 async def test(app: Ariadne, group: Group):
-    await app.sendGroupMessage(
+    await app.sendMessage(
         group,
         MessageChain.create(
             Image(path="./Graiax/EroEroBot/eropic.jpg")
@@ -89,7 +87,7 @@ from graia.ariadne.message.parser.twilight import Twilight
     )
 )
 async def test(app: Ariadne, group: Group):
-    await app.sendGroupMessage(
+    await app.sendMessage(
         group,
         MessageChain.create(
             Image(path="./Graiax/EroEroBot/eropic.jpg")

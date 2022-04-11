@@ -23,7 +23,7 @@
    bcc = app.broadcast
 
 
-   @channel.use(ListenerSchema(listening_events=[GroupMessage]))
+   @bcc.receiver(GroupMessage)
    async def setu(app: Ariadne, group: Group, message: MessageChain):
        if str(message) == "你好":
            await app.sendMessage(

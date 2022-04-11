@@ -70,7 +70,8 @@ MessageChain([Source(id=1366023, time=datetime.datetime(2022, 1, 13, 16, 42, 38,
 并且不只是纯文本，所有收到的消息的最开始，都会有一个 `Source` 元素！
 这就是每一条消息独立的消息 ID（每个群、每个私聊会话中的消息 ID 都是独立的）。
 
-而发送消息时的 `app.sendGroupMessage()` 的返回值为 `BotMessage` 类型，这也是 `app.recallMessage()` 方法所需的参数！
+而发送消息时使用的 `app.sendMessage()`、`app.sendGroupMessage()` 和 `app.sendFriendMessage()`，
+他们的返回值类型为 `BotMessage`，这也是 `app.recallMessage()` 方法所需的参数！
 
 有了消息 ID，我们就可以通过 `app.recallMessage()` 方法撤回消息了：
 
@@ -101,6 +102,10 @@ async def test(app: Ariadne, message: MessageChain, source: Source):
 通过以上理论，你分分钟写出了一个带撤回功能的涩图机器人，比如这样：
 
 ```python
+from graia.ariadne import get_running
+from graia.ariadne.adapter import Adapter
+
+
 @channel.use(
     ListenerSchema(
         listening_events=[GroupMessage],
@@ -108,12 +113,12 @@ async def test(app: Ariadne, message: MessageChain, source: Source):
     )
 )
 async def test(app: Ariadne, message: MessageChain):
-    session = adapter_ctx.get().session
+    session = get_running(Adapter).session
     async with session.get("https://i1.hdslb.com/bfs/archive/5242750857121e05146d5d5b13a47a2a6dd36e98.jpg") as r:
         data = await r.read()
     b_msg = await app.sendGroupMessage(group, MessageChain.create(Image(data_bytes=data)))
     time.sleep(120)
-    await app.recallMessage(source)
+    await app.recallMessage(b_msg)
 ```
 
 这确实成功了，可是当你满怀激动的将你的 bot 给群友用了之后，却是这样的局面：
@@ -139,7 +144,11 @@ async def test(app: Ariadne, message: MessageChain):
 
 还记得我们在[第 7 章](./image_from_internet.html#为啥要用-aiohttp)讲过，我们为什么要使用异步吗？
 
-```python{12}
+```python{16}
+from graia.ariadne import get_running
+from graia.ariadne.adapter import Adapter
+
+
 @channel.use(
     ListenerSchema(
         listening_events=[GroupMessage],
@@ -147,12 +156,12 @@ async def test(app: Ariadne, message: MessageChain):
     )
 )
 async def test(app: Ariadne, message: MessageChain):
-    session = adapter_ctx.get().session
+    session = get_running(Adapter).session
     async with session.get("https://i1.hdslb.com/bfs/archive/5242750857121e05146d5d5b13a47a2a6dd36e98.jpg") as r:
         data = await r.read()
     b_msg = await app.sendGroupMessage(group, MessageChain.create(Image(data_bytes=data)))
     time.sleep(120)
-    await app.recallMessage(source)
+    await app.recallMessage(b_msg)
 ```
 
 `time.sleep()` 方法是一种同步办法，即在 sleep 的这段时间里面**整个程序都会停止不动**！  
@@ -161,7 +170,11 @@ async def test(app: Ariadne, message: MessageChain):
 很简单，实际上，Python 的异步标准库 `asyncio` 已经帮你想好这个问题了。
 他提供了异步用的休眠函数 `asyncio.sleep()`，你只需要做一下小小的替换就好了：
 
-```python{12}
+```python{16}
+from graia.ariadne import get_running
+from graia.ariadne.adapter import Adapter
+
+
 @channel.use(
     ListenerSchema(
         listening_events=[GroupMessage],
@@ -169,10 +182,10 @@ async def test(app: Ariadne, message: MessageChain):
     )
 )
 async def test(app: Ariadne, message: MessageChain):
-    session = adapter_ctx.get().session
+    session = get_running(Adapter).session
     async with session.get("https://i1.hdslb.com/bfs/archive/5242750857121e05146d5d5b13a47a2a6dd36e98.jpg") as r:
         data = await r.read()
     b_msg = await app.sendGroupMessage(group, MessageChain.create(Image(data_bytes=data)))
     await asyncio.sleep(120)
-    await app.recallMessage(source)
+    await app.recallMessage(b_msg)
 ```

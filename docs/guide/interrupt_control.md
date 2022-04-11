@@ -1,9 +1,5 @@
 # 请问今天你想要怎么样的涩图
 
-::: danger
-本章还没写完
-:::
-
 ## 情景导入
 
 让我们回顾一下至今我们学习的所有东西，假设你曾经看过友商的代码，想必曾今看到过这样子的对话：
@@ -54,7 +50,7 @@ from graia.saya import Channel, Saya
 
 saya = Saya.current()
 channel = Channel.current()
-inc = InterruptControl(saya.broadcast)
+inc = InterruptControl(saya.broadcast)  # type: ignore
 
 
 class SetuTagWaiter(Waiter.create([GroupMessage])):
@@ -81,14 +77,19 @@ async def setu(tag: List[str]) -> bytes:
     )
 )
 async def ero(app: Ariadne, group: Group, member: Member, message: MessageChain):
-    await app.sendGroupMessage(group, MessageChain.create("你想要什么 tag 的涩图"))
-    ret_msg = await inc.wait(SetuTagWaiter(group, member))
-    await app.sendGroupMessage(
-        group,
-        MessageChain.create(
-            Image(data_bytes=await setu(ret_msg.split()))
+    await app.sendMessage(group, MessageChain.create("你想要什么 tag 的涩图"))
+    try:
+        ret_msg = await inc.wait(SetuTagWaiter(group, member), timeout=10)  # 强烈建议设置超时时间否则将可能会永远等待
+    except asyncio.TimeoutError:
+        await app.sendMessage(group, MessageChain.create("你说话了吗？"))
+    else:
+        await app.sendMessage(
+            group,
+            MessageChain.create(
+                Plain("涩图 tag: " + ret_msg.asDisplay()),
+                Image(data_bytes=Path("data", "imgs", "graiax.png").read_bytes()),
+            ),
         )
-    )
 ```
 
 ## 原理讲解
@@ -157,17 +158,15 @@ def create(
 
 ```python
     ...
-    await app.sendGroupMessage(group, MessageChain.create("你想要什么 tag 的涩图"))
+    await app.sendMessage(group, MessageChain.create("你想要什么 tag 的涩图"))
     try:
         ret_msg = await inc.wait(SetuTagWaiter(group, member), timeout=10)
     except asyncio.exceptions.TimeoutError:
-        await app.sendGroupMessage(group, MessageChain.create("已超时取消"))
+        await app.sendMessage(group, MessageChain.create("已超时取消"))
     else:
-        await app.sendGroupMessage(
+        await app.sendMessage(
             group,
-            MessageChain.create(
-                Image(data_bytes=await setu(ret_msg.split()))
-            )
+            MessageChain.create(Image(data_bytes=await setu(ret_msg.split()))),
         )
 ```
 
@@ -231,7 +230,9 @@ from graia.broadcast.interrupt import InterruptControl
 from graia.broadcast.interrupt.waiter import Waiter
 ...
 
-inc = InterruptControl(app.broadcast)
+saya = Saya.current()
+channel = Channel.current()
+inc = InterruptControl(saya.broadcast)  # type: ignore
 
 
 async def setu(tag: List[str]) -> bytes:
@@ -246,15 +247,15 @@ async def setu(tag: List[str]) -> bytes:
     )
 )
 async def ero(app: Ariadne, group: Group, member: Member, message: MessageChain):
-    await app.sendGroupMessage(group, MessageChain.create("你想要什么 tag 的涩图"))
+    await app.sendMessage(group, MessageChain.create("你想要什么 tag 的涩图"))
 
     @Waiter.create_using_function([GroupMessage])
     async def setu_tag_waiter(g: Group, m: Member, msg: MessageChain):
         if group.id == g.id and member.id == m.id:
             return msg
 
-    ret_msg = await inc.wait(setu_tag_waiter)
-    await app.sendGroupMessage(
+    ret_msg = await inc.wait(setu_tag_waiter, timeout=10)  # 强烈建议设置超时时间否则将可能会永远等待
+    await app.sendMessage(
         group,
         MessageChain.create(
             Image(data_bytes=await setu(ret_msg.split()))

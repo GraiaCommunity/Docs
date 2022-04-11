@@ -11,7 +11,7 @@
 首先来回顾一下，在[第一节](./1_hello_ero.md)中我们是通过什么办法来发送的消息
 
 ```python
-await app.sendGroupMessage(group, MessageChain.create(
+await app.sendMessage(group, MessageChain.create(
     f"不要说{message.asDisplay()}，来点涩图"
 ))
 ```

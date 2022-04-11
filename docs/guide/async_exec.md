@@ -42,9 +42,9 @@ def make_pic(size = (100, 100), color = (255, 0, 0)):
 
 
 @channel.use([GroupMessage])
-async def drawing():
+async def drawing(group: Group):
     pic = make_pic()
-    await app.sendGroupMessage(group_id, MessageChain.create(Image(pic)))
+    await app.sendMessage(group, MessageChain.create(Image(pic)))
 
 ```
 
@@ -68,9 +68,9 @@ def make_pic(size = (100, 100), color = (255, 0, 0)):
 
 
 @channel.use([GroupMessage])
-async def drawing():
+async def drawing(group: Group):
     pic = await make_pic()
-    await app.sendGroupMessage(group_id, MessageChain.create(Image(pic)))
+    await app.sendMessage(group, MessageChain.create(Image(pic)))
 ```
 
 :::
@@ -92,9 +92,9 @@ def make_pic(size = (100, 100), color = (255, 0, 0)):
 
 
 @channel.use([GroupMessage])
-async def drawing():
+async def drawing(group: Group):
     pic = await asyncio.to_thread(make_pic())
-    await app.sendGroupMessage(group_id, MessageChain.create(Image(pic)))
+    await app.sendMessage(group, MessageChain.create(Image(pic)))
 ```
 
 :::

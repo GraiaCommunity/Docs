@@ -63,7 +63,7 @@ async def test():
 )
 async def on_message(app: Ariadne, group: Group, message: MessageChain):
     # 此时的 message 事实上还是有前面的 "涩"
-    await app.sendGroupMessage(group, MessageChain.create("涩？涩什么"))
+    await app.sendMessage(group, MessageChain.create("涩？涩什么"))
     ...
 ```
 
@@ -75,7 +75,7 @@ async def on_message(app: Ariadne, group: Group, message: MessageChain):
 @channel.use(ListenerSchema(listening_events=[GroupMessage]))
 async def on_message(app: Ariadne, group: Group, message: MessageChain = DetectPrefix("涩")):
     # 此时的 message 就没有 "涩" 了
-    await app.sendGroupMessage(group, message + MessageChain.create("？很涩吗"))
+    await app.sendMessage(group, message + MessageChain.create("？很涩吗"))
     ...
 ```
 
@@ -135,7 +135,7 @@ async def on_message(message: MessageChain = DetectSuffix("好涩")):
     )
 )
 async def on_mention_me(app: Ariadne, group: Group, member: Member):
-    await app.sendGroupMessage(group, MessageChain.create(At(member.id), "叫我？"))
+    await app.sendMessage(group, MessageChain.create(At(member.id), "叫我？"))
 ```
 
 ## Mention
@@ -157,7 +157,7 @@ async def on_mention_me(app: Ariadne, group: Group, member: Member):
 )
 # int: 用户 QQ 号，str: 用户的名字
 async def on_mention(app: Ariadne, group: Group):
-    await app.sendGroupMessage(group, MessageChain.create("你找我主人有什么事吗"))
+    await app.sendMessage(group, MessageChain.create("你找我主人有什么事吗"))
     ...
 ```
 
@@ -176,7 +176,7 @@ async def on_mention(app: Ariadne, group: Group):
     )
 )
 async def on_contain_keyword(app: Ariadne, group: Group):
-    await app.sendGroupMessage(group, MessageChain.create("好欸，涩涩"))
+    await app.sendMessage(group, MessageChain.create("好欸，涩涩"))
     ...
 ```
 
@@ -200,7 +200,7 @@ async def on_contain_keyword(app: Ariadne, group: Group):
 )
 # 当 content 为 str 时，将会与MessageChain.asDisplay()进行比较，当 content 为 MessageChain 时，将会与 MessageChain 进行比较
 async def on_match_content(app: Ariadne, group: Group):
-    await app.sendGroupMessage(group, MessageChain.create("哦，发了什么图片，让我康康！"))
+    await app.sendMessage(group, MessageChain.create("哦，发了什么图片，让我康康！"))
     ...
 ```
 
@@ -223,7 +223,7 @@ async def on_match_content(app: Ariadne, group: Group):
     )
 )
 async def on_match_regex(app: Ariadne, group: Group, message: MessageChain):
-    await app.sendGroupMessage(group, MessageChain.create("发数字干什么，是神秘钥匙吗？"))
+    await app.sendMessage(group, MessageChain.create("发数字干什么，是神秘钥匙吗？"))
     ...
 ```
 

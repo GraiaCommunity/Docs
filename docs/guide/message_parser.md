@@ -21,14 +21,16 @@
 在看了之前的教程，你应该写出一个简单的涩图机器人了。
 
 ```python
-...
+from graia.ariadne import get_running
+from graia.ariadne.adapter import Adapter
+
 @channel.use(ListenerSchema(listening_events=[GroupMessage]))
 async def ero(app: Ariadne, group: Group, message: MessageChain):
     if message.asDisplay() == "涩图来":
-        session = adapter_ctx.get().session
+        session = get_running(Adapter).session
         async with session.get("https://i1.hdslb.com/bfs/archive/5242750857121e05146d5d5b13a47a2a6dd36e98.jpg") as r:
             data = await r.read()
-        await app.sendGroupMessage(group, MessageChain.create(
+        await app.sendMessage(group, MessageChain.create(
             Image(data_bytes=data)
         ))
 ...
