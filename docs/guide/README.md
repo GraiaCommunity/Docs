@@ -28,7 +28,7 @@
 4. :white_check_mark: [不要再戳了](./other_event.md) —— `Ariadne` 上各类 `Event` 的简单讲解
 5. :white_check_mark: [关于消息链的故事](./message_chain.md)
    1. :white_check_mark: [消息链是什么链](./message_chain.md) —— `MessageChain` 的介绍
-   2. :white_check_mark: [八嘎 hentai 无路赛](./voice_message.md) —— 对于 `多媒体消息` 发送的一点补充
+   2. :white_check_mark: [八嘎 hentai 无路赛](./multimedia_message.md) —— 对于 `多媒体消息` 发送的一点补充
 6. :white_check_mark: [好大的奶](./forward_message.md) —— 合并消息的构建与解析
 7. :white_check_mark: [来点网络上的涩图](./image_from_internet.md) —— `aiohttp` 的超简单运用
 8. :heavy_minus_sign: [来点 xxx 涩图](./message_parser.md) —— `Ariadne` 的消息匹配器**们**的介绍

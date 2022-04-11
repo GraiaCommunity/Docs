@@ -28,7 +28,7 @@ export const sidebar: SidebarConfig = {
         {
           text: '关于消息链的故事',
           link: '/guide/message_chain.md',
-          children: ['/guide/message_chain.md', '/guide/voice_message.md'],
+          children: ['/guide/message_chain.md', '/guide/multimedia_message.md'],
         },
         '/guide/forward_message.md',
         '/guide/image_from_internet.md',
