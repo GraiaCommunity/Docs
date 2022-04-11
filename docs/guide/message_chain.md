@@ -183,7 +183,7 @@ True
 然后用一个字典储存被替换成字符串的元素。
 
 ::: interlink
-**相关链接：**  
+**相关链接:**  
 <https://graia.readthedocs.io/basic/msg-chain/>  
 <https://graia.readthedocs.io/advance/msg-chain/>
 :::

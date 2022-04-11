@@ -33,7 +33,7 @@
 <Loading></Loading>
 
 ::: interlink
-**相关链接：** <https://graia.readthedocs.io/advance/commander/>
+**相关链接:** <https://graia.readthedocs.io/advance/commander/>
 :::
 
 <hr size=3/>

@@ -140,3 +140,7 @@ async def test(app: Ariadne):
 假设你想要将你的代码放到其他地方（比如 v5），那你移植的时候，就需要更改获取 session 的代码。
 
 至于要不要用 Ariadne 自带的 session，就是你的选择了。
+
+::: interlink EroEroBot
+本章完整例子可在 [EroEroBot/modules/image_from_internet.py](https://github.com/GraiaCommunity/EroEroBot/blob/master/modules/image_from_internet.py) 找到。
+:::

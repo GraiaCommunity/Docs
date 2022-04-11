@@ -81,5 +81,9 @@
    </ChatWindow>
 
 ::: interlink
+**EroEroBot:**  
+本章完整例子可在 [EroEroBot/main-base.py](https://github.com/GraiaCommunity/EroEroBot/main-base.py) 找到。  
+你可以在[此处](https://github.com/GraiaCommunity/EroEroBot/releases/tag/release)下载预配置好的模板（不定期更新）。
+
 **相关链接:** <https://graia.readthedocs.io/quickstart/>
 :::

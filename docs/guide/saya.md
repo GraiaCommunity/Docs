@@ -79,6 +79,11 @@ pip install graia-saya
 
 ## 创建一个基础框架
 
+::: interlink EroEroBot
+本章完整例子可在 [EroEroBot/main-saya.py](https://github.com/GraiaCommunity/EroEroBot/main-saya.py) 找到。  
+你可以在[此处](https://github.com/GraiaCommunity/EroEroBot/releases/tag/release)下载预配置好的模板（不定期更新）。
+:::
+
 首先，为了降低新人的理解难度，我们直接拿出一个最小实例：
 
 ```python{14-17,19-20}

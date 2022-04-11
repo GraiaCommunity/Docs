@@ -271,5 +271,7 @@ async def ero(app: Ariadne, group: Group, member: Member, message: MessageChain)
 :::
 
 ::: interlink
-**相关链接：**<https://graia.readthedocs.io/advance/broadcast/interrupt/>
+**EroEroBot:** 本章完整例子可在 [EroEroBot/modules/interrupt_control.py](https://github.com/GraiaCommunity/EroEroBot/blob/master/modules/interrupt_control.py) 找到。
+
+**相关链接:** <https://graia.readthedocs.io/advance/broadcast/interrupt/>
 :::

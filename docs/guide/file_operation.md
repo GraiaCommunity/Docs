@@ -161,6 +161,8 @@ async def download_setu(app: Ariadne, group: Group):
 
 ::: interlink
 上面这个例子使用了海象运算符 `:=`，有关海象运算符可以看看[这篇来自 Python 官方的文档](https://docs.python.org/zh-cn/3/whatsnew/3.8.html?highlight=%E6%B5%B7%E8%B1%A1)（中文）。
+
+**EroEroBot:** 本章部分例子可在 [EroEroBot/modules/file_operation.py](https://github.com/GraiaCommunity/EroEroBot/blob/master/modules/file_operation.py) 找到。
 :::
 
 ::: tip

@@ -109,5 +109,5 @@ async def drawing(group: Group):
 <Loading></Loading>
 
 ::: interlink
-**相关链接：**<https://graia.readthedocs.io/extra/async-exec/>
+**相关链接:** <https://graia.readthedocs.io/extra/async-exec/>
 :::

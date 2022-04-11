@@ -20,9 +20,9 @@
    :::
 
 5. 虽然 `Ariadne` 支持 <img src="https://img.shields.io/pypi/pyversions/graia-ariadne?color=2970b6&amp;label=Python&amp;style=flat-square" alt="Python版本" style="vertical-align: middle">, 但为了**最佳体验**，我们建议你最好升级到 `Python3.9+` 以保证能够享受到全部功能；
-6. **本文档部分内容可能未及时更新或不全**，因此你可以在本文档的一些页面见到如下的提示框，他们通常指向相关的文档（一般为官方文档）。
+6. **本文档部分内容可能未及时更新或不全**，因此你可以在本文档的一些页面见到如下的提示框，他们通常指向相关的文档/示例。
    ::: interlink
-   **相关链接：**<https://graia.readthedocs.io/>
+   **相关链接:** <https://graia.readthedocs.io/>
    :::
 
 ## 创建项目
@@ -192,3 +192,8 @@ Package operations: 25 installs, 0 updates, 0 removals
 :::
 
 ::::
+
+::: interlink EroEroBot
+本章完整例子可在 [EroEroBot/main-base.py](https://github.com/GraiaCommunity/EroEroBot/main-base.py) 找到。  
+你可以在[此处](https://github.com/GraiaCommunity/EroEroBot/releases/tag/release)下载预配置好的模板（不定期更新）。
+:::
