@@ -15,12 +15,14 @@
     src="/images/tutorials/8_huaji.webp"
     height=20
     style="vertical-align:text-bottom"
+    class="no_zoom"
 />
 和
 <img
     src="/images/tutorials/8_wangwang.webp"
     height=20
     style="vertical-align:text-bottom"
+    class="no_zoom"
 />
 ）。不可否认，这些 QQ 自带的表情符号已经成为 QQ 日常交流中不可缺少的一部分。
 
@@ -33,6 +35,7 @@
     src="/images/tutorials/8_wangwang.webp"
     height=20
     style="display: inline-block; vertical-align: text-bottom; margin: 0"
+    class="no_zoom"
   /></ChatMsg>
 </ChatWindow>
 
@@ -47,8 +50,8 @@ MessageChain.create("来点涩图", Face(277))
 <ChatWindow>
   <ChatMsg name="EroEroBot" avatar="/avatar/ero.webp">
     在新的一年里，祝你<br>
-    身<img src="/images/tutorials/8_wangwang.webp" height=20 style="display: inline-block; vertical-align: text-bottom; margin: 0" />体<img src="/images/tutorials/8_wangwang.webp" height=20 style="display: inline-block; vertical-align: text-bottom; margin: 0" />健<img src="/images/tutorials/8_wangwang.webp" height=20 style="display: inline-block; vertical-align: text-bottom; margin: 0" />康<br>
-    万<img src="/images/tutorials/8_wangwang.webp" height=20 style="display: inline-block; vertical-align: text-bottom; margin: 0" />事<img src="/images/tutorials/8_wangwang.webp" height=20 style="display: inline-block; vertical-align: text-bottom; margin: 0" />如<img src="/images/tutorials/8_wangwang.webp" height=20 style="display: inline-block; vertical-align: text-bottom; margin: 0" />意
+    身<img src="/images/tutorials/8_wangwang.webp" height=20 style="display: inline-block; vertical-align: text-bottom; margin: 0" class="no_zoom" />体<img src="/images/tutorials/8_wangwang.webp" height=20 style="display: inline-block; vertical-align: text-bottom; margin: 0" class="no_zoom" />健<img src="/images/tutorials/8_wangwang.webp" height=20 style="display: inline-block; vertical-align: text-bottom; margin: 0" class="no_zoom" />康<br>
+    万<img src="/images/tutorials/8_wangwang.webp" height=20 style="display: inline-block; vertical-align: text-bottom; margin: 0" class="no_zoom" />事<img src="/images/tutorials/8_wangwang.webp" height=20 style="display: inline-block; vertical-align: text-bottom; margin: 0" class="no_zoom" />如<img src="/images/tutorials/8_wangwang.webp" height=20 style="display: inline-block; vertical-align: text-bottom; margin: 0" class="no_zoom" />意
    </ChatMsg>
 </ChatWindow>
 

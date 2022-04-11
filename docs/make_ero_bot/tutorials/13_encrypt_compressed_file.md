@@ -22,7 +22,7 @@
       avatar="/avatar/ero.webp"
       filename="secret.zip"
       filesize="6.33MB"
-      fileicon="/images/tutorials/13_compressed_file.svg"
+      fileicon="/images/tutorials/13_compressed_file.png"
       onclick="window.open('https:\/\/www.bilibili.com/video/BV1GJ411x7h7', '_blank')"
     />
 </ChatWindow>
@@ -148,13 +148,16 @@ class FileInfo(AriadneBaseModel):
 # 全是缩进警告
 async def download_setu(app: Ariadne, group: Group):
     os.makedirs("download", exist_ok=True)  # 创建一个 download 文件夹
-    async for file in app.getFileIterator(group):
-        if file.name.split(".")[-1] in ["jpg", "jpeg", "png"]:
+    async with aiohttp.ClientSession() as session:
+        async for file in app.getFileIterator(group):
+            if file.name.split(".")[-1] not in ["jpg", "jpeg", "png"]:
+                continue
             download_info = (await app.getFileInfo(group, file.id, with_download_info=True)).download_info
-            async with aiohttp.request("GET", download_info.url) as r:
+            async with session.get(download_info.url) as r:
                 with open(f"download/{file.name}", "wb") as f:
-                    while chunk := await resp.content.read(8192):
+                    while chunk := await r.content.read(8192):
                         f.write(chunk)
+
 ```
 
 ::: tip
@@ -162,5 +165,5 @@ async def download_setu(app: Ariadne, group: Group):
 所以在遍历的情况下，我们不太建议将 `getFileIterator` 的 `with_download_info` 参数设置为 `True`，
 要不然会让速度变慢（假设你群文件全是图片的话可能情况就又不相同了）。
 
-建议不要下载太快，要不然可能群文件相关 API 会被风控~
+建议不要下载太快，要不然可能群文件相关 API 会被风控哦~
 :::

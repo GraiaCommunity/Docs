@@ -25,6 +25,22 @@ P.s. 一些变量名称为了与本文档其他章节统一而与官方文档有
 以上这些“消息链处理器”位于 `graia.ariadne.message.parser.base` 中
 :::
 
+::: tip
+以下将会以 bcc 作为例子，你也可以直接转换成
+
+``` python
+# 这两者目的都是一样的
+@bcc.receiver(GroupMessage, decorators=[xxx])
+async def test():
+    ...
+
+@channel.use([GroupMessage], decorators=[xxx])
+async def test():
+    ...
+```
+
+:::
+
 ## DetectPrefix
 
 检测前缀，实例化时传入后缀**字符串**即可。

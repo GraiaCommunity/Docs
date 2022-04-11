@@ -5,7 +5,7 @@
 ::: danger 警告
 在阅读本章之前，请先了解什么是**Dispatcher**，参阅[这里](../before/Q&A.html#_3-3-%E5%85%B3%E4%BA%8E-dispatcher)
 
-本章进度： <progress value="75" max="100"></progress> 75%
+本章进度： <progress value="90" max="100"></progress> 75%
 
 因为文档的作者们也没有完全搞懂每一种消息适配器，
 所以这章大概就是这么个情况。

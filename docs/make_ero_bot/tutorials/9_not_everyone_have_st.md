@@ -13,7 +13,7 @@
 @bcc.receiver(GroupMessage, dispatchers=[Twilight.from_command("涩图来")])
 async def setu(app: Ariadne, member: Member, group: Group):
     if member.permission != MemberPerm.Member:
-        .. 发涩图
+        ... # 发涩图
 ```
 
 这代码，能够正常的运作，很好，但是到了后面，随着 tx 对涩图的打击力度愈发强大，

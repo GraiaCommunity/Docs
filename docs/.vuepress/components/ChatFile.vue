@@ -21,7 +21,7 @@
               <div class="filesize">{{ filesize }}</div>
             </div>
             <div class="fileicon">
-              <img :src="fileicon" />
+              <img :src="fileicon" class="no-zoom" />
             </div>
           </div>
         </div>

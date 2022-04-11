@@ -14,9 +14,9 @@
 
    app = Ariadne(
        MiraiSession(
-           host="http://localhost:8080",
-           verify_key="GraiaxVerifyKey",
-           account=1919810,
+           host="http://localhost:8080", # 同 MAH 的 port
+           verify_key="GraiaxVerifyKey", # 同 MAH 配置的 verifyKey
+           account=1919810, # 机器人 QQ 账号
            # 此处的内容请按照你的 MAH 配置来填写
        ),
    )
@@ -91,6 +91,10 @@
 <br/><Curtain type="tsukkomi">说白了就是想让你不要重复造轮子 desu</Curtain>
 :::
 
+::: tip
+为了简化文档，所以后面在**非介绍 bcc 相关参数**的情况下，将会默认使用 bcc 作为演示，而不是 bcc 跟 saya 分别一套代码
+:::
+
 1. 首先先构建一个类似于这样的框架
    ```txt:no-line-numbers
    EroEroBot
@@ -115,9 +119,9 @@
    bcc = Broadcast(loop=loop)
    app = Ariadne(
        MiraiSession(
-           host="http://localhost:8080",
-           verify_key="GraiaxVerifyKey",
-           account=1919810,
+           host="http://localhost:8080", # 同 MAH 的 port
+           verify_key="GraiaxVerifyKey", # 同 MAH 配置的 verifyKey
+           account=1919810, # 机器人 QQ 账号
            # 此处的内容请按照你的 MAH 配置来填写
        ),
    )

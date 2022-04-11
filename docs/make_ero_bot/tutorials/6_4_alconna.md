@@ -14,7 +14,7 @@
 
 ::: tip TIPS
 
-1. `Alconna` 由两个[尼希语](http://tieba.baidu.com/p/7268094994) 单词组成， `alco` 和 `conna`
+1. `Alconna` 由两个[尼希语](http://tieba.baidu.com/p/7268094994) 单词组成，`alco` 和 `conna`
 2. `ArcletProject` 是一个新生社区，欢迎各位来[交流♂](https://jq.qq.com/?_wv=1027&k=PUPOnCSH)
 
 :::
@@ -56,13 +56,13 @@ pip install graia-ariadne[alconna]
 
 设想我们要给机器人加一个搜索涩图的指令，
 
-```txt
+``` txt
 .setu搜索 <content>
 ```
 
 但这肯定不得劲。于是你给加上了很多的选项，并且某个选项可能会影响其他几个选项的有效性
 
-```txt
+``` txt
 --page <count>
 --tags <tags>
 --illust <illust_name>
@@ -159,14 +159,13 @@ async def ero(app: Ariadne, group: Group, result: Arpamar):
   <ChatMsg name="群菜鸮" avatar="http://q1.qlogo.cn/g?b=qq&nk=2948531755&s=640">草</ChatMsg>
 </ChatWindow>
 
-
 `AlconnaDispatcher`拥有参数`help_flag`, 表示对于该命令帮助信息的处理方式. 其可以有三种值:
 
 - `'stay'`: 不处理, 原样返回, 不能在监听器内获取到帮助信息.
 - `'reply'`: `AlconnaDispatcher`会自动将帮助信息发送给命令发起者.
 - `'post'`: `AlconnaDispatcher`会广播一个`AlconnaHelpMessage`事件, 你可以通过监听该事件来自定义命令帮助行为
 
-例如, 当上例的`help_flag`为`reply`时, 可以出现如下情况:
+例如, 当上例的 `help_flag` 为 `reply` 时, 可以出现如下情况:
 
 <ChatWindow title="聊天记录">
   <ChatMsg name="群菜鸮" avatar="http://q1.qlogo.cn/g?b=qq&nk=2948531755&s=640">.setu搜索 --help</ChatMsg>
@@ -193,11 +192,11 @@ async def ero(app: Ariadne, group: Group, result: Arpamar):
 4. 命令选项：为命令添加额外的解释参数, 或以此选择命令的不同功能
 
 ::: tip
-是的, Alconna 负责的并不是**消息链解析**, 而是**命令解析**.
+是的, Alconna 负责的并不是**消息链解析**, 而是**命令解析**。
 ~~虽然说 Alconna 的实现攘括了消息链解析的功能~~
 :::
 
-在上述例子中, `.setu搜索`是命令名称, `<content>`是命令参数, 而剩下的`page`, `tags`都是命令选项.
+在上述例子中，`.setu搜索`是命令名称, `<content>`是命令参数, 而剩下的`page`, `tags`都是命令选项.
 
 一个命令可以没有命令参数, 但一定要有命令名称, 这样才称得上健全!
 
@@ -218,6 +217,7 @@ alc = AlconnaFire(test_func)
 ## 6.4.3 亮出你的本事吧! 外星人
 
 > **「やってみせろよ、ウチュウジンー！」**
+
 ### 创建 Alconna
 
 以下将展示 Alconna 创建的 5 种方式:
@@ -328,7 +328,7 @@ async def test(app: Ariadne, group: Group):
 
 在**标准形式**中, 你需要传入较多的命令组件, 但同时其可以清晰地表达命令结构.
 
-目前的命令组件有`Option`, `Subcommand`与`Args`
+目前的命令组件有`Option`, `Subcommand` 与 `Args`
 
 这样创建的 Alconna 实例又长什么样呢？让我们来看一看：
 
@@ -438,20 +438,21 @@ Option("--foo", alias=["-F", "--FOO", "-f"])
 **Subcommand**
 
 `Subcommand` 可以传入自己的`Option`:
+
 ```python
 Subcommand("sub", options=[Option("sub_opt")])
 ```
 
 此时`sub_opt`必须在`sub`被输入时才算作合法选项.
 
-`sub ... sub_opt ...` ✔ 
+`sub ... sub_opt ...` ✔
 
-`sub_opt ... sub ...` ❌ 
-
+`sub_opt ... sub ...` ❌
 
 ## 6.4.4 总会有参数的
 
 > **「何とでもなるはずだパラメータ！」**
+
 ### Args
 
 `Args`在 Alconna 中有非常重要的地位, 有一半的 bug 皆因其引发(暴论)
@@ -683,6 +684,7 @@ async def test(
 ## 6.4.5 居然是整活？
 
 > **「コッケイナだと！」**
+
 ### 元素匹配
 
 一定要记住, Alconna 是支持元素匹配的(Plain 元素或 Source 等元素除外)
@@ -764,7 +766,7 @@ from arclet.alconna import Alconna, Args
 
 alc = Alconna("cut_img", Args["@?--width":int:1280, "@?--height":int:720])
 alc.parse("cut_img --height=640")
->>>matched=True, head_matched=True, main_args={"--width": 1280, "--height":640}
+>>> matched=True, head_matched=True, main_args={"--width": 1280, "--height":640}
 ```
 
 <p align="center" style="font-size: 30px"><strong>前面的区域，以后再来探索吧</strong></p>

@@ -70,7 +70,7 @@ Image(path="./Graiax/EroEroBot/eropic.jpg")
 - [rsilk](https://github.com/synodriver/rsilk)
 - [pilk](https://github.com/foyoux/pilk)
 
-以下我们将会以 `graiax-silkcoder` 举例（因为其是现阶段上述转换器中唯一支持 wav/pcm 以外格式的<Curtain>虽然是借助ffmpeg这种牛刀</Curtain>）
+以下我们将会以 `graiax-silkcoder` 举例（因为其是现阶段上述转换器中唯一支持 wav/pcm 以外格式的编解码器<Curtain>虽然是借助 ffmpeg 这种牛刀</Curtain>）
 
 首先安装 `graiax-silkcoder`：
 
