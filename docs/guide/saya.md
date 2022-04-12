@@ -52,7 +52,7 @@ Nonebot 就是一个比较典型的插件导入式框架（通过导入不同的
 
 ::: tip 注意
 在写本章文档的时候，`Graia-Saya` 的版本为 `0.0.15`  
-而最新版本为 <img src="https://img.shields.io/pypi/v/graia-saya?color=2970b6&amp;style=for-the-badge" alt="PyPI版本" style="vertical-align: middle">
+而最新版本为 <img src="https://img.shields.io/pypi/v/graia-saya?color=2970b6&amp;style=flat-square" alt="PyPI版本" style="vertical-align: middle">
 
 假设你之前安装 Ariadne 时用的是以下 2 种选项中的一种，那么你可以直接跳过本小节。
 
@@ -80,7 +80,7 @@ pip install graia-saya
 ## 创建一个基础框架
 
 ::: interlink EroEroBot
-本章完整例子可在 [EroEroBot/main-saya.py](https://github.com/GraiaCommunity/EroEroBot/main-saya.py) 找到。  
+本章完整示例可在 [EroEroBot/main-saya.py](https://github.com/GraiaCommunity/EroEroBot/main-saya.py) 找到。  
 你可以在[此处](https://github.com/GraiaCommunity/EroEroBot/releases/tag/release)下载预配置好的模板（不定期更新）。
 :::
 

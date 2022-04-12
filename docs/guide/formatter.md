@@ -86,7 +86,7 @@ Formatter(
 你看这样子是不是方便多了？
 
 ::: interlink
-**EroEroBot:** 本章完整例子可在 [EroEroBot/modules/formatter.py](https://github.com/GraiaCommunity/EroEroBot/blob/master/modules/formatter.py) 找到。
+**EroEroBot:** 本章完整示例可在 [EroEroBot/modules/formatter.py](https://github.com/GraiaCommunity/EroEroBot/blob/master/modules/formatter.py) 找到。
 
 **相关链接:** <https://graia.readthedocs.io/extra/msg-chain-tool/>
 :::

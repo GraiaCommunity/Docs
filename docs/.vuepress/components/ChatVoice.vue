@@ -25,8 +25,8 @@
           ></audio>
           <span class="voice-bar">
             <span
-              v-for="item in getLineCount(duration)"
-              :key="item"
+              v-for="line in getLineCount(duration)"
+              :key="line.id"
               ref="voice-line"
               class="line"
             ></span>
@@ -58,16 +58,17 @@ export default defineComponent({
   },
   methods: {
     getLineCount: function (num: number) {
-      const array = []
+      const lineArray = []
       num = num / 1.5
-      if (num < 5) return [0, 1, 2, 3, 4]
+      if (num < 5)
+        return [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }, { id: 5 }]
       for (let i = 0; i <= num; i++) {
         if (i >= 25) {
           break
         }
-        array.push(1)
+        lineArray.push({ id: i })
       }
-      return array
+      return lineArray
     },
     reset: function () {
       this.playFlag = false
