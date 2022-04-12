@@ -88,17 +88,24 @@ pkg install openjdk-17
 
 ## 下载并解压 `mcl`
 
+
 先说 Windows 用户，这个特别简单  
-首先点[这里](https://github.com/iTXTech/mirai-console-loader/releases/download/v1.2.2/mcl-1.2.2.zip)，
+首先点[这里](https://github.com/iTXTech/mirai-console-loader/releases/download/v1.2.3/mcl-1.2.3.zip)，
 然后点<MoreInfo words="这里" :link="true">↑ 不是这里，是这里 ↓<img src="/images/before/unzip.webp"></MoreInfo>，就完成了
 
 再说说 Linux 用户，这个也很简单
 
 ```bash
 # 假设你的系统十分的精简，记得安装 wget 和 unzip
-wget https://github.com/iTXTech/mirai-console-loader/releases/download/v1.2.2/mcl-1.2.2.zip
-unzip mcl-1.2.2.zip -d mcl-1.2.2
+wget https://github.com/iTXTech/mirai-console-loader/releases/download/v1.2.3/mcl-1.2.3.zip
+unzip mcl-1.2.3.zip -d mcl-1.2.3
 ```
+
+::: tip
+如果你较为熟悉 github 的话，你可以直接去其 [Releases 界面](https://github.com/iTXTech/mirai-console-loader/releases) 下载最新版本。
+
+还有一件事，现在有 `mcl 2.0.0` ，但因为截至本章提交前，其仍然在 `beta` 状态，可能还会有一些 bug 需要修复，所以对自己动手能力没自信的请下载 1.x.x 版本。
+:::
 
 ## 添加 `mirai-api-http` 并启动 `mcl`
 
