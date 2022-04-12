@@ -26,7 +26,7 @@
   <ChatVoice name="EroEroBot" avatar="/avatar/ero.webp" audio="/voices/夏娜_无路赛_钉宫理惠.mp3">别戳我，好痒</ChatVoice>
 </ChatWindow>
 
-<VolumeBar front_word="贴心的音量键"></VolumeBar>
+<VolumeBar>贴心的音量条：</VolumeBar>
 
 还记得上一节我们简单的讲解消息链时候，给出了这样一种构建图片元素的办法：
 

@@ -4,7 +4,7 @@
 
 然后，自从你学习了如何写出一个机器人，就想能不能通过机器人脚本来间接实现这个幻想呢？
 
-<VolumeBar front_word="懂得都懂"></VolumeBar>
+<VolumeBar>懂得都懂：</VolumeBar>
 
 <ChatWindow title="Graia Framework Community">
   <ChatToast>上午 07:30</ChatToast>

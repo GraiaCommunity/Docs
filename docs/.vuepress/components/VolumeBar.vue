@@ -1,25 +1,16 @@
 <template>
-  <div style="margin-top: 1em; margin-bottom: 1em">
-    <p v-if="frontWord" id="volume-front">{{ frontWord }}</p>
-    <span id="volume-bar">
-      <div class="volume">
-        <input
-          id="range"
-          type="range"
-          min="0"
-          max="100"
-          value="100"
-          oninput='
-            var range = document.getElementById("range");
-            range.style.backgroundSize = `${range.value}% 100%`;
-            for (let i of document.getElementsByTagName("audio")) {
-              i.volume = range.value / 100;
-            };
-            document.getElementById("volume-num").innerHTML = `${value}%`;'
-        />
-        <p id="volume-num">100%</p>
-      </div>
-    </span>
+  <div class="volume-bar">
+    <span class="captions"><slot>普普通通的音量条：</slot></span>
+    <input
+      ref="input"
+      type="range"
+      min="0"
+      max="100"
+      value="100"
+      :style="{ '--volume': volume + '%' }"
+      :oninput="onInput"
+    />
+    <p ref="volumeNum" class="volume-num">100%</p>
   </div>
 </template>
 
@@ -27,84 +18,146 @@
 import { defineComponent } from 'vue'
 
 export default defineComponent({
-  props: {
-    frontWord: String,
+  data() {
+    return {
+      volume: 100,
+    }
+  },
+  methods: {
+    onInput: function () {
+      const input = this.$refs.input as HTMLInputElement
+      this.volume = parseInt(input.value)
+      for (const i of document.getElementsByTagName('audio')) {
+        i.volume = this.volume / 100
+      }
+      ;(this.$refs.volumeNum as HTMLElement).innerHTML = `${input.value}%`
+    },
   },
 })
 </script>
 
 <style scoped lang="scss">
-#volume-bar {
-  display: inline-block;
-  vertical-align: middle;
-  width: 50%;
-  height: 1rem;
+*,
+*::after,
+*::before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
 }
-#volume-num {
+
+.volume-num {
   padding: 0.1rem 0.3rem;
   margin-left: 4px;
-  width: 46px;
+  width: 48px;
   font-size: 0.9rem;
   text-align: right;
   background: var(--c-bg-lighter);
   border-radius: 5px;
 }
-#volume-front {
-  display: inline-block;
-  margin-right: 0.5em;
-  margin-top: 0.5em;
-  margin-bottom: 0.5em;
-}
-.volume {
+
+.volume-bar {
   display: flex;
-  height: 1rem;
   align-items: center;
+  justify-content: space-between;
+  margin: 1em 0;
+  height: 1rem;
 }
-input[type='range'] {
+
+@media (min-width: 600px) {
+  .volume-bar {
+    width: 80%;
+  }
+}
+
+@media (min-width: 1060px) {
+  .volume-bar {
+    width: 60%;
+  }
+}
+
+/* Input */
+input {
+  appearance: none;
   -webkit-appearance: none;
+  padding: 0 10px;
+  display: block;
   width: 100%;
-  border-radius: 10px; /*这个属性设置使填充进度条时的图形为圆角*/
-  background: linear-gradient(var(--c-text), var(--c-text)) no-repeat;
-  background-color: var(--c-bg-arrow);
-  background-size: 100% 100%;
-}
-input[type='range']::-webkit-slider-thumb {
-  -webkit-appearance: none;
-}
-/*轨道设计*/
-input[type='range']::-webkit-slider-runnable-track {
-  height: 5px;
-  border-radius: 10px; /*将轨道设为圆角的*/
-  padding-bottom: 0.3rem;
-}
-input[type='range']::-moz-range-track {
-  height: 5px;
-  border-radius: 10px; /*将轨道设为圆角的*/
-}
-/*删除内框*/
-input[type='range']:focus {
-  outline: none;
-}
-/*滑块*/
-input[type='range']::-webkit-slider-thumb {
-  -webkit-appearance: none;
+  background-color: transparent;
+  cursor: pointer;
+  margin: 17px 0;
+  border-radius: 1px;
   height: 1rem;
-  width: 1rem;
-  margin-top: -0.3rem; /*使滑块超出轨道部分的偏移量相等*/
-  background: var(--c-text);
-  border-radius: 50%; /*外观设置为圆形*/
-}
-input[type='range']::-moz-range-thumb {
-  height: 1rem;
-  width: 1rem;
-  margin-top: -0.3rem; /*使滑块超出轨道部分的偏移量相等*/
-  background: var(--c-text);
-  border-radius: 50%; /*外观设置为圆形*/
-}
-/*Firefox用*/
-input[type='range']::-moz-range-progress {
-  background: linear-gradient(var(--c-text), var(--c-text)) no-repeat;
-  height: 13px;
-  border-radius: 10px;
+  flex: 1;
+  &:focus {
+    outline: none;
+  }
+  /* Webkit | Track */
+  &::-webkit-slider-runnable-track {
+    background: linear-gradient(#3eaf7c, #3eaf7c) no-repeat;
+    background-color: var(--c-bg-arrow);
+    background-size: var(--volume) 100%;
+  }
+  /* Webkit | Thumb */
+  &::-webkit-slider-thumb {
+    appearance: none;
+    -webkit-appearance: none;
+    border: none;
+    border-radius: 50%;
+    height: 3px;
+    width: 3px;
+    background-color: #3eaf7c;
+    transform: scale(4.5, 4.5);
+    transition: box-shadow 0.3s cubic-bezier(0.5, -0.8, 0.5, 1.8);
+  }
+  /* Webkit | Hover */
+  &::-webkit-slider-thumb:hover {
+    box-shadow: 0 0 0 1.5px #3eaf7c33;
+  }
+
+  /* Webkit | Active */
+  &::-webkit-slider-thumb:active {
+    box-shadow: 0 0 0 2px #3eaf7c66;
+  }
+
+  /* Moz | Track */
+  &::-moz-range-track {
+    background-color: var(--c-bg-arrow);
+  }
+
+  /* Moz | Thumb */
+  &::-moz-range-thumb {
+    appearance: none;
+    -moz-appearance: none;
+    border: none;
+    border-radius: 50%;
+    height: 3px;
+    width: 3px;
+    background-color: #3eaf7c;
+    transform: scale(4.5, 4.5);
+    transition: box-shadow 0.3s cubic-bezier(0.5, -0.8, 0.5, 1.8);
+  }
+
+  /* Moz | Progress */
+  &::-moz-range-progress {
+    border-radius: 1px;
+    height: 3px;
+    background-color: #3eaf7c;
+  }
+
+  /* Moz | Hover */
+  &::-moz-range-thumb:hover {
+    box-shadow: 0 0 0 1.5px #3eaf7c33;
+  }
+
+  /* Moz | Active */
+  &::-moz-range-thumb:active {
+    box-shadow: 0 0 0 2px #3eaf7c66 !important;
+  }
+
+  &::-moz-focus-outer {
+    border: none;
+  }
 }
 </style>
