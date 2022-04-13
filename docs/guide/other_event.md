@@ -21,12 +21,19 @@
 
 ::::
 
-以下是一段示例代码（不完整，请自行插入到合适的地方，注释为与群消息事件的对比）
+以下是一段示例代码：（注释为与群消息事件的对比）
+
+::: danger 警告
+为了防止部分读者日常叛逆，再次说明，从章开始，如无特殊说明，所有示例代码均使用 Saya 的方式编写。  
+使用 Saya 进行模块加载后，不可以将所有代码全部堆在同一个文件里！！！
+:::
 
 <CodeGroup>
 <CodeGroupItem title="Python <= 3.9">
 
 ``` python
+# 本部分示例不完整，请自行补充
+# 本部分示例需使用 Saya 进行加载
 # from graia.ariadne.event.message import GroupMessage
 from graia.ariadne.event.mirai import NudgeEvent
 
@@ -53,6 +60,8 @@ async def getup(app: Ariadne, event: NudgeEvent):
 <CodeGroupItem title="Python >= 3.10">
 
 ``` python
+# 本部分示例不完整，请自行补充
+# 本部分示例需使用 Saya 进行加载
 # 本部分示例使用 Python 3.10 引入的 match...case...语法
 # from graia.ariadne.event.message import GroupMessage
 from graia.ariadne.event.mirai import NudgeEvent

@@ -1,7 +1,7 @@
 # 东西要分类好
 
 在前一章我们创建了一个单文件机器人。
-但是当机器人的功能越来越复杂的时候，你的这个文件可能会有几百行。
+但是当机器人的功能越来越复杂的时候，你的这个文件可能会有**上千行**，每次修改都要翻很久。
 如此一来，你一定会觉得如果能像玩游戏加 MOD（模组）那样把每一个功能都变为一个模组那该多好。
 
 因此，我们可以按照这个思路，把机器人的每一个功能都分开成一个个模组，
@@ -11,8 +11,8 @@
 这种**通过模组来管理机器人各个功能**的方式会对你后面写机器人有很大帮助。
 而且，某些模组甚至可以完全可以直接通过**复制粘贴文件**的形式直接装到你的机器人上。
 
-::: warning
-从本章之后所有示例都会采用 Saya 模组的形式编写及实现，并省略诸如
+::: danger 警告
+从本章之后所有示例都会采用 Saya 模组的形式编写及实现，并可能会省略诸如
 `import xxx`、`from xxx import xxx`、`channel = Channel.current()` 等语句。
 
 此外，当介绍**BCC 相关概念**时，可能会使用 BCC 而非 Saya进行演示。
@@ -78,11 +78,6 @@ pip install graia-saya
 ::::
 
 ## 创建一个基础框架
-
-::: interlink EroEroBot
-本章完整示例可在 [EroEroBot/main-saya.py](https://github.com/GraiaCommunity/EroEroBot/main-saya.py) 找到。  
-你可以在[此处](https://github.com/GraiaCommunity/EroEroBot/releases/tag/release)下载预配置好的模板（不定期更新）。
-:::
 
 首先，为了降低新人的理解难度，我们直接拿出一个最小实例：
 
@@ -165,7 +160,14 @@ EroEroBot
 
 ::::
 
-<h3>如何使进行动态导入</h3>
+::: interlink EroEroBot
+本章完整示例可在 [EroEroBot/main-saya.py](https://github.com/GraiaCommunity/EroEroBot/blob/master/main-saya.py) 找到。  
+你可以在[此处](https://github.com/GraiaCommunity/EroEroBot/releases/tag/release)下载预配置好的模板（不定期更新）。
+
+**提示:** 如果上面的文件结构表达方式你看得不是很懂的话，你可以点进去 [EroEroBot 的仓库](https://github.com/GraiaCommunity/EroEroBot/)进行参考
+:::
+
+### 如何使进行动态导入
 
 当你以后写了更多模组之后，你想必不可能一个一个的去导入，就像下面这样：
 
@@ -198,7 +200,7 @@ app.launch_blocking()
 - 对于 `.py` 的单文件模组，直接 `saya.require(f"modules.{模组文件名[:-3]}")`（即 `modules.` 加上去除 `.py` 后剩下的部分）
 :::
 
-<h3>把他们组合起来</h3>
+### 把他们组合起来
 
 前面啰里啰唆讲了一大堆，想必你一定有点不耐烦，那么就直接给你一个完整的最小实例吧：
 
@@ -231,6 +233,14 @@ app.launch_blocking()
 ```
 
 ## 写个 `module`
+
+::: danger 警告
+使用 Saya 进行模块加载后，不可以将所有代码全部堆在同一个文件里！！！
+<br><Curtain>啊我的上帝，老伙计，我发誓，你要是这么做，我就要狠狠地踢你的屁股了！</Curtain>
+<br><Curtain>单文件 Bot 是坏文明 desu~</Curtain>
+
+（相信你不会想功能多了以后一个文件几千行的）
+:::
 
 <h3>举个栗子</h3>
 
