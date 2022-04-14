@@ -54,7 +54,7 @@ Nonebot 就是一个比较典型的插件导入式框架（通过导入不同的
 在写本章文档的时候，`Graia-Saya` 的版本为 `0.0.15`  
 而最新版本为 <img src="https://img.shields.io/pypi/v/graia-saya?color=2970b6&amp;style=flat-square" alt="PyPI版本" style="vertical-align: middle">
 
-假设你之前安装 Ariadne 时用的是以下 2 种选项中的一种，那么你可以直接跳过本小节。
+假设你之前安装 Ariadne 时用的是以下 3 种选项中的一种，那么你可以直接跳过本小节。
 
 - `graia-ariadne[full]`
 - `graia-ariadne[graia]`

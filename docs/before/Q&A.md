@@ -232,12 +232,12 @@ graia-ariadne 0.6.12 Another elegant Python QQ Bot framework for mirai and mirai
 你以为你只安装了一个库，实际上你安装了 25 个库
 当你后面想要把你的机器人在别的电脑里运行的时候  
 一切都太迟了，你完全不知道你到底需要哪个库，不需要哪个库  
-甚至升级（pip 更行库并不会自动升级依赖）
+甚至升级（pip 更新库并不会自动升级依赖）
 
 ### 6.3 为什么不用 `pip` + `venv`
 
 就如开头所说，相比于 `pip` + `venv`，`poetry` 还能帮你**管理**你已经安装的扩展。
-我知道肯定有一部分人会认为「不要最求最新版，容易出 bug」，
+我知道肯定有一部分人会认为「不求最新版，容易出 bug」，
 但是吧，最新版同时也会解决一些 bug。
 
 例如早些时候的 v4<sup>[[注]](../appendix/terms.md)</sup> 的时候，
@@ -265,6 +265,13 @@ curl -sSL https://install.python-poetry.org | python3 -
 # windows powershell
 (Invoke-WebRequest -Uri https://install.python-poetry.org -UseBasicParsing).Content | python -
 ```
+
+::: tip
+因为网络的原因，可能你的系统连接到 pypi 的网速大概率是不怎么样的。
+而且很可惜，该方法并不能将仓库更改到镜像源。
+
+假设可以，建议你挂个全局 tz 再运行该脚本
+:::
 
 :::
 ::: code-group-item 使用 pipx
