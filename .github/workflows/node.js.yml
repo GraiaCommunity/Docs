@@ -28,4 +28,5 @@ jobs:
         run: |
           python3 -m pip install coscmd
           coscmd config -a ${{ secrets.SecretId }} -s ${{ secrets.SecretKey }} -b graiax-1302360504 -r ap-hongkong
+          coscmd delete -r -f /
           coscmd upload -r docs/.vuepress/dist/ /
