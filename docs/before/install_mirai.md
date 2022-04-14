@@ -88,7 +88,6 @@ pkg install openjdk-17
 
 ## 下载并解压 `mcl`
 
-
 先说 Windows 用户，这个特别简单  
 首先点[这里](https://github.com/iTXTech/mirai-console-loader/releases/download/v1.2.3/mcl-1.2.3.zip)，
 然后点<MoreInfo words="这里" :link="true">↑ 不是这里，是这里 ↓<img src="/images/before/unzip.webp"></MoreInfo>，就完成了
@@ -131,13 +130,32 @@ xxxx-xx-xx xx:xx:xx I/main: mirai-console started successfully.
 >
 ```
 
-然后让我们添加一下自动登录的账号
+现在，我们添加一下自动登录的账号
 
 ```txt:no-line-numbers
 /autoLogin add <你的QQ号> <你的QQ密码>
 ```
 
 然后输入 `Ctrl + C` 退出一下 mcl
+
+### 关于账号协议问题
+
+你应该知道，QQ 会有很多登录协议（比如安卓手机和安卓平板就分别属于不同的登陆协议）。
+而 Mirai 支持了不少登陆协议，包括
+
+- 安卓手机：`ANDROID_PHONE`
+- 安卓平板：`ANDROID_PAD`
+- 安卓手表：`ANDROID_WATCH`
+- 苹果平板：`IPAD`
+- 苹果电脑：`MACOS`
+
+当你输入 `/autoLogin add <你的QQ号> <你的QQ密码>` 的时候，
+Mirai 将会默认以 `ANDROID_PHONE` 协议登录。
+如果你因为某些原因（比如想要在 Bot 不掉线的情况下使用手机登录 Bot 的 QQ 账号）而想要更改登录协议的话，只需要在最后面再加上 `<你所需要的协议>`（即 `/autoLogin add <你的QQ号> <你的QQ密码> <你所需要的协议>`）就好了
+
+::: tip
+上文所指的 `<你所需要的协议>`，是 `ANDROID_PHONE` 这样的英文哦，不是 `安卓手机` 什么的
+:::
 
 ## 配置 `mirai-api-http` 参数
 
@@ -208,20 +226,22 @@ adapterSettings:
 假设成功了，那么恭喜你  
 假设没有成功，这边建议拜一下企鹅
 
-<h2>附：使用 Docker</h2>
+## 附：使用 Docker
 
 Docker 嘛，应该不用我介绍了吧，懂得都懂  
 事实上，我们有现成的 Docker 来解决这个问题  
 [这里](https://github.com/ZhaoZuohong/mirai-mah-docker)有现成的 Dockerfile
 
-<h2>附: 在 <code>MiraiAndroid</code> 中运行 <code>mirai-api-http</code></h2>
+## 附: 在 `MiraiAndroid` 中运行 `mirai-api-http`
 
 对于那些想要**在安卓手机上**跑 bot 的人来说，`MiraiAndroid` 绝对是跑 `Mirai-api-http` 的不二之选  
 所以，在这里也教一下大家怎么在 `MiraiAndroid` 上运行 `Mirai-api-http`
 
 ::: tip
-假设你不怎么喜欢使用 `MiraiAndroid`  
+假设你不怎么喜欢使用 `MiraiAndroid`，
 可以试试使用 `termux` + `openjdk-17` 来运行 `mcl`
+
+用 `MiraiAndroid` 来运行 `mirai` 的好处是，其 CPU 和内存占用会小很多。
 :::
 
 ::: warning 注意
@@ -270,5 +290,5 @@ Docker 嘛，应该不用我介绍了吧，懂得都懂
 8. 重启 `MiraiAndroid`
 
 ::: tip
-你可以选择使用 `termux` 来跑 Python 哦
+至于 Python 环境嘛，你可以用 `termux`
 :::
