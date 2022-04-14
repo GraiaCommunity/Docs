@@ -108,6 +108,11 @@ async def getup(app: Ariadne, event: NudgeEvent):
 有关什么是 Broadcast，各种 Event 又是什么，请参阅[这里](../before/Q&A.html#_3-%E4%BB%80%E4%B9%88%E6%98%AF-broadcastcontrol)
 :::
 
+::: warning
+如果你并没有看见 Python 控制台输出 `NudgeEvent` 事件的相关信息，请不要慌张。
+因为 `Ariadne` 的 log 默认状态下只会输出 `MessageEvent`。
+:::
+
 ::: interlink
 **EroEroBot:** 本章完整示例可在 [EroEroBot/modules/other_event.py](https://github.com/GraiaCommunity/EroEroBot/blob/master/modules/other_event.py) 找到。
 
