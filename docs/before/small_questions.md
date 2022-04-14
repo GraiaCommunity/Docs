@@ -46,3 +46,9 @@ Ariadne 自 0.6.1 版本起添加了 `Reverse Adapter`（反向 HTTP / WebSocket
 
 如果这样做失败了，那你还是放弃吧~
 :::
+
+### 关于我的 Python 版本好混乱这件事
+
+某些人（尤其是刚刚上手 Linux 的小白），会遇到「分不清自己调用的究竟是哪个 Python」的问题。然后就遇到「因为找错 Python 了导致遇到各种各样的因为版本问题而出现的 bug」
+
+<Loading></Loading>
