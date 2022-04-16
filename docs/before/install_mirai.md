@@ -151,7 +151,8 @@ xxxx-xx-xx xx:xx:xx I/main: mirai-console started successfully.
 
 当你输入 `/autoLogin add <你的QQ号> <你的QQ密码>` 的时候，
 Mirai 将会默认以 `ANDROID_PHONE` 协议登录。
-如果你因为某些原因（比如想要在 Bot 不掉线的情况下使用手机登录 Bot 的 QQ 账号）而想要更改登录协议的话，只需要在最后面再加上 `<你所需要的协议>`（即 `/autoLogin add <你的QQ号> <你的QQ密码> <你所需要的协议>`）就好了
+如果你因为某些原因（比如想要在 Bot 不掉线的情况下使用手机登录 Bot 的 QQ 账号）而想要更改登录协议的话，
+试试以下命令：`/autoLogin setConfig <你的QQ号> protocol <你所需要的协议>`
 
 ::: tip
 上文所指的 `<你所需要的协议>`，是 `ANDROID_PHONE` 这样的英文哦，不是 `安卓手机` 什么的
