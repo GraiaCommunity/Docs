@@ -104,7 +104,7 @@ async def every_minute_speaking(app: Ariadne):
 `crontab` 具体语法你可以看一下[菜鸟教程对 crontab 的讲解](https://www.runoob.com/linux/linux-comm-crontab.html)。
 
 ::: tip
-看清楚了，方法是 `timers.crontabify` 而不是 `timers.croniter`！  
+**看清楚了，方法是 `timers.crontabify` 而不是 `timers.croniter`！**  
 事实上，`graia-scheduler` 所使用的 crontab 语法分析库支持将**秒**作为第六个参数导入，如：
 
 ```python

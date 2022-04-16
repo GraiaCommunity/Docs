@@ -15,7 +15,7 @@
 从本章之后所有示例都会采用 Saya 模组的形式编写及实现，并可能会省略诸如
 `import xxx`、`from xxx import xxx`、`channel = Channel.current()` 等语句。
 
-此外，当介绍**BCC 相关概念**时，可能会使用 BCC 而非 Saya进行演示。
+此外，当介绍**BCC 相关概念**时，可能会使用 BCC 而非 Saya 进行演示。
 :::
 
 ## `Saya` 是什么
@@ -178,7 +178,7 @@ with saya.module_context():
     ...
 ```
 
-因此在这里介绍一种使用 Python 标准库 `pkgutil` 的比较简洁的动态导入方法，代码如下：
+假设你将你的所有模组都放到了同一个文件夹中，那么在这里介绍一种使用 Python 标准库 `pkgutil` 的比较简洁的动态导入方法，代码如下：
 
 ```python
 import pkgutil
@@ -187,6 +187,8 @@ import pkgutil
 with saya.module_context():
     for module_info in pkgutil.iter_modules(["modules"]):
         if module_info.name.startswith("_"):
+            # 假设模组是以 `_` 开头的，就不去导入
+            # 根据 Python 标准，这类模组算是私有函数
             continue
         saya.require("modules." + module_info.name)
 
@@ -194,10 +196,12 @@ app.launch_blocking()
 ```
 
 ::: tip
-你不是必须用我这个用法，假设你的模组都放在一个叫 modules 的文件夹里，你可以遍历这个文件夹：
+你不是必须用我这个用法，假设你的模组都放在一个叫 modules 的文件夹里，你可以使用 `os.walk` 之类的函数遍历这个文件夹：
 
 - 对于文件夹模组，直接 `saya.require(f"modules.{模组的文件夹名字}")`
 - 对于 `.py` 的单文件模组，直接 `saya.require(f"modules.{模组文件名[:-3]}")`（即 `modules.` 加上去除 `.py` 后剩下的部分）
+
+**注意：以上举例的 `模组的文件夹名字`, `模组文件名` 都是你自己定义的变量，请不要写出 `saya.require(f"modules.{ero}")` 这样的代码**
 :::
 
 ### 把他们组合起来
@@ -236,8 +240,8 @@ app.launch_blocking()
 
 ::: danger 警告
 使用 Saya 进行模块加载后，不可以将所有代码全部堆在同一个文件里！！！
-<br><Curtain>啊我的上帝，老伙计，我发誓，你要是这么做，我就要狠狠地踢你的屁股了！</Curtain>
-<br><Curtain>单文件 Bot 是坏文明 desu~</Curtain>
+<br><Curtain type="danger">啊我的上帝，老伙计，我发誓，你要是这么做，我就要狠狠地踢你的屁股了！</Curtain>
+<br><Curtain type="danger">单文件 Bot 是坏文明 desu~</Curtain>
 
 （相信你不会想功能多了以后一个文件几千行的）
 :::
