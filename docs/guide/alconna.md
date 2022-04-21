@@ -63,10 +63,10 @@ pip install graia-ariadne[alconna]
 但这肯定不得劲。于是你给加上了很多的选项，并且某个选项可能会影响其他几个选项的有效性
 
 ```txt
---page <count>
---tags <tags>
---illust <illust_name>
---click <scope>
+page <count>
+tags <tags>
+illust <illust_name>
+click <scope>
 ```
 
 如果使用 twilight 去做，选项之间的处理会比较复杂
@@ -77,10 +77,10 @@ pip install graia-ariadne[alconna]
 from arclet.alconna import AlconnaString
 SetuFind = AlconnaString(
   ".setu搜索 <content> #在p站中搜索条件达成的插图并返回",
-  "--page <count:int:1> #在所有搜索结果中指定页数",
-  "--tags <*tags:str> #指定插图的标签，可以使用逗号分隔多个标签",
-  "--illust <illust_name:str> #指定插图画师",
-  "--click <min:int:1> <max:int> #设定插图的点赞数范围"
+  "-p|page <count:int:1> #在所有搜索结果中指定页数",
+  "-t|tags <tags;S:str> #指定插图的标签，可以使用空格分隔多个标签",
+  "illust <illust_name:str> #指定插图画师",
+  "click <min:int:1> <max:int> #设定插图的点赞数范围"
 )
 ```
 
@@ -173,7 +173,7 @@ async def ero(app: Ariadne, group: Group, result: Arpamar):
 准备就绪，对着你的机器人~~发情~~发号施令吧：
 
 <ChatWindow title="聊天记录">
-  <ChatMsg name="群菜鸮" avatar="http://q1.qlogo.cn/g?b=qq&nk=2948531755&s=640">.setu搜索 白面鸮 --tags ntr sole-male --page 1 </ChatMsg>
+  <ChatMsg name="群菜鸮" avatar="http://q1.qlogo.cn/g?b=qq&nk=2948531755&s=640">.setu搜索 白面鸮 -t sole-male ntr -p 1 </ChatMsg>
   <ChatMsg name="EroEroBot" :avatar="$withBase('/avatar/ero.webp')">工口发生~</ChatMsg>
   <ChatMsg name="群菜龙" avatar="http://q1.qlogo.cn/g?b=qq&nk=2544704967&s=640">草</ChatMsg>
   <ChatMsg name="群菜鸡" avatar="http://q1.qlogo.cn/g?b=qq&nk=1450069615&s=640">草</ChatMsg>
@@ -192,10 +192,10 @@ async def ero(app: Ariadne, group: Group, result: Arpamar):
   <ChatMsg name="群菜鸮" avatar="http://q1.qlogo.cn/g?b=qq&nk=2948531755&s=640">.setu搜索 --help</ChatMsg>
   <ChatMsg name="EroEroBot" :avatar="$withBase('/avatar/ero.webp')">.setu搜索 &lt;content:WildMatch&gt;<br>
   在p站中搜索条件达成的插图并返回<br>可用的选项有:<br>
-  # 在所有搜索结果中指定页数<br>  --page &lt;count:int, default=1&gt;<br>
-  # 指定插图的标签，可以使用空格分隔多个标签<br>  --tags &lt;tags:*str&gt;<br>
-  # 指定插图画师<br>  --illust &lt;illust_name:str&gt;<br>
-  # 设定插图的点赞数范围<br>  --click &lt;min:int, default=1&gt; &lt;max:int&gt;</ChatMsg>
+  # 在所有搜索结果中指定页数<br>  -p, page &lt;count:int, default=1&gt;<br>
+  # 指定插图的标签，可以使用空格分隔多个标签<br>  -t, tags &lt;tags:*str&gt;<br>
+  # 指定插图画师<br>  illust &lt;illust_name:str&gt;<br>
+  # 设定插图的点赞数范围<br>  click &lt;min:int, default=1&gt; &lt;max:int&gt;</ChatMsg>
   <ChatMsg name="群菜龙" avatar="http://q1.qlogo.cn/g?b=qq&nk=2544704967&s=640">好</ChatMsg>
 </ChatWindow>
 
@@ -233,12 +233,49 @@ def test_func(name: str, sender_id: int):
 alc = AlconnaFire(test_func)
 ```
 
+### 使用模糊匹配
+
+模糊匹配是 Alconna 0.8.0 中新增加的特性, 通过在 Alconna 中 设置 `is_fuzzy_match=True` 开启
+
+模糊匹配会应用在任意需要进行名称判断的地方, 如命令名称, 选项名称 和 参数名称(如指定需要传入参数名称)
+
+```python{3}
+from arclet.alconna import Alconna
+
+alc = Alconna("test_fuzzy", is_fuzzy_match=True)
+alc.parse("test_fuzy")
+
+>>> 'test_fuzy is not matched. Do you mean "test_fuzzy"?'
+```
+
+### 自定义语言文件
+
+语言配置是 Alconna 0.8.3 中新增加的特性, 为用户提供了自定义报错/输出的接口
+
+您可以通过 `Alconna.load_config_file` 直接更新配置, 也可以通过 `Alconna.lang_config.change_lang` 对单一文本进行修改
+
+```python
+from arclet.alconna import Alconna, lang_config, Option
+
+alc = Alconna("!command", is_raise_exception=True) + Option("--bar", "foo:str")
+lang_config.change_lang(
+    "analyser.param_unmatched",
+    "以下参数没有被正确解析哦~\n: {target}\n请主人检查一下命令是否正确输入了呢~",
+)
+alc.parse("!command --baz abc")
+
+'''
+ParamsUnmatched: 以下参数没有被正确解析哦~
+: --baz
+请主人检查一下命令是否正确输入了呢~
+'''
+```
+
 :::
 
 ## 亮出你的本事吧！外星人
 
 > **「やってみせろよ、ウチュウジンー！」**
-
 ### 创建 Alconna
 
 以下将展示 Alconna 创建的 5 种方式：
@@ -325,7 +362,7 @@ cli = AlconnaDecorate(loop=loop)
 @cli.argument(Args["count":int])
 def setu(count: int):
     ...
-
+    
 
 @channel.use(
     ListenerSchema(
@@ -351,7 +388,7 @@ def give_me_setu(count: int):
     class Config:
         command=我要涩图
     ...
-
+    
 
 alc = AlconnaFire(give_me_setu)
 
@@ -502,7 +539,6 @@ Subcommand("sub", options=[Option("sub_opt")])
 ## 总会有参数的
 
 > **「何とでもなるはずだパラメータ！」**
-
 ### Args
 
 `Args` 在 Alconna 中有非常重要的地位，有一半的 bug 皆因其引发（暴论）。
@@ -529,7 +565,7 @@ var 可以是以下几类：
 若想增加类型检查,我们可以通过 `arclet.alconna.types.add_check` 传入自己的 ArgPattern：
 
 ```python
->>> add_check(
+>>> set_converter(
 ...     ArgPattern(
 ...         "app", PatternToken.REGEX_TRANSFORM, Ariadne, lambda x: app, 'app'
 ...     )
@@ -548,20 +584,17 @@ ObjectPattern(Image, limit=("url",))
 
 `key`的作用是用以标记解析出来的参数并存放于 Arpamar 中,以方便用户调用。
 
-其有七种特殊前缀,为 `*xxx`、`!xxx`、`**xxx`、`#xxx`、`@xxx`、`?xxx` 和 `_xxx`
+其有七种为 Args 注解的标识符,为 `S`、`W`、`A`、`F`、`K`、`O` 和 `H`. 标识符应与 key 以 `;` 分隔, 用 `'|'` 区分
 
-以下前缀只能选择一个：
+- `S` 标识符表示当前参数为可变长非键值对参数，类似函数中的 `*args`，可以传入 0 至任意个参数。
+- `W` 标识符表示当前参数为可变长键值对参数，类似函数中的 `**kwargs`，可传入 0 至任意个参数。
+- `A` 标识符表示该处传入的参数应不是规定的类型，或不在指定的值中。
+- `F` 标识符表示该参数的类型不经过类型转换。
+- `K` 标识符表示该参数需要键值对匹配，即 `key=var` 的形式。
+- `O` 标识符表示该参数为可选参数，会在无参数匹配时跳过。
+- `H` 标识符表示该参数的类型注解需要隐藏。
 
-- `*` 前缀表示当前参数为可变长非键值对参数，类似函数中的 `*args`，可以传入 0 至任意个参数。
-- `**` 前缀表示当前参数为可变长键值对参数，类似函数中的 `**kwargs`，可传入 0 至任意个参数。
-- `!` 前缀表示该处传入的参数应不是规定的类型，或不在指定的值中。
-- `#` 前缀表示该参数的类型不经过类型转换。
-
-以下前缀可以任选：
-
-- `@` 前缀表示该参数需要键值对匹配，即 `key=var` 的形式。
-- `?` 前缀表示该参数为可选参数，会在无参数匹配时跳过。
-- `_` 前缀表示该参数的类型注解需要隐藏。
+另外, 正整数也是可以作为标识符的, 其会作为 `S` 的限制性操作. 如 `key;3` 表示需要传入 0 至 3 个参数。
 
 ### ArgPattern
 
@@ -576,8 +609,19 @@ from arclet.alconna.types import ArgPattern, PatternToken
 
 my_list = ArgPattern(
     "(.+)", token=PatternToken.REGEX_TRANSFORM, origin_type=list,
-    transform_action=lambda x: x.split('/'), alias='my_list'
+    converter=lambda x: x.split('/'), alias='my_list'
 )
+```
+
+或者
+
+```python
+from arclet.alconna import pattern
+
+
+@pattern("my_list", "(.+)")
+def my_list(text: str):
+    return text.split('/')
 ```
 
 并在创建 Alconna 时使用：
@@ -624,12 +668,11 @@ from graia.ariadne.message.parser.alconna import AlconnaDispatcher
         inline_dispatchers=[
             AlconnaDispatcher(
                 alconna=Alconna(
-                    command="找歌",
+                    "找歌", Args["song":str],
                     options=[
                         Option("语种", Args["lang":str]),
                         Subcommand("歌手", [Option("地区", Args["region":str])], Args["singer":str]),
                     ],
-                    main_args=Args["song":str]
                 ),
                 help_flag='reply'
             )
@@ -669,7 +712,6 @@ alc2 = Alconna(
 for i in range(4):
     time.sleep(0.1)
     print(alc2.parse("test_cool_down {}".format(i)))
-
 >>> matched=False, head_matched=True, error_data=[], error_info=操作过于频繁
 >>> matched=True, head_matched=True, main_args={'bar': 1}
 >>> matched=False, head_matched=True, error_data=[], error_info=操作过于频繁
@@ -741,34 +783,37 @@ async def test(
 ## 居然是整活？
 
 > **「コッケイナだと！」**
-
 ### 元素匹配
 
 一定要记住，Alconna 是支持元素匹配的（Plain 元素或 Source 等元素除外）。
 
 所以，如果你要写一个以图搜图的功能，这么写就好了：
 
-```python
+```python{5}
 from arclet.alconna import Alconna, Args
 from graia.ariadne.message.element import Image
+
 pic_search = Alconna(
+    "找图", Args["img":Image],
     headers=["EroBot ", "!"],
-    command="找图",
-    main_args=Args["img":Image]
 )
 ```
 
 ### 不规则命令
 
-你可以在 `command` 中塞正则表达式，其在头部解析后会将匹配结果返回。
+Alconna 对于命令头部 `command` 应用有特殊的构建规则
+
+其可以像 `AlconnaFormat` 那样通过 `'xxx{name:type or pattern}xxx''` 来生成正则表达式, 并将匹配结果传递给 `Arpamar.header`
+
+其中 `name` 与 `type` 都可以留空, `type` 留空时当作`'str'`
 
 类似 `.r100` 或者 `查询XX人品` 的指令，这么写就好了：
 
-```python
-from arclet.alconna import Alconna, AnyDigit, Arpamar
+```python{4}
+from arclet.alconna import Alconna, Arpamar
 from arclet.alconna.graia import AlconnaDispatcher
 
-dice = Alconna(command=f".r{AnyDigit}")
+dice = Alconna(".r{dice:int}")
 
 
 @channel.use(
@@ -778,7 +823,7 @@ dice = Alconna(command=f".r{AnyDigit}")
     )
 )
 async def roll_dice(app: Ariadne, group: Group, result: Arpamar):
-    dice_count = result.header
+    dice_count = result.header.get('dice')
     print(dice_count)
     ...
 ```
@@ -789,16 +834,16 @@ async def roll_dice(app: Ariadne, group: Group, result: Arpamar):
 
 类似 `告诉我 谁是xxx和xxx` 的指令，这么写就好了：
 
-```python
+```python{4}
 from arclet.alconna import Alconna, Option, Arpamar, Args
 from arclet.alconna.graia import AlconnaDispatcher
 
-dice = Alconna("告诉我", options=[Option("谁是", Args['*target':str], separator="和")])
+who = Alconna("告诉我") + Option("谁", Args['*target':str] / "和", separator="是")
 
 @channel.use(
     ListenerSchema(
         listening_events=[GroupMessage],
-        inline_dispatchers=[AlconnaDispatcher(alconna=dice)],
+        inline_dispatchers=[AlconnaDispatcher(alconna=who)],
     )
 )
 async def find(app: Ariadne, group: Group, result: Arpamar):
@@ -818,31 +863,33 @@ from arclet.alconna import Alconna
 def test(foo: str, bar: int, baz: bool):
     ...
 
+tes = Alconna("command", action=test)
+print(tes.args)
 
-tes = Alconna(command="command", action=test)
-tes.args
-"Args('foo': '(.+?)', 'bar': '(\-?\d+)', 'baz': '(True|False|true|false)')"
+>>> "Args('foo': '(.+?)', 'bar': '(\-?\d+)', 'baz': '(True|False|true|false)')"
 ```
 
 在 Alconna 0.7.3 后，args 可以传入一个符合规则的字符串，其会尝试转换为 Args。
 
-```python
+```python{3}
 from arclet.alconna import Alconna
 
 tes = Alconna("command", main_args="foo:str, bar:int, baz:bool")
-tes.args
-"Args('foo': '(.+?)', 'bar': '(\-?\d+)', 'baz': '(True|False|true|false)')"
+print(tes.args)
+
+>>> "Args('foo': '(.+?)', 'bar': '(\-?\d+)', 'baz': '(True|False|true|false)')"
 ```
 
 ### 减少 Option 的使用
 
-利用 `@` 与 `?` 前缀，我们可以在 Args 中模拟出一个 option：
+利用 `K` 与 `O` 前缀，我们可以在 Args 中模拟出一个 option：
 
-```python
+```python{3}
 from arclet.alconna import Alconna, Args
 
-alc = Alconna("cut_img", Args["@?--width":int:1280, "@?--height":int:720])
+alc = Alconna("cut_img", Args["--width;O|K":int:1280, "--height;O|K":int:720])
 alc.parse("cut_img --height=640")
+
 >>> matched=True, head_matched=True, main_args={"--width": 1280, "--height":640}
 ```
 
