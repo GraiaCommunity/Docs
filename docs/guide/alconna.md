@@ -8,7 +8,7 @@
 - 意义不明的日语翻译 ~~熟肉反生~~
 :::
 
-`Alconna`， 全称 [`Arclet-Alconna`](https://github.com/ArcletProject/Alconna)，
+`Alconna`，全称 [`Arclet-Alconna`](https://github.com/ArcletProject/Alconna)，
 是由 [`Arclet Project`](https://github.com/ArcletProject) 维护的一个功能强大的 **命令** 解析器，
 简单一点来讲就是杂糅了多种 CLI 模块 (如 `click`、`fire`等) 风格的命令解析库 (迫真)。
 
@@ -54,13 +54,13 @@ pip install graia-ariadne[alconna]
 
 ## 为什么是外星来客 (大雾)
 
-设想我们要给机器人加一个搜索涩图的指令，
+设想我们要给机器人加一个搜索涩图的指令：
 
 ```txt
 .setu搜索 <content>
 ```
 
-但这肯定不得劲。于是你给加上了很多的选项，并且某个选项可能会影响其他几个选项的有效性
+但这肯定不得劲。于是你给加上了很多的选项，并且某个选项可能会影响其他几个选项的有效性。
 
 ```txt
 page <count>
@@ -69,7 +69,7 @@ illust <illust_name>
 click <scope>
 ```
 
-如果使用 twilight 去做，选项之间的处理会比较复杂
+如果使用 twilight 去做，选项之间的处理会比较复杂。
 
 这个时候，~~天空一声巨响，Alconna 闪亮登场~~，我们可以使用 `Alconna` 来实现我们想要的功能：
 
@@ -203,7 +203,7 @@ async def ero(app: Ariadne, group: Group, result: Arpamar):
 
 ~~左：莱塔尼亚权杖 右：荒地龙舌兰~~
 
-要想写好一个 `Alconna`，你首先需要理清楚自己的**命令结构**
+要想写好一个 `Alconna`，你首先需要理清楚自己的**命令结构**。
 
 一般，你需要把命令分为四个部分：
 
@@ -235,9 +235,9 @@ alc = AlconnaFire(test_func)
 
 ### 使用模糊匹配
 
-模糊匹配是 Alconna 0.8.0 中新增加的特性, 通过在 Alconna 中 设置 `is_fuzzy_match=True` 开启
+模糊匹配是 Alconna 0.8.0 中新增加的特性，通过在 Alconna 中 设置 `is_fuzzy_match=True` 开启。
 
-模糊匹配会应用在任意需要进行名称判断的地方, 如命令名称, 选项名称 和 参数名称(如指定需要传入参数名称)
+模糊匹配会应用在任意需要进行名称判断的地方，如**命令名称**，**选项名称**和**参数名称**（如指定需要传入参数名称）。
 
 ```python{3}
 from arclet.alconna import Alconna
@@ -250,9 +250,9 @@ alc.parse("test_fuzy")
 
 ### 自定义语言文件
 
-语言配置是 Alconna 0.8.3 中新增加的特性, 为用户提供了自定义报错/输出的接口
+语言配置是 Alconna 0.8.3 中新增加的特性，为用户提供了自定义报错/输出的接口。
 
-您可以通过 `Alconna.load_config_file` 直接更新配置, 也可以通过 `Alconna.lang_config.change_lang` 对单一文本进行修改
+您可以通过 `Alconna.load_config_file` 直接更新配置，也可以通过 `Alconna.lang_config.change_lang` 对单一文本进行修改。
 
 ```python
 from arclet.alconna import Alconna, lang_config, Option
@@ -586,7 +586,7 @@ ObjectPattern(Image, limit=("url",))
 
 `key`的作用是用以标记解析出来的参数并存放于 Arpamar 中,以方便用户调用。
 
-其有七种为 Args 注解的标识符,为 `S`、`W`、`A`、`F`、`K`、`O` 和 `H`. 标识符应与 key 以 `;` 分隔, 用 `'|'` 区分
+其有七种为 Args 注解的标识符,为 `S`、`W`、`A`、`F`、`K`、`O` 和 `H`。标识符应与 key 以 `;` 分隔，用 `'|'` 区分
 
 - `S` 标识符表示当前参数为可变长非键值对参数，类似函数中的 `*args`，可以传入 0 至任意个参数。
 - `W` 标识符表示当前参数为可变长键值对参数，类似函数中的 `**kwargs`，可传入 0 至任意个参数。
@@ -596,7 +596,7 @@ ObjectPattern(Image, limit=("url",))
 - `O` 标识符表示该参数为可选参数，会在无参数匹配时跳过。
 - `H` 标识符表示该参数的类型注解需要隐藏。
 
-另外, 正整数也是可以作为标识符的, 其会作为 `S` 的限制性操作. 如 `key;3` 表示需要传入 0 至 3 个参数。
+另外，正整数也是可以作为标识符的，其会作为 `S` 的限制性操作。如 `key;3` 表示需要传入 0 至 3 个参数。
 
 ### ArgPattern
 
@@ -723,9 +723,9 @@ for i in range(4):
 
 ### AlconnaDuplication
 
-`AlconnaDuplication` 用来提供更好的自动补全，经测试表现良好 (好耶)
+`AlconnaDuplication` 用来提供更好的自动补全，经测试表现良好（好耶）。
 
-普通情况下使用，需要利用到 `ArgsStub`、`OptionStub` 和 `SubcommandStub` 三个部分
+普通情况下使用，需要利用到 `ArgsStub`、`OptionStub` 和 `SubcommandStub` 三个部分，
 
 仍以上方命令为例，其对应的 `Duplication` 应如下构造：
 
@@ -805,11 +805,11 @@ pic_search = Alconna(
 
 ### 不规则命令
 
-Alconna 对于命令头部 `command` 应用有特殊的构建规则
+Alconna 对于命令头部 `command` 应用有特殊的构建规则。
 
-其可以像 `AlconnaFormat` 那样通过 `'xxx{name:type or pattern}xxx''` 来生成正则表达式, 并将匹配结果传递给 `Arpamar.header`
+其可以像 `AlconnaFormat` 那样通过 `'xxx{name:type or pattern}xxx''` 来生成正则表达式，并将匹配结果传递给 `Arpamar.header`。
 
-其中 `name` 与 `type` 都可以留空, `type` 留空时当作`'str'`
+其中 `name` 与 `type` 都可以留空, `type` 留空时当作`'str'`。
 
 类似 `.r100` 或者 `查询XX人品` 的指令，这么写就好了：
 
