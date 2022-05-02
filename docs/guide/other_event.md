@@ -93,7 +93,7 @@ async def getup(app: Ariadne, event: NudgeEvent):
 ::: tip
 
 1. 对于 **NudgeEvent** 应使用 `event: NudgeEvent` 获取事件实例来获得相关信息
-2. 此处之所以使用 `sendGroupMessage` 和 `sendFriendMessage` 是因为 `event.target` 的类型为 `int`，而 `sengMessage` 所需参数的类型为 `Union[MessageEvent, Group, Friend, Member]` 不包含 `int`
+2. 此处之所以使用 `sendGroupMessage` 和 `sendFriendMessage` 是因为 `event.target` 的类型为 `int`，而 `sendMessage` 所需参数的类型为 `Union[MessageEvent, Group, Friend, Member]` 不包含 `int`
 
 :::
 
