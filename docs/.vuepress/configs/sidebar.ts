@@ -1,6 +1,4 @@
-import type { SidebarConfig } from '@vuepress/theme-default'
-
-export const sidebar: SidebarConfig = {
+export default {
   '/': [
     {
       text: '引言',

@@ -3,34 +3,42 @@
   "repository": "https://github.com/GraiaCommunity/Docs",
   "license": "MIT",
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.18.0",
-    "@typescript-eslint/parser": "^5.18.0",
-    "@vue/eslint-config-typescript": "^10.0.0",
-    "@vuepress/plugin-register-components": "^2.0.0-beta.38",
-    "@vuepress/plugin-search": "^2.0.0-beta.38",
-    "@vuepress/plugin-shiki": "^2.0.0-beta.38",
-    "eslint": "^8.13.0",
-    "eslint-config-prettier": "^8.5.0",
-    "eslint-config-vuepress": "^3.5.0",
-    "eslint-config-vuepress-typescript": "^2.5.0",
-    "eslint-plugin-prettier": "^4.0.0",
-    "eslint-plugin-vue": "^8.6.0",
+    "@typescript-eslint/eslint-plugin": ">=5.22.0",
+    "@typescript-eslint/parser": ">=5.22.0",
+    "@vue/eslint-config-typescript": ">=10.0.0",
+    "@vuepress/plugin-register-components": "^2.0.0-beta.43",
+    "@vuepress/plugin-search": "^2.0.0-beta.43",
+    "@vuepress/plugin-shiki": "^2.0.0-beta.43",
+    "eslint": ">=8.15.0",
+    "eslint-config-prettier": ">=8.5.0",
+    "eslint-config-vuepress": ">=3.7.1",
+    "eslint-config-vuepress-typescript": ">=2.7.1",
+    "eslint-plugin-prettier": ">=4.0.0",
+    "eslint-plugin-vue": ">=8.7.1",
+    "lint-staged": "^12.4.1",
     "pre-commit": "^1.2.2",
-    "prettier": "^2.6.2",
-    "typescript": "^4.6.3",
-    "vuepress": "^2.0.0-beta.39"
+    "prettier": ">=2.6.2",
+    "typescript": ">=4.6.3",
+    "vuepress": "^2.0.0-beta.43"
   },
   "scripts": {
+    "serve": "vuepress dev docs",
+    "build": "vuepress build docs",
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
     "lint": "eslint --color --ext .js,.ts,.jsx,.tsx,.vue .",
     "lint:fix": "eslint --fix --color --ext .js,.ts,.jsx,.tsx,.vue .",
     "style": "prettier -c .",
-    "style:fix": "prettier -w ."
+    "style:fix": "prettier -w .",
+    "lintstaged": "lint-staged"
   },
   "precommit": {
     "run": [
-      "lint"
+      "lintstaged"
     ]
+  },
+  "lint-staged": {
+    "*.{js,jsx,vue,ts,tsx}": "eslint --color --fix",
+    "*.{css,scss,html,yml,yaml,json}": "prettier -w"
   }
 }
