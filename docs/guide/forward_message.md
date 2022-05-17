@@ -40,10 +40,10 @@
 **当然可以**，我们现在就通过代码来直接复刻上面的效果：
 
 ::: tip
-你可能不太能理解为什么 `Twilight([FullMatch("好大的奶")])` 是什么东西，
+你可能不太能理解为什么 `MatchContent("好大的奶")` 是什么东西，
 你只需要知道，当消息为"好大的奶"的时候，就会触发这个 `Listener`
 
-假设你真的很感兴趣，也可以直接跳到[第 8 章第 2 节](./twilight.md)查看哦
+假设你真的很感兴趣，也可以直接跳到[第 8 章第 1 节](./base_parser.md)查看哦
 :::
 
 ```python
@@ -56,7 +56,7 @@ from graia.ariadne.message.element import At, Plain, Image, Forward, ForwardNode
 @channel.use(
     ListenerSchema(
         listening_events=[GroupMessage],
-        inline_dispatchers=[Twilight([FullMatch("好大的奶")])],
+        inline_dispatchers=[MatchContent("好大的奶")],
     )
 )
 async def create_forward(app: Ariadne, group: Group, member: Member):

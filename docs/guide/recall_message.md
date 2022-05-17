@@ -109,7 +109,7 @@ from graia.ariadne.adapter import Adapter
 @channel.use(
     ListenerSchema(
         listening_events=[GroupMessage],
-        inline_dispatchers=[Twilight.from_command("涩图来")],
+        inline_dispatchers=[MatchContent("涩图来")],
     )
 )
 async def test(app: Ariadne, message: MessageChain):
@@ -152,7 +152,7 @@ from graia.ariadne.adapter import Adapter
 @channel.use(
     ListenerSchema(
         listening_events=[GroupMessage],
-        inline_dispatchers=[Twilight.from_command("涩图来")],
+        inline_dispatchers=[MatchContent("涩图来")],
     )
 )
 async def test(app: Ariadne, message: MessageChain):
@@ -178,7 +178,7 @@ from graia.ariadne.adapter import Adapter
 @channel.use(
     ListenerSchema(
         listening_events=[GroupMessage],
-        inline_dispatchers=[Twilight.from_command("涩图来")],
+        inline_dispatchers=[MatchContent("涩图来")],
     )
 )
 async def test(app: Ariadne, message: MessageChain):
