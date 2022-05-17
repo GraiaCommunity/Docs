@@ -21,7 +21,7 @@
 ## 1. 申请一个 saucenao 的 apikey
 
 根据我们对这次事件的核心机器人 [真寻bot](https://github.com/HibiKier/zhenxun_bot) 的解析，
-我们可以知道，机器人的搜图功能事实上是通过调用 [Saucenao](saucenao.com) 的 api 来实现的。
+我们可以知道，机器人的搜图功能事实上是通过调用 [Saucenao](https://www.saucenao.com) 的 api 来实现的。
 所以，让我们先注册一个 apikey
 
 ::: tip
@@ -29,7 +29,7 @@
 因为是特别篇章嘛，写的有点急，嘿嘿
 :::
 
-1. 打开 [Saucenao](saucenao.com)，点击右下角的 `Account`
+1. 打开 [Saucenao](https://www.saucenao.com)，点击右下角的 `Account`
 2. 在 `Register` 中注册你的账号
 3. 注册登录成功后，点击个人页面左上角的 `api`
 4. 然后在那一大串英文中出现的 `api key` 就是我们需要的东西啦
