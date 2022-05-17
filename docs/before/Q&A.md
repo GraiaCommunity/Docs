@@ -168,7 +168,7 @@ async def test(app: Ariadne, group: Group, target: Member):
 
 如果只下载了 `Ariadne` 而没有配置好 `mirai-api-http` ，则无法启动 `Ariadne`。所以，想要使用 `Ariadne`，就必须先把 `mirai` 和 `mirai-api-http` 连接好
 
-配置 `mirai` 和 `mirai-api-http` 的方法，我们在 [Mirai 的安装雨配置](./install_mirai.md) 一章中所有提及。
+配置 `mirai` 和 `mirai-api-http` 的方法，我们在 [Mirai 的安装与配置](./install_mirai.md) 一章中所有提及。
 当然，你也可以阅读[Ariadne 官方文档关于 mah 的配置方法](https://graia.readthedocs.io/appendix/mah-install/)。
 
 ## 6. 关于 Poetry
