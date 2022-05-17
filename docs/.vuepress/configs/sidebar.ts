@@ -61,5 +61,10 @@ export default {
         '/appendix/Q&A.md',
       ],
     },
+    {
+      text: '热点跟踪',
+      collapsible: true,
+      children: ['/saucenao.md'],
+    },
   ],
 }
