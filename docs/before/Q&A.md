@@ -27,7 +27,7 @@
 <Curtain>我们有时候也称 GreyElaina 为魔女（此处的`女`字并不指性别）</Curtain>
 
 ::: warning 来自魔女的警告
-魔女本人称本节剩余部分存在较多错误，因此仅供辅助理解。
+魔女本人（GreyElaina）称本节剩余部分存在较多错误，因此仅供辅助理解。
 :::
 
 本小节会介绍`BroadcastControl` 的部分原理（或称 **BCC** 与 **Broadcast**，下同），以及 **Ariadne** 是如何与 **BCC** 协调工作的（部分），
@@ -168,7 +168,8 @@ async def test(app: Ariadne, group: Group, target: Member):
 
 如果只下载了 `Ariadne` 而没有配置好 `mirai-api-http` ，则无法启动 `Ariadne`。所以，想要使用 `Ariadne`，就必须先把 `mirai` 和 `mirai-api-http` 连接好
 
-配置 `mirai` 和 `mirai-api-http` 的方法，推荐您阅读[Ariadne 官方文档关于 mah 的配置方法](https://graia.readthedocs.io/appendix/mah-install/)
+配置 `mirai` 和 `mirai-api-http` 的方法，我们在 [Mirai 的安装雨配置](./install_mirai.md) 一章中所有提及。
+当然，你也可以阅读[Ariadne 官方文档关于 mah 的配置方法](https://graia.readthedocs.io/appendix/mah-install/)。
 
 ## 6. 关于 Poetry
 
@@ -351,5 +352,7 @@ pipx install poetry
 当你在提出问题的时候，请附上**完整的报错**跟**报错部分的代码**。
 要不然你只会收获我们的问号。
 :::
+
+<div id="baidu"></div>
 
 ![baidu](/images/before/baidu.webp)

@@ -84,7 +84,7 @@ pkg install openjdk-17
 我们只需要在[这个地方](https://developer.ibm.com/languages/java/semeru-runtimes/downloads)找到适合自己系统的 Java  
 然后安装，就好了
 
-啥？不会？[那看这里](Q&A.html#_9-当你遇到不会的东西的时候)
+啥？不会？[那看这里](Q&A.html#baidu)
 
 ## 下载并解压 `mcl`
 
@@ -134,6 +134,7 @@ xxxx-xx-xx xx:xx:xx I/main: mirai-console started successfully.
 
 ```txt:no-line-numbers
 /autoLogin add <你的QQ号> <你的QQ密码>
+# 如 /autoLogin add 114514 1919810
 ```
 
 然后输入 `Ctrl + C` 退出一下 mcl
