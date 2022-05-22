@@ -23,6 +23,7 @@ export default {
         '/guide/hello_ero.md',
         '/guide/saya.md',
         '/guide/other_event.md',
+        '/guide/multi_events.md',
         {
           text: '关于消息链的故事',
           link: '/guide/message_chain.md',
