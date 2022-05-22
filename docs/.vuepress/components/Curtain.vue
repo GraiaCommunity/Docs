@@ -27,23 +27,39 @@ export default defineComponent({
 </script>
 
 <style scoped lang="scss">
-.heimu,
-.heimu a,
-a .heimu {
+.heimu {
   background-color: var(--text, var(--c-text));
   color: var(--text, var(--c-text));
   text-shadow: none;
   border-radius: 3px;
   padding: 2px 5px; /* 尽量与 code 标签的样式保持一致提升观感 */
   margin: 0 3px;
-  /*font-size: 0.85em;  要是黑幕跟其他字体不一样大，就没那味了啊 */
   transition: color 0.13s linear;
-}
-.heimu:hover,
-.heimu:active,
-.heimu:hover a,
-a:hover .heimu,
-.heimu.off a {
-  color: var(--bg, var(--c-bg));
+
+  &:deep() {
+    code {
+      padding: 0.1rem 0.25rem;
+      background-color: var(--text, var(--c-text));
+      color: var(--text, var(--c-text));
+    }
+    a {
+      color: var(--text, var(--c-text));
+    }
+  }
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: var(--bg, var(--c-bg));
+
+    &:deep() code {
+      background-color: var(--bg, var(--c-bg));
+      color: var(--text, var(--c-text));
+    }
+
+    &:deep() a {
+      color: var(--c-text-accent);
+    }
+  }
 }
 </style>
