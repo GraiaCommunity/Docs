@@ -45,7 +45,7 @@ dnf install java-latest-openjdk
 ```powershell
 # 假设你的电脑安装了 Winget
 # 事实上，截至目前，winget 上有足足 7 个厂商的 JDK
-# 因为是 Windows嘛，所以就以 Microsoft 发行的 JDK 举例
+# 因为是 Windows 嘛，所以就以 Microsoft 发行的 JDK 举例
 winget install Microsoft.OpenJDK.17
 ```
 
@@ -86,24 +86,30 @@ pkg install openjdk-17
 
 啥？不会？[那看这里](Q&A.html#baidu)
 
+::: warning
+在 Windows 上使用 `ibm semeru openjdk` （即使用 `openj9`）的情况下，
+可能一开始的 `Mirai Console Loader 公告栏` 会出现乱码。
+不过现阶段暂时没有发现会出现什么其他问题，所以请放心使用。
+:::
+
 ## 下载并解压 `mcl`
 
 先说 Windows 用户，这个特别简单  
-首先点[这里](https://github.com/iTXTech/mirai-console-loader/releases/download/v1.2.3/mcl-1.2.3.zip)，
+首先点[这里](https://github.com/iTXTech/mirai-console-loader/releases/download/v2.1.0/mcl-2.1.0.zip)，
 然后点<MoreInfo words="这里" :link="true">↑ 不是这里，是这里 ↓<img src="/images/before/unzip.webp"></MoreInfo>，就完成了
 
 再说说 Linux 用户，这个也很简单
 
 ```bash
 # 假设你的系统十分的精简，记得安装 wget 和 unzip
-wget https://github.com/iTXTech/mirai-console-loader/releases/download/v1.2.3/mcl-1.2.3.zip
-unzip mcl-1.2.3.zip -d mcl-1.2.3
+wget https://github.com/iTXTech/mirai-console-loader/releases/download/v2.1.0/mcl-2.1.0.zip
+unzip mcl-2.1.0.zip -d mcl-2.1.0
 ```
 
 ::: tip
 如果你较为熟悉 github 的话，你可以直接去其 [Releases 界面](https://github.com/iTXTech/mirai-console-loader/releases) 下载最新版本。
 
-还有一件事，现在有 `mcl 2.0.0` ，但因为截至本章提交前，其仍然在 `beta` 状态，可能还会有一些 bug 需要修复，所以对自己动手能力没自信的请下载 1.x.x 版本。
+因为 Mirai 2.11 出现了不兼容更新，所以其要求 MCL 版本必须在2.1.0以上，且旧版本的 MCL 并不会自动升级 Mirai 到 2.11。
 :::
 
 ## 添加 `mirai-api-http` 并启动 `mcl`
@@ -113,13 +119,20 @@ unzip mcl-1.2.3.zip -d mcl-1.2.3
 假设你不会的话，请[看这里](./Q&A.md#_9-当你遇到不会的东西的时候)
 :::
 
-首先需要进入到 `mcl-1.2.2` 文件夹中  
+首先需要进入到 `mcl-2.1.0` 文件夹中  
 然后，跟着我的命令来
 
 ```bash
 ./mcl --update-package net.mamoe:mirai-api-http --channel stable-v2 --type plugin
 ./mcl -u
 ```
+
+::: danger
+假设你的 Mirai 版本低于 2.11，请手动下载 `mirai-api-http` 的 2.4.0 版本
+并将其放入 `plugins` 文件夹中
+
+`Mirai-api-http 2.5.0+` 只兼容 `Mirai 2.11+`
+:::
 
 然后，稍作等待，等到显示这个  
 然后你就成功启动了 mirai
@@ -232,7 +245,7 @@ adapterSettings:
 
 Docker 嘛，应该不用我介绍了吧，懂得都懂  
 事实上，我们有现成的 Docker 来解决这个问题  
-[这里](https://github.com/ZhaoZuohong/mirai-mah-docker)有现成的 Dockerfile
+~~[这里](https://github.com/ZhaoZuohong/mirai-mah-docker)有现成的 Dockerfile~~该仓库已经原作者删除
 
 ## 附: 在 `MiraiAndroid` 中运行 `mirai-api-http`
 
