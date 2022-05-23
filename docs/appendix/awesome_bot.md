@@ -13,11 +13,13 @@
   <GitRepo user="SAGIRI-kawaii" repo="sagiri-bot">基于Graia和Mirai的QQ机器人 SAGIRI-BOT</GitRepo>
   <GitRepo user="BlueGlassBlock" repo="Xenon">An elegant QQ bot based on Mirai and Graia Project.</GitRepo>
   <GitRepo user="MadokaProject" repo="Madoka">一个可自定义的，基于Graia和Mirai的集群管、功能、娱乐为一体的QQ插件式机器人</GitRepo>
+  <GitRepo user="zzzzz167" repo="Yuki" archived><b><s>已停更</s>哦我的上帝，ta又更新了</b><br/>No Description</GitRepo>
 </div>
 
 <h2 align="center">已停止更新的 bot</h2>
+<h1 align="center"><ruby>没有哟！<rp>(</rp><rt>ないよ！</rt><rp>)</rp></ruby></h1>
 <div class="bot-repo">
-  <GitRepo user="zzzzz167" repo="Yuki" archived><b>已停更 最后一次更新在2022.02.28</b><br/>No Description</GitRepo>
+  
 </div>
 
 <style scope>
