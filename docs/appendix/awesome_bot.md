@@ -7,7 +7,6 @@
 
 <h2 align="center">还在更新的 bot</h2>
 <div class="bot-repo">
-  <GitRepo user="djkcyl" repo="ABot-Graia" archived><b><s>已停更</s>哦我的上帝，ta又更新了</b><br/>一个使用 Graia Ariadne 搭建的 QQ 功能性机器人。</GitRepo>
   <GitRepo user="I-love-study" repo="A_Simple_QQ_Bot">一个普普通通的 QQ 机器人</GitRepo>
   <GitRepo user="Redlnn" repo="redbot">一个以 Graia Ariadne 框架为基础的 QQ 机器人</GitRepo>
   <GitRepo user="SAGIRI-kawaii" repo="sagiri-bot">基于Graia和Mirai的QQ机器人 SAGIRI-BOT</GitRepo>
@@ -17,9 +16,8 @@
 </div>
 
 <h2 align="center">已停止更新的 bot</h2>
-<h1 align="center"><ruby>没有哟！<rp>(</rp><rt>ないよ！</rt><rp>)</rp></ruby></h1>
 <div class="bot-repo">
-  
+    <GitRepo user="djkcyl" repo="ABot-Graia" archived><b>哦我的上帝，ta又停更了</b><br/>一个使用 Graia Ariadne 搭建的 QQ 功能性机器人。</GitRepo>
 </div>
 
 <style scope>
