@@ -13,11 +13,12 @@
   <GitRepo user="BlueGlassBlock" repo="Xenon">An elegant QQ bot based on Mirai and Graia Project.</GitRepo>
   <GitRepo user="MadokaProject" repo="Madoka">一个可自定义的，基于Graia和Mirai的集群管、功能、娱乐为一体的QQ插件式机器人</GitRepo>
   <GitRepo user="zzzzz167" repo="Yuki" archived><b><s>已停更</s>哦我的上帝，ta又更新了</b><br/>No Description</GitRepo>
+  <GitRepo user="RF-Tar-Railt" repo="RaianBot">一个基于 Ariadne 与 Alconna 的简易 QQ 机器人</GitRepo>
 </div>
 
 <h2 align="center">已停止更新的 bot</h2>
 <div class="bot-repo">
-    <GitRepo user="djkcyl" repo="ABot-Graia" archived><b>哦我的上帝，ta又停更了</b><br/>一个使用 Graia Ariadne 搭建的 QQ 功能性机器人。</GitRepo>
+    <GitRepo user="djkcyl" repo="ABot-Graia" archived>哦我的上帝，ta又停更了<br/>一个使用 Graia Ariadne 搭建的 QQ 功能性机器人。</GitRepo>
 </div>
 
 <style scope>

@@ -60,6 +60,9 @@ pip install saucenao-api
 ~~听我说👂👂👂谢谢你🙏🙏🙏因为有你👉👉👉温暖了四季🌈🌈🌈~~
 :::
 
+:::: code-group
+::: twilight
+
 ``` python
 from graia.ariadne.app import Ariadne
 from graia.ariadne.event.message import GroupMessage
@@ -85,7 +88,7 @@ apikey = "xxx" # 请输你自己的，谢谢
     ListenerSchema(listening_events=[GroupMessage],
                    inline_dispatchers=[
                        Twilight([
-                           FullMatch("以图搜番"),
+                           FullMatch("以图搜图"),
                            FullMatch("\n", optional=True),
                            "img" @ ElementMatch(Image, optional=True),
                        ]),
@@ -118,12 +121,83 @@ async def saucenao(app: Ariadne, group: Group, member: Member, img: ElementResul
     else:
         await app.sendMessage(group, MessageChain.create(Forward(nodeList=fwd_nodeList)))
 ```
+:::
+::: code-group-item alconna
+
+``` python
+from graia.ariadne.app import Ariadne
+from graia.ariadne.event.message import GroupMessage
+from graia.ariadne.message.element import *
+from graia.ariadne.model import Group, Member
+from graia.saya import Channel
+from graia.saya.builtins.broadcast.schema import ListenerSchema
+from arclet.alconna import Args
+from arclet.alconna.graia import Alconna
+from arclet.alconna.graia.dispatcher import AlconnaProperty, AlconnaDispatcher
+from saucenao_api import AIOSauceNao
+from saucenao_api.errors import SauceNaoApiError
+
+channel = Channel.current()
+
+channel.name("Saucenao")
+channel.description("以图搜图")
+channel.author("RF-Tar-Railt")
+
+apikey = "xxx" # 请输你自己的，谢谢
+
+
+search = Alconna(
+    "以图搜图", Args["content":[Image, 'url']],
+    help_text="以图搜图，搜图结果会自动发送给你。Usage: 你既可以传入图片, 也可以传入图片链接 ; Example: .搜图 [图片];"
+)
+
+
+@channel.use(
+    ListenerSchema(
+        listening_events=[GroupMessage],
+        inline_dispatchers=[AlconnaDispatcher(alconna=search, help_flag='reply')]
+    )
+)
+async def saucenao(app: Ariadne, group: Group, member: Member, source: Source, result: AlconnaProperty):
+    await app.sendGroupMessage(group, MessageChain.create("正在搜索，请稍后"), quote=source.id)
+    content = result.result.main_args['content']
+    if isinstance(content, Image):
+        content = content.url
+    async with AIOSauceNao(apikey, numres=3) as snao:
+        try:
+            results = await snao.from_url(content)
+        except SauceNaoApiError as e:
+            await app.sendMessage(group, MessageChain.create("搜索失败desu"))
+            return
+
+    fwd_nodeList = []
+    for results in results.results:
+        if len(results.urls) == 0:
+            continue
+        urls = "\n".join(results.urls)
+        fwd_nodeList.append(
+            ForwardNode(
+                target=app.account,
+                senderName="爷",
+                time=datetime.now(),
+                message=MessageChain.create(
+                    f"相似度：{results.similarity}%\n标题：{results.title}\n节点名：{results.index_name}\n链接：{urls}"
+                )))
+
+    if len(fwd_nodeList) == 0:
+        await app.sendMessage(group, MessageChain.create("未找到有价值的数据"), quote=source.id)
+    else:
+        await app.sendMessage(group, MessageChain.create(Forward(nodeList=fwd_nodeList)))
+```
+
+:::
+::::
 
 这样，你的搜图机器人就做好力
 
 <ChatWindow title="转发的合并消息">
-  <ChatMsg name="爷">以图搜番<img src="/images/guide/ero_pic_1.webp"/></ChatMsg>
-  <ChatMsg name="EroEroBot" avatar="/avatar/ero.webp"><ChatQuote name="爷">以图搜番</ChatQuote>正在搜索，请稍后</ChatMsg>
+  <ChatMsg name="爷">以图搜图<img src="/images/guide/ero_pic_1.webp"/></ChatMsg>
+  <ChatMsg name="EroEroBot" avatar="/avatar/ero.webp"><ChatQuote name="爷">以图搜图</ChatQuote>正在搜索，请稍后</ChatMsg>
   <ForwardChat
     name="EroEroBot"
     avatar="/avatar/ero.webp"
@@ -143,3 +217,4 @@ async def saucenao(app: Ariadne, group: Group, member: Member, img: ElementResul
 - [好大的奶](./guide/forward_message.md) —— 合并消息的构建与解析
 - [来点网络上的涩图](./image_from_internet.md) —— `aiohttp` 的超简单运用
 - [Twilight](./twilight.md) —— `Kanata` 的精神续作
+- [Alconna](./alconna.md) —— 外 星 来 客
