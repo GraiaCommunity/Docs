@@ -61,7 +61,7 @@ pip install saucenao-api
 :::
 
 :::: code-group
-::: twilight
+::: code-group-item Twilight
 
 ``` python
 from graia.ariadne.app import Ariadne
@@ -122,7 +122,7 @@ async def saucenao(app: Ariadne, group: Group, member: Member, img: ElementResul
         await app.sendMessage(group, MessageChain.create(Forward(nodeList=fwd_nodeList)))
 ```
 :::
-::: code-group-item alconna
+::: code-group-item Alconna
 
 ``` python
 from graia.ariadne.app import Ariadne
