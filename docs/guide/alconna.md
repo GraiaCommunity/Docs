@@ -52,9 +52,9 @@ pip install graia-ariadne[alconna]
 :::
 ::::
 
-## 缭乱! 外星大魔王
+## 缭乱！外星大魔王
 
-开发涩涩Bot时，我们难免会有需求增加一个涩图搜索的命令:
+开发涩涩Bot时，我们难免会有需求增加一个涩图搜索的命令：
 
 ```txt
 setu搜索 CONTENT
@@ -153,6 +153,7 @@ async def ero(app: Ariadne, group: Group, result: Arpamar):
 from arclet.alconna.graia.dispatcher import AlconnaDispatcher, AlconnaProperty
 from arclet.alconna.graia.saya import AlconnaSchema
 
+
 @channel.use(AlconnaSchema(AlconnaDispatcher(alconna=SetuFind, help_flag="reply")))
 @channel.use(ListenerSchema(listening_events=[GroupMessage]))
 async def ero(app: Ariadne, group: Group, result: AlconnaProperty):
@@ -180,7 +181,7 @@ async def ero(app: Ariadne, group: Group, result: AlconnaProperty):
   <ChatMsg name="群菜鸮" avatar="http://q1.qlogo.cn/g?b=qq&nk=2948531755&s=640">草</ChatMsg>
 </ChatWindow>
 
-`AlconnaDispatcher` 拥有参数 `help_flag`，表示对于该命令帮助信息的处理方式。其可以有三种值:
+`AlconnaDispatcher` 拥有参数 `help_flag`，表示对于该命令帮助信息的处理方式。其可以有三种值：
 
 - `'stay'`: 不处理，原样返回，不能在监听器内获取到帮助信息
 - `'reply'`: `AlconnaDispatcher` 会自动将帮助信息发送给命令发起者
@@ -192,19 +193,19 @@ async def ero(app: Ariadne, group: Group, result: AlconnaProperty):
   <ChatMsg name="群菜鸮" avatar="http://q1.qlogo.cn/g?b=qq&nk=2948531755&s=640">setu搜索 --help</ChatMsg>
   <ChatMsg name="EroEroBot" avatar="/avatar/ero.webp">setu搜索 &lt;content:Image|url&gt;<br>
   依据输入的图片寻找可能的原始图片来源<br>
-  用法:<br>
-   可以传入图片, 也可以是图片的网络链接<br>
-  可用的选项有:<br>
-  # 选择搜图使用的 API<br>
-    use &lt;api:'saucenao'|'ascii2d'|'ehentai'|'iqdb'|'tracemoe'&lt;<br>
-  # 设置每次搜图展示的最多数量<br>
-    count &lt;num:int&lt;<br>
-  # 设置相似度过滤的值<br>
-    threshold &lt;value:float&lt;<br>
+  用法:<br />
+   可以传入图片, 也可以是图片的网络链接<br />
+  可用的选项有:<br />
+  # 选择搜图使用的 API<br />
+    use &lt;api:'saucenao'|'ascii2d'|'ehentai'|'iqdb'|'tracemoe'&lt;<br />
+  # 设置每次搜图展示的最多数量<br />
+    count &lt;num:int&lt;<br />
+  # 设置相似度过滤的值<br />
+    threshold &lt;value:float&lt;<br />
   # 设置超时时间<br>
-    timeout &lt;sec:int = 60&lt;<br>
-  使用示例:<br>
-   setu搜索 [图片]<br>
+    timeout &lt;sec:int = 60&lt;<br />
+  使用示例:<br />
+   setu搜索 [图片]<br />
   </ChatMsg>
   <ChatMsg name="群菜龙" avatar="http://q1.qlogo.cn/g?b=qq&nk=2544704967&s=640">好</ChatMsg>
 </ChatWindow>
@@ -238,8 +239,10 @@ async def ero(app: Ariadne, group: Group, result: AlconnaProperty):
 
 ```python
 from arclet.alconna import AlconnaFire
+
 def test_func(name: str, sender_id: int):
     print(f"Hello! [{sender_id}]{name}")
+
 alc = AlconnaFire(test_func)
 ```
 
@@ -255,7 +258,7 @@ from arclet.alconna import Alconna
 alc = Alconna("test_fuzzy", is_fuzzy_match=True)
 alc.parse("test_fuzy")
 
->>> 'test_fuzy is not matched. Do you mean "test_fuzzy"?'
+# output: test_fuzy is not matched. Do you mean "test_fuzzy"?
 ```
 
 ### 自定义语言文件
@@ -275,6 +278,8 @@ lang_config.change_lang(
 alc.parse("!command --baz abc")
 
 '''
+output:
+
 ParamsUnmatched: 以下参数没有被正确解析哦~
 : --baz
 请主人检查一下命令是否正确输入了呢~
@@ -440,12 +445,12 @@ async def test(app: Ariadne, group: Group):
 <Alconna::我要涩图 with 3 options; args=Args('count': '(\-?\d+)')>
 ```
 
-`command`传入的便是命令名称，`main_args` 是命令参数 ,`options` 则是命令选项。
+`command`传入的便是命令名称，`main_args` 是命令参数，`options` 则是命令选项。
 
 `Args`是命令参数的载体，通过"键-值-默认"传入一系列参数，具体食用方法我们后面会讲到。
 
 :::tip
-为什么会有三个 option 呢? 因为所有的 Alconna 都内置了 `--help` 与 `--shortcut` 这两个选项。
+为什么会有三个 option 呢？因为所有的 Alconna 都内置了 `--help` 与 `--shortcut` 这两个选项。
 :::
 
 ::: tsukkomi 注
@@ -467,7 +472,7 @@ Alconna 0.7.6 后，简易的命令构造可用如下方法：
 
 这条字符串的意思就是，我们需要一条命令，
 该命令以“**我要涩图**”作为前缀，同时他还需要一个参数，其以 `count` 为名字，并且类型为 `int`,
-然后还需要一个选项，其名称为“**从**”，需要不定个参数，其以 `tag` 为名字，并且每个参数类型为 `str`
+然后还需要一个选项，其名称为“**从**”，需要不定个参数，其以 `tag` 为名字，并且每个参数类型为 `str`。
 
 于是我们就得到了如下的 Alconna 实例：
 
@@ -479,7 +484,7 @@ Alconna 0.7.6 后，简易的命令构造可用如下方法：
 可以看到，我们的 `<count:int>` 变成了 `Args['count':int]`。
 
 ::: tip
-关于`koishi-like`的命令参数，请详细阅读[命令参数](https://arcletproject.github.io/docs/alconna/basic/alconna-args) 与
+关于`koishi-like`的命令参数，请详细阅读 [命令参数](https://arcletproject.github.io/docs/alconna/basic/alconna-args) 与
 [参数编写规则](https://arcletproject.github.io/docs/alconna/constructs/koishi-like#%E7%BC%96%E5%86%99%E8%A7%84%E5%88%99)
 来编写
 :::
@@ -498,7 +503,7 @@ Alconna 0.7.6 后，简易的命令构造可用如下方法：
 
 #### Fire-Like：使用 `AlconnaFire(...)`
 
-Fire-like 允许你传入任意的参数(主要是函数、类、实例、模块)，`Alconna` 会尝试提取命令相关参数
+Fire-like 允许你传入任意的参数(主要是函数、类、实例、模块)，`Alconna` 会尝试提取命令相关参数，
 并构建为 `Alconna`。
 
 仍以上面的命令为例，我们相当于构造了一个类 `Class:我要涩图`，其需要传入 `count` 参数来实例化,
@@ -518,9 +523,9 @@ Fire-like 允许你传入任意的参数(主要是函数、类、实例、模块
 
 ### 组件
 
-命令玩的好，组件少不了
+命令玩的好，组件少不了~
 
-`Alconna` 拥有两大组件：`Option` 与 `Subcommand`
+`Alconna` 拥有两大组件：`Option` 与 `Subcommand`。
 
 **Option**
 
@@ -530,7 +535,7 @@ Fire-like 允许你传入任意的参数(主要是函数、类、实例、模块
 Option("--foo", alias=["-F", "--FOO", "-f"])
 ```
 
-那么`-f`、`-F` 与 `--FOO`将等同于`--foo`
+那么`-f`、`-F` 与 `--FOO`将等同于`--foo`。
 
 **Subcommand**
 
@@ -553,7 +558,7 @@ Subcommand("sub", options=[Option("sub_opt")])
 
 `Args` 在 Alconna 中有非常重要的地位，有一半的 bug 皆因其引发（暴论）。
 
-通常以 `Args[key1:var1:default1, key2:var2, ...]` 的方式构造一个 Args
+通常以 `Args[key1:var1:default1, key2:var2, ...]` 的方式构造一个 Args。
 
 其中，key 一定是字符串，而 var 一般为参数的类型，default 为具体的值。
 
@@ -569,7 +574,7 @@ var 可以是以下几类：
 - 一般的类型，其会尝试比较传入参数的类型是否与其相关
 - AnyOne，AllParam，作为泛匹配的标识符
 
-内置的类型检查包括 `int`、`str`、`float`、`bool`、`'url'`、`'ip'`、`'email'`、`list`、`dict`、`tuple`、`set`、`Any` 、 `bytes`、`hex` 等
+内置的类型检查包括 `int`、`str`、`float`、`bool`、`'url'`、`'ip'`、`'email'`、`list`、`dict`、`tuple`、`set`、`Any` 、 `bytes`、`hex` 等。
 
 :::tip NOTE
 若想增加类型检查,我们可以通过 `arclet.alconna.typing.set_converter` 传入自己的 ArgPattern：
@@ -594,7 +599,7 @@ ObjectPattern(Image, limit=("url",))
 
 `key`的作用是用以标记解析出来的参数并存放于 Arpamar 中,以方便用户调用。
 
-其有七种为 Args 注解的标识符,为 `S`、`W`、`A`、`F`、`K`、`O` 和 `H`。标识符应与 key 以 `;` 分隔，用 `'|'` 区分
+其有七种为 Args 注解的标识符,为 `S`、`W`、`A`、`F`、`K`、`O` 和 `H`。标识符应与 key 以 `;` 分隔，用 `'|'` 区分：
 
 - `S` 标识符表示当前参数为可变长非键值对参数，类似函数中的 `*args`，可以传入 0 至任意个参数。
 - `W` 标识符表示当前参数为可变长键值对参数，类似函数中的 `**kwargs`，可传入 0 至任意个参数。
@@ -798,7 +803,7 @@ async def test(
 
 一定要记住，Alconna 是支持元素匹配的（Plain 元素或 Source 等元素除外）。
 
-假设某个命令需要传入名字, 但你也想能够直接用 @ 来指定目标, 那么可以直接这么写:
+假设某个命令需要传入名字，但你也想能够直接用 @ 来指定目标, 那么可以直接这么写：
 
 ```python{6}
 from arclet.alconna import Alconna, Args
@@ -830,7 +835,7 @@ ill = Alconna(
 
 ### 快捷指令 
 
-基于对传入消息的记录，Alconna 0.9.0 以上支持动态的快捷指令构建
+基于对传入消息的记录，Alconna 0.9.0 以上支持动态的快捷指令构建：
 
 ```text
 >>> my_command --shortcut XXX "my_command foo bar ..."
@@ -845,7 +850,7 @@ ill = Alconna(
 
 :::tip
 
-该方法构建的快捷指令在 bot 生命周期结束后会一并销毁，但可以通过 Alconna 的 `CommandManager` 来保存
+该方法构建的快捷指令在 bot 生命周期结束后会一并销毁，但可以通过 Alconna 的 `CommandManager` 来保存：
 
 ```python
 from pathlib import Path
