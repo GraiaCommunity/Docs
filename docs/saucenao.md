@@ -162,7 +162,7 @@ async def saucenao(app: Ariadne, group: Group, member: Member, source: Source, r
     await app.sendGroupMessage(group, MessageChain.create("正在搜索，请稍后"), quote=source.id)
     content = result.result.main_args['content']
     if isinstance(content, Image):
-        content = content.id
+        content = content.url
     async with AIOSauceNao(apikey, numres=3) as snao:
         try:
             results = await snao.from_url(content)
