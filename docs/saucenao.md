@@ -148,7 +148,7 @@ apikey = "xxx" # 请输你自己的，谢谢
 
 search = Alconna(
     "以图搜图", Args["content":[Image, 'url']],
-    help_text="以图搜图，搜图结果会自动发送给你。Usage: 该功能会尝试在三类搜索网站中搜索相似图片 ; Example: .搜图 [图片];"
+    help_text="以图搜图，搜图结果会自动发送给你。Usage: 你既可以传入图片, 也可以传入图片链接 ; Example: .搜图 [图片];"
 )
 
 
