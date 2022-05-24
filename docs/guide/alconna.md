@@ -771,7 +771,7 @@ async def test(
     print(dup.my_args.availabe)
 ```
 
-亦或者，你可以直接使用`Stub`作为参注解：
+亦或者，你可以直接使用 `Stub` 作为参注解：
 
 ```python{10}
 @channel.use(
@@ -813,7 +813,7 @@ ill = Alconna(
 
 ### At 机器人来使用命令
 
-At 等元素同样可以放置于 headers 里, 但必须是实例化的对象, 不能传入类型:
+At 等元素同样可以放置于 headers 里，但必须是实例化的对象，不能传入类型：
 
 ```python{7}
 from arclet.alconna import Alconna, Args
@@ -830,22 +830,22 @@ ill = Alconna(
 
 ### 快捷指令 
 
-基于对传入消息的记录, Alconna 0.9.0 以上支持动态的快捷指令构建
+基于对传入消息的记录，Alconna 0.9.0 以上支持动态的快捷指令构建
 
-```
+```text
 >>> my_command --shortcut XXX "my_command foo bar ..."
 ```
 
 或者
 
-```
+```text
 >>> my_command foo bar ...
 >>> my_command --shortcut XXX
 ```
 
 :::tip
 
-该方法构建的快捷指令在 bot 生命周期结束后会一并销毁, 但可以通过 Alconna 的 `CommandManager` 来保存
+该方法构建的快捷指令在 bot 生命周期结束后会一并销毁，但可以通过 Alconna 的 `CommandManager` 来保存
 
 ```python
 from pathlib import Path
@@ -862,7 +862,7 @@ command_manager.dump_cache()
 
 Alconna 对于命令头部 `command` 应用有特殊的构建规则。
 
-其可以像 `AlconnaFormat` 那样通过 `'xxx{name:type or pattern}xxx''` 来生成正则表达式，并将匹配结果传递给 `Arpamar.header`。
+其可以像 `AlconnaFormat` 那样通过 `'xxx{name:type or pattern}xxx'` 来生成正则表达式，并将匹配结果传递给 `Arpamar.header`。
 
 其中 `name` 与 `type` 都可以留空, `type` 留空时当作`'str'`。
 
