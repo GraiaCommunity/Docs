@@ -18,7 +18,7 @@
 
 <h2 align="center">已停止更新的 bot</h2>
 <div class="bot-repo">
-    <GitRepo user="djkcyl" repo="ABot-Graia" archived><b>哦我的上帝，ta又停更了</b><br/>一个使用 Graia Ariadne 搭建的 QQ 功能性机器人。</GitRepo>
+    <GitRepo user="djkcyl" repo="ABot-Graia" archived>哦我的上帝，ta又停更了<br/>一个使用 Graia Ariadne 搭建的 QQ 功能性机器人。</GitRepo>
 </div>
 
 <style scope>
