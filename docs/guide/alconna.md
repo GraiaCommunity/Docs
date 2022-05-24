@@ -52,21 +52,23 @@ pip install graia-ariadne[alconna]
 :::
 ::::
 
-## 为什么是外星来客 (大雾)
+## 缭乱! 外星大魔王
 
-设想我们要给机器人加一个搜索涩图的指令：
+开发涩涩Bot时，我们难免会有需求增加一个涩图搜索的命令:
 
 ```txt
-.setu搜索 <content>
+setu搜索 CONTENT
 ```
 
-但这肯定不得劲。于是你给加上了很多的选项，并且某个选项可能会影响其他几个选项的有效性。
+这里我们规定用户输入的 `content` 参数只能是一个图片 (Image) 或者一个链接 (URL)。
+
+我们默认使用 `saucenao` 的 api，但有时候我们也想使用别的搜图引擎而且能自定义参数：
 
 ```txt
-page <count>
-tags <tags>
-illust <illust_name>
-click <scope>
+use [saucenao|ascii2d|ehentai|iqdb|tracemoe] = saucenao
+count <NUM:int>
+threshold <VALUE:float>
+timeout <SEC:int>
 ```
 
 如果使用 twilight 去做，选项之间的处理会比较复杂。
@@ -74,23 +76,24 @@ click <scope>
 这个时候，~~天空一声巨响，Alconna 闪亮登场~~，我们可以使用 `Alconna` 来实现我们想要的功能：
 
 ```python
-from arclet.alconna import AlconnaString
-SetuFind = AlconnaString(
-  ".setu搜索 <content> #在p站中搜索条件达成的插图并返回",
-  "-p|page <count:int:1> #在所有搜索结果中指定页数",
-  "-t|tags <tags;S:str> #指定插图的标签，可以使用空格分隔多个标签",
-  "illust <illust_name:str> #指定插图画师",
-  "click <min:int:1> <max:int> #设定插图的点赞数范围"
+from arclet.alconna import Alconna, Args, Option
+from graia.ariadne.message.element import Image
+api_list = ["saucenao", "ascii2d", "ehentai", "iqdb", "tracemoe"]
+SetuFind = Alconna(
+  "setu搜索", Args['content':[Image, 'url']],
+  options=[
+    Option("use", Args['api':api_list:], help_text="选择搜图使用的 API"),
+    Option("count", Args.num[int], help_text="设置每次搜图展示的最多数量"),
+    Option("threshold", Args.value[float], help_text="设置相似度过滤的值"),
+    Option("timeout", Args["sec":int:60], help_text="设置超时时间")
+  ],
+  help_text="依据输入的图片寻找可能的原始图片来源 Usage: 可以传入图片, 也可以是图片的网络链接; Example: setu搜索 [图片];"
 )
 ```
 
-::: tip
-为了方便入门，这里没有选择 `Alconna` 标准的构造方式，而是更加方便的`koishi-like`方式。
-:::
-
 如此，命令就创建好了。
 
-接下来，在你的机器人中添加一个用来执行 `.setu搜索` 命令的监听器：  
+接下来，在你的机器人中添加一个用来执行 `setu搜索` 命令的监听器：  
 （**本章中如无特殊说明，所有版本号均指 `Ariadne` 的版本号，非 `Alconna` 的版本号**）
 
 :::: code-group
@@ -110,10 +113,10 @@ from graia.ariadne.message.parser.alconna import AlconnaDispatcher, Arpamar
 async def ero(app: Ariadne, group: Group, result: Arpamar):
     if result.matched:
         content = result.content
-        page = result.options.get("page")
-        tags  = result.options.get("tags")
-        illust  = result.options.get("illust")
-        click = result.options.get("click")
+        used_api = result.options.get("use")
+        max_count  = result.options.get("count")
+        similarity  = result.options.get("threshold")
+        timeout = result.options.get("timeout")
         ...  # setu搜索的处理部分
 ...
 ```
@@ -134,10 +137,10 @@ from graia.ariadne.message.parser.alconna import AlconnaDispatcher, Arpamar
 )
 async def ero(app: Ariadne, group: Group, result: Arpamar):
     content = result.content
-    page = result.options.get("page")
-    tags  = result.options.get("tags")
-    illust  = result.options.get("illust")
-    click = result.options.get("click")
+    used_api = result.options.get("use")
+    max_count  = result.options.get("count")
+    similarity  = result.options.get("threshold")
+    timeout = result.options.get("timeout")
     ...  # setu搜索的处理部分
 ...
 ```
@@ -147,22 +150,18 @@ async def ero(app: Ariadne, group: Group, result: Arpamar):
 
 ```python
 ...
-from arclet.alconna import Arpamar
-from arclet.alconna.graia import AlconnaDispatcher
+from arclet.alconna.graia.dispatcher import AlconnaDispatcher, AlconnaProperty
+from arclet.alconna.graia.saya import AlconnaSchema
 
-
-@channel.use(
-    ListenerSchema(
-        listening_events=[GroupMessage],
-        inline_dispatchers=[AlconnaDispatcher(alconna=SetuFind, help_flag="reply")],
-    )
-)
-async def ero(app: Ariadne, group: Group, result: Arpamar):
-    content = result.content
-    page = result.options.get("page")
-    tags  = result.options.get("tags")
-    illust  = result.options.get("illust")
-    click = result.options.get("click")
+@channel.use(AlconnaSchema(AlconnaDispatcher(alconna=SetuFind, help_flag="reply")))
+@channel.use(ListenerSchema(listening_events=[GroupMessage]))
+async def ero(app: Ariadne, group: Group, result: AlconnaProperty):
+    arp = result.result
+    content = arp.content
+    used_api = arp.query("use.api")
+    max_count  = arp.query("count.num")
+    similarity  = arp.query("threshold.args.value")
+    timeout_sec = arp.query("timeout.sec")
     ...  # setu搜索的处理部分
 ...
 ```
@@ -173,8 +172,9 @@ async def ero(app: Ariadne, group: Group, result: Arpamar):
 准备就绪，对着你的机器人~~发情~~发号施令吧：
 
 <ChatWindow title="聊天记录">
-  <ChatMsg name="群菜鸮" avatar="http://q1.qlogo.cn/g?b=qq&nk=2948531755&s=640">.setu搜索 白面鸮 -t sole-male ntr -p 1 </ChatMsg>
-  <ChatMsg name="EroEroBot" :avatar="$withBase('/avatar/ero.webp')">工口发生~</ChatMsg>
+  <ChatMsg name="群菜鸮" avatar="http://q1.qlogo.cn/g?b=qq&nk=2948531755&s=640">setu搜索 <img src="/images/guide/ero_pic_1.webp"/></ChatMsg>
+  <ChatMsg name="EroEroBot" avatar="/avatar/ero.webp"><ChatQuote name="群菜鸮">setu搜索</ChatQuote>正在搜索，请稍后</ChatMsg>
+  <ChatMsg name="EroEroBot" avatar="/avatar/ero.webp">工口发生~</ChatMsg>
   <ChatMsg name="群菜龙" avatar="http://q1.qlogo.cn/g?b=qq&nk=2544704967&s=640">草</ChatMsg>
   <ChatMsg name="群菜鸡" avatar="http://q1.qlogo.cn/g?b=qq&nk=1450069615&s=640">草</ChatMsg>
   <ChatMsg name="群菜鸮" avatar="http://q1.qlogo.cn/g?b=qq&nk=2948531755&s=640">草</ChatMsg>
@@ -189,13 +189,23 @@ async def ero(app: Ariadne, group: Group, result: Arpamar):
 例如，当上例的 `help_flag` 为 `reply` 时，可以出现如下情况：
 
 <ChatWindow title="聊天记录">
-  <ChatMsg name="群菜鸮" avatar="http://q1.qlogo.cn/g?b=qq&nk=2948531755&s=640">.setu搜索 --help</ChatMsg>
-  <ChatMsg name="EroEroBot" :avatar="$withBase('/avatar/ero.webp')">.setu搜索 &lt;content:WildMatch&gt;<br>
-  在p站中搜索条件达成的插图并返回<br>可用的选项有:<br>
-  # 在所有搜索结果中指定页数<br>  -p, page &lt;count:int, default=1&gt;<br>
-  # 指定插图的标签，可以使用空格分隔多个标签<br>  -t, tags &lt;tags:*str&gt;<br>
-  # 指定插图画师<br>  illust &lt;illust_name:str&gt;<br>
-  # 设定插图的点赞数范围<br>  click &lt;min:int, default=1&gt; &lt;max:int&gt;</ChatMsg>
+  <ChatMsg name="群菜鸮" avatar="http://q1.qlogo.cn/g?b=qq&nk=2948531755&s=640">setu搜索 --help</ChatMsg>
+  <ChatMsg name="EroEroBot" avatar="/avatar/ero.webp">setu搜索 &lt;content:Image|url&gt;<br>
+  依据输入的图片寻找可能的原始图片来源<br>
+  用法:<br>
+   可以传入图片, 也可以是图片的网络链接<br>
+  可用的选项有:<br>
+  # 选择搜图使用的 API<br>
+    use &lt;api:'saucenao'|'ascii2d'|'ehentai'|'iqdb'|'tracemoe'&lt;<br>
+  # 设置每次搜图展示的最多数量<br>
+    count &lt;num:int&lt;<br>
+  # 设置相似度过滤的值<br>
+    threshold &lt;value:float&lt;<br>
+  # 设置超时时间<br>
+    timeout &lt;sec:int = 60&lt;<br>
+  使用示例:<br>
+   setu搜索 [图片]<br>
+  </ChatMsg>
   <ChatMsg name="群菜龙" avatar="http://q1.qlogo.cn/g?b=qq&nk=2544704967&s=640">好</ChatMsg>
 </ChatWindow>
 
@@ -217,7 +227,7 @@ async def ero(app: Ariadne, group: Group, result: Arpamar):
 ~~虽然说 Alconna 的实现攘括了消息链解析的功能~~
 :::
 
-在上述例子中，`.setu搜索` 是命令名称，`<content>` 是命令参数，而剩下的 `page` 和 `tags` 都是命令选项。
+在上述例子中，`setu搜索` 是命令名称，`<content>` 是命令参数，而剩下的 `count` 和 `use` 都是命令选项。
 
 一个命令可以没有命令参数，但一定要有命令名称，这样才称得上健全！
 
@@ -270,8 +280,6 @@ ParamsUnmatched: 以下参数没有被正确解析哦~
 请主人检查一下命令是否正确输入了呢~
 '''
 ```
-
-:::
 
 ## 亮出你的本事吧！外星人
 
@@ -426,10 +434,10 @@ async def test(app: Ariadne, group: Group):
 ...     command="我要涩图",
 ...     main_args=Args["count":int],
 ...     options=[
-...         Option("从", Args["*tag":str])
+...         Option("从", Args["tag;S":str])
 ...     ]
 ... )
-<ALC.Alconna::我要涩图 with 2 options; args=Args('count': '(\-?\d+)')>
+<Alconna::我要涩图 with 3 options; args=Args('count': '(\-?\d+)')>
 ```
 
 `command`传入的便是命令名称，`main_args` 是命令参数 ,`options` 则是命令选项。
@@ -437,14 +445,14 @@ async def test(app: Ariadne, group: Group):
 `Args`是命令参数的载体，通过"键-值-默认"传入一系列参数，具体食用方法我们后面会讲到。
 
 :::tip
-为什么会有两个 option 呢? 因为所有的 Alconna 都内置了 `--help` 这个选项。
+为什么会有三个 option 呢? 因为所有的 Alconna 都内置了 `--help` 与 `--shortcut` 这两个选项。
 :::
 
 ::: tsukkomi 注
 Alconna 0.7.6 后，简易的命令构造可用如下方法：
 
 ```python
->>> alc = Alconna("我要涩图", Args.count[int]) + option("--from", "*tag:str")
+>>> alc = Alconna("我要涩图", Args.count[int]) + option("--from", "tag;S:str")
 ```
 
 即可以省略 `command` 与 `main_args` 关键字，并且用 `+` 增加选项或子命令。
@@ -464,8 +472,8 @@ Alconna 0.7.6 后，简易的命令构造可用如下方法：
 于是我们就得到了如下的 Alconna 实例：
 
 ```python
->>> AlconnaString("我要涩图 <count:int>", "从 <*tag:str>")
-<ALC.Alconna::我要涩图 with 2 options; args=Args('count': '(\-?\d+)')>
+>>> AlconnaString("我要涩图 <count:int>", "从 <tag;S:str>")
+<Alconna::我要涩图 with 3 options; args=Args('count': '(\-?\d+)')>
 ```
 
 可以看到，我们的 `<count:int>` 变成了 `Args['count':int]`。
@@ -484,8 +492,8 @@ Alconna 0.7.6 后，简易的命令构造可用如下方法：
 于是我们就得到了如下的 Alconna 实例：
 
 ```python
->>> AlconnaFormat("我要涩图 {count:int} 从 {*tags}", {"*tags": str})
-<ALC.Alconna::我要涩图 with 2 options; args=Args('count': 'AnyParam')>
+>>> AlconnaFormat("我要涩图 {count:int} 从 {tags;S}", {"tags;S": str})
+<Alconna::我要涩图 with 3 options; args=Args('count': 'AnyParam')>
 ```
 
 #### Fire-Like：使用 `AlconnaFire(...)`
@@ -494,7 +502,7 @@ Fire-like 允许你传入任意的参数(主要是函数、类、实例、模块
 并构建为 `Alconna`。
 
 仍以上面的命令为例，我们相当于构造了一个类 `Class:我要涩图`，其需要传入 `count` 参数来实例化,
-并写有一个方法 `从`，该方法接受一个不定参数 `*tags`。
+并写有一个方法 `从`，该方法接受一个不定参数 `tags;S`。
 于是我们就得到了如下的 Alconna 实例：
 
 ```python
@@ -505,7 +513,7 @@ Fire-like 允许你传入任意的参数(主要是函数、类、实例、模块
 ...         ...
 ...
 >>> AlconnaFire(Setu, config={"command": "我要涩图"})
-<ALC.Alconna::我要涩图 with 2 options; args=Args('count': '(\-?\d+)')>
+<Alconna::我要涩图 with 3 options; args=Args('count': '(\-?\d+)')>
 ```
 
 ### 组件
@@ -553,28 +561,28 @@ Subcommand("sub", options=[Option("sub_opt")])
 
 var 可以是以下几类：
 
-- 存在于 `arclet.alconna.types.pattern_map` 中的类型/字符串，用以替换为预制好的 ArgPattern
+- 存在于 `arclet.alconna.types.pattern_map` 中的类型/字符串，用以替换为预制好的 BasePattern
 - 字符串，会转换为正则表达式
-- 列表，其中可存放 ArgPattern、类型或者任意参数值，如字符串或者数字
+- 列表，其中可存放 BasePattern、类型或者任意参数值，如字符串或者数字
 - `Union`、`Optional`、`Literal` 等会尝试转换为 `List[Type]`
 - `Dict[type1，type2]`、`List[type]`、`Set[type]`
 - 一般的类型，其会尝试比较传入参数的类型是否与其相关
-- AnyParam，AllParam，作为泛匹配的标识符
+- AnyOne，AllParam，作为泛匹配的标识符
 
-内置的类型检查包括 `int`、`str`、`float`、`bool`、`'url'`、`'ip'`、`'email'`、`list`、`dict`、`tuple`、`set`、`Any` 以及 `bytes`
+内置的类型检查包括 `int`、`str`、`float`、`bool`、`'url'`、`'ip'`、`'email'`、`list`、`dict`、`tuple`、`set`、`Any` 、 `bytes`、`hex` 等
 
 :::tip NOTE
-若想增加类型检查,我们可以通过 `arclet.alconna.types.add_check` 传入自己的 ArgPattern：
+若想增加类型检查,我们可以通过 `arclet.alconna.typing.set_converter` 传入自己的 ArgPattern：
 
 ```python
 >>> set_converter(
-...     ArgPattern(
-...         "app", PatternToken.REGEX_TRANSFORM, Ariadne, lambda x: app, 'app'
+...     BasePattern(
+...         "app", PatternModel.REGEX_CONVERT, Ariadne, lambda x: app, 'app'
 ...     )
 ... )
 ```
 
-或通过`arclet.alconna.types.ObjectPattern`并传入一个类型来向 pattern_map 中注册检查类型：
+或通过`arclet.alconna.typing.ObjectPattern`并传入一个类型来向 pattern_map 中注册检查类型：
 
 ```python
 ObjectPattern(Image, limit=("url",))
@@ -598,19 +606,19 @@ ObjectPattern(Image, limit=("url",))
 
 另外，正整数也是可以作为标识符的，其会作为 `S` 的限制性操作。如 `key;3` 表示需要传入 0 至 3 个参数。
 
-### ArgPattern
+### BasePattern
 
-`ArgPattern`，顾名思义，是对类型解析的拓展，负责对传入参数的检查与类型转换。
+`BasePattern` 是 `Alconna` 中对正则解析的拓展，负责对传入参数的检查与类型转换。
 
 例如我想把如 `'sth1/sth2/sth3/sth4'` 的参数在解析后变成类似 `['sth1', 'sth2', 'sth3', 'sth4']` 这样子。
 
-那么我可以这样编写一个 ArgPattern：
+那么我可以这样编写一个 BasePattern：
 
 ```python
-from arclet.alconna.types import ArgPattern, PatternToken
+from arclet.alconna.typing import BasePattern, PatternModel
 
-my_list = ArgPattern(
-    "(.+)", token=PatternToken.REGEX_TRANSFORM, origin_type=list,
+my_list = BasePattern(
+    "(.+)", model=PatternModel.REGEX_CONVERT, origin_type=list,
     converter=lambda x: x.split('/'), alias='my_list'
 )
 ```
@@ -618,10 +626,10 @@ my_list = ArgPattern(
 或者
 
 ```python
-from arclet.alconna import pattern
+from arclet.alconna import pattern_gen
 
 
-@pattern("my_list", "(.+)")
+@pattern_gen("my_list", "(.+)")
 def my_list(text: str):
     return text.split('/')
 ```
@@ -660,36 +668,35 @@ alc = Alconna(".command", Args["foo":my_list])
 ```python
 ...
 from arclet.alconna import Alconna, Args, Option, Subcommand, Arpamar
-from graia.ariadne.message.parser.alconna import AlconnaDispatcher
+from arclet.alconna.graia.dispatcher import AlconnaDispatcher
+from arclet.alconna.graia.saya import AlconnaSchema
 ...
 
 
 @channel.use(
-    ListenerSchema(
-        listening_events=[GroupMessage],
-        inline_dispatchers=[
-            AlconnaDispatcher(
-                alconna=Alconna(
-                    "找歌", Args["song":str],
-                    options=[
-                        Option("语种", Args["lang":str]),
-                        Subcommand("歌手", [Option("地区", Args["region":str])], Args["singer":str]),
-                    ],
-                ),
-                help_flag='reply'
-            )
+  AlconnaSchema(
+    AlconnaDispatcher(
+      alconna=Alconna(
+        "找歌", Args["song":str],
+        options=[
+          Option("语种", Args["lang":str]),
+          Subcommand("歌手", [Option("地区", Args["region":str])], Args["singer":str]),
         ],
+      ),
+      help_flag='reply'
     )
+  )
 )
+@channel.use(ListenerSchema(listening_events=[GroupMessage]))
 async def lyric_xxx(app: Ariadne, group: Group, result: Arpamar):
     print(result.matched)
     print(result.error_info)
     print(result.options)
     print(result.song)
-    if result.has("语种"):
-        print(result.get("语种").get("lang"))
-    if result.has("歌手"):
-        print(result.get("歌手").get('singer'))
+    if result.find("语种"):
+        print(result.query("语种.lang"))
+    if result.find("歌手"):
+        print(result.query("歌手.singer"))
 ```
 
 ### Arpamar Behavior
@@ -791,17 +798,65 @@ async def test(
 
 一定要记住，Alconna 是支持元素匹配的（Plain 元素或 Source 等元素除外）。
 
-所以，如果你要写一个以图搜图的功能，这么写就好了：
+假设某个命令需要传入名字, 但你也想能够直接用 @ 来指定目标, 那么可以直接这么写:
 
-```python{5}
+```python{6}
 from arclet.alconna import Alconna, Args
-from graia.ariadne.message.element import Image
+from graia.ariadne.message.element import At
 
-pic_search = Alconna(
-    "找图", Args["img":Image],
-    headers=["EroBot ", "!"],
+ill = Alconna(
+    "发病", 
+    Args["target":[At, str]],
+    headers=["EroEro", "!"],
 )
 ```
+
+### At 机器人来使用命令
+
+At 等元素同样可以放置于 headers 里, 但必须是实例化的对象, 不能传入类型:
+
+```python{7}
+from arclet.alconna import Alconna, Args
+from graia.ariadne.message.element import At
+
+ill = Alconna(
+    "发病", 
+    Args["target":[At, str]],
+    headers=[At(123456789)],
+)
+```
+
+此时你需要输入 `@123456789 发病 xxxx` 才能执行命令
+
+### 快捷指令 
+
+基于对传入消息的记录, Alconna 0.9.0 以上支持动态的快捷指令构建
+
+```
+>>> my_command --shortcut XXX "my_command foo bar ..."
+```
+
+或者
+
+```
+>>> my_command foo bar ...
+>>> my_command --shortcut XXX
+```
+
+:::tip
+
+该方法构建的快捷指令在 bot 生命周期结束后会一并销毁, 但可以通过 Alconna 的 `CommandManager` 来保存
+
+```python
+from pathlib import Path
+from arclet.alconna import command_manager
+
+...
+command_manager.cache_path = Path(__file__).parent / "my_cache.db"
+command_manager.dump_cache()
+```
+
+:::
 
 ### 不规则命令
 
@@ -842,7 +897,7 @@ async def roll_dice(app: Ariadne, group: Group, result: Arpamar):
 from arclet.alconna import Alconna, Option, Arpamar, Args
 from arclet.alconna.graia import AlconnaDispatcher
 
-who = Alconna("告诉我") + Option("谁", Args['*target':str] / "和", separator="是")
+who = Alconna("告诉我") + Option("谁", Args['target;S':str] / "和", separator="是")
 
 @channel.use(
     ListenerSchema(
