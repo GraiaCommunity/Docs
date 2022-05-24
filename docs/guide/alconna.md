@@ -191,8 +191,8 @@ async def ero(app: Ariadne, group: Group, result: AlconnaProperty):
 
 <ChatWindow title="聊天记录">
   <ChatMsg name="群菜鸮" avatar="http://q1.qlogo.cn/g?b=qq&nk=2948531755&s=640">setu搜索 --help</ChatMsg>
-  <ChatMsg name="EroEroBot" avatar="/avatar/ero.webp">setu搜索 &lt;content:Image|url&gt;<br>
-  依据输入的图片寻找可能的原始图片来源<br>
+  <ChatMsg name="EroEroBot" avatar="/avatar/ero.webp">setu搜索 &lt;content:Image|url&gt;<br />
+  依据输入的图片寻找可能的原始图片来源<br />
   用法:<br />
    可以传入图片, 也可以是图片的网络链接<br />
   可用的选项有:<br />
