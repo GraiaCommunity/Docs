@@ -215,6 +215,6 @@ async def saucenao(app: Ariadne, group: Group, member: Member, source: Source, r
 假设你真的很想知道这些东西背后的原理，你可以直接参考以下章节
 
 - [好大的奶](./guide/forward_message.md) —— 合并消息的构建与解析
-- [来点网络上的涩图](./image_from_internet.md) —— `aiohttp` 的超简单运用
-- [Twilight](./twilight.md) —— `Kanata` 的精神续作
-- [Alconna](./alconna.md) —— 外 星 来 客
+- [来点网络上的涩图](./guide/image_from_internet.md) —— `aiohttp` 的超简单运用
+- [Twilight](./guide/twilight.md) —— `Kanata` 的精神续作
+- [Alconna](./guide/alconna.md) —— 外 星 来 客
