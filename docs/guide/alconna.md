@@ -197,13 +197,13 @@ async def ero(app: Ariadne, group: Group, result: AlconnaProperty):
    可以传入图片, 也可以是图片的网络链接<br />
   可用的选项有:<br />
   # 选择搜图使用的 API<br />
-    use &lt;api:'saucenao'|'ascii2d'|'ehentai'|'iqdb'|'tracemoe'&lt;<br />
+    use &lt;api:'saucenao'|'ascii2d'|'ehentai'|'iqdb'|'tracemoe'&gt;<br />
   # 设置每次搜图展示的最多数量<br />
-    count &lt;num:int&lt;<br />
+    count &lt;num:int&gt;<br />
   # 设置相似度过滤的值<br />
-    threshold &lt;value:float&lt;<br />
+    threshold &lt;value:float&gt;<br />
   # 设置超时时间<br>
-    timeout &lt;sec:int = 60&lt;<br />
+    timeout &lt;sec:int = 60&gt;<br />
   使用示例:<br />
    setu搜索 [图片]<br />
   </ChatMsg>
@@ -245,6 +245,7 @@ def test_func(name: str, sender_id: int):
 
 alc = AlconnaFire(test_func)
 ```
+:::
 
 ### 使用模糊匹配
 
