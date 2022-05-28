@@ -112,6 +112,15 @@ async def test():
 
 ## 直接使用 Ariadne 自带的 session 进行请求
 
+::: danger
+[蓝玻璃块](https://github.com/BlueGlassBlock) 发表了《关于 "Session 复用" 的重要讲话》，具体内容如下。
+:::
+
+<ChatWindow title="Graia Framework Community">
+  <ChatMsg name="蓝玻璃块" avatar="http://q1.qlogo.cn/g?b=qq&nk=2907489501&s=640">别乱嫖</ChatMsg>
+  <ChatMsg name="蓝玻璃块" avatar="http://q1.qlogo.cn/g?b=qq&nk=2907489501&s=640">快改啊</ChatMsg>
+</ChatWindow>
+
 在上面我们提到了，Ariadne 也使用了 aiohttp，而使用 aiohttp 一般需要先获取一个 session，
 那么我们能不能直接白嫖 Ariadne 的 session 呢？
 
