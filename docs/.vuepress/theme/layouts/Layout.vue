@@ -4,10 +4,18 @@ import ParentLayout from '@vuepress/theme-default/lib/client/layouts/Layout.vue'
 
 <template>
   <ParentLayout>
-    <template #page-bottom>
-      <div class="theme-default-content">
-        <div class="tips">
-          <p>
+    <template #page-content-bottom>
+      <div
+        class="theme-default-content"
+        style="
+          padding-bottom: 0;
+          text-align: center;
+          margin-top: 50px;
+          padding-bottom: 0;
+        "
+      >
+        <div>
+          <p class="tips">
             <strong>Tip: </strong>
             <span>{{ random }}</span>
           </p>
@@ -54,15 +62,6 @@ export default defineComponent({
 <!-- 此处的 scoped 不生效，注意 css 名在其他位置是否重复 -->
 <style scope lang="scss">
 .tips {
-  margin: 16px auto;
-  text-align: center;
-}
-
-.tips > hr {
-  margin-bottom: 1.5rem;
-}
-
-.tips > p {
-  margin: 0;
+  margin: 8px auto;
 }
 </style>
