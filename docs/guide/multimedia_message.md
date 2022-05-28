@@ -75,7 +75,7 @@ Image(path="./Graiax/EroEroBot/eropic.jpg")
 首先安装 `graiax-silkcoder`：
 
 ::: warning
-该文档最后更新的时候，`graiax-silkcoder` 的版本的 0.2.0  
+该文档最后更新的时候，`graiax-silkcoder` 的版本的 0.2.6  
 现在的最新版本为 <img src="https://img.shields.io/pypi/v/graiax-silkcoder?color=2970b6&amp;style=flat-square" alt="PyPI版本" style="vertical-align: middle">
 :::
 
@@ -105,7 +105,17 @@ pip install graiax-silkcoder[ffmpeg]
 快速简单地创建一个 Voice 对象：
 
 :::: code-group
-::: code-group-item 0.2.0 +
+::: code-group-item 0.2.6 +
+
+```python
+from graiax import silkcoder
+
+audio_bytes = await silkcoder.async_encode("Graiax/EroEroBot/hentai.mp3", ios_adaptive=True)
+Voice(data_bytes=audio_bytes)
+```
+
+:::
+::: code-group-item 0.2.0 - 0.2.5
 
 ```python
 from graiax import silkcoder
@@ -127,6 +137,11 @@ Voice(data_bytes=audio_bytes)
 :::
 ::::
 
+::: tip
+0.2.6 + 新增的 `ios_adaptive` 参数，是为了让音频能够被 iOS 客户端的用户听到。  
+（因为 iOS 客户端的只能播放 **25kbps 以下** 码率的音频）
+:::
+
 把 Voice 对象放入 MessageChain 中：
 
 ```python:no-line-numbers
@@ -137,7 +152,7 @@ Voice(data_bytes=audio_bytes)
 详细用法请去其[Pypi 页面查看](https://pypi.org/project/graiax-silkcoder/)
 
 这次就不能说逊了，因为<RubyCurtain up="我写的 $h!t Mountain" type="tip">这就是我写的</RubyCurtain>  
-（注：此处的“我”指该文档的主要作者 —— I Love Study）
+（注：此处的“我”指该文档的主要作者 —— I Love Study(详见[鸣谢](../appendix/credit.md))）
 :::
 
 ::: interlink
