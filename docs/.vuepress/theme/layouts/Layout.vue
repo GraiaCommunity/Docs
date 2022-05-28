@@ -22,6 +22,26 @@ import ParentLayout from '@vuepress/theme-default/lib/client/layouts/Layout.vue'
         </div>
       </div>
     </template>
+    <template #page-bottom>
+      <div
+        class="theme-default-content"
+        style="text-align: center; color: var(--c-text-quote)"
+      >
+        <div class="ccbyncsa">
+          本文档使用
+          <a
+            href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh"
+            target="_blank"
+          >
+            CC BY-NC-SA 4.0
+          </a>
+          协议进行共享，详情见
+          <a href="https://github.com/GraiaCommunity/Docs" target="_blank"
+            >README</a
+          >。
+        </div>
+      </div>
+    </template>
   </ParentLayout>
 </template>
 
@@ -89,6 +109,7 @@ export default defineComponent({
 
 <!-- 此处的 scoped 不生效，注意 css 名在其他位置是否重复 -->
 <style scope lang="scss">
+.ccbyncsa,
 .tips {
   margin: 8px auto;
 }
