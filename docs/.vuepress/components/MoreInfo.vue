@@ -1,3 +1,5 @@
+<!-- Author: I Love Study <1450069615@qq.com> -->
+
 <template>
   <span v-if="link" class="text">
     <span class="mbox" style="width: 200px">
