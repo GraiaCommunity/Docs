@@ -113,18 +113,23 @@ async def test():
 ## 直接使用 Ariadne 自带的 session 进行请求
 
 ::: danger
-[蓝玻璃块](https://github.com/BlueGlassBlock) 发表了《关于 "Session 复用" 的重要讲话》，具体内容如下。
+[蓝玻璃块](https://github.com/BlueGlassBlock) 发表了《关于“Session 复用”的重要讲话》，具体内容如下。
 :::
 
 <ChatWindow title="Graia Framework Community">
   <ChatMsg name="蓝玻璃块" avatar="http://q1.qlogo.cn/g?b=qq&nk=2907489501&s=640">别乱嫖</ChatMsg>
   <ChatMsg name="蓝玻璃块" avatar="http://q1.qlogo.cn/g?b=qq&nk=2907489501&s=640">快改啊</ChatMsg>
+  <ChatMsg name="蓝玻璃块" avatar="http://q1.qlogo.cn/g?b=qq&nk=2907489501&s=640">有对着adapter乱做事的赶紧改</ChatMsg>
 </ChatWindow>
 
 在上面我们提到了，Ariadne 也使用了 aiohttp，而使用 aiohttp 一般需要先获取一个 session，
 那么我们能不能直接白嫖 Ariadne 的 session 呢？
 
-Of course you can
+~~Of course you can~~ 根据蓝玻璃块提出的重要讲话，此处回答改为 `False`。  
+也因此，以下我们不再复用 Ariadne 的 session。（该方法最高仅支持 0.6.x 版本的 Ariadne）
+
+<details>
+<summary>根据蓝玻璃块的讲话而隐藏</summary>
 
 ```python
 from graia.ariadne import get_running
@@ -149,6 +154,8 @@ async def test(app: Ariadne):
 假设你想要将你的代码放到其他地方（比如 v5），那你移植的时候，就需要更改获取 session 的代码。
 
 至于要不要用 Ariadne 自带的 session，就是你的选择了。
+
+</details>
 
 ::: interlink EroEroBot
 本章完整示例可在 [EroEroBot/modules/image_from_internet.py](https://github.com/GraiaCommunity/EroEroBot/blob/master/modules/image_from_internet.py) 找到。

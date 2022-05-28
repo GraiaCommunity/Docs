@@ -139,7 +139,7 @@ Voice(data_bytes=audio_bytes)
 
 ::: tip
 0.2.6 + 新增的 `ios_adaptive` 参数，是为了让音频能够被 iOS 客户端的用户听到。  
-（因为 iOS 客户端的只能播放 **25kbps 以下** 码率的音频）
+（因为 iOS 客户端的只能播放 **25kbps 以下（不含）** 码率的音频）
 :::
 
 把 Voice 对象放入 MessageChain 中：
