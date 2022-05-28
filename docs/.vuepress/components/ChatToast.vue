@@ -1,3 +1,5 @@
+<!-- FROM: https://github.com/Redlnn/Fake-QQ-Chat-Window -->
+
 <template>
   <div class="chat-item chat-toast"><slot></slot></div>
 </template>

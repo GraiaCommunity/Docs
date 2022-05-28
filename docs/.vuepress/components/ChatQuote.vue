@@ -1,3 +1,5 @@
+<!-- FROM: https://github.com/Redlnn/Fake-QQ-Chat-Window -->
+
 <template>
   <div class="chat-quote">
     <div class="quote-name">{{ name }}{{ time ? '&nbsp;' + time : '' }}</div>

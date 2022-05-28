@@ -1,3 +1,5 @@
+<!-- Author: Redlnn <w731347477@gmail.com> -->
+
 <template>
   <div class="qq-chat">
     <div v-if="title" class="qq-header">

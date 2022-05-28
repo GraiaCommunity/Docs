@@ -1,3 +1,6 @@
+<!-- Author: I Love Study <1450069615@qq.com> -->
+<!-- Co-Author: Redlnn <w731347477@gmail.com> -->
+
 <template>
   <div class="volume-bar">
     <span class="captions"><slot>普普通通的音量条：</slot></span>
