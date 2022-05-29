@@ -70,10 +70,10 @@ export default defineComponent({
   margin-bottom: 5px;
   font-size: 12px;
   color: var(--c-text-quote);
-}
 
-.right-chat .chat-name {
-  text-align: right;
+  .right-chat & {
+    text-align: right;
+  }
 }
 
 .chat-avatar {
@@ -102,16 +102,16 @@ export default defineComponent({
   top: 11px;
   border-top: 10px solid var(--c-bg);
   z-index: 100;
-}
 
-.left-chat .bubble-arrow {
-  left: -8px;
-  border-left: 10px solid transparent;
-}
+  .left-chat & {
+    left: -8px;
+    border-left: 10px solid transparent;
+  }
 
-.right-chat .bubble-arrow {
-  right: -8px;
-  border-right: 10px solid transparent;
+  .right-chat & {
+    right: -8px;
+    border-right: 10px solid transparent;
+  }
 }
 
 .bubble {
@@ -122,13 +122,19 @@ export default defineComponent({
   border-radius: 15px;
   overflow-wrap: break-word;
   background-color: var(--c-bg);
-}
 
-.bubble > img {
-  display: block;
-  max-width: 300px !important;
-  max-height: 350px !important;
-  margin: 5px 0;
-  border-radius: 10px;
+  img {
+    display: block;
+
+    @media (min-width: 830px) {
+      max-width: 300px !important;
+    }
+    @media (max-width: 830px) {
+      max-width: 100% !important;
+    }
+    max-height: 350px !important;
+    margin: 5px 0;
+    border-radius: 10px;
+  }
 }
 </style>
