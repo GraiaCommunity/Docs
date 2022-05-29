@@ -1,10 +1,10 @@
 LICENSE
 
-ALL contents in `/docs/.vuepress/public/` belong to their copyright owners.
+ALL contents in `/docs/.vuepress/public/` belong to their copyright owners if applicable.
 
-ALL markdown contents (every file with `.md` suffix) in `/docs/` are licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License.
+ALL markdown contents (every file with `.md` suffix) in `/docs/` are licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
 
-To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-nd/4.0/ or send a letter to Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
+To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/ or send a letter to Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
 
 Other contents in this repository are licensed under MIT License.
 ____________________________________________________________
