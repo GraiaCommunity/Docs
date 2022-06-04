@@ -123,7 +123,7 @@ export default defineComponent({
   overflow-wrap: break-word;
   background-color: var(--c-bg);
 
-  img {
+  & > img {
     display: block;
 
     @media (min-width: 830px) {
