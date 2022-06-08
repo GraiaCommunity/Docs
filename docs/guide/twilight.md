@@ -17,129 +17,23 @@ Friendship is magic!
 <div style="height:1em"></div>
 :::
 
-## 快速开始
-
-废话不多说，我们就直接通过例子来向各位讲解如何使用 `Twilight`：
-
-:::: code-group
-::: code-group-item >=0.5.0
-
-```python
-...
-from graia.ariadne.message.parser.twilight import Twilight
-...
-
-
-@channel.use(
-    ListenerSchema(
-        listening_events=[GroupMessage],
-        inline_dispatchers=[Twilight.from_command("涩图来")],
-    )
-)
-async def test(app: Ariadne, group: Group):
-    await app.sendMessage(
-        group,
-        MessageChain.create(
-            Image(path="./Graiax/EroEroBot/eropic.jpg")
-        ),
-    )
-```
-
-:::
-::: code-group-item >=0.4.6
-
-```python
-...
-from graia.ariadne.message.parser.pattern import FullMatch
-from graia.ariadne.message.parser.twilight import Sparkle, Twilight
-...
-
-
-@channel.use(
-    ListenerSchema(
-        listening_events=[GroupMessage],
-        inline_dispatchers=[Twilight([FullMatch("涩图来")])],
-    )
-)
-async def test(app: Ariadne, group: Group):
-    await app.sendMessage(
-        group,
-        MessageChain.create(
-            Image(path="./Graiax/EroEroBot/eropic.jpg")
-        )
-    )
-```
-
-:::
-::: code-group-item >=0.3.5,<0.5.0
-
-```python
-...
-from graia.ariadne.message.parser.parser import Sparkle
-from graia.ariadne.message.parser.pattern import FullMatch
-from graia.ariadne.message.parser.twilight import Twilight
-...
-
-@channel.use(
-    ListenerSchema(
-        listening_events=[GroupMessage],
-        inline_dispatchers=[Twilight(Sparkle([FullMatch("涩图来")]))],
-    )
-)
-async def test(app: Ariadne, group: Group):
-    await app.sendMessage(
-        group,
-        MessageChain.create(
-            Image(path="./Graiax/EroEroBot/eropic.jpg")
-        )
-    )
-```
-
-:::
-::::
-
-这个就是 Twilight 最简单的运用了，我猜你一定没看懂，所以下面我们继续来介绍一下 Twilight 以及他到底该怎么用吧~
-
-::: warning
-你可能从上面的例子就知道了，Twilight 的使用方法一致在跟随 Ariadne 的版本迭代进行改进。
-因此在参照本文或官方文档的内容时，请时刻注意文档适用的 Ariadne 版本以及你自己所使用的 Ariadne 版本。
-
-如无特殊标注，本章中例子的适用范围均为 `^0.6.0`（即 `>=0.6.0, <0.7.0`）。
-:::
-
-### 原理分析
-
-所以 Twilight 的实现原理是什么，
-为什么它可以在匹配成功的时候才调用我们的函数呢（在上面的例子就是当收到的消息为 `涩图来` 的时候才会发送图片）？
-
-这就得说一说 Dispatcher 了。
-
-先看看 Twilight 的定义：
-
-```python
-class Twilight(Generic[T_Sparkle], BaseDispatcher):
-    """暮光"""
-```
-
-从本质上来说，Twilight 是一种 **Dispatcher**，他继承了 BCC 的 **BaseDispatcher** 类。  
-当把他作为 **Dispatcher** 传给 **BCC** 时，假设 **BCC** 接收到了我们指定的事件（如：**GroupMessage**），
-**BCC** 就会把 **GroupMessage** 中的消息链交给 **Twilight** 进行解析，当 **Twilight** 解析失败的时候，
-他就会抛出 `ExecutionStop` 错误，然后 **BCC** 捕获到该错误就不会调用我们注册的函数了。
-
 ## 创建 Twilight
 
-以下演示 Twilight 的两种创建方法：
-
 ::: warning
-下面代码中的匹配参数是强行创造需求，无实际意义。
+Twilight 的使用方法一致在跟随 Ariadne 的版本迭代进行改进。
+因此在参照本文或官方文档的内容时，请时刻注意文档适用的 Ariadne 版本以及你自己所使用的 Ariadne 版本。
+
+如无特殊标注，本章中例子的适用范围均为 `^0.7.0`（即 `>=0.7.0, <0.8.0`）。
 :::
+
+以下演示 Twilight 的两种创建方法：
 
 :::: code-group
 ::: code-group-item from_command
 
 ```python
 ...
-from graia.ariadne.message.parser.twilight import Sparkle, Twilight
+from graia.ariadne.message.parser.twilight import Twilight
 ...
 
 
@@ -173,13 +67,11 @@ from graia.ariadne.message.parser.twilight import (
         listening_events=[GroupMessage],
         inline_dispatchers=[
             Twilight(
-                [
-                    FullMatch("涩图来").space(SpacePolicy.FORCE),
-                    "at" @ ElementMatch(At).space(SpacePolicy.FORCE),
-                    ParamMatch() @ "sth1",
-                    "sth2" << ParamMatch(),
-                    WildcardMatch() >> "sth3",
-                ]
+                FullMatch("涩图来").space(SpacePolicy.FORCE),
+                "at" @ ElementMatch(At).space(SpacePolicy.FORCE),
+                ParamMatch() @ "sth1",
+                "sth2" << ParamMatch(),
+                WildcardMatch() >> "sth3",
             ),
         ]
     )
@@ -190,6 +82,10 @@ async def test(app: Ariadne, group: Group):
 
 :::
 ::::
+
+::: warning
+上述代码中的匹配参数是强行创造需求，无实际意义。
+:::
 
 ### 代码解析
 
@@ -231,11 +127,9 @@ async def test(app: Ariadne, group: Group):
 
 ```python
 >>> Twilight(
-...     [
-...         FullMatch("涩图来").space(SpacePolicy.FORCE),
-...         "at" @ ElementMatch(At).space(SpacePolicy.FORCE),
-...         "any" @ WildcardMatch(),
-...     ]
+...     FullMatch("涩图来").space(SpacePolicy.FORCE),
+...     "at" @ ElementMatch(At).space(SpacePolicy.FORCE),
+...     "any" @ WildcardMatch(),
 ... )
 <Twilight: [ElementMatch(<class 'graia.ariadne.message.element.At'>, space='FORCE', flags=), WildcardMatch('.*', space='PRESERVE', flags=)]>
 ```
@@ -243,6 +137,25 @@ async def test(app: Ariadne, group: Group):
 有个问题，刚刚我们使用 `Twilight.from_command()` 生成的 Twilight 中有两个 `ParamMatch`，
 `ParamMatch`、`ElementMatch`、`FullMatch`、`WildcardMatch` 这几个玩意都是
 **XxxxxMatch** 这样的格式，**XxxxxMatch** 到底是什么？下一节我们就来好好讲一讲。
+
+### 原理分析
+
+所以 Twilight 的实现原理是什么，
+为什么它可以在匹配成功的时候才调用我们的函数呢（在上面的例子就是当收到的消息为 `涩图来` 的时候才会发送图片）？
+
+这就得说一说 Dispatcher 了。
+
+先看看 Twilight 的定义：
+
+```python
+class Twilight(Generic[T_Sparkle], BaseDispatcher):
+    """暮光"""
+```
+
+从本质上来说，Twilight 是一种 **Dispatcher**，他继承了 BCC 的 **BaseDispatcher** 类。  
+当把他作为 **Dispatcher** 传给 **BCC** 时，假设 **BCC** 接收到了我们指定的事件（如：**GroupMessage**），
+**BCC** 就会把 **GroupMessage** 中的消息链交给 **Twilight** 进行解析，当 **Twilight** 解析失败的时候，
+他就会抛出 `ExecutionStop` 错误，然后 **BCC** 捕获到该错误就不会调用我们注册的函数了。
 
 ## XxxxxMatch?
 
@@ -285,10 +198,8 @@ async def test(app: Ariadne, group: Group):
 
 ```python
 Twilight(
-    [
-        FullMatch("涩图"),
-        FullMatch("来", optional=True),
-    ]
+    FullMatch("涩图"),
+    FullMatch("来", optional=True),
 )
 ```
 
@@ -407,11 +318,9 @@ Twilight.from_command("歌词 {lyrics} 好耶")
 
 ```python
 Twilight(
-    [
-        FullMatch("歌词").space(SpacePolicy.FORCE),
-        "lyrics" @ ParamMatch().space(SpacePolicy.FORCE),
-        FullMatch("好耶"),
-    ],
+    FullMatch("歌词").space(SpacePolicy.FORCE),
+    "lyrics" @ ParamMatch().space(SpacePolicy.FORCE),
+    FullMatch("好耶"),
 )
 ```
 
@@ -460,10 +369,8 @@ ArgumentMatch 是 Twilight 的一大亮点，他可以像一般的命令行程�
 
 ```python
 Twilight(
-    [
-        ArgumentMatch("-t", "--type"),
-        ArgumentMatch("-t", "--target"),
-    ]
+    ArgumentMatch("-t", "--type"),
+    ArgumentMatch("-t", "--target"),
 )
 ```
 
@@ -537,12 +444,10 @@ async def lyric_xxx(app: Ariadne, group: Group, lyrics1: RegexResult, lyrics2: R
         listening_events=[GroupMessage],
         inline_dispatchers=[
             Twilight(
-                [
-                    FullMatch("歌词").space(SpacePolicy.FORCE),
-                    "lyrics1" @ ParamMatch().space(SpacePolicy.FORCE),
-                    "lyrics2" @ ParamMatch().space(SpacePolicy.FORCE),
-                    FullMatch("好耶"),
-                ]
+                FullMatch("歌词").space(SpacePolicy.FORCE),
+                "lyrics1" @ ParamMatch().space(SpacePolicy.FORCE),
+                "lyrics2" @ ParamMatch().space(SpacePolicy.FORCE),
+                FullMatch("好耶"),
             ),
         ]
     )
@@ -600,12 +505,10 @@ async def lyric_xxx(app: Ariadne, group: Group, sparkle: Sparkle):
         listening_events=[GroupMessage],
         inline_dispatchers=[
             Twilight(
-                [
-                    FullMatch("歌词").space(SpacePolicy.FORCE),
-                    "lyrics1" @ ParamMatch().space(SpacePolicy.FORCE),
-                    "lyrics2" @ ParamMatch().space(SpacePolicy.FORCE),
-                    FullMatch("好耶"),
-                ]
+                FullMatch("歌词").space(SpacePolicy.FORCE),
+                "lyrics1" @ ParamMatch().space(SpacePolicy.FORCE),
+                "lyrics2" @ ParamMatch().space(SpacePolicy.FORCE),
+                FullMatch("好耶"),
             ),
         ],
     )
@@ -643,12 +546,10 @@ async def lyric_xxx(app: Ariadne, group: Group, sparkle: Sparkle):
           listening_events=[GroupMessage],
           inline_dispatchers=[
               Twilight(
-                  [
-                      FullMatch("歌词").space(SpacePolicy.FORCE),
-                      "lyrics1" @ ParamMatch(optional=True).space(SpacePolicy.FORCE),
-                      "lyrics2" @ ParamMatch(optional=True).space(SpacePolicy.FORCE),
-                      FullMatch("好耶"),
-                  ]
+                  FullMatch("歌词").space(SpacePolicy.FORCE),
+                  "lyrics1" @ ParamMatch(optional=True).space(SpacePolicy.FORCE),
+                  "lyrics2" @ ParamMatch(optional=True).space(SpacePolicy.FORCE),
+                  FullMatch("好耶"),
               ),
           ],
       )
@@ -696,7 +597,7 @@ async def lyric_xxx(app: Ariadne, group: Group, lyrics: ParamMatch):
 将 `ResultValue` 作为装饰器使用，可以直接获取匹配结果而不需要从 `MatchResult.result` 提取了。
 
 ::: tsukkomi
-再也不用忍受 `MatchResult.result.asDisplay()` 被标红的烦恼了！
+再也不用忍受 `MatchResult.result.display` 被标红的烦恼了！
 :::
 
 用例如下（摘录自 Ariadne 官方文档）：
@@ -707,10 +608,8 @@ async def lyric_xxx(app: Ariadne, group: Group, lyrics: ParamMatch):
         listening_events=[GroupMessage],
         inline_dispatchers=[
             Twilight(
-                [
-                    FullMatch(".command"),
-                    "arg" @ RegexMatch(r"\d+", optional=True),
-                ]
+                FullMatch(".command"),
+                "arg" @ RegexMatch(r"\d+", optional=True),
             ),
         ],
     )

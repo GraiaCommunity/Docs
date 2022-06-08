@@ -11,8 +11,8 @@
 首先来回顾一下，在[第一节](./1_hello_ero.md)中我们是通过什么办法来发送的消息
 
 ```python
-await app.sendMessage(group, MessageChain.create(
-    f"不要说{message.asDisplay()}，来点涩图"
+await app.send_message(group, MessageChain(
+    f"不要说{message.display}，来点涩图"
 ))
 ```
 
@@ -43,9 +43,9 @@ Face(127)
 我们先来康康 MessageChain 的三种构建办法：
 
 ```python:no-line-numbers
->>> MessageChain.create([Plain("你好")])
->>> MessageChain.create(Plain("你好"))
->>> MessageChain.create("你好")  # 仅限纯文本
+>>> MessageChain([Plain("你好")])
+>>> MessageChain(Plain("你好"))
+>>> MessageChain("你好")  # 仅限纯文本
 ```
 
 这三种方法都是调用 `MessageChain` 的 `create` 方法进行构建：
@@ -65,7 +65,7 @@ v4、v4p 等缩写词语的意思可以在[这里](../appendix/terms.md)找到�
 比如下面的骚操作：
 
 ```python:no-line-numbers
->>> MessageChain.create("你好", At(1919810), [Plain(", 你是不是喜欢"), At(114514)])
+>>> MessageChain("你好", At(1919810), [Plain(", 你是不是喜欢"), At(114514)])
 ```
 
 ::: warning 注意一下
@@ -92,13 +92,13 @@ True/False
 >>> At(app.account) in message
 True/False
 # 消息里是不是只有文字（这里有个坑，详细请看第 9 章）
->>> message.onlyContains(Plain)
+>>> message.only(Plain)
 True/False
 # 获取消息链中所有的图片元素
 >>> imgs = message[Image]
 # 快速合并两个 MessageChain 元素
->>> msg1 = MessageChain.create("ApplePen") + MessageChain.create("PineapplePen")
->>> msg2 = MessageChain.create("ApplePenPineapplePen")
+>>> msg1 = MessageChain("ApplePen") + MessageChain("PineapplePen")
+>>> msg2 = MessageChain("ApplePenPineapplePen")
 >>> msg1 == msg2
 True
 # 过滤一遍消息链让其只有 Plain 和 At
@@ -114,7 +114,7 @@ True
 
 因此还是有将 `MessageChain` 转换为普通 `str` 的方法的。
 
-### `asDisplay()` 方法
+### `display` 方法
 
 这个应该是最简单，也是你最容易理解的办法，还记得最开始例子中的消息日志吗？
 
@@ -123,14 +123,14 @@ True
 2021-12-03 10:49:45.478 | INFO     | graia.ariadne.app:sendFriendMessage:114 - [BOT 1919810] Friend(114514) <- '不要说你好，来点涩图'
 ```
 
-事实上，消息日志所显示的就是 `asDisplay()` 方法的返回值。
+事实上，消息日志所显示的就是 `display` 方法的返回值。
 这种办法返回的字符串比较容易让人看得舒服，
 不过很多消息链所承载的消息都会被消除（如图片消息直接变成"[图片]"）。
 ::: tip
-事实上，`message.asDisplay()` 跟 `str(message)` 是一样的。
+事实上，`message.display` 跟 `str(message)` 是一样的。
 :::
 
-### `asPersistentString()` 方法
+### `as_persistent_string()` 方法
 
 首先，先给各位上一个英语课
 
@@ -141,10 +141,10 @@ True
 比如下面这样：
 
 ```python:no-line-numbers
->>> message = MessageChain.create("你好", At(114514, display="先辈"))
->>> message.asDisplay()
+>>> message = MessageChain("你好", At(114514, display="先辈"))
+>>> message.display
 '你好@先辈'
->>> message.asPersistentString()
+>>> message.as_persistent_string()
 '你好[mirai:At:{"target":114514,"display":"\\u5148\\u8f88"}]'
 ```
 
@@ -157,30 +157,16 @@ True
 2. 消息链中包含图片的二进制信息（Base64 编码），如通过`Image(data_bytes=b"xxx")`生成的 Image 元素
 
 第一种情况中的链接会在一段时间后就失效（别问我为什么，你问腾讯），  
-所以，要想储存其二进制信息，需要使用如下方法：
+不过默认情况下 `as_persistent_string()` 会帮我们下载二进制信息，因此不用过分担心：
 
 ```python:no-line-numbers
->>> message = MessageChain.create(Image(url="https://example.com/1.jpg"))
->>> await message.download_binary()
->>> message.asPersistentString()
+>>> message = MessageChain(Image(url="https://example.com/1.jpg"))
+>>> message.as_persistent_string()
 [mirai:Image:{"url":"https://example.com/1.jpg","base64":"xxxxxx=="}]
 ```
 
-这样子，保存的时候就会将图片下载下来并保存了（音频同理）。
+如上所示，将消息链转为可持久化字符串时图片会自动下载（音频同理）。
 :::
-
-### `asMappingString()` 方法
-
-为了方便说明，我们直接举例子吧：
-
-```python:no-line-numbers
->>> message.asMappingString()
-('你好\x021_At\x03', {1: At(target=114514, display='先辈')})
-```
-
-这个办法的原理其实很简单，
-说白了就是将所有非 Plain 的消息全都用别的字符串代替，
-然后用一个字典储存被替换成字符串的元素。
 
 ::: interlink
 **相关链接:**  

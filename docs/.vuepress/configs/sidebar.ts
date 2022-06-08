@@ -47,7 +47,6 @@ export default {
         '/guide/scheduler.md',
         '/guide/interrupt_control.md',
         '/guide/file_operation.md',
-        '/guide/console.md',
         '/guide/async_exec.md',
       ],
     },

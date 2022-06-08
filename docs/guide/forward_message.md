@@ -64,7 +64,7 @@ async def create_forward(app: Ariadne, group: Group, member: Member):
         ForwardNode(
             target=member,
             time=datetime.now(),
-            message=MessageChain.create(Image(path="big_milk.jpg")),
+            message=MessageChain(Image(path="big_milk.jpg")),
         )
     ]
     member_list = await app.getMemberList(group)
@@ -74,11 +74,11 @@ async def create_forward(app: Ariadne, group: Group, member: Member):
             ForwardNode(
                 target=random_member,
                 time=datetime.now(),
-                message=MessageChain.create("好大的奶"),
+                message=MessageChain("好大的奶"),
             )
         )
-    message = MessageChain.create(Forward(nodeList=fwd_nodeList))
-    await app.sendMessage(group, message)
+    message = MessageChain(Forward(nodeList=fwd_nodeList))
+    await app.send_message(group, message)
 ```
 
 因为比较简单，所以我们直接说明参数就好了：
@@ -87,7 +87,7 @@ async def create_forward(app: Ariadne, group: Group, member: Member):
 ForwardNode(
     target=member,  # 发送者的信息(Member / Friend / Stranger 都行)
     time=datetime.now(),  # 发送时间
-    message=MessageChain.create(Image(path="big_milk.jpg")),  # 发送的消息链
+    message=MessageChain(Image(path="big_milk.jpg")),  # 发送的消息链
 )
 ```
 

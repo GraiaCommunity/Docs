@@ -16,7 +16,7 @@
 第一个问题其实挺好解决的，假设你真的会无聊翻阅 `Ariadne` 的 `docstring` 的话，你应该很快就会知道撤回的方法：
 
 ```python
-app.recallMessage()  # 实际使用时请不要忘记 await
+app.recall_message()  # 实际使用时请不要忘记 await
 ```
 
 但问题是，该怎么样才能他知道，你要撤回的消息是什么呢？
@@ -24,14 +24,14 @@ app.recallMessage()  # 实际使用时请不要忘记 await
 ### Source —— 消息的识别 ID
 
 在讲这些之前，先给大家扯点别的，
-假设（是的，又是假设）你还记得[第 5 章](./message_chain.md#_如何操作-messagechain)曾经介绍过的`MessageChain.onlyContains`方法吗？
+假设（是的，又是假设）你还记得[第 5 章](./message_chain.md#_如何操作-messagechain)曾经介绍过的`MessageChain.only`方法吗？
 
 如果你还记得，就会发现很诡异的事情：
 
 ```python
 @channel.use(ListenerSchema(listening_events=[GroupMessage]))
 async def test(app: Ariadne, message: MessageChain):
-    print(message.onlyContains(Plain))
+    print(message.only(Plain))
 ```
 
 ```txt
@@ -40,17 +40,17 @@ False
 ```
 
 `False`?! 明明只有测试两个字，但为什么却显示了 False？
-会不会是 onlyContains 方法的问题呢？
+会不会是 only 方法的问题呢？
 
 让我们单独测试一下：
 
 ```python
->>> msg = MessageChain.create("测试")
->>> msg.onlyContains(Plain)
+>>> msg = MessageChain("测试")
+>>> msg.only(Plain)
 True
 ```
 
-咦？看起来并不是 onlyContains 的问题哦，那是什么问题呢？
+咦？看起来并不是 only 的问题哦，那是什么问题呢？
 
 这时我们就要仔细地看一下我们接收到的 MessageChain 了：
 
@@ -70,17 +70,17 @@ MessageChain([Source(id=1366023, time=datetime.datetime(2022, 1, 13, 16, 42, 38,
 并且不只是纯文本，所有收到的消息的最开始，都会有一个 `Source` 元素！
 这就是每一条消息独立的消息 ID（每个群、每个私聊会话中的消息 ID 都是独立的）。
 
-而发送消息时使用的 `app.sendMessage()`、`app.sendGroupMessage()` 和 `app.sendFriendMessage()`，
-他们的返回值类型为 `BotMessage`，这也是 `app.recallMessage()` 方法所需的参数！
+而发送消息时使用的 `app.send_message()`、`app.send_group_message()` 和 `app.send_friend_message()`，
+他们的返回值类型为 `BotMessage`，这也是 `app.recall_message()` 方法所需的参数！
 
-有了消息 ID，我们就可以通过 `app.recallMessage()` 方法撤回消息了：
+有了消息 ID，我们就可以通过 `app.recall_message()` 方法撤回消息了：
 
 ```python
-await app.recallMessage(source)  # 通过 Source 撤回他人的消息
-await app.recallMessage(source.id)  # 通过 Source 中的消息 ID 撤回他人的消息
-# botmessage = await app.sendMessage(...)
-await app.recallMessage(botmessage)  # 通过 BotMessage 撤回 bot 自己发的消息
-await app.recallMessage(botmessage.messageId)  # 通过 BotMessage 中的消息 ID 撤回 bot 自己发的消息
+await app.recall_message(source)  # 通过 Source 撤回他人的消息
+await app.recall_message(source.id)  # 通过 Source 中的消息 ID 撤回他人的消息
+# botmessage = await app.send_message(...)
+await app.recall_message(botmessage)  # 通过 BotMessage 撤回 bot 自己发的消息
+await app.recall_message(botmessage.messageId)  # 通过 BotMessage 中的消息 ID 撤回 bot 自己发的消息
 ```
 
 ::: tip
@@ -90,7 +90,7 @@ await app.recallMessage(botmessage.messageId)  # 通过 BotMessage 中的消息 
 @channel.use(ListenerSchema(listening_events=[GroupMessage]))
 async def test(app: Ariadne, message: MessageChain, source: Source):
     if str(message) == "撤回测试":
-        await app.recallMessage(source)
+        await app.recall_message(source)
 ```
 
 :::
@@ -102,9 +102,7 @@ async def test(app: Ariadne, message: MessageChain, source: Source):
 通过以上理论，你分分钟写出了一个带撤回功能的涩图机器人，比如这样：
 
 ```python
-from graia.ariadne import get_running
-from graia.ariadne.adapter import Adapter
-
+import aiohttp
 
 @channel.use(
     ListenerSchema(
@@ -113,12 +111,12 @@ from graia.ariadne.adapter import Adapter
     )
 )
 async def test(app: Ariadne, message: MessageChain):
-    session = get_running(Adapter).session
-    async with session.get("https://i1.hdslb.com/bfs/archive/5242750857121e05146d5d5b13a47a2a6dd36e98.jpg") as r:
-        data = await r.read()
-    b_msg = await app.sendGroupMessage(group, MessageChain.create(Image(data_bytes=data)))
+    async with aiohttp.ClientSession() as session:
+        async with session.get("https://i1.hdslb.com/bfs/archive/5242750857121e05146d5d5b13a47a2a6dd36e98.jpg") as r:
+            data = await r.read()
+    b_msg = await app.send_group_message(group, MessageChain(Image(data_bytes=data)))
     time.sleep(120)
-    await app.recallMessage(b_msg)
+    await app.recall_message(b_msg)
 ```
 
 这确实成功了，可是当你满怀激动的将你的 bot 给群友用了之后，却是这样的局面：
@@ -145,9 +143,7 @@ async def test(app: Ariadne, message: MessageChain):
 还记得我们在[第 7 章](./image_from_internet.html#为啥要用-aiohttp)讲过，我们为什么要使用异步吗？
 
 ```python{16}
-from graia.ariadne import get_running
-from graia.ariadne.adapter import Adapter
-
+import aiohttp
 
 @channel.use(
     ListenerSchema(
@@ -156,12 +152,12 @@ from graia.ariadne.adapter import Adapter
     )
 )
 async def test(app: Ariadne, message: MessageChain):
-    session = get_running(Adapter).session
-    async with session.get("https://i1.hdslb.com/bfs/archive/5242750857121e05146d5d5b13a47a2a6dd36e98.jpg") as r:
-        data = await r.read()
-    b_msg = await app.sendGroupMessage(group, MessageChain.create(Image(data_bytes=data)))
+    async with aiohttp.ClientSession() as session:
+        async with session.get("https://i1.hdslb.com/bfs/archive/5242750857121e05146d5d5b13a47a2a6dd36e98.jpg") as r:
+            data = await r.read()
+    b_msg = await app.send_group_message(group, MessageChain(Image(data_bytes=data)))
     time.sleep(120)
-    await app.recallMessage(b_msg)
+    await app.recall_message(b_msg)
 ```
 
 `time.sleep()` 方法是一种同步办法，即在 sleep 的这段时间里面**整个程序都会停止不动**！  
@@ -171,9 +167,7 @@ async def test(app: Ariadne, message: MessageChain):
 他提供了异步用的休眠函数 `asyncio.sleep()`，你只需要做一下小小的替换就好了：
 
 ```python{16}
-from graia.ariadne import get_running
-from graia.ariadne.adapter import Adapter
-
+import aiohttp
 
 @channel.use(
     ListenerSchema(
@@ -182,12 +176,12 @@ from graia.ariadne.adapter import Adapter
     )
 )
 async def test(app: Ariadne, message: MessageChain):
-    session = get_running(Adapter).session
-    async with session.get("https://i1.hdslb.com/bfs/archive/5242750857121e05146d5d5b13a47a2a6dd36e98.jpg") as r:
-        data = await r.read()
-    b_msg = await app.sendGroupMessage(group, MessageChain.create(Image(data_bytes=data)))
+    async with aiohttp.ClientSession() as session:
+        async with session.get("https://i1.hdslb.com/bfs/archive/5242750857121e05146d5d5b13a47a2a6dd36e98.jpg") as r:
+            data = await r.read()
+    b_msg = await app.send_group_message(group, MessageChain(Image(data_bytes=data)))
     await asyncio.sleep(120)
-    await app.recallMessage(b_msg)
+    await app.recall_message(b_msg)
 ```
 
 ::: interlink EroEroBot

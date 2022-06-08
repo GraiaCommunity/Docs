@@ -7,28 +7,39 @@
 3. 写入如下内容
 
    ```python
+   import asyncio
+
    from graia.ariadne.app import Ariadne
+   from graia.ariadne.connection.config import (
+       HttpClientConfig,
+       WebsocketClientConfig,
+       config,
+   )
    from graia.ariadne.event.message import GroupMessage
    from graia.ariadne.message.chain import MessageChain
    from graia.ariadne.model import Group, MiraiSession
 
+   loop = asyncio.new_event_loop()
+   bcc = Broadcast(loop=loop)
+   Ariadne.config(loop=loop, broadcast=bcc)
    app = Ariadne(
-       MiraiSession(
-           # 以下3行请按照你的 MAH 配置来填写
-           host="http://localhost:8080",  # 同 MAH 的 port
-           verify_key="GraiaxVerifyKey",  # 同 MAH 配置的 verifyKey
-           account=1919810,  # 机器人 QQ 账号
+       connection=config(
+           114514,  # 你的机器人的 qq 号
+           "verifyKey",  # 填入 verifyKey
+           # 以下两行是你的 mirai-api-http 地址中的地址与端口
+           # 默认为 "http://localhost:8080" 如果你没有改动可以省略这两行
+           HttpClientConfig(host="http://11.45.1.4:19810"),
+           WebsocketClientConfig(host="http://11.45.1.4:19810"),
        ),
    )
-   bcc = app.broadcast
 
 
    @bcc.receiver(GroupMessage)
    async def setu(app: Ariadne, group: Group, message: MessageChain):
        if str(message) == "你好":
-           await app.sendMessage(
+           await app.send_message(
                group,
-               MessageChain.create(f"不要说{message.asDisplay()}，来点涩图"),
+               MessageChain(f"不要说{message.display}，来点涩图"),
            )
 
 
@@ -48,22 +59,13 @@
 
    ```txt:no-line-numbers
    $ poetry run python bot.py
-                   _           _
-        /\        (_)         | |
-       /  \   _ __ _  __ _  __| |_ __   ___
-      / /\ \ | '__| |/ _` |/ _` | '_ \ / _ \
-     / ____ \| |  | | (_| | (_| | | | |  __/
-    /_/    \_\_|  |_|\__,_|\__,_|_| |_|\___|
-   Ariadne version: x.x.x
-   Saya version: x.x.x
-   Broadcast version: x.x.x
-   Scheduler version: x.x.x
-   20yy-MM-dd HH:mm:ss.SSS | INFO     | graia.ariadne.app - Launching app...
-   20yy-MM-dd HH:mm:ss.SSS | INFO     | graia.ariadne.adapter - websocket: connected
-   20yy-MM-dd HH:mm:ss.SSS | INFO     | graia.ariadne.adapter - websocket: ping task created
-   20yy-MM-dd HH:mm:ss.SSS | INFO     | graia.ariadne.app - Remote version: x.x.x
-   20yy-MM-dd HH:mm:ss.SSS | INFO     | graia.ariadne.app - Application launched with ?s
-   20yy-MM-dd HH:mm:ss.SSS | INFO     | graia.ariadne.app - daemon: adapter started
+   20yy-MM-dd HH:mm:ss.SSS | INFO     | launart.manager:launch:109 - launchable components count: 4
+   20yy-MM-dd HH:mm:ss.SSS | INFO     | launart.manager:launch:110 - launch all components as async task...
+   20yy-MM-dd HH:mm:ss.SSS | INFO     | launart.manager:task_done_cb:153 - [elizabeth.connection.242679293.http_client_connection] running completed.
+   20yy-MM-dd HH:mm:ss.SSS | SUCCESS  | launart.manager:launch:182 - Layer #0:[http.universal_client] preparation completed.
+   20yy-MM-dd HH:mm:ss.SSS | SUCCESS  | launart.manager:launch:182 - Layer #2:[elizabeth.service] preparation completed.
+   20yy-MM-dd HH:mm:ss.SSS | INFO     | launart.manager:launch:187 - all components prepared, blocking start.
+   20yy-MM-dd HH:mm:ss.SSS | SUCCESS  | graia.ariadne.connection.ws:_:56 - Successfully got session key
    ```
 
    ::::
@@ -71,8 +73,8 @@
 5. 给你的 bot 随便发一条消息
 
    ```txt:no-line-numbers
-   20yy-MM-dd HH:mm:ss.SSS | INFO     | graia.ariadne.model:log_friend_message:114 - 1919810: [Graiax(114514)] -> '你好'
-   20yy-MM-dd HH:mm:ss.SSS | INFO     | graia.ariadne.app:sendFriendMessage:114 - [BOT 1919810] Friend(114514) <- '不要说你好，来点涩图'
+   20yy-MM-dd HH:mm:ss.SSS | INFO     | graia.ariadne.model:log:64 - 1919810: [Graiax(114514)] -> '你好'
+   20yy-MM-dd HH:mm:ss.SSS | INFO     | graia.ariadne.model:log:64 - [BOT 1919810] Friend(114514) <- '不要说你好，来点涩图'
    ```
 
    <ChatWindow title="Graia Framework Community">
