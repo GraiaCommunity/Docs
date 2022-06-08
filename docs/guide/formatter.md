@@ -42,7 +42,7 @@
 你的构造：
 
 ```python
-MessageChain.create("来点涩图", Face(277))
+MessageChain("来点涩图", Face(277))
 ```
 
 这还算比较好的，但要是你想做到下面的效果呢？
@@ -58,7 +58,7 @@ MessageChain.create("来点涩图", Face(277))
 你的构造：
 
 ```python
-MessageChain.create(
+MessageChain(
     "在新的一年里，祝你\n",  # 这里有没有逗号均可
     "身", Face(277), "体", Face(277), "健", Face(277), "康\n",  # 这里有没有逗号均可
     "万", Face(277), "事", Face(277), "如", Face(277), "意\n",  # 这里有没有逗号均可

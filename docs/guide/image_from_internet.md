@@ -110,52 +110,21 @@ async def test():
 你要是写出了这种东西，还是速速 remake （指重看 asyncio 文档）吧
 :::
 
-## 直接使用 Ariadne 自带的 session 进行请求
+<!--
 
-::: danger
-[蓝玻璃块](https://github.com/BlueGlassBlock) 发表了《关于“Session 复用”的重要讲话》，具体内容如下。
-:::
+## 使用统一的 Session
 
-<ChatWindow title="Graia Framework Community">
-  <ChatMsg name="蓝玻璃块" avatar="http://q1.qlogo.cn/g?b=qq&nk=2907489501&s=640">别乱嫖</ChatMsg>
-  <ChatMsg name="蓝玻璃块" avatar="http://q1.qlogo.cn/g?b=qq&nk=2907489501&s=640">快改啊</ChatMsg>
-  <ChatMsg name="蓝玻璃块" avatar="http://q1.qlogo.cn/g?b=qq&nk=2907489501&s=640">有对着adapter乱做事的赶紧改</ChatMsg>
-</ChatWindow>
+你有没有想过，假如每一次网络请求都要通过 `async with aiohttp.ClientSession() as session:`
+那我可不可以把 Session 存起来，这样就不用每次都要重新创建一个 Session 对象了？
 
-在上面我们提到了，Ariadne 也使用了 aiohttp，而使用 aiohttp 一般需要先获取一个 session，
-那么我们能不能直接白嫖 Ariadne 的 session 呢？
+那当然可以，而且这样做有一个好处，就是可以略微提升一点点性能。（无法感知的那种~）
 
-~~Of course you can~~ 根据蓝玻璃块提出的重要讲话，此处回答改为 `False`。  
-也因此，以下我们不再复用 Ariadne 的 session。（该方法最高仅支持 0.6.x 版本的 Ariadne）
+因此我们可以在其他地方创建一个类，专门用来储存和获取 Aiohttp 的 Session，当我们需要时我们只需要
+import 这个类 ，就可以了
 
-<details>
-<summary>根据蓝玻璃块的讲话而隐藏</summary>
+**为什么这里注释掉了呢？因为写到一半想起 Session 没有被关闭（）**
 
-```python
-from graia.ariadne import get_running
-from graia.ariadne.adapter import Adapter
-
-
-@channel.use(ListenerSchema(listening_events=[GroupMessage]))
-async def test(app: Ariadne):
-    session = get_running(Adapter).session
-    async with session.get("https://i1.hdslb.com/bfs/archive/5242750857121e05146d5d5b13a47a2a6dd36e98.jpg") as r:
-        data = await r.read()
-```
-
-如此即可，而且这样做有一个好处，那就是**不用在每次请求的时候都创建一个会话**
-
-在[aiohttp 官方文档的这里](https://docs.aiohttp.org/en/stable/client_quickstart.html#make-a-request)有一个 Note 👇  
-**不要为每一个请求都创造一个会话。 (Don’t create a session per request.)**
-
-假设你直接调用 Ariadne 本身的会话（session），那你机器人的性能会好一点（当然这好的一点点你可能都感觉不到）。
-
-不过这样做也有一定的有缺点 —— **降低了代码移植效率**。  
-假设你想要将你的代码放到其他地方（比如 v5），那你移植的时候，就需要更改获取 session 的代码。
-
-至于要不要用 Ariadne 自带的 session，就是你的选择了。
-
-</details>
+-->
 
 ::: interlink EroEroBot
 本章完整示例可在 [EroEroBot/modules/image_from_internet.py](https://github.com/GraiaCommunity/EroEroBot/blob/master/modules/image_from_internet.py) 找到。

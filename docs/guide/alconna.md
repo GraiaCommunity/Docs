@@ -71,13 +71,14 @@ threshold <VALUE:float>
 timeout <SEC:int>
 ```
 
-如果使用 twilight 去做，选项之间的处理会比较复杂。
+如果使用 Twilight 去做，选项之间的处理会比较复杂。
 
 这个时候，~~天空一声巨响，Alconna 闪亮登场~~，我们可以使用 `Alconna` 来实现我们想要的功能：
 
 ```python
 from arclet.alconna import Alconna, Args, Option
 from graia.ariadne.message.element import Image
+
 api_list = ["saucenao", "ascii2d", "ehentai", "iqdb", "tracemoe"]
 SetuFind = Alconna(
   "setu搜索", Args['content':[Image, 'url']],
@@ -95,58 +96,6 @@ SetuFind = Alconna(
 
 接下来，在你的机器人中添加一个用来执行 `setu搜索` 命令的监听器：  
 （**本章中如无特殊说明，所有版本号均指 `Ariadne` 的版本号，非 `Alconna` 的版本号**）
-
-:::: code-group
-::: code-group-item 0.6.2 -
-
-```python
-...
-from graia.ariadne.message.parser.alconna import AlconnaDispatcher, Arpamar
-
-
-@channel.use(
-    ListenerSchema(
-        listening_events=[GroupMessage],
-        inline_dispatchers=[AlconnaDispatcher(alconna=SetuFind)],
-    )
-)
-async def ero(app: Ariadne, group: Group, result: Arpamar):
-    if result.matched:
-        content = result.content
-        used_api = result.options.get("use")
-        max_count  = result.options.get("count")
-        similarity  = result.options.get("threshold")
-        timeout = result.options.get("timeout")
-        ...  # setu搜索的处理部分
-...
-```
-
-:::
-::: code-group-item 0.6.2 -- 0.6.10
-
-```python
-...
-from graia.ariadne.message.parser.alconna import AlconnaDispatcher, Arpamar
-
-
-@channel.use(
-    ListenerSchema(
-        listening_events=[GroupMessage],
-        inline_dispatchers=[AlconnaDispatcher(alconna=SetuFind, reply_help=True)],
-    )
-)
-async def ero(app: Ariadne, group: Group, result: Arpamar):
-    content = result.content
-    used_api = result.options.get("use")
-    max_count  = result.options.get("count")
-    similarity  = result.options.get("threshold")
-    timeout = result.options.get("timeout")
-    ...  # setu搜索的处理部分
-...
-```
-
-:::
-::: code-group-item 0.6.10 +
 
 ```python
 ...
@@ -166,9 +115,6 @@ async def ero(app: Ariadne, group: Group, result: AlconnaProperty):
     ...  # setu搜索的处理部分
 ...
 ```
-
-:::
-::::
 
 准备就绪，对着你的机器人~~发情~~发号施令吧：
 
@@ -245,6 +191,7 @@ def test_func(name: str, sender_id: int):
 
 alc = AlconnaFire(test_func)
 ```
+
 :::
 
 ### 使用模糊匹配
@@ -769,11 +716,7 @@ result = alc.parse("我要涩图 2", duplication=MyDup)
         inline_dispatchers=[AlconnaDispatcher(alconna=alc)],
     )
 )
-async def test(
-    app: Ariadne,
-    group: Group,
-    dup: MyDup,
-):
+async def test(app: Ariadne, group: Group, dup: MyDup):
     print(dup.my_args.availabe)
 ```
 
@@ -786,11 +729,7 @@ async def test(
         inline_dispatchers=[AlconnaDispatcher(alconna=alc)],
     )
 )
-async def test(
-    app: Ariadne,
-    group: Group,
-    my_args: ArgsStub,
-):
+async def test(app: Ariadne, group: Group, y_args: ArgsStub):
     print(my_args.availabe)
 ```
 
@@ -811,7 +750,7 @@ from arclet.alconna import Alconna, Args
 from graia.ariadne.message.element import At
 
 ill = Alconna(
-    "发病", 
+    "发病",
     Args["target":[At, str]],
     headers=["EroEro", "!"],
 )
@@ -826,7 +765,7 @@ from arclet.alconna import Alconna, Args
 from graia.ariadne.message.element import At
 
 ill = Alconna(
-    "发病", 
+    "发病",
     Args["target":[At, str]],
     headers=[At(123456789)],
 )
@@ -834,7 +773,7 @@ ill = Alconna(
 
 此时你需要输入 `@123456789 发病 xxxx` 才能执行命令
 
-### 快捷指令 
+### 快捷指令
 
 基于对传入消息的记录，Alconna 0.9.0 以上支持动态的快捷指令构建：
 

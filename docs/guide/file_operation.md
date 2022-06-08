@@ -45,24 +45,24 @@ from graia.ariadne.message.parser.twilight import MatchResult
     )
 )
 async def upload_file(app: Ariadne, group: Group, tag: MatchResult):
-    if tag.result.asDisplay() != "紧身衣":
+    if tag.result.display != "紧身衣":
         return  # 因为这只是一个简单的教程，所以我们就指定tag好了
 
     # 破天荒出现的秘密文件desu
     url = "https://raw.githubusercontent.com/GraiaCommunity/EroEroBot/master/data/secret.pdf"
     async with aiohttp.request("GET", url=url) as r:
         secret_pdf = await r.read()
-    await app.uploadFile(data=secret_pdf, target=group, name="紧身衣.pdf")
+    await app.upload_file(data=secret_pdf, target=group, name="紧身衣.pdf")
 ```
 
-说真的，挺简单的，这里唯一的重点，就是这个 `app.uploadFile`，
+说真的，挺简单的，这里唯一的重点，就是这个 `app.upload_file`，
 当然，仅仅是这一个例子还是不太够，我们要更深入一点：
 
 ```python{3,6-7}
-async def uploadFile(
+async def upload_file(
     self,
     data: Union[bytes, io.IOBase, os.PathLike],  # 要上传的数据/数据流
-    method: Union[str, UploadMethod] = None,  # 上传方法，不用管
+    method: Union[str, UploadMethod, None] = None,  # 上传方法，不用管
     target: Union[Friend, Group, int] = -1,  # 要上传的群
     path: str = "",  # 群文件路径
     name: str = "",  # 文件名字
@@ -155,7 +155,7 @@ async def download_setu(app: Ariadne, group: Group):
             download_info = (await app.getFileInfo(group, file.id, with_download_info=True)).download_info
             async with session.get(download_info.url) as r:
                 with open(f"download/{file.name}", "wb") as f:
-                    while chunk := await r.content.read(8192):
+                    while chunk := await r.content.read(8192):  # 注意，此处使用了海象运算符
                         f.write(chunk)
 ```
 

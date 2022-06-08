@@ -4,22 +4,25 @@
 
 ## 注意事项
 
-1. **本文档将会默认你至少学过一点点 `Python`，假设你连 Python 都不会，建议至少学点 Python 基础再来看；**
-2. **本文档将假设你具有一定的英语阅读能力<Curtain>通过 XX 翻译也行</Curtain>，并能对工具软件的提示作出自己的决定；**
-3. **本文档将会使用 `poetry` 作为依赖和虚拟环境管理工具；**
+1. **本文档将会默认你至少学过一点点 `Python`，假设你连 Python 都不会，建议至少学点 Python 基础再来看。**
+2. **本文档将假设你具有一定的英语阅读能力<Curtain>通过 XX 翻译也行</Curtain>，并能对工具软件的提示作出自己的决定。**
+3. **本文档将会使用 `poetry` 作为依赖和虚拟环境管理工具。**
    ::: warning
    关于为什么用 `poetry`，你可以看这里 :point_right: [看这](../before/Q&A.md#_6-关于-poetry)
    :::
 
-4. **本文档将使用 `graia-ariadne` 0.6.1 及以上的版本**，部分内容可能仍为旧版本但不影响食用；
+4. **本文档将使用 `graia-ariadne` 0.7.5 及以上的版本**，Ariadne 在 0.7.0 进行了一次大的
+Breaking Change，因此本文档不适用 0.7.0 以下的 Ariadne，也不再提供旧版的使用方法及示例。
    ::: tip
+   从 0.5.x 和 0.6.x 版本的 Ariadne 迁移至 0.7.x 请参考[这里](https://graia.readthedocs.io/projects/ariadne/migrate/amnesia_port/)
+
    有关什么是 Ariadne，请参阅[这里](../before/Q&A.html#_2-什么是-ariadne)
 
    因为文档会随着 `graia-ariadne` 版本的更新而更新，所以**强烈推荐**你直接安装最新版本（latest）  
    现在的 `graia-ariadne` 的最新版本为 <img src="https://img.shields.io/pypi/v/graia-ariadne?color=2970b6&amp;label=&amp;style=flat-square" alt="PyPI版本" style="vertical-align: middle">
    :::
 
-5. 虽然 `Ariadne` 支持 <img src="https://img.shields.io/pypi/pyversions/graia-ariadne?color=2970b6&amp;label=Python&amp;style=flat-square" alt="Python版本" style="vertical-align: middle">，但为了**最佳体验**，我们建议你最好升级到 `Python3.9+` 以保证能够享受到全部功能；
+5. 虽然 `Ariadne` 支持 <img src="https://img.shields.io/pypi/pyversions/graia-ariadne?color=2970b6&amp;label=Python&amp;style=flat-square" alt="Python版本" style="vertical-align: middle">，但为了**最佳体验**，我们建议你最好升级到 `Python3.9+` 以保证能够享受到全部功能。
 6. **本文档部分内容可能未及时更新或不全**，因此你可以在本文档的一些页面见到如下的提示框，他们通常指向相关的文档/示例。
    ::: interlink
    **相关链接:** <https://graia.readthedocs.io/>
@@ -112,14 +115,16 @@ poetry add graia-ariadne[standard]
      - graia-saya —— 模块化（[第 3 章](./saya.md)）
      - graia-scheduler —— 定时任务（[第 12 章](./scheduler.md)）
    - graia-ariadne[alconna]
-     - arclet-alconna —— 消息链处理器（[第 8 章第 4 节](./alconna.md)）
-   - graia-ariadne[server]
-     - fastapi —— 用于 `ReverseAdapter` 反向连接器（挖坑）
-     - uvicorn —— 运行 `fastapi` 所需要的容器
+     - arclet-alconna-graia —— 消息链处理器（[第 8 章第 4 节](./alconna.md)）
    - graia-ariadne[standard]
-     - graia-ariadne[graia]
-     - graia-ariadne[alconna]
-     - prompt-toolkit —— 实时控制台（[第 15 章](./console.md)）
+     - richuru
+     - graia-saya —— 模块化（[第 3 章](./saya.md)）
+     - graia-scheduler —— 定时任务（[第 12 章](./scheduler.md)）
+   - graia-ariadne[full]
+     - richuru
+     - graia-saya —— 模块化（[第 3 章](./saya.md)）
+     - graia-scheduler —— 定时任务（[第 12 章](./scheduler.md)）
+     - arclet-alconna-graia —— 消息链处理器（[第 8 章第 4 节](./alconna.md)）
 
    而 `graia-ariadne[full]` 则会安装以上所有非必要组件。
 

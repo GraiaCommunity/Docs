@@ -81,18 +81,31 @@ pip install graia-saya
 
 首先，为了降低新人的理解难度，我们直接拿出一个最小实例：
 
-```python{14-17,19-20}
-from graia.ariadne.app import Ariadne
-from graia.ariadne.model import MiraiSession
-from graia.saya import Saya
-from graia.saya.builtins.broadcast import BroadcastBehaviour
+```python{27-30,32-33}
+import asyncio
+import pkgutil
 
+from graia.ariadne.app import Ariadne
+from graia.ariadne.connection.config import (
+    HttpClientConfig,
+    WebsocketClientConfig,
+    config,
+)
+from graia.ariadne.event.message import GroupMessage
+from graia.ariadne.message.chain import MessageChain
+from graia.ariadne.model import Group, MiraiSession
+
+loop = asyncio.new_event_loop()
+bcc = Broadcast(loop=loop)
+Ariadne.config(loop=loop, broadcast=bcc)
 app = Ariadne(
-    MiraiSession(
-        # 以下3行请按照你的 MAH 配置来填写
-        host="http://localhost:8080",  # 同 MAH 的 port
-        verify_key="GraiaxVerifyKey",  # 同 MAH 配置的 verifyKey
-        account=1919810,  # 机器人 QQ 账号
+    connection=config(
+        114514,  # 你的机器人的 qq 号
+        "verifyKey",  # 填入 verifyKey
+        # 以下两行是你的 mirai-api-http 地址中的地址与端口
+        # 默认为 "http://localhost:8080" 如果你没有改动可以省略这两行
+        HttpClientConfig(host="http://11.45.1.4:19810"),
+        WebsocketClientConfig(host="http://11.45.1.4:19810"),
     ),
 )
 saya = app.create(Saya)
@@ -209,19 +222,30 @@ app.launch_blocking()
 前面啰里啰唆讲了一大堆，想必你一定有点不耐烦，那么就直接给你一个完整的最小实例吧：
 
 ```python
+import asyncio
 import pkgutil
 
 from graia.ariadne.app import Ariadne
-from graia.ariadne.model import MiraiSession
-from graia.saya import Saya
-from graia.saya.builtins.broadcast import BroadcastBehaviour
+from graia.ariadne.connection.config import (
+    HttpClientConfig,
+    WebsocketClientConfig,
+    config,
+)
+from graia.ariadne.event.message import GroupMessage
+from graia.ariadne.message.chain import MessageChain
+from graia.ariadne.model import Group, MiraiSession
 
+loop = asyncio.new_event_loop()
+bcc = Broadcast(loop=loop)
+Ariadne.config(loop=loop, broadcast=bcc)
 app = Ariadne(
-    MiraiSession(
-        # 以下3行请按照你的 MAH 配置来填写
-        host="http://localhost:8080",  # 同 MAH 的 port
-        verify_key="GraiaxVerifyKey",  # 同 MAH 配置的 verifyKey
-        account=1919810,  # 机器人 QQ 账号
+    connection=config(
+        114514,  # 你的机器人的 qq 号
+        "verifyKey",  # 填入 verifyKey
+        # 以下两行是你的 mirai-api-http 地址中的地址与端口
+        # 默认为 "http://localhost:8080" 如果你没有改动可以省略这两行
+        HttpClientConfig(host="http://11.45.1.4:19810"),
+        WebsocketClientConfig(host="http://11.45.1.4:19810"),
     ),
 )
 saya = app.create(Saya)
@@ -266,9 +290,9 @@ channel = Channel.current()
 @channel.use(ListenerSchema(listening_events=[GroupMessage]))
 async def setu(app: Ariadne, group: Group, message: MessageChain):
     if str(message) == "你好":
-         await app.sendMessage(
+         await app.send_message(
             group,
-            MessageChain.create(f"不要说{message.asDisplay()}，来点涩图"),
+            MessageChain(f"不要说{message.display}，来点涩图"),
          )
 ```
 

@@ -37,14 +37,14 @@ from PIL import Image as IMG
 
 def make_pic(size = (100, 100), color = (255, 0, 0)):
     img = IMG.new("RGB", size, color)
-    img.save(b := BytesIO(), "JPEG")
+    img.save(b := BytesIO(), "JPEG")  # 注意，此处使用了海象运算符
     return b.getvalue()
 
 
 @channel.use([GroupMessage])
 async def drawing(group: Group):
     pic = make_pic()
-    await app.sendMessage(group, MessageChain.create(Image(pic)))
+    await app.send_message(group, MessageChain(Image(pic)))
 
 ```
 
@@ -63,14 +63,14 @@ from graia.ariadne.util.async_exec import io_bound, cpu_bound
 @io_bound
 def make_pic(size = (100, 100), color = (255, 0, 0)):
     img = IMG.new("RGB", size, color)
-    img.save(b := BytesIO(), "JPEG")
+    img.save(b := BytesIO(), "JPEG")  # 注意，此处使用了海象运算符
     return b.getvalue()
 
 
 @channel.use([GroupMessage])
 async def drawing(group: Group):
     pic = await make_pic()
-    await app.sendMessage(group, MessageChain.create(Image(pic)))
+    await app.send_message(group, MessageChain(Image(pic)))
 ```
 
 :::
@@ -87,14 +87,14 @@ from PIL import Image as IMG
 
 def make_pic(size = (100, 100), color = (255, 0, 0)):
     img = IMG.new("RGB", size, color)
-    img.save(b := BytesIO(), "JPEG")
+    img.save(b := BytesIO(), "JPEG")  # 注意，此处使用了海象运算符
     return b.getvalue()
 
 
 @channel.use([GroupMessage])
 async def drawing(group: Group):
     pic = await asyncio.to_thread(make_pic())
-    await app.sendMessage(group, MessageChain.create(Image(pic)))
+    await app.send_message(group, MessageChain(Image(pic)))
 ```
 
 :::

@@ -29,19 +29,19 @@ async def setu(app: Ariadne, member: Member, group: Group):
 )
 async def setu(app: Ariadne, member: Member, group: Group):
     if group.id not in [114514, 1919810]:
-        await app.sendMessage(group, MessageChain.create("对不起，该群并不能发涩图"))
+        await app.send_message(group, MessageChain("对不起，该群并不能发涩图"))
     elif member.id not in [114514, 1919810]:
-        await app.sendMessage(group, MessageChain.create(At(member.id), "对不起，您的权限并不够"))
+        await app.send_message(group, MessageChain(At(member.id), "对不起，您的权限并不够"))
     elif frequency(group, member) >= 10:  # 频率判断，详细实现略
-        await app.sendMessage(group, MessageChain.create(At(member.id), "你太快了，能不能持久点"))
+        await app.send_message(group, MessageChain(At(member.id), "你太快了，能不能持久点"))
     else:
         async with aiohttp.request("GET", "https://setu.example.com/limit") as r:
             is_max = (await r.json())["is_limit"]
         if is_max:
-            await app.sendMessage(group, MessageChain.create(At(member.id), "对不起，今天的涩图已经达到上限了哦"))
+            await app.send_message(group, MessageChain(At(member.id), "对不起，今天的涩图已经达到上限了哦"))
         else:
             ...  # 获取涩图
-            await app.sendMessage(group, MessageChain.create(Image(data_bytes=setu)))
+            await app.send_message(group, MessageChain(Image(data_bytes=setu)))
 ```
 
 这种时候问题就大的去了，主要体现在下面几个方面：
@@ -60,7 +60,7 @@ from graia.broadcast.exceptions import ExecutionStop
 def check_group(*groups: int):
     async def check_group_deco(app: Ariadne, group: Group):
         if group.id not in groups:
-            await app.sendMessage(group, MessageChain.create("对不起，该群并不能发涩图"))
+            await app.send_message(group, MessageChain("对不起，该群并不能发涩图"))
             raise ExecutionStop
     return Depend(check_group_deco)
 
@@ -68,7 +68,7 @@ def check_group(*groups: int):
 def check_member(*members: int):
     async def check_member_deco(app: Ariadne, group: Group, member: Member):
         if member.id not in members:
-            await app.sendMessage(group, MessageChain.create(At(member.id), "对不起，您的权限并不够"))
+            await app.send_message(group, MessageChain(At(member.id), "对不起，您的权限并不够"))
             raise ExecutionStop
     return Depend(check_member_deco)
 
@@ -76,7 +76,7 @@ def check_member(*members: int):
 def check_frequency(max_frequency: int):
     async def check_frequency_deco(app: Ariadne, group: Group, member: Member):
         if frequency(member.id) >= max_frequency:
-            await app.sendMessage(group, MessageChain.create(At(member.id), "你太快了，能不能持久点"))
+            await app.send_message(group, MessageChain(At(member.id), "你太快了，能不能持久点"))
             raise ExecutionStop
     return Depend(check_frequency_deco)
 
@@ -96,10 +96,10 @@ async def setu(app: Ariadne, group: Group):
     async with aiohttp.request("GET", "https://setu.example.com/limit") as r:
         is_max = (await r.json())["is_limit"]
     if is_max:
-        await app.sendMessage(group, MessageChain.create(At(member.id), "对不起，今天的涩图已经达到上限了哦"))
+        await app.send_message(group, MessageChain(At(member.id), "对不起，今天的涩图已经达到上限了哦"))
     else:
         ...  # 获取涩图
-        await app.sendMessage(group, MessageChain.create(Image(data_bytes=setu)))
+        await app.send_message(group, MessageChain(Image(data_bytes=setu)))
 ```
 
 在第一眼看到这些代码的时候，你是不是满脑子问号（问号脸.jpg），
@@ -134,7 +134,7 @@ async def setu(app: Ariadne, group: Group):
 def check_group(*groups: int):
     async def check_group_deco(app: Ariadne, group: Group):
         if group.id not in groups:
-            await app.sendMessage(group, MessageChain.create("对不起，该群并不能发涩图"))
+            await app.send_message(group, MessageChain("对不起，该群并不能发涩图"))
             raise ExecutionStop
     return Depend(check_group_deco)
 ```

@@ -85,21 +85,24 @@ apikey = "xxx" # 请输你自己的，谢谢
 
 
 @channel.use(
-    ListenerSchema(listening_events=[GroupMessage],
-                   inline_dispatchers=[
-                       Twilight([
-                           FullMatch("以图搜图"),
-                           FullMatch("\n", optional=True),
-                           "img" @ ElementMatch(Image, optional=True),
-                       ]),
-                   ]))
+    ListenerSchema(
+        listening_events=[GroupMessage],
+        inline_dispatchers=[
+            Twilight(
+                FullMatch("以图搜图"),
+                FullMatch("\n", optional=True),
+                "img" @ ElementMatch(Image, optional=True),
+            ),
+        ],
+    )
+)
 async def saucenao(app: Ariadne, group: Group, member: Member, img: ElementResult, source: Source):
-    await app.sendGroupMessage(group, MessageChain.create("正在搜索，请稍后"), quote=source.id)
+    await app.send_group_message(group, MessageChain("正在搜索，请稍后"), quote=source.id)
     async with AIOSauceNao(apikey, numres=3) as snao:
         try:
             results = await snao.from_url(img.result.url)
         except SauceNaoApiError as e:
-            await app.sendMessage(group, MessageChain.create("搜索失败desu"))
+            await app.send_message(group, MessageChain("搜索失败desu"))
             return
 
     fwd_nodeList = []
@@ -112,15 +115,16 @@ async def saucenao(app: Ariadne, group: Group, member: Member, img: ElementResul
                 target=app.account,
                 senderName="爷",
                 time=datetime.now(),
-                message=MessageChain.create(
+                message=MessageChain(
                     f"相似度：{results.similarity}%\n标题：{results.title}\n节点名：{results.index_name}\n链接：{urls}"
                 )))
 
     if len(fwd_nodeList) == 0:
-        await app.sendMessage(group, MessageChain.create("未找到有价值的数据"), quote=source.id)
+        await app.send_message(group, MessageChain("未找到有价值的数据"), quote=source.id)
     else:
-        await app.sendMessage(group, MessageChain.create(Forward(nodeList=fwd_nodeList)))
+        await app.send_message(group, MessageChain(Forward(nodeList=fwd_nodeList)))
 ```
+
 :::
 ::: code-group-item Alconna
 
@@ -159,7 +163,7 @@ search = Alconna(
     )
 )
 async def saucenao(app: Ariadne, group: Group, member: Member, source: Source, result: AlconnaProperty):
-    await app.sendGroupMessage(group, MessageChain.create("正在搜索，请稍后"), quote=source.id)
+    await app.send_group_message(group, MessageChain("正在搜索，请稍后"), quote=source.id)
     content = result.result.main_args['content']
     if isinstance(content, Image):
         content = content.url
@@ -167,7 +171,7 @@ async def saucenao(app: Ariadne, group: Group, member: Member, source: Source, r
         try:
             results = await snao.from_url(content)
         except SauceNaoApiError as e:
-            await app.sendMessage(group, MessageChain.create("搜索失败desu"))
+            await app.send_message(group, MessageChain("搜索失败desu"))
             return
 
     fwd_nodeList = []
@@ -180,14 +184,14 @@ async def saucenao(app: Ariadne, group: Group, member: Member, source: Source, r
                 target=app.account,
                 senderName="爷",
                 time=datetime.now(),
-                message=MessageChain.create(
+                message=MessageChain(
                     f"相似度：{results.similarity}%\n标题：{results.title}\n节点名：{results.index_name}\n链接：{urls}"
                 )))
 
     if len(fwd_nodeList) == 0:
-        await app.sendMessage(group, MessageChain.create("未找到有价值的数据"), quote=source.id)
+        await app.send_message(group, MessageChain("未找到有价值的数据"), quote=source.id)
     else:
-        await app.sendMessage(group, MessageChain.create(Forward(nodeList=fwd_nodeList)))
+        await app.send_message(group, MessageChain(Forward(nodeList=fwd_nodeList)))
 ```
 
 :::

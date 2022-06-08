@@ -86,7 +86,7 @@ from graia.scheduler.saya import SchedulerSchema
 
 @channel.use(SchedulerSchema(timers.every_minute()))
 async def every_minute_speaking(app: Ariadne):
-    await app.sendGroupMessage(1919810, MessageChain.create("我又来了"))
+    await app.send_group_message(1919810, MessageChain("我又来了"))
 ```
 
 ## 通过 crontab 来设定时间

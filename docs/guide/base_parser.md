@@ -19,7 +19,9 @@ P.s. 一些变量名称为了与本文档其他章节统一而与官方文档有
 - `ContainKeyword`: 检测消息链是否包含指定关键字
 - `MatchContent`: 检测消息链是否与对应消息链相等
 - `MatchRegex`: 检测消息链是否匹配指定正则表达式
-- `matchTemplate`: 检测消息链是否匹配指定模板
+- `MatchTemplate`: 检测消息链是否匹配指定模板
+- `FuzzyMatch`: 模糊匹配，更推荐使用 FuzzyDispatcher 来进行模糊匹配操作, 因为其具有上下文匹配数量限制
+- `FuzzyDispatcher`: 模糊匹配
 
 ::: tip
 以上这些**消息链处理器**均位于 `graia.ariadne.message.parser.base` 中
@@ -63,7 +65,7 @@ async def test():
 )
 async def on_message(app: Ariadne, group: Group, message: MessageChain):
     # 此时的 message 事实上还是有前面的 "涩"
-    await app.sendMessage(group, MessageChain.create("涩？涩什么"))
+    await app.send_message(group, MessageChain("涩？涩什么"))
     ...
 ```
 
@@ -75,7 +77,7 @@ async def on_message(app: Ariadne, group: Group, message: MessageChain):
 @channel.use(ListenerSchema(listening_events=[GroupMessage]))
 async def on_message(app: Ariadne, group: Group, message: MessageChain = DetectPrefix("涩")):
     # 此时的 message 就没有 "涩" 了
-    await app.sendMessage(group, message + MessageChain.create("？很涩吗"))
+    await app.send_message(group, message + MessageChain("？很涩吗"))
     ...
 ```
 
@@ -135,7 +137,7 @@ async def on_message(message: MessageChain = DetectSuffix("好涩")):
     )
 )
 async def on_mention_me(app: Ariadne, group: Group, member: Member):
-    await app.sendMessage(group, MessageChain.create(At(member.id), "叫我？"))
+    await app.send_message(group, MessageChain(At(member.id), "叫我？"))
 ```
 
 ## Mention
@@ -157,7 +159,7 @@ async def on_mention_me(app: Ariadne, group: Group, member: Member):
 )
 # int: 用户 QQ 号，str: 用户的名字
 async def on_mention(app: Ariadne, group: Group):
-    await app.sendMessage(group, MessageChain.create("你找我主人有什么事吗"))
+    await app.send_message(group, MessageChain("你找我主人有什么事吗"))
     ...
 ```
 
@@ -176,7 +178,7 @@ async def on_mention(app: Ariadne, group: Group):
     )
 )
 async def on_contain_keyword(app: Ariadne, group: Group):
-    await app.sendMessage(group, MessageChain.create("好欸，涩涩"))
+    await app.send_message(group, MessageChain("好欸，涩涩"))
     ...
 ```
 
@@ -198,9 +200,9 @@ async def on_contain_keyword(app: Ariadne, group: Group):
         decorators=[MatchContent(content="[图片]")],
     )
 )
-# 当 content 为 str 时，将会与MessageChain.asDisplay()进行比较，当 content 为 MessageChain 时，将会与 MessageChain 进行比较
+# 当 content 为 str 时，将会与MessageChain.display进行比较，当 content 为 MessageChain 时，将会与 MessageChain 进行比较
 async def on_match_content(app: Ariadne, group: Group):
-    await app.sendMessage(group, MessageChain.create("哦，发了什么图片，让我康康！"))
+    await app.send_message(group, MessageChain("哦，发了什么图片，让我康康！"))
     ...
 ```
 
@@ -223,11 +225,11 @@ async def on_match_content(app: Ariadne, group: Group):
     )
 )
 async def on_match_regex(app: Ariadne, group: Group, message: MessageChain):
-    await app.sendMessage(group, MessageChain.create("发数字干什么，是神秘钥匙吗？"))
+    await app.send_message(group, MessageChain("发数字干什么，是神秘钥匙吗？"))
     ...
 ```
 
-## matchTemplate
+## MatchTemplate
 
 检测消息链是否匹配指定模板。
 
@@ -250,6 +252,14 @@ async def on_match_regex(app: Ariadne, group: Group, message: MessageChain):
 async def on_match_regex(chain: MessageChain):  # 不会改动消息链
     ...
 ```
+
+## FuzzyMatch
+
+<Loading/>
+
+## FuzzyDispatcher
+
+<Loading/>
 
 ::: interlink
 **相关链接:** <https://graia.readthedocs.io/basic/base-parser/>

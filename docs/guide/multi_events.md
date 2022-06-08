@@ -33,7 +33,7 @@ from typing import Union
 @channel.use(ListenerSchema(listening_events=[GroupMessage, NudgeEvent]))
 async def hello(app: Ariadne, group: Group, member: Member, event: Union[GroupMessage, NudgeEvent])
     if isinstance(event, NudgeEvent) or At(app.account) in event.messageChain:
-        await app.sendMessage(group, MessageChain.create("找我干肾么"))
+        await app.send_message(group, MessageChain("找我干肾么"))
 ```
 
 <Loading></Loading>

@@ -77,16 +77,16 @@ async def setu(tag: List[str]) -> bytes:
     )
 )
 async def ero(app: Ariadne, group: Group, member: Member, message: MessageChain):
-    await app.sendMessage(group, MessageChain.create("你想要什么 tag 的涩图"))
+    await app.send_message(group, MessageChain("你想要什么 tag 的涩图"))
     try:
         ret_msg = await inc.wait(SetuTagWaiter(group, member), timeout=10)  # 强烈建议设置超时时间否则将可能会永远等待
     except asyncio.TimeoutError:
-        await app.sendMessage(group, MessageChain.create("你说话了吗？"))
+        await app.send_message(group, MessageChain("你说话了吗？"))
     else:
-        await app.sendMessage(
+        await app.send_message(
             group,
-            MessageChain.create(
-                Plain("涩图 tag: " + ret_msg.asDisplay()),
+            MessageChain(
+                Plain("涩图 tag: " + ret_msg.display),
                 Image(data_bytes=Path("data", "imgs", "graiax.png").read_bytes()),
             ),
         )
@@ -158,15 +158,15 @@ def create(
 
 ```python
     ...
-    await app.sendMessage(group, MessageChain.create("你想要什么 tag 的涩图"))
+    await app.send_message(group, MessageChain("你想要什么 tag 的涩图"))
     try:
         ret_msg = await inc.wait(SetuTagWaiter(group, member), timeout=10)
     except asyncio.exceptions.TimeoutError:
-        await app.sendMessage(group, MessageChain.create("已超时取消"))
+        await app.send_message(group, MessageChain("已超时取消"))
     else:
-        await app.sendMessage(
+        await app.send_message(
             group,
-            MessageChain.create(Image(data_bytes=await setu(ret_msg.split()))),
+            MessageChain(Image(data_bytes=await setu(ret_msg.split()))),
         )
 ```
 
@@ -247,7 +247,7 @@ async def setu(tag: List[str]) -> bytes:
     )
 )
 async def ero(app: Ariadne, group: Group, member: Member, message: MessageChain):
-    await app.sendMessage(group, MessageChain.create("你想要什么 tag 的涩图"))
+    await app.send_message(group, MessageChain("你想要什么 tag 的涩图"))
 
     @Waiter.create_using_function([GroupMessage])
     async def setu_tag_waiter(g: Group, m: Member, msg: MessageChain):
@@ -255,9 +255,9 @@ async def ero(app: Ariadne, group: Group, member: Member, message: MessageChain)
             return msg
 
     ret_msg = await inc.wait(setu_tag_waiter, timeout=10)  # 强烈建议设置超时时间否则将可能会永远等待
-    await app.sendMessage(
+    await app.send_message(
         group,
-        MessageChain.create(
+        MessageChain(
             Image(data_bytes=await setu(ret_msg.split()))
         )
     )
