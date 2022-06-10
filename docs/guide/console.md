@@ -4,7 +4,7 @@
 Ariadne 于 0.7.x 版本开始支持 richuru，并且从依赖中移除了 prompt-toolkit，  
 因此 Console 可能会因为缺少维护而出现或多或少的问题。
 
-如果没有必要，建议不要使用 Console。
+本章可能存在过时内容，如果没有必要，建议不要使用 Console。
 :::
 
 还记得 `mcl` 吗？你应该对他底下的这个 `>` 印象深刻吧。
@@ -39,6 +39,7 @@ from graia.ariadne.console.saya import ConsoleBehaviour
 ...
 
 # 如果你没有通过 Broadcast(loop=loop) 创建 bcc，那你需要从 Ariadne 拿一个
+# 请记得在 app = Ariadne() 之后再放下面这一行
 # bcc = Ariadne.service.broadcast
 con = Console(broadcast=bcc, prompt="EroEroBot> ")
 ...
@@ -51,12 +52,13 @@ saya.install_behaviours(
 然后让你再次启用程序的时候，铛铛：
 
 ```txt:no-line-numbers
-Ariadne version: A.A.A
-Broadcast version: B.B.B
-Saya version: C.C.C
-Scheduler version: D.D.D
-| INFO     | graia.ariadne.app:launch:1356 - Launching app...
-| DEBUG    | graia.ariadne.app:daemon:1264 - Ariadne daemon started.
+20yy-MM-dd HH:mm:ss.SSS | INFO     | launart.manager:launch:109 - launchable components count: 4
+20yy-MM-dd HH:mm:ss.SSS | INFO     | launart.manager:launch:110 - launch all components as async task...
+20yy-MM-dd HH:mm:ss.SSS | INFO     | launart.manager:task_done_cb:153 - [elizabeth.connection.242679293.http_client_connection] running completed.
+20yy-MM-dd HH:mm:ss.SSS | SUCCESS  | launart.manager:launch:182 - Layer #0:[http.universal_client] preparation completed.
+20yy-MM-dd HH:mm:ss.SSS | SUCCESS  | launart.manager:launch:182 - Layer #2:[elizabeth.service] preparation completed.
+20yy-MM-dd HH:mm:ss.SSS | INFO     | launart.manager:launch:187 - all components prepared, blocking start.
+20yy-MM-dd HH:mm:ss.SSS | SUCCESS  | graia.ariadne.connection.ws:_:56 - Successfully got session key
 
 EroEroBot>
 ```
@@ -113,7 +115,7 @@ channel = Channel.current()
 @channel.use(ConsoleSchema([Twilight.from_command("laning {id} {message}")]))
 async def console_chat(app: Ariadne, id: MatchResult, message: MatchResult):
     group_id = id.result.asDisplay()
-    await app.sendGroupMessage(int(group_id), message.result)
+    await app.send_group_message(int(group_id), message.result)
 ```
 
 启动你的 Bot，然后在 `EroEroBot>` 后输入 `laning 114514 19180` 并按下回车键，
