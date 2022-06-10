@@ -245,7 +245,7 @@ async def on_contain_keyword(app: Ariadne, group: Group):
         decorators=[MatchContent(content="[图片]")],
     )
 )
-# 当 content 为 str 时，将会与MessageChain.display进行比较，当 content 为 MessageChain 时，将会与 MessageChain 进行比较
+# 当 content 为 str 时，将会与 MessageChain.display 进行比较，当 content 为 MessageChain 时，将会与 MessageChain 进行比较
 async def on_match_content(app: Ariadne, group: Group):
     await app.send_message(group, MessageChain("哦，发了什么图片，让我康康！"))
     ...
@@ -256,7 +256,7 @@ async def on_match_content(app: Ariadne, group: Group):
 检测消息链是否匹配指定正则表达式。
 
 ::: warning
-注意 [] 等特殊字符, 因为是使用 `MessageChain.display` 结果作为匹配源的。
+注意 `[]` 等特殊字符, 因为是使用 `MessageChain.display` 结果作为匹配源的。
 :::
 
 <h3>用法</h3>
@@ -300,7 +300,7 @@ async def on_match_regex(chain: MessageChain):  # 不会改动消息链
 
 ## FuzzyMatch
 
-`FuzzyMatch` 启用了 **模糊匹配** 能力, 就算用户打错字了也能识别 (当然中文匹配不大行）
+`FuzzyMatch` 启用了 **模糊匹配** 能力，就算用户打错字了也能识别 (当然中文匹配不大行）
 
 这个只能做一下初筛，所以更建议使用 `FuzzyDispatcher` 哦.
 
@@ -343,11 +343,11 @@ async def on_fuzzy_match(app: Ariadne, group: Group, chain: MessageChain):  # �
     )
 )
 async def on_fuzzy_match(app: Ariadne, group: Group, chain: MessageChain, rate: float):
-    # 获取实际匹配率必须准确使用 `rate: float` 标注 
+    # 获取实际匹配率必须准确使用 `rate: float` 标注
     if rate < 0.8:
         await app.send_message(group, MessageChain("你大概想说，“来一张涩图”？"))
         return
-    ... # rate >= 0.8 我们就假定对了吧
+    ... # 我们就假定 rate >= 0.8 是对的吧
 ```
 
 ::: interlink
