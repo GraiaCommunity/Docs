@@ -554,7 +554,7 @@ async def lyric_xxx(app: Ariadne, group: Group, sparkle: Sparkle):
           ],
       )
   )
-  async def lyric_xxx(app: Ariadne, group: Group, lyrics1: ParamMatch, lyrics2: ParamMatch):
+  async def lyric_xxx(app: Ariadne, group: Group, lyrics1: RegexResult, lyrics2: RegexResult):
       if lyrics1.matched:
           ...
       if lyrics2.matched:
@@ -617,6 +617,24 @@ async def lyric_xxx(app: Ariadne, group: Group, lyrics: ParamMatch):
 async def reply(..., arg: MessageChain = ResultValue()):  # 保证不会被正常的流程覆盖
     ...
 ```
+
+#### `ForceResult`
+
+因为太懒了，不想写，就直接放原文吧~
+
+<ChatWindow title="Graia Framework Community">
+  <ChatMsg name="群菜块" avatar="http://q1.qlogo.cn/g?b=qq&nk=2907489501&s=640">记得提一下 ForceResult</ChatMsg>
+  <ChatMsg name="群菜狗" avatar="http://q1.qlogo.cn/g?b=qq&nk=731347477&s=640" onright><ChatQuote name="群菜鸮">记得提一下 ForceResult</ChatQuote>啊？这是什么</ChatMsg>
+  <ChatMsg name="群菜块" avatar="http://q1.qlogo.cn/g?b=qq&nk=2907489501&s=640">你不是说有 if xx.matched 没有类型保证吗</ChatMsg>
+  <ChatMsg name="群菜块" avatar="http://q1.qlogo.cn/g?b=qq&nk=2907489501&s=640">我弄了个有类型保证的（</ChatMsg>
+  <ChatMsg name="群菜块" avatar="http://q1.qlogo.cn/g?b=qq&nk=2907489501&s=640">当然前提是 matched</ChatMsg>
+  <ChatMsg name="群菜块" avatar="http://q1.qlogo.cn/g?b=qq&nk=2907489501&s=640">arg: ForceResult[MessageChain]</ChatMsg>
+  <ChatMsg name="群菜块" avatar="http://q1.qlogo.cn/g?b=qq&nk=2907489501&s=640">然后 arg.result 就不是 Optional[MessageChain] 了</ChatMsg>
+  <ChatMsg name="群菜块" avatar="http://q1.qlogo.cn/g?b=qq&nk=2907489501&s=640">是 MessageChain</ChatMsg>
+  <ChatMsg name="群菜块" avatar="http://q1.qlogo.cn/g?b=qq&nk=2907489501&s=640">相当于帮你走了一遍 typing.cast</ChatMsg>
+  <ChatMsg name="群菜狗" avatar="http://q1.qlogo.cn/g?b=qq&nk=731347477&s=640" onright>那这个和 ResultValue 哪个更优捏</ChatMsg>
+  <ChatMsg name="群菜块" avatar="http://q1.qlogo.cn/g?b=qq&nk=2907489501&s=640">草，我ResultValue好像写炸了<br />ForceResult倒是没问题</ChatMsg>
+</ChatWindow>
 
 ::: interlink
 **相关链接:** <https://graia.readthedocs.io/advance/twilight/>
