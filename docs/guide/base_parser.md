@@ -79,6 +79,12 @@ async def on_message(app: Ariadne, group: Group, message: MessageChain = DetectP
     # 此时的 message 就没有 "涩" 了
     await app.send_message(group, message + MessageChain("？很涩吗"))
     ...
+
+@channel.use(ListenerSchema(listening_events=[GroupMessage]))
+async def on_message(app: Ariadne, group: Group, message: Annotated[MessageChain, DetectPrefix("涩")]):
+    # 此时的 message 就没有 "涩" 了
+    await app.send_message(group, message + MessageChain("？很涩吗"))
+    ...
 ```
 
 ## DetectSuffix
@@ -117,13 +123,18 @@ async def on_message(message: MessageChain):
 async def on_message(message: MessageChain = DetectSuffix("好涩")):
     # 此时的 message 就没有 "好涩" 了
     ...
+
+@channel.use(ListenerSchema(listening_events=[GroupMessage]))
+async def on_message(message: Annotated[MessageChain, DetectSuffix("好涩")]):
+    # 此时的 message 就没有 "好涩" 了
+    ...
 ```
 
 ## MentionMe
 
 检测在聊天中提到 Bot (At Bot 或以 Bot 群昵称/自己名称 打头)。
 
-<h3>用法</h3>
+<h3>用法1</h3>
 
 放到 `bcc.receiver` 或 `ListenerSchema` 的 `decorators` 里。
 
@@ -140,11 +151,27 @@ async def on_mention_me(app: Ariadne, group: Group, member: Member):
     await app.send_message(group, MessageChain(At(member.id), "叫我？"))
 ```
 
+<h3>用法2</h3>
+
+```python
+# "@EroEroBot 在吗" "EroEroBot 在吗" "EroEroBot，帮我涩涩"
+# 要求名字/At在最前面
+@channel.use(ListenerSchema(listening_events=[GroupMessage]))
+async def on_mention_me(app: Ariadne, group: Group, member: Member, chain: MessageChain = MentionMe()):
+    # 此时的 chain 就没有 "@EroEroBot" 或者 "EroEroBot" 了
+    await app.send_message(group, MessageChain(At(member.id), "你叫我", chain, "？"))
+
+@channel.use(ListenerSchema(listening_events=[GroupMessage]))
+async def on_mention_me(app: Ariadne, group: Group, member: Member, chain: Annotated[MessageChain, MentionMe()]):
+    # 此时的 chain 就没有 "@EroEroBot" 或者 "EroEroBot" 了
+    await app.send_message(group, MessageChain(At(member.id), "你叫我", chain, "？"))
+```
+
 ## Mention
 
 检测在聊天中提到指定的人 (At 指定的人 或以 指定的人 群昵称/名称打头)。
 
-<h3>用法</h3>
+<h3>用法1</h3>
 
 放到 `bcc.receiver` 或 `ListenerSchema` 的 `decorators` 里。
 
@@ -160,6 +187,24 @@ async def on_mention_me(app: Ariadne, group: Group, member: Member):
 # int: 用户 QQ 号，str: 用户的名字
 async def on_mention(app: Ariadne, group: Group):
     await app.send_message(group, MessageChain("你找我主人有什么事吗"))
+    ...
+```
+
+<h3>用法2</h3>
+
+```python
+"Graiax 一起去涩涩"
+# 要求名字/At在最前面
+@channel.use(ListenerSchema(listening_events=[GroupMessage]))
+async def on_mention(app: Ariadne, group: Group, chain: MessageChain = Mention(target=...)):
+    # 这时的 chain 就没有 "@Graiax" 或者 "Graiax" 了
+    await app.send_message(group, MessageChain("你要找我主人", chain, "吗"))
+    # 会发送 "你要找我主人一起去涩涩吗"
+    ...
+
+@channel.use(ListenerSchema(listening_events=[GroupMessage]))
+async def on_mention(app: Ariadne, group: Group, chain: Annotated[MessageChain, Mention(target=...)]):
+    await app.send_message(group, MessageChain("你要找我主人", chain, "吗"))
     ...
 ```
 
@@ -211,7 +256,7 @@ async def on_match_content(app: Ariadne, group: Group):
 检测消息链是否匹配指定正则表达式。
 
 ::: warning
-注意 [] 等特殊字符, 因为是使用 `MessageChain.asDisplay` 结果作为匹配源的。
+注意 [] 等特殊字符, 因为是使用 `MessageChain.display` 结果作为匹配源的。
 :::
 
 <h3>用法</h3>
@@ -255,11 +300,55 @@ async def on_match_regex(chain: MessageChain):  # 不会改动消息链
 
 ## FuzzyMatch
 
-<Loading/>
+`FuzzyMatch` 启用了 **模糊匹配** 能力, 就算用户打错字了也能识别 (当然中文匹配不大行）
+
+这个只能做一下初筛，所以更建议使用 `FuzzyDispatcher` 哦.
+
+<h3>用法</h3>
+
+放到 `bcc.receiver` 或 `ListenerSchema` 的 `decorators` 里。
+
+```python
+@channel.use(
+    ListenerSchema(
+        listening_events=[GroupMessage],
+        decorators=[FuzzyMatch("来张涩图", min_rate=0.8)], # min_rate 限定了最低匹配阈值
+    )
+)
+async def on_fuzzy_match(app: Ariadne, group: Group, chain: MessageChain):  # 不会改动消息链
+    if chain.display != "来张涩图":
+        await app.send_message(group, MessageChain("你大概想说，“来张涩图”？"))
+        return
+    ...
+```
 
 ## FuzzyDispatcher
 
-<Loading/>
+`FuzzyDispatcher` 提供了更强大的模糊匹配支持，包括：
+
+- 只允许匹配率最高的进行响应
+- 获取实际的匹配率
+
+让我们试试吧！
+
+<h3>用法</h3>
+
+放到 `bcc.receiver` 的 `dispatchers` 里。
+
+```python
+@channel.use(
+    ListenerSchema(
+        listening_events=[GroupMessage],
+        dispatchers=[FuzzyDispatcher("来一张涩图", min_rate=0.6)], # min_rate 限定了最低匹配阈值
+    )
+)
+async def on_fuzzy_match(app: Ariadne, group: Group, chain: MessageChain, rate: float):
+    # 获取实际匹配率必须准确使用 `rate: float` 标注 
+    if rate < 0.8:
+        await app.send_message(group, MessageChain("你大概想说，“来一张涩图”？"))
+        return
+    ... # rate >= 0.8 我们就假定对了吧
+```
 
 ::: interlink
 **相关链接:** <https://graia.readthedocs.io/basic/base-parser/>
