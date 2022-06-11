@@ -43,7 +43,7 @@
 Ariadne 提供了 `FunctionWaiter` 和 `EventWaiter` 两个便捷的类，可以让我们更方便的使用。
 
 这两个类都位于 `graia.ariadne.util.interrupt` 中，这里我们只介绍 `FunctionWaiter`
-的用法，下面以一个加机器人好友时向机器人管理员询问是否通过的例子来说明这个 `FunctionWaiter` 的用法：  
+的用法，下面以一个加机器人好友时向机器人管理员询问是否通过的例子来说明这个 `FunctionWaiter` 的用法：
 
 ```python{23-33,35-37}
 from graia.ariadne.util.interrupt import FunctionWaiter
