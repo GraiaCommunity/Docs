@@ -34,7 +34,7 @@ poetry add prompt-toolkit
 然后我们在 `main.py` 加一点东西进行初始化：
 
 ```python
-from graia.ariadne.console import Console  # 不是从 rich.console import Console 噢
+from graia.ariadne.console import Console  # 不是 from rich.console import Console 噢
 from graia.ariadne.console.saya import ConsoleBehaviour
 ...
 

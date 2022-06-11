@@ -17,7 +17,7 @@
    )
    from graia.ariadne.event.message import GroupMessage
    from graia.ariadne.message.chain import MessageChain
-   from graia.ariadne.model import Group, MiraiSession
+   from graia.ariadne.model import Group
 
    loop = asyncio.new_event_loop()
    bcc = Broadcast(loop=loop)
