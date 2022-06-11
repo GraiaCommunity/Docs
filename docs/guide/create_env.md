@@ -11,18 +11,20 @@
    关于为什么用 `poetry`，你可以看这里 :point_right: [看这](../before/Q&A.md#_6-关于-poetry)
    :::
 
-4. **本文档将使用 `graia-ariadne` 0.7.5 及以上的版本**，Ariadne 在 0.7.0 进行了一次大的
-Breaking Change，因此本文档不适用 0.7.0 以下的 Ariadne，也不再提供旧版的使用方法及示例。
-   ::: tip
-   从 0.5.x 和 0.6.x 版本的 Ariadne 迁移至 0.7.x 请参考[这里](https://graia.readthedocs.io/projects/ariadne/migrate/amnesia_port/)
+4. **本文档将使用 `graia-ariadne` 0.7.7 及以上的版本**，Ariadne 在 0.7.0 进行了一次大的
+   Breaking Change，因此本文档不适用 0.7.0 以下的 Ariadne，也不再提供旧版的使用方法及示例。  
 
-   有关什么是 Ariadne，请参阅[这里](../before/Q&A.html#_2-什么是-ariadne)
-
-   因为文档会随着 `graia-ariadne` 版本的更新而更新，所以**强烈推荐**你直接安装最新版本（latest）  
-   现在的 `graia-ariadne` 的最新版本为 <img src="https://img.shields.io/pypi/v/graia-ariadne?color=2970b6&amp;label=&amp;style=flat-square" alt="PyPI版本" style="vertical-align: middle">
+   ::: tip 小贴士（bushi）
+   - 从 0.5.x 和 0.6.x 版本的 Ariadne 迁移至 0.7.x 请参考[这里](https://graia.readthedocs.io/projects/ariadne/migrate/amnesia_port/)
+   - **0.7.6 及以下版本的 Ariadne 存在一些 Bug，不推荐使用噢。**
+   - 有关什么是 Ariadne，请参阅[这里](../before/Q&A.html#_2-什么是-ariadne)
+   - 一般情况下本文档会随着 **Ariadne** 版本的更新而更新，所以**强烈推荐**你直接安装最新版本（latest），现在 **Ariadne** 的最新版本为
+      <a href="https://pypi.org/project/graia-ariadne/#history"><img src="https://img.shields.io/pypi/v/graia-ariadne?color=2970b6&amp;label=&amp;style=flat-square" alt="PyPI版本" style="vertical-align: middle"></a>
    :::
 
-5. 虽然 `Ariadne` 支持 <img src="https://img.shields.io/pypi/pyversions/graia-ariadne?color=2970b6&amp;label=Python&amp;style=flat-square" alt="Python版本" style="vertical-align: middle">，但为了**最佳体验**，我们建议你最好升级到 `Python3.9+` 以保证能够享受到全部功能。
+5. 虽然 `Ariadne` 支持
+   <img src="https://img.shields.io/pypi/pyversions/graia-ariadne?color=2970b6&amp;label=Python&amp;style=flat-square" alt="Python版本" style="vertical-align: middle">
+   ，但为了**最佳体验**，我们建议你最好升级到 `Python3.9+` 以保证能够享受到全部功能。
 6. **本文档部分内容可能未及时更新或不全**，因此你可以在本文档的一些页面见到如下的提示框，他们通常指向相关的文档/示例。
    ::: interlink
    **相关链接:** <https://graia.readthedocs.io/>
