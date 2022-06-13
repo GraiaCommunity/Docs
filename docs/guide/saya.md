@@ -75,6 +75,7 @@ poetry add graia-saya
 pip install graia-saya
 ```
 
+:::
 ::::
 
 ## 创建一个基础框架
