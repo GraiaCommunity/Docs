@@ -34,7 +34,7 @@
 - [Arclet-Alconna 官方文档](https://arcletproject.github.io/docs/alconna/tutorial/)
 - [Avilla（v5）官方文档](https://autumn-psi.vercel.app)
 - Graia Application 官方文档（已不可访问）
-- [Graia Ariadne 官方文档](https://graia.readthedocs.io)
+- [Graia Ariadne 官方文档](https://graia.readthedocs.io/ariadne)
 - [YiriMirai 官方文档](https://yiri-mirai.wybxc.cc/docs/intro)（:herb:）
 
 ### 其他

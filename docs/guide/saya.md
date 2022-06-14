@@ -353,5 +353,7 @@ dispatchers -> inline_dispatchers
 ::::
 
 ::: interlink
-相关链接：<https://graia.readthedocs.io/extra/saya/start/>
+相关链接：
+<https://graia.readthedocs.io/ariadne/extra/saya/start/>
+<https://graia.readthedocs.io/saya>
 :::

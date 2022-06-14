@@ -201,7 +201,7 @@ con = Console(
 ::: interlink
 **相关链接:**
 
-- <https://graia.readthedocs.io/extra/console/>
+- <https://graia.readthedocs.io/ariadne/extra/console/>
 - <https://python-prompt-toolkit.readthedocs.io/en/master/pages/reference.html?highlight=html#prompt_toolkit.formatted_text.HTML>
 - <https://python-prompt-toolkit.readthedocs.io/en/master/pages/reference.html?highlight=html#prompt_toolkit.styles.Style>
 :::

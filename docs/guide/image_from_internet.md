@@ -84,7 +84,7 @@ async def test(app: Ariadne): ...
 ~~易得~~，相比于一般的函数构造方法，我们会在 `def` 的前面加上 `async`，这是为什么呢？  
 ~~其实我也在寻找着这个答案。~~
 
-首先，让我们再次搬出 [Graia Ariadne 官方文档关于 asyncio 的介绍](https://graia.readthedocs.io/appendix/asyncio-intro/)（进行一个鱼的摸）
+首先，让我们再次搬出 [Graia Ariadne 官方文档关于 asyncio 的介绍](https://graia.readthedocs.io/ariadne/appendix/asyncio-intro/)（进行一个鱼的摸）
 
 简单说一下，`async / await` 关键字就是为了 `asyncio` 而诞生的，
 而 asyncio，就是是用来编写**并发**代码（有时候也叫异步或协程）的库。

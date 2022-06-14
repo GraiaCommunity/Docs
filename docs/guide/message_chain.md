@@ -77,10 +77,9 @@ v4、v4p 等缩写词语的意思可以在[这里](../appendix/terms.md)找到�
 
 说实话，就像 Python 的 str 一样， MessageChain 提供的方法有亿点点多。
 
-这边推荐你去看一下这两篇官方教程，~~这个社区文档作者就是逊啦，什么都不教的！~~
+这边推荐你去看一下这篇官方教程，~~这个社区文档作者就是逊啦，什么都不教的！~~
 
-- [Ariadne 文档 消息链：基础](https://graia.readthedocs.io/basic/msg-chain/)
-- [Ariadne 文档 消息链：进阶](https://graia.readthedocs.io/advance/msg-chain/)
+- [Ariadne 文档 消息链](https://graia.readthedocs.io/ariadne/feature/msg-chain/)
 
 这边提供一些简简单单的例子：
 
@@ -170,6 +169,5 @@ True
 
 ::: interlink
 **相关链接:**  
-<https://graia.readthedocs.io/basic/msg-chain/>  
-<https://graia.readthedocs.io/advance/msg-chain/>
+<https://graia.readthedocs.io/ariadne/feature/msg-chain/>  
 :::

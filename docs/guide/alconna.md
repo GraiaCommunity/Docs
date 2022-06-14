@@ -903,6 +903,5 @@ alc.parse("cut_img --height=640")
 
 ::: interlink
 **相关链接:**  
-<https://graia.readthedocs.io/advance/alconna/quickstart/>  
 <https://arcletproject.github.io/docs/alconna/tutorial>
 :::

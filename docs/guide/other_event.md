@@ -116,5 +116,5 @@ async def getup(app: Ariadne, event: NudgeEvent):
 ::: interlink
 **EroEroBot:** 本章完整示例可在 [EroEroBot/modules/other_event.py](https://github.com/GraiaCommunity/EroEroBot/blob/master/modules/other_event.py) 找到。
 
-**相关链接:** <https://graia.readthedocs.io/basic/params/>
+**相关链接:** <https://graia.readthedocs.io/ariadne/feature/params/>
 :::
