@@ -2,7 +2,7 @@
 
 [>_<]: 因为不知道怎么样才能把script写在md里面，没办法只能用';'来硬生生把代码连起来了
 
-<audio id="thtlb" src="/voices/太好听了8.mp3"></audio>
+<audio id="thtlb" src="/voices/太好听了8.m4a"></audio>
 
 ::: danger
 本文档还没有写完<Curtain type="danger">比如没准备好钉宫三连语音包，欢迎<RubyCurtain up="hentai xiong di" type="danger">
@@ -23,7 +23,7 @@
 
 <ChatWindow title="Graia Framework Community">
   <ChatMsg name="GraiaX" onright>无路赛</ChatMsg>
-  <ChatVoice name="EroEroBot" avatar="/avatar/ero.webp" audio="/voices/夏娜_无路赛_钉宫理惠.mp3">别戳我，好痒</ChatVoice>
+  <ChatVoice name="EroEroBot" avatar="/avatar/ero.webp" audio="/voices/夏娜_无路赛_钉宫理惠.m4a">别戳我，好痒</ChatVoice>
 </ChatWindow>
 
 <VolumeBar>贴心的音量条：</VolumeBar>
@@ -110,7 +110,7 @@ pip install graiax-silkcoder[ffmpeg]
 ```python
 from graiax import silkcoder
 
-audio_bytes = await silkcoder.async_encode("Graiax/EroEroBot/hentai.mp3", ios_adaptive=True)
+audio_bytes = await silkcoder.async_encode("Graiax/EroEroBot/hentai.m4a", ios_adaptive=True)
 Voice(data_bytes=audio_bytes)
 ```
 
@@ -120,7 +120,7 @@ Voice(data_bytes=audio_bytes)
 ```python
 from graiax import silkcoder
 
-audio_bytes = await silkcoder.async_encode("Graiax/EroEroBot/hentai.mp3")
+audio_bytes = await silkcoder.async_encode("Graiax/EroEroBot/hentai.m4a")
 Voice(data_bytes=audio_bytes)
 ```
 
@@ -130,7 +130,7 @@ Voice(data_bytes=audio_bytes)
 ```python
 from graiax import silkcoder
 
-audio_bytes = await silkcoder.encode("Graiax/EroEroBot/hentai.mp3")
+audio_bytes = await silkcoder.encode("Graiax/EroEroBot/hentai.m4a")
 Voice(data_bytes=audio_bytes)
 ```
 
