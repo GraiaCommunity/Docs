@@ -82,6 +82,7 @@ export default defineComponent({
         'ModuleNotFoundError: No module named \'graiax\'',
         '看看你的 type checker',
         '什么超级魔法',
+        '✨0.7.x: 修复了 datetime 序列化错误的 bug',
         'async def f(): time.sleep(10)',
         '不要以为加个 async 就是异步了',
         '你让 rf 给 alconna 加个 feature 不就行了',
