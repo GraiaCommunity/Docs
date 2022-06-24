@@ -26,7 +26,7 @@ import aiohttp
 @channel.use(ListenerSchema(listening_events=[GroupMessage]))
 async def ero(app: Ariadne, group: Group, message: MessageChain):
     if message.display == "涩图来":
-        async with aiohttp.ClientSession() as session:
+        async with Ariadne.service.client_session as session:
             async with session.get("https://i1.hdslb.com/bfs/archive/5242750857121e05146d5d5b13a47a2a6dd36e98.jpg") as r:
                 data = await r.read()
         await app.send_message(group, MessageChain(

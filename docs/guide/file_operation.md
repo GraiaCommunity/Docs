@@ -148,11 +148,11 @@ class FileInfo(AriadneBaseModel):
 # 全是缩进警告
 async def download_setu(app: Ariadne, group: Group):
     os.makedirs("download", exist_ok=True)  # 创建一个 download 文件夹
-    async with aiohttp.ClientSession() as session:
-        async for file in app.getFileIterator(group):
+    async with Ariadne.service.client_session as session:
+        async for file in app.get_file_iterator(group):
             if file.name.split(".")[-1] not in ["jpg", "jpeg", "png"]:
                 continue
-            download_info = (await app.getFileInfo(group, file.id, with_download_info=True)).download_info
+            download_info = (await app.get_file_info(group, file.id, with_download_info=True)).download_info
             async with session.get(download_info.url) as r:
                 with open(f"download/{file.name}", "wb") as f:
                     while chunk := await r.content.read(8192):  # 注意，此处使用了海象运算符
