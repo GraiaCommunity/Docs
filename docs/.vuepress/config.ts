@@ -1,4 +1,5 @@
 import { containerPlugin } from '@vuepress/plugin-container'
+import { mediumZoomPlugin } from '@vuepress/plugin-medium-zoom'
 import { registerComponentsPlugin } from '@vuepress/plugin-register-components'
 import { searchPlugin } from '@vuepress/plugin-search'
 import { shikiPlugin } from '@vuepress/plugin-shiki'
@@ -39,6 +40,9 @@ export default defineUserConfig({
     }),
     shikiPlugin({
       theme: 'one-dark-pro',
+    }),
+    mediumZoomPlugin({
+      selector: 'not(.no-zoom) > img',
     }),
   ],
 })
