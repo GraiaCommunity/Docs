@@ -1,16 +1,5 @@
 <!-- Author: Redlnn <w731347477@gmail.com> -->
 
-<template>
-  <div class="qq-chat">
-    <div v-if="title" class="qq-header">
-      <span class="chat-title">{{ title }}</span>
-    </div>
-    <div class="chat-area">
-      <slot></slot>
-    </div>
-  </div>
-</template>
-
 <script lang="ts">
 import { defineComponent } from 'vue'
 
@@ -21,6 +10,17 @@ export default defineComponent({
   },
 })
 </script>
+
+<template>
+  <div class="qq-chat">
+    <div v-if="title" class="qq-header">
+      <span class="chat-title">{{ title }}</span>
+    </div>
+    <div class="chat-area">
+      <slot></slot>
+    </div>
+  </div>
+</template>
 
 <style scoped lang="scss">
 .qq-chat {
@@ -135,6 +135,15 @@ export default defineComponent({
     max-height: 350px !important;
     margin: 5px 0;
     border-radius: 10px;
+  }
+
+  .right-chat & {
+    background-color: #0098fe;
+    color: #fff;
+
+    .bubble-arrow {
+      border-top-color: #0098fe;
+    }
   }
 }
 </style>

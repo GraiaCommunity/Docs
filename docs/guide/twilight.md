@@ -623,6 +623,7 @@ async def reply(..., arg: MessageChain = ResultValue()):  # 保证不会被正�
 因为太懒了，不想写，就直接放原文吧~
 
 <ChatWindow title="Graia Framework Community">
+  <ChatToast>2022/6/10 星期五 下午 8:48:46</ChatToast>
   <ChatMsg name="群菜块" avatar="http://q1.qlogo.cn/g?b=qq&nk=2907489501&s=640">记得提一下 ForceResult</ChatMsg>
   <ChatMsg name="群菜狗" avatar="http://q1.qlogo.cn/g?b=qq&nk=731347477&s=640" onright><ChatQuote name="群菜鸮">记得提一下 ForceResult</ChatQuote>啊？这是什么</ChatMsg>
   <ChatMsg name="群菜块" avatar="http://q1.qlogo.cn/g?b=qq&nk=2907489501&s=640">你不是说有 if xx.matched 没有类型保证吗</ChatMsg>
@@ -633,6 +634,7 @@ async def reply(..., arg: MessageChain = ResultValue()):  # 保证不会被正�
   <ChatMsg name="群菜块" avatar="http://q1.qlogo.cn/g?b=qq&nk=2907489501&s=640">是 MessageChain</ChatMsg>
   <ChatMsg name="群菜块" avatar="http://q1.qlogo.cn/g?b=qq&nk=2907489501&s=640">相当于帮你走了一遍 typing.cast</ChatMsg>
   <ChatMsg name="群菜狗" avatar="http://q1.qlogo.cn/g?b=qq&nk=731347477&s=640" onright>那这个和 ResultValue 哪个更优捏</ChatMsg>
+  <ChatToast>提示：下面这个问题已修复</ChatToast>
   <ChatMsg name="群菜块" avatar="http://q1.qlogo.cn/g?b=qq&nk=2907489501&s=640">草，我ResultValue好像写炸了<br />ForceResult倒是没问题</ChatMsg>
 </ChatWindow>
 
