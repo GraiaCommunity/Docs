@@ -124,8 +124,6 @@ export default defineComponent({
   background-color: var(--c-bg);
 
   & > img {
-    display: block;
-
     @media (min-width: 830px) {
       max-width: 300px !important;
     }
@@ -133,7 +131,7 @@ export default defineComponent({
       max-width: 100% !important;
     }
     max-height: 350px !important;
-    margin: 5px 0;
+    // margin: 5px 0; // 如果单独一行得单独加这个，同一行有文字的话对齐文字也可以
     border-radius: 10px;
   }
 

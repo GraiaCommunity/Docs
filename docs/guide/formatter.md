@@ -34,7 +34,7 @@
   <ChatMsg name="EroEroBot" avatar="/avatar/ero.webp">来点涩图<img
     src="/images/guide/wangwang.webp"
     height=20
-    style="display: inline-block; vertical-align: text-bottom; margin: 0"
+    style="vertical-align: text-bottom"
     class="no_zoom"
   /></ChatMsg>
 </ChatWindow>
@@ -50,8 +50,8 @@ MessageChain("来点涩图", Face(277))
 <ChatWindow>
   <ChatMsg name="EroEroBot" avatar="/avatar/ero.webp">
     在新的一年里，祝你<br>
-    身<img src="/images/guide/wangwang.webp" height=20 style="display: inline-block; vertical-align: text-bottom; margin: 0" class="no_zoom" />体<img src="/images/guide/wangwang.webp" height=20 style="display: inline-block; vertical-align: text-bottom; margin: 0" class="no_zoom" />健<img src="/images/guide/wangwang.webp" height=20 style="display: inline-block; vertical-align: text-bottom; margin: 0" class="no_zoom" />康<br>
-    万<img src="/images/guide/wangwang.webp" height=20 style="display: inline-block; vertical-align: text-bottom; margin: 0" class="no_zoom" />事<img src="/images/guide/wangwang.webp" height=20 style="display: inline-block; vertical-align: text-bottom; margin: 0" class="no_zoom" />如<img src="/images/guide/wangwang.webp" height=20 style="display: inline-block; vertical-align: text-bottom; margin: 0" class="no_zoom" />意
+    身<img src="/images/guide/wangwang.webp" height=20 style="vertical-align: text-bottom" class="no_zoom" />体<img src="/images/guide/wangwang.webp" height=20 style="vertical-align: text-bottom" class="no_zoom" />健<img src="/images/guide/wangwang.webp" height=20 style="vertical-align: text-bottom" class="no_zoom" />康<br>
+    万<img src="/images/guide/wangwang.webp" height=20 style="vertical-align: text-bottom" class="no_zoom" />事<img src="/images/guide/wangwang.webp" height=20 style="vertical-align: text-bottom" class="no_zoom" />如<img src="/images/guide/wangwang.webp" height=20 style="vertical-align: text-bottom" class="no_zoom" />意
   </ChatMsg>
 </ChatWindow>
 
