@@ -346,7 +346,7 @@ pipx install poetry
 ::: warning
 **请学会到群里提问，因为你提的问题有一定概率是我们的潜在 bug**
 
-不过请先确认你的 Python 版本与 Graia 版本是受到支持的 (Python 3.8+, Graia 0.6+)
+不过请先确认你的 Python 版本与 Graia 版本是受到支持的 (Python 3.8+, Graia Ariadne 0.7.15+)
 :::
 ::: warning 注意2
 当你在提出问题的时候，请附上**完整的报错**跟**报错部分的代码**。

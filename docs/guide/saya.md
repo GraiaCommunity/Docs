@@ -51,7 +51,7 @@ Nonebot 就是一个比较典型的插件导入式框架（通过导入不同的
 ## 如何安装 `Saya`
 
 ::: tip 注意
-在写本章文档的时候，`Graia-Saya` 的版本为 `0.0.15`  
+在写本章文档的时候，`Graia-Saya` 的版本为 `0.0.16`  
 而最新版本为 <img src="https://img.shields.io/pypi/v/graia-saya?color=2970b6&amp;style=flat-square" alt="PyPI版本" style="vertical-align: middle">
 
 假设你之前安装 Ariadne 时用的是以下 3 种选项中的一种，那么你可以直接跳过本小节。
@@ -82,10 +82,10 @@ pip install graia-saya
 
 首先，为了降低新人的理解难度，我们直接拿出一个最小实例：
 
-```python{27-30,32-33}
-import asyncio
+```python{15,27-28}
 import pkgutil
 
+from creart import create
 from graia.ariadne.app import Ariadne
 from graia.ariadne.connection.config import (
     HttpClientConfig,
@@ -95,10 +95,9 @@ from graia.ariadne.connection.config import (
 from graia.ariadne.event.message import GroupMessage
 from graia.ariadne.message.chain import MessageChain
 from graia.ariadne.model import Group, MiraiSession
+from graia.saya import Saya
 
-loop = asyncio.new_event_loop()
-bcc = Broadcast(loop=loop)
-Ariadne.config(loop=loop, broadcast=bcc)
+saya = create(Saya)
 app = Ariadne(
     connection=config(
         114514,  # 你的机器人的 qq 号
@@ -108,10 +107,6 @@ app = Ariadne(
         HttpClientConfig(host="http://11.45.1.4:19810"),
         WebsocketClientConfig(host="http://11.45.1.4:19810"),
     ),
-)
-saya = app.create(Saya)
-saya.install_behaviours(
-    app.create(BroadcastBehaviour),
 )
 
 with saya.module_context():
@@ -125,19 +120,14 @@ app.launch_blocking()
 :::: details 原理解析
 
 ```python
-saya = app.create(Saya)
-saya.install_behaviours(
-    app.create(BroadcastBehaviour)
-)
+saya = create(Saya)
 
 with saya.module_context():
     saya.require("modules.ero")
 ```
 
-首先我们使用 Ariadne 创建了一个 `saya` 实例，并为其安装 `BroadcastBehaviour`。
-
-然后在下方有一个上下文，需要注意的是，这个 `with` 上下文处理是很有必要的，
-你的所有导入模组操作都必须在这个上下文处理器当中。
+首先我们使用 [creart](https://github.com/GraiaProject/creart) 的 create 创建了一个 `Saya` 实例。然后在下方有一个上下文，需要注意的是，这个 `with`
+的上下文处理是很有必要的，你的所有导入模组操作都必须在这个上下文处理器当中。
 
 ::: interlink
 什么？你不认识 `with` 语句？那你可以去学学噢~  
@@ -223,9 +213,9 @@ app.launch_blocking()
 前面啰里啰唆讲了一大堆，想必你一定有点不耐烦，那么就直接给你一个完整的最小实例吧：
 
 ```python
-import asyncio
 import pkgutil
 
+from creart import create
 from graia.ariadne.app import Ariadne
 from graia.ariadne.connection.config import (
     HttpClientConfig,
@@ -235,10 +225,9 @@ from graia.ariadne.connection.config import (
 from graia.ariadne.event.message import GroupMessage
 from graia.ariadne.message.chain import MessageChain
 from graia.ariadne.model import Group, MiraiSession
+from graia.saya import Saya
 
-loop = asyncio.new_event_loop()
-bcc = Broadcast(loop=loop)
-Ariadne.config(loop=loop, broadcast=bcc)
+saya = create(Saya)
 app = Ariadne(
     connection=config(
         114514,  # 你的机器人的 qq 号
@@ -248,10 +237,6 @@ app = Ariadne(
         HttpClientConfig(host="http://11.45.1.4:19810"),
         WebsocketClientConfig(host="http://11.45.1.4:19810"),
     ),
-)
-saya = app.create(Saya)
-saya.install_behaviours(
-    app.create(BroadcastBehaviour),
 )
 
 with saya.module_context():

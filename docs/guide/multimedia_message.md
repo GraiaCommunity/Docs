@@ -75,7 +75,7 @@ Image(path="./Graiax/EroEroBot/eropic.jpg")
 首先安装 `graiax-silkcoder`：
 
 ::: warning
-该文档最后更新的时候，`graiax-silkcoder` 的版本的 0.2.6  
+本章最后更新的时候，`graiax-silkcoder` 的版本的 0.2.6  
 现在的最新版本为 <img src="https://img.shields.io/pypi/v/graiax-silkcoder?color=2970b6&amp;style=flat-square" alt="PyPI版本" style="vertical-align: middle">
 :::
 

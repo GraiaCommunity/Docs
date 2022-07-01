@@ -7,8 +7,7 @@
 3. 写入如下内容
 
    ```python
-   import asyncio
-
+   from creart import create
    from graia.ariadne.app import Ariadne
    from graia.ariadne.connection.config import (
        HttpClientConfig,
@@ -19,9 +18,7 @@
    from graia.ariadne.message.chain import MessageChain
    from graia.ariadne.model import Group
 
-   loop = asyncio.new_event_loop()
-   bcc = Broadcast(loop=loop)
-   Ariadne.config(loop=loop, broadcast=bcc)
+   bcc = create(Broadcast)
    app = Ariadne(
        connection=config(
            114514,  # 你的机器人的 qq 号
