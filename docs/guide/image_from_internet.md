@@ -77,7 +77,7 @@ very_simple_example()
 在此之前，我们再加一个问题，
 我们在每次构建 Listener 的时候都像下面这样，你可以找找，与一般的 Python 的函数构造方法有什么不同：
 
-```python
+```python:no-line-numbers
 async def test(app: Ariadne): ...
 ```
 
@@ -120,7 +120,7 @@ Ariadne 的 session 呢？
 
 那当然可以，具体要怎么做呢？其实直接进行替换就 OK，直接上代码吧：
 
-```python
+```python:no-line-numbers
 # 只要将下面这一行
 async with aiohttp.ClientSession() as session:
 # 替换成下面这一行就可以了哦

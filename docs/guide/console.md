@@ -33,12 +33,11 @@ poetry add prompt-toolkit
 
 然后我们在 `main.py` 加一点东西进行初始化：
 
-```python{7,12,14}
+```python{6,11,13}
 from creart import create
 from graia.ariadne.app import Ariadne
 from graia.ariadne.console import Console  # 不是 from rich.console import Console 噢
 from graia.ariadne.console.saya import ConsoleBehaviour
-...
 
 bcc = create(Broadcast)
 saya = create(Saya)
@@ -180,10 +179,8 @@ async def stop(app: Ariadne, console: Console):
 你只需要在初始化 `Console` 的时候传入一些参数就可以实现了，下面就是一个栗子：
 
 ```python
-...
 from prompt_toolkit.formatted_text import HTML
 from prompt_toolkit.styles import Style
-...
 
 con = Console(
     broadcast=app.broadcast,

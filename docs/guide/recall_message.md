@@ -89,7 +89,7 @@ await app.recall_message(botmessage.messageId)  # 通过 BotMessage 中的消息
 ```python
 @channel.use(ListenerSchema(listening_events=[GroupMessage]))
 async def test(app: Ariadne, message: MessageChain, source: Source):
-    if str(message) == "撤回测试":
+    if message.display == "撤回测试":
         await app.recall_message(source)
 ```
 

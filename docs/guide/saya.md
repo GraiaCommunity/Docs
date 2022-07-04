@@ -197,7 +197,7 @@ with saya.module_context():
             # 假设模组是以 `_` 开头的，就不去导入
             # 根据 Python 标准，这类模组算是私有函数
             continue
-        saya.require("modules." + module_info.name)
+        saya.require(f"modules.{module_info.name}")
 
 app.launch_blocking()
 ```
@@ -247,7 +247,7 @@ app = Ariadne(
 
 with saya.module_context():
     for module_info in pkgutil.iter_modules(["modules"]):
-        saya.require("modules." + module_info.name)
+        saya.require(f"modules.{module_info.name}")
 
 app.launch_blocking()
 ```
@@ -281,7 +281,7 @@ channel = Channel.current()
 
 @channel.use(ListenerSchema(listening_events=[GroupMessage]))
 async def setu(app: Ariadne, group: Group, message: MessageChain):
-    if str(message) == "你好":
+    if message.display == "你好":
          await app.send_message(
             group,
             MessageChain(f"不要说{message.display}，来点涩图"),

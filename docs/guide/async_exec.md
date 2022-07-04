@@ -32,7 +32,6 @@ from io import BytesIO
 
 # 切记，PIL 的 Image 跟 ariadne 的 Image Element 名字重了
 from PIL import Image as IMG
-...
 
 
 def make_pic(size = (100, 100), color = (255, 0, 0)):
@@ -57,7 +56,6 @@ from io import BytesIO
 # 切记，PIL 的 Image 跟 ariadne 的 Image Element 名字重了
 from PIL import Image as IMG
 from graia.ariadne.util.async_exec import io_bound, cpu_bound
-...
 
 
 @io_bound
@@ -82,7 +80,6 @@ from io import BytesIO
 
 # 切记，PIL 的 Image 跟 ariadne 的 Image Element 名字重了
 from PIL import Image as IMG
-...
 
 
 def make_pic(size = (100, 100), color = (255, 0, 0)):

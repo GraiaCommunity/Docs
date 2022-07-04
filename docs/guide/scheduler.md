@@ -61,17 +61,15 @@ pip install graia-scheduler
 
 在你的代码中加入这些：
 
-```python
-...
-from graia.scheduler import GraiaScheduler
-...
+:::tip
+假如你使用了 `saya = create(Saya)` 则请直接跳到下一小节，**create** 与 **Saya** 会帮你自动处理好的。
+:::
 
-app.create(GraiaScheduler)
-...
-saya.install_behaviours(
-    app.create(BroadcastBehaviour),  # 之前就有的保持不变
-    app.create(GraiaSchedulerBehaviour),
-)
+```python
+from graia.scheduler import GraiaScheduler
+
+
+sche = create(GraiaScheduler)
 ```
 
 ## 一个最简单的例子
@@ -79,10 +77,9 @@ saya.install_behaviours(
 以**每分钟都在群里发垃圾消息的机器人**为例子：
 
 ```python
-...
 from graia.scheduler import timers
 from graia.scheduler.saya import SchedulerSchema
-...
+
 
 @channel.use(SchedulerSchema(timers.every_minute()))
 async def every_minute_speaking(app: Ariadne):

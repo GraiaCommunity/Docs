@@ -153,14 +153,12 @@ except asyncio.exceptions.TimeoutError:
 ### 通过一个类创建 `Waiter`
 
 ```python
-...
 import asyncio
 
 from graia.ariadne.message.parser.base import MatchContent
 from graia.broadcast.interrupt import InterruptControl
 from graia.broadcast.interrupt.waiter import Waiter
 from graia.saya import Channel, Saya
-...
 
 saya = Saya.current()
 channel = Channel.current()
@@ -200,7 +198,7 @@ async def ero(app: Ariadne, group: Group, member: Member, message: MessageChain)
         await app.send_message(
             group,
             MessageChain(
-                Plain("涩图 tag: " + ret_msg.display),
+                Plain(f"涩图 tag: {ret_msg.asDisplay()}"),
                 Image(data_bytes=Path("data", "imgs", "graiax.png").read_bytes()),
             ),
         )
@@ -211,11 +209,9 @@ async def ero(app: Ariadne, group: Group, member: Member, message: MessageChain)
 你觉不觉得，仅仅是为了一个 `Waiter` 而大费周章的创建一个类太麻烦了，那么事实上，你也可以通过创建局部函数来达到相同效果哦。
 
 ```python
-...
 from graia.ariadne.message.parser.base import MatchContent
 from graia.broadcast.interrupt import InterruptControl
 from graia.broadcast.interrupt.waiter import Waiter
-...
 
 saya = Saya.current()
 channel = Channel.current()

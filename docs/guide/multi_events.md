@@ -28,7 +28,7 @@
 
 ``` python
 from typing import Union
-...
+
 
 @channel.use(ListenerSchema(listening_events=[GroupMessage, NudgeEvent]))
 async def hello(app: Ariadne, group: Group, member: Member, event: Union[GroupMessage, NudgeEvent])
