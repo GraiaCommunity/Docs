@@ -94,7 +94,7 @@ from graia.ariadne.connection.config import (
 )
 from graia.ariadne.event.message import GroupMessage
 from graia.ariadne.message.chain import MessageChain
-from graia.ariadne.model import Group, MiraiSession
+from graia.ariadne.model import Group
 from graia.saya import Saya
 
 saya = create(Saya)
@@ -227,7 +227,7 @@ from graia.ariadne.connection.config import (
 )
 from graia.ariadne.event.message import GroupMessage
 from graia.ariadne.message.chain import MessageChain
-from graia.ariadne.model import Group, MiraiSession
+from graia.ariadne.model import Group
 from graia.saya import Saya
 
 saya = create(Saya)
