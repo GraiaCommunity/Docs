@@ -9,7 +9,7 @@
 @channel.use(
     ListenerSchema(
         listening_events=[GroupMessage],
-        inline_dispatchers=[MatchContent("涩图来")],
+        decorators=[MatchContent("涩图来")],
     )
 )
 async def setu(app: Ariadne, member: Member, group: Group):
@@ -24,7 +24,7 @@ async def setu(app: Ariadne, member: Member, group: Group):
 @channel.use(
     ListenerSchema(
         listening_events=[GroupMessage],
-        inline_dispatchers=[MatchContent("涩图来")],
+        decorators=[MatchContent("涩图来")],
     )
 )
 async def setu(app: Ariadne, member: Member, group: Group):
@@ -84,7 +84,7 @@ def check_frequency(max_frequency: int):
 @channel.use(
     ListenerSchema(
         listening_events=[GroupMessage],
-        inline_dispatchers=[MatchContent("涩图来")],
+        decorators=[MatchContent("涩图来")],
         decorators=[
             check_group(114514, 1919810),
             check_member(114514, 1919810),
@@ -164,7 +164,7 @@ async def check_vip_deco(app: Ariadne, member: Member):
 @channel.use(
     ListenerSchema(
         listening_events=[GroupMessage],
-        inline_dispatchers=[MatchContent("涩图来")],
+        decorators=[MatchContent("涩图来")],
     )
 )
 async def setu(app: Ariadne, vip_status = Depend(check_vip_deco)):

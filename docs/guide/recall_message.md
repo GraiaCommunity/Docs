@@ -107,7 +107,7 @@ import aiohttp
 @channel.use(
     ListenerSchema(
         listening_events=[GroupMessage],
-        inline_dispatchers=[MatchContent("涩图来")],
+        decorators=[MatchContent("涩图来")],
     )
 )
 async def test(app: Ariadne, message: MessageChain):
@@ -148,7 +148,7 @@ import aiohttp
 @channel.use(
     ListenerSchema(
         listening_events=[GroupMessage],
-        inline_dispatchers=[MatchContent("涩图来")],
+        decorators=[MatchContent("涩图来")],
     )
 )
 async def test(app: Ariadne, message: MessageChain):
@@ -172,7 +172,7 @@ import aiohttp
 @channel.use(
     ListenerSchema(
         listening_events=[GroupMessage],
-        inline_dispatchers=[MatchContent("涩图来")],
+        decorators=[MatchContent("涩图来")],
     )
 )
 async def test(app: Ariadne, message: MessageChain):
