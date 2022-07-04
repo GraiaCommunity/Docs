@@ -8,25 +8,22 @@
 
 ## 安装 `Java`
 
-当你看到这个，你肯定会说  
-“这有什么好教的”，这你就不懂了  
-就像是 Python 也有如 "PyPy" 之类的其他解释器
-Java 也有很多种 JVM 选择
+当你看到这个，你肯定会说，“这有什么好教的”~ 这你就不懂了，就像是
+Python 也有如 “PyPy” 之类的其他解释器，所以，Java 也有很多种 JVM 选择。
 
 ::: tip
 虽然说 mirai 因为[某种原因](https://github.com/mamoe/mirai/discussions/779)导致并不能使用 Orcale JDK  
-但是，mcl 通过一些办法解决了这个问题
-所以只要是 JDK 11+，剩下的请随便
+但是，mcl 通过一些办法解决了这个问题，只要是 JDK 11+，剩下的请随便。
 :::
 
-### 最简单的安装方法
+### 安装 Java 的简单方法
 
-如果你怕麻烦，那我们先从最简单的安装方式说起
+如果你怕麻烦，那我们先从简单的安装方式说起：
 
 :::: code-group
-::: code-group-item Ubuntu
+::: code-group-item Ubuntu / Debian
 
-```bash
+```bash:no-line-numbers
 # 非 root 的情况下记得最前面加上 sudo
 apt install openjdk-17-jre
 ```
@@ -34,28 +31,30 @@ apt install openjdk-17-jre
 :::
 ::: code-group-item CentOS 8 / Rocky Linux 8
 
-```bash
+```bash:no-line-numbers
 # 非 root 的情况下记得最前面加上 sudo
 dnf install java-latest-openjdk
+# 或使用 yum
+yum install java-latest-openjdk
 ```
 
 :::
 ::: code-group-item Windows 10 / 11
 
-```powershell
-# 假设你的电脑安装了 Winget
-# 事实上，截至目前，winget 上有足足 7 个厂商的 JDK
-# 因为是 Windows 嘛，所以就以 Microsoft 发行的 JDK 举例
+```powershell:no-line-numbers
+# 假设你的电脑安装了 winget（如果你是最新的 win 10 或 win 11 的话系统自带 winget）
+# 事实上，截至目前，winget 上有足足 7 个来自不同厂商的 JDK
+# 但因为是 Windows 嘛，所以就以 Microsoft 发行的 JDK 举例
 winget install Microsoft.OpenJDK.17
 ```
 
 :::
 ::: code-group-item MacOS
 
-```fish
-# 假设你提前安装了 brew cask
-# 没有，就先 "brew install brew-cask-completion"
-# 事实上，brew能够安装足足 4 个厂商的 JDK
+```fish:no-line-numbers
+# 此处假设你提前安装了 brew cask
+# 没有的话就先 "brew install brew-cask-completion"
+# 事实上，brew 也能够安装足足 4 个厂商的 JDK
 # 不过我们就按默认的来就好
 brew cask install java
 ```
@@ -63,7 +62,7 @@ brew cask install java
 :::
 ::: code-group-item termux
 
-```bash
+```bash:no-line-numbers
 # 不太建议在 termux 运行 mcl
 # 可以看看后面的 MiraiAndroid，占用会低一点
 pkg install openjdk-17
@@ -74,31 +73,29 @@ pkg install openjdk-17
 
 ### 试试 `openj9`
 
-以笔者的电脑（Windows 11）举例  
-在 `mirai` 启动完毕后，占用内存大概 232Mb  
-说句实在话，内存占用挺高的
+以笔者的电脑（Windows 11）举例，在 `mirai` 启动完毕后，占用内存大概 232Mb
+说句实在话，内存占用挺高的。
 
-但是假设你使用了 `openj9` 的 `jdk` 内存将会变成原来的 70%  
+但是假设你使用了 `openj9` 的话内存占用将会变成原来的 70%
 （在笔者的电脑上占用内存是 165.5Mb，同比减少 30%）
 
-我们只需要在[这个地方](https://developer.ibm.com/languages/java/semeru-runtimes/downloads)找到适合自己系统的 Java  
-然后安装，就好了
+我们只需要在[这个地方](https://developer.ibm.com/languages/java/semeru-runtimes/downloads)找到适合自己系统的 Java 版本，然后安装即可。
 
-啥？不会？[那看这里](Q&A.html#baidu)
+啥？不会？[那看这里](Q&A.html#baidu)。
 
 ::: warning
-在 Windows 上使用 `ibm semeru openjdk` （即使用 `openj9`）的情况下，
+在 Windows 上使用 `ibm semeru openjdk`（即使用 `openj9`）的情况下，
 可能一开始的 `Mirai Console Loader 公告栏` 会出现乱码。
 不过现阶段暂时没有发现会出现什么其他问题，所以请放心使用。
 :::
 
 ## 下载并解压 `mcl`
 
-先说 Windows 用户，这个特别简单  
+先说 Windows 用户，这个特别简单。
 首先点[这里](https://github.com/iTXTech/mirai-console-loader/releases/download/v2.1.0/mcl-2.1.0.zip)，
 然后点<MoreInfo words="这里" :link="true">↑ 不是这里，是这里 ↓<img src="/images/before/unzip.webp"></MoreInfo>，就完成了
 
-再说说 Linux 用户，这个也很简单
+再说说 Linux 用户，这个也很简单，执行下命令就行（不要说你不会噢，不会吧不会吧不会有人啥都不会就用 Linux 了吧）：
 
 ```bash
 # 假设你的系统十分的精简，记得安装 wget 和 unzip
@@ -115,27 +112,18 @@ unzip mcl-2.1.0.zip -d mcl-2.1.0
 ## 添加 `mirai-api-http` 并启动 `mcl`
 
 ::: tip
-对于 Windows 用户来说，剩下的步骤是需要在文件夹中打开命令行的  
-假设你不会的话，请[看这里](./Q&A.md#_9-当你遇到不会的东西的时候)
+对于 Windows 用户来说，剩下的步骤是需要在文件夹中打开命令行的。
+假设你不会的话，请[看这里](./Q&A.md#_9-当你遇到不会的东西的时候)。
 :::
 
-首先需要进入到 `mcl-2.1.0` 文件夹中  
-然后，跟着我的命令来
+首先需要进入到 `mcl-2.1.0` 文件夹中，然后使用如下命令添加 mirai-api-http 插件并启动 mcl：
 
 ```bash
 ./mcl --update-package net.mamoe:mirai-api-http --channel stable-v2 --type plugin
 ./mcl -u
 ```
 
-::: danger
-假设你的 Mirai 版本低于 2.11，请手动下载 `mirai-api-http` 的 2.4.0 版本
-并将其放入 `plugins` 文件夹中
-
-`Mirai-api-http 2.5.0+` 只兼容 `Mirai 2.11+`
-:::
-
-然后，稍作等待，等到显示这个  
-然后你就成功启动了 mirai
+然后，稍作等待，等到显示以下这行，就代表 Mirai 成功启动了。
 
 ```txt:no-line-numbers
 xxxx-xx-xx xx:xx:xx I/main: mirai-console started successfully.
@@ -143,19 +131,19 @@ xxxx-xx-xx xx:xx:xx I/main: mirai-console started successfully.
 >
 ```
 
-现在，我们添加一下自动登录的账号
+现在，我们添加一下自动登录的账号：
 
 ```txt:no-line-numbers
 /autoLogin add <你的QQ号> <你的QQ密码>
 # 如 /autoLogin add 114514 1919810
 ```
 
-然后输入 `Ctrl + C` 退出一下 mcl
+然后按键盘 `Ctrl + C` 退出一下 mcl。
 
 ### 关于账号协议问题
 
 你应该知道，QQ 会有很多登录协议（比如安卓手机和安卓平板就分别属于不同的登陆协议）。
-而 Mirai 支持了不少登陆协议，包括
+而 Mirai 支持了不少登陆协议，包括：
 
 - 安卓手机：`ANDROID_PHONE`
 - 安卓平板：`ANDROID_PAD`
@@ -166,15 +154,15 @@ xxxx-xx-xx xx:xx:xx I/main: mirai-console started successfully.
 当你输入 `/autoLogin add <你的QQ号> <你的QQ密码>` 的时候，
 Mirai 将会默认以 `ANDROID_PHONE` 协议登录。
 如果你因为某些原因（比如想要在 Bot 不掉线的情况下使用手机登录 Bot 的 QQ 账号）而想要更改登录协议的话，
-试试以下命令：`/autoLogin setConfig <你的QQ号> protocol <你所需要的协议>`
+试试以下命令：`/autoLogin setConfig <你的QQ号> protocol <你所需要的协议>`。
 
 ::: tip
-上文所指的 `<你所需要的协议>`，是 `ANDROID_PHONE` 这样的英文哦，不是 `安卓手机` 什么的
+上文所指的 `<你所需要的协议>`，是 `ANDROID_PHONE` 这样的英文哦，不是 `安卓手机` 什么的。
 :::
 
 ## 配置 `mirai-api-http` 参数
 
-进入 `./config/net.mamoe.mirai-api-http`，修改 `setting.yml`
+进入 `mcl-2.1.0/config/net.mamoe.mirai-api-http`，修改 `setting.yml`
 
 ```yaml
 # "./config/net.mamoe.mirai-api-http/setting.yml"
@@ -201,22 +189,43 @@ adapterSettings:
     reservedSyncId: -1 # 确保为 -1
 ```
 
+使用命令 `/mcl` 重新启动 mirai-console-loader（mcl），此时你应该在控制台看到如下提示：
+
+```txt{2-5}
+2022-07-04 19:11:11 I/Mirai HTTP API: ********************************************************
+2022-07-04 19:11:12 I/http adapter: >>> [http adapter] is listening at http://localhost:8080
+2022-07-04 19:11:12 I/ws adapter: >>> [ws adapter] is listening at ws://localhost:8080
+2022-07-04 19:11:12 I/Mirai HTTP API: Http api server is running with verifyKey: funnyguy
+2022-07-04 19:11:12 I/Mirai HTTP API: adaptors: [http,ws]
+2022-07-04 19:11:12 I/Mirai HTTP API: ********************************************************
+```
+
+其中第二第三行是 Ariadne 连接 Mirai 的地址，第四行则是连接所用的密钥，请确保配置 Ariadne
+时所用的参数与此处一致，同时还应确保第五行的 `adaptors:` 之后同时有 `http` 和 `ws` 两个选项。
+
 ## 登录
 
-执行 `./mcl` 启动 mirai-console  
-如果直接显示 `Event: BotOnlineEvent(bot=Bot(<你的QQ号>))` 那么恭喜你，接下来不用看了  
-但是... 如果像下面那样弹出一个弹窗，那你还要往下看
+紧接上一小节，如果控制台显示如下信息
+
+```txt:no-line-numbers
+2022-07-04 19:11:12 I/Bot.<你的bot之QQ号>: Loaded account secrets from local cache.
+2022-07-04 19:11:13 I/Bot.<你的bot之QQ号>: Saved account secrets to local cache for fast login.
+2022-07-04 19:11:13 I/Bot.<你的bot之QQ号>: Login successful.
+2022-07-04 19:11:14 V/Bot.<你的bot之QQ号>: Event: BotOnlineEvent(bot=Bot(<你的bot之QQ号>))
+2022-07-04 19:11:14 I/Bot.<你的bot之QQ号>: Bot login successful.
+```
+
+那么恭喜你，接下来不用看了，但是...
+如果像下面那样弹出一个弹窗，那你就继续看吧~
 
 ![captcha](/images/before/captcha_box.webp)
 
-可恶的 tx 啊，竟想阻止我的美梦  
-怎么办？两种办法
+可恶的 tx 啊，竟想阻止我的美梦，怎么办？有两种办法：
 
-1. 用[根据 Mirai 官方教程](https://docs.mirai.mamoe.net/mirai-login-solver-selenium/)来进行验证
-2. 用 MiraiAndroid 生成一个 device.json 来解决
+- 用[根据 Mirai 官方教程](https://docs.mirai.mamoe.net/mirai-login-solver-selenium/)来进行验证
+- 用 MiraiAndroid 生成一个 device.json 来解决
 
-第一种因为写的十分详细，所以在这里我们就不在赘述
-简单说明一下第二种，很简单
+Mirai 官方教程写的十分详细，所以在这里我们就不在过多赘述第一种方法，而简单说明一下第二种，其实很简单：
 
 1. 安装 [`MiraiAndroid`](https://install.appcenter.ms/users/mzdluo123/apps/miraiandroid/distribution_groups/release) 在你的安卓手机里
 2. 启动，在最下面的输入框输入 `/login <你的QQ号> <你的QQ密码>` 登录你的机器人账号  
@@ -237,30 +246,28 @@ adapterSettings:
 
 4. 进入 `bots/<你的QQ号>` 下面，将导出的 `device.json` 复制进去
 
-现在，让我们再次执行 `./mcl` 启动 mirai-console 看看效果  
-假设成功了，那么恭喜你  
-假设没有成功，这边建议拜一下企鹅
+现在，让我们再次执行 `./mcl` 启动 mirai-console
+看看效果，假设成功了，那么恭喜你，假设没有成功，这边建议拜一下企鹅。
 
 ## 附：使用 Docker
 
-Docker 嘛，应该不用我介绍了吧，懂得都懂  
-事实上，我们有现成的 Docker 来解决这个问题  
+Docker 嘛，应该不用我介绍了吧，懂得都懂。事实上，我们有现成的 Docker 来解决这个问题。
 ~~[这里](https://github.com/ZhaoZuohong/mirai-mah-docker)有现成的 Dockerfile~~该仓库已经原作者删除
 
 ## 附: 在 `MiraiAndroid` 中运行 `mirai-api-http`
 
-对于那些想要**在安卓手机上**跑 bot 的人来说，`MiraiAndroid` 绝对是跑 `Mirai-api-http` 的不二之选  
-所以，在这里也教一下大家怎么在 `MiraiAndroid` 上运行 `Mirai-api-http`
+对于那些想要**在安卓手机上**跑 bot 的人来说，`MiraiAndroid` 绝对是跑 `Mirai-api-http` 的不二之选。
+所以，在这里也教一下大家怎么在 `MiraiAndroid` 上运行 `Mirai-api-http`。
 
 ::: tip
 假设你不怎么喜欢使用 `MiraiAndroid`，
-可以试试使用 `termux` + `openjdk-17` 来运行 `mcl`
+可以试试使用 `termux` + `openjdk-17` 来运行 `mcl`。
 
 用 `MiraiAndroid` 来运行 `mirai` 的好处是，其 CPU 和内存占用会小很多。
 :::
 
 ::: warning 注意
-`MiraiAndroid` 要求的最低 Android 版本是 Android 8.0
+`MiraiAndroid` 要求的最低 Android 版本是 Android 8.0。
 :::
 
 1. 安装 [`MiraiAndroid`](https://install.appcenter.ms/users/mzdluo123/apps/miraiandroid/distribution_groups/release) 在你的安卓手机里

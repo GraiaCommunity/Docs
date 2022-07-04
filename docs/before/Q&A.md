@@ -162,18 +162,19 @@ async def test(app: Ariadne, group: Group, target: Member):
 
 - [`mirai`](https://github.com/mamoe/mirai)，是一个高性能，高可扩展性的 QQ 协议库
 - [`mirai-console`](https://github.com/mamoe/mirai-console): 一个基于 `mirai` 开发的插件式可扩展开发平台
-- [`mirai-api-http`](https://github.com/project-mirai/mirai-api-http): 一个 `mirai-console` 插件(简称 mah)，在 `Ariadne` 和 `mirai` 之间提供了交互方式
+- [`mirai-api-http`](https://github.com/project-mirai/mirai-api-http): 一个 `mirai-console` 插件（简称 mah），在 `Ariadne` 和 `mirai` 之间提供了交互方式
 
-简单来说，`Ariadne` 是通过 `mirai-api-http` 与 `mirai` 间接连接到 QQ 服务器的
+简单来说，`Ariadne` 是通过 `mirai-api-http` 与 `mirai` 间接连接到 QQ 服务器的。
 
-如果只下载了 `Ariadne` 而没有配置好 `mirai-api-http` ，则无法启动 `Ariadne`。所以，想要使用 `Ariadne`，就必须先把 `mirai` 和 `mirai-api-http` 连接好
+如果只下载了 `Ariadne` 而没有配置好 `mirai-api-http` ，则无法正常使用
+`Ariadne`。所以，想要使用 `Ariadne`，就必须先把配置好 `mirai` 的自动登录以及 `mirai-api-http`。
 
 配置 `mirai` 和 `mirai-api-http` 的方法，我们在 [Mirai 的安装与配置](./install_mirai.md) 一章中所有提及。
 当然，你也可以阅读[Ariadne 官方文档关于 mah 的配置方法](https://graia.readthedocs.io/ariadne/appendix/mah-install/)。
 
 ## 6. 关于 Poetry
 
-本教程将会使用 `poetry` 来管理项目依赖关系
+本教程将会使用 `poetry` 来管理项目依赖关系。
 
 ### 6.1 Poetry 是什么
 
