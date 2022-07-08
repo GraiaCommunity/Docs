@@ -70,12 +70,12 @@ Image(path="./Graiax/EroEroBot/eropic.jpg")
 - [rsilk](https://github.com/synodriver/rsilk)
 - [pilk](https://github.com/foyoux/pilk)
 
-以下我们将会以 `graiax-silkcoder` 举例（因为其是现阶段上述转换器中唯一支持 wav/pcm 以外格式的编解码器<Curtain>虽然是借助 ffmpeg 这种牛刀</Curtain>）
+以下我们将会以 `graiax-silkcoder` 举例（因为其是现阶段上述转换器中唯一支持 wav/pcm 以外格式的编解码器<Curtain>虽然是借助 ffmpeg 这种牛刀</Curtain><Curtain>不过 0.3.x 开始支持 libsndfile 了，占用会更小</Curtain>）
 
 首先安装 `graiax-silkcoder`：
 
 ::: warning
-该文档最后更新的时候，`graiax-silkcoder` 的版本的 0.2.6  
+该文档最后更新的时候，`graiax-silkcoder` 的版本的 0.3.0  
 现在的最新版本为 <img src="https://img.shields.io/pypi/v/graiax-silkcoder?color=2970b6&amp;style=flat-square" alt="PyPI版本" style="vertical-align: middle">
 :::
 
@@ -87,6 +87,8 @@ Image(path="./Graiax/EroEroBot/eropic.jpg")
 poetry add graiax-silkcoder
 # 假设你的环境中没有安装 ffmpeg 但又需要 wav 以外的音频格式转换
 poetry add graiax-silkcoder[ffmpeg]
+# 假设你想要的音频格式被 libsndfile 支持又不想要 ffmpeg 这么大的库
+poetry add graiax-silkcoder[libsndfile]
 ```
 
 :::
@@ -97,6 +99,8 @@ poetry add graiax-silkcoder[ffmpeg]
 pip install graiax-silkcoder
 # 假设你的环境中没有安装 ffmpeg 但又需要 wav 以外的音频格式转换
 pip install graiax-silkcoder[ffmpeg]
+# 假设你想要的音频格式被 libsndfile 支持又不想要 ffmpeg 这么大的库
+pip install graiax-silkcoder[libsndfile]
 ```
 
 :::
@@ -151,7 +155,7 @@ Voice(data_bytes=audio_bytes)
 ::: tip
 详细用法请去其[Pypi 页面查看](https://pypi.org/project/graiax-silkcoder/)
 
-这次就不能说逊了，因为<RubyCurtain up="我写的 $h!t Mountain" type="tip">这就是我写的</RubyCurtain>  
+这次就不能说逊了，因为这就是我写的<Curtain>$h!t Mountain</Curtain>  
 （注：此处的“我”指该文档的主要作者 —— I Love Study(详见[鸣谢](../appendix/credit.md))）
 :::
 
