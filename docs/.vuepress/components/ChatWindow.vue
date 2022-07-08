@@ -101,7 +101,7 @@ export default defineComponent({
   position: absolute;
   top: 11px;
   border-top: 10px solid var(--c-bg);
-  z-index: 100;
+  z-index: 10;
 
   .left-chat & {
     left: -8px;
