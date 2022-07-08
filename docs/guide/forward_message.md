@@ -56,7 +56,7 @@ from graia.ariadne.message.element import At, Plain, Image, Forward, ForwardNode
 @channel.use(
     ListenerSchema(
         listening_events=[GroupMessage],
-        inline_dispatchers=[MatchContent("好大的奶")],
+        decorators=[MatchContent("好大的奶")],
     )
 )
 async def create_forward(app: Ariadne, group: Group, member: Member):
@@ -67,7 +67,7 @@ async def create_forward(app: Ariadne, group: Group, member: Member):
             message=MessageChain(Image(path="big_milk.jpg")),
         )
     ]
-    member_list = await app.getMemberList(group)
+    member_list = await app.get_member_list(group)
     for _ in range(3):
         random_member: Member = random.choice(member_list)
         fwd_nodeList.append(

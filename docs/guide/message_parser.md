@@ -32,7 +32,6 @@ async def ero(app: Ariadne, group: Group, message: MessageChain):
         await app.send_message(group, MessageChain(
             Image(data_bytes=data)
         ))
-...
 ```
 
 你有没有觉得，每次都要用 `if` 来判断实在有点难受（比如缩进太多或者匹配如 `涩图来 {涩图tag} {涩图数量}` 这样需要二级三级命令的地方）。
@@ -42,7 +41,6 @@ async def ero(app: Ariadne, group: Group, message: MessageChain):
 ```python
 if message.display != "涩图来":
     return
-...
 
 # 缩进多
 # 匹配 "涩图来 {涩图tag} {涩图数量}" 且 {涩图数量} 可选

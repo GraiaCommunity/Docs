@@ -23,7 +23,7 @@ Friendship is magic!
 Twilight 的使用方法一致在跟随 Ariadne 的版本迭代进行改进。
 因此在参照本文或官方文档的内容时，请时刻注意文档适用的 Ariadne 版本以及你自己所使用的 Ariadne 版本。
 
-如无特殊标注，本章中例子的适用范围均为 `^0.7.0`（即 `>=0.7.0, <0.8.0`）。
+如无特殊标注，本章中例子适用的 Ariadne 版本范围为 `^0.7.0`（即 `>=0.7.0, <0.8.0`）。
 :::
 
 以下演示 Twilight 的两种创建方法：
@@ -32,9 +32,7 @@ Twilight 的使用方法一致在跟随 Ariadne 的版本迭代进行改进。
 ::: code-group-item from_command
 
 ```python
-...
 from graia.ariadne.message.parser.twilight import Twilight
-...
 
 
 @channel.use(
@@ -51,7 +49,6 @@ async def test(app: Ariadne, group: Group):
 ::: code-group-item Match
 
 ```python
-...
 from graia.ariadne.message.element import At
 from graia.ariadne.message.parser.twilight import (
     FullMatch,
@@ -59,7 +56,6 @@ from graia.ariadne.message.parser.twilight import (
     Twilight,
     WildcardMatch,
 )
-...
 
 
 @channel.use(
@@ -414,14 +410,12 @@ Twilight 重载了这个运算符使其执行了 `Match.param()` 的这个方法
 ::: code-group-item MatchResult
 
 ```python
-...
 from graia.ariadne.message.parser.twilight import (
     FullMatch,
     ParamMatch,
     RegexResult,
     Twilight,
 )
-...
 
 
 @channel.use(
@@ -438,6 +432,7 @@ async def lyric_xxx(app: Ariadne, group: Group, lyrics1: RegexResult, lyrics2: R
     print(lyrics2.result)
     print(type(lyrics2.result))
     print(lyrics2.result.__repr__)
+
 
 @channel.use(
     ListenerSchema(
@@ -477,7 +472,6 @@ from graia.ariadne.message.parser.twilight import (
     Sparkle,
     Twilight,
 )
-...
 
 
 @channel.use(
@@ -571,7 +565,7 @@ async def lyric_xxx(app: Ariadne, group: Group, sparkle: Sparkle):
 
 ```python
 from graia.ariadne.message.parser.twilight import Twilight, ParamMatch
-...
+
 
 @channel.use(
     ListenerSchema(

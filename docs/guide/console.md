@@ -33,20 +33,20 @@ poetry add prompt-toolkit
 
 然后我们在 `main.py` 加一点东西进行初始化：
 
-```python
+```python{6,11,13}
+from creart import create
+from graia.ariadne.app import Ariadne
 from graia.ariadne.console import Console  # 不是 from rich.console import Console 噢
 from graia.ariadne.console.saya import ConsoleBehaviour
-...
 
-# 如果你没有通过 Broadcast(loop=loop) 创建 bcc，那你需要从 Ariadne 拿一个
-# 请记得在 app = Ariadne() 之后再放下面这一行
-# bcc = Ariadne.service.broadcast
-con = Console(broadcast=bcc, prompt="EroEroBot> ")
-...
-saya.install_behaviours(
+bcc = create(Broadcast)
+saya = create(Saya)
+app = Ariadne(
     ...
-    ConsoleBehaviour(con)
 )
+con = Console(broadcast=bcc, prompt="EroEroBot> ")
+
+saya.install_behaviours(ConsoleBehaviour(con))
 ```
 
 然后让你再次启用程序的时候，铛铛：
@@ -179,10 +179,8 @@ async def stop(app: Ariadne, console: Console):
 你只需要在初始化 `Console` 的时候传入一些参数就可以实现了，下面就是一个栗子：
 
 ```python
-...
 from prompt_toolkit.formatted_text import HTML
 from prompt_toolkit.styles import Style
-...
 
 con = Console(
     broadcast=app.broadcast,

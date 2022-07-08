@@ -100,7 +100,6 @@ SetuFind = Alconna(
 （**本章中如无特殊说明，所有版本号均指 `Ariadne` 的版本号，非 `Alconna` 的版本号**）
 
 ```python
-...
 from arclet.alconna.graia.dispatcher import AlconnaDispatcher, AlconnaProperty
 from arclet.alconna.graia.saya import AlconnaSchema
 
@@ -115,7 +114,6 @@ async def ero(app: Ariadne, group: Group, result: AlconnaProperty):
     similarity  = arp.query("threshold.args.value")
     timeout_sec = arp.query("timeout.sec")
     ...  # setu搜索的处理部分
-...
 ```
 
 准备就绪，对着你的机器人~~发情~~发号施令吧：
@@ -250,11 +248,9 @@ ParamsUnmatched: 以下参数没有被正确解析哦~
 :::: code-group
 ::: code-group-item typical
 
-```python{6,12}
-...
+```python{4,10}
 from arclet.alconna import Args
 from arclet.alconna.graia import AlconnaDispatcher
-...
 
 alc = Alconna("我要涩图", Args["count":int])
 
@@ -272,11 +268,9 @@ async def test(app: Ariadne, group: Group):
 :::
 ::: code-group-item String
 
-```python{6,12}
-...
+```python{4,10}
 from arclet.alconna import AlconnaString
 from arclet.alconna.graia import AlconnaDispatcher
-...
 
 alc = AlconnaString("我要涩图 <count:int>")
 
@@ -294,11 +288,9 @@ async def test(app: Ariadne, group: Group):
 :::
 ::: code-group-item Format
 
-```python{6,12}
-...
+```python{4,10}
 from arclet.alconna import AlconnaFormat
 from arclet.alconna.graia import AlconnaDispatcher
-...
 
 alc = AlconnaFormat("我要涩图 {count}", {"count": int})
 
@@ -316,11 +308,9 @@ async def test(app: Ariadne, group: Group):
 :::
 ::: code-group-item Decorate
 
-```python{6,9-12,18}
-...
+```python{4,7-10,16}
 from arclet.alconna import AlconnaDecorate
 from arclet.alconna.graia import AlconnaDispatcher
-...
 
 cli = AlconnaDecorate(loop=loop)
 
@@ -344,11 +334,9 @@ async def test(app: Ariadne, group: Group):
 :::
 ::: code-group-item Fire
 
-```python{7-10,13,19}
-...
+```python{5-8,11,17}
 from arclet.alconna import AlconnaFire
 from arclet.alconna.graia import AlconnaDispatcher
-...
 
 
 def give_me_setu(count: int):
@@ -624,11 +612,9 @@ alc = Alconna(".command", Args["foo":my_list])
 老规矩，直接上实例：
 
 ```python
-...
 from arclet.alconna import Alconna, Args, Option, Subcommand, Arpamar
 from arclet.alconna.graia.dispatcher import AlconnaDispatcher
 from arclet.alconna.graia.saya import AlconnaSchema
-...
 
 
 @channel.use(
