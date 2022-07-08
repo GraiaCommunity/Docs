@@ -114,7 +114,7 @@ channel = Channel.current()
 
 @channel.use(ConsoleSchema([Twilight.from_command("laning {id} {message}")]))
 async def console_chat(app: Ariadne, id: MatchResult, message: MatchResult):
-    group_id = id.result.asDisplay()
+    group_id = id.result.display
     await app.send_group_message(int(group_id), message.result)
 ```
 

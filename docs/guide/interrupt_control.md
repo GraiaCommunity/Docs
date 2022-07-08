@@ -198,7 +198,7 @@ async def ero(app: Ariadne, group: Group, member: Member, message: MessageChain)
         await app.send_message(
             group,
             MessageChain(
-                Plain(f"涩图 tag: {ret_msg.asDisplay()}"),
+                Plain(f"涩图 tag: {ret_msg.display}"),
                 Image(data_bytes=Path("data", "imgs", "graiax.png").read_bytes()),
             ),
         )
