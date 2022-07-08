@@ -101,8 +101,24 @@ async def drawing(group: Group):
 ::::
 
 ::: tip
-`io_bound` 跟 `asyncio.to_thread` 除了使用方法可能有所不同外，本质其实没有多大区别
+`io_bound` 跟 `asyncio.to_thread` 除了使用方法可能有所不同外，本质其实没有多大区别。
+不过假设你使用的是 `Python3.8`，那就没有 `asyncio.to_thread`
 :::
+
+## 这是什么？
+
+## GIL 是什么？
+
+## 应该什么时候用？
+
+先说结论
+
+- 如果你的函数造成的延迟你**几乎感觉不到**，那你就直接用
+- 如果你的函数是 **io 密集型** 或者是在运行途中可以 **释放 GIL 锁**，那你就用 `io_bound`
+- 如果你的函数是 **cpu 密集型** 且运行途中 **不可以释放 GIL 锁**，那你就用 `cpu_bound`
+
+然后我们来仔细讲一讲
+
 
 <p align="center" style="font-size: 30px"><strong>Moyuing~</strong></p>
 
