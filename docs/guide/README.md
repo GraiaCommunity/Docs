@@ -29,21 +29,21 @@
 5. :heavy_minus_sign: [谁在找我](./multi_events.md) —— 同时需要监听多个事件时候的注意事项
 6. :white_check_mark: [关于消息链的故事](./message_chain.md)
    1. :white_check_mark: [消息链是什么链](./message_chain.md) —— `MessageChain` 的介绍
-   2. :heavy_minus_sign: [八嘎 hentai 无路赛](./multimedia_message.md) —— 对于发送 `多媒体消息` 的补充
+   2. :white_check_mark: [八嘎 hentai 无路赛](./multimedia_message.md) —— 对于发送 `多媒体消息` 的补充
 7. :white_check_mark: [好大的奶](./forward_message.md) —— 合并消息的构建与解析
 8. :white_check_mark: [来点网络上的涩图](./image_from_internet.md) —— `aiohttp` 的超简单运用
 9. :heavy_minus_sign: [来点 xxx 涩图](./message_parser.md) —— `Ariadne` 的消息匹配器**们**的介绍
    1. :white_check_mark: [基础消息链处理器](./_base_parser.md) —— 简答又好用，不用造轮子
-   2. :heavy_minus_sign: [Twilight](./twilight.md) —— `Kanata` 的精神续作
+   2. :white_check_mark: [Twilight](./twilight.md) —— `Kanata` 的精神续作
    3. :heavy_minus_sign: [Commander](./commander.md) —— 字符串创建命令
-   4. :heavy_minus_sign: [Alconna](./alconna.md) —— <MoreInfo words="外  星  来  客"><div style="background: var(--c-bg);border:3px solid var(--c-brand)">（奥特曼也算是外星来客）<img src="/images/alien.webp" style="vertical-align:top"/></div></MoreInfo>
+   4. :white_check_mark: [Alconna](./alconna.md) —— <MoreInfo words="外  星  来  客"><div style="background: var(--c-bg);border:3px solid var(--c-brand)">（奥特曼也算是外星来客）<img src="/images/alien.webp" style="vertical-align:top"/></div></MoreInfo>
 10. :white_check_mark: [看完了吗，我撤回了](./recall_message.md) —— `异步延时` 和 Ariadne 实例的其他方法介绍
 11. :white_check_mark: [/斜眼笑](./formatter.md) —— `Formatter` 的运用
 12. :white_check_mark: [不是所有人都能看涩图](./depend.md) —— `Depend` 的简单运用
 13. :white_check_mark: [哦嗨哟，欧尼酱](./scheduler.md) —— 任务计划器 `graia-scheduler` 的使用
 14. :white_check_mark: [请问您这次要怎么样的涩图](./interrupt_control.md) —— `interrupt` 的简单运用
 15. :white_check_mark: [无内鬼，来点加密压缩包](./file_operation.md) —— 关于`文件操作`的简单实例
-16. :heavy_minus_sign: [后台对线](./console.md) —— 关于 `Console` 的介绍
+16. :white_check_mark: [后台对线](./console.md) —— 关于 `Console` 的介绍
 17. :heavy_minus_sign: [异步画~~涩~~图](./async_exec.md) —— `io_bound` 和 `cpu_bound` 的运用
 18. :x: [一条龙涩涩](./) —— `saya` 跨模块运用
 
