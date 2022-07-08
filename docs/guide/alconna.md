@@ -6,6 +6,8 @@
 - 令人窒息的浓度
 - 画风突变的标题
 - 意义不明的日语翻译 ~~熟肉反生~~
+
+不过放心，梗都有相关注释<Curtain type="tsukkomi">什么梗百科</Curtain>
 :::
 
 `Alconna`，全称 [`Arclet-Alconna`](https://github.com/ArcletProject/Alconna)，
@@ -52,7 +54,7 @@ pip install graia-ariadne[alconna]
 :::
 ::::
 
-## 缭乱！外星大魔王
+## [缭乱！外星大魔王](https://zh.moegirl.org.cn/%E7%BC%AD%E4%B9%B1!Victory_Road)
 
 开发涩涩Bot时，我们难免会有需求增加一个涩图搜索的命令：
 
@@ -159,7 +161,7 @@ async def ero(app: Ariadne, group: Group, result: AlconnaProperty):
   <ChatMsg name="群菜龙" avatar="http://q1.qlogo.cn/g?b=qq&nk=2544704967&s=640">好</ChatMsg>
 </ChatWindow>
 
-## 直面灾厄
+## [直面灾厄](https://zh.moegirl.org.cn/%E6%98%8E%E6%97%A5%E6%96%B9%E8%88%9F/%E9%9B%86%E6%88%90%E6%88%98%E7%95%A5/%E5%82%80%E5%BD%B1%E4%B8%8E%E7%8C%A9%E7%BA%A2%E5%AD%A4%E9%92%BB#%E9%9A%BE%E5%BA%A6%E5%88%86%E7%BA%A7)
 
 ~~左：莱塔尼亚权杖 右：荒地龙舌兰~~
 
@@ -237,7 +239,7 @@ ParamsUnmatched: 以下参数没有被正确解析哦~
 '''
 ```
 
-## 亮出你的本事吧！外星人
+## [亮出你的本事吧！外星人](https://zh.moegirl.org.cn/%E6%9C%BA%E5%8A%A8%E6%88%98%E5%A3%AB%E9%AB%98%E8%BE%BE_%E9%97%AA%E5%85%89%E7%9A%84%E5%93%88%E8%90%A8%E7%BB%B4#%E6%96%B0%E4%BB%B2%E8%89%AF%E4%B8%89%E4%BA%BA%E7%BB%84/%E9%97%AA%E5%93%88%E5%AE%9A%E5%9E%8B%E6%96%87)
 
 > **「やってみせろよ、ウチュウジンー！」**
 
@@ -501,7 +503,7 @@ Subcommand("sub", options=[Option("sub_opt")])
 - `sub ... sub_opt ...` ✔
 - `sub_opt ... sub ...` ❌
 
-## 总会有参数的
+## [总会有参数的](https://zh.moegirl.org.cn/%E6%9C%BA%E5%8A%A8%E6%88%98%E5%A3%AB%E9%AB%98%E8%BE%BE_%E9%97%AA%E5%85%89%E7%9A%84%E5%93%88%E8%90%A8%E7%BB%B4#%E6%96%B0%E4%BB%B2%E8%89%AF%E4%B8%89%E4%BA%BA%E7%BB%84/%E9%97%AA%E5%93%88%E5%AE%9A%E5%9E%8B%E6%96%87)
 
 > **「何とでもなるはずだパラメータ！」**
 
@@ -738,7 +740,7 @@ async def test(app: Ariadne, group: Group, y_args: ArgsStub):
 
 :::
 
-## 居然是整活？
+## [居然是整活？](https://zh.moegirl.org.cn/%E6%9C%BA%E5%8A%A8%E6%88%98%E5%A3%AB%E9%AB%98%E8%BE%BE_%E9%97%AA%E5%85%89%E7%9A%84%E5%93%88%E8%90%A8%E7%BB%B4#%E6%96%B0%E4%BB%B2%E8%89%AF%E4%B8%89%E4%BA%BA%E7%BB%84/%E9%97%AA%E5%93%88%E5%AE%9A%E5%9E%8B%E6%96%87)
 
 > **「コッケイナだと！」**
 
