@@ -137,7 +137,6 @@ from graia.saya import Channel
 from graia.saya.builtins.broadcast.schema import ListenerSchema
 from arclet.alconna import Args
 from arclet.alconna.graia import Alconna, AlconnaDispatcher, Match, ImageOrUrl
-from arclet.alconna.graia.dispatcher import , AlconnaDispatcher
 from saucenao_api import AIOSauceNao
 from saucenao_api.errors import SauceNaoApiError
 
