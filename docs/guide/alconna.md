@@ -103,7 +103,7 @@ SetuFind = Alconna(
 ```python
 from arclet.alconna.graia import AlconnaDispatcher, Match
 from arclet.alconna import Arpamar
-...
+
 
 @channel.use(
     ListenerSchema([GroupMessage], inline_dispatchers=[AlconnaDispatcher(SetuFind, send_flag="reply")])
@@ -216,7 +216,7 @@ config.fuzzy_threshold = 0.6 # 设置模糊匹配的阈值
 config.enable_message_cache = False # 设置是否开启缓存机制
 ```
 
-`Alconna.config` 则是类方法, 可以设置默认属性，如：
+`Alconna.config` 则是类方法，可以设置默认属性，如：
 ```python
 from arclet.alconna import Alconna, ArgParserTextFormatter
 
@@ -398,7 +398,7 @@ async def test(app: Ariadne, group: Group):
 
 在**标准形式**中，你需要传入较多的命令组件，但同时其可以清晰地表达命令结构。
 
-目前的命令组件有`Option`、`Subcommand` 与 `Args`。 
+目前的命令组件有 `Option`、`Subcommand` 与 `Args`。
 
 这样创建的 Alconna 实例又长什么样呢？
 
@@ -504,7 +504,7 @@ Option("--foo", alias=["-F", "--FOO", "-f"])
 
 那么`-f`、`-F` 与 `--FOO`将等同于`--foo`。
 
-另外也可以如 `Option("--foo|-F|--FOO|-f")` 来指定别名
+另外也可以用如 `Option("--foo|-F|--FOO|-f")` 来指定别名。
 
 **Subcommand**
 
@@ -544,10 +544,8 @@ Alconna("test", options=[Option("qux", Args.a[int], requires=["foo", "bar", "baz
 ```
 
 ::: tip
-
-requires 也可以在 name 中传入
-
-譬如
+requires 也可以在 name 中传入  
+譬如：
 
 ```python
 Option("foo bar baz qux")
