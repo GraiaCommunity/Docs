@@ -136,8 +136,8 @@ from graia.ariadne.model import Group, Member
 from graia.saya import Channel
 from graia.saya.builtins.broadcast.schema import ListenerSchema
 from arclet.alconna import Args
-from arclet.alconna.graia import Alconna
-from arclet.alconna.graia.dispatcher import AlconnaProperty, AlconnaDispatcher
+from arclet.alconna.graia import Alconna, AlconnaDispatcher, Match, ImageOrUrl
+from arclet.alconna.graia.dispatcher import , AlconnaDispatcher
 from saucenao_api import AIOSauceNao
 from saucenao_api.errors import SauceNaoApiError
 
@@ -151,7 +151,7 @@ apikey = "xxx" # 请输你自己的，谢谢
 
 
 search = Alconna(
-    "以图搜图", Args["content":[Image, 'url']],
+    "以图搜图", Args["content", ImageOrUrl],
     help_text="以图搜图，搜图结果会自动发送给你。Usage: 你既可以传入图片, 也可以传入图片链接 ; Example: .搜图 [图片];"
 )
 
@@ -159,17 +159,16 @@ search = Alconna(
 @channel.use(
     ListenerSchema(
         listening_events=[GroupMessage],
-        inline_dispatchers=[AlconnaDispatcher(alconna=search, help_flag='reply')]
+        inline_dispatchers=[AlconnaDispatcher(search, send_flag='reply')]
     )
 )
-async def saucenao(app: Ariadne, group: Group, member: Member, source: Source, result: AlconnaProperty):
+async def saucenao(app: Ariadne, group: Group, member: Member, source: Source, content: Match[str]):
+    if not content.available:
+        return await app.send_group_message(Group, MessageChain("啊嘞，你传入了个啥子东西"), quote=source.id)
     await app.send_group_message(group, MessageChain("正在搜索，请稍后"), quote=source.id)
-    content = result.result.main_args['content']
-    if isinstance(content, Image):
-        content = content.url
     async with AIOSauceNao(apikey, numres=3) as snao:
         try:
-            results = await snao.from_url(content)
+            results = await snao.from_url(content.result)
         except SauceNaoApiError as e:
             await app.send_message(group, MessageChain("搜索失败desu"))
             return
