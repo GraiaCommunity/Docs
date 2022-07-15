@@ -99,6 +99,33 @@ logger.opt(raw=True).log("测试")
 1. 你可以在后台通过 Bot 的账号主动发送群/私聊消息了（当然，只要你想，你也可以执行更多的操作），你的 Bot 再也不是只能一应一答或者定时发消息的“傻孩纸”了
 2. 你觉不觉得每次关闭 Ariadne 都要按 `ctrl+c` 手指要伸很长很累，现在你可以通过命令退出 Ariadne 了！
 
+### 安装desu
+
+::: tip
+因为 0.7.0+ 在依赖库里删除了 `prompt-toolkit`，
+所以这里只能安装了
+:::
+
+:::
+
+:::: code-group
+::: code-group-item poetry
+
+```bash
+poetry add prompt-toolkit
+```
+
+:::
+::: code-group-item pip
+
+```bash
+pip install prompt-toolkit
+```
+
+:::
+::::
+
+
 ### 在后台发送消息吧~
 
 来，让我们在 `module` 文件夹中新建一个 `backend_laning.py`：
