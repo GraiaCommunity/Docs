@@ -116,7 +116,6 @@ async def drawing(group: Group):
 
 然后我们来仔细讲一讲
 
-
 <p align="center" style="font-size: 30px"><strong>Moyuing~</strong></p>
 
 <Loading></Loading>

@@ -121,10 +121,9 @@ Ariadne 的 session 呢？
 那当然可以，具体要怎么做呢？其实直接进行替换就 OK，直接上代码吧：
 
 ```python:no-line-numbers
-# 只要将下面这一行
-async with aiohttp.ClientSession() as session:
-# 替换成下面这一行就可以了哦
-async with Ariadne.service.client_session as session:
+session = Ariadne.service.client_session
+async with session.get(...) as resp:
+    pic = await r.read()
 ```
 
 在[aiohttp 官方文档的这里](https://docs.aiohttp.org/en/stable/client_quickstart.html#make-a-request)有一个 Note 👇  
