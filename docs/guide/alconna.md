@@ -85,14 +85,15 @@ from arclet.alconna.graia.utils import ImgOrUrl
 
 api_list = ["saucenao", "ascii2d", "ehentai", "iqdb", "tracemoe"]
 SetuFind = Alconna(
-  "setu搜索", Args['content', ImgOrUrl],
-  options=[
-      Option("use", Args['api', api_list], help_text="选择搜图使用的 API"),
-      Option("count", Args.num[int], help_text="设置每次搜图展示的最多数量"),
-      Option("threshold", Args.value[float], help_text="设置相似度过滤的值"),
-      Option("timeout", Args["sec", int, 60], help_text="设置超时时间")
-  ],
-  help_text="依据输入的图片寻找可能的原始图片来源 Usage: 可以传入图片, 也可以是图片的网络链接; Example: setu搜索 [图片];"
+    "setu搜索", 
+    Args['content', ImgOrUrl],
+    options=[
+        Option("use", Args['api', api_list], help_text="选择搜图使用的 API"),
+        Option("count", Args.num[int], help_text="设置每次搜图展示的最多数量"),
+        Option("threshold", Args.value[float], help_text="设置相似度过滤的值"),
+        Option("timeout", Args["sec", int, 60], help_text="设置超时时间")
+    ],
+    help_text="依据输入的图片寻找可能的原始图片来源 Usage: 可以传入图片, 也可以是图片的网络链接; Example: setu搜索 [图片];"
 )
 ```
 
@@ -109,26 +110,28 @@ from graia.ariadne.util.saya import listen, dispatch, decorate
 @dispatch(AlconnaDispatcher(SetuFind, send_flag="reply"))
 @decorate(match_value("use.api", "saucenao", or_not=True))
 async def ero_saucenao(
-    app: Ariadne, group: Group, 
+    app: Ariadne, 
+    group: Group, 
     content: Match[str], 
     max_count: Query[int] = Query("count.num"),
     similarity: Query[float] = Query("threshold.args.value"),
     timeout_sec: Query[int] = Query("timeout.sec", -1)
 ): 
-    ...  # setu搜索的处理部分
+    ...  # setu搜索的处理部分，使用saucenao
 
 
 @listen(GroupMessage)
 @dispatch(AlconnaDispatcher(SetuFind, send_flag="reply"))
 @decorate(match_value("use.api", "ascii2d"))
 async def ero_ascii2d(
-    app: Ariadne, group: Group, 
+    app: Ariadne, 
+    group: Group, 
     content: Match[str], 
     max_count: Query[int] = Query("count.num"),
     similarity: Query[float] = Query("threshold.args.value"),
     timeout_sec: Query[int] = Query("timeout.sec", -1)
 ): 
-    ...  # setu搜索的处理部分
+    ...  # setu搜索的处理部分，使用ascii2d
 ```
 
 准备就绪，对着你的机器人~~发情~~发号施令吧：
@@ -221,7 +224,7 @@ Alconna 有两类配置, 分别是 `arclet.alconna.config` 和 `arclet.alconna.A
 
 `config` 是一个单例，可以控制一些全局属性，如：
 
-```python
+```python{3-4}
 from arclet.alconna import config
 
 config.fuzzy_threshold = 0.6 # 设置模糊匹配的阈值
@@ -230,7 +233,7 @@ config.enable_message_cache = False # 设置是否开启缓存机制
 
 `Alconna.config` 则是类方法，可以设置默认属性，如：
 
-```python
+```python{4-5}
 from arclet.alconna import Alconna, ArgParserTextFormatter
 
 Alconna.config(
@@ -259,7 +262,7 @@ alc.parse("test_fuzy")
 
 您可以通过 `Alconna.load_config_file` 直接更新配置，也可以通过 `Alconna.lang_config.change_lang` 对单一文本进行修改。
 
-```python
+```python{4-7}
 from arclet.alconna import Alconna, config, Option
 
 alc = Alconna("!command", is_raise_exception=True) + Option("--bar", "foo:str")
@@ -288,7 +291,7 @@ ParamsUnmatched: 以下参数没有被正确解析哦~
 
 构造命令组可直接使用 `|` 操作符：
 
-```python
+```python{3}
 from arclet.alconna.core import Alconna
 
 alc = Alconna("{place1}在哪里") | Alconna("哪里有{place1}")
@@ -297,7 +300,7 @@ alc.parse("食物在哪里")
 
 或者使用 `AlconnaGroup`：
 
-```python
+```python{3}
 from arclet.alconna.core import Alconna, AlconnaGroup
 
 alc = AlconnaGroup("test", Alconna("{place1}在哪里"), Alconna("哪里有{place1}"))
@@ -310,11 +313,14 @@ alc.parse("食物在哪里")
  
 在 **Ariadne** 中，你可以通过使用 **AlconnaDispatcher** 来提供消息处理服务：
 
-```python
+```python{6}
 from arclet.alconna.graia import AlconnaDispatcher, Alconna
 
 
-@app.broadcast.receiver(GroupMessage, dispatchers=[AlconnaDispatcher(Alconna(...))])
+@app.broadcast.receiver(
+    GroupMessage, 
+    dispatchers=[AlconnaDispatcher(Alconna(...))]
+)
 async def _(app: Ariadne, group: Group, result: Arpamar):
     ...
 ```
@@ -390,7 +396,7 @@ async def _(app: Ariadne, res: Arpamar):
 
 所以更推荐使用 **SayaUtil**：
 
-```python
+```python{5-6}
 from graia.ariadne.util.saya import listen, dispatch
 from arclet.alconna.graia import AlconnaDispatcher, Alconna
 
@@ -401,9 +407,9 @@ async def _(app: Ariadne, result: Arpamar):
     ...
 ```
 
-或者 `arclet-alconna-graia` 自带的 **command**：
+或者 `arclet-alconna-graia` 自带的 SayaUtil 组件 **command**：
 
-```python
+```python{4}
 from arclet.alconna.graia import command, Alconna
 
 
@@ -471,11 +477,11 @@ async def _(app: Ariadne, group: Group, name: str = fetch_name("name")):
 
 :::tip
 
-`fetch_name` 直接作为默认值可能会引起某些ide的类型检查器愤怒（是谁呢？）
+`fetch_name` 直接作为默认值可能会引起某些类型检查器愤怒（是谁呢？一定不是**pylance**吧）
 
 所以推荐使用 **SayaUtil** 的 **decorate**：
 
-```python
+```python{6}
 from arclet.alconna.graia import fetch_name, command
 from graia.ariadne.util.saya import decorate
 
@@ -632,7 +638,7 @@ async def _(app: Ariadne, group: Group):
 :::: code-group
 ::: code-group-item typical
 
-```python{4,9}
+```python{4,10}
 from arclet.alconna import Args
 from arclet.alconna.graia import AlconnaDispatcher
 
@@ -652,7 +658,7 @@ async def test(app: Ariadne, group: Group):
 :::
 ::: code-group-item String
 
-```python{4,9}
+```python{4,10}
 from arclet.alconna import AlconnaString
 from arclet.alconna.graia import AlconnaDispatcher
 
@@ -672,7 +678,7 @@ async def test(app: Ariadne, group: Group):
 :::
 ::: code-group-item Format
 
-```python{4,9}
+```python{4,10}
 from arclet.alconna import AlconnaFormat
 from arclet.alconna.graia import AlconnaDispatcher
 
@@ -692,7 +698,7 @@ async def test(app: Ariadne, group: Group):
 :::
 ::: code-group-item Decorate
 
-```python{4,7-10,15}
+```python{4,7-10,16}
 from arclet.alconna import AlconnaDecorate
 from arclet.alconna.graia import AlconnaDispatcher
 
@@ -718,7 +724,7 @@ async def test(app: Ariadne, group: Group):
 :::
 ::: code-group-item Fire
 
-```python{5-8,11,16}
+```python{5-8,11,17}
 from arclet.alconna import AlconnaFire
 from arclet.alconna.graia import AlconnaDispatcher
 
@@ -1113,7 +1119,7 @@ result = alc.parse("我要涩图 2", duplication=MyDup)
 
 同样，在 **AlconnaDispatcher** 中也可以使用 **Duplication**，你只需要如下操作：
 
-```python{10}
+```python{7-8}
 @channel.use(
     ListenerSchema(
         listening_events=[GroupMessage],
@@ -1126,7 +1132,7 @@ async def test(app: Ariadne, group: Group, dup: MyDup):
 
 亦或者，你可以直接使用 **Stub** 作为参注解：
 
-```python{10}
+```python{7-8}
 @channel.use(
     ListenerSchema(
         listening_events=[GroupMessage],
@@ -1141,7 +1147,7 @@ async def test(app: Ariadne, group: Group, y_args: ArgsStub):
 
 **Duplication** 也可以如 **Namespace** 一样直接标明参数名称和类型：
 
-```python
+```python{3-5}
 from arclet.alconna import Duplication
 from typing import Tuple
 class MyDup(Duplication):
