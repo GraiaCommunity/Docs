@@ -8,6 +8,7 @@
 - 意义不明的日语翻译 ~~熟肉反生~~
 
 不过放心，梗都有相关注释<Curtain type="tsukkomi">什么梗百科</Curtain>
+
 > [**「わかります。」**](https://zh.moegirl.org.cn/%E9%95%BF%E9%A2%88%E9%B9%BF(%E5%B0%91%E5%A5%B3%E6%AD%8C%E5%89%A7))
 :::
 
@@ -81,6 +82,7 @@ timeout SEC:int
 ```python
 from arclet.alconna import Alconna, Args, Option
 from arclet.alconna.graia.utils import ImgOrUrl
+
 api_list = ["saucenao", "ascii2d", "ehentai", "iqdb", "tracemoe"]
 SetuFind = Alconna(
   "setu搜索", Args['content', ImgOrUrl],
@@ -199,6 +201,7 @@ async def ero_ascii2d(
 
 ```python
 from arclet.alconna import AlconnaFire
+
 @AlconnaFire
 def test_func(name: str, sender_id: int):
     print(f"Hello! [{sender_id}]{name}")
@@ -215,6 +218,7 @@ Alconna 有两类配置, 分别是 `arclet.alconna.config` 和 `arclet.alconna.A
 
 ```python
 from arclet.alconna import config
+
 config.fuzzy_threshold = 0.6 # 设置模糊匹配的阈值
 config.enable_message_cache = False # 设置是否开启缓存机制
 ```
@@ -223,6 +227,7 @@ config.enable_message_cache = False # 设置是否开启缓存机制
 
 ```python
 from arclet.alconna import Alconna, ArgParserTextFormatter
+
 Alconna.config(
     headers=["/"],  # 设置 headers 默认为 “/”
     formatter_type=ArgParserTextFormatter  # 设置 formatter 默认为 ArgParserTextFormatter
@@ -237,6 +242,7 @@ Alconna.config(
 
 ```python{3}
 from arclet.alconna import Alconna
+
 alc = Alconna("test_fuzzy", is_fuzzy_match=True)
 alc.parse("test_fuzy")
 # output: test_fuzy is not matched. Do you mean "test_fuzzy"?
@@ -250,14 +256,17 @@ alc.parse("test_fuzy")
 
 ```python
 from arclet.alconna import Alconna, config, Option
+
 alc = Alconna("!command", is_raise_exception=True) + Option("--bar", "foo:str")
 config.lang.change_lang(
     "analyser.param_unmatched",
     "以下参数没有被正确解析哦~\n: {target}\n请主人检查一下命令是否正确输入了呢~\n不然给你一招雪菜猩红风暴~",
 )
 alc.parse("!command --baz abc")
+
 '''
 output:
+
 ParamsUnmatched: 以下参数没有被正确解析哦~
 : --baz
 请主人检查一下命令是否正确输入了呢~
@@ -276,6 +285,7 @@ ParamsUnmatched: 以下参数没有被正确解析哦~
 
 ```python
 from arclet.alconna.core import Alconna
+
 alc = Alconna("{place1}在哪里") | Alconna("哪里有{place1}")
 alc.parse("食物在哪里")
 ```
@@ -284,6 +294,7 @@ alc.parse("食物在哪里")
 
 ```python
 from arclet.alconna.core import Alconna, AlconnaGroup
+
 alc = AlconnaGroup("test", Alconna("{place1}在哪里"), Alconna("哪里有{place1}"))
 alc.parse("食物在哪里")
 ```
@@ -599,6 +610,7 @@ async def _(app: Ariadne, group: Group):
 ## [亮出你的本事吧！外星人](https://zh.moegirl.org.cn/%E6%9C%BA%E5%8A%A8%E6%88%98%E5%A3%AB%E9%AB%98%E8%BE%BE_%E9%97%AA%E5%85%89%E7%9A%84%E5%93%88%E8%90%A8%E7%BB%B4#%E6%96%B0%E4%BB%B2%E8%89%AF%E4%B8%89%E4%BA%BA%E7%BB%84/%E9%97%AA%E5%93%88%E5%AE%9A%E5%9E%8B%E6%96%87)
 
 > **「やってみせろよ、ウチュウジンー！」**
+
 ### 创建 Alconna
 
 以下将展示 Alconna 创建的 5 种方式：
@@ -606,10 +618,13 @@ async def _(app: Ariadne, group: Group):
 :::: code-group
 ::: code-group-item typical
 
-```python{4,10}
+```python{4,9}
 from arclet.alconna import Args
 from arclet.alconna.graia import AlconnaDispatcher
+
 alc = Alconna("我要涩图", Args["count", int])
+
+
 @channel.use(
     ListenerSchema(
         [GroupMessage], inline_dispatchers=[AlconnaDispatcher(alc)],
@@ -622,10 +637,13 @@ async def test(app: Ariadne, group: Group):
 :::
 ::: code-group-item String
 
-```python{4,10}
+```python{4,9}
 from arclet.alconna import AlconnaString
 from arclet.alconna.graia import AlconnaDispatcher
+
 alc = AlconnaString("我要涩图 <count:int>")
+
+
 @channel.use(
     ListenerSchema(
         [GroupMessage], inline_dispatchers=[AlconnaDispatcher(alc)],
@@ -638,10 +656,13 @@ async def test(app: Ariadne, group: Group):
 :::
 ::: code-group-item Format
 
-```python{4,10}
+```python{4,9}
 from arclet.alconna import AlconnaFormat
 from arclet.alconna.graia import AlconnaDispatcher
+
 alc = AlconnaFormat("我要涩图 {count}", {"count": int})
+
+
 @channel.use(
     ListenerSchema(
         [GroupMessage], inline_dispatchers=[AlconnaDispatcher(alc)],
@@ -654,14 +675,19 @@ async def test(app: Ariadne, group: Group):
 :::
 ::: code-group-item Decorate
 
-```python{4,7-10,16}
+```python{4,7-10,15}
 from arclet.alconna import AlconnaDecorate
 from arclet.alconna.graia import AlconnaDispatcher
+
 cli = AlconnaDecorate()
+
+
 @cli.build_command("我要涩图")
 @cli.argument(Args["count", int])
 def setu(count: int):
     ...
+
+
 @channel.use(
     ListenerSchema(
         [GroupMessage], inline_dispatchers=[AlconnaDispatcher(setu.command)],
@@ -674,14 +700,20 @@ async def test(app: Ariadne, group: Group):
 :::
 ::: code-group-item Fire
 
-```python{5-8,11,17}
+```python{5-8,11,16}
 from arclet.alconna import AlconnaFire
 from arclet.alconna.graia import AlconnaDispatcher
+
+
 def give_me_setu(count: int):
     class Config:
         command=我要涩图
     ...
+
+
 alc = AlconnaFire(give_me_setu)
+
+
 @channel.use(
     ListenerSchema(
         [GroupMessage], inline_dispatchers=[AlconnaDispatcher(alc)],
@@ -862,6 +894,7 @@ Option("foo bar baz qux")
 ## [总会有参数的](https://zh.moegirl.org.cn/%E6%9C%BA%E5%8A%A8%E6%88%98%E5%A3%AB%E9%AB%98%E8%BE%BE_%E9%97%AA%E5%85%89%E7%9A%84%E5%93%88%E8%90%A8%E7%BB%B4#%E6%96%B0%E4%BB%B2%E8%89%AF%E4%B8%89%E4%BA%BA%E7%BB%84/%E9%97%AA%E5%93%88%E5%AE%9A%E5%9E%8B%E6%96%87)
 
 > **「何とでもなるはずだパラメータ！」**
+
 ### Args
 
 `Args` 在 Alconna 中有非常重要的地位，有一半的 bug 皆因其引发（暴论）。
@@ -893,6 +926,7 @@ var 可以是以下几类：
 
 ```python
 from arclet.alconna.typing import set_converter
+
 >>> set_converter(
 ...     BasePattern(
 ...         "app", PatternModel.REGEX_CONVERT, Ariadne, lambda x: app, 'app'
@@ -904,6 +938,7 @@ from arclet.alconna.typing import set_converter
 
 ```python
 from arclet.alconna.builtin.pattern import ObjectPattern
+
 ObjectPattern(Image, limit=("url",))
 ```
 
@@ -935,6 +970,7 @@ ObjectPattern(Image, limit=("url",))
 
 ```python
 from arclet.alconna.typing import BasePattern, PatternModel
+
 my_list = BasePattern(
     "(.+/.*)", model=PatternModel.REGEX_CONVERT, origin=list,
     converter=lambda x: x.split('/'), alias='my_list', accepts=[str]
@@ -976,23 +1012,19 @@ alc = Alconna(".command", Args["foo", my_list])
 
 ```python
 from arclet.alconna import Alconna, Args, Option, Subcommand, Arpamar
-from arclet.alconna.graia.dispatcher import AlconnaDispatcher
-from arclet.alconna.graia.saya import AlconnaSchema
-@channel.use(
-  AlconnaSchema(
-    AlconnaDispatcher(
-      alconna=Alconna(
+from arclet.alconna.graia import command
+
+
+@command(
+    Alconna(
         "找歌", Args["song", str],
         options=[
-          Option("语种", Args["lang", str]),
-          Subcommand("歌手", [Option("地区", Args["region", str])], Args["singer", str]),
+            Option("语种", Args["lang", str]),
+            Subcommand("歌手", [Option("地区", Args["region", str])], Args["singer", str]),
         ],
-      ),
-      send_flag='reply'
-    )
-  )
+    ),
+    private=False
 )
-@channel.use(ListenerSchema(listening_events=[GroupMessage]))
 async def lyric_xxx(app: Ariadne, group: Group, result: Arpamar[MessageChain]):
     print(result.matched)
     print(result.origin)
@@ -1017,14 +1049,17 @@ async def lyric_xxx(app: Ariadne, group: Group, result: Arpamar[MessageChain]):
 
 ```python
 from arclet.alconna import Alconna, cool_down, Args
+
 alc2 = Alconna(
     "test_cool_down",
     main_args=Args["bar":int],
     behaviors=[cool_down(0.2)]
 )
+
 for i in range(4):
     time.sleep(0.1)
     print(alc2.parse("test_cool_down {}".format(i)))
+
 >>> matched=False, head_matched=True, error_data=[], error_info=操作过于频繁
 >>> matched=True, head_matched=True, main_args={'bar': 1}
 >>> matched=False, head_matched=True, error_data=[], error_info=操作过于频繁
@@ -1041,6 +1076,7 @@ for i in range(4):
 
 ```python
 from arclet.alconna import Duplication, ArgsStub, OptionStub
+
 class MyDup(Duplication):
     my_args: ArgsStub
     从: OptionStub  # 选项与子命令对应的stub的变量名必须与其名字相同
@@ -1099,6 +1135,7 @@ class MyDup(Duplication):
 ## [居然是整活？](https://zh.moegirl.org.cn/%E6%9C%BA%E5%8A%A8%E6%88%98%E5%A3%AB%E9%AB%98%E8%BE%BE_%E9%97%AA%E5%85%89%E7%9A%84%E5%93%88%E8%90%A8%E7%BB%B4#%E6%96%B0%E4%BB%B2%E8%89%AF%E4%B8%89%E4%BA%BA%E7%BB%84/%E9%97%AA%E5%93%88%E5%AE%9A%E5%9E%8B%E6%96%87)
 
 > **「コッケイナだと！」**
+
 ### 元素匹配
 
 一定要记住，Alconna 是支持元素匹配的（Plain 元素或 Source 等元素除外）。
@@ -1108,6 +1145,7 @@ class MyDup(Duplication):
 ```python{6}
 from arclet.alconna import Alconna, Args
 from graia.ariadne.message.element import At
+
 ill = Alconna(
     "发病",
     Args["target", [At, int]],
@@ -1119,9 +1157,10 @@ ill = Alconna(
 
 `Alconna` 的 `command` 同样可以接受 类型 或者 `BasePattern`：
 
-```python{3-4}
+```python{4-5}
 from typing import Annotated
 from arclet.alconna import Alconna
+
 number = Alconna(int, help_text="输入数字")
 digit = Alconna(Annotated[int, lambda x: x>0], help_text="输入正整数")
 ```
@@ -1133,6 +1172,7 @@ At 等元素同样可以放置于 headers 里，但必须是实例化的对象�
 ```python{7}
 from arclet.alconna import Alconna, Args
 from graia.ariadne.message.element import At
+
 ill = Alconna(
     "发病",
     Args["target", [At, int]],
@@ -1165,6 +1205,7 @@ ill = Alconna(
 from pathlib import Path
 from arclet.alconna import command_manager
 ...
+
 command_manager.cache_path = Path(__file__).parent / "my_cache.db"
 command_manager.dump_cache()
 ```
@@ -1184,7 +1225,10 @@ Alconna 对于命令头部 `command` 应用有特殊的构建规则。
 ```python{4}
 from arclet.alconna import Alconna, Arpamar
 from arclet.alconna.graia import AlconnaDispatcher
+
 dice = Alconna(".r{dice:int}")
+
+
 @channel.use(
     ListenerSchema(
         listening_events=[GroupMessage],
@@ -1206,7 +1250,9 @@ async def roll_dice(app: Ariadne, group: Group, result: Arpamar):
 ```python{4}
 from arclet.alconna import Alconna, Option, Arpamar, Args
 from arclet.alconna.graia import AlconnaDispatcher
+
 who = Alconna("告诉我") + Option("谁", Args['target;S', str] / "和", separator="是")
+
 @channel.use(
     ListenerSchema(
         listening_events=[GroupMessage],
@@ -1225,10 +1271,14 @@ async def find(app: Ariadne, group: Group, result: Arpamar):
 
 ```python{7}
 from arclet.alconna import Alconna
+
+
 def test(foo: str, bar: int, baz: bool):
     ...
+
 tes = Alconna("command", action=test)
 print(tes.args)
+
 >>> "Args('foo': str, 'bar': int, 'baz': bool)"
 ```
 
@@ -1236,8 +1286,10 @@ print(tes.args)
 
 ```python{3}
 from arclet.alconna import Alconna
+
 tes = Alconna("command", main_args="foo:str, bar:int, baz:bool")
 print(tes.args)
+
 >>> "Args('foo': str, 'bar': int, 'baz': bool)"
 ```
 
@@ -1247,14 +1299,17 @@ print(tes.args)
 
 ```python{3}
 from arclet.alconna import Alconna, Args
+
 alc = Alconna("cut_img", Args["--width;OK", int, 1280]["--height;OK", int, 720])
 alc.parse("cut_img --height=640")
+
 >>> matched=True, head_matched=True, main_args={"--width": 1280, "--height":640}
 ```
 
 <p align="center" style="font-size: 30px"><strong>前面的区域，以后再来探索吧</strong></p>
 
 > **「わかります」**
+
 <Loading></Loading>
 
 ::: interlink
