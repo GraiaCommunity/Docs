@@ -5,8 +5,8 @@
 <audio id="thtlb" src="/voices/太好听了8.m4a"></audio>
 
 ::: danger
-本文档还没有写完<Curtain type="danger">比如没准备好钉宫三连语音包，欢迎<RubyCurtain up="hentai xiong di" type="danger">
-有志之士</RubyCurtain>提供</Curtain>十分建议在阅读的时候不要声音拉满 + 外放 <Curtain type="danger">除非你跟<MoreInfo words="唐可可">
+本文档还没有写完<Curtain>比如没准备好钉宫三连语音包，欢迎<RubyCurtain up="hentai xiong di" type="danger">
+有志之士</RubyCurtain>提供</Curtain>十分建议在阅读的时候不要声音拉满 + 外放 <Curtain>除非你跟<MoreInfo words="唐可可">
 <img
   src="/images/guide/唐可可.webp"
   onmouseover="

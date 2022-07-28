@@ -2,7 +2,7 @@
 
 ::: warning
 虽然现在还有一大堆没写，但是还要扯一句，现阶段 `Commander` 并不怎么适合给 `Ariadne` 使用，
-即<Curtain type="warning">强制缝合不可取 desu</Curtain>
+即<Curtain>强制缝合不可取 desu</Curtain>
 :::
 
 ## `Commander` 是什么

@@ -1,7 +1,7 @@
 # 好大的奶
 
 ::: danger
-本章除了例子<Curtain type="danger">与乐子</Curtain>啥也没写
+本章除了例子<Curtain>与乐子</Curtain>啥也没写
 :::
 
 ::: tsukkomi

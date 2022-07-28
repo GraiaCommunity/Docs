@@ -13,7 +13,7 @@
 
 Friendship is magic!
 
-<Curtain type="tsukkomi">来点暮光闪闪涩图<Curtain type="tsukkomi"> 人不能，至少不应该</Curtain></Curtain>
+<Curtain>来点暮光闪闪涩图<Curtain> 人不能，至少不应该</Curtain></Curtain>
 <div style="height:1em"></div>
 :::
 

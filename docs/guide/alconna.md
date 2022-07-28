@@ -7,7 +7,7 @@
 - 画风突变的标题
 - 意义不明的日语翻译 ~~熟肉反生~~
 
-不过放心，梗都有相关注释<Curtain type="tsukkomi">什么梗百科</Curtain>
+不过放心，梗都有相关注释<Curtain>什么梗百科</Curtain>
 
 > [**「わかります。」**](https://zh.moegirl.org.cn/%E9%95%BF%E9%A2%88%E9%B9%BF(%E5%B0%91%E5%A5%B3%E6%AD%8C%E5%89%A7))
 :::

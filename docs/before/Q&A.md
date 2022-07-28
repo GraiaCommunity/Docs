@@ -317,7 +317,7 @@ pipx install poetry
 
 ::: tip
 当你遇到什么 bug 的时候，最好搞清楚是哪里的 bug  
-再向那边的仓库提交 issue <Curtain type="tip">腾讯的 bug 例外，因为你压根没地方提交 issue</Curtain>
+再向那边的仓库提交 issue <Curtain>腾讯的 bug 例外，因为你压根没地方提交 issue</Curtain>
 :::
 
 ## 8. 关于涩图机器人
