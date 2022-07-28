@@ -103,10 +103,14 @@ async def test(app: Ariadne): ...
 然后这是你的出门行动路径：
 
 ```mermaid
-flowchart TB
+flowchart LR
   subgraph V我50吃疯狂星期四
-    A[去KFC]-->B[点餐]--> C[等餐] --> D[开吃] --> E[回家] --> F[看涩图]
+    A[去KFC]-->B[点餐]--> C[等餐] --> D[开吃] --> E[回家]
   end
+  subgraph 涩涩
+    F[看涩图]
+  end
+  E --> F
 ```
 
 这时候不知道你是否发现了一个问题：等餐的时间，你好像什么都没做诶。
@@ -125,8 +129,11 @@ flowchart LR
     direction LR
     A[去KFC]-->B[点餐]-.-> C[等餐] -.-> D[开吃] --> E[回家]
   end
-F[看涩图]
-B --> F --> D
+  subgraph 涩涩
+    F[看涩图]
+  end
+  B --> F --> D
+
 ```
 
 在这种情况下，你充分利用了等餐的时间，看了点涩图。这样子，整个计划就省下了“回家之后看涩图”的时间。
