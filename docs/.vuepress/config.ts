@@ -5,6 +5,7 @@ import { searchPlugin } from '@vuepress/plugin-search'
 import { shikiPlugin } from '@vuepress/plugin-shiki'
 import { path } from '@vuepress/utils'
 import { defineUserConfig } from 'vuepress'
+import { mdEnhancePlugin } from 'vuepress-plugin-md-enhance'
 import { localTheme } from './theme'
 
 export default defineUserConfig({
@@ -43,6 +44,11 @@ export default defineUserConfig({
     }),
     mediumZoomPlugin({
       selector: 'not(.no-zoom) > img',
+    }),
+    mdEnhancePlugin({
+      tex: true,
+      chart: true,
+      mermaid: true,
     }),
   ],
 })
