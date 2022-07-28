@@ -310,7 +310,7 @@ alc.parse("食物在哪里")
 命令组的解析表现与单个命令的行为基本一致，若全部命令解析失败则返回最后一个命令的解析结果。
 
 ## [Kirakira☆dokidoki的Dispatcher](https://zh.moegirl.org.cn/index.php?search=Kirakira+Dokidoki&title=Special:%E6%90%9C%E7%B4%A2&searchToken=9hyop5qg906tdzfb9wltw6slt)
- 
+
 在 **Ariadne** 中，你可以通过使用 **AlconnaDispatcher** 来提供消息处理服务：
 
 ```python{6}
@@ -326,6 +326,7 @@ async def _(app: Ariadne, group: Group, result: Arpamar):
 ```
 
 **AlconnaDispatcher** 目前有如下参数：
+
 - `alconna`: `Alconna`本体
 - `send_flag`: 输出文本的行为，默认为`stay`，可选值为`reply`或`post`
 - `skip_for_unmatch`: 当收到的消息不匹配`Alconna`时是否跳过，默认为`True`
@@ -335,16 +336,16 @@ async def _(app: Ariadne, group: Group, result: Arpamar):
 若 `send_flag` 选择 `reply`，则 `AlconnaDispatcher` 会自动将输出信息发出。
 若 `send_flag` 选择 `post`，则 `AlconnaDispatcher` 会利用 `Broadcast` 广播一个事件，并将输出信息作为参数发出。
 
-
 ### 参数标注
 
 **AlconnaDispatcher** 可以分配以下几种参数：
+
 - `Alconna`: 使用的 `Alconna` 对象
 - `Arpamar`: `Alconna` 生成的数据容器
 - `AlconnaProperty`: `AlconnaDispatcher` 返回的特殊对象，可以获取：
-    - `help_text`: 可能的帮助信息
-    - `result`: `Arpamar`
-    - `source`: 原始事件
+  - `help_text`: 可能的帮助信息
+  - `result`: `Arpamar`
+  - `source`: 原始事件
 - 匹配项，如 `Match`
 - `Duplication`: `Alconna` 提供的良好的类型补全容器
 - 匹配的参数，必须保证参数名与参数类型与解析结果中的一致，如`content: str`
@@ -431,12 +432,12 @@ async def _(app: Ariadne, result: Arpamar):
 - `Query`: 查询某个参数路径是否存在，如`sth: Query[int] = Query("foo.bar")`；可以指定默认值如
   `Query("foo.bar", 1234)`。使用时以 `Query.available` 判断是否匹配成功，以 `Query.result` 获取匹配结果。
 
-
 ### 特殊事件
 
 当 **AlconnaDispatcher** 的 `send_flag` 为 `post` 时，其会通过 bcc 广播一个 **AlconnaOutputMessage** 事件。
 
 该事件可获取的参数如下：
+
 - `help_string`(str): 可能的帮助信息
 - `alconna` (Alconna): 该帮助信息对应的命令
 - `sender`, `message`, `app`, ...: 从源消息事件中可获取的所有参数
@@ -444,6 +445,7 @@ async def _(app: Ariadne, result: Arpamar):
 ### 特殊类型
 
 `arclet-alconna-graia` 提供了几个特定的 `Args` 类型：
+
 - `ImgOrUrl`: 表示匹配一个 **Image** 消息元素或者是代表图片链接的字符串，匹配结果是图片的链接（str）
 - `AtID`: 表示匹配一个 **At** 消息元素或者是 `@xxxx` 式样的字符串或者数字，返回数字（int）
 
