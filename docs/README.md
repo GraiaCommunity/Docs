@@ -8,8 +8,6 @@ tagline: Community of Graia Project
 actions:
   - text: 快速实战 👉 涩图机器人制作
     link: /guide
-  - text: 热点追踪 👉 如何写出一个搜图机器人
-    link: /saucenao.md
 
 features:
   - title: 简洁而强大
