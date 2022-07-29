@@ -14,15 +14,15 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: '>=17'
-          cache: 'yarn'
+          cache: 'pnpm'
 
       - name: setup python
         uses: actions/setup-python@v2
 
       - name: build docs
         run: |
-          yarn install
-          yarn docs:build
+          pnpm install
+          pnpm docs:build
 
       - name: Upload dist
         run: |
