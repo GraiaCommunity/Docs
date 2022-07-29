@@ -179,7 +179,7 @@ async def stop(app: Ariadne, console: Console):
         style=Style([("warn", "bg:#cccccc fg:#d00000")]),
     )
     if res.lower() in ("y", "yes"):
-        await app.stop()
+        app.stop()
         console.stop()
 ```
 
