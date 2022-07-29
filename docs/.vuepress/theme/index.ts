@@ -25,7 +25,7 @@ const theme = defaultTheme({
   lastUpdatedText: '最后更新于',
   contributorsText: '贡献者',
   openInNewWindow: '在新窗口打开',
-  toggleDarkMode: '切换夜间模式',
+  toggleColorMode: '切换颜色主题',
   toggleSidebar: '切换侧边栏',
 
   // TurnOff Default mediumZoom
