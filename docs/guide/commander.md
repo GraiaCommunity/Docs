@@ -224,7 +224,7 @@ async def setu(dio: int):
 
 而 `Arg` 的 `type` 在单参数/无参数时可以省略, 但在多参数时必须指定，且必须为 `pytantic.BaseModel` 的子类。
 
-该子类需要接受所有多参数的占位符的字段，且必须拥有 `validator` 与 `chain_validator`，例如：
+该子类需要接受所有多参数的占位符的字段，且必须拥有 `chain_validator` 这个 `validator`，例如：
 
 ```python {6}
 import pydantic
