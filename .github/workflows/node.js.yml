@@ -6,23 +6,30 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           fetch-depth: 0
 
-      - name: setup node
-        uses: actions/setup-node@v2
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
         with:
-          node-version: '>=17'
-          cache: 'yarn'
+          version: 7
 
-      - name: setup python
-        uses: actions/setup-python@v2
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '>=18'
+          cache: 'pnpm'
 
-      - name: build docs
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Build docs
         run: |
-          yarn install
-          yarn docs:build
+          pnpm install
+          pnpm build
 
       - name: Upload dist
         run: |
