@@ -79,7 +79,7 @@ export default defineComponent({
         '因为社区都去真寻群看热闹了，所以文档咕了',
         '因为社区都想咕咕咕，所以文档咕了',
         'Literal[2122222222111221212111111111112]',
-        'ModuleNotFoundError: No module named \'graiax\'',
+        "ModuleNotFoundError: No module named 'graiax'",
         '看看你的 type checker',
         '什么超级魔法',
         '✨0.7.x: 修复了 datetime 序列化错误的 bug',
@@ -96,7 +96,7 @@ export default defineComponent({
         '魔女.怒()',
         '今天魔女不在家？',
         '欢迎来到 graia.icu',
-        'A60曾经说过，有人对着ABot发情',        
+        'A60曾经说过，有人对着ABot发情',
       ],
       random: '',
     }
