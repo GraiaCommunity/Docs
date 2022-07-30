@@ -4,6 +4,7 @@ import { navbar, sidebar } from '../configs/'
 
 const theme = defaultTheme({
   logo: '/logo.svg',
+  logoDark: '/logo-dark.svg',
   repo: 'GraiaCommunity/Docs',
   editLink: false,
 

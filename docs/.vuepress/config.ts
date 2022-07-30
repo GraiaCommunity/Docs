@@ -1,5 +1,5 @@
 import { containerPlugin } from '@vuepress/plugin-container'
-import { mediumZoomPlugin } from '@vuepress/plugin-medium-zoom'
+// import { mediumZoomPlugin } from '@vuepress/plugin-medium-zoom'
 import { registerComponentsPlugin } from '@vuepress/plugin-register-components'
 import { searchPlugin } from '@vuepress/plugin-search'
 import { shikiPlugin } from '@vuepress/plugin-shiki'
@@ -14,7 +14,7 @@ export default defineUserConfig({
   title: 'GraiaX 文档',
   description: 'GraiaX 文档',
 
-  head: [['link', { rel: 'icon', href: '/favicon.ico' }]],
+  head: [['link', { rel: 'icon', href: '/favicon.png' }]],
 
   theme: localTheme,
   plugins: [
@@ -42,13 +42,15 @@ export default defineUserConfig({
     shikiPlugin({
       theme: 'one-dark-pro',
     }),
-    mediumZoomPlugin({
-      selector: 'not(.no-zoom) > img',
-    }),
+    // 会导致 Console 报错
+    // mediumZoomPlugin({
+    //   selector: 'not(.no-zoom) > img',
+    // }),
     mdEnhancePlugin({
       tex: true,
       chart: true,
       mermaid: true,
+      tasklist: true,
     }),
   ],
 })

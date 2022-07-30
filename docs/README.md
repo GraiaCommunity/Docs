@@ -2,6 +2,8 @@
 title: 主页
 home: true
 
+heroImage: /logo.svg
+heroImageDark: /logo-dark.svg
 heroText: Graia Community
 tagline: Community of Graia Project
 

@@ -1,23 +1,32 @@
 :root {
-  --c-tip-title: #2ba36d;
+  --c-tip: var(--c-brand);
+  --c-tip-title: var(--c-tip);
 
+  --c-warning: #f0da68;
+  --c-warning-bg: #faf7e6;
+  --c-warning-text: #585236;
   --c-warning-text-accent: #d1b62c;
+
+  --c-danger: #c04242;
+  --c-danger-bg: #f9e7e7;
+  --c-danger-text: #4c0c0c;
   --c-danger-text-accent: #e05b5b;
 
-  --c-interlink: #0022e6;
-  --c-interlink-bg: #e5e9ff;
-  --c-interlink-text: var(--c-interlink);
+  --c-interlink: #4959b2;
+  --c-interlink-bg: #e9ebfa;
+  --c-interlink-text: #202a59;
+  --c-interlink-text-accent: #495cc8;
   --c-interlink-title: var(--c-interlink);
-  --c-interlink-text-accent: var(--c-text);
 
-  --c-tsukkomi: #aa00ff;
-  --c-tsukkomi-bg: #f7e5ff;
+  --c-tsukkomi: #9142b9;
+  --c-tsukkomi-bg: #fbf0ff;
   --c-tsukkomi-text: #440066;
-  --c-tsukkomi-title: var(--c-tsukkomi);
   --c-tsukkomi-text-accent: var(--c-tsukkomi);
+  --c-tsukkomi-title: var(--c-tsukkomi);
 }
 
 html.dark {
+  --c-tip: var(--c-brand);
   --c-tip-title: var(--c-tip);
 
   --c-warning-text-accent: var(--c-warning-title);
@@ -86,43 +95,6 @@ html.dark .custom-container *:not(pre) > code {
 }
 html.dark .custom-container.tip *:not(pre) > code {
   background-color: #20252c;
-}
-
-// 修改 custom-container 中 quote 的样式
-.custom-container.warning blockquote {
-  border-left-color: #ecdc89;
-  color: #c2b46d;
-}
-html.dark .custom-container.warning blockquote {
-  border-left-color: #a3923d;
-  color: #a89f6d;
-}
-
-.custom-container.danger blockquote {
-  border-left-color: #d18686;
-  color: #b38383;
-}
-html.dark .custom-container.danger blockquote {
-  border-left-color: #702e2e;
-  color: #5d2e2e;
-}
-
-.custom-container.tsukkomi blockquote {
-  border-left-color: #e3baf8;
-  color: #c99be0;
-}
-html.dark .custom-container.tsukkomi blockquote {
-  border-left-color: #866b94;
-  color: #988aa0;
-}
-
-.custom-container.interlink blockquote {
-  border-left-color: #b7bfeb;
-  color: #929edd;
-}
-html.dark .custom-container.interlink blockquote {
-  border-left-color: #59659e;
-  color: #757ba1;
 }
 
 .custom-container > ul {
