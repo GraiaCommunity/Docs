@@ -51,6 +51,9 @@ export default defineUserConfig({
       chart: true,
       mermaid: true,
       tasklist: true,
+      sub: true,
+      sup: true,
+      footnote: true,
     }),
   ],
 })

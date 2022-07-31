@@ -20,7 +20,7 @@
 
 <Curtain>什么碧蓝航线（划掉）</Curtain>
 
-事实上，这个词由 `command`（命令）和 `-er`（的东西<sup>[[1]](#anno)</sup>）组成，说白了他就是一个`命令解析器`。
+事实上，这个词由 `command`（命令）和 `-er`（的东西[^1]）组成，说白了他就是一个`命令解析器`。
 
 与前文介绍的 `基础消息链处理器` 及 `Twilight` 与下文介绍的 `Alconna`
 相比，**Commander** 特点是基于 **pydantic** 进行命令处理。
@@ -70,7 +70,11 @@ async def setu(tag: str):
 
 ## 命令样式
 
-<Curtain>我相信放抽象文法你也不一定会看懂，所以这里不放了（</Curtain>
+::: tip
+如果你想直接知道 `Commander` 所支持的抽象语法，请到[官方文档](https://graia.readthedocs.io/ariadne/feature/commander/#command)查看
+
+什么，你不知道抽象语法是什么，没关系，[俺也一样](https://zh.moegirl.org.cn/%E4%BF%BA%E4%B9%9F%E4%B8%80%E6%A0%B7)
+:::
 
 这里先举一个简单的例子，这是一个 **Commander**：
 
@@ -292,9 +296,4 @@ cmd.add_type_cast(cast_to_list)
 **相关链接:** <https://graia.readthedocs.io/ariadne/feature/commander/>
 :::
 
-<hr size=3/>
-
-<a id="anno"></a>
-
-**注：**
-[1]：来自维基词典 <https://zh.wiktionary.org/wiki/-er>
+[^1]: 来自维基词典 <https://zh.wiktionary.org/wiki/-er>

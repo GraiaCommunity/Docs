@@ -247,7 +247,7 @@ graia-ariadne 0.6.12 Another elegant Python QQ Bot framework for mirai and mirai
 
 ### 6.4 为什么不用 `conda` 或 `pdm`
 
-~~啊对对对（开摆）~~ 因为社区内大部分机器人（甚至于 `GraiaProject` 旗下所有项目）都是使用 `poetry`，
+~~啊对对对（开摆）~~ 因为社区内大部分机器人（~~甚至于 `GraiaProject` 旗下所有项目~~ `GraiaProject` 逐步转战 `pdm`）都是使用 `poetry`，
 所以我们也向各位推荐 `poetry`。
 
 当然，假设你已经懂得如何用 `conda` 或 `pdm` 之类的依赖管理工具来管理你的项目，那用他们来管理 graia 项目是再好不过的
