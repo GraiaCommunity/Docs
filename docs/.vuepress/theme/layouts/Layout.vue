@@ -97,6 +97,7 @@ export default defineComponent({
         '今天魔女不在家？',
         '欢迎来到 graia.icu',
         'A60曾经说过，有人对着ABot发情',
+        '谁有时间读你们这破文档啊',
       ],
       random: '',
     }

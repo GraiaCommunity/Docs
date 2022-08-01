@@ -1,5 +1,5 @@
 import { containerPlugin } from '@vuepress/plugin-container'
-// import { mediumZoomPlugin } from '@vuepress/plugin-medium-zoom'
+import { mediumZoomPlugin } from '@vuepress/plugin-medium-zoom'
 import { registerComponentsPlugin } from '@vuepress/plugin-register-components'
 import { searchPlugin } from '@vuepress/plugin-search'
 import { shikiPlugin } from '@vuepress/plugin-shiki'
@@ -42,10 +42,11 @@ export default defineUserConfig({
     shikiPlugin({
       theme: 'one-dark-pro',
     }),
-    // 会导致 Console 报错
-    // mediumZoomPlugin({
-    //   selector: 'not(.no-zoom) > img',
-    // }),
+    // 可能会导致 Console 报错
+    // 但是作为防图片缩放的关键，暂时不注释掉
+    mediumZoomPlugin({
+      selector: 'not(.no-zoom) > img',
+    }),
     mdEnhancePlugin({
       tex: true,
       chart: true,
