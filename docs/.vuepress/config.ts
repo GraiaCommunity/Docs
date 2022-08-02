@@ -45,7 +45,7 @@ export default defineUserConfig({
     // 可能会导致 Console 报错
     // 但是作为防图片缩放的关键，暂时不注释掉
     mediumZoomPlugin({
-      selector: 'not(.no-zoom) > img',
+      selector: ':not(a) > img:not(.no-zoom)',
     }),
     mdEnhancePlugin({
       tex: true,
