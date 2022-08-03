@@ -148,15 +148,15 @@ Java Virtual Machine，即 **Java 虚拟机**。
 :::
 
 假如你是 Windows 用户或 Linux 与 macOS 的图形界面用户，那就特别简单。
-首先点[这里](https://github.com/iTXTech/mirai-console-loader/releases/download/v2.1.0/MCL-2.1.0.zip)，
+首先点[这里](https://github.com/iTXTech/mirai-console-loader/releases/download/v2.1.0/mcl-2.1.0.zip)，
 然后点<MoreInfo words="这里" :link="true">↑ 不是这里，是这里 ↓<img src="/images/before/unzip.webp"></MoreInfo>，就完成了（确信，不要连解压都不会吧）！
 
 如果你使用的是没有图形界面的 Linux 系统，那执行下下面的命令就好了（不要说你不会噢，不会吧不会吧不会有人啥都不会就用 Linux 了吧）：
 
 ```bash
 # 假设你的系统十分的精简，记得安装 wget 和 unzip
-wget https://github.com/iTXTech/mirai-console-loader/releases/download/v2.1.0/MCL-2.1.0.zip
-unzip MCL-2.1.0.zip -d MCL-2.1.0
+wget https://github.com/iTXTech/mirai-console-loader/releases/download/v2.1.0/mcl-2.1.0.zip
+unzip mcl-2.1.0.zip -d mcl-2.1.0
 ```
 
 ## 添加 **Mirai Api Http** 插件并启动 **MCL**
@@ -168,7 +168,7 @@ unzip MCL-2.1.0.zip -d MCL-2.1.0
 冷知识：在本文档及 Graia 或“友商”社区中 Mirai Api Http 经常被缩写为 **MAH**。
 :::
 
-首先需要进入到 `MCL-2.1.0` 文件夹中，然后使用如下命令添加 mirai-api-http 插件并启动 MCL：
+首先需要进入到 `mcl-2.1.0` 文件夹中，然后使用如下命令添加 mirai-api-http 插件并启动 MCL：
 
 ```bash
 ./mcl --update-package net.mamoe:mirai-api-http --channel stable-v2 --type plugin
@@ -220,7 +220,7 @@ Bot 不掉线的情况下使用手机登录 Bot 的 QQ 账号）而想要更改�
 
 ## 配置 **Mirai Api Http** 参数
 
-进入 `MCL-2.1.0/config/net.mamoe.mirai-api-http`，修改 `setting.yml`。
+进入 `mcl-2.1.0/config/net.mamoe.mirai-api-http`，修改 `setting.yml`。
 
 你可以直接降下面的例子复制替换掉原本的内容。  
 不过请注意，不懂的参数不要乱动，冒号后请保留空格，不要使用中文冒号，不要随意删除空格。
@@ -245,7 +245,7 @@ adapterSettings:
     reservedSyncId: -1
 ```
 
-使用命令 `/MCL` 重新启动 mirai-console-loader（MCL），此时你应该在控制台看到如下提示：
+使用命令 `./mcl` 重新启动 MCL，此时你应该在控制台看到如下提示：
 
 ```txt{2-5}
 2022-07-04 19:11:11 I/Mirai HTTP API: ********************************************************
