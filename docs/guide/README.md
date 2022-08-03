@@ -6,7 +6,7 @@
 
 本文档的所有例子都可以在 :point_right: [这里](https://github.com/GraiaCommunity/EroEroBot) 找到。
 
-假设文档有一些专有名词不了解，也可以看看[这里](./appendix/terms)。
+假设文档有一些专有名词不了解，也可以看看[这里](./appendix/terms.md)。
 
 ::: danger 警告一下
 这个文档只是社区的一小部分，不是社区的所有。
@@ -26,7 +26,7 @@
 2. [x] [快速上手](./hello_ero.md) —— 你好，来点涩图。你与机器人的第一次对话
 3. [x] [东西要分类好](./saya.md) —— 模块管理器 `graia-saya` 的使用
 4. [x] [不要再戳了](./other_event.md) —— `Ariadne` 上各类 `Event` 的简单讲解
-5. [ ] [谁在找我](./multi_events.md) —— 同时需要监听多个事件时候的注意事项
+5. [x] [谁在找我](./multi_events.md) —— 同时需要监听多个事件时候的注意事项
 6. [x] [关于消息链的故事](./message_chain.md)
    1. [x] [消息链是什么链](./message_chain.md) —— `MessageChain` 的介绍
    2. [x] [八嘎 hentai 无路赛](./multimedia_message.md) —— 对于发送 `多媒体消息` 的补充
