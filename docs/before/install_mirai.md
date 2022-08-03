@@ -125,7 +125,7 @@ Java Virtual Machine，即 **Java 虚拟机**。
 
 以笔者的电脑（Windows 11）举例，**Mirai** 启动完毕后，其占用内存大概 232Mb，说实话占用挺高的。
 
-但是假设使用了 OpenJ9 的话内存占用将会变成原来的 70% 左右 . 
+但是假设使用了 OpenJ9 的话内存占用将会变成原来的 70% 左右 .
 （在笔者的电脑上占用内存是 165.5Mb，同比减少 30%）
 
 我们只需要在[这个地方](https://developer.ibm.com/languages/java/semeru-runtimes/downloads)找到适合自己系统的 Java 版本，然后安装即可。
