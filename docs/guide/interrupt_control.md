@@ -45,11 +45,107 @@ Ariadne 提供了 `FunctionWaiter` 和 `EventWaiter` 两个便捷的类，可以
 这两个类都位于 `graia.ariadne.util.interrupt` 中，这里我们只介绍 `FunctionWaiter`
 的用法，下面以一个加机器人好友时向机器人管理员询问是否通过的例子来说明这个 `FunctionWaiter` 的用法：
 
-```python{23-33,35-37}
+```python{23-33,35}
 from graia.ariadne.util.interrupt import FunctionWaiter
 
 ADMIN = 1145141  # Bot 管理员的 QQ 号
 
+@channel.use(ListenerSchema(listening_events=[NewFriendRequestEvent]))
+async def new_friend(app: Ariadne, event: NewFriendRequestEvent):
+    source_group: Optional[int] = event.source_group
+    groupname = '未知'
+    if source_group:
+        group = await app.get_group(source_group)
+        groupname = group.name if group is not None else '未知'
+
+    await app.send_friend_message(
+        ADMIN,
+        MessageChain(
+            Plain(f'收到添加好友事件\nQQ：{event.supplicant}\n昵称：{event.nickname}\n'),
+            Plain(f'来自群：{groupname}({source_group})\n') if source_group else Plain('\n来自好友搜索\n'),
+            Plain(event.message) if event.message else Plain('无附加信息'),
+            Plain('\n\n是否同意申请？'),
+        ),
+    )
+
+    async def waiter(waiter_friend: Friend, waiter_message: MessageChain) -> Optional[tuple[bool, int]]:
+        # 之所以把这个 waiter 放在 new_friend 里面，是因为我们需要用到 app
+        # 假如不需要 app 或者 打算通过传参等其他方式获取 app，那也可以放在外面
+        if waiter_friend.id in basic_cfg.admin.admins:
+            saying = waiter_message.display
+            if saying == '同意':
+                return True, waiter_friend.id
+            elif saying == '拒绝':
+                return False, waiter_friend.id
+            else:
+                await app.send_friend_message(waiter_friend, MessageChain(Plain('请发送同意或拒绝')))
+
+    result = await FunctionWaiter(waiter, [FriendMessage]).wait()
+
+    if result[0]:
+        await event.accept()  # 同意好友请求
+        await app.send_friend_message(
+            ADMIN,
+            MessageChain(Plain(f'Bot 管理员 {result[1]} 已同意 {event.nickname}({event.supplicant}) 的好友请求')),
+        )
+    else:
+        await event.reject('Bot 管理员拒绝了你的好友请求')  # 拒绝好友请求
+        await app.send_friend_message(
+            ADMIN,
+            MessageChain(Plain(f'Bot 管理员 {result[1]} 已拒绝 {event.nickname}({event.supplicant}) 的好友请求')),
+        )
+```
+
+::: warning
+上面的代码来自 [redbot](https://github.com/Redlnn/redbot/blob/master/core_modules/bot_manage.py)，且有已知
+BUG，所以不建议照搬。
+:::
+
+## 超时取消
+
+上面的代码会有一个问题，就是如果 `basic_cfg.admin.admins` 中的所有管理员都没有作出满足条件的回应的话，
+`FunctionWaiter.wait` 会永远等待下去。
+
+假如你不想他永久等待下去，希望他在一段时间后自动取消的话，
+你可以在调用 `FunctionWaiter.wait` 的时候传入一个 `timeout` 参数。
+
+`FunctionWaiter.wait` 内部的代码（摘录）如下所示，可以看出，当 `timeout`
+参数被指定时，`FunctionWaiter.wait` 将自动使用 `asyncio.wait_for` 来进行等待，否则将一直等待。
+
+当等待了你所指定的超时时长且 waiter 没有返回非 `None` 的值后，
+`asyncio.wait_for` 将会抛出一个 `asyncio.exceptions.TimeoutError` 异常，
+`FunctionWaiter.wait` 内部会捕捉这个异常，并返回设定的默认值（若不设定则默认返回 `None`）。
+
+```python{9,11-13}
+async def wait(self, timeout: Optional[float] = None, default: Optional[T] = None):
+    """等待 Waiter, 如果超时则返回默认值
+
+    Args:
+        timeout (float, optional): 超时时间, 单位为秒
+        default (T, optional): 默认值
+    """
+    inc = it(InterruptControl)
+    if timeout:
+        try:
+            return await inc.wait(self, timeout=timeout)
+        except asyncio.TimeoutError:
+            return default
+    return await inc.wait(self)
+```
+
+::: warning
+默认情况下，`timeout` 是没有被指定的，因此若你的 `waiter` 设定了一些条件才会返回非 `None` 值，
+那么当这些条件没有被满足时，`FunctionWaiter.wait` 将永远等待下去。  
+（虽然这样并不会影响 bot 的正常运行，但可能过了很久以后，
+你所设定的条件突然被满足而使得你的 bot 突然说了一句莫名其妙的话，
+就会显得很奇怪）
+
+因此推荐你在调用 `FunctionWaiter.wait` 的时候指定一个 `timeout` 参数
+:::
+
+将上面的例子添加 `timeout` 参数之后，其就可以增加一个超时自动同意的功能，变为如下所示：
+
+```python{15,22,24-27}
 @channel.use(ListenerSchema(listening_events=[NewFriendRequestEvent]))
 async def new_friend(app: Ariadne, event: NewFriendRequestEvent):
     source_group: Optional[int] = event.source_group
@@ -69,92 +165,43 @@ async def new_friend(app: Ariadne, event: NewFriendRequestEvent):
     )
 
     async def waiter(waiter_friend: Friend, waiter_message: MessageChain) -> Optional[tuple[bool, int]]:
-        # 之所以把这个 waiter 放在 new_friend 里面，是因为我们需要用到 app
-        # 假如不需要 app 或者 打算通过传参等其他方式获取 app，那也可以放在外面
-        if waiter_friend.id in basic_cfg.admin.admins:
-            saying = waiter_message.display
-            if saying == '同意':
-                return True, waiter_friend.id
-            elif saying == '拒绝':
-                return False, waiter_friend.id
-            else:
-                await app.send_friend_message(waiter_friend, MessageChain(Plain('请发送同意或拒绝')))
+        ...
 
-    try:
-        result, admin = await FunctionWaiter(waiter, [FriendMessage]).wait(timeout=600)
-    except asyncio.exceptions.TimeoutError:
-        await event.reject('由于超时未审核，你已被拒绝添加好友')  # 自动拒绝好友请求
-        await app.send_friend_message(
-            ADMIN,
-            MessageChain(Plain(f'由于超时未审核，已自动拒绝 {event.nickname}({event.supplicant}) 的好友请求')),
-        )
+    result = await FunctionWaiter(waiter, [FriendMessage]).wait(timeout=600)  # default 为 None
+
+    if result is None:
+        await event.accept()
+        await send_to_admin(MessageChain(Plain(f'由于超时未审核，已自动同意 {event.nickname}({event.supplicant}) 的好友请求')))
         return
 
-    if result:
-        await event.accept()  # 同意好友请求
+    if result[0]:
+        await event.accept()
         await app.send_friend_message(
             ADMIN,
-            MessageChain(Plain(f'Bot 管理员 {admin} 已同意 {event.nickname}({event.supplicant}) 的好友请求')),
+            MessageChain(Plain(f'Bot 管理员 {result[1]} 已同意 {event.nickname}({event.supplicant}) 的好友请求')),
         )
     else:
-        await event.reject('Bot 管理员拒绝了你的好友请求')  # 拒绝好友请求
+        await event.reject('Bot 管理员拒绝了你的好友请求')
         await app.send_friend_message(
             ADMIN,
-            MessageChain(Plain(f'Bot 管理员 {admin} 已拒绝 {event.nickname}({event.supplicant}) 的好友请求')),
+            MessageChain(Plain(f'Bot 管理员 {result[1]} 已拒绝 {event.nickname}({event.supplicant}) 的好友请求')),
         )
 ```
-
-::: warning
-上面的代码来自 [redbot](https://github.com/Redlnn/redbot/blob/master/core_modules/bot_manage.py)，且有已知
-BUG，所以不建议照搬。
-:::
-
-## 超时取消
-
-假如你不想 `FunctionWaiter.wait` 永久等待下去，希望他在一段时间后自动取消的话，
-你可以在调用 `FunctionWaiter.wait` 的时候传入一个 `timeout` 参数，
-当 `timeout` 参数被指定时，`FunctionWaiter.wait` 将自动使用 `asyncio.wait_for` 来等待。
-
-::: warning
-默认情况下，`timeout` 是没有被指定的，因此若你的 waiter 设定了一些条件才会返回非 `None` 值，
-那么当这些条件没有被满足时，`FunctionWaiter.wait` 将永远等待下去。  
-（虽然这样并不会影响 bot 的正常运行，但可能过了很久以后，
-你所设定的条件突然被满足而使得你的 bot 突然说了一句莫名其妙的话，
-就会显得很奇怪）
-
-因此推荐你在调用 `FunctionWaiter.wait` 的时候指定一个 `timeout` 参数
-:::
-
-当等待了你所指定的超时时长且 waiter 没有返回非 `None` 值后，
-`asyncio.wait_for` 将会抛出一个 `asyncio.exceptions.TimeoutError` 异常，
-通过捕捉这个异常，可以知道等待超时并作出相应的处理了。
-
-```python{2}
-try:
-    result, admin = await FunctionWaiter(waiter, [FriendMessage]).wait(timeout=600)
-except asyncio.exceptions.TimeoutError:
-```
-
-::: tip
-在 Python 中，`try...except` 是非常灵活的，
-
-你可以在 `except` 块后使用 `else` 块来指定未发生异常时的处理方式。
-（当然你也可以在 `except` 块中使用 `return`、`break`、`continue` 等方法而不是 `else` 块来避开不应被执行的部分）
-
-除了 `else` 块外，你也可以指定一个 `finally` 块，该块表示无论是否发生错误，均会执行。
-（假如发生了错误，会在 `except` 块执行完毕后再执行 `finally` 块中的内容）
-:::
 
 ## 高级用法 & 原理讲解
 
+<br />
 <details>
 <summary style="cursor: pointer">点击展开</summary>
 
 ### 通过一个类创建 `Waiter`
 
-```python
+抱歉由于太难解释了，所以直接上代码~
+
+```python{14-23,39-43}
 import asyncio
 
+from creart import create
 from graia.ariadne.message.parser.base import MatchContent
 from graia.broadcast.interrupt import InterruptControl
 from graia.broadcast.interrupt.waiter import Waiter
@@ -162,7 +209,7 @@ from graia.saya import Channel, Saya
 
 saya = Saya.current()
 channel = Channel.current()
-inc = InterruptControl(saya.broadcast)  # type: ignore
+inc = create(InterruptControl)
 
 
 class SetuTagWaiter(Waiter.create([GroupMessage])):
@@ -208,14 +255,15 @@ async def ero(app: Ariadne, group: Group, member: Member, message: MessageChain)
 
 你觉不觉得，仅仅是为了一个 `Waiter` 而大费周章的创建一个类太麻烦了，那么事实上，你也可以通过创建局部函数来达到相同效果哦。
 
-```python
+```python{25-28,30-34}
+from creart import create
 from graia.ariadne.message.parser.base import MatchContent
 from graia.broadcast.interrupt import InterruptControl
 from graia.broadcast.interrupt.waiter import Waiter
 
 saya = Saya.current()
 channel = Channel.current()
-inc = InterruptControl(saya.broadcast)  # type: ignore
+inc = create(InterruptControl)
 
 
 async def setu(tag: List[str]) -> bytes:
@@ -237,11 +285,15 @@ async def ero(app: Ariadne, group: Group, member: Member, message: MessageChain)
         if group.id == g.id and member.id == m.id:
             return msg
 
-    ret_msg = await inc.wait(setu_tag_waiter, timeout=10)  # 强烈建议设置超时时间否则将可能会永远等待
-    await app.send_message(
-        group,
-        MessageChain(Image(data_bytes=await setu(ret_msg.split()))),  # 这里的括号多得离谱是吧
-    )
+    try:
+        ret_msg = await inc.wait(setu_tag_waiter, timeout=10)  # 强烈建议设置超时时间否则将可能会永远等待
+    except asyncio.TimeoutError:
+        await app.send_message(group, MessageChain("你说话了吗？"))
+    else:
+        await app.send_message(
+            group,
+            MessageChain(Image(data_bytes=await setu(ret_msg.split()))),  # 这里的括号多得离谱是吧
+        )
 ```
 
 ::: tsukkomi
@@ -255,7 +307,7 @@ async def ero(app: Ariadne, group: Group, member: Member, message: MessageChain)
 
 首先我们先把目光着重放在这个 `SetuTagWaiter` 上面：
 
-```python
+```python{1,8-10}
 class SetuTagWaiter(Waiter.create([GroupMessage])):
     "涩图 tag 接收器"
 
@@ -268,7 +320,7 @@ class SetuTagWaiter(Waiter.create([GroupMessage])):
             return message
 ```
 
-首先是第一行的 `Waiter.create([GroupMessage])`，假设我们翻阅过其文档，就会知道，
+首先是第一行的 `Waiter.create([GroupMessage])`，假设我们翻阅过其代码（如下）及文档，就会知道，
 在这里传递的消息，其实跟我们一般填写在 `Listener` 里面的参数是一样的。
 
 ```python
@@ -297,6 +349,13 @@ def create(
 
 #### 优先级（priority）
 
+::: warning
+由于使用了 Saya，本小节可能较为突兀（该部分写的时候没有使用 Saya）。
+
+以下的 **Listener** 可以理解为 **ListenerSchema**，
+其本来所指为 `@bcc.reciver` 里的 **Listener**（即事件监听器）
+:::
+
 事实上，每一个 Listener 都有其优先级，事实上，你可以通过调节优先级数字来调整。
 
 比如说只有在优先级为 15 的 Listener 处理完，优先级为 16 的 Listener 才会开始运行。
@@ -307,12 +366,6 @@ def create(
 - `Waiter` 的默认优先级是 15
 
 在统一优先级的情况下，函数将会通过交给 `asyncio.gather` 处理。
-:::
-
-::: warning
-由于使用了 Saya，本小节可能较为突兀（该部分写的时候没有使用 Saya）。  
-此处的 **Listener** 可以理解为 **ListenerSchema**，
-其本来所指为 `@bcc.reciver` 里的 **Listener**（即事件监听器）
 :::
 
 #### ExecutionStop 与 PropagationCancelled 的故事
