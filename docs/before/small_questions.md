@@ -47,6 +47,74 @@ Ariadne 自 0.6.1 版本起添加了 `Reverse Adapter`（反向 HTTP / WebSocket
 如果这样做失败了，那你还是放弃吧~
 :::
 
+### 用 `BytesIO` 发送图片结果发送失败了
+
+假设你在你的 bot 里写了一些通过 `pillow` 等图片处理库处理图片，那你应该会写出一个类似于这样的代码：
+
+``` python
+# 不要跟 Ariadne 中的 Image 搞混了
+from io import BytesIO
+from PIL import Image as IMG
+
+async def pic(app: Ariadne, group: Group, message: MessageChain)
+    img: IMG = IMG.open(BytesIO(message[Image][0]))
+    ...
+    b = BytesIO()
+    img.save(b, format="png")
+    await app.send_group_message(group, MessageChain(Image(data_bytes=b)))
+```
+
+当你兴奋的将你的这个代码放到运行环境后，坏了，不能用。  
+为什么会出现这样的问题？明明 `data_bytes` 参数支持 BytesIO 啊。
+
+这个问题很简单，当我们翻阅 `Ariadne` 源码的时候，就能发现：
+
+``` python
+    if isinstance(data_bytes, BytesIO):
+        data["base64"] = b64encode(data_bytes.read())
+```
+
+是的，我的朋友，`Ariadne` 在发现 `data_bytes` 参数是 `BytesIO` 后，
+就会像普通 IO 一样，通过 read 方法去获取数据。
+
+那怎么办？我们为您提供了以下两种办法解决这个问题：
+
+:::: code-group
+::: code-group-item 直接传递值
+
+``` python{10}
+# 不要跟 Ariadne 中的 Image 搞混了
+from io import BytesIO
+from PIL import Image as IMG
+
+async def pic(app: Ariadne, group: Group, message: MessageChain)
+    img: IMG = IMG.open(BytesIO(message[Image][0]))
+    ...
+    b = BytesIO()
+    img.save(b, format="png")
+    await app.send_group_message(group, MessageChain(Image(data_bytes=b.getvalue())))
+```
+
+:::
+::: code-group-item 操作文件指针
+
+``` python{10}
+# 不要跟 Ariadne 中的 Image 搞混了
+from io import BytesIO
+from PIL import Image as IMG
+
+async def pic(app: Ariadne, group: Group, message: MessageChain)
+    img: IMG = IMG.open(BytesIO(message[Image][0]))
+    ...
+    b = BytesIO()
+    img.save(b, format="png")
+    b.seek(0)
+    await app.send_group_message(group, MessageChain(Image(data_bytes=b)))
+```
+
+:::
+::::
+
 ### 关于我的 Python 版本好混乱这件事
 
 某些人（尤其是刚刚上手 Linux 的小白），会遇到「分不清自己调用的究竟是哪个 Python」的问题。然后就遇到「因为找错 Python 了导致遇到各种各样的因为版本问题而出现的 bug」
