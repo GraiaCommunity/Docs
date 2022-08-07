@@ -34,6 +34,13 @@ Python 也有如 “PyPy” 之类的其他解释器，所以，Java 也有很�
 winget install Microsoft.OpenJDK.17
 ```
 
+::: tip
+请注意，只有 Windows 10 1709（不含 LTSB、LTSC）及以上或 Windows 11 才自带 winget 命令。
+
+Windows XP / Vista 已不受支持，请使用现代化的操作系统，Windows 7 / 8 /
+10（1709 之前的版本或长期支持版本）请使用下一节提到的来自不同厂商的 OpenJDK 安装包。
+:::
+
 :::
 ::: code-group-item DEB系
 
@@ -86,13 +93,6 @@ pkg install openjdk-17
 
 :::
 ::::
-
-::: tip
-请注意，只有 Windows 10 1709（不含 LTSB、LTSC）及以上或 Windows 11 才自带 winget 命令。
-
-Windows XP / Vista 已不受支持，请使用现代化的操作系统，Windows 7 / 8 /
-10（1709 之前的版本或长期支持版本）请使用下一节提到的来自不同厂商的 OpenJDK 安装包。
-:::
 
 ### 常见的 OpenJDK 发行版
 
