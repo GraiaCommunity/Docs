@@ -82,7 +82,7 @@ pip install graia-saya
 
 首先，为了降低新人的理解难度，我们直接拿出一个最小实例：
 
-```python{15,27-28}
+```python{15,25-26}
 import pkgutil
 
 from creart import create

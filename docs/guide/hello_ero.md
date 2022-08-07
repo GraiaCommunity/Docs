@@ -37,7 +37,7 @@
 
    @bcc.receiver(GroupMessage)
    async def setu(app: Ariadne, group: Group, message: MessageChain):
-        if message.display == "你好":
+       if message.display == "你好":
            await app.send_message(
                group,
                MessageChain(f"不要说{message.display}，来点涩图"),
