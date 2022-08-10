@@ -73,7 +73,7 @@ export default defineComponent({
         '你这 bot 是金子做的还是服务器是金子做的',
         'fut.set_result("KEEP_ALIVE")',
         '欢迎来到 GraiaX！这里是治疗低血压的最好的地方',
-        '如果看到某个被称为“霖念”的家伙劝你降级，最好别相信他',
+        '霖念铁树开花了',
         '年轻的开发者哟，你掉的是这个 VSCode 还是 PyCharm 呢',
         '因为社区都去写自己的 bot 了，所以文档咕了',
         '因为社区都去打音游了，所以文档咕了',
