@@ -6,7 +6,7 @@
 
 我们来仔细对比一下 `graia-saya` 与 `BCC` 中对于 listener 的用法
 
-``` python
+```python
 # BCC
 @bcc.receiver(GroupMessage)
 # saya
@@ -25,7 +25,7 @@
 
 ## 举个例子
 
-``` python
+```python
 from typing import Union
 
 

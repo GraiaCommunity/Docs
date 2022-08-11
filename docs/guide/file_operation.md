@@ -13,7 +13,7 @@
 
 众所周知，QQ 因为某种原因，是不能出现那种很涩的图片的，
 不过呢，我们可以通过一些奇奇怪怪的方法来绕过这些限制。
-比如说，群文件<img src="/images/guide/wangwang.webp" height=20 style="vertical-align:text-bottom">。
+比如说，群文件<img src="/images/guide/wangwang.webp" class="face">。
 
 <ChatWindow title="Graia Framework Community">
     <ChatMsg name="GraiaX" onright>来一打紧身衣涩图</ChatMsg>

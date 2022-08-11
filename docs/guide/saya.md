@@ -144,7 +144,7 @@ with saya.module_context():
 :::: code-group
 ::: code-group-item 单文件模组
 
-```txt:no-line-numbers
+```txt
 EroEroBot
 ├─ main.py
 ├─ pyproject.toml
@@ -155,7 +155,7 @@ EroEroBot
 :::
 ::: code-group-item 文件夹模组
 
-```txt:no-line-numbers
+```txt
 EroEroBot
 ├─ main.py
 ├─ pyproject.toml
@@ -344,7 +344,6 @@ dispatchers -> inline_dispatchers
 ::::
 
 ::: interlink
-相关链接：
 <https://graia.readthedocs.io/ariadne/extra/saya/start/>
 <https://graia.readthedocs.io/saya>
 :::

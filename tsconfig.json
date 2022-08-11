@@ -21,11 +21,11 @@
     "./*.jsx",
     "./*.ts",
     "./*.tsx",
-    "docs/.vuepress/**/*.js",
-    "docs/.vuepress/**/*.jsx",
-    "docs/.vuepress/**/*.ts",
-    "docs/.vuepress/**/*.tsx",
-    "docs/.vuepress/**/*.vue"
+    "docs/.vitepress/**/*.js",
+    "docs/.vitepress/**/*.jsx",
+    "docs/.vitepress/**/*.ts",
+    "docs/.vitepress/**/*.tsx",
+    "docs/.vitepress/**/*.vue"
   ],
   "exclude": ["node_modules"]
 }

@@ -1,4 +1,4 @@
-# 造房之前，打好地基
+# 要致富，先撸树
 
 > 罗马不是一夜建成，机器人也不是一日造好。—— 爷
 
@@ -8,7 +8,7 @@
 2. **本文档将假设你具有一定的英语阅读能力<Curtain>通过 XX 翻译也行</Curtain>，并能对工具软件的提示作出自己的决定。**
 3. **本文档将会使用 `poetry` 作为依赖和虚拟环境管理工具。**
    ::: warning
-   关于为什么用 `poetry`，你可以看这里 :point_right: [看这](../before/Q&A.md#_6-关于-poetry)
+   关于为什么用 `poetry`，你可以看这里 :point_right: [看这](/before/QA#_6-关于-poetry)
    :::
 
 4. **本文档将使用 `graia-ariadne` 0.7.15 及以上的版本**，Ariadne 在 0.7.0 进行了一次大的
@@ -18,7 +18,7 @@
    - 从 0.5.x 和 0.6.x 版本的 Ariadne 迁移至 0.7.x 请参考[这里](https://graia.readthedocs.io/ariadne/migrate/amnesia_port/)
    - **0.7.6 及以下版本的 Ariadne 存在一些 Bug，不推荐使用噢。**
    - **0.7.15 的 Ariadne 不能自己创建 loop 和 bcc 了，所以本文档的所用的 Ariadne 版本为 0.7.15+**
-   - 有关什么是 Ariadne，请参阅[这里](../before/Q&A.html#_2-什么是-ariadne)
+   - 有关什么是 Ariadne，请参阅[这里](/before/QA#_2-什么是-ariadne)
    - 一般情况下本文档会随着 **Ariadne** 版本的更新而更新，所以**强烈推荐**你直接安装最新版本（latest），现在 **Ariadne** 的最新版本为
       <a href="https://pypi.org/project/graia-ariadne/#history"><img src="https://img.shields.io/pypi/v/graia-ariadne?color=2970b6&amp;label=&amp;style=flat-square" alt="PyPI版本" style="vertical-align: middle"></a>
    :::
@@ -28,7 +28,7 @@
    ，但为了**最佳体验**，我们建议你最好升级到 `Python3.9+` 以保证能够享受到全部功能。
 6. **本文档部分内容可能未及时更新或不全**，因此你可以在本文档的一些页面见到如下的提示框，他们通常指向相关的文档/示例。
    ::: interlink
-   **相关链接:** <https://graia.readthedocs.io/ariadne/>
+   <https://graia.readthedocs.io/ariadne/>
    :::
 
 ## 创建项目
@@ -115,19 +115,19 @@ poetry add graia-ariadne[standard]
 1. Ariadne 其实有好几种 Extra deps（可选依赖），如下所示：
 
    - graia-ariadne[graia]
-     - graia-saya —— 模块化（[第 3 章](./saya.md)）
-     - graia-scheduler —— 定时任务（[第 12 章](./scheduler.md)）
+     - graia-saya —— 模块化（[第 3 章](/guide/saya.md)）
+     - graia-scheduler —— 定时任务（[第 12 章](/guide/scheduler.md)）
    - graia-ariadne[alconna]
-     - arclet-alconna-graia —— 消息链处理器（[第 8 章第 4 节](./alconna.md)）
+     - arclet-alconna-graia —— 消息链处理器（[第 8 章第 4 节](/guide/message_parser/alconna.md)）
    - graia-ariadne[standard]
      - richuru
-     - graia-saya —— 模块化（[第 3 章](./saya.md)）
-     - graia-scheduler —— 定时任务（[第 12 章](./scheduler.md)）
+     - graia-saya —— 模块化（[第 3 章](/guide/saya.md)）
+     - graia-scheduler —— 定时任务（[第 12 章](/guide/scheduler.md)）
    - graia-ariadne[full]
      - richuru
-     - graia-saya —— 模块化（[第 3 章](./saya.md)）
-     - graia-scheduler —— 定时任务（[第 12 章](./scheduler.md)）
-     - arclet-alconna-graia —— 消息链处理器（[第 8 章第 4 节](./alconna.md)）
+     - graia-saya —— 模块化（[第 3 章](/guide/saya.md)）
+     - graia-scheduler —— 定时任务（[第 12 章](/guide/scheduler.md)）
+     - arclet-alconna-graia —— 消息链处理器（[第 8 章第 4 节](/guide/message_parser/alconna.md)）
 
    而 `graia-ariadne[full]` 则会安装以上所有非必要组件。
 
@@ -160,6 +160,8 @@ $ poetry env use 3.9
 Creating virtualenv EroEroBot-BexBd8Xq-py3.9 in /root/.cache/pypoetry/virtualenvs
 Using virtualenv: /root/.cache/pypoetry/virtualenvs/EroEroBot-BexBd8Xq-py3.9
 ```
+
+<br/>
 
 ```bash
 $ poetry add graia-ariadne[standard]

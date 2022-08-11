@@ -27,7 +27,7 @@ Python 也有如 “PyPy” 之类的其他解释器，所以，Java 也有很�
 :::: code-group
 ::: code-group-item Windows
 
-```powershell:no-line-numbers
+```powershell
 # 请注意，只有 Windows 10 1709 及以上或 Windows 11 才自带 winget 命令
 # 事实上，截至目前，winget 的默认仓库中有足足 7 个来自不同厂商的 OpenJDK
 # 这里就用 Windows 发行商 Microsoft 发行的 JDK 举例
@@ -44,7 +44,7 @@ Windows XP / Vista 已不受支持，请使用现代化的操作系统，Windows
 :::
 ::: code-group-item DEB系
 
-```bash:no-line-numbers
+```bash
 # 适用于 Ubuntu / Debian 等系统
 # 非 root 的情况下记得最前面加上 sudo
 apt update
@@ -54,7 +54,7 @@ apt install openjdk-17-jre
 :::
 ::: code-group-item RPM系
 
-```bash:no-line-numbers
+```bash
 # 非 root 的情况下记得最前面加上 sudo
 
 # 适用于 CentOS 8 / Rocky Linux 8
@@ -67,14 +67,14 @@ yum install java-latest-openjdk
 
 ::: code-group-item Arch系
 
-```powershell:no-line-numbers
+```powershell
 pacman -S jdk-openjdk
 ```
 
 :::
 ::: code-group-item macOS
 
-```fish:no-line-numbers
+```fish
 # 此处假设你提前安装了 brew cask
 # 没有的话就先 "brew install brew-cask-completion"
 # 事实上，brew 也能够安装足足 4 个厂商的 JDK
@@ -85,7 +85,7 @@ brew cask install java
 :::
 ::: code-group-item Termux
 
-```bash:no-line-numbers
+```bash
 # 不太建议在 termux 运行 MCL
 # 可以看看后面的 MiraiAndroid，占用会低一点
 pkg install openjdk-17
@@ -111,12 +111,7 @@ OpenJDK 相对更完整，包括 OpenJFX 等其他 OpenJDK 需要另外安装的
 - （推荐）[Microsoft Build of OpenJDK](https://docs.microsoft.com/zh-cn/java/openjdk/download)
 - [OpenLogic OpenJDK](https://www.openlogic.com/openjdk-downloads)
 
-<details>
-<summary>
-  <h3 style="display: inline-block; margin: 0.5rem 0; padding: 0">
-    想换个 JVM？试试 OpenJ9？
-  </h3>
-</summary>
+:::: details 想换个 JVM？试试 OpenJ9？
 
 前面一直在说 **JDK**，现在来说说 **JVM**， JVM 全称是
 Java Virtual Machine，即 **Java 虚拟机**。
@@ -130,14 +125,14 @@ Java Virtual Machine，即 **Java 虚拟机**。
 
 我们只需要在[这个地方](https://developer.ibm.com/languages/java/semeru-runtimes/downloads)找到适合自己系统的 Java 版本，然后安装即可。
 
-啥？不会？[那看这里](Q&A.html#baidu)。
+啥？不会？[那看这里](./QA#baidu)。
 
 ::: warning
 在 Windows 上使用 `IBM Semeru OpenJDK`（即使用 OpenJ9）的情况下，
 可能在启动 MCL 的过程中在 `Mirai Console Loader 公告栏` 部分会出现乱码。
 不过现阶段暂时没有发现会出现什么其他问题，所以请放心使用。
 :::
-</details>
+::::
 
 ## 下载并解压 **MCL**
 
@@ -163,7 +158,7 @@ unzip mcl-2.1.0.zip -d mcl-2.1.0
 
 ::: tip
 对于 Windows 用户来说，剩下的步骤是需要在 MCL 文件夹中打开命令行的。
-假设你不会的话，请[看这里](./Q&A.md#_9-当你遇到不会的东西的时候)。
+假设你不会的话，请[看这里](./QA.md#_9-当你遇到不会的东西的时候)。
 
 冷知识：在本文档及 Graia 或“友商”社区中 Mirai Api Http 经常被缩写为 **MAH**。
 :::
@@ -177,7 +172,7 @@ unzip mcl-2.1.0.zip -d mcl-2.1.0
 
 然后，稍作等待，等到显示以下这行，就代表 Mirai 成功启动了。
 
-```txt:no-line-numbers
+```txt
 xxxx-xx-xx xx:xx:xx I/main: mirai-console started successfully.
 
 >
@@ -185,7 +180,7 @@ xxxx-xx-xx xx:xx:xx I/main: mirai-console started successfully.
 
 现在，我们添加一下自动登录的账号：
 
-```txt:no-line-numbers
+```txt
 /autoLogin add <你的QQ号> <你的QQ密码>
 # 如 /autoLogin add 114514 1919810
 ```
@@ -263,7 +258,7 @@ adapterSettings:
 
 紧接上一小节，如果控制台显示如下信息：
 
-```txt:no-line-numbers
+```txt
 2022-07-04 19:11:12 I/Bot.<你的bot之QQ号>: Loaded account secrets from local cache.
 2022-07-04 19:11:13 I/Bot.<你的bot之QQ号>: Saved account secrets to local cache for fast login.
 2022-07-04 19:11:13 I/Bot.<你的bot之QQ号>: Login successful.
@@ -296,7 +291,7 @@ kora），因此你需要在控制台中完成操作。
    登录你的机器人账号，在登录成功之前可能会出现很多奇奇怪怪的验证，
    但是到了最后，当控制台显示以下提示的时候，你就成功了。
 
-   ```bash:no-line-numbers
+   ```bash
    [INFO] Login successful.
    [INFO] Bot login successful.
    [INFO] EroEroBot (114514) Login successful

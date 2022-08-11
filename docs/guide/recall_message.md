@@ -142,7 +142,7 @@ async def test(app: Ariadne, message: MessageChain):
 
 还记得我们在[第 7 章](./image_from_internet.html#为啥要用-aiohttp)讲过，我们为什么要使用异步吗？
 
-```python{16}
+```python{14}
 import aiohttp
 
 @channel.use(
@@ -166,7 +166,7 @@ async def test(app: Ariadne, message: MessageChain):
 很简单，实际上，Python 的异步标准库 `asyncio` 已经帮你想好这个问题了。
 他提供了异步用的休眠函数 `asyncio.sleep()`，你只需要做一下小小的替换就好了：
 
-```python{16}
+```python{14}
 import aiohttp
 
 @channel.use(

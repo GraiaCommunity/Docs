@@ -190,9 +190,7 @@ async def new_friend(app: Ariadne, event: NewFriendRequestEvent):
 
 ## 高级用法 & 原理讲解
 
-<br />
-<details>
-<summary style="cursor: pointer">点击展开</summary>
+:::: details 点击展开
 
 ### 通过一个类创建 `Waiter`
 
@@ -387,10 +385,10 @@ def create(
 而 `Waiter.create` 的 `block_propagation` 就是 `PropagationCancelled` 的开关。
 假设 `block_propagation` 为 True，则当接收到所需要的消息的时候，就会抛出 `PropagationCancelled` 错误。
 
-</details>
+::::
 
 ::: interlink
-**EroEroBot:** 本章完整示例可在 [EroEroBot/modules/interrupt_control.py](https://github.com/GraiaCommunity/EroEroBot/blob/master/modules/interrupt_control.py) 找到。
+<https://graia.readthedocs.io/ariadne/extra/broadcast/interrupt/>
 
-**相关链接:** <https://graia.readthedocs.io/ariadne/extra/broadcast/interrupt/>
+**EroEroBot:** 本章完整示例可在 [EroEroBot/modules/interrupt_control.py](https://github.com/GraiaCommunity/EroEroBot/blob/master/modules/interrupt_control.py) 找到。
 :::

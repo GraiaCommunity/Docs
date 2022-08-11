@@ -77,7 +77,7 @@ very_simple_example()
 在此之前，我们再加一个问题，
 我们在每次构建 Listener 的时候都像下面这样，你可以找找，与一般的 Python 的函数构造方法有什么不同：
 
-```python:no-line-numbers
+```python
 async def test(app: Ariadne): ...
 ```
 
@@ -135,7 +135,6 @@ flowchart LR
     F[看涩图]
   end
   B --> F --> D
-
 ```
 
 在这种情况下，你充分利用了等餐的时间，看了点涩图。这样子，整个计划就省下了“回家之后看涩图”的时间。
@@ -176,7 +175,7 @@ Ariadne 的 session 呢？
 
 那当然可以，具体要怎么做呢？其实直接进行替换就 OK，直接上代码吧：
 
-```python:no-line-numbers
+```python
 session = Ariadne.service.client_session
 async with session.get(...) as resp:
     pic = await r.read()

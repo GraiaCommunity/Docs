@@ -16,7 +16,7 @@
 ## 团队及个人
 
 - [ArcletProject](https://github.com/ArcletProject)
-  - [RF-Tar-Railt](https://github.com/RF-Tar-Railt): `Alconna` 的作者，也是[社区文档 Alconna 部分](../guide/alconna.md)的主要作者
+  - [RF-Tar-Railt](https://github.com/RF-Tar-Railt): `Alconna` 的作者，也是[社区文档 Alconna 部分](/guide/message_parser/alconna.md)的主要作者
 - [GraiaProject](https://github.com/GraiaProject)
   - [BlueGlassBlock](https://github.com/BlueGlassBlock): `Ariadne` 的 主要维护者
   - [Bryan 不可思议 (ProgramRipper)](https://github.com/ProgramRipper): `Graia Project` 的 协作者

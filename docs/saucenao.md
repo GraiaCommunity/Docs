@@ -1,6 +1,6 @@
 # 群搜图小助手
 
-::: interlink
+::: tsukkomi
 已经不是热点了~
 <!-- 如果有空可以改改放进正文 -->
 :::
@@ -20,7 +20,7 @@
 ## 0. 先做一个能用的机器人
 
 假设你并没有看过该文档的其他章节，
-那请先到[目录](./guide/README.md)，
+那请先到[目录](/guide/index.md)，
 跟着我们的教程看完「从零开始的~~异世界~~涩图机器人教程」的前三章。
 
 ## 1. 申请一个 saucenao 的 apikey
@@ -68,7 +68,7 @@ pip install saucenao-api
 :::: code-group
 ::: code-group-item Twilight
 
-``` python
+```python
 from graia.ariadne.app import Ariadne
 from graia.ariadne.event.message import GroupMessage
 from graia.ariadne.message.chain import MessageChain
@@ -133,7 +133,7 @@ async def saucenao(app: Ariadne, group: Group, member: Member, img: ElementResul
 :::
 ::: code-group-item Alconna
 
-``` python
+```python
 from graia.ariadne.app import Ariadne
 from graia.ariadne.event.message import GroupMessage
 from graia.ariadne.message.element import *
@@ -224,7 +224,7 @@ async def saucenao(app: Ariadne, group: Group, member: Member, source: Source, c
 
 假设你真的很想知道这些东西背后的原理，你可以直接参考以下章节
 
-- [好大的奶](./guide/forward_message.md) —— 合并消息的构建与解析
-- [来点网络上的涩图](./guide/image_from_internet.md) —— `aiohttp` 的超简单运用
-- [Twilight](./guide/twilight.md) —— `Kanata` 的精神续作
-- [Alconna](./guide/alconna.md) —— 外 星 来 客
+- [好大的奶](/guide/forward_message.md) —— 合并消息的构建与解析
+- [来点网络上的涩图](/guide/image_from_internet.md) —— `aiohttp` 的超简单运用
+- [Twilight](/guide/message_parser/twilight.md) —— `Kanata` 的精神续作
+- [Alconna](/guide/message_parser/alconna.md) —— 外 星 来 客

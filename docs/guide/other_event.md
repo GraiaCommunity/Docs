@@ -19,7 +19,7 @@
 即使你不需要“戳一戳”这个功能，我们也**十分建议**你使用以上三种登陆协议。
 因为他们是现阶段支持功能最多的协议。
 
-关于如何设置协议，你可以看看[这里](../before/install_mirai.md#关于账号协议问题)
+关于如何设置协议，你可以看看[这里](/before/install_mirai.md#关于账号协议问题)
 ::::
 
 以下是一段示例代码：（注释为与群消息事件的对比）
@@ -32,7 +32,7 @@
 <CodeGroup>
 <CodeGroupItem title="Python <= 3.9">
 
-``` python
+```python
 # 本部分示例不完整，请自行补充
 # 本部分示例需使用 Saya 进行加载
 # from graia.ariadne.event.message import GroupMessage
@@ -60,7 +60,7 @@ async def getup(app: Ariadne, event: NudgeEvent):
 </CodeGroupItem>
 <CodeGroupItem title="Python >= 3.10">
 
-``` python
+```python
 # 本部分示例不完整，请自行补充
 # 本部分示例需使用 Saya 进行加载
 # 本部分示例使用 Python 3.10 引入的 match...case...语法
@@ -105,7 +105,7 @@ async def getup(app: Ariadne, event: NudgeEvent):
 </ChatWindow>
 
 ::: tip
-有关什么是 Broadcast，各种 Event 又是什么，请参阅[这里](../before/Q&A.html#_3-%E4%BB%80%E4%B9%88%E6%98%AF-broadcastcontrol)
+有关什么是 Broadcast，各种 Event 又是什么，请参阅[这里](/before/QA.html#_3-%E4%BB%80%E4%B9%88%E6%98%AF-broadcastcontrol)
 :::
 
 ::: warning
@@ -114,7 +114,7 @@ async def getup(app: Ariadne, event: NudgeEvent):
 :::
 
 ::: interlink
-**EroEroBot:** 本章完整示例可在 [EroEroBot/modules/other_event.py](https://github.com/GraiaCommunity/EroEroBot/blob/master/modules/other_event.py) 找到。
+<https://graia.readthedocs.io/ariadne/feature/params/>
 
-**相关链接:** <https://graia.readthedocs.io/ariadne/feature/params/>
+**EroEroBot:** 本章完整示例可在 [EroEroBot/modules/other_event.py](https://github.com/GraiaCommunity/EroEroBot/blob/master/modules/other_event.py) 找到。
 :::

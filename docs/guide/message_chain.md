@@ -30,7 +30,7 @@ await app.send_message(group, MessageChain(
 所有元素都可在 `graia.ariadne.message.element` 中找到，
 以下是一些常见的消息元素：
 
-```python:no-line-numbers
+```python
 At(114514)  # @114514
 AtAll()  # @全体成员
 Poke(PokeMethods.ChuoYiChuo)  # 戳一戳方法
@@ -42,7 +42,7 @@ Face(127)
 
 我们先来康康 MessageChain 的三种构建办法：
 
-```python:no-line-numbers
+```python
 >>> MessageChain([Plain("你好")])
 >>> MessageChain(Plain("你好"))
 >>> MessageChain("你好")  # 仅限纯文本
@@ -58,13 +58,13 @@ Face(127)
 而剩下两种则是 `graia-ariadne` 新增的方法，以帮助用户能够更加简单的创建消息链。
 
 ::: tip
-v4、v4p 等缩写词语的意思可以在[这里](../appendix/terms.md)找到。
+v4、v4p 等缩写词语的意思可以在[这里](/appendix/terms.md)找到。
 :::
 
 当然，实际上 `create` 方法并没有严格限定方法就必须是这三类中的一类，他们可以任意组合，
 比如下面的骚操作：
 
-```python:no-line-numbers
+```python
 >>> MessageChain("你好", At(1919810), [Plain(", 你是不是喜欢"), At(114514)])
 ```
 
@@ -83,7 +83,7 @@ v4、v4p 等缩写词语的意思可以在[这里](../appendix/terms.md)找到�
 
 这边提供一些简简单单的例子：
 
-```python:no-line-numbers
+```python
 # 消息中是否有 AtAll Element
 >>> AtAll in message
 True/False
@@ -117,7 +117,7 @@ True
 
 这个应该是最简单，也是你最容易理解的办法，还记得最开始例子中的消息日志吗？
 
-```bash:no-line-numbers
+```bash
 2021-12-03 10:49:45.350 | INFO     | graia.ariadne.model:log_friend_message:114 - 1919810: [Graiax(114514)] -> '你好'
 2021-12-03 10:49:45.478 | INFO     | graia.ariadne.app:sendFriendMessage:114 - [BOT 1919810] Friend(114514) <- '不要说你好，来点涩图'
 ```
@@ -139,7 +139,7 @@ True
 这种办法可以将消息链所承载的**所有信息**变成字符串的形式，
 比如下面这样：
 
-```python:no-line-numbers
+```python
 >>> message = MessageChain("你好", At(114514, display="先辈"))
 >>> message.display
 '你好@先辈'
@@ -158,7 +158,7 @@ True
 第一种情况中的链接会在一段时间后就失效（别问我为什么，你问腾讯），  
 不过默认情况下 `as_persistent_string()` 会帮我们下载二进制信息，因此不用过分担心：
 
-```python:no-line-numbers
+```python
 >>> message = MessageChain(Image(url="https://example.com/1.jpg"))
 >>> message.as_persistent_string()
 [mirai:Image:{"url":"https://example.com/1.jpg","base64":"xxxxxx=="}]
@@ -168,6 +168,5 @@ True
 :::
 
 ::: interlink
-**相关链接:**  
 <https://graia.readthedocs.io/ariadne/feature/msg-chain/>  
 :::

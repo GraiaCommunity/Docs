@@ -51,14 +51,14 @@
 
    ::: tip 注意
    **一定一定一定**要记得在运行之前启动并登录 `mcl (mirai-console-loader)`  
-   关于 `mcl` 的配置，请看 :point_right: [这里](../before/Q&A.md#_5-关于-mirai-环境)
+   关于 `mcl` 的配置，请看 :point_right: [这里](/before/QA.md#_5-关于-mirai-环境)
    :::
 
    之后，你会看到显示如下信息输出：
 
    :::: details 命令输出
 
-   ```txt:no-line-numbers
+   ```txt
    $ poetry run python bot.py
    20yy-MM-dd HH:mm:ss.SSS | INFO     | launart.manager:launch:109 - launchable components count: 4
    20yy-MM-dd HH:mm:ss.SSS | INFO     | launart.manager:launch:110 - launch all components as async task...
@@ -73,7 +73,7 @@
 
 5. 给你的 bot 随便发一条消息
 
-   ```txt:no-line-numbers
+   ```txt
    20yy-MM-dd HH:mm:ss.SSS | INFO     | graia.ariadne.model:log:64 - 1919810: [Graiax(114514)] -> '你好'
    20yy-MM-dd HH:mm:ss.SSS | INFO     | graia.ariadne.model:log:64 - [BOT 1919810] Friend(114514) <- '不要说你好，来点涩图'
    ```
@@ -84,9 +84,9 @@
    </ChatWindow>
 
 ::: interlink
+<https://graia.readthedocs.io/ariadne/quickstart/>
+
 **EroEroBot:**  
 本章完整示例可在 [EroEroBot/main-base.py](https://github.com/GraiaCommunity/EroEroBot/blob/master/main-base.py) 找到。  
 你可以在[此处](https://github.com/GraiaCommunity/EroEroBot/releases/tag/release)下载预配置好的模板（不定期更新）。
-
-**相关链接:** <https://graia.readthedocs.io/ariadne/quickstart/>
 :::

@@ -1,46 +1,47 @@
 {
-  "name": "graiax_docs",
+  "name": "vitepress-starter",
+  "description": "Graia 社区文档",
   "repository": "https://github.com/GraiaCommunity/Docs",
+  "keywords": [
+    "graia-ariadne",
+    "graia-project",
+    "graiax"
+  ],
+  "author": "GraiaCommunity",
   "license": "MIT",
-  "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.32.0",
-    "@typescript-eslint/parser": "^5.32.0",
-    "@vue/eslint-config-typescript": "^11.0.0",
-    "@vuepress/client": "^2.0.0-beta.49",
-    "@vuepress/plugin-container": "^2.0.0-beta.49",
-    "@vuepress/plugin-medium-zoom": "^2.0.0-beta.49",
-    "@vuepress/plugin-register-components": "^2.0.0-beta.49",
-    "@vuepress/plugin-search": "^2.0.0-beta.49",
-    "@vuepress/plugin-shiki": "^2.0.0-beta.49",
-    "@vuepress/theme-default": "^2.0.0-beta.49",
-    "@vuepress/utils": "2.0.0-alpha.1",
-    "eslint": "^8.21.0",
-    "eslint-config-prettier": "^8.5.0",
-    "eslint-config-vuepress": "^3.10.0",
-    "eslint-config-vuepress-typescript": "^2.9.1",
-    "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-n": "^15.2.4",
-    "eslint-plugin-prettier": "^4.2.1",
-    "eslint-plugin-promise": "^6.0.0",
-    "eslint-plugin-vue": "^9.3.0",
-    "lint-staged": "^13.0.3",
-    "pre-commit": "^1.2.2",
-    "prettier": "^2.7.1",
-    "typescript": "^4.7.4",
-    "vue": "^3.2.37",
-    "vuepress": "^2.0.0-beta.49",
-    "vuepress-plugin-md-enhance": "^2.0.0-beta.87"
-  },
   "scripts": {
-    "serve": "vuepress dev docs",
-    "build": "vuepress build docs",
-    "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:serve": "vitepress serve docs",
+    "serve": "vitepress dev docs",
+    "build": "vitepress build docs",
     "lint": "eslint --color --ext .js,.ts,.jsx,.tsx,.vue .",
     "lint:fix": "eslint --fix --color --ext .js,.ts,.jsx,.tsx,.vue .",
     "style": "prettier -c .",
     "style:fix": "prettier -w .",
     "lintstaged": "lint-staged"
+  },
+  "devDependencies": {
+    "@types/hash-sum": "^1.0.0",
+    "@types/markdown-it": "^12.2.3",
+    "@types/markdown-it-container": "^2.0.5",
+    "@types/mermaid": "^8.2.9",
+    "@vue/eslint-config-typescript": "^11.0.0",
+    "eslint": "^8.21.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-vue": "^9.3.0",
+    "hash-sum": "^2.0.0",
+    "lint-staged": "^13.0.3",
+    "markdown-it-container": "^3.0.0",
+    "mermaid": "^9.1.4",
+    "pre-commit": "^1.2.2",
+    "prettier": "^2.7.1",
+    "sass": "^1.54.3",
+    "typescript": "^4.7.4",
+    "vitepress": "1.0.0-alpha.4",
+    "vue": "^3.2.37",
+    "vue-router": "^4.1.3"
   },
   "precommit": {
     "run": [
@@ -50,5 +51,15 @@
   "lint-staged": {
     "*.{js,jsx,vue,ts,tsx}": "eslint --color --fix",
     "*.{css,scss,html,yml,yaml,json}": "prettier -w"
+  },
+  "pnpm": {
+    "peerDependencyRules": {
+      "ignoreMissing": [
+        "@algolia/client-search",
+        "@types/react",
+        "react",
+        "react-dom"
+      ]
+    }
   }
 }
