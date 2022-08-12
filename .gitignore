@@ -1,3 +1,6 @@
+.temp/
+docs/public/fonts
+
 # VitePress files
 docs/.vitepress/dist/
 

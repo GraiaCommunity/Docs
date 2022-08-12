@@ -26,12 +26,10 @@ jobs:
         with:
           python-version: '3.x'
 
-      - name: fontmin
-        run: node fontmin.js
-
       - name: Build docs
         run: |
           pnpm install
+          pnpm node minfont.js
           pnpm build
 
       - name: Upload dist

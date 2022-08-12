@@ -16,7 +16,7 @@
   --vp-c-brand-darker: #084845;
   --vp-font-family-base: 'HarmonyOS Sans SC', 'HarmonyOS Sans', -apple-system,
   BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, 'Fira Sans', 'Droid Sans',
-  'Helvetica Neue', Microsoft YaHei
+  'Helvetica Neue', Microsoft YaHei, sans-serif;
 }
 
 .face {
@@ -29,12 +29,12 @@
   font-family: 'HarmonyOS Sans';
   font-weight: 400;
   font-display: swap;
-  src: url("/fonts/HarmonyOS_Sans_SC_Regular.woff2") format("woff2"),
+  src: url("/fonts/HarmonyOS_Sans_SC_Regular.woff2") format("woff2");
 }
 
 @font-face {
   font-family: 'HarmonyOS Sans';
   font-weight: 600;
   font-display: swap;
-  src: url("/fonts/HarmonyOS_Sans_SC_Bold.woff2") format("woff2"),
+  src: url("/fonts/HarmonyOS_Sans_SC_Bold.woff2") format("woff2");
 }
