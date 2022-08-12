@@ -26,6 +26,9 @@ jobs:
         with:
           python-version: '3.x'
 
+      - name: fontmin
+        run: node fontmin.js
+
       - name: Build docs
         run: |
           pnpm install

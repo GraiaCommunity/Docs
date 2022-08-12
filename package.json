@@ -61,5 +61,8 @@
         "react-dom"
       ]
     }
+  },
+  "dependencies": {
+    "fontmin": "^0.9.9"
   }
 }
