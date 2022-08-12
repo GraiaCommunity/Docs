@@ -108,9 +108,7 @@ logger.opt(raw=True).log("测试")
 
 ::: tip
 因为 0.7.0+ 在依赖库里删除了 `prompt-toolkit`，
-所以这里只能安装了
-:::
-
+所以这里只能单独安装了
 :::
 
 :::: code-group
