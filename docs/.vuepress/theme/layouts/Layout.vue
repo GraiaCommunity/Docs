@@ -85,7 +85,7 @@ export default defineComponent({
         '✨0.7.x: 修复了 datetime 序列化错误的 bug',
         'async def f(): time.sleep(10)',
         '不要以为加个 async 就是异步了',
-        '你让 rf 给 alconna 加个 feature 不就行了',
+        '你让 rf 给 Alconna 加个 feature 不就行了',
         '好康，是新魔法哦',
         '[其他消息]',
         '基操勿6',
@@ -98,6 +98,12 @@ export default defineComponent({
         '欢迎来到 graia.icu',
         'A60曾经说过，有人对着ABot发情',
         '谁有时间读你们这破文档啊',
+        '轰击策略警告.jpg',
+        'poetry? 打得过pdm吗',
+        '没看到的话马上把你们扬了',
+        '你们怎么天天造轮子',
+        'NEXTUI!',
+        '这是两只仓鼠吗，尾巴好长'
       ],
       random: '',
     }
