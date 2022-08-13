@@ -428,19 +428,59 @@ async def setu(app: Ariadne, group: Group, message: MessageChain):
 
 <h3>listen</h3>
 
-`listern` 组件负责指定监听的事件
+`listen` 组件负责指定监听的事件，对应 `ListenerSchema` 的 `listening_events`
+
+```py
+@listen(GroupMessage, FriendMessage)
+```
 
 <h3>dispatch</h3>
 
-`dispatch` 组件负责指定处理器
+`dispatch` 组件负责指定处理器上的调度器，对应 `ListenerSchema` 的 `inline_dispatchers`
+
+```py
+@dispatch(Twilight.from_command(...), AlconnaDispatcher(...))
+```
 
 <h3>decorate</h3>
 
-`decorate` 组件负责指定装饰器，并且可以通过map方式传入有头装饰器
+`decorate` 组件负责指定处理器上的装饰器，对应 `ListenerSchema` 的 `decorators`
+
+```py
+@decorate(Depend(...), MentionMe())
+```
+
+除开传入[**无头装饰器**](https://graia.readthedocs.io/broadcast/advance/headless-decorator/)，
+`decorate` 也能支持一般参数装饰器, 并且能让类型提示变得安全
+
+仅针对单个参数添加装饰器时：
+
+```py
+@decorate("name", DetectSuffix(...))
+```
+
+需要对多个参数添加装饰器时：
+
+```py
+@decorate({"foo": Depend(...), "bar": MatchTemplate(...)})
+```
 
 <h3>priority</h3>
 
-`priority` 组件负责指定优先级
+`priority` 组件负责指定优先级，对应 `ListenerSchema` 的 `priority`
+
+```py
+@priority(8)
+```
+
+除开只传入 `int` 作为该监听器的优先级外，
+`priority` 支持传入一系列事件类型，以代表当前优先级仅对指定的事件有效，其余事件按默认优先级（16）处理
+
+```py
+@priority(8, GroupMessage, FriendMessage)
+```
+
+关于事件监听器的**优先级**概念，请参考[官方文档](https://graia.readthedocs.io/broadcast/advance/event-propagation-and-priority/)
 
 ::: interlink
 相关链接：
