@@ -426,6 +426,12 @@ async def setu(app: Ariadne, group: Group, message: MessageChain):
 
 但是其更加简洁，增加了代码可读性
 
+:::: details 注意事项
+**Saya Util** 本质上是对当前的**Channel**的重复使用
+
+因此，多次使用相同的 Saya-Util 组件实际上是在为同一个`ListenerSchema`进行内容的追加
+::::
+
 <h3>listen</h3>
 
 `listen` 组件负责指定监听的事件，对应 `ListenerSchema` 的 `listening_events`
@@ -434,12 +440,26 @@ async def setu(app: Ariadne, group: Group, message: MessageChain):
 @listen(GroupMessage, FriendMessage)
 ```
 
+或
+
+```py
+@listen(GroupMessage)
+@listen(FriendMessage)
+```
+
 <h3>dispatch</h3>
 
 `dispatch` 组件负责指定处理器上的调度器，对应 `ListenerSchema` 的 `inline_dispatchers`
 
 ```py
 @dispatch(Twilight.from_command(...), AlconnaDispatcher(...))
+```
+
+或
+
+```py
+@dispatch(Twilight.from_command(...))
+@dispatch(AlconnaDispatcher(...))
 ```
 
 <h3>decorate</h3>
