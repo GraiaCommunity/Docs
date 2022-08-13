@@ -11,35 +11,17 @@
       color: currentColor !important;
     }
   }
+}
 
-  &.danger .heimu {
-    background-color: var(--vp-c-red-dark);
-    color: var(--vp-c-red-dark);
+.custom-block.tip .heimu {
+  background-color: var(--vp-c-green-darker);
+  color: var(--vp-c-green-darker);
 
-    a {
-      color: var(--vp-c-red-dark);
-    }
-  }
-
-  html.dark &.danger .heimu {
-    background-color: var(--vp-c-red-light);
-    color: var(--vp-c-red-light);
-
-    a {
-      color: var(--vp-c-red-light);
-    }
-  }
-
-  &.tip .heimu {
-    background-color: var(--vp-c-green-darker);
+  a {
     color: var(--vp-c-green-darker);
-
-    a {
-      color: var(--vp-c-green-darker);
-    }
   }
 
-  html.dark &.tip .heimu {
+  html.dark & {
     background-color: var(--vp-c-green);
     color: var(--vp-c-green);
 
@@ -47,17 +29,17 @@
       color: var(--vp-c-green);
     }
   }
+}
 
-  &.warning .heimu {
-    background-color: var(--vp-c-yellow-dark);
+.custom-block.warning .heimu {
+  background-color: var(--vp-c-yellow-dark);
+  color: var(--vp-c-yellow-dark);
+
+  a {
     color: var(--vp-c-yellow-dark);
-
-    a {
-      color: var(--vp-c-yellow-dark);
-    }
   }
 
-  html.dark &.warning .heimu {
+  html.dark & {
     background-color: var(--vp-c-yellow-light);
     color: var(--vp-c-yellow-light);
 
@@ -65,24 +47,22 @@
       color: var(--vp-c-yellow-light);
     }
   }
+}
 
-  html.dark &.interlink .heimu,
-  &.interlink .heimu {
-    background-color: #5b6dd3;
-    color: #5b6dd3;
+.custom-block.danger .heimu {
+  background-color: var(--vp-c-red-dark);
+  color: var(--vp-c-red-dark);
 
-    a {
-      color: #5b6dd3;
-    }
+  a {
+    color: var(--vp-c-red-dark);
   }
 
-  html.dark &.tsukkomi .heimu,
-  &.tsukkomi .heimu {
-    background-color: #a959d1;
-    color: #a959d1;
+  html.dark &{
+    background-color: var(--vp-c-red-light);
+    color: var(--vp-c-red-light);
 
     a {
-      color: #a959d1;
+      color: var(--vp-c-red-light);
     }
   }
 }
@@ -91,10 +71,31 @@
   border-color: #5b6dd37f;
   color: #5b6dd3;
   background-color: #5b6dd30a;
+
+  html.dark & .heimu,
+  & .heimu {
+    background-color: #5b6dd3;
+    color: #5b6dd3;
+
+    a {
+      color: #5b6dd3;
+    }
+  }
+
 }
 
 .custom-block.tsukkomi {
   border-color: #a959d17f;
   color: #a959d1;
   background-color: #a959d10a;
+
+  html.dark & .heimu,
+  & .heimu {
+    background-color: #a959d1;
+    color: #a959d1;
+
+    a {
+      color: #a959d1;
+    }
+  }
 }
