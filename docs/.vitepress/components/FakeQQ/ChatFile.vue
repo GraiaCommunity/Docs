@@ -26,7 +26,7 @@
  @author Red_lnn
  @website https://github.com/Redlnn/Fake-QQ-Chat-Window
 
---!>
+-->
 
 <template>
   <div class="chat-item" :class="[onright ? 'right-chat' : 'left-chat']">
