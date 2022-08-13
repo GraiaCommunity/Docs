@@ -450,16 +450,16 @@ async def setu(app: Ariadne, group: Group, message: MessageChain):
 @decorate(Depend(...), MentionMe())
 ```
 
-除开传入[**无头装饰器**](https://graia.readthedocs.io/broadcast/advance/headless-decorator/)，
-`decorate` 也能支持一般参数装饰器, 并且能让类型提示变得安全
+除了[**无头装饰器**](https://graia.readthedocs.io/broadcast/advance/headless-decorator/)，
+`decorate` 亦支持对已有参数附加装饰器, 你可以以此安全地通过类型检查.
 
-仅针对单个参数添加装饰器时：
+ - 仅针对单个参数添加装饰器时：
 
 ```py
 @decorate("name", DetectSuffix(...))
 ```
 
-需要对多个参数添加装饰器时：
+ - 需要对多个参数添加装饰器时：
 
 ```py
 @decorate({"foo": Depend(...), "bar": MatchTemplate(...)})
