@@ -1,5 +1,7 @@
-<!-- Author: Redlnn <w731347477@gmail.com> -->
-<!-- Co-Author: I Love Study <1450069615@qq.com> -->
+<!--
+ Author: I Love Study <1450069615@qq.com>
+ Co-Author: Redlnn <w731347477@gmail.com>
+-->
 
 <template>
   <div class="repo" align="left">

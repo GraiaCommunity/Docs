@@ -1,4 +1,7 @@
-<!-- Author: I Love Study <1450069615@qq.com> -->
+<!--
+ Author: I Love Study <1450069615@qq.com>
+ Co-Author: Redlnn <w731347477@gmail.com>
+-->
 
 <script lang="ts">
 import { defineComponent } from 'vue'

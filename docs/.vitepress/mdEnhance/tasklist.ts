@@ -1,8 +1,9 @@
-// FROM: https://github.com/vuepress-theme-hope/vuepress-theme-hope/blob/main/packages/md-enhance/src/node/markdown-it/tasklist.ts
-// Last Sync: 2022-8-10 21:38
+/* 修改自 vuepress-plugin-md-enhance
+ * @src https://github.com/linsir/markdown-it-task-checkbox/blob/master/index.js
+ * @last-updated 2022-8-13
+ */
 
-/**
- * Forked from https://github.com/linsir/markdown-it-task-checkbox/blob/master/index.js
+/* The MIT License (MIT)
  *
  * Copyright (c) 2016, Revin Guillen
  * Modified code Copyright (c) 2016, linsir, MIT License
@@ -18,6 +19,9 @@
  * WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
  * ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
  * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+ *
+ * @website https://github.com/linsir/markdown-it-task-checkbox
+ *
  */
 
 import type { PluginWithOptions } from 'markdown-it'
