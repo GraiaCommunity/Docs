@@ -343,6 +343,105 @@ dispatchers -> inline_dispatchers
 
 ::::
 
+## 来点缩写 (Saya Util)
+
+::: tip
+你可能已经在本章之外的地方见过相关内容了（例如[Alconna —— 外 星 来 客](./guide/alconna.md)）
+:::
+
+按多数人的口味，类似`channel.use(...)`的写法其实并不方便，甚至看起来会很丑（死亡缩进kana）
+
+别担心，这里有更好的写法！
+
+::: danger 警告
+**Saya Util**组件目前只针对`graia.saya.builtin.broadcast.ListenerSchema`的使用
+
+如果使用了其他的例如`ScheduleSchema`，`ConsoleSchema`，您仍需要以`@channel.use(...)`使用。
+:::
+
+以下面的代码为例：
+
+```python{14-20}
+from graia.ariadne.app import Ariadne
+from graia.ariadne.event.message import GroupMessage
+from graia.ariadne.message.chain import MessageChain
+from graia.ariadne.message.parser.base import DetectPrefix
+from graia.ariadne.util.cooldown import CoolDown
+from graia.ariadne.model import Group
+
+from graia.saya import Channel
+from graia.saya.builtins.broadcast.schema import ListenerSchema
+
+channel = Channel.current()
+
+
+@channel.use(
+    ListenerSchema(
+        listening_events=[GroupMessage],
+        inline_dispatchers=[CoolDown(0.1)],
+        decorators=[DetectPrefix("你好")]
+    )
+)
+async def setu(app: Ariadne, group: Group, message: MessageChain):
+    await app.send_message(
+        group,
+        MessageChain(f"不要说{message.display}，来点涩图"),
+    )
+```
+
+是不是看着比较头疼？尝试下面的写法！
+
+
+```python{8, 11-13}
+from graia.ariadne.app import Ariadne
+from graia.ariadne.event.message import GroupMessage
+from graia.ariadne.message.chain import MessageChain
+from graia.ariadne.message.parser.base import DetectPrefix
+from graia.ariadne.util.cooldown import CoolDown
+from graia.ariadne.model import Group
+
+from graia.ariadne.util.saya import listen, dispatch, decorate
+
+
+@listen(GroupMessage)
+@dispatch(CoolDown(0.1))
+@decorate(DetectPrefix("你好"))
+async def setu(app: Ariadne, group: Group, message: MessageChain):
+    await app.send_message(
+        group,
+        MessageChain(f"不要说{message.display}，来点涩图"),
+    )
+```
+
+是不是焕然一新？
+
+::: tip
+其实更推荐从`graiax.shortcut.saya`导入如上的**Saya Util**, 
+它与从`graia.ariadne.util.saya`导入的效果是一样的
+:::
+
+### 使用方法
+
+**Saya Util** 与 `channel.use` 一样，需要以装饰器的方式附加在事件处理器上
+
+但是其更加简洁，增加了代码可读性
+
+<h3>listen</h3>
+
+`listern` 组件负责指定监听的事件
+
+<h3>dispatch</h3>
+
+`dispatch` 组件负责指定处理器
+
+<h3>decorate</h3>
+
+`decorate` 组件负责指定装饰器，并且可以通过map方式传入有头装饰器
+
+<h3>priority</h3>
+
+`priority` 组件负责指定优先级
+
 ::: interlink
 相关链接：
 <https://graia.readthedocs.io/ariadne/extra/saya/start/>
