@@ -353,7 +353,7 @@ dispatchers -> inline_dispatchers
 
 别担心，这里有更好的写法！
 
-::: danger
+::: danger 警告
 **Saya Util** 目前仅适用于替代 `graia.saya.builtin.broadcast.ListenerSchema`。
 
 如果你需要使用其他例如 `ScheduleSchema`、`ConsoleSchema` 等元信息模板（Schema，在[此处](#saya-是什么)提及过），那么你目前仍需要以 `@channel.use(...)` 的方法使用。
@@ -424,12 +424,12 @@ async def setu(app: Ariadne, group: Group, message: MessageChain):
 **Saya Util** 与 `channel.use` 一样，需要以装饰器的方式附加在事件处理器（就是你的函数啦~）上。
 但是其相对 **ListenerSchema** 会更加简洁，增加了代码可读性。
 
-:::: details 注意事项
+::: warning 注意事项
 **Saya Util** 本质上是对当前的 **Channel** 的重复使用。
 因此，在同一函数/方法上多次使用相同类型的 **Saya Util** 组件实际上是在为同一个 **ListenerSchema** 进行追加。
-::::
+:::
 
-<h4><code>listen<code></h4>
+<h4><code>listen</code></h4>
 
 **listen** 组件负责指定监听的事件，对应于 **ListenerSchema** 的 `listening_events`。
 
@@ -455,7 +455,7 @@ async def xxx(): ...
 async def xxx(): ...
 ```
 
-<h4><code>dispatch<code></h4>
+<h4><code>dispatch</code></h4>
 
 **dispatch** 组件负责指定处理器上的调度器，对应 **ListenerSchema** 的 `inline_dispatchers`。
 
@@ -479,7 +479,7 @@ async def xxx(): ...
 @dispatch(AlconnaDispatcher(...))
 ```
 
-<h4><code>decorate<code></h4>
+<h4><code>decorate</code></h4>
 
 **decorate** 组件负责指定处理器上的装饰器，对应 **ListenerSchema** 的 `decorators`。
 
@@ -511,7 +511,7 @@ async def xxx(): ...
   @decorate({"foo": Depend(...), "bar": MatchTemplate(...)})
   ```
 
-<h4><code>priority<code></h4>
+<h4><code>priority</code></h4>
 
 `priority` 组件负责指定优先级，对应 **ListenerSchema** 的 `priority`。
 
