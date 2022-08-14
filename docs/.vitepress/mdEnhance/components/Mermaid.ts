@@ -43,6 +43,8 @@ import { LoadingIcon } from './Icons'
 
 import type { VNode } from 'vue'
 
+import mermaid from 'mermaid'
+
 const getThemeVariables = (isDarkMode: boolean): Record<string, unknown> => {
   return {
     dark: isDarkMode,
@@ -123,67 +125,62 @@ export default defineComponent({
       // FIXME: Should correct handle dark selector
       isDarkmode.value = getDarkmodeStatus()
 
-      void Promise.all([
-        import(/* webpackChunkName: "mermaid" */ 'mermaid'),
-        new Promise((resolve) => setTimeout(resolve, 500)),
-      ]).then(([mermaid]) => {
-        const { initialize, render } = mermaid
+      const { initialize, render } = mermaid
 
-        const renderMermaid = (): void => {
-          // generate a unvisiable container
-          const container = document.createElement('div')
+      const renderMermaid = (): void => {
+        // generate a unvisiable container
+        const container = document.createElement('div')
 
-          container.style.position = 'relative'
-          container.style.top = '-9999px'
+        container.style.position = 'relative'
+        container.style.top = '-9999px'
 
-          const renderCallback = (code: string): void => {
-            svgCode.value = code
-            document.body.removeChild(container)
-          }
-
-          initialize({
-            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-            // @ts-ignore
-            theme: 'base',
-            themeVariables: getThemeVariables(isDarkmode.value),
-            flowchart: { useMaxWidth: false },
-            sequence: { useMaxWidth: false },
-            journey: { useMaxWidth: false },
-            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-            // @ts-ignore
-            gantt: { useMaxWidth: false },
-            er: { useMaxWidth: false },
-            pie: { useMaxWidth: false },
-
-            // ...MERMAID_OPTIONS,
-            startOnLoad: false,
-          })
-
-          // clear SVG Code
-          svgCode.value = ''
-
-          document.body.appendChild(container)
-
-          // make sure dom is refreshed
-          void nextTick(() => {
-            render(props.id, code, renderCallback, container)
-          })
+        const renderCallback = (code: string): void => {
+          svgCode.value = code
+          document.body.removeChild(container)
         }
 
-        renderMermaid()
+        initialize({
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          // @ts-ignore
+          theme: 'base',
+          themeVariables: getThemeVariables(isDarkmode.value),
+          flowchart: { useMaxWidth: false },
+          sequence: { useMaxWidth: false },
+          journey: { useMaxWidth: false },
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          // @ts-ignore
+          gantt: { useMaxWidth: false },
+          er: { useMaxWidth: false },
+          pie: { useMaxWidth: false },
 
-        // watch darkmode change
-        observer = new MutationObserver(() => {
-          isDarkmode.value = getDarkmodeStatus()
+          // ...MERMAID_OPTIONS,
+          startOnLoad: false,
         })
 
-        observer.observe(html, {
-          attributeFilter: ['class', 'data-theme'],
-          attributes: true,
-        })
+        // clear SVG Code
+        svgCode.value = ''
 
-        watch(isDarkmode, renderMermaid)
+        document.body.appendChild(container)
+
+        // make sure dom is refreshed
+        void nextTick(() => {
+          render(props.id, code, renderCallback, container)
+        })
+      }
+
+      renderMermaid()
+
+      // watch darkmode change
+      observer = new MutationObserver(() => {
+        isDarkmode.value = getDarkmodeStatus()
       })
+
+      observer.observe(html, {
+        attributeFilter: ['class', 'data-theme'],
+        attributes: true,
+      })
+
+      watch(isDarkmode, renderMermaid)
     })
 
     onBeforeUnmount(() => {
