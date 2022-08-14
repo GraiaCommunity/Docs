@@ -2,6 +2,8 @@ docs/public/fonts
 
 # VitePress files
 docs/.vitepress/dist/
+docs/.vitepress/.temp/
+docs/.vitepress/cahce/
 
 # Dist files
 lib/

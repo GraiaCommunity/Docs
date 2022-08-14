@@ -30,3 +30,8 @@ githooks 文件夹下的 `pre-commit` 文件到 `.git/hooks/` 中，并且修改
 cp githooks/pre-commit .git/hooks/pre-commit
 chmod 755 .git/hooks/pre-commit
 ```
+
+### 注意事项
+
+1. 如果使用 `pnpm upgrade -r` 更新依赖之后，请删除 `pnpm-lock.yaml` 文件之后再执行 `pnpm install`，否则会报缺少 `vite` 依赖
+2. 请勿手动安装 `vite` 依赖，否则工作不正常（`vue` 选装）

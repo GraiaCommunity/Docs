@@ -37,7 +37,6 @@ import { RenderRule } from 'markdown-it/lib/renderer'
 
 export const mermaidPlugin: PluginSimple = (md: MarkdownIt) => {
   const fence = md.renderer.rules.fence
-  console.log('test')
   md.renderer.rules.fence = (...args): string => {
     const [tokens, index] = args
     const { content, info } = tokens[index]
