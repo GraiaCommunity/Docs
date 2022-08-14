@@ -85,7 +85,7 @@ from arclet.alconna.graia.utils import ImgOrUrl
 
 api_list = ["saucenao", "ascii2d", "ehentai", "iqdb", "tracemoe"]
 SetuFind = Alconna(
-    "setu搜索", 
+    "setu搜索",
     Args['content', ImgOrUrl],
     options=[
         Option("use", Args['api', api_list], help_text="选择搜图使用的 API"),
@@ -110,13 +110,13 @@ from graia.ariadne.util.saya import listen, dispatch, decorate
 @dispatch(AlconnaDispatcher(SetuFind, send_flag="reply"))
 @decorate(match_value("use.api", "saucenao", or_not=True))
 async def ero_saucenao(
-    app: Ariadne, 
-    group: Group, 
-    content: Match[str], 
+    app: Ariadne,
+    group: Group,
+    content: Match[str],
     max_count: Query[int] = Query("count.num"),
     similarity: Query[float] = Query("threshold.args.value"),
     timeout_sec: Query[int] = Query("timeout.sec", -1)
-): 
+):
     ...  # setu搜索的处理部分，使用saucenao
 
 
@@ -124,13 +124,13 @@ async def ero_saucenao(
 @dispatch(AlconnaDispatcher(SetuFind, send_flag="reply"))
 @decorate(match_value("use.api", "ascii2d"))
 async def ero_ascii2d(
-    app: Ariadne, 
-    group: Group, 
-    content: Match[str], 
+    app: Ariadne,
+    group: Group,
+    content: Match[str],
     max_count: Query[int] = Query("count.num"),
     similarity: Query[float] = Query("threshold.args.value"),
     timeout_sec: Query[int] = Query("timeout.sec", -1)
-): 
+):
     ...  # setu搜索的处理部分，使用ascii2d
 ```
 
@@ -318,7 +318,7 @@ from arclet.alconna.graia import AlconnaDispatcher, Alconna
 
 
 @app.broadcast.receiver(
-    GroupMessage, 
+    GroupMessage,
     dispatchers=[AlconnaDispatcher(Alconna(...))]
 )
 async def _(app: Ariadne, group: Group, result: Arpamar):
