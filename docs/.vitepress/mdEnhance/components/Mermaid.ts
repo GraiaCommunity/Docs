@@ -127,7 +127,7 @@ export default defineComponent({
         import(/* webpackChunkName: "mermaid" */ 'mermaid'),
         new Promise((resolve) => setTimeout(resolve, 500)),
       ]).then(([mermaid]) => {
-        const { initialize, render } = mermaid.default
+        const { initialize, render } = mermaid
 
         const renderMermaid = (): void => {
           // generate a unvisiable container
