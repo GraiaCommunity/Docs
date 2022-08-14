@@ -39,9 +39,9 @@
     "markdown-it-container": "^3.0.0",
     "mermaid": "^9.1.5",
     "prettier": "^2.7.1",
+    "rollup-plugin-external-globals": "^0.6.1",
     "sass": "^1.54.4",
     "typescript": "^4.7.4",
-    "vite-plugin-cdn-import": "^0.3.5",
     "vite-plugin-compression": "^0.5.1",
     "vitepress": "1.0.0-alpha.4",
     "vue": "^3.2.37"
