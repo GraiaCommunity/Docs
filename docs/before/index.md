@@ -45,7 +45,7 @@
 15. [x] [无内鬼，来点加密压缩包](/guide/file_operation) —— 关于`文件操作`的简单实例
 16. [x] [后台对线](/guide/console) —— 关于 `Console` 的介绍
 17. [ ] [异步画~~涩~~图](/guide/async_exec) —— `io_bound` 和 `cpu_bound` 的运用
-18. :x: [一条龙涩涩](/guide/) —— `saya` 跨模块运用
+18. :x: [一条龙涩涩](#从零开始的异世界涩图机器人教程) —— `saya` 跨模块运用
 
 ## 附录
 
