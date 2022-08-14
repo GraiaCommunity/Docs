@@ -1,0 +1,41 @@
+name: Build Docs
+on:
+  push:
+    branches: [vitepress]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 7
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '>=18'
+          cache: 'pnpm'
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Build docs
+        run: |
+          pnpm install
+          pnpm minfont
+          pnpm build
+
+      - name: Upload dist
+        run: |
+          python3 -m pip install wheel
+          python3 -m pip install coscmd
+          coscmd config -a ${{ secrets.SecretId }} -s ${{ secrets.SecretKey }} -b graiax-1302360504 -r ap-hongkong
+          coscmd delete -r -f /
+          coscmd upload -r docs/.vitepress/dist/ /

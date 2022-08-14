@@ -1,0 +1,70 @@
+{
+  "name": "vitepress-starter",
+  "description": "Graia 社区文档",
+  "repository": "https://github.com/GraiaCommunity/Docs",
+  "keywords": [
+    "graia-ariadne",
+    "graia-project",
+    "graiax"
+  ],
+  "author": "GraiaCommunity",
+  "license": "MIT",
+  "scripts": {
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:serve": "vitepress serve docs",
+    "serve": "vitepress dev docs",
+    "build": "vitepress build docs",
+    "lint": "eslint --color --ext .js,.ts,.jsx,.tsx,.vue .",
+    "lint:fix": "eslint --fix --color --ext .js,.ts,.jsx,.tsx,.vue .",
+    "style": "prettier -c .",
+    "style:fix": "prettier -w .",
+    "lintstaged": "lint-staged",
+    "minfont": "node scripts/minfont.js"
+  },
+  "devDependencies": {
+    "@types/hash-sum": "^1.0.0",
+    "@types/markdown-it": "^12.2.3",
+    "@types/markdown-it-container": "^2.0.5",
+    "@types/mermaid": "^8.2.9",
+    "@types/node": "^18.7.2",
+    "@vue/eslint-config-typescript": "^11.0.0",
+    "eslint": "^8.21.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-vue": "^9.3.0",
+    "fontmin": "^0.9.9",
+    "hash-sum": "^2.0.0",
+    "lint-staged": "^13.0.3",
+    "markdown-it": "^13.0.1",
+    "markdown-it-container": "^3.0.0",
+    "mermaid": "^9.1.5",
+    "pre-commit": "^1.2.2",
+    "prettier": "^2.7.1",
+    "sass": "^1.54.4",
+    "typescript": "^4.7.4",
+    "vite-plugin-compression": "^0.5.1",
+    "vitepress": "1.0.0-alpha.4",
+    "vue": "^3.2.37",
+    "vue-router": "^4.1.3"
+  },
+  "precommit": {
+    "run": [
+      "lintstaged"
+    ]
+  },
+  "lint-staged": {
+    "*.{js,jsx,vue,ts,tsx}": "eslint --color --fix",
+    "*.{css,scss,html,yml,yaml,json}": "prettier -w"
+  },
+  "pnpm": {
+    "peerDependencyRules": {
+      "ignoreMissing": [
+        "@algolia/client-search",
+        "@types/react",
+        "react",
+        "react-dom"
+      ]
+    }
+  }
+}

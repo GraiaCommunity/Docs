@@ -1,0 +1,3 @@
+docs/.vitepress/dist
+*.md
+pnpm-lock.yaml

@@ -1,0 +1,44 @@
+@import './custom-container.scss';
+@import './code-group.scss';
+@import './mermaid.scss';
+@import './tasklist.scss';
+
+.vp-doc .custom-block div[class*='language-'] code,
+.custom-block.tip code {
+  background-color: transparent;
+}
+
+:root {
+  --vp-c-brand: #318c87;
+  --vp-c-brand-light: #47a19c;
+  --vp-c-brand-lighter: #60b2ae;
+  --vp-c-brand-dark: #156e69;
+  --vp-c-brand-darker: #084845;
+  --vp-font-family-base: 'HarmonyOS Sans SC', 'HarmonyOS Sans', -apple-system,
+    BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, 'Fira Sans', 'Droid Sans',
+    'Helvetica Neue', Microsoft YaHei, sans-serif;
+}
+
+p {
+  overflow-wrap: break-word;
+}
+
+.face {
+  display: inline;
+  height: 20px;
+  vertical-align: text-bottom;
+}
+
+@font-face {
+  font-family: 'HarmonyOS Sans';
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/HarmonyOS_Sans_SC_Regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'HarmonyOS Sans';
+  font-weight: 600;
+  font-display: swap;
+  src: url('/fonts/HarmonyOS_Sans_SC_Bold.woff2') format('woff2');
+}

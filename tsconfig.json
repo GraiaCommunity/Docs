@@ -1,0 +1,31 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "strict": true,
+    "allowJs": false,
+    // "checkJs": true,  // allowJs must be true for this to work
+    "jsx": "preserve",
+    "moduleResolution": "node",
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "useDefineForClassFields": true,
+    "sourceMap": true,
+    "baseUrl": ".",
+    "lib": ["esnext", "dom", "dom.iterable", "scripthost"]
+  },
+  "include": [
+    "docs/*.js",
+    "docs/*.jsx",
+    "docs/*.ts",
+    "docs/*.tsx",
+    "docs/.vitepress/**/*.js",
+    "docs/.vitepress/**/*.jsx",
+    "docs/.vitepress/**/*.ts",
+    "docs/.vitepress/**/*.tsx",
+    "docs/.vitepress/**/*.vue"
+  ],
+  "exclude": ["node_modules"]
+}
