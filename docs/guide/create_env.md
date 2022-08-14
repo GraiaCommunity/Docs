@@ -161,7 +161,7 @@ Creating virtualenv EroEroBot-BexBd8Xq-py3.9 in /root/.cache/pypoetry/virtualenv
 Using virtualenv: /root/.cache/pypoetry/virtualenvs/EroEroBot-BexBd8Xq-py3.9
 ```
 
-<br/>
+<br />
 
 ```bash
 $ poetry add graia-ariadne[standard]

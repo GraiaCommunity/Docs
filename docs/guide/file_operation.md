@@ -70,7 +70,7 @@ async def upload_file(
 ```
 
 ::: tip
-`Mirai` **只支持**群文件，**并不支持**好友文件的发送及管理<br>
+`Mirai` **只支持**群文件，**并不支持**好友文件的发送及管理<br />
 target 的 `Type Hint` 有 `Friend` 的原因仅仅是因为 `万一哪一天支持了` 而出现的
 :::
 
@@ -124,7 +124,7 @@ class FileInfo(AriadneBaseModel):
 
 讲一下画高亮的部分：
 
-1. `id`：QQ 使用 `文件 ID` 作为文件的唯一识别码<Curtain>要不然你用 QQ 群文件怎么会允许同名群文件</Curtain>。<br>
+1. `id`：QQ 使用 `文件 ID` 作为文件的唯一识别码<Curtain>要不然你用 QQ 群文件怎么会允许同名群文件</Curtain>。<br />
    事实上，后面会讲的一切操作（如重命名，移动文件），都会需要 `文件 ID`。
 
 2. `download_info`：如变量名所说，这个就是下载信息，这其中包含了包括文件 MD5 等一系列下载所需要的东西。

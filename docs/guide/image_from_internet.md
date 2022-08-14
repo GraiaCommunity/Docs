@@ -6,7 +6,7 @@
 
 ::: warning
 由于各种原因，我们在此并不能使用**超赞的涩图库**
-<br><Curtain>这种东西可是至宝，怎么会轻易给你 o(´^ ｀)o</Curtain>
+<br /><Curtain>这种东西可是至宝，怎么会轻易给你 o(´^ ｀)o</Curtain>
 :::
 
 先来介绍一下安装
@@ -97,6 +97,7 @@ async def test(app: Ariadne): ...
 :::
 
 首先，我们先来假设一个场景，比如说...
+
 <p align="center" style="font-size: 30px"><strong><a href="https://zh.moegirl.org.cn/%E7%96%AF%E7%8B%82%E6%98%9F%E6%9C%9F%E5%9B%9B"  target="_blank">狂 乱 木 曜 日</a></strong></p>
 
 假设今天是星期四，然后你带着不知道从哪搞到的 50 块钱，准备去 KFC。

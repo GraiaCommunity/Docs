@@ -43,8 +43,8 @@ MessageChain("来点涩图", Face(277))
 
 <ChatWindow>
   <ChatMsg name="EroEroBot" avatar="/avatar/ero.webp">
-    在新的一年里，祝你<br/>
-    身<img src="/images/guide/wangwang.webp" class="face" />体<img src="/images/guide/wangwang.webp" class="face" />健<img src="/images/guide/wangwang.webp" class="face" />康<br/>
+    在新的一年里，祝你<br />
+    身<img src="/images/guide/wangwang.webp" class="face" />体<img src="/images/guide/wangwang.webp" class="face" />健<img src="/images/guide/wangwang.webp" class="face" />康<br />
     万<img src="/images/guide/wangwang.webp" class="face" />事<img src="/images/guide/wangwang.webp" class="face" />如<img src="/images/guide/wangwang.webp" class="face" />意
   </ChatMsg>
 </ChatWindow>

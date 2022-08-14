@@ -35,11 +35,11 @@ Nonebot 就是一个比较典型的插件导入式框架（通过导入不同的
 
 | 名称 | 作用 |
 | :--: | :-- |
-| Saya Controller<br>(控制器) | 负责控制各个模组，分配 Channel，管理模组启停，Behaviour 的注册和调用. |
-| Module Channel<br>(模组容器) | 负责对模组服务，收集模组的各式信息，像 模组的名称，作者，长段的描述 之类，并负责包装模组的内容为 Cube，用以 Behaviour 对底层接口的操作. |
-| Cube<br>(内容容器) | 对模组提供的内容附加一个由 Schema 实例化来的 metadata，即 "元信息"，用于给 Behaviour 进行处理. |
-| Schema<br>(元信息模板) | 用于给模组提供的内容附加不同类型的元信息，给 Behaviour isinstance 处理用. |
-| Behaviour<br>(行为) | 根据 Cube 及其元信息，对底层接口(例如 Broadcast，Scheduler 等)进行操作. 包括 allocate 与 uninstall 两个操作. |
+| Saya Controller<br />(控制器) | 负责控制各个模组，分配 Channel，管理模组启停，Behaviour 的注册和调用. |
+| Module Channel<br />(模组容器) | 负责对模组服务，收集模组的各式信息，像 模组的名称，作者，长段的描述 之类，并负责包装模组的内容为 Cube，用以 Behaviour 对底层接口的操作. |
+| Cube<br />(内容容器) | 对模组提供的内容附加一个由 Schema 实例化来的 metadata，即 "元信息"，用于给 Behaviour 进行处理. |
+| Schema<br />(元信息模板) | 用于给模组提供的内容附加不同类型的元信息，给 Behaviour isinstance 处理用. |
+| Behaviour<br />(行为) | 根据 Cube 及其元信息，对底层接口(例如 Broadcast，Scheduler 等)进行操作. 包括 allocate 与 uninstall 两个操作. |
 
 说白了，每一个模组，都会有一个 `Channel`，用来保存模组相关的信息。而每一个 `Channel`，都会有一个及以上的 `Cube`。
 往简单点来说呢，你可以暂时把 `Cube` 当作 BCC 的 `Listener`。
@@ -256,8 +256,8 @@ app.launch_blocking()
 
 ::: danger 警告
 使用 Saya 进行模块加载后，不可以将所有代码全部堆在同一个文件里！！！
-<br><Curtain>啊我的上帝，老伙计，我发誓，你要是这么做，我就要狠狠地踢你的屁股了！</Curtain>
-<br><Curtain>单文件 Bot 是坏文明 desu~</Curtain>
+<br /><Curtain>啊我的上帝，老伙计，我发誓，你要是这么做，我就要狠狠地踢你的屁股了！</Curtain>
+<br /><Curtain>单文件 Bot 是坏文明 desu~</Curtain>
 
 （相信你不会想功能多了以后一个文件几千行的）
 :::

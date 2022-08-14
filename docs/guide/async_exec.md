@@ -19,7 +19,7 @@
 
 假设你真的想要加快制图的速度，
 并且愿意牺牲一点点撸码体验，  
-那么建议你去试试 `opencv-python` 之类的库。<br/><Curtain> opencv-python 的使用方法虽然一点也不 Pythonic，但就速度与内存占用而言比 Pillow 猛多了</Curtain>
+那么建议你去试试 `opencv-python` 之类的库。<br /><Curtain> opencv-python 的使用方法虽然一点也不 Pythonic，但就速度与内存占用而言比 Pillow 猛多了</Curtain>
 :::
 
 ## 快速实例

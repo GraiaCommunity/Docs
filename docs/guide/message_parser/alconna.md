@@ -169,7 +169,7 @@ async def ero_ascii2d(
     count &lt;num:int&gt;<br />
   # 设置相似度过滤的值<br />
     threshold &lt;value:float&gt;<br />
-  # 设置超时时间<br>
+  # 设置超时时间<br />
     timeout &lt;sec:int = 60&gt;<br />
   使用示例:<br />
    setu搜索 [图片]<br />
