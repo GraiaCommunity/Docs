@@ -21,16 +21,6 @@
 3. 开发环境使用命令 `pnpm serve` 启动服务器
 4. 使用命令 `pnpm build` 生成最终页面
 
-### 使用 Pre-Commit
-
-如果你想要在 commit 的时候自动修复文档内的格式错误，请在 clone 本仓库以后复制
-githooks 文件夹下的 `pre-commit` 文件到 `.git/hooks/` 中，并且修改文件的权限为 `755`。
-
-```bash
-cp githooks/pre-commit .git/hooks/pre-commit
-chmod 755 .git/hooks/pre-commit
-```
-
 ### 注意事项
 
 1. 如果使用 `pnpm upgrade -r` 更新依赖之后，请删除 `pnpm-lock.yaml` 文件之后再执行 `pnpm install`，否则会报缺少 `vite` 依赖
