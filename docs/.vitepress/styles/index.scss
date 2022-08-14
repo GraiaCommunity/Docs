@@ -19,6 +19,10 @@
     'Helvetica Neue', Microsoft YaHei, sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 p {
   overflow-wrap: break-word;
 }

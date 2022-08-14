@@ -25,13 +25,15 @@ export default defineComponent({
 
 <style scoped lang="scss">
 .heimu {
-  background-color: var(--vp-c-text-1);
   color: var(--vp-c-text-1);
-  text-shadow: none;
-  border-radius: 3px;
-  padding: 2px 5px; /* 尽量与 code 标签的样式保持一致提升观感 */
+  border-radius: 4px;
+  padding: 1px 6px 2px 6px; /* 尽量与 code 标签的样式保持一致提升观感 */
   margin: 0 3px;
+  font-size: var(--vp-custom-block-code-font-size);
+  text-shadow: none;
+  background-color: var(--vp-c-text-1);
   transition: color 0.13s linear;
+
   html.dark & {
     background-color: #e3e3e3;
     color: #e3e3e3;
