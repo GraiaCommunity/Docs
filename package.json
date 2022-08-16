@@ -19,7 +19,6 @@
     "lint:fix": "eslint --fix --color --ext .js,.ts,.jsx,.tsx,.vue .",
     "style": "prettier -c .",
     "style:fix": "prettier -w .",
-    "lintstaged": "lint-staged",
     "minfont": "node scripts/minfont.js"
   },
   "devDependencies": {
@@ -34,7 +33,6 @@
     "eslint-plugin-vue": "^9.3.0",
     "fontmin": "^0.9.9",
     "hash-sum": "^2.0.0",
-    "lint-staged": "^13.0.3",
     "markdown-it": "^13.0.1",
     "markdown-it-container": "^3.0.0",
     "mermaid": "^9.1.5",
@@ -45,15 +43,6 @@
     "vite-plugin-compression": "^0.5.1",
     "vitepress": "1.0.0-alpha.4",
     "vue": "^3.2.37"
-  },
-  "precommit": {
-    "run": [
-      "lintstaged"
-    ]
-  },
-  "lint-staged": {
-    "*.{js,jsx,vue,ts,tsx}": "eslint --color --fix",
-    "*.{css,scss,html,yml,yaml,json}": "prettier -w"
   },
   "pnpm": {
     "peerDependencyRules": {
