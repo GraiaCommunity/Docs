@@ -27,9 +27,8 @@ export default defineComponent({
 .heimu {
   color: var(--vp-c-text-1);
   border-radius: 4px;
-  padding: 1px 6px 2px 6px; /* 尽量与 code 标签的样式保持一致提升观感 */
-  margin: 0 3px;
-  font-size: var(--vp-custom-block-code-font-size);
+  padding: 1.5px 4px;
+  margin: 0 2px;
   text-shadow: none;
   background-color: var(--vp-c-text-1);
   transition: color 0.13s linear;
