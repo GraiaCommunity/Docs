@@ -1,0 +1,315 @@
+.fakeqq-window {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-content: space-between;
+  border-radius: 6px;
+  background-color: var(--vp-c-bg-mute);
+  font-size: 14px;
+}
+
+.custom-container .fakeqq-window {
+  margin: 16px auto;
+}
+
+.fakeqq-header {
+  padding: 12px 0;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.fakeqq-toast {
+  color: var(--vp-c-text-2);
+  font-size: 12px;
+  text-align: center;
+}
+
+.fakeqq-message {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  line-height: 1.55em;
+
+  &.left {
+    display: flex;
+    align-items: flex-start;
+  }
+
+  &.right {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: row-reverse;
+  }
+}
+
+.fakeqq-message__content {
+  display: flex;
+  flex-direction: column;
+  max-width: 65%;
+
+  & > img {
+    max-width: 300px;
+    max-height: 350px;
+    border-radius: 15px;
+  }
+}
+
+.fakeqq-message__name {
+  margin-bottom: 5px;
+  font-size: 12px;
+  color: var(--vp-c-text-2);
+
+  .right-chat & {
+    text-align: right;
+  }
+}
+
+.fakeqq-message__avatar {
+  display: inline-block;
+  width: 42px;
+  height: 42px;
+  margin-left: 15px;
+  margin-right: 15px;
+  border-radius: 50%;
+  background-color: var(--vp-c-bg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.fakeqq-message__text-avatar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  font-size: 24px;
+  font-weight: bold;
+  background: transparent;
+}
+
+.fakeqq-message__bubble-arrow {
+  position: absolute;
+  top: 10px;
+  border-top: 10px solid var(--vp-c-bg);
+
+  .fakeqq-message.left & {
+    left: -8px;
+    border-left: 10px solid transparent;
+  }
+
+  .fakeqq-message.right & {
+    right: -8px;
+    border-right: 10px solid transparent;
+  }
+}
+
+.fakeqq-message__bubble {
+  position: relative;
+  padding: 10px;
+  min-height: 1em;
+  min-width: 1em;
+  border-radius: 15px;
+  overflow-wrap: break-word;
+  background-color: var(--vp-c-bg);
+
+  & > img {
+    @media (min-width: 830px) {
+      max-width: 300px !important;
+    }
+    @media (max-width: 830px) {
+      max-width: 100% !important;
+    }
+    max-height: 350px !important;
+    // margin: 5px 0; // 如果需要单独一行得单独加这个，同一行有文字的话对齐文字也可以
+    border-radius: 10px;
+  }
+
+  .fakeqq-message.right & {
+    background-color: #0098fe;
+    color: #fff;
+
+    .fakeqq-message__bubble-arrow {
+      border-top-color: #0098fe;
+    }
+
+    .fakeqq-message__quote {
+      background-color: #1fa4ff;
+    }
+  }
+
+  html.dark .fakeqq-message.right & {
+    background-color: var(--vp-c-bg);
+    color: #fff;
+
+    .fakeqq-message__bubble-arrow {
+      border-top-color: var(--vp-c-bg);
+    }
+
+    .fakeqq-message__quote {
+      background-color: var(--vp-c-bg-mute);
+    }
+  }
+}
+
+.fakeqq-message__bubble.forward {
+  min-width: 230px;
+  padding-bottom: 5px;
+  border-bottom: 1.8em solid #f7f7f7;
+  overflow-wrap: break-word;
+
+  html.dark & {
+    border-bottom-color: #141617;
+  }
+}
+
+.fakeqq-message__quote {
+  background-color: var(--vp-c-bg-mute);
+  padding: 10px;
+  margin-bottom: 5px;
+  border-radius: 10px;
+  font-size: 0.85em;
+}
+
+.fakeqq-message__quote-name {
+  margin-bottom: 3px;
+}
+
+.fakeqq-message__quote-content > img {
+  display: block;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  max-width: 180px;
+  max-height: 200px;
+  border-radius: 10px;
+}
+
+.fakeqq-forward__title {
+  margin-bottom: 5px;
+}
+
+.fakeqq-forward__content,
+.fakeqq-forward__count {
+  color: var(--vp-c-text-2);
+  font-size: 0.8em;
+  word-break: break-all;
+}
+
+.fakeqq-forward__count {
+  position: absolute;
+  bottom: -2.2em;
+}
+
+.fakeqq-file__content {
+  display: flex;
+  justify-content: space-between;
+  height: 60px;
+  width: 180px;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+.fakeqq-file__info {
+  width: 120px;
+}
+
+.fakeqq-file__name {
+  overflow: hidden;
+  display: -webkit-box; // 虽然是 webkit 但火狐也可以用
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  text-overflow: ellipsis;
+}
+
+.fakeqq-file__size {
+  margin-top: 3px;
+  color: #999;
+  font-size: 13px;
+}
+
+.fakeqq-file__icon {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+  width: 60px;
+}
+
+.fakeqq-file__icon img {
+  max-height: 100%;
+  border-radius: 3px;
+}
+
+.fakeqq-voice {
+  display: flex;
+  align-items: center;
+  svg {
+    height: 1em;
+    width: 1em;
+    circle {
+      fill: var(--vp-c-text-light-1);
+
+      html.dark & {
+        fill: var(--vp-c-text-1);
+      }
+    }
+
+    path {
+      fill: var(--vp-c-bg);
+    }
+  }
+}
+
+.fakeqq-voice__bar {
+  display: inline-flex;
+  height: 1em;
+  margin-left: 5px;
+  margin-right: 5px;
+  align-items: center;
+}
+
+.fakeqq-coice__bar-line {
+  width: 3px;
+  height: 100%;
+  margin: 0 1px;
+  border-radius: 2px;
+  background-color: var(--vp-c-text-light-1);
+
+  html.dark & {
+    background-color: var(--vp-c-text-1);
+  }
+
+  &:nth-child(1n) {
+    height: 73%;
+  }
+
+  &:nth-child(2n) {
+    height: 78%;
+  }
+
+  &:nth-child(3n) {
+    height: 84%;
+  }
+
+  &:nth-child(4n) {
+    height: 66%;
+  }
+
+  &:nth-child(5n) {
+    height: 58%;
+  }
+
+  &:nth-child(6n) {
+    height: 75%;
+  }
+
+  &:nth-child(7n) {
+    height: 95%;
+  }
+
+  &:nth-child(8n) {
+    height: 100%;
+  }
+}

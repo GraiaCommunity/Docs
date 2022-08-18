@@ -44,26 +44,18 @@ export default defineComponent({
 </script>
 
 <template>
-  <div class="chat-item" :class="[onright ? 'right-chat' : 'left-chat']">
+  <div class="fakeqq-message" :class="[onright ? 'right' : 'left']">
     <div
       v-if="avatar"
       :style="{ 'background-image': `url(${avatar})` }"
-      class="chat-avatar"
+      class="fakeqq-message__avatar"
     ></div>
-    <div v-else class="chat-avatar">
-      <span class="chat-avatar-text">{{ name[0] }}</span>
+    <div v-else class="fakeqq-message__avatar">
+      <span class="fakeqq-message__text-avatar">{{ name[0] }}</span>
     </div>
-    <div class="chat-content">
-      <div class="chat-name">{{ name }}</div>
+    <div class="fakeqq-message__content">
+      <div class="fakeqq-message__name">{{ name }}</div>
       <img :src="src" :style="{ 'max-width': maxWidth }" />
     </div>
   </div>
 </template>
-
-<style scoped lang="scss">
-.chat-content:deep() > img {
-  max-width: 300px;
-  max-height: 350px;
-  border-radius: 15px;
-}
-</style>

@@ -29,19 +29,19 @@
 -->
 
 <template>
-  <div class="chat-item" :class="[onright ? 'right-chat' : 'left-chat']">
+  <div class="fakeqq-message" :class="[onright ? 'right' : 'left']">
     <div
       v-if="avatar"
       :style="{ 'background-image': `url(${avatar})` }"
-      class="chat-avatar"
+      class="fakeqq-message__avatar"
     ></div>
-    <div v-else class="chat-avatar">
-      <span class="chat-avatar-text">{{ name[0] }}</span>
+    <div v-else class="fakeqq-message__avatar">
+      <span class="fakeqq-message__text-avatar">{{ name[0] }}</span>
     </div>
-    <div class="chat-content">
-      <div class="chat-name">{{ name }}</div>
-      <div class="bubble">
-        <div class="bubble-arrow"></div>
+    <div class="fakeqq-message__content">
+      <div class="fakeqq-message__name">{{ name }}</div>
+      <div class="fakeqq-message__bubble">
+        <div class="fakeqq-message__bubble-arrow"></div>
         <slot></slot>
       </div>
     </div>
@@ -60,9 +60,3 @@ export default defineComponent({
   },
 })
 </script>
-
-<style scoped lang="scss">
-.chat-content {
-  font-size: 14px;
-}
-</style>

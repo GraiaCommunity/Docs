@@ -29,22 +29,22 @@
 -->
 
 <template>
-  <div class="chat-item" :class="[onright ? 'right-chat' : 'left-chat']">
+  <div class="fakeqq-message" :class="[onright ? 'right' : 'left']">
     <div
       :style="{ 'background-image': `url(${avatar})` }"
-      class="chat-avatar"
+      class="fakeqq-message__avatar"
     ></div>
-    <div class="chat-content">
-      <div class="chat-name">{{ name }}</div>
-      <div class="bubble">
-        <div class="bubble-arrow"></div>
-        <div class="forward-title">{{ title }}的聊天记录</div>
-        <div class="forward-content">
+    <div class="fakeqq-message__content">
+      <div class="fakeqq-message__name">{{ name }}</div>
+      <div class="fakeqq-message__bubble forward">
+        <div class="fakeqq-message__bubble-arrow"></div>
+        <div class="fakeqq-forward__title">{{ title }}的聊天记录</div>
+        <div class="fakeqq-forward__content">
           <div v-for="content in contents" :key="contents.indexOf(content)">
             {{ content }}
           </div>
         </div>
-        <div class="forward-count">
+        <div class="fakeqq-forward__count">
           查看{{ counts ? counts : contents.length }}条转发消息
         </div>
       </div>
@@ -67,32 +67,3 @@ export default defineComponent({
   },
 })
 </script>
-
-<style scoped lang="scss">
-.bubble {
-  min-width: 230px;
-  padding-bottom: 5px;
-  border-bottom: 1.8em solid #f7f7f7;
-  overflow-wrap: break-word;
-}
-
-html.dark .bubble {
-  border-bottom: 1.8em solid #141617;
-}
-
-.forward-title {
-  margin-bottom: 5px;
-}
-
-.forward-content,
-.forward-count {
-  color: var(--vp-c-text-2);
-  font-size: 0.8em;
-  word-break: break-all;
-}
-
-.forward-count {
-  position: absolute;
-  bottom: -2.1em;
-}
-</style>

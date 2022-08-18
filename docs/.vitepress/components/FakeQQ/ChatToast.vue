@@ -29,7 +29,7 @@
 -->
 
 <template>
-  <div class="chat-item chat-toast"><slot></slot></div>
+  <div class="fakeqq-message fakeqq-toast"><slot></slot></div>
 </template>
 
 <script lang="ts">
@@ -39,11 +39,3 @@ export default defineComponent({
   name: 'ChatToast',
 })
 </script>
-
-<style scoped lang="scss">
-.chat-toast {
-  color: var(--vp-c-text-2);
-  font-size: 12px;
-  text-align: center;
-}
-</style>

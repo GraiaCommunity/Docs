@@ -29,9 +29,9 @@
 -->
 
 <template>
-  <div class="chat-quote">
-    <div class="quote-name">{{ name }}{{ time ? '&nbsp;' + time : '' }}</div>
-    <div class="quote-content"><slot></slot></div>
+  <div class="fakeqq-message__quote">
+    <div class="fakeqq-message__quote-name">{{ name }}{{ time ? '&nbsp;' + time : '' }}</div>
+    <div class="fakeqq-message__quote-content"><slot></slot></div>
   </div>
 </template>
 
@@ -49,26 +49,3 @@ export default defineComponent({
   },
 })
 </script>
-
-<style scoped lang="scss">
-.chat-quote {
-  background-color: var(--vp-c-bg-mute);
-  padding: 10px;
-  margin-bottom: 5px;
-  border-radius: 10px;
-  font-size: 0.85em;
-}
-
-.quote-name {
-  margin-bottom: 3px;
-}
-
-.quote-content:deep() > img {
-  display: block;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  max-width: 180px;
-  max-height: 200px;
-  border-radius: 10px;
-}
-</style>
