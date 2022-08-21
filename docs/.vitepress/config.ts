@@ -44,10 +44,10 @@ export default defineConfig({
 
 function nav() {
   return [
-    { text: '开始之前', link: '/before/QA', activeMatch: '/before/' },
-    { text: '正式上手', link: '/guide/index', activeMatch: '/guide/' },
+    { text: '开始之前', link: '/before/', activeMatch: '/before/' },
+    { text: '正式上手', link: '/guide/create_env', activeMatch: '/guide/' },
     { text: '附录', link: '/appendix/terms', activeMatch: '/appendix/' },
-    { text: 'Ariadne 文档', link: 'https://graia.readthedocs.io/' },
+    { text: 'Graia 官方文档', link: 'https://graia.readthedocs.io/' },
   ]
 }
 
