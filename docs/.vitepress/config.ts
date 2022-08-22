@@ -19,8 +19,8 @@ export default defineConfig({
   ],
 
   themeConfig: {
-    logo: '/logo.svg',
-    nav: nav(), // @ts-ignore // eslint-disable-line
+    logo: '/logo.svg', // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    nav: nav(), // @ts-ignore
     sidebar: sidebarGuide(),
     editLink: {
       pattern: 'https://github.com/GraiaCommunity/Docs/edit/main/docs/:path',
