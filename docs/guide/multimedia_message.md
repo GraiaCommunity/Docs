@@ -149,7 +149,7 @@ Voice(data_bytes=audio_bytes)
 把 Voice 对象放入 MessageChain 中：
 
 ```python:no-line-numbers
->>> MesageChain.create(Voice(data_bytes=audio_bytes))
+>>> MessageChain.create(Voice(data_bytes=audio_bytes))
 ```
 
 ::: tip
