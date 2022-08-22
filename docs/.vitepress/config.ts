@@ -20,7 +20,7 @@ export default defineConfig({
 
   themeConfig: {
     logo: '/logo.svg',
-    nav: nav(),
+    nav: nav(), // @ts-ignore // eslint-disable-line
     sidebar: sidebarGuide(),
     editLink: {
       pattern: 'https://github.com/GraiaCommunity/Docs/edit/main/docs/:path',
@@ -76,23 +76,24 @@ function sidebarGuide() {
         { text: '东西要分类好', link: '/guide/saya' },
         { text: '不要再戳了~', link: '/guide/other_event' },
         { text: '谁在找我', link: '/guide/multi_events' },
-        { text: '消息链是什么链', link: '/guide/message_chain' },
-        { text: '八嘎 hentai 无路赛', link: '/guide/multimedia_message' },
+        {
+          text: '关于消息链的故事',
+          items: [
+            { text: '消息链是什么链', link: '/guide/message_chain' },
+            { text: '八嘎 hentai 无路赛', link: '/guide/multimedia_message' },
+          ],
+        },
         { text: '好大的奶', link: '/guide/forward_message' },
         { text: '来点网上的涩图', link: '/guide/image_from_internet' },
         { text: '来点 xxx 涩图', link: '/guide/message_parser/' },
-        { text: '基础消息链匹配器', link: '/guide/message_parser/base_parser' },
         {
-          text: '消息链匹配器 —— Twilight',
-          link: '/guide/message_parser/twilight',
-        },
-        {
-          text: '消息链匹配器 —— Commander',
-          link: '/guide/message_parser/commander',
-        },
-        {
-          text: '消息链匹配器 —— Alconna',
-          link: '/guide/message_parser/alconna',
+          text: '来点 xxx 涩图',
+          items: [
+            { text: '消息链匹配器', link: '/guide/message_parser/base_parser' },
+            { text: 'Twilight', link: '/guide/message_parser/twilight' },
+            { text: 'Commander', link: '/guide/message_parser/commander' },
+            { text: 'Alconna', link: '/guide/message_parser/alconna' },
+          ],
         },
         { text: '看完了吗，我撤回了', link: '/guide/recall_message' },
         { text: '/斜眼笑（Formatter）', link: '/guide/formatter' },
