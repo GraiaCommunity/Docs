@@ -3,31 +3,27 @@ import { Theme } from 'vitepress'
 
 import '../styles/index.scss'
 
-/* eslint-disable */
-// @ts-ignore
 import Layout from './Layout.vue'
 
-// @ts-ignore
-import { CodeGroup } from '../mdEnhance/components/CodeGroup' // @ts-ignore
-import CodeGroupItem from '../mdEnhance/components/CodeGroupItem.vue' // @ts-ignore
-import Mermaid from '../mdEnhance/components/Mermaid' // @ts-ignore
+import { CodeGroup } from '../mdEnhance/components/CodeGroup'
+import CodeGroupItem from '../mdEnhance/components/CodeGroupItem.vue'
+import Mermaid from '../mdEnhance/components/Mermaid'
 
-import ChatFile from '../components/FakeQQ/ChatFile.vue' // @ts-ignore
-import ChatImg from '../components/FakeQQ/ChatImg.vue' // @ts-ignore
-import ChatMsg from '../components/FakeQQ/ChatMsg.vue' // @ts-ignore
-import ChatQuote from '../components/FakeQQ/ChatQuote.vue' // @ts-ignore
-import ChatToast from '../components/FakeQQ/ChatToast.vue' // @ts-ignore
-import ChatVoice from '../components/FakeQQ/ChatVoice.vue' // @ts-ignore
-import ChatWindow from '../components/FakeQQ/ChatWindow.vue' // @ts-ignore
+import ChatFile from '../components/FakeQQ/ChatFile.vue'
+import ChatImg from '../components/FakeQQ/ChatImg.vue'
+import ChatMsg from '../components/FakeQQ/ChatMsg.vue'
+import ChatQuote from '../components/FakeQQ/ChatQuote.vue'
+import ChatToast from '../components/FakeQQ/ChatToast.vue'
+import ChatVoice from '../components/FakeQQ/ChatVoice.vue'
+import ChatWindow from '../components/FakeQQ/ChatWindow.vue'
 import ForwardChat from '../components/FakeQQ/ForwardChat.vue'
-// @ts-ignore
-import Curtain from '../components/Curtain.vue' // @ts-ignore
-import GitRepo from '../components/GitRepo.vue' // @ts-ignore
-import Loading from '../components/Loading.vue' // @ts-ignore
-import MoreInfo from '../components/MoreInfo.vue' // @ts-ignore
-import RubyCurtain from '../components/RubyCurtain.vue' // @ts-ignore
-import VolumeBar from '../components/VolumeBar.vue' // @ts-ignore
-/* eslint-enable */
+
+import Curtain from '../components/Curtain.vue'
+import GitRepo from '../components/GitRepo.vue'
+import Loading from '../components/Loading.vue'
+import MoreInfo from '../components/MoreInfo.vue'
+import RubyCurtain from '../components/RubyCurtain.vue'
+import VolumeBar from '../components/VolumeBar.vue'
 
 const theme: Theme = {
   // ...DefaultTheme,
