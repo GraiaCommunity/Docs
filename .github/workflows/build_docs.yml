@@ -51,5 +51,3 @@ jobs:
           python3 -m pip install wheel, coscmd
           coscmd config -a ${{ secrets.SecretId }} -s ${{ secrets.SecretKey }} -b graiax-1302360504 -r ap-hongkong
           coscmd upload -rs --delete dist/ /
-
-    upload2
