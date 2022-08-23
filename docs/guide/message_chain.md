@@ -127,11 +127,23 @@ True
 不过很多消息链所承载的消息都会被消除（如图片消息直接变成"[图片]"）。
 ::: tip
 事实上，`message.display` 跟 `str(message)` 是一样的。  
-至于改选哪一个呢？
+至于要选哪一个呢？ <Curtain>到底要选哪个呢</Curtain>
+
 <ChatWindow title="Graia Framework Community">
-  <ChatMsg name="GraiaX" onright>现在是推荐 message.display 还是 str(message) 啊</ChatMsg>
-  <ChatMsg name="EroEroBot" avatar="/avatar/ero.webp" audio="/voices/夏娜_无路赛_钉宫理惠.m4a">看你 xp</ChatMsg>
+  <ChatMsg name="群菜狗" avatar="http://q1.qlogo.cn/g?b=qq&nk=731347477&s=640">
+    <ChatWindow title="Graia Framework Community">
+      <ChatMsg name="GraiaX">现在是推荐 message.display 还是 str(message) 啊</ChatMsg>
+      <ChatMsg name="群菜块" avatar="http://q1.qlogo.cn/g?b=qq&nk=2907489501&s=640">看你 xp</ChatMsg>
+    </ChatWindow>
+  </ChatMsg>
+  <ChatMsg name="群菜狗" avatar="http://q1.qlogo.cn/g?b=qq&nk=731347477&s=640">草哈哈哈哈</ChatMsg>
+  <ChatMsg name="群菜块" avatar="http://q1.qlogo.cn/g?b=qq&nk=2907489501&s=640">
+    <ChatQuote name="群菜狗">草哈哈哈哈</ChatQuote>改了
+  </ChatMsg>
+  <ChatMsg name="群菜块" avatar="http://q1.qlogo.cn/g?b=qq&nk=2907489501&s=640">现在是推 str(msg_chain)</ChatMsg>
+  <ChatMsg name="GraiaX">传下去，群菜块要一统XP<Curtain>什么秦始皇</Curtain></ChatMsg>
 </ChatWindow>
+
 :::
 
 ### `as_persistent_string()` 方法
