@@ -35,4 +35,16 @@ async def hello(app: Ariadne, group: Group, member: Member, event: Union[GroupMe
         await app.send_message(group, MessageChain("找我干肾么"))
 ```
 
+当然，以上还只是最简答的例子，但是，既然都用了 Ariadne 了，你肯定不想跟个傻子一样，通过**获取事件本身**来获取你所需要的心事，不是吗？那么就有了下面这些例子
+
+```python
+from typing import Union
+...
+
+@channel.use(ListenerSchema(listening_events=[GroupMessage, FriendMessage]))
+async def hello(app: Ariadne, sender: Union[Group, Friend], message: MessageChain):
+    if str(message) == "你好":
+        await app.send_message(sender, MessageChain("你好，怎么了？"))
+```
+
 <Loading></Loading>

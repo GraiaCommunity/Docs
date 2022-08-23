@@ -126,7 +126,12 @@ True
 这种办法返回的字符串比较容易让人看得舒服，
 不过很多消息链所承载的消息都会被消除（如图片消息直接变成"[图片]"）。
 ::: tip
-事实上，`message.display` 跟 `str(message)` 是一样的。
+事实上，`message.display` 跟 `str(message)` 是一样的。  
+至于改选哪一个呢？
+<ChatWindow title="Graia Framework Community">
+  <ChatMsg name="GraiaX" onright>现在是推荐 message.display 还是 str(message) 啊</ChatMsg>
+  <ChatMsg name="EroEroBot" avatar="/avatar/ero.webp" audio="/voices/夏娜_无路赛_钉宫理惠.m4a">看你 xp</ChatMsg>
+</ChatWindow>
 :::
 
 ### `as_persistent_string()` 方法

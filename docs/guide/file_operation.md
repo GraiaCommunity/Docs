@@ -110,7 +110,7 @@ target 的 `Type Hint` 有 `Friend` 的原因仅仅是因为 `万一哪一天支
 
 大致是长这样：
 
-```python{3,8}
+```python{4,9}
 class FileInfo(AriadneBaseModel):
     name: str  # 文件名
     path: str  # 路径
