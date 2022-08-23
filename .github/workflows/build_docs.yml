@@ -51,3 +51,9 @@ jobs:
           python3 -m pip install coscmd
           coscmd config -a ${{ secrets.SecretId }} -s ${{ secrets.SecretKey }} -b graiax-1302360504 -r ap-hongkong
           coscmd upload -rs --delete -y dist/ /
+  
+  upload2a60:
+    needs: [build_docs]
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo 'A60，我真的好喜欢你，为了你，我要，上传文档'
