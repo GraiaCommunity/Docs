@@ -120,10 +120,13 @@ function sidebarGuide() {
       ],
     },
     {
-      text: '热点追踪',
+      text: '奇奇怪怪的东西',
       collapsible: true,
-      collapsed: true,
-      items: [{ text: '群搜图小助手', link: '/saucenao' }],
+      // collapsed: true,
+      items: [
+        { text: '热点追踪 - 群搜图小助手', link: '/other/saucenao' },
+        { text: 'pathlib 为什么是神？路径解析推荐', link: '/other/pathlib' }
+      ],
     },
   ]
 }
