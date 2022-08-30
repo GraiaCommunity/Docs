@@ -32,7 +32,7 @@ jobs:
         with:
           name: page_dist
           path: docs/.vitepress/dist
-  
+
   upload2cos:
     needs: [build_docs]
     runs-on: ubuntu-latest
@@ -55,7 +55,7 @@ jobs:
         run: |
           coscmd config -a ${{ secrets.SecretId }} -s ${{ secrets.SecretKey }} -b graiax-1302360504 -r ap-hongkong
           coscmd upload -rs --delete -y dist/ /
-  
+
   upload2a60:
     needs: [build_docs]
     runs-on: ubuntu-latest
