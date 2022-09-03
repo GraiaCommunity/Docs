@@ -2,7 +2,7 @@
 
 ::: tip
 假设你想要把你的仓库也写在这了，欢迎 PR  
-（以下仓库不分排名）
+（以下仓库排名不分先后）
 
 更多请查看 [Awesome Graia](https://github.com/GraiaCommunity/Docs/issues/30)
 :::

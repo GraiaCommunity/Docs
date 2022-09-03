@@ -117,6 +117,8 @@ async def pic(app: Ariadne, group: Group, message: MessageChain)
 
 ### 关于我的 Python 版本好混乱这件事
 
+[>_<]: 你知道为什么这一篇一直没有更新吗，因为我也不会（尬
+
 某些人（尤其是刚刚上手 Linux 的小白），会遇到「分不清自己调用的究竟是哪个 Python」的问题。然后就遇到「因为找错 Python 了导致遇到各种各样的因为版本问题而出现的 bug」
 
 <Loading></Loading>
