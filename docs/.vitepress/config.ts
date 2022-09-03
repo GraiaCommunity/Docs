@@ -125,7 +125,7 @@ function sidebarGuide() {
       // collapsed: true,
       items: [
         { text: '热点追踪 - 群搜图小助手', link: '/other/saucenao' },
-        { text: 'pathlib 为什么是神？路径解析推荐', link: '/other/pathlib' }
+        { text: 'pathlib 为什么是神？路径解析推荐', link: '/other/pathlib' },
       ],
     },
   ]
