@@ -33,7 +33,7 @@
 7. [x] [好大的奶](../guide/forward_message) —— 合并消息的构建与解析
 8. [x] [来点网络上的涩图](../guide/image_from_internet) —— `aiohttp` 的超简单运用
 9. [x] [来点 xxx 涩图](../guide/message_parser/) —— `Ariadne` 的消息匹配器**们**的介绍
-   1. [x] [基础消息链处理器](../guide/message_parser/base_parser) —— 简答又好用，不用造轮子
+   1. [x] [基础消息链处理器](../guide/message_parser/base_parser) —— 简单又好用，不用造轮子
    2. [x] [Twilight](../guide/message_parser/twilight) —— `Kanata` 的精神续作
    3. [x] [Commander](../guide/message_parser/commander) —— 字符串创建命令
    4. [x] [Alconna](../guide/message_parser/alconna) —— <MoreInfo words="外  星  来  客"><div style="background: var(--vp-c-bg);border:3px solid var(--vp-c-brand)">（奥特曼也算是外星来客）<img src="/images/alien.webp" alt="Ultraman" style="vertical-align:top"/></div></MoreInfo>
