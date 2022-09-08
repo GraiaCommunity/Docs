@@ -70,7 +70,7 @@ v4、v4p 等缩写词语的意思可以在[这里](/appendix/terms.md)找到。
 
 ::: warning 注意一下
 这只是举例，千万不要在你的业务代码中写出这么离谱的玩意儿
-<br /><Curtain>否则<MoreInfo words="蓝玻璃块"><img src="/images/guide/BGB_watching.webp" style="border-radius:6px"></MoreInfo>大概率会提刀撒了你（撒日朗）</Curtain>
+<br /><Curtain>否则<MoreInfo words="蓝玻璃块"><img alt="BlueGlassBlock is wathcing you" src="/images/guide/BGB_watching.webp" style="border-radius:6px"></MoreInfo>大概率会提刀撒了你（撒日朗）</Curtain>
 :::
 
 ## 如何操作 MessageChain

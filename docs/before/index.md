@@ -36,7 +36,7 @@
    1. [x] [基础消息链处理器](../guide/message_parser/base_parser) —— 简答又好用，不用造轮子
    2. [x] [Twilight](../guide/message_parser/twilight) —— `Kanata` 的精神续作
    3. [x] [Commander](../guide/message_parser/commander) —— 字符串创建命令
-   4. [x] [Alconna](../guide/message_parser/alconna) —— <MoreInfo words="外  星  来  客"><div style="background: var(--vp-c-bg);border:3px solid var(--vp-c-brand)">（奥特曼也算是外星来客）<img src="/images/alien.webp" style="vertical-align:top"/></div></MoreInfo>
+   4. [x] [Alconna](../guide/message_parser/alconna) —— <MoreInfo words="外  星  来  客"><div style="background: var(--vp-c-bg);border:3px solid var(--vp-c-brand)">（奥特曼也算是外星来客）<img src="/images/alien.webp" alt="Ultraman" style="vertical-align:top"/></div></MoreInfo>
 10. [x] [看完了吗，我撤回了](../guide/recall_message) —— `异步延时` 和 Ariadne 实例的其他方法介绍
 11. [x] [/斜眼笑](../guide/formatter) —— `Formatter` 的运用
 12. [x] [不是所有人都能看涩图](../guide/depend) —— `Depend` 的简单运用

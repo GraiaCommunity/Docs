@@ -9,6 +9,7 @@
 有志之士</RubyCurtain>提供</Curtain>十分建议在阅读的时候不要声音拉满 + 外放 <Curtain>除非你跟<MoreInfo words="唐可可">
 <img
   src="/images/guide/唐可可.webp"
+  alt="太好听了吧"
   onmouseover="
     document.getElementById('thtlb').currentTime = 0;
     document.getElementById('thtlb').play();

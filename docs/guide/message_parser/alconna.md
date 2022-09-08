@@ -139,7 +139,7 @@ async def ero_ascii2d(
 <ChatWindow title="聊天记录">
   <ChatMsg name="群菜鸮" avatar="https://q4.qlogo.cn/g?b=qq&nk=2948531755&s=640">
     setu搜索<br />
-    <img style="margin-top: 5px" src="/images/guide/ero_pic_1.webp"/>
+    <img alt="涩图" style="margin-top: 5px" src="/images/guide/ero_pic_1.webp"/>
   </ChatMsg>
   <ChatMsg name="EroEroBot" avatar="/avatar/ero.webp"><ChatQuote name="群菜鸮">setu搜索</ChatQuote>正在搜索，请稍后</ChatMsg>
   <ChatMsg name="EroEroBot" avatar="/avatar/ero.webp">工口发生~</ChatMsg>

@@ -205,7 +205,7 @@ async def saucenao(app: Ariadne, group: Group, member: Member, source: Source, c
 <ChatWindow title="转发的合并消息">
   <ChatMsg name="爷">
     以图搜图<br />
-    <img style="margin-top: 5px" src="/images/guide/ero_pic_1.webp"/>
+    <img alt="涩图" style="margin-top: 5px" src="/images/guide/ero_pic_1.webp"/>
   </ChatMsg>
   <ChatMsg name="EroEroBot" avatar="/avatar/ero.webp"><ChatQuote name="爷">以图搜图</ChatQuote>正在搜索，请稍后</ChatMsg>
   <ForwardChat

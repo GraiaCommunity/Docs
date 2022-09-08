@@ -13,11 +13,13 @@
 想必大家在 QQ 聊天的时候，或多或少都会用到 QQ 的一些表情包（如
 <img
     src="/images/guide/huaji.webp"
+    alt="滑稽"
     class="face"
 />
 和
 <img
     src="/images/guide/wangwang.webp"
+    alt="Doge"
     class="face"
 />
 ）。不可否认，这些 QQ 自带的表情符号已经成为 QQ 日常交流中不可缺少的一部分。
@@ -28,7 +30,7 @@
 
 <ChatWindow>
   <ChatMsg name="EroEroBot" avatar="/avatar/ero.webp">来点涩图<img
-    src="/images/guide/wangwang.webp"
+    src="/images/guide/wangwang.webp" alt="Doge"
     class="face"
   /></ChatMsg>
 </ChatWindow>
@@ -44,8 +46,8 @@ MessageChain("来点涩图", Face(277))
 <ChatWindow>
   <ChatMsg name="EroEroBot" avatar="/avatar/ero.webp">
     在新的一年里，祝你<br />
-    身<img src="/images/guide/wangwang.webp" class="face" />体<img src="/images/guide/wangwang.webp" class="face" />健<img src="/images/guide/wangwang.webp" class="face" />康<br />
-    万<img src="/images/guide/wangwang.webp" class="face" />事<img src="/images/guide/wangwang.webp" class="face" />如<img src="/images/guide/wangwang.webp" class="face" />意
+    身<img src="/images/guide/wangwang.webp" alt="Doge" class="face" />体<img src="/images/guide/wangwang.webp" alt="Doge" class="face" />健<img src="/images/guide/wangwang.webp" alt="Doge" class="face" />康<br/>
+    万<img src="/images/guide/wangwang.webp" alt="Doge" class="face" />事<img src="/images/guide/wangwang.webp" alt="Doge" class="face" />如<img src="/images/guide/wangwang.webp" alt="Doge" class="face" />意
   </ChatMsg>
 </ChatWindow>
 
