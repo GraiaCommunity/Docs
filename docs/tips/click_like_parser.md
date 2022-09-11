@@ -4,7 +4,7 @@
 这一章节是笔者突然热血来潮写的
 :::
 
-在 [关于 saya 的介绍](../guide/message_parser) 中，我们提到了这样一个现象
+在 [关于 saya 的介绍](../guide/message_parser/index) 中，我们提到了这样一个现象
 
 ``` python
 @channel.use(ListenerSchema(listening_events=[GroupMessage]))
