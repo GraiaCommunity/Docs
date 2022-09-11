@@ -139,9 +139,9 @@ poetry add graia-ariadne[standard]
 
 3. 事实上，poetry 创建的虚拟环境并不会在文件夹里面，则是在这些地方
 
-   - macOS: `~/Library/Application Support/pypoetry`
-   - Windows: `C:\Users\<username>\AppData\Roaming\pypoetry`
-   - Linux: `~/.config/pypoetry`
+   - macOS: `~/Library/Application Support/pypoetry/virtualenvs`
+   - Windows: `%AppData%\pypoetry\virtualenvs`
+   - Linux: `~/.cache/pypoetry/virtualenvs`
 
    假设你不怎么喜欢的话，可以通过以下方式将虚拟环境创建在项目文件夹的 `.venv` 文件夹里
 
