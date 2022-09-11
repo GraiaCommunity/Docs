@@ -47,6 +47,11 @@
 17. [ ] [异步画~~涩~~图](../guide/async_exec) —— `io_bound` 和 `cpu_bound` 的运用
 18. :x: [一条龙涩涩](#从零开始的异世界涩图机器人教程) —— `saya` 跨模块运用
 
+## 写代码的小贴士
+
+1. [x] [更简短的修饰器](../tips/shortcut.md) —— 介绍一下 `graiax-shortcut`
+2. [ ] [给我分类啊啊啊](../tips/click_like_parser.md) —— 提倡一下 click-like 的写法
+
 ## 附录
 
 1. [x] [术语](../appendix/terms) —— 看这篇文档可能需要知道的一些奇奇怪怪的缩写

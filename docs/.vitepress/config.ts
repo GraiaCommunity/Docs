@@ -120,6 +120,15 @@ function sidebarGuide() {
       ],
     },
     {
+      text: '写代码的小贴士',
+      collapsible: true,
+      // collapsed: true,
+      items: [
+        { text: '更简短的修饰器', link: '/tips/shortcut' },
+        { text: "尝试以下click-like的写法", link: "/tips/click_like_parser"},
+      ],
+    },
+    {
       text: '奇奇怪怪的东西',
       collapsible: true,
       // collapsed: true,
