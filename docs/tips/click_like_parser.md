@@ -141,7 +141,7 @@ class Bz:
 
     def __init__():
         ...
-    
+
     def encrypt():
         ...
 
@@ -150,10 +150,10 @@ class Bz:
 
     async def search():
         ...
-    
+
     async def download():
         ...
-    
+
     async def rank():
         ...
 
