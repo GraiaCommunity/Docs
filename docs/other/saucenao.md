@@ -153,7 +153,7 @@ apikey = "xxx" # 请输你自己的，谢谢
 
 
 search = Alconna(
-    ".搜图", 
+    ".搜图",
     Args["content", ImgOrUrl],
     meta=CommandMeta(
       "以图搜图，搜图结果会自动发送给你",

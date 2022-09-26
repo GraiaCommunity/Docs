@@ -578,8 +578,8 @@ async def _(...):
 
 ```python
 alc = Alconna(
-    ["!", "/"], 
-    "help", 
+    ["!", "/"],
+    "help",
     Args["content", AllParam],
     Option("--foo", help_text="bar")
 )
