@@ -999,7 +999,6 @@ async def test(app: Ariadne, group: Group):
 
 :::tip NOTE
 自 Alconna 1.3 以来，除开 typical 构建方法外，剩余四种需要安装 `arclet-alconna-tools` 才能使用。
-
 :::
 
 ### 代码解析
