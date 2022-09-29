@@ -145,8 +145,8 @@ flowchart LR
 等到网站给你回复后，你再去查看回复，并且去做后面的处理。
 
 <div v-if="new Date().getDay() == 4">
-  <div class="custom-container tip">
-    <p class="custom-container-title">提示</p>
+  <div class="tip custom-block">
+    <p class="custom-block-title">提示</p>
     <p><strong>虽然上文说的是假设今天是星期四，但今天真的是星期四，不吃吗</strong></p>
   </div>
   <hr/>
