@@ -31,7 +31,6 @@ export default defineComponent({
   margin: 0 2px;
   text-shadow: none;
   background-color: var(--vp-c-text-1);
-  transition: color 0.13s linear;
 
   html.dark & {
     background-color: #e3e3e3;
