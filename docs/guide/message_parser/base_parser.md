@@ -41,15 +41,82 @@ async def test():
 
 :::
 
-## DetectPrefix
+## 怎么用
 
-检测前缀，实例化时传入后缀**字符串**即可。
+作为 `Decorator`，消息链处理器有多种使用方法
+
+1. 以 `无头修饰器` 的方式来使用。
+
+    - 优点：能够比较方便的进行消息链的匹配
+    - 缺点：不能获得数据的返回值
+
+    ``` python
+    # 只有接收到的消息开头有“涩”，才会运行
+    @channel.use(
+        ListenerSchema(
+            listening_events=[GroupMessage],
+            decorators=[DetectPrefix("涩")],
+        )
+    )
+    async def ero(app: Ariadne, group: Group, message: MessageChain):
+        # 此时 `message` 参数并不会帮你把开头的“涩”消去
+        ...
+    ```
+
+2. 以默认参数的方式来使用。
+
+    - 优点：能够获取处理过后的文本
+    - 缺点：如果你开了 `类型检查(type checking)`，编辑器会向你报错
+
+    ```python
+    # 只有接收到的消息开头有“涩”，才会运行
+    @channel.use(
+        ListenerSchema(
+            listening_events=[GroupMessage],
+        )
+    )
+    async def ero(app: Ariadne, group: Group, message: MessageChain = DetectPrefix("涩")):
+        # 此时 `message` 参数会自动帮你把开头的“涩”消去
+        ...
+    ```
+
+3. 以 `typing.Annotated` 来使用
+
+    - 优点：能够获取处理过后的文本的同时，`类型检查(type checking)` 不会报错
+    - 缺点：如果是 `Python 3.8`，需要安装 `typing-extension` 第三方库来导入
+
+    ```python
+    from typing import Annotated # Python3.9+
+    from typing_extension import Annotated # Python3.8
+
+    # 只有接收到的消息开头有“涩”，才会运行
+    @channel.use(
+        ListenerSchema(
+            listening_events=[GroupMessage],
+        )
+    )
+    async def ero(app: Ariadne, group: Group, message: MessageChain = DetectPrefix("涩")):
+        # 此时 `message` 参数会自动帮你把开头的“涩”消去
+        ...
+    ```
+
+::: tip
+你可能还是会有点蒙蔽，但是没关系，之后的**所有消息链处理器**我们都会给出一个例子
+:::
+
+## 消息链处理器介绍
+
+### DetectPrefix
+
+检测前缀，实例化时传入后缀**字符串**即可。  
+用法： `DetectPrefix(target)` 其中 `target` 是前缀（可以为 `str` 或者 `Iterable[str]`(如`["a", "b"]`)）
 
 ::: tip
 `Quote` 和 `Source` 虽然也在消息链里面，  
 但是他们并不会被去掉哦<Curtain>只有"涩"消失的世界完成了</Curtain>。
 :::
 
+::: details 用法实战
 <h3>用法1</h3>
 
 作为 `Decorator`, 放到 `bcc.receiver` 或 `ListenerSchema` 的 `decorators` 里。
@@ -87,15 +154,19 @@ async def on_message(app: Ariadne, group: Group, message: Annotated[MessageChain
     ...
 ```
 
-## DetectSuffix
+:::
 
-检测后缀，实例化时传入后缀**字符串**即可。
+### DetectSuffix
+
+检测后缀，实例化时传入后缀**字符串**即可。  
+用法：`DetectSuffix(target)` 其中 `target` 是后缀（可以为 `str` 或者 `Iterable[str]`(如`["a", "b"]`)）
 
 ::: tip
 `Quote` 和 `Source` 虽然也在消息链里面，  
 但是他们并不会被去掉哦<Curtain>只有"涩"消失的世界完成了</Curtain>。
 :::
 
+::: details 用法实战
 <h3>用法1</h3>
 
 作为 `Decorator`, 放到 `bcc.receiver` 或 `ListenerSchema` 的 `decorators` 里。
@@ -130,10 +201,14 @@ async def on_message(message: Annotated[MessageChain, DetectSuffix("好涩")]):
     ...
 ```
 
-## MentionMe
+:::
 
-检测在聊天中提到 Bot (At Bot 或以 Bot 群昵称/自己名称 打头)。
+### MentionMe
 
+检测在聊天中提到 Bot (At Bot 或以 Bot 群昵称/自己名称 打头)。  
+用法：`MentionMe()`
+
+::: details 用法实战
 <h3>用法1</h3>
 
 放到 `bcc.receiver` 或 `ListenerSchema` 的 `decorators` 里。
@@ -167,10 +242,14 @@ async def on_mention_me(app: Ariadne, group: Group, member: Member, chain: Annot
     await app.send_message(group, MessageChain(At(member.id), "你叫我", chain, "？"))
 ```
 
-## Mention
+:::
 
-检测在聊天中提到指定的人 (At 指定的人 或以 指定的人 群昵称/名称打头)。
+### Mention
 
+检测在聊天中提到指定的人 (At 指定的人 或以 指定的人 群昵称/名称打头)。  
+用法：`Mention(target)`，其中 `target` 为指定人（可以为 用户名(`str`) 或者 QQ号(`int`)）
+
+::: details 用法实战
 <h3>用法1</h3>
 
 放到 `bcc.receiver` 或 `ListenerSchema` 的 `decorators` 里。
@@ -208,11 +287,14 @@ async def on_mention(app: Ariadne, group: Group, chain: Annotated[MessageChain, 
     ...
 ```
 
-## ContainKeyword
+:::
 
-检测消息链是否包含指定关键字。
+### ContainKeyword
 
-<h3>用法</h3>
+检测消息链是否包含指定关键字。  
+用法：`ContainKeyword(keyword)`，其中 `keyword` 为匹配关键字（`str`）
+
+::: details 用法实战
 
 ```python
 # "今晚一起涩涩吗" "让我涩涩你"
@@ -227,15 +309,18 @@ async def on_contain_keyword(app: Ariadne, group: Group):
     ...
 ```
 
-## MatchContent
+:::
 
-检测消息链是否与对应消息链相等。
+### MatchContent
+
+检测消息链是否与对应消息链相等。  
+用法：`MatchContent(content)`，其中 `content` 为匹配消息（可以为 `str` 或 `MessageChain`）
 
 ::: warning
 注意 Image 等元素的特殊对比规则。
 :::
 
-<h3>用法</h3>
+::: details 用法实战
 
 ```python
 # "[图片]" <- 你控制台天天见的啦
@@ -251,15 +336,18 @@ async def on_match_content(app: Ariadne, group: Group):
     ...
 ```
 
-## MatchRegex
+:::
 
-检测消息链是否匹配指定正则表达式。
+### MatchRegex
+
+检测消息链是否匹配指定正则表达式。  
+用法：`MatchRegex(regex, flags)`，其中 `regex` 为 `str`(正则表达式)，`flags` 为 正则表达式标志（`re.RegexFlag`）（默认为 `0`）
 
 ::: warning
 注意 `[]` 等特殊字符, 因为是使用 `MessageChain.display` 结果作为匹配源的。
 :::
 
-<h3>用法</h3>
+::: details 用法实战
 
 ```python
 # "1" "2" "114514"
@@ -274,7 +362,9 @@ async def on_match_regex(app: Ariadne, group: Group, message: MessageChain):
     ...
 ```
 
-## MatchTemplate
+:::
+
+### MatchTemplate
 
 检测消息链是否匹配指定模板。
 
@@ -282,8 +372,9 @@ async def on_match_regex(app: Ariadne, group: Group, message: MessageChain):
 
 `Plain` 实例与类型会被自动拼接起来
 
-<h3>用法</h3>
+用法：`MatchTemplate(template)`, 其中 `template` 为匹配元素链（详见用法实战）
 
+::: details 用法实战
 放到 `bcc.receiver` 或 `ListenerSchema` 的 `decorators` 里。
 
 ```python
@@ -298,14 +389,17 @@ async def on_match_regex(chain: MessageChain):  # 不会改动消息链
     ...
 ```
 
+:::
+
 ## FuzzyMatch
 
 `FuzzyMatch` 启用了 **模糊匹配** 能力，就算用户打错字了也能识别 (当然中文匹配不大行）
 
 这个只能做一下初筛，所以更建议使用 `FuzzyDispatcher` 哦.
 
-<h3>用法</h3>
+用法：`FuzzyMatch(template, min_rate)`，其中 `template` 为模板(`str`)，`min_rate` 为最低匹配率(`float`,区间为 0 ~ 1)
 
+::: details 用法实战
 放到 `bcc.receiver` 或 `ListenerSchema` 的 `decorators` 里。
 
 ```python
@@ -321,6 +415,8 @@ async def on_fuzzy_match(app: Ariadne, group: Group, chain: MessageChain):  # �
         return
     ...
 ```
+
+:::
 
 ## FuzzyDispatcher
 
