@@ -95,7 +95,7 @@ async def test():
             listening_events=[GroupMessage],
         )
     )
-    async def ero(app: Ariadne, group: Group, message: MessageChain = DetectPrefix("涩")):
+    async def ero(app: Ariadne, group: Group, message: Annotated[MessageChain, DetectPrefix("涩")]):
         # 此时 `message` 参数会自动帮你把开头的“涩”消去
         ...
     ```
