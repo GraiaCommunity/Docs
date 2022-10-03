@@ -25,14 +25,6 @@
 
 ## 凡事都要先安装
 
-::: tip
-假设你之前安装 **Ariadne** 时用的是以下 3 种选项中的一种，那么你可以直接跳过本小节。
-
-- `graia-ariadne[full]`
-- `graia-ariadne[alconna]`
-- `graia-ariadne[graia,alconna]`
-:::
-
 :::: code-group
 ::: code-group-item poetry
 
@@ -44,16 +36,6 @@ poetry add graia-ariadne[alconna]
 ```
 
 :::
-::: code-group-item pip
-
-```bash
-# 顺便选一个输进去就完事了
-pip install arclet-alconna[graia]
-pip install arclet-alconna-graia
-pip install graia-ariadne[alconna]
-```
-
-:::
 ::: code-group-item pdm
 
 ```bash
@@ -61,6 +43,16 @@ pip install graia-ariadne[alconna]
 pdm add arclet-alconna[graia]
 pdm add arclet-alconna-graia
 pdm add graia-ariadne[alconna]
+```
+
+:::
+::: code-group-item pip
+
+```bash
+# 顺便选一个输进去就完事了
+pip install arclet-alconna[graia]
+pip install arclet-alconna-graia
+pip install graia-ariadne[alconna]
 ```
 
 :::

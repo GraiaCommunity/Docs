@@ -116,9 +116,7 @@ poetry add graia-ariadne[standard]
 
    - graia-ariadne[graia]
      - graia-saya —— 模块化（[第 3 章](/guide/saya.md)）
-     - graia-scheduler —— 定时任务（[第 12 章](/guide/scheduler.md)）
-   - graia-ariadne[alconna]
-     - arclet-alconna-graia —— 消息链处理器（[第 8 章第 4 节](/guide/message_parser/alconna.md)）
+     - graia-scheduler —— 定时任务（[第 12 章](/guide/scheduler.md)））
    - graia-ariadne[standard]
      - richuru
      - graia-saya —— 模块化（[第 3 章](/guide/saya.md)）
@@ -127,9 +125,9 @@ poetry add graia-ariadne[standard]
      - richuru
      - graia-saya —— 模块化（[第 3 章](/guide/saya.md)）
      - graia-scheduler —— 定时任务（[第 12 章](/guide/scheduler.md)）
-     - arclet-alconna-graia —— 消息链处理器（[第 8 章第 4 节](/guide/message_parser/alconna.md)）
-
-   而 `graia-ariadne[full]` 则会安装以上所有非必要组件。
+   - graia-ariadne[fastapi]
+     - uvicorn[standard]
+     - fastapi
 
 2. 假设你不怎么喜欢整虚拟环境也可以使用如下命令来取消虚拟环境的创建。
 
