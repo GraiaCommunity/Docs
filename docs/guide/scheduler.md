@@ -22,14 +22,14 @@
 想想就得劲<Curtain>虽然一个 At 跟语音八成不能成功叫你起床</Curtain>。  
 那么，就开始我们今天的艺术创想吧（bushi）
 
-## 什么是 `Graia-Scheduler`？
+## 什么是 Graia Scheduler？
 
-`Graia-Scheduler` 是一个基于 asyncio，设计简洁，代码简单的计划任务库。
+**Graia Scheduler** 是一个基于 asyncio，设计简洁，代码简单的计划任务库。
 
-## 安装 `Graia-Scheduler`
+## 安装 Graia Scheduler
 
 ::: tip 注意
-在写本章文档的时候，`Graia-Scheduler` 的版本为 `0.0.7`  
+在写本章文档的时候，**Graia Scheduler** 的版本为 `0.0.7`  
 而最新版本为 <img src="https://img.shields.io/pypi/v/graia-scheduler?color=2970b6&amp;style=flat-square" alt="PyPI版本" style="vertical-align: middle">
 :::
 
@@ -57,7 +57,7 @@ pip install graia-scheduler
 
 ::::
 
-## 初始化 `Graia-Scheduler`
+## 初始化 Graia Scheduler
 
 在你的代码中加入这些：
 
