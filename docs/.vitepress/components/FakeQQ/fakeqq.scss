@@ -89,21 +89,21 @@
   background: transparent;
 }
 
-.fakeqq-message__bubble-arrow {
-  position: absolute;
-  top: 10px;
-  border-top: 10px solid var(--vp-c-bg);
+// .fakeqq-message__bubble-arrow {
+//   position: absolute;
+//   top: 10px;
+//   border-top: 10px solid var(--vp-c-bg);
 
-  .fakeqq-message.left & {
-    left: -8px;
-    border-left: 10px solid transparent;
-  }
+//   .fakeqq-message.left & {
+//     left: -8px;
+//     border-left: 10px solid transparent;
+//   }
 
-  .fakeqq-message.right & {
-    right: -8px;
-    border-right: 10px solid transparent;
-  }
-}
+//   .fakeqq-message.right & {
+//     right: -8px;
+//     border-right: 10px solid transparent;
+//   }
+// }
 
 .fakeqq-message__bubble {
   position: relative;
@@ -130,9 +130,9 @@
     background-color: #0098fe;
     color: #fff;
 
-    .fakeqq-message__bubble-arrow {
-      border-top-color: #0098fe;
-    }
+    // .fakeqq-message__bubble-arrow {
+    //   border-top-color: #0098fe;
+    // }
 
     .fakeqq-message__quote {
       background-color: #1fa4ff;
@@ -143,9 +143,9 @@
     background-color: var(--vp-c-bg);
     color: #fff;
 
-    .fakeqq-message__bubble-arrow {
-      border-top-color: var(--vp-c-bg);
-    }
+    // .fakeqq-message__bubble-arrow {
+    //   border-top-color: var(--vp-c-bg);
+    // }
 
     .fakeqq-message__quote {
       background-color: var(--vp-c-bg-mute);
