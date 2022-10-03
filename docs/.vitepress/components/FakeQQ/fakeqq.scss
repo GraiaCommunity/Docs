@@ -156,7 +156,7 @@
 .fakeqq-message__bubble.forward {
   min-width: 230px;
   padding-bottom: 5px;
-  border-bottom: 1.8em solid #f7f7f7;
+  border-bottom: 30px solid #f7f7f7;
   overflow-wrap: break-word;
 
   html.dark & {
@@ -198,7 +198,8 @@
 
 .fakeqq-forward__count {
   position: absolute;
-  bottom: -2.2em;
+  line-height: 30px;
+  bottom: -30px;
 }
 
 .fakeqq-file__content {
