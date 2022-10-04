@@ -6,12 +6,14 @@ module.exports = {
     es2021: true,
   },
 
+  plugins: ['prettier', 'vue'],
+
   extends: [
     'eslint:recommended',
+    'eslint-config-prettier',
     '@vue/typescript/recommended',
     'plugin:vue/vue3-recommended',
     'plugin:prettier/recommended',
-    '@vue/eslint-config-prettier',
   ],
 
   parserOptions: {
@@ -21,16 +23,18 @@ module.exports = {
     },
   },
 
+  rules: {
+    'prettier/prettier': 'warn',
+  },
+
   overrides: [
     {
       files: ['*.js', '*.jsx'],
       rules: {
-        'no-undef': 'off',
         'no-var': 'error',
         'no-useless-return': 'error',
         'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
         'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
-        'vue/multi-word-component-names': 'off',
       },
     },
     {
@@ -39,7 +43,6 @@ module.exports = {
         project: ['tsconfig.json'],
       },
       rules: {
-        'no-undef': 'off',
         'no-var': 'error',
         'no-useless-return': 'error',
         'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
@@ -56,7 +59,6 @@ module.exports = {
       rules: {
         '@typescript-eslint/no-unused-vars': 'off', // disable for setup script
         'vue/require-default-prop': 'off',
-        'vue/multi-word-component-names': 'off',
       },
     },
     {

@@ -30,10 +30,7 @@
 
 <template>
   <div class="fakeqq-message" :class="[onright ? 'right' : 'left']">
-    <div
-      :style="{ 'background-image': `url(${avatar})` }"
-      class="fakeqq-message__avatar"
-    ></div>
+    <div :style="{ 'background-image': `url(${avatar})` }" class="fakeqq-message__avatar"></div>
     <div class="fakeqq-message__content">
       <div class="fakeqq-message__name">{{ name }}</div>
       <div class="fakeqq-message__bubble forward">

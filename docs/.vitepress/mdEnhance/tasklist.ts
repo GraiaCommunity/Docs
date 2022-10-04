@@ -45,11 +45,7 @@ export const tasklistPlugin: PluginWithOptions = (md) => {
         todoify(tokens[i], lastId, defaultConfig, state.Token)
         lastId += 1
         attrSet(tokens[i - 2], 'class', defaultConfig.liClass)
-        attrSet(
-          tokens[parentToken(tokens, i - 2)],
-          'class',
-          defaultConfig.ulClass
-        )
+        attrSet(tokens[parentToken(tokens, i - 2)], 'class', defaultConfig.ulClass)
       }
     }
   })
@@ -140,10 +136,7 @@ function endLabel(TokenConstructor: typeof Token) {
 
 // these next two functions are kind of hacky; probably should really be a
 // true block-level token with .tag=='label'
-function beginWrap(
-  options: typeof defaultConfig,
-  TokenConstructor: typeof Token
-) {
+function beginWrap(options: typeof defaultConfig, TokenConstructor: typeof Token) {
   const token = new TokenConstructor('checkbox_open', 'div', 0)
   token.attrs = [['class', options.divClass]]
   return token

@@ -89,8 +89,7 @@ const startsWithTodoMarkdown = (token: Token): boolean =>
 const getParentTokenIndex = (tokens: Token[], index: number): number => {
   const targetLevel = tokens[index].level - 1
 
-  for (let i = index - 1; i >= 0; i--)
-    if (tokens[i].level === targetLevel) return i
+  for (let i = index - 1; i >= 0; i--) if (tokens[i].level === targetLevel) return i
 
   return -1
 }
@@ -104,11 +103,9 @@ const setTokenAttr = (token: Token, name: string, value: string): void => {
   else token.attrs[index] = attr
 }
 
-const isParagraphToken = (token?: Token): boolean =>
-  token?.type === 'paragraph_open'
+const isParagraphToken = (token?: Token): boolean => token?.type === 'paragraph_open'
 
-const isListItemToken = (token?: Token): boolean =>
-  token?.type === 'list_item_open'
+const isListItemToken = (token?: Token): boolean => token?.type === 'list_item_open'
 
 const isInlineToken = (token?: Token): boolean => token?.type === 'inline'
 
@@ -141,8 +138,7 @@ const generateCheckbox = (token: Token, id: string, disabled = true): Token => {
   ]
 
   // if token.content starts with '[x] ' or '[X] '
-  if (/^\[[xX]\][ \u00A0]/.test(token.content))
-    checkbox.attrs.push(['checked', 'checked'])
+  if (/^\[[xX]\][ \u00A0]/.test(token.content)) checkbox.attrs.push(['checked', 'checked'])
 
   if (disabled) checkbox.attrs.push(['disabled', 'disabled'])
 
@@ -174,27 +170,19 @@ export const tasklistPlugin: PluginWithOptions<TaskListOptions> = (
   md,
   { disabled = true, label = true } = {}
 ) => {
-  md.core.ruler.after(
-    'inline',
-    'github-task-lists',
-    (state: TaskListStateCore) => {
-      const tokens = state.tokens
+  md.core.ruler.after('inline', 'github-task-lists', (state: TaskListStateCore) => {
+    const tokens = state.tokens
 
-      if (!state.env.tasklists) state.env.tasklists = 0
+    if (!state.env.tasklists) state.env.tasklists = 0
 
-      for (let i = 2; i < tokens.length; i++) {
-        if (isTaskListItem(tokens, i)) {
-          todoify(tokens[i], state, { disabled, label })
-          setTokenAttr(tokens[i - 2], 'class', 'task-list-item')
-          setTokenAttr(
-            tokens[getParentTokenIndex(tokens, i - 2)],
-            'class',
-            'task-list-container'
-          )
-        }
+    for (let i = 2; i < tokens.length; i++) {
+      if (isTaskListItem(tokens, i)) {
+        todoify(tokens[i], state, { disabled, label })
+        setTokenAttr(tokens[i - 2], 'class', 'task-list-item')
+        setTokenAttr(tokens[getParentTokenIndex(tokens, i - 2)], 'class', 'task-list-container')
       }
-
-      return true
     }
-  )
+
+    return true
+  })
 }

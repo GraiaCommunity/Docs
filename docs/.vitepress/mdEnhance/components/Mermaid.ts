@@ -30,15 +30,7 @@
  *
  */
 
-import {
-  defineComponent,
-  h,
-  nextTick,
-  onBeforeUnmount,
-  onMounted,
-  ref,
-  watch,
-} from 'vue'
+import { defineComponent, h, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import { LoadingIcon } from './Icons'
 
 import type { VNode } from 'vue'
@@ -119,8 +111,7 @@ export default defineComponent({
       const code = decodeURIComponent(props.code)
 
       const getDarkmodeStatus = (): boolean =>
-        html.classList.contains('dark') ||
-        html.getAttribute('data-theme') === 'dark'
+        html.classList.contains('dark') || html.getAttribute('data-theme') === 'dark'
 
       // FIXME: Should correct handle dark selector
       isDarkmode.value = getDarkmodeStatus()

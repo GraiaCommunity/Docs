@@ -1,6 +1,6 @@
 module.exports = {
   // Maximum line length
-  printWidth: 80,
+  printWidth: 100,
 
   // Specify the number of spaces per indentation-level
   tabWidth: 2,
@@ -36,12 +36,6 @@ module.exports = {
   rangeStart: 0,
   rangeEnd: Infinity,
 
-  // Specify which parser to use.
-  // parser: undefined,
-
-  // Specify the file name to use to infer which parser to use.
-  // filepath: undefined,
-
   // Prettier can restrict itself to only format files that contain a special comment, called a pragma, at the top of the file.
   requirePragma: false,
 
@@ -56,9 +50,6 @@ module.exports = {
 
   // Whether or not to indent the code inside <script> and <style> tags in Vue files
   vueIndentScriptAndStyle: false,
-
-  // End of line
-  endOfLine: 'lf',
 
   // Control whether Prettier formats quoted code embedded in the file
   embeddedLanguageFormatting: 'auto',

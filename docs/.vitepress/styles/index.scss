@@ -14,17 +14,13 @@
   --vp-c-brand-lighter: #60b2ae;
   --vp-c-brand-dark: #156e69;
   --vp-c-brand-darker: #084845;
-  --vp-font-family-base: 'HarmonyOS Sans SC', 'HarmonyOS Sans', -apple-system,
-    BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, 'Fira Sans', 'Droid Sans',
-    'Helvetica Neue', Microsoft YaHei, sans-serif;
+  --vp-font-family-base: 'HarmonyOS Sans SC', 'HarmonyOS Sans', -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Oxygen, Ubuntu, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Microsoft YaHei,
+    sans-serif;
 }
 
 html {
   scroll-behavior: smooth;
-}
-
-code {
-  overflow-wrap: break-word;
 }
 
 // 滑稽表情

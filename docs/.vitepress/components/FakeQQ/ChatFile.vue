@@ -40,11 +40,7 @@
     </div>
     <div class="fakeqq-message__content">
       <div class="fakeqq-message__name">{{ name }}</div>
-      <a
-        ref="file"
-        target="_blank"
-        style="text-decoration: none; color: var(--vp-c-text-1)"
-      >
+      <a ref="file" target="_blank" style="text-decoration: none; color: var(--vp-c-text-1)">
         <div class="fakeqq-message__bubble" style="cursor: pointer">
           <div class="fakeqq-message__bubble-arrow"></div>
           <div class="fakeqq-file__content">

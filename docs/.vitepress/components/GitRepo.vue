@@ -26,9 +26,7 @@
             0 00-.25-.25h-3.5a.25.25 0 00-.25.25z"
           />
         </svg>
-        <a
-          :href="href ? href : `https://github.com/${user}/${repo}`"
-          target="_blank"
+        <a :href="href ? href : `https://github.com/${user}/${repo}`" target="_blank"
           >{{ user }}/{{ repo }}</a
         >
       </div>
@@ -37,10 +35,7 @@
       </p>
       <p class="repo-meta">
         <span class="repo-meta-lang">
-          <span
-            class="repo-meta-lang-ico"
-            style="background-color: #3572a5"
-          ></span>
+          <span class="repo-meta-lang-ico" style="background-color: #3572a5"></span>
           Python ←.← 废话
         </span>
       </p>

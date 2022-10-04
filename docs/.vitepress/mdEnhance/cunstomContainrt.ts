@@ -43,11 +43,7 @@ export const containerPlugin = (md: MarkdownIt) => {
 
 type ContainerArgs = [typeof container, string, { render: RenderRule }]
 
-function createContainer(
-  klass: string,
-  defaultTitle: string,
-  md: MarkdownIt
-): ContainerArgs {
+function createContainer(klass: string, defaultTitle: string, md: MarkdownIt): ContainerArgs {
   return [
     container,
     klass,

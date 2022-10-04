@@ -76,16 +76,11 @@ const { Layout } = DefaultTheme
         </p>
         <div class="ccbyncsa">
           本文档使用
-          <a
-            href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh"
-            target="_blank"
-          >
+          <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">
             CC BY-NC-SA 4.0
           </a>
           协议进行共享，详情见
-          <a href="https://github.com/GraiaCommunity/Docs" target="_blank"
-            >README</a
-          >。
+          <a href="https://github.com/GraiaCommunity/Docs" target="_blank">README</a>。
         </div>
       </div>
     </template>

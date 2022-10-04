@@ -34,10 +34,7 @@ const Fontmin = require('fontmin') // 不可转为 import
 const originPath = 'docs/'
 const ignoreDirs = ['dist', 'public', '.DS_Store']
 const outPath = 'docs/public/fonts/'
-const fonts = [
-  'fonts/HarmonyOS_Sans_SC_Bold.ttf',
-  'fonts/HarmonyOS_Sans_SC_Regular.ttf',
-]
+const fonts = ['fonts/HarmonyOS_Sans_SC_Bold.ttf', 'fonts/HarmonyOS_Sans_SC_Regular.ttf']
 
 let content = ''
 

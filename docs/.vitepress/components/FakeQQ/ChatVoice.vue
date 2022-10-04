@@ -40,11 +40,7 @@
     </div>
     <div class="fakeqq-message__content">
       <div class="fakeqq-message__name">{{ name }}</div>
-      <div
-        class="fakeqq-message__bubble"
-        :onclick="playVoice"
-        style="cursor: pointer"
-      >
+      <div class="fakeqq-message__bubble" :onclick="playVoice" style="cursor: pointer">
         <div class="fakeqq-message__bubble-arrow"></div>
         <div class="fakeqq-voice">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
@@ -53,12 +49,7 @@
               d="M35.5,25.324,20.512,14.575a1,1,0,0,0-1.589.815v21.5a1,1,0,0,0,1.589.816L35.5,26.955a1,1,0,0,0,.237-1.394A.988.988,0,0,0,35.5,25.324Z"
             />
           </svg>
-          <audio
-            ref="audio"
-            :src="audio"
-            @ended="reset"
-            @loadedmetadata="onLoadedmetadata"
-          ></audio>
+          <audio ref="audio" :src="audio" @ended="reset" @loadedmetadata="onLoadedmetadata"></audio>
           <span class="fakeqq-voice__bar">
             <span
               v-for="line in getLineCount(duration)"
@@ -96,8 +87,7 @@ export default defineComponent({
     getLineCount: function (num: number) {
       const lineArray = []
       num = num / 1.5
-      if (num < 5)
-        return [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }, { id: 5 }]
+      if (num < 5) return [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }, { id: 5 }]
       for (let i = 0; i <= num; i++) {
         if (i >= 25) {
           break

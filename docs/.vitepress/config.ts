@@ -12,23 +12,18 @@ export default defineConfig({
 
   head: [
     ['link', { rel: 'shortcut icon', href: '/favicon.png' }],
-    [
-      'script',
-      { src: 'https://cdn.bootcdn.net/ajax/libs/mermaid/9.1.6/mermaid.min.js' },
-    ],
+    ['script', { src: 'https://cdn.bootcdn.net/ajax/libs/mermaid/9.1.7/mermaid.min.js' }],
   ],
 
   themeConfig: {
-    logo: '/logo.svg', // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    nav: nav(), // @ts-ignore
+    logo: '/logo.svg',
+    nav: nav(),
     sidebar: sidebarGuide(),
     editLink: {
       pattern: 'https://github.com/GraiaCommunity/Docs/edit/vitepress/docs/:path',
       text: '在 GitHub 上编辑此页',
     },
-    socialLinks: [
-      { icon: 'github', link: 'https://github.com/GraiaCommunity/Docs' },
-    ],
+    socialLinks: [{ icon: 'github', link: 'https://github.com/GraiaCommunity/Docs' }],
     footer: {
       message: 'MIT License',
       copyright: 'Copyright © 2022 Graia Community',

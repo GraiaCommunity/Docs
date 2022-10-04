@@ -19,19 +19,18 @@
     "lint:fix": "eslint --fix --color --ext .js,.ts,.jsx,.tsx,.vue .",
     "style": "prettier -c .",
     "style:fix": "prettier -w .",
-    "minfont": "node scripts/minfont.js"
+    "minfont": "node scripts/minfont.cjs"
   },
   "devDependencies": {
-    "@rushstack/eslint-patch": "^1.2.0",
     "@types/hash-sum": "^1.0.0",
     "@types/markdown-it": "^12.2.3",
     "@types/markdown-it-container": "^2.0.5",
     "@types/mermaid": "^9.1.0",
-    "@vue/eslint-config-prettier": "^7.0.0",
     "@vue/eslint-config-typescript": "^11.0.2",
     "eslint": "^8.24.0",
+    "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
-    "eslint-plugin-vue": "^9.5.1",
+    "eslint-plugin-vue": "^9.6.0",
     "fontmin": "^0.9.9",
     "hash-sum": "^2.0.0",
     "markdown-it": "^13.0.1",
@@ -42,7 +41,7 @@
     "sass": "^1.55.0",
     "typescript": "^4.8.4",
     "vite-plugin-compression": "^0.5.1",
-    "vitepress": "1.0.0-alpha.17",
+    "vitepress": "1.0.0-alpha.19",
     "vue": "^3.2.40"
   },
   "pnpm": {
