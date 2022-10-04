@@ -42,6 +42,9 @@ module.exports = {
   // Prettier can insert a special @format marker at the top of files specifying that the file has been formatted with prettier.
   insertPragma: false,
 
+  // End of line
+  endOfLine: 'lf',
+
   // By default, Prettier will wrap markdown text as-is since some services use a line-break-sensitive renderer, e.g. GitHub comment and BitBucket.
   proseWrap: 'preserve',
 
