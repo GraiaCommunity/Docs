@@ -23,7 +23,7 @@ export default defineConfig({
     nav: nav(), // @ts-ignore
     sidebar: sidebarGuide(),
     editLink: {
-      pattern: 'https://github.com/GraiaCommunity/Docs/edit/main/docs/:path',
+      pattern: 'https://github.com/GraiaCommunity/Docs/edit/vitepress/docs/:path',
       text: '在 GitHub 上编辑此页',
     },
     socialLinks: [
@@ -85,9 +85,9 @@ function sidebarGuide() {
         },
         { text: '好大的奶', link: '/guide/forward_message' },
         { text: '来点网上的涩图', link: '/guide/image_from_internet' },
-        { text: '来点 xxx 涩图', link: '/guide/message_parser/' },
         {
           text: '来点 xxx 涩图',
+          link: '/guide/message_parser/',
           items: [
             { text: '消息链匹配器', link: '/guide/message_parser/base_parser' },
             { text: 'Twilight', link: '/guide/message_parser/twilight' },
