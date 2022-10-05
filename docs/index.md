@@ -13,8 +13,8 @@ hero:
           text: 快速开始
           link: /before/
         - theme: alt
-          text: 在 GitHub 上查看
-          link: https://github.com/GraiaCommunity/Docs
+          text: Graia 官方文档
+          link: https://graia.cn
 
 features:
     - title: 简洁而强大
@@ -32,6 +32,12 @@ footer: MIT Licensed | Copyright © 2022 Graia Community
 ::: warning 注意
 本文档所属项目为 Graia Community 自主发起，与 Graia Project 无任何直属关系。
 本文档内容不代表 Graia Project 维护者的任何意图与目的，其由社区共同进行维护。
+:::
+
+::: interlink 镜像地址列表
+默认: <https://graiax.cn>
+A60: <https://graiax.aunly.cn>
+Netlify: <https://graiax-doc.netlify.app>
 :::
 
 </div>
