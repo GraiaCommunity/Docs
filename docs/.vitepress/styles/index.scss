@@ -33,6 +33,77 @@ html {
 @font-face {
   font-family: 'HarmonyOSHans';
   src: url('/fonts/HarmonyOSHans.woff2') format('woff2');
-  font-style: normal;
   font-display: swap;
+}
+
+@font-face {
+  font-family: 'HarmonyOSHans';
+  src: url('/fonts/HarmonyOSHans.woff2') format('woff2');
+  font-weight: 100;
+  font-display: swap;
+  font-variation-settings: 'wght' 100;
+}
+
+@font-face {
+  font-family: 'HarmonyOSHans';
+  src: url('/fonts/HarmonyOSHans.woff2') format('woff2');
+  font-weight: 200;
+  font-display: swap;
+  font-variation-settings: 'wght' 200;
+}
+
+@font-face {
+  font-family: 'HarmonyOSHans';
+  src: url('/fonts/HarmonyOSHans.woff2') format('woff2');
+  font-weight: 300;
+  font-display: swap;
+  font-variation-settings: 'wght' 300;
+}
+
+@font-face {
+  font-family: 'HarmonyOSHans';
+  src: url('/fonts/HarmonyOSHans.woff2') format('woff2');
+  font-weight: 400;
+  font-display: swap;
+  font-variation-settings: 'wght' 400;
+}
+
+@font-face {
+  font-family: 'HarmonyOSHans';
+  src: url('/fonts/HarmonyOSHans.woff2') format('woff2');
+  font-weight: 500;
+  font-display: swap;
+  font-variation-settings: 'wght' 500;
+}
+
+@font-face {
+  font-family: 'HarmonyOSHans';
+  src: url('/fonts/HarmonyOSHans.woff2') format('woff2');
+  font-weight: 600;
+  font-display: swap;
+  font-variation-settings: 'wght' 600;
+}
+
+@font-face {
+  font-family: 'HarmonyOSHans';
+  src: url('/fonts/HarmonyOSHans.woff2') format('woff2');
+  font-weight: 700;
+  font-display: swap;
+  font-variation-settings: 'wght' 700;
+}
+
+@font-face {
+  font-family: 'HarmonyOSHans';
+  src: url('/fonts/HarmonyOSHans.woff2') format('woff2');
+  font-weight: 800;
+  font-display: swap;
+  font-variation-settings: 'wght' 800;
+}
+
+@font-face {
+  font-family: 'HarmonyOSHans';
+  src: url('/fonts/HarmonyOSHans.woff2') format('woff2');
+  font-weight: 900;
+  font-display: swap;
+  font-variation-settings: 'wght' 900;
 }
