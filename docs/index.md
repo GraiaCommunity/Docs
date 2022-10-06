@@ -27,7 +27,7 @@ features:
 footer: MIT Licensed | Copyright © 2022 Graia Community
 ---
 
-<div class="home">
+<div class="home"><div class="container">
 
 ::: warning 注意
 本文档所属项目为 Graia Community 自主发起，与 Graia Project 无任何直属关系。
@@ -35,25 +35,27 @@ footer: MIT Licensed | Copyright © 2022 Graia Community
 :::
 
 ::: interlink 镜像地址列表
-默认: <https://graiax.cn>
-A60: <https://graiax.aunly.cn>
+默认: <https://graiax.cn>  
+A60: <https://graiax.aunly.cn>  
 Netlify: <https://graiax-doc.netlify.app>
 :::
 
-</div>
+</div></div>
 
 <style>
 .home {
   display: flex;
   justify-content: center;
   padding: 0 24px;
-  margin-top: 16px
-
 }
 
-.home > div {
+.container {
   width: 100%;
   max-width: 1152px;
+}
+
+.container > div {
+  margin: 16px 0;
 }
 
 @media (min-width: 640px) {
