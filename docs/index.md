@@ -42,20 +42,20 @@ Netlify: <https://graiax-doc.netlify.app>
 
 </div></div>
 
-<style>
+<style lang="scss" scoped>
 .home {
   display: flex;
   justify-content: center;
   padding: 0 24px;
-}
 
-.container {
-  width: 100%;
-  max-width: 1152px;
-}
+  .container {
+    width: 100%;
+    max-width: 1152px;
+  }
 
-.container > div {
-  margin: 16px 0;
+  .container > div {
+    margin: 16px 0;
+  }
 }
 
 @media (min-width: 640px) {
@@ -63,6 +63,7 @@ Netlify: <https://graiax-doc.netlify.app>
     padding: 0 48px;
   }
 }
+
 @media (min-width: 960px) {
   .home {
     padding: 0 64px;

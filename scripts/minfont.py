@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-minfont.js 的 Python 版，速度没有 minfont.js 的快，但生成的字体文件大小更小
+minfont.js 的 Python 版，速度比 minfont.js 快，支持可变字体，且生成的字体文件大小更小
 
 MIT License
 
@@ -31,17 +31,18 @@ SOFTWARE
 """
 
 import os
-from os.path import basename, exists, join
+from os.path import basename
+from pathlib import Path
 
 from fontTools import subset
 from fontTools.ttLib import TTFont
 
-origin_path = join('docs')
+origin_path = Path('docs')
 ignore_dirs = ['dist', 'public', '.DS_Store']
-out_path = join('docs', 'public', 'fonts')
+out_path = Path('docs', 'public', 'fonts')
+fonts_path = Path('fonts')
 fonts = [
-    join('fonts', 'HarmonyOS_Sans_SC_Bold.ttf'),
-    join('fonts', 'HarmonyOS_Sans_SC_Regular.ttf'),
+    'HarmonyOSHans.ttf',
 ]
 
 content = ''
@@ -54,13 +55,15 @@ def read(path):
             dirs[:] = []  # 忽略当前目录下的子目录
             continue
         for f in files:
-            print(f'正在读取 {join(root, f)}')
-            with open(join(root, f), 'r', encoding='utf8') as file:
-                while True:
-                    if char := file.read(1):
-                        content += f'{char}\n'
-                    else:
-                        break
+            file_path = Path(root, f)
+            print(f'正在读取 {file_path}')
+            file_content = file_path.read_text(encoding='utf8')
+            file_content = (
+                file_content.replace('\r\n', '').replace('\n', '').replace('\r', '')
+            )
+            content += '\n'.join(file_content)
+            content += '\n'
+    content += ' \n \n \n '
 
 
 print('读取文件中...')
@@ -68,13 +71,12 @@ read(origin_path)
 
 for font in fonts:
     print(f'正在处理 {font}')
-    if not exists(out_path):
-        os.mkdir(out_path)
-    f = TTFont(font)
+    out_path.mkdir(parents=True, exist_ok=True)
+    f = TTFont(fonts_path / font)
 
     subsetter = subset.Subsetter()
 
-    subsetter.populate(text=content)
+    subsetter.populate(text=content.rstrip())
     subsetter.subset(f)
     f.flavor = 'woff2'
-    f.save(join(out_path, font.replace(".ttf", ".woff2")))
+    f.save(out_path / font.replace(".ttf", ".woff2"))
