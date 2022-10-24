@@ -4,13 +4,14 @@
 假设你想要把你的仓库也写在这了，欢迎 PR  
 （以下仓库排名不分先后）
 
-列在此处 Bot 的基本标准：
+列在此处的 Bot 所需要达到的基本标准：
 
 - 使用 `pyproject.toml` 作为项目依赖及元数据存储文件
-- 使用 `Saya` 作为模块管理工具
-- 代码使用 `isort` `black` 等格式化工具
-- 代码风格基本符合 `PEP 8` 建议
+- 使用 [**Saya**](https://github.com/GraiaProject/Saya) 作为模块管理工具
+- 代码使用 [**isort**](https://pycqa.github.io/isort/)、[**Black**](https://github.com/psf/black) 等格式化工具
+- 代码风格基本符合 **PEP 8** 建议
 - 核心功能均可在本地部署
+
 :::
 
 <div class="bot-repo">
