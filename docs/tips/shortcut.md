@@ -13,7 +13,7 @@
 ::: danger 警告
 **Saya Util** 目前仅适用于替代 `graia.saya.builtin.broadcast.ListenerSchema`。
 
-如果你需要使用其他例如 `ScheduleSchema`、`ConsoleSchema` 等元信息模板（Schema，在[此处](../guide/saya.md#saya-是什么)提及过），
+如果你需要使用其他例如 `SchedulerSchema`、`ConsoleSchema` 等元信息模板（Schema，在[此处](../guide/saya.md#saya-是什么)提及过），
 那么你目前仍需要以 `@channel.use(...)` 的方法使用。
 :::
 
