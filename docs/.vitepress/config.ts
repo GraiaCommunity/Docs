@@ -28,6 +28,11 @@ export default defineConfig({
       message: 'MIT License',
       copyright: 'Copyright © 2022 Graia Community',
     },
+    algolia: {
+      appId: 'VA229YZAO1',
+      apiKey: '91fa3eb8adfd68b9adda9a7495c45944',
+      indexName: 'graiax'
+    },
   },
 
   markdown: {
