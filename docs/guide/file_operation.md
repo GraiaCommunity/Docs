@@ -42,7 +42,7 @@ from graia.ariadne.message.parser.base import DetectPrefix
 @channel.use(
     ListenerSchema(
         listening_events=[GroupMessage],
-        decorators=[DetectPrefix("涩图来 {tag}")]
+        decorators=[DetectPrefix("涩图来")]
     )
 )
 async def upload_file(app: Ariadne, group: Group, message: MessageChain):
