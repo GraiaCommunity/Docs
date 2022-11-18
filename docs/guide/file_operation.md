@@ -33,19 +33,20 @@
 
 首先，又到了我们经典的举例子时间~
 
-```python{18}
+```python{18-20}
 ...
-from graia.ariadne.message.parser.twilight import MatchResult
+import aiohttp
+from graia.ariadne.message.parser.base import DetectPrefix
 
 
 @channel.use(
     ListenerSchema(
         listening_events=[GroupMessage],
-        decorators=[Twilight.from_command("涩图来 {tag}")]
+        decorators=[DetectPrefix("涩图来 {tag}")]
     )
 )
-async def upload_file(app: Ariadne, group: Group, tag: MatchResult):
-    if tag.result.display != "紧身衣":
+async def upload_file(app: Ariadne, group: Group, message: MessageChain):
+    if str(message) != "紧身衣":
         return  # 因为这只是一个简单的教程，所以我们就指定tag好了
 
     # 破天荒出现的秘密文件desu
