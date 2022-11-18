@@ -135,7 +135,7 @@ pip install prompt-toolkit
 ```python
 from graia.ariadne.app import Ariadne
 from graia.ariadne.console.saya import ConsoleSchema
-from graia.ariadne.message.parser.twilight import MatchResult, ParamMatch, Twilight
+from graia.ariadne.message.parser.twilight import MatchResult, Twilight
 from graia.saya import Channel
 
 channel = Channel.current()
@@ -169,7 +169,7 @@ async def console_chat(app: Ariadne, id: MatchResult, message: MatchResult):
 from graia.ariadne.app import Ariadne
 from graia.ariadne.console import Console
 from graia.ariadne.console.saya import ConsoleSchema
-from graia.ariadne.message.parser.base import FullMatch, Twilight
+from graia.ariadne.message.parser.base import MatchContent
 from graia.saya import Channel
 
 channel = Channel.current()
