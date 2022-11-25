@@ -59,7 +59,7 @@ jobs:
 
       - name: Upload dist
         run: |
-          coscmd config -a ${{ secrets.SecretId }} -s ${{ secrets.SecretKey }} -b graiax-1302360504 -r ap-hongkong
+          coscmd config -a ${{ secrets.SecretId }} -s ${{ secrets.SecretKey }} -b graiax-1257296418 -r ap-hongkong
           coscmd upload -rs --delete -y dist/ /
 
   upload2a60:
