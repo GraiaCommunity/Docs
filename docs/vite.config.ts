@@ -1,10 +1,9 @@
-// 由于 Pnpm 和 VitePress 的关系，不可以手动安装 vite 依赖，否则会报错
-// import { defineConfig } from 'vite'
+import { defineConfig } from 'vite'
 import viteCompression from 'vite-plugin-compression'
 import externalGlobals from 'rollup-plugin-external-globals'
 
 // https://cn.vitejs.dev/config/
-export default {
+export default defineConfig({
   plugins: [
     viteCompression({
       verbose: true,
@@ -30,4 +29,4 @@ export default {
       plugins: [externalGlobals({ mermaid: 'mermaid' })],
     },
   },
-}
+})
