@@ -1,29 +1,7 @@
-# 你可能会遇到的一些奇奇怪怪的小问题
+# Termux 安装 Uvicorn 时出错
 
-本节专门来讲解一些不怎么常见的问题。  
-因为这些问题的受众面比较小，所以就在这里给大家汇总一下。
-
-::: tsukkomi
-某些问题，可能跟 GraiaProject 的库没有任何关系，
-仅仅是因为你**有可能**会在机器人上遇到才写上去的
-:::
-
-## Graia 相关
-
-### Termux 安装 uvloop 时出错
-
-::: tip
-Ariadne 自 0.6.1 版本起添加了 `Reverse Adapter`（反向 HTTP / WebSockets 适配器），假设你并不需要 `ReverseAdapter`，
-你可以在安装时直接把 `graia-ariadne[full]` 换成以下 2 种中的一种：
-
-- `graia-ariadne[graia]`
-- `graia-ariadne[graia,alconna]`
-:::
-
-假设你想要在 Termux 上跑 bot，你可能会在执行 `poetry add graia-ariadne[full]` 的过程中出现错误。
-
-这是因为通过 **full** 选项安装 Ariadne 时会自动安装 `Reverse Adapter` 所需要的 `uvicorn` 这个依赖，
-而 `uvicorn` 在 Linux / Unix 环境下会安装 `uvloop`。
+假设你想要在 Termux 上安装 **Uvicorn**的过程中出现错误。这是因为
+**Uvicorn** 在 Linux / Unix 环境下会安装 **uvloop**。
 
 但是直到 uvloop 0.16.0，由于 Termux 中存在一些兼容性的问题，
 所以不能通过 `pip install uvloop` 或 `poetry add uvloop` 之类的便捷方法来安装，否则会报错。（[相关问题](https://github.com/MagicStack/uvloop/issues/260)）

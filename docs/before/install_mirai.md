@@ -28,7 +28,7 @@ Python 也有如 “PyPy” 之类的其他解释器，所以，Java 也有很�
 ::: code-group-item Windows
 
 ```powershell
-# 请注意，只有 Windows 10 1709 及以上或 Windows 11 才自带 winget 命令
+# 请注意，只有 Windows 10 1709 （非 LTS 版）及以上或 Windows 11 才自带 winget 命令
 # 事实上，截至目前，winget 的默认仓库中有足足 7 个来自不同厂商的 OpenJDK
 # 这里就用 Windows 发行商 Microsoft 发行的 JDK 举例
 winget install Microsoft.OpenJDK.17
@@ -318,11 +318,6 @@ kora），因此你需要在控制台中完成操作。
 请尝试开启或关闭设备锁后重试。
 :::
 
-## 附：使用 Docker
-
-Docker 嘛，应该不用我介绍了吧，懂得都懂。事实上，我们有现成的 Docker 来解决这个问题。
-~~[这里](https://github.com/ZhaoZuohong/mirai-mah-docker)有现成的 Dockerfile~~该仓库已经原作者删除
-
 ## 附: 在 MiraiAndroid 中运行 Mirai Api Http
 
 对于那些想要**在安卓手机上**跑 bot 的人来说，**MiraiAndroid** 绝对是跑 **Mirai Api Http** 的不二之选。
@@ -354,5 +349,5 @@ Docker 嘛，应该不用我介绍了吧，懂得都懂。事实上，我们有�
 8. 重启 **MiraiAndroid**
 
 ::: tip
-至于 Python 环境嘛，你可以搞一个 **Termux**~
+至于 Python 环境嘛，你可以搞一个 **Termux**（但是会出现各种库装不上的情况）~
 :::
