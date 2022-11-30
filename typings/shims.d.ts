@@ -1,4 +1,5 @@
 declare module 'rollup-plugin-external-globals'
+
 declare module '*.vue' {
   import type { ComponentOptions } from 'vue'
   const Component: ComponentOptions

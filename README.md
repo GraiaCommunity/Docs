@@ -1,5 +1,12 @@
 # Graia 社区文档
 
+## TODO
+
+- [ ] 补充 GraiaX 相关介绍
+- [ ] Alc 挪到 GraiaX 相关介绍
+- [ ] 重构文章顺序
+- [ ] 详见腾讯文档……
+
 ## 许可协议
 
 - 文档正文内容使用 [署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0)](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh) 协议进行许可
@@ -24,7 +31,3 @@
 2. 使用命令 `pnpm install` 安装依赖
 3. 开发环境使用命令 `pnpm serve` 启动服务器
 4. 使用命令 `pnpm build` 生成最终页面
-
-### 注意事项
-
-1. 请勿手动安装 `vite` 依赖，否则工作不正常（`vue` 选装）

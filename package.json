@@ -13,6 +13,7 @@
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
     "docs:serve": "vitepress serve docs",
+    "dev": "vitepress dev docs",
     "serve": "vitepress dev docs",
     "build": "vitepress build docs",
     "lint": "eslint --color --ext .js,.ts,.jsx,.tsx,.vue .",
@@ -40,8 +41,9 @@
     "rollup-plugin-external-globals": "^0.6.1",
     "sass": "^1.56.1",
     "typescript": "^4.9.3",
+    "vite": "^3.2.4",
     "vite-plugin-compression": "^0.5.1",
-    "vitepress": "1.0.0-alpha.19",
+    "vitepress": "1.0.0-alpha.29",
     "vue": "^3.2.45"
   },
   "pnpm": {
@@ -50,7 +52,8 @@
         "@algolia/client-search",
         "@types/react",
         "react",
-        "react-dom"
+        "react-dom",
+        "rollup"
       ]
     }
   }

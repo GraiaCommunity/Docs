@@ -1,32 +1,31 @@
 {
   "compilerOptions": {
-    "target": "esnext",
-    "module": "esnext",
-    "strict": true,
-    "allowJs": false,
-    // "checkJs": true,  // allowJs must be true for this to work
-    "jsx": "preserve",
-    "moduleResolution": "node",
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "forceConsistentCasingInFileNames": true,
+    "target": "ESNext",
+    "composite": true,
     "useDefineForClassFields": true,
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "jsx": "preserve",
     "sourceMap": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "lib": ["ESNext", "DOM"],
+    "skipLibCheck": true,
+    "noEmit": true,
     "baseUrl": ".",
-    "lib": ["esnext", "dom", "dom.iterable", "scripthost"]
+    "types": ["vite/client"]
   },
   "include": [
-    "types",
-    "docs/*.js",
-    "docs/*.jsx",
     "docs/*.ts",
     "docs/*.tsx",
-    "docs/.vitepress/**/*.js",
-    "docs/.vitepress/**/*.jsx",
     "docs/.vitepress/**/*.ts",
     "docs/.vitepress/**/*.tsx",
-    "docs/.vitepress/**/*.vue"
+    "docs/.vitepress/**/*.vue",
+    "docs/.vitepress/vite.config.ts",
+    "typings/shims.d.ts"
   ],
   "exclude": ["node_modules"]
 }

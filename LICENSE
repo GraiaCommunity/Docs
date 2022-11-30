@@ -1,6 +1,6 @@
 LICENSE
 
-ALL contents in `/docs/.vuepress/public/` belong to their copyright owners if applicable.
+ALL contents in `/docs/.vitepress/public/` belong to their copyright owners if applicable.
 
 ALL markdown contents (every file with `.md` suffix) in `/docs/` are licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
 
