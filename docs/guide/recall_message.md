@@ -77,10 +77,11 @@ MessageChain([Source(id=1366023, time=datetime.datetime(2022, 1, 13, 16, 42, 38,
 
 ```python
 await app.recall_message(source)  # 通过 Source 撤回他人的消息
-await app.recall_message(source.id)  # 通过 Source 中的消息 ID 撤回他人的消息
+# await app.recall_message(source.id)  # 通过 Source 中的消息 ID 撤回他人的消息（已废弃）
 # botmessage = await app.send_message(...)
 await app.recall_message(botmessage)  # 通过 BotMessage 撤回 bot 自己发的消息
-await app.recall_message(botmessage.messageId)  # 通过 BotMessage 中的消息 ID 撤回 bot 自己发的消息
+# await app.recall_message(botmessage.messageId)  # 通过 BotMessage 中的消息 ID 撤回 bot 自己发的消息（已废弃）
+# 用消息 ID 撤回消息的方式已废弃。请使用未被注释的方法。
 ```
 
 ::: tip
