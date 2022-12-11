@@ -23,6 +23,7 @@
   <GitRepo user="zzzzz167" repo="Yuki" archived><b><s>已停更</s>哦我的上帝，ta又更新了</b><br />No Description</GitRepo>
   <GitRepo user="RF-Tar-Railt" repo="RaianBot">一个基于 Ariadne 与 Alconna 的简易 QQ 机器人</GitRepo>
   <GitRepo user="AwordaProject" repo="Aworda-LBot">霖念的小世界</GitRepo>
+  <GitRepo user="kaixinol" repo="AldotaiBot">集多种兽圈文化功能的综合性bot。一个成分非常纯的兽圈bot</GitRepo>
 </div>
 
 <style scope>
