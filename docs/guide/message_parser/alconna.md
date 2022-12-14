@@ -1544,9 +1544,9 @@ async def find(app: Ariadne, group: Group, targets: Match[Tuple[str, ...]]):
 
 ### 多行匹配
 
-基于 `Arg` 的 `separators` 与 `MultiVar` 或泛匹配, 我们很容易可以写出在线编译代码的命令：
+基于 `Arg` 的 `separators` 与 `MultiVar` 或泛匹配，我们很容易可以写出在线编译代码的命令：
 
-```python
+```python{4}
 from arclet.alconna import Alconna, Arg, AllParam, Arparma
 from arclet.alconna.graia import alcommand
 
@@ -1556,6 +1556,19 @@ coder = Alconna("run", Arg("codes", AllParam, seps='\n'))
 async def _(app: Ariadne, result: Arparma):
   codes: list = result.query("codes", [])
 ```
+
+这样便可以进行如下操作：
+
+
+<ChatWindow title="聊天记录">
+  <ChatMsg name="RF" avatar="https://q4.qlogo.cn/g?b=qq&nk=3165388245&s=640">run<br />
+  import sys<br />
+  print(sys.version_info)<br />
+  </ChatMsg>
+  <ChatMsg name="EroEroBot" avatar="/avatar/ero.webp">sys.version_info(major=3, minor=8, micro=6, releaselevel='final', serial=0)</ChatMsg>
+  <ChatMsg name="群菜鸡" avatar="https://q4.qlogo.cn/g?b=qq&nk=1450069615&s=640">怎么是3.8（</ChatMsg>
+  <ChatMsg name="群菜龙" avatar="https://q4.qlogo.cn/g?b=qq&nk=2544704967&s=640">怎么是3.8（</ChatMsg>
+</ChatWindow>
 
 ### 隐式构建 Args
 
