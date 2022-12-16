@@ -64,6 +64,7 @@ jobs:
 
   upload2a60:
     needs: [build_docs]
+    if: ${{ false }}
     runs-on: ubuntu-latest
     steps:
       - name: Download artifact
