@@ -672,7 +672,7 @@ async def handler(app: Ariadne, group: Group, result: Arparma):
         return
 ```
 
-毫无疑问，这种写法会使得你的代码的复杂度大大增加（**Sourcery**警告）
+毫无疑问，这种写法会使得你的代码的复杂度大大增加（**Sourcery** 警告）
 
 于是使用 `match_path`：
 
@@ -1178,8 +1178,8 @@ var 可以是以下几类：
 
 另外，`Alconna` 提供了两类特殊的类型用以实现限制功能：
 
-- **MultiVar**：   将该参数标记为需要获取可变数量或指定数量的数据，通过填入 `flag: int | Literal['+', '*']` 实现  
-- **KeyWordVar**： 将该参数标记为需要同时写入参数名才认定为合法参数，默认形式为 `key=arg`
+- **MultiVar**：将该参数标记为需要获取可变数量或指定数量的数据，通过填入 `flag: int | Literal['+', '*']` 实现  
+- **KeyWordVar**：将该参数标记为需要同时写入参数名才认定为合法参数，默认形式为 `key=arg`，可指定分隔符
 
 当 **MultiVar** 与 **KeyWordVar** 一起使用时， 该参数表示为需要接收多个 `key=arg` 形式的数据， 类似 `**kwargs`
 
@@ -1527,10 +1527,10 @@ async def roll_dice(app: Ariadne, group: Group, header: Header):
 
 ```python{5}
 from typing import Tuple
-from arclet.alconna import Alconna, Args, Option, MultiVar
+from arclet.alconna import Alconna, Args, Option, MultiVar, Arg
 from arclet.alconna.graia import alcommand, Match
 
-who = Alconna("告诉我") + Option("谁", Args['targets', MultiVar(str)] / "和", separator="是")
+who = Alconna("告诉我") + Option("谁", Args(Arg('targets', MultiVar(str), seps="和")), separator="是")
 
 @alcommand(who, private=False)
 async def find(app: Ariadne, group: Group, targets: Match[Tuple[str, ...]]):
