@@ -444,7 +444,7 @@ async def _(app: Ariadne, group: Group, result: Arparma):
   - `help_text`: 可能的帮助信息
   - `result`: `Arpamar`
   - `source`: 原始事件
-- 匹配项，如 `Match`
+- 匹配项，如 `Match`，`Header`
 - `Duplication`: `Alconna` 提供的良好的类型补全容器
 - 匹配的参数，必须保证参数名与参数类型与解析结果中的一致，如`content: str`
 - etc.
@@ -458,8 +458,8 @@ async def _(app: Ariadne, group: Group, result: Arparma):
 ```python
 ...
 from arclet.alconna.graia.saya import AlconnaBehaviour, AlconnaSchema
-from arclet.alconna.graia.dispatcher import AlconnaDispatcher
-from arclet.alconna import Alconna, Arparma
+from arclet.alconna.graia import Match, AlconnaDispatcher
+from arclet.alconna import Alconna
 from creart import create
 from graia.saya import Saya
 from graia.saya.builtins.broadcast import ListenerSchema
@@ -479,13 +479,13 @@ channel = Channel.current()
 
 @channel.use(AlconnaSchema(AlconnaDispatcher(Alconna("test1", Args.foo[int]))))
 @channel.use(ListenerSchema(listening_events=[GroupMessage]))
-async def _(app: Ariadne, res: Arparma):
+async def _(app: Ariadne, foo: Match[int]):
     ...
 
 
 @channel.use(AlconnaSchema.from_("test2 <foo:int>"))
 @channel.use(ListenerSchema(listening_events=[GroupMessage]))
-async def _(app: Ariadne, res: Arparma):
+async def _(app: Ariadne, foo: Match[int]):
     ...
 ```
 
@@ -523,12 +523,13 @@ async def _(app: Ariadne, result: Arparma):
 
 ### 匹配项
 
-`arclet-alconna-graia` 提供两个特殊类以匹配参数：
+`arclet-alconna-graia` 提供三个特殊类以匹配参数：
 
 - `Match`: 查询某个参数是否匹配，如 `foo: Match[int]`。使用时以 `Match.available` 判断是否匹配成功，以
   `Match.result` 获取匹配结果。
 - `Query`: 查询某个参数路径是否存在，如`sth: Query[int] = Query("foo.bar")`；可以指定默认值如
   `Query("foo.bar", 1234)`。使用时以 `Query.available` 判断是否匹配成功，以 `Query.result` 获取匹配结果。
+- `Header`: 当编写 Alconna 命令使用了头部格式化时 (例如，Alconna("{city}天气"))，该匹配项表示所有 placeholder 与其对应匹配结果的字典载体
 
 ### 便捷构造
 
@@ -684,23 +685,23 @@ cmd = Alconna(...)
 
 @alcommand(cmd, private=False)
 @decorate(match_path("$main"))
-async def _(app: Ariadne, group: Group, result: Arparma):
+async def _(app: Ariadne, group: Group):
     return await app.send_group_message(group, MessageChain(cmd.get_help()))
 
 
 @alcommand(cmd, private=False)
 @decorate(match_path("列出"))
-async def _(app: Ariadne, group: Group, result: Arparma):
+async def _(app: Ariadne, group: Group):
     ...
 
 @alcommand(cmd, private=False)
 @decorate(match_path("禁用"))
-async def _(app: Ariadne, group: Group, result: Arparma):
+async def _(app: Ariadne, group: Group):
     ...
 
 @alcommand(cmd, private=False)
 @decorate(match_path("启用"))
-async def _(app: Ariadne, group: Group, result: Arparma):
+async def _(app: Ariadne, group: Group):
     ...
 ```
 
@@ -1505,20 +1506,15 @@ Alconna 对于命令头部 **command** 应用有特殊的构建规则。
 类似 `.r100` 或者 `查询XX人品` 的指令，这么写就好了：
 
 ```python{4}
-from arclet.alconna import Alconna, Arparma
-from arclet.alconna.graia import AlconnaDispatcher
+from arclet.alconna import Alconna
+from arclet.alconna.graia import alcommand, Header
 
-dice = Alconna(".r{dice:int}")
+dice = Alconna(".r{dice_roll:int}?d{dice_max:int}")
 
 
-@channel.use(
-    ListenerSchema(
-        listening_events=[GroupMessage],
-        inline_dispatchers=[AlconnaDispatcher(dice)],
-    )
-)
-async def roll_dice(app: Ariadne, group: Group, result: Arparma):
-    dice_count = result.header.get('dice')
+@alcommand(dice)
+async def roll_dice(app: Ariadne, group: Group, header: Header):
+    dice_count = header.result.get('dice_max')
     print(dice_count)
     ...
 ```
@@ -1531,8 +1527,8 @@ async def roll_dice(app: Ariadne, group: Group, result: Arparma):
 
 ```python{5}
 from typing import Tuple
-from arclet.alconna import Alconna, Args, Option, Match, MultiVar
-from arclet.alconna.graia import alcommand
+from arclet.alconna import Alconna, Args, Option, MultiVar
+from arclet.alconna.graia import alcommand, Match
 
 who = Alconna("告诉我") + Option("谁", Args['targets', MultiVar(str)] / "和", separator="是")
 
@@ -1547,14 +1543,14 @@ async def find(app: Ariadne, group: Group, targets: Match[Tuple[str, ...]]):
 基于 `Arg` 的 `separators` 与 `MultiVar` 或泛匹配，我们很容易可以写出在线编译代码的命令：
 
 ```python{4}
-from arclet.alconna import Alconna, Arg, AllParam, Arparma
-from arclet.alconna.graia import alcommand
+from arclet.alconna import Alconna, Arg, AllParam
+from arclet.alconna.graia import alcommand, Match
 
 coder = Alconna("run", Arg("codes", AllParam, seps='\n'))
 
 @alcommand(coder, private=False)
-async def _(app: Ariadne, result: Arparma):
-  codes: list = result.query("codes", [])
+async def _(app: Ariadne, codes: Match[list]):
+    ...
 ```
 
 这样便可以进行如下操作：
