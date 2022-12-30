@@ -529,7 +529,7 @@ async def _(app: Ariadne, result: Arparma):
   `Match.result` 获取匹配结果。
 - `Query`: 查询某个参数路径是否存在，如`sth: Query[int] = Query("foo.bar")`；可以指定默认值如
   `Query("foo.bar", 1234)`。使用时以 `Query.available` 判断是否匹配成功，以 `Query.result` 获取匹配结果。
-- `Header`: 当编写 Alconna 命令使用了头部格式化时 (例如，Alconna("{city}天气"))，该匹配项表示所有 placeholder 与其对应匹配结果的字典载体
+- `Header`: 当编写 Alconna 命令使用了头部格式化时（例如：`Alconna("{city}天气")`），该匹配项表示所有 placeholder 与其对应匹配结果的字典载体
 
 ### 便捷构造
 
