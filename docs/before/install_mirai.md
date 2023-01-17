@@ -17,7 +17,7 @@
 Python 也有如 “PyPy” 之类的其他解释器，所以，Java 也有很多种 JVM 和 JDK 可供选择。
 
 ::: tip
-因为[某种原因](https://github.com/mamoe/mirai/discussions/779)，Mirai 与 Orcale JDK 的兼容性较差，因此建议使用 OpenJDK，同时 Mirai 还要求 JDK 版本大于等于 11，所以你不能使用 Java 8。
+因为[某种原因](https://github.com/mamoe/mirai/discussions/779)，Mirai 与 Orcale JDK 的兼容性较差，因此建议使用 OpenJDK，同时 Mirai Console Loader 还要求 Java 版本大于等于 11，所以你不能使用 Java 8。
 :::
 
 ### 安装 Java 的简单方法
@@ -86,7 +86,7 @@ brew cask install java
 ::: code-group-item Termux
 
 ```bash
-# 不太建议在 termux 运行 MCL
+# 不太建议在 termux 运行 MCL，因为会出现各种各样的问题(比如插件功能失效，触发命令时会报错等(如果一定要在Termux上运行，建议在Proot容器安装Ubuntu等原生Linux系统，然后运行Mirai，但因为是原生Linux环境，可能会出现乱码等问题))
 # 可以看看后面的 MiraiAndroid，占用会低一点
 pkg install openjdk-17
 ```
@@ -96,9 +96,11 @@ pkg install openjdk-17
 
 ### 常见的 OpenJDK 发行版
 
-事实上，因为 OpenJDK 是开源的，因此所有人和公司都可以发行属于自己的 OpenJDK 发行版。
+事实上，因为 Java 是开源的，因此所有人和公司都可以发行属于自己的 Java 发行版。
 
-但是，不同厂商发行的 OpenJDK 可能会加入一些属于自己的私货，或者部分厂商所发行
+这些非官方发行版被称之为OpenJDK
+
+但是，不同厂商发行的 OpenJDK 可能会加入一些属于自己的私货，或者部分厂商所发行的
 OpenJDK 相对更完整，包括 OpenJFX 等其他 OpenJDK 需要另外安装的组件。
 
 以下列举一些常见的 OpenJDK 发行版：
@@ -221,20 +223,22 @@ Bot 不掉线的情况下使用手机登录 Bot 的 QQ 账号）而想要更改�
 不过请注意，不懂的参数不要乱动，冒号后请保留空格，不要使用中文冒号，不要随意删除空格。
 
 ```yaml
-adapters:
+adapters: #协议，这里提供了http和ws协议
   - http
   - ws
-debug: false
-enableVerify: true
-verifyKey: GraiaxVerifyKey # 你可以自己设定，这里作为示范
-singleMode: false
-cacheSize: 4096
+debug: false  #调试模式，一般无需开启
+enableVerify: true  #是否启用验证，局域网连接可自行选择是否启用
+verifyKey: GraiaxVerifyKey #验证密钥，用于验证连接到Mirai的设备身份，你可以自己设定，这里作为示范
+singleMode: false  #单会话模式，不建议启用
+cacheSize: 4096  # 历史消息的缓存大小，同时也是 http adapter 的消息队列容量
 adapterSettings:
+# HTTP 服务的主机, 端口和跨域设置
   http:
-    host: localhost
-    port: 8080
+    host: localhost 
+    port: 8080  
     cors: [*]
   ws:
+# Websocket 服务的主机, 端口和事件同步ID设置
     host: localhost
     port: 8080
     reservedSyncId: -1
