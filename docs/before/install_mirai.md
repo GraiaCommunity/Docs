@@ -234,7 +234,7 @@ cacheSize: 4096  # 历史消息的缓存大小，同时也是 http adapter 的�
 adapterSettings:
 # HTTP 服务的主机, 端口和跨域设置
   http:
-    host: localhost 
+    host: localhost
     port: 8080  
     cors: [*]
   ws:
