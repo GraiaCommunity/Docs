@@ -25,12 +25,12 @@ export default defineComponent({
 
 <style scoped lang="scss">
 .heimu {
-  color: var(--vp-c-text-1);
+  color: rgba(60, 60, 67);
   border-radius: 4px;
   padding: 1.5px 4px;
   margin: 0 2px;
   text-shadow: none;
-  background-color: var(--vp-c-text-1);
+  background-color: rgba(60, 60, 67);
   transition: color 0.13s linear, background-color 0.13s linear;
 
   html.dark & {
@@ -41,15 +41,15 @@ export default defineComponent({
   &:deep() {
     code {
       padding: 0.1rem 0.25rem;
-      background-color: var(--vp-c-text-1);
-      color: var(--vp-c-text-1);
+      background-color: rgba(60, 60, 67);
+      color: rgba(60, 60, 67);
       html.dark & {
         background-color: #e3e3e3;
         color: #e3e3e3;
       }
     }
     a {
-      color: var(--vp-c-text-1);
+      color: rgba(60, 60, 67);
       html.dark & {
         color: #e3e3e3;
       }
@@ -63,7 +63,7 @@ export default defineComponent({
 
     &:deep() code {
       background-color: var(--vp-c-bg) !important;
-      color: var(--vp-c-text-1) !important;
+      color: rgba(60, 60, 67) !important;
     }
 
     html.dark &:deep() a,
