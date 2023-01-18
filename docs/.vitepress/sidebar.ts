@@ -6,6 +6,7 @@ const before = [
       { text: '说在前面', link: '/before/' },
       { text: '你需要知道的一些事', link: '/before/QA' },
       { text: 'Mirai 的安装与配置', link: '/before/install_mirai' },
+      { text: '名词解释', link: '/before/terms' },
     ],
   },
 ]
@@ -59,7 +60,6 @@ const appendix = [
     text: '附录',
     collapsible: true,
     items: [
-      { text: '一些术语', link: '/appendix/terms' },
       { text: '鸣谢', link: '/appendix/credit' },
       { text: '社区可供参考的 bot', link: 'appendix/awesome_bot' },
       { text: '日志（大概）', link: '/appendix/inside_story' },
