@@ -3,7 +3,7 @@ docs/public/fonts
 # VitePress files
 docs/.vitepress/dist/
 docs/.vitepress/.temp/
-docs/.vitepress/cahce/
+docs/.vitepress/cache/
 
 # Dist files
 lib/

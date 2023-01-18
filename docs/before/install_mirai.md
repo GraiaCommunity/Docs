@@ -105,12 +105,12 @@ OpenJDK 相对更完整，包括 OpenJFX 等其他 OpenJDK 需要另外安装的
 
 以下列举一些常见的 OpenJDK 发行版：
 
-- （推荐）[Oracle OpenJDK](https://jdk.java.net/18)
+- 【推荐】[Azul Zulu OpenJDK](https://www.azul.com/downloads/?package=jdk#download-openjdk)
+- 【推荐】[BellSoft Liberica OpenJDK](https://bell-sw.com/pages/downloads/#mn)
+- 【推荐】[Microsoft Build of OpenJDK](https://docs.microsoft.com/zh-cn/java/openjdk/download)
+- 【推荐】[Oracle OpenJDK](https://jdk.java.net/18)
 - [Adoptium Eclipse Temurin](https://adoptium.net/zh-CN/temurin/releases)
-  前身为[AdoptOpenJDK](https://adoptopenjdk.net/)
-- （推荐）[BellSoft Liberica OpenJDK](https://bell-sw.com/pages/downloads/#mn)
-- （推荐）[Azul Zulu OpenJDK](https://www.azul.com/downloads/?package=jdk#download-openjdk)
-- （推荐）[Microsoft Build of OpenJDK](https://docs.microsoft.com/zh-cn/java/openjdk/download)
+  前身为 [AdoptOpenJDK](https://adoptopenjdk.net/)
 - [OpenLogic OpenJDK](https://www.openlogic.com/openjdk-downloads)
 
 :::: details 想换个 JVM？试试 OpenJ9？
@@ -271,83 +271,4 @@ adapterSettings:
 那么恭喜你，接下来不用看了，但是...
 如果像下面那样弹出一个弹窗，那你就继续看吧~
 
-![captcha](/images/before/captcha_box.webp)
-
-::: warning
-在没有图形界面的设备上，并不会弹窗（想想也不可能弹出来啊
-kora），因此你需要在控制台中完成操作。
-:::
-
-可恶的 tx 啊，竟想阻止我的美梦，怎么办？有两种办法：
-
-- 手动获取 ticket 并输入到控制台，然后登录（）
-  ::: tip
-  该方法比较复杂，需要较强的动手能力，如果第二种方法无法成功，可以进入交流群获取帮助，至于你问我交流群在哪，那你最好先认真过一下文档找找~
-  :::
-- 用 MiraiAndroid 生成一个 device.json 来解决
-
-简单说明一下第二种，其实很简单：
-
-1. 安装 [**MiraiAndroid**](https://install.appcenter.ms/users/mzdluo123/apps/miraiandroid/distribution_groups/release) 在你的安卓手机里
-2. 启动，在最下面的输入框输入 `/login <你的QQ号> <你的QQ密码>`
-   登录你的机器人账号，在登录成功之前可能会出现很多奇奇怪怪的验证，
-   但是到了最后，当控制台显示以下提示的时候，你就成功了。
-
-   ```bash
-   [INFO] Login successful.
-   [INFO] Bot login successful.
-   [INFO] EroEroBot (114514) Login successful
-   ```
-
-   类似下图所示：
-
-   <img alt="MiraiAndroid1" src="/images/before/mirai-android-1.png" width=200>
-
-3. 点击左上角，再点击 `工具`
-
-   <img alt="MiraiAndroid2" src="/images/before/mirai-android-2.webp" width=200>
-
-   选择你机器人的账号，选择 `导出 DEVICE.JSON` 将其导出。
-
-4. 再次进入 MCL 目录的 `bots/<你的QQ号>` 文件夹，将导出的 `device.json` 复制进去。
-
-现在，再次执行 `./mcl` 启动 MCL 看看效果，假设成功了，那么恭喜你，假设没有成功，这边建议拜一下企鹅。
-
-::: warning
-假如滑动验证码验证失败，可能会弹窗让你扫二维码，这时候有概率因为没有设备锁的原因而一直弹窗。
-请尝试开启或关闭设备锁后重试。
-:::
-
-## 附: 在 MiraiAndroid 中运行 Mirai Api Http
-
-对于那些想要**在安卓手机上**跑 bot 的人来说，**MiraiAndroid** 绝对是跑 **Mirai Api Http** 的不二之选。
-所以，在这里也教一下大家怎么在 **MiraiAndroid** 上运行 **Mirai Api Http**。
-
-::: tip
-假设你不怎么喜欢使用 **MiraiAndroid**，可以试试使用 **Termux** 来运行 **MCL**。
-
-用 **MiraiAndroid** 来运行 Mirai 的好处是，其 CPU 和内存占用会小很多。
-:::
-
-::: warning 注意
-**MiraiAndroid** 要求的最低 Android 版本是 Android 8.0。
-:::
-
-1. 安装 [**MiraiAndroid**](https://install.appcenter.ms/users/mzdluo123/apps/miraiandroid/distribution_groups/release) 在你的安卓手机里
-2. 输入 `autoLogin add <你的QQ号> <你的QQ密码>` 来自动登录你的账号
-3. 重启 **MiraiAndroid**，并且根据提示完成登录
-4. 进入[Mirai Api Http 的 Releases 界面](https://github.com/project-mirai/mirai-api-http/releases/latest)，下载最新版本的 **Mirai Api Http**
-5. 点击 **MiraiAndroid** 的左上角，进入 `插件管理`
-6. 点击右上角的 "+"，然后选择 `mirai-api-http-v2.x.x.mirai.jar`, 然后点击 `编译并安装` 并选择 `脱糖(desugaring)`，后面，输入文件名请输入 `mirai-api-http.jar`
-   ::: tip
-   有可能会出现无法选择的情况，假设遇到这类问题，推荐在手机上安装
-   **Mixplorer** 这个文件管理器，然后在点击 `+` 的时候使用 **Mixplorer** 图标的 **选择**。
-   :::
-7. 进入到 `/storage/emulated/0/Android/data/io.github.mzdluo123.mirai.android/files/config/net.mamoe.mirai-api-http/setting.yml`
-   输入配置文件，内容请参考[上面](#配置-mirai-api-http-参数)
-
-8. 重启 **MiraiAndroid**
-
-::: tip
-至于 Python 环境嘛，你可以搞一个 **Termux**（但是会出现各种库装不上的情况）~
-:::
+<loading/>

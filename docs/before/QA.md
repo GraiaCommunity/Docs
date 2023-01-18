@@ -69,6 +69,7 @@ Ariadne 定义的所有事件均可在 `graia.ariadne.event` 中找到，你也�
 - [Mirai Console](https://github.com/mamoe/mirai-console): 一个基于 **Mirai** 开发的插件式可扩展开发平台
 - [Mirai Api Http](https://github.com/project-mirai/mirai-api-http): 一个 **Mirai Console**
   插件（Graia 社区常简称为 **mah**），在 **Ariadne** 和 **Mirai** 之间提供了交互方式
+- [Mirai Console Loader](https://github.com/iTXTech/mirai-console-loader): Mirai 及 Mirai Console 的启动器
 
 简单来说，`Ariadne` 是通过 `mirai-api-http` 与 **`mirai`** 间接连接到 QQ 服务器的。
 
