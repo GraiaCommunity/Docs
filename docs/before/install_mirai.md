@@ -17,7 +17,7 @@
 Python 也有如 “PyPy” 之类的其他解释器，所以，Java 也有很多种 JVM 和 JDK 可供选择。
 
 ::: tip
-因为[某种原因](https://github.com/mamoe/mirai/discussions/779)，Mirai 与 Orcale JDK 的兼容性较差，因此建议使用 OpenJDK，同时 Mirai 还要求 JDK 版本大于等于 11，所以你不能使用 Java 8。
+因为[某种原因](https://github.com/mamoe/mirai/discussions/779)，Mirai 与 Orcale JDK 的兼容性较差，因此建议使用 OpenJDK，同时 Mirai Console Loader 还要求 Java 版本大于等于 11，所以你不能使用 Java 8。
 :::
 
 ### 安装 Java 的简单方法
@@ -86,7 +86,7 @@ brew cask install java
 ::: code-group-item Termux
 
 ```bash
-# 不太建议在 termux 运行 MCL
+# 不太建议在 termux 运行 MCL，因为可能会出现各种各样的 bug 和问题（比如功能突然失效，然后下一次触发时又莫名其妙的恢复了，或者触发时出现错误，可以用 Proot 安装一个原生 Linux 系统，但是触发时包含的中文字符可能会乱码）
 # 可以看看后面的 MiraiAndroid，占用会低一点
 pkg install openjdk-17
 ```
@@ -96,7 +96,9 @@ pkg install openjdk-17
 
 ### 常见的 OpenJDK 发行版
 
-事实上，因为 OpenJDK 是开源的，因此所有人和公司都可以发行属于自己的 OpenJDK 发行版。
+事实上，因为 Java 是开源的，因此所有人和公司都可以发行属于自己的 Java 发行版。
+
+通常我们把非官方的 Java 发行版叫做 OpenJDK
 
 但是，不同厂商发行的 OpenJDK 可能会加入一些属于自己的私货，或者部分厂商所发行
 OpenJDK 相对更完整，包括 OpenJFX 等其他 OpenJDK 需要另外安装的组件。
