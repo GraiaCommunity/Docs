@@ -86,7 +86,7 @@ brew cask install java
 ::: code-group-item Termux
 
 ```bash
-# 不太建议在 termux 运行 MCL，因为可能会出现各种各样的BUG和问题(比如功能突然失效，然后下一次触发时又莫名其妙的恢复了,或者触发时出现错误，可以用 Proot 安装一个原生 Linux 系统，但是触发时包含的中文字符可能会乱码)
+# 不太建议在 termux 运行 MCL，因为可能会出现各种各样的 bug 和问题(比如功能突然失效，然后下一次触发时又莫名其妙的恢复了，或者触发时出现错误，可以用 Proot 安装一个原生 Linux 系统，但是触发时包含的中文字符可能会乱码)
 # 可以看看后面的 MiraiAndroid，占用会低一点
 pkg install openjdk-17
 ```
