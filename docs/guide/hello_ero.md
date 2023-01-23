@@ -71,7 +71,7 @@
 
    ::::
 
-5. 给你的 bot 随便发一条消息
+5. 在群里给你的 bot 发一条 `你好`
 
    ```txt
    20yy-MM-dd HH:mm:ss.SSS | INFO     | graia.ariadne.model:log:64 - 1919810: [Graiax(114514)] -> '你好'
