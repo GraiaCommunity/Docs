@@ -6,7 +6,7 @@
 
 在 [关于 saya 的介绍](../guide/message_parser/index) 中，我们提到了这样一个现象
 
-``` python
+```python
 @channel.use(ListenerSchema(listening_events=[GroupMessage]))
 async def ero(app: Ariadne, group: Group, message: MessageChain):
     if message.display == "涩图来":
@@ -97,8 +97,7 @@ import click
 
 @click.command()
 @click.option('--count', default=1, help='Number of greetings.')
-@click.option('--name', prompt='Your name',
-              help='The person to greet.')
+@click.option('--name', prompt='Your name', help='The person to greet.')
 def hello(count, name):
     """Simple program that greets NAME for a total of COUNT times."""
     for x in range(count):
@@ -113,7 +112,7 @@ if __name__ == '__main__':
 
 我们可以将这四个指令分成四个函数（以下方法究极省略）
 
-``` python
+```python
 @channel.use(...FullMatch("bz rank"))
 async def bz_rank(...):
     ...
@@ -135,7 +134,7 @@ async def bz_download(...):
 然后下一个问题就出现了，可能函数与函数之间，会有很多相同的代码，怎么办？  
 那你直接将这些实现包装成一个类不就行了？
 
-``` python
+```python
 
 class Bz:
 

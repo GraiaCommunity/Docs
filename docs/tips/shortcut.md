@@ -165,7 +165,7 @@ async def xxx(): ...
 # 等价于
 @channel.use(
     ListenerSchema(
-        ...
+        ...,
         inline_dispatchers=[Twilight.from_command(...), AlconnaDispatcher(...)],
     )
 )
@@ -177,6 +177,7 @@ async def xxx(): ...
 ```py
 @dispatch(Twilight.from_command(...))
 @dispatch(AlconnaDispatcher(...))
+async def xxx(): ...
 ```
 
 ### `decorate`
@@ -189,7 +190,7 @@ async def xxx(): ...
 # 等价于
 @channel.use(
     ListenerSchema(
-        ...
+        ...,
         decorators=[Depend(...), MentionMe()],
     )
 )
@@ -221,7 +222,7 @@ async def xxx(): ...
 # 等价于
 @channel.use(
     ListenerSchema(
-        ...
+        ...,
         priority=8,
     )
 )

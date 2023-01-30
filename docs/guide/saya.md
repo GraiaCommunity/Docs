@@ -366,10 +366,10 @@ saya = Saya.current()
 
 
 @channel.use(
-  ListenerSchema(
-    listening_events=[GroupMessage],
-    decorators=[DetectPrefix("安装模块")]
-  )
+    ListenerSchema(
+        listening_events=[GroupMessage],
+        decorators=[DetectPrefix("安装模块")]
+    )
 )
 async def install(app: Ariadne, group: Group, message: MessageChain):
     channel_path = str(message)
@@ -385,10 +385,10 @@ async def install(app: Ariadne, group: Group, message: MessageChain):
         return await app.send_message(group, MessageChain(f"安装 {channel_path} 成功"))
 
 @channel.use(
-  ListenerSchema(
-    listening_events=[GroupMessage],
-    decorators=[DetectPrefix("卸载模块")]
-  )
+    ListenerSchema(
+      listening_events=[GroupMessage],
+        decorators=[DetectPrefix("卸载模块")]
+    )
 )
 async def uninstall(app: Ariadne, group: Group, message: MessageChain):
     channel_path = str(message)
@@ -403,10 +403,10 @@ async def uninstall(app: Ariadne, group: Group, message: MessageChain):
         return await app.send_message(group, MessageChain(f"卸载 {channel_path} 成功"))
 
 @channel.use(
-  ListenerSchema(
-    listening_events=[GroupMessage],
-    decorators=[DetectPrefix("重载模块")]
-  )
+    ListenerSchema(
+        listening_events=[GroupMessage],
+      decorators=[DetectPrefix("重载模块")]
+    )
 )
 async def reload(app: Ariadne, group: Group, message: MessageChain):
     channel_path = str(message)
