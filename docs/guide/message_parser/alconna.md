@@ -401,7 +401,7 @@ alc.parse("食物在哪里")
 
 命令组的解析表现与单个命令的行为基本一致，若全部命令解析失败则返回最后一个命令的解析结果。
 
-## [Kirakira☆dokidoki的Alconna-Graia](https://zh.moegirl.org.cn/index.php?search=Kirakira+Dokidoki&title=Special:%E6%90%9C%E7%B4%A2&searchToken=9hyop5qg906tdzfb9wltw6slt)
+## [Kirakira☆dokidoki 的 Alconna-Graia](https://zh.moegirl.org.cn/index.php?search=Kirakira+Dokidoki&title=Special:%E6%90%9C%E7%B4%A2&searchToken=9hyop5qg906tdzfb9wltw6slt)
 
 在 **Ariadne** 乃至 **Avilla** 中，你可以通过使用 **AlconnaDispatcher** 来提供消息处理服务：
 
@@ -454,7 +454,8 @@ manager.add_service(AlconnaGraiaService("ariadne"))
 ...
 ```
 
-您可以通过 **AlconnaGraiaService** 的 `enable_cache` 与 `cache_dir` 参数来启用对运行时注册的 **快捷命令** 进行保存
+您可以通过 **AlconnaGraiaService** 的 `enable_cache` 与 `cache_dir` 参数
+来启用对运行时注册的 **快捷命令** 的保存功能。
 
 :::
 
