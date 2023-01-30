@@ -57,7 +57,7 @@ from graia.ariadne.message.parser.base import DetectPrefix
 from graia.ariadne.util.cooldown import CoolDown
 from graia.ariadne.model import Group
 
-from graiax,shortcut.saya import listen, dispatch, decorate
+from graiax.shortcut.saya import listen, dispatch, decorate
 
 
 @listen(GroupMessage)
@@ -164,10 +164,10 @@ async def xxx(): ...
 async def xxx(): ...
 # 等价于
 @channel.use(
-    ListenerSchema(
+    ListenerSchema(
         ...
         inline_dispatchers=[Twilight.from_command(...), AlconnaDispatcher(...)],
-    )
+    )
 )
 async def xxx(): ...
 ```
