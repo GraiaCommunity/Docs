@@ -25,25 +25,31 @@
 
 ## 凡事都要先安装
 
+::: warn
+
+**本文默认您使用的 `Alconna-Graia` 为 @latest 版本，若不符合请及时更新**
+
+:::
+
 :::: code-group
 ::: code-group-item poetry
 
 ```bash
-poetry add arclet-alconna-graia
+poetry add arclet-alconna-graia>=0.11.4, arclet-alconna-ariande>=0.11.4
 ```
 
 :::
 ::: code-group-item pdm
 
 ```bash
-pdm add arclet-alconna-graia
+pdm add arclet-alconna-graia>=0.11.4, arclet-alconna-ariande>=0.11.4
 ```
 
 :::
 ::: code-group-item pip
 
 ```bash
-pip install arclet-alconna-graia
+pip install arclet-alconna-graia>=0.11.4, arclet-alconna-ariande>=0.11.4
 ```
 
 :::
@@ -51,21 +57,21 @@ pip install arclet-alconna-graia
 
 ## [缭乱！外星大魔王](https://zh.moegirl.org.cn/%E7%BC%AD%E4%B9%B1!Victory_Road)
 
-开发涩涩Bot时，我们难免会有需求增加一个涩图搜索的命令：
+开发涩涩Bot时，我们难免会有一个涩图搜索功能的需求。假设该功能命令如下：
 
 ```txt
 setu搜索 CONTENT
 ```
 
-这里我们规定用户输入的 `content` 参数只能是一个图片（Image）或者一个链接（URL）。
+这里我们规定用户输入的 `content` 参数只能是一个图片消息（[Image](https://ariadne.api.graia.cn/message/element/#graia.ariadne.message.element.Image)）或者一个图片链接（URL）。
 
 我们默认使用 **SauceNAO** 的 api，但有时候我们也想使用别的搜图引擎而且能自定义参数：
 
 ```txt
 use API:[saucenao|ascii2d|ehentai|iqdb|tracemoe] = saucenao
-count NUM:int
-threshold VALUE:float
-timeout SEC:int
+count NUM:int = 1
+similarity VAL:float = 0.5
+timeout SEC:int = 60
 ```
 
 如果使用 **Twilight** 去做，选项之间的处理会比较复杂。
@@ -73,16 +79,16 @@ timeout SEC:int
 这个时候，~~天空一声巨响，Alconna 闪亮登场~~，我们可以使用 **Alconna** 来实现我们想要的功能：
 
 ```python
-from arclet.alconna import Alconna, Args, CommandMeta, Option
-from arclet.alconna.graia.utils import ImgOrUrl
+from arclet.alconna import Alconna, Args, CommandMeta, Option, Arg
+from arclet.alconna.ariadne import ImgOrUrl
 
 api_list = ["saucenao", "ascii2d", "ehentai", "iqdb", "tracemoe"]
 SetuFind = Alconna(
     "setu搜索",
     Args['content', ImgOrUrl],
     Option("use", Args['api', api_list], help_text="选择搜图使用的 API"),
-    Option("count", Args.num[int], help_text="设置每次搜图展示的最多数量"),
-    Option("threshold", Args.thres[float], help_text="设置相似度过滤的值"),
+    Option("count", Args(Arg("num", int)), help_text="设置每次搜图展示的最多数量"),
+    Option("similarity", Args.val[float, 0.5], help_text="设置相似度过滤的值"),
     Option("timeout", Args["sec", int, 60], help_text="设置超时时间"),
     meta=CommandMeta(
         "依据输入的图片寻找可能的原始图片来源",
@@ -98,7 +104,6 @@ SetuFind = Alconna(
 
 ```python
 from arclet.alconna.graia import alcommand, Match, assign, Query
-from graia.ariadne.util.saya import decorate, dispatch, listen
 
 
 @alcommand(SetuFind, private=False)
@@ -108,7 +113,7 @@ async def ero_saucenao(
     group: Group,
     content: Match[str],
     max_count: Query[int] = Query("count.num"),
-    similarity: Query[float] = Query("threshold.args.thres"),
+    similarity: Query[float] = Query("similarity.args.val"),
     timeout_sec: Query[int] = Query("timeout.sec", -1),
 ):
     ...  # setu搜索的处理部分，使用saucenao
@@ -122,7 +127,7 @@ async def ero_ascii2d(
     group: Group,
     content: Match[str],
     max_count: Query[int] = Query("count.num"),
-    similarity: Query[float] = Query("threshold.args.thres"),
+    similarity: Query[float] = Query("similarity.args.val"),
     timeout_sec: Query[int] = Query("timeout.sec", -1),
 ):
     ...  # setu搜索的处理部分，使用ascii2d

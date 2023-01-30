@@ -11,9 +11,9 @@
 别担心，这里有更好的写法！
 
 ::: danger 警告
-**Saya Util** 目前仅适用于替代 `graia.saya.builtin.broadcast.ListenerSchema`。
+**Saya Util** 目前仅适用于替代 `graia.saya.builtin.broadcast.ListenerSchema` 与 `graia.schedule.saya.SchedulerSchema`。
 
-如果你需要使用其他例如 `SchedulerSchema`、`ConsoleSchema` 等元信息模板（Schema，在[此处](../guide/saya.md#saya-是什么)提及过），
+如果你需要使用其他例如 `ConsoleSchema` 等元信息模板（Schema，在[此处](../guide/saya.md#saya-是什么)提及过），
 那么你目前仍需要以 `@channel.use(...)` 的方法使用。
 :::
 
@@ -57,7 +57,7 @@ from graia.ariadne.message.parser.base import DetectPrefix
 from graia.ariadne.util.cooldown import CoolDown
 from graia.ariadne.model import Group
 
-from graia.ariadne.util.saya import listen, dispatch, decorate
+from graiax,shortcut.saya import listen, dispatch, decorate
 
 
 @listen(GroupMessage)
@@ -73,14 +73,16 @@ async def setu(app: Ariadne, group: Group, message: MessageChain):
 是不是感觉焕然一新？
 
 ::: tip
-其实更推荐从 `graiax.shortcut.saya` 导入 **Saya Util**，
-它与从 `graia.ariadne.util.saya` 导入的效果是一样的。
+
+`graia.ariadne.util.saya` 也写有相同的 **Saya Util** 组件，
+但自 `graia-saya` 0.0.17 版本后，请尽量从 `graiax.shortcut.saya` 导入 **Saya Util**。
+
 :::
 
 ## 使用方法
 
 **Saya Util** 与 `channel.use` 一样，需要以装饰器的方式附加在事件处理器（就是你的函数啦~）上。
-但是其相对 **ListenerSchema** 会更加简洁，增加了代码可读性。
+但是其相对 **ListenerSchema** 或 **SchedulerSchema** 会更加简洁，增加了代码可读性。
 
 ::: warning 注意事项
 **Saya Util** 本质上是对当前的 **Channel** 的重复使用。
@@ -99,8 +101,8 @@ async def xxx(): ...
 # 等价于
 @channel.use(
     ListenerSchema(
-        listening_events=[GroupMessage, FriendMessage],
-    )
+        listening_events=[GroupMessage, FriendMessage],
+    )
 )
 async def xxx(): ...
 ```
@@ -113,9 +115,21 @@ async def xxx(): ...
 async def xxx(): ...
 ```
 
+::: warn
+
+**listen** 组件存在时其必须置于顶层，否则会产生预期外行为：
+
+```py
+@listen(GroupMessage)  # 顶层
+@dispatch(...)
+async def xxx(): ...
+```
+
+:::
+
 ### `dispatch`
 
-**dispatch** 组件负责指定处理器上的调度器，对应 **ListenerSchema** 的 `inline_dispatchers`。
+**dispatch** 组件负责指定处理器上的调度器，对应 **ListenerSchema** 的 `inline_dispatchers` 或 **SchedulerSchema** 的 `dispatchers`。
 
 ```py
 @dispatch(Twilight.from_command(...), AlconnaDispatcher(...))
@@ -139,17 +153,17 @@ async def xxx(): ...
 
 ### `decorate`
 
-**decorate** 组件负责指定处理器上的装饰器，对应 **ListenerSchema** 的 `decorators`。
+**decorate** 组件负责指定处理器上的装饰器，对应 **ListenerSchema** 与 **SchedulerSchema** 的 `decorators`。
 
 ```py
 @decorate(Depend(...), MentionMe())
 async def xxx(): ...
 # 等价于
 @channel.use(
-    ListenerSchema(
+    ListenerSchema(
         ...
-        decorators=[Depend(...), MentionMe()],
-    )
+        decorators=[Depend(...), MentionMe()],
+    )
 )
 async def xxx(): ...
 ```
@@ -178,16 +192,16 @@ async def xxx(): ...
 async def xxx(): ...
 # 等价于
 @channel.use(
-    ListenerSchema(
+    ListenerSchema(
         ...
         priority=8,
-    )
+    )
 )
 async def xxx(): ...
 ```
 
 除了传入 `int` 作为该监听器的优先级外，`priority`
-还支持传入一系列事件类型，以代表当前优先级仅对指定的事件有效，其余事件按默认优先级（16）处理，例如：
+还支持传入一系列事件类型，以代表当前优先级仅对指定的事件类型有效，其余事件按默认优先级（16）处理，例如：
 
 ```py
 @priority(8, GroupMessage, FriendMessage)
@@ -198,3 +212,92 @@ async def xxx(): ...
 :::
 
 关于事件监听器的**优先级**概念，请参考[官方文档](https://graia.readthedocs.io/broadcast/advance/event-propagation-and-priority/)。
+
+### `schedule`
+
+**schedule** 组件负责增加一个调度任务，对应于 **SchedulerSchema** 的 `timer` 和 `cancelable`。
+
+即：
+
+```py
+@schedule(every_minute())
+async def xxx(): ...
+# 等价于
+@channel.use(
+    SchedulerSchema(
+        timer=every_minute()
+    )
+)
+async def xxx(): ...
+```
+
+::: warn
+
+**schedule** 组件存在时其必须置于顶层，否则会产生预期外行为：
+
+```py
+@schedule(every_minute())  # 顶层
+@dispatch(...)
+async def xxx(): ...
+```
+
+:::
+
+### `every`
+
+**every** 是便捷使用 **SchedulerSchema** 的组件，作为 `every_custom_xxx` 与 `SchedulerSchema` 的一同使用。
+
+即：
+```python
+@every(30, "second")
+async def xxx(): ...
+# 等价于
+@channel.use(
+    SchedulerSchema(
+        timer=every_custom_seconds(30)
+    )
+)
+async def xxx(): ...
+```
+
+::: warn
+
+**every** 组件存在时其必须置于顶层，否则会产生预期外行为：
+
+```py
+@every(30, "second")  # 顶层
+@dispatch(...)
+async def xxx(): ...
+```
+
+:::
+
+
+### `crontab`
+
+**crontab** 是便捷使用 **SchedulerSchema** 的组件，作为 `crontabify` 与 `SchedulerSchema` 的一同使用。
+
+即：
+```python
+@crontab("* * * * 1")
+async def xxx(): ...
+# 等价于
+@channel.use(
+    SchedulerSchema(
+        timer=crontabify("* * * * 1")
+    )
+)
+async def xxx(): ...
+```
+
+::: warn
+
+**crontab** 组件存在时其必须置于顶层，否则会产生预期外行为：
+
+```py
+@crontab("* * * * 1")  # 顶层
+@dispatch(...)
+async def xxx(): ...
+```
+
+:::
