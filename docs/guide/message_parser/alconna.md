@@ -1361,11 +1361,11 @@ from arclet.alconna.graia import alcommand
 
 @alcommand(
     Alconna(
-        "找歌", 
+        "找歌",
         Args["song", str],
         Option("语种", Args["lang", str]),
         Subcommand(
-          "歌手", 
+          "歌手",
           Args["singer", str],
           Option("地区", Args["region", str]),
         ),

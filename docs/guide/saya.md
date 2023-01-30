@@ -347,7 +347,7 @@ dispatchers -> inline_dispatchers
 
 可能会有小伙伴想写一个管理 **saya module** 的工具，但不知如何下手。
 
-除开`saya.require`，**Saya** 还提供了两个方法：`uninstall_channel` 与 `reload_channel` 
+除开`saya.require`，**Saya** 还提供了两个方法：`uninstall_channel` 与 `reload_channel`
 
 **举个栗子**
 
