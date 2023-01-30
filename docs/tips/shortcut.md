@@ -288,12 +288,20 @@ async def xxx(): ...
 async def xxx(): ...
 ```
 
+`value` 参数表示时间长度，`mode` 参数表示定时模式，其只能为 `"second", "minute", "hour"` 三种，默认为 `second`
+
+```python
+@every(30)  # 每 30 秒，等价于 @every(30, "second")
+@every(30, "minute")  # 每 30 分钟
+@every(30, "hour")  # 每 30 小时
+```
+
 ::: warning
 
 **every** 组件存在时其必须置于顶层，否则会产生预期外行为：
 
 ```py
-@every(30, "second")  # 顶层
+@every(30)  # 顶层
 @dispatch(...)
 async def xxx(): ...
 ```
