@@ -25,7 +25,7 @@
 
 ## 凡事都要先安装
 
-::: warn
+::: warning
 
 **本文默认您使用的 `Alconna-Graia` 为 @latest 版本，若不符合请及时更新**
 
@@ -417,7 +417,7 @@ async def _(app: Ariadne, group: Group, result: Arparma):
     ...
 ```
 
-::: warn
+::: warning
 
 自 `arclet-alcona-graia` 0.11.0 开始，**Alconna-Graia** 建议与 `Launart` 结合使用：
 

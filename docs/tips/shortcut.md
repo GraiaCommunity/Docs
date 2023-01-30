@@ -143,7 +143,7 @@ async def xxx(): ...
 async def xxx(): ...
 ```
 
-::: warn
+::: warning
 
 **listen** 组件存在时其必须置于顶层，否则会产生预期外行为：
 
@@ -259,7 +259,7 @@ async def xxx(): ...
 async def xxx(): ...
 ```
 
-::: warn
+::: warning
 
 **schedule** 组件存在时其必须置于顶层，否则会产生预期外行为：
 
@@ -288,7 +288,7 @@ async def xxx(): ...
 async def xxx(): ...
 ```
 
-::: warn
+::: warning
 
 **every** 组件存在时其必须置于顶层，否则会产生预期外行为：
 
@@ -318,7 +318,7 @@ async def xxx(): ...
 async def xxx(): ...
 ```
 
-::: warn
+::: warning
 
 **crontab** 组件存在时其必须置于顶层，否则会产生预期外行为：
 
