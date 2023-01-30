@@ -343,6 +343,86 @@ dispatchers -> inline_dispatchers
 
 ::::
 
+## 动态加载、卸载、重载 `module`
+
+可能会有小伙伴想写一个管理 **saya module** 的工具，但不知如何下手。
+
+除开`saya.require`，**Saya** 还提供了两个方法：`uninstall_channel` 与 `reload_channel`
+
+**举个栗子**
+
+```python
+from graia.ariadne.app import Ariadne
+from graia.ariadne.event.message import GroupMessage
+from graia.ariadne.message.chain import MessageChain
+from graia.ariadne.message.parser.base import DetectPrefix
+from graia.ariadne.model import Group
+
+from graia.saya import Channel, Saya
+from graia.saya.builtins.broadcast.schema import ListenerSchema
+
+channel = Channel.current()
+saya = Saya.current()
+
+
+@channel.use(
+    ListenerSchema(
+        listening_events=[GroupMessage],
+        decorators=[DetectPrefix("安装模块")]
+    )
+)
+async def install(app: Ariadne, group: Group, message: MessageChain):
+    channel_path = str(message)
+    if channel_path in saya.channels:
+        return await app.send_message(group, MessageChain("该模块已安装"))
+    try:
+        with saya.module_context():
+            saya.require(channel_path)
+    except Exception as e:
+        await app.send_message(group, MessageChain(f"安装 {channel_path} 失败！"))
+        raise e
+    else:
+        return await app.send_message(group, MessageChain(f"安装 {channel_path} 成功"))
+
+@channel.use(
+    ListenerSchema(
+      listening_events=[GroupMessage],
+        decorators=[DetectPrefix("卸载模块")]
+    )
+)
+async def uninstall(app: Ariadne, group: Group, message: MessageChain):
+    channel_path = str(message)
+    if not (_channel := saya.channels.get(channel_path)):
+        return await app.send_message(group, MessageChain("该模组未安装, 您可能需要安装它"))
+    try:
+        saya.uninstall_channel(_channel)
+    except Exception as e:
+        await app.send_message(group, MessageChain(f"卸载 {channel_path} 失败！"))
+        raise e
+    else:
+        return await app.send_message(group, MessageChain(f"卸载 {channel_path} 成功"))
+
+@channel.use(
+    ListenerSchema(
+        listening_events=[GroupMessage],
+      decorators=[DetectPrefix("重载模块")]
+    )
+)
+async def reload(app: Ariadne, group: Group, message: MessageChain):
+    channel_path = str(message)
+    if not (_channel := saya.channels.get(channel_path)):
+        return await app.send_message(group, MessageChain("该模组未安装, 您可能需要安装它"))
+    try:
+        saya.reload_channel(_channel)
+    except Exception as e:
+        await app.send_message(group, MessageChain(f"重载 {channel_path} 失败！"))
+        raise e
+    else:
+        return await app.send_message(group, MessageChain(f"重载 {channel_path} 成功"))
+```
+
+`uninstall_channel` 与 `reload_channel` 需要传入 **Channel** 对象，你可以在 `saya.channels` 中获取。
+
 ::: interlink
 相关链接：  
 <https://graia.readthedocs.io/ariadne/extra/saya/start>

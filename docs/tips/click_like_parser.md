@@ -6,7 +6,7 @@
 
 在 [关于 saya 的介绍](../guide/message_parser/index) 中，我们提到了这样一个现象
 
-``` python
+```python
 @channel.use(ListenerSchema(listening_events=[GroupMessage]))
 async def ero(app: Ariadne, group: Group, message: MessageChain):
     if message.display == "涩图来":
@@ -97,8 +97,7 @@ import click
 
 @click.command()
 @click.option('--count', default=1, help='Number of greetings.')
-@click.option('--name', prompt='Your name',
-              help='The person to greet.')
+@click.option('--name', prompt='Your name', help='The person to greet.')
 def hello(count, name):
     """Simple program that greets NAME for a total of COUNT times."""
     for x in range(count):
@@ -113,7 +112,7 @@ if __name__ == '__main__':
 
 我们可以将这四个指令分成四个函数（以下方法究极省略）
 
-``` python
+```python
 @channel.use(...FullMatch("bz rank"))
 async def bz_rank(...):
     ...
@@ -135,7 +134,7 @@ async def bz_download(...):
 然后下一个问题就出现了，可能函数与函数之间，会有很多相同的代码，怎么办？  
 那你直接将这些实现包装成一个类不就行了？
 
-``` python
+```python
 
 class Bz:
 
@@ -160,3 +159,71 @@ class Bz:
 ```
 
 <Loading></Loading>
+
+
+## 某外星来客的写法
+
+仍然以中这个命令为例子
+
+``` bash
+bz rank
+bz random [-H24|-D7|-D30]
+bz search [-forward] {关键词}
+bz download [-forward] {本子号}
+```
+
+如果你阅读了 [Alconna —— 外 星 来 客](../guide/message_parser/alconna.md) 章节，
+你应该知道这个命令怎么去编写：
+
+```python
+from arclet.alconna import Alconna, Args, Option
+from arclet.alconna.graia import alcommand, assign
+
+bz = Alconna(
+    "bz",
+    Option("rank"),
+    Option("random", Args["mode", ["-H24", "-D7", "-D30"]]),
+    Option("search", Args["keyword", str]),
+    Option("download", Args["id", str]),
+    Option("-forward")
+)
+
+@alcommand(bz)
+@assign("rank")
+async def rank():
+    ...
+
+@alcommand(bz)
+@assign("random")
+async def random():
+    ...
+
+@alcommand(bz)
+@assign("search")
+async def search():
+    ...
+
+@alcommand(bz)
+@assign("download")
+async def download():
+    ...
+```
+
+但同时，**Alconna-Graia** 提供了更接近 **click-like** 的写法：
+
+```python
+from arclet.alconna import Args
+from arclet.alconna.graia import alc
+from graiax.shortcut.saya import listen
+from graia.ariadne.event.message import GroupMessage
+
+@listen(GroupMessage)
+@alc.command("bz")
+@alc.option("rank")
+@alc.option("random", Args["mode", ["-H24", "-D7", "-D30"]])
+@alc.option("search", Args["keyword", str])
+@alc.option("download", Args["id", str])
+@alc.option("-forward")
+async def bz():
+    ...
+```
