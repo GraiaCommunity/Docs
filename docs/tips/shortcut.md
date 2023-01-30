@@ -79,6 +79,34 @@ async def setu(app: Ariadne, group: Group, message: MessageChain):
 
 :::
 
+## 安装
+
+若你需要新版 **Saya Util**，请以如下命令安装：
+
+:::: code-group
+::: code-group-item poetry
+
+```bash
+poetry add graiax-shortcut>=0.2.0
+```
+
+:::
+::: code-group-item pdm
+
+```bash
+pdm add graiax-shortcut>=0.2.0
+```
+
+:::
+::: code-group-item pip
+
+```bash
+pip install graiax-shortcut>=0.2.0
+```
+
+:::
+::::
+
 ## 使用方法
 
 **Saya Util** 与 `channel.use` 一样，需要以装饰器的方式附加在事件处理器（就是你的函数啦~）上。

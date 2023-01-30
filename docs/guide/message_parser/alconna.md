@@ -36,6 +36,7 @@
 
 ```bash
 poetry add arclet-alconna-graia>=0.11.4, arclet-alconna-ariande>=0.11.4
+poetry add graiax-shortcut
 ```
 
 :::
@@ -43,6 +44,7 @@ poetry add arclet-alconna-graia>=0.11.4, arclet-alconna-ariande>=0.11.4
 
 ```bash
 pdm add arclet-alconna-graia>=0.11.4, arclet-alconna-ariande>=0.11.4
+pdm add graiax-shortcut
 ```
 
 :::
@@ -50,6 +52,7 @@ pdm add arclet-alconna-graia>=0.11.4, arclet-alconna-ariande>=0.11.4
 
 ```bash
 pip install arclet-alconna-graia>=0.11.4, arclet-alconna-ariande>=0.11.4
+pip install graiax-shortcut
 ```
 
 :::
@@ -71,7 +74,16 @@ setu搜索 CONTENT
 use API:[saucenao|ascii2d|ehentai|iqdb|tracemoe] = saucenao
 count NUM:int = 1
 similarity VAL:float = 0.5
-timeout SEC:int = 60
+--timeout SEC:int = 60
+```
+
+这样的命令大致如下所示：
+
+```bash
+setu搜索 XXX
+setu搜索 XXX use ascii2d
+setu搜索 XXX similarity 0.8
+setu搜索 XXX use ehentai --timeout 60
 ```
 
 如果使用 **Twilight** 去做，选项之间的处理会比较复杂。
@@ -89,7 +101,7 @@ SetuFind = Alconna(
     Option("use", Args['api', api_list], help_text="选择搜图使用的 API"),
     Option("count", Args(Arg("num", int)), help_text="设置每次搜图展示的最多数量"),
     Option("similarity", Args.val[float, 0.5], help_text="设置相似度过滤的值"),
-    Option("timeout", Args["sec", int, 60], help_text="设置超时时间"),
+    Option("--timeout", Args["sec", int, 60], help_text="设置超时时间"),
     meta=CommandMeta(
         "依据输入的图片寻找可能的原始图片来源",
         usage="可以传入图片, 也可以是图片的网络链接",
@@ -179,6 +191,7 @@ async def ero_ascii2d(
 `arclet.alconna.components.output.TextFormatter` 来个性化信息样式，如：
 
 ```python
+from arclet.alconna import Alconna, Args
 from arclet.alconna.tools import MarkdownTextFormatter
 
 alc = Alconna("test", Args["count#这是一个注释", int], formatter_type=MarkdownTextFormatter)
@@ -218,6 +231,7 @@ print(command_manager.all_command_help())
 Alconna 可以设置 `meta.hide`  参数以不被 command_manager 打印出来。
 
 ```python
+from arclet.alconna import Alconna, CommandMeta, command_manager
 foo = Alconna("foo", meta=CommandMeta(hide=True))
 ...
 print(command_manager.all_command_help())
@@ -250,13 +264,14 @@ config.message_max_cache = 100 # 消息缓存最大数目
 
 ```python
 from arclet.alconna import config, namespace, Namespace
+from arclet.alconna.tools import ArgParserTextFormatter
 
 
 np = Namespace("foo", headers=["/"])  # 创建 Namespace 对象，并进行初始配置
 
 with namespace("bar") as np1:
     np1.headers = ["!"]    # 以上下文管理器方式配置命名空间，此时配置会自动注入上下文内创建的命令
-    np1.formatter_type = ArgparserTextFormatter  # 设置此命名空间下的命令的 formatter 默认为 ArgparserTextFormatter
+    np1.formatter_type = ArgParserTextFormatter  # 设置此命名空间下的命令的 formatter 默认为 ArgparserTextFormatter
 
 config.namespaces["foo"] = np  # 将命名空间挂载到 config 上
 ```
@@ -386,9 +401,9 @@ alc.parse("食物在哪里")
 
 命令组的解析表现与单个命令的行为基本一致，若全部命令解析失败则返回最后一个命令的解析结果。
 
-## [Kirakira☆dokidoki的Dispatcher](https://zh.moegirl.org.cn/index.php?search=Kirakira+Dokidoki&title=Special:%E6%90%9C%E7%B4%A2&searchToken=9hyop5qg906tdzfb9wltw6slt)
+## [Kirakira☆dokidoki的Alconna-Graia](https://zh.moegirl.org.cn/index.php?search=Kirakira+Dokidoki&title=Special:%E6%90%9C%E7%B4%A2&searchToken=9hyop5qg906tdzfb9wltw6slt)
 
-在 **Ariadne** 中，你可以通过使用 **AlconnaDispatcher** 来提供消息处理服务：
+在 **Ariadne** 乃至 **Avilla** 中，你可以通过使用 **AlconnaDispatcher** 来提供消息处理服务：
 
 ```python{6}
 from arclet.alconna.graia import Alconna, AlconnaDispatcher
@@ -402,6 +417,47 @@ async def _(app: Ariadne, group: Group, result: Arparma):
     ...
 ```
 
+::: warn
+
+自 `arclet-alcona-graia` 0.11.0 开始，**Alconna-Graia** 建议与 `Launart` 结合使用：
+
+```python
+from launart import Launart
+from arclet.alconna.graia import AlconnaGraiaService
+from arclet.alconna.ariadne import AlconnaAriadneAdapter
+
+manager = Launart(...)
+manager.add_service(AlconnaGraiaService(AlconnaAriadneAdapter))
+...
+```
+
+或
+
+```python
+from launart import Launart
+from arclet.alconna.graia import AlconnaGraiaService
+import arclet.alconna.ariadne
+
+manager = Launart(...)
+manager.add_service(AlconnaGraiaService())
+...
+```
+
+或
+
+```python
+from launart import Launart
+from arclet.alconna.graia import AlconnaGraiaService
+
+manager = Launart(...)
+manager.add_service(AlconnaGraiaService("ariadne"))
+...
+```
+
+您可以通过 **AlconnaGraiaService** 的 `enable_cache` 与 `cache_dir` 参数来启用对运行时注册的 **快捷命令** 进行保存
+
+:::
+
 **AlconnaDispatcher** 目前有如下参数：
 
 - `alconna`: `Alconna`本体
@@ -410,7 +466,7 @@ async def _(app: Ariadne, group: Group, result: Arparma):
   - `'reply'`: `AlconnaDispatcher` 会自动将输出信息发送给命令发起者
   - `'post'`: `AlconnaDispatcher` 会广播一个 `AlconnaOutputMessage` 事件，你可以通过监听该事件来自定义输出文本的处理方法
 - `skip_for_unmatch`: 当收到的消息不匹配`Alconna`时是否跳过，默认为`True`
-- `send_handler`: 对输出文本的处理函数
+- `message_converter`: 对输出文本的处理函数
 
 若 `send_flag` 选择 `reply`，则 `AlconnaDispatcher` 会自动将输出信息发出。
 若 `send_flag` 选择 `post`，则 `AlconnaDispatcher` 会利用 `Broadcast` 广播一个事件，并将输出信息作为参数发出。
@@ -496,13 +552,11 @@ async def _(app: Ariadne, foo: Match[int]):
 
 :::tip
 
-近几次更新后已经不需要 **AlconnaSchema** 来负责管理命令，即直接使用 **AlconnaDispatcher** 即可。
-
-所以更推荐使用 **Shortcut**：
+更推荐使用 **Shortcut** 编写 saya 模块：
 
 ```python{5-6}
 from arclet.alconna.graia import Alconna, AlconnaDispatcher
-from graia.ariadne.util.saya import listen, dispatch
+from graiax.shortcut.saya import listen, dispatch
 
 
 @listen(GroupMessage)
@@ -522,7 +576,7 @@ async def _(app: Ariadne, result: Arparma):
     ...
 ```
 
-该情况默认使用 `reply` 的 send_flag。
+**alcommand** 默认使用 `reply` 的 send_flag。
 
 :::
 
@@ -587,7 +641,7 @@ async def _(target: At):
 
 ### 特殊类型
 
-`arclet-alconna-graia` 提供了几个特定的 `Args` 类型：
+`arclet-alconna-ariadne` 提供了几个特定的 `Args` 类型：
 
 - `ImgOrUrl`: 表示匹配一个 **Image** 消息元素或者是代表图片链接的字符串，匹配结果是图片的链接（str）
 - `AtID`: 表示匹配一个 **At** 消息元素或者是 `@xxxx` 式样的字符串或者数字，返回数字（int）
@@ -971,7 +1025,9 @@ async def test(app: Ariadne, group: Group):
 ::::
 
 :::tip NOTE
+
 自 Alconna 1.3 以来，除开 typical 构建方法外，剩余四种需要安装 `arclet-alconna-tools` 才能使用。
+
 :::
 
 ### 代码解析
@@ -1080,7 +1136,7 @@ Alconna::我要涩图(args=Args('count': int), options=[从(args=Args('tags': (s
 `Option` 可以传入一组 `alias`：
 
 ```python
-Option("--foo", alias=["-F", "--FOO", "-f"])
+Option("--foo", Args, alias=["-F", "--FOO", "-f"])
 ```
 
 那么`-f`、`-F` 与 `--FOO`将等同于`--foo`。
@@ -1089,10 +1145,11 @@ Option("--foo", alias=["-F", "--FOO", "-f"])
 
 <h4>Subcommand</h4>
 
-`Subcommand` 可以传入自己的 **Option**：
+`Subcommand` 可以传入自己的 **Option** 与 **Subcommand**：
 
 ```python
-Subcommand("sub", options=[Option("sub_opt")])
+Subcommand("sub", Option("sub_opt"), Subcommand("sub_sub"), Args)
+Subcommand("sub", Args, [Option("sub_opt"), Subcommand("sub_sub")])
 ```
 
 此时 `sub_opt` 必须在 `sub` 被输入时才算作合法选项，即：
@@ -1162,6 +1219,8 @@ Option("foo bar baz qux")
 
 #### var
 
+var 负责命令参数的类型检查与类型转化
+
 var 可以是以下几类：
 
 - 存在于 `nepattern.pattern_map` 中的类型/字符串，用以替换为预制好的 **BasePattern**
@@ -1226,7 +1285,7 @@ ObjectPattern(Image, limit=("url",))
 
 ### BasePattern
 
-**BasePattern** 是 Alconna 中对正则解析的拓展，负责对传入参数的检查与类型转换。
+**BasePattern** 是 Alconna 中对正则解析的拓展，负责实际对传入参数的检查与类型转换。
 
 例如我想把如 `'sth1/sth2/sth3/sth4'` 的参数在解析后变成类似 `['sth1', 'sth2', 'sth3', 'sth4']` 这样子。
 
@@ -1280,19 +1339,18 @@ Arpamar 会有如下参数：
 
 - 调试类
   - matched: 是否匹配成功
-  - head_matched: 命令头部是否匹配成功
   - error_data: 解析失败时剩余的数据
   - error_info: 解析失败时的报错信息
   - origin: 原始命令，可以类型标注
   - source: 使用的 Alconna
 
 - 分析类
+  - header_match: 命令头部的解析结果，包括原始头部、解析后头部、解析结果与可能的正则匹配组
   - main_args: 命令的主参数的解析结果
   - options: 命令所有选项的解析结果
   - subcommands: 命令所有子命令的解析结果
   - other_args: 除主参数外的其他解析结果
   - all_matched_args: 所有 Args 的解析结果
-  - header: 当命令头部填入有效表达式时的解析结果
 
 老规矩，直接上实例：
 
@@ -1303,9 +1361,14 @@ from arclet.alconna.graia import alcommand
 
 @alcommand(
     Alconna(
-        "找歌", Args["song", str],
+        "找歌", 
+        Args["song", str],
         Option("语种", Args["lang", str]),
-        Subcommand("歌手", [Option("地区", Args["region", str])], Args["singer", str]),
+        Subcommand(
+          "歌手", 
+          Args["singer", str],
+          Option("地区", Args["region", str]),
+        ),
     ),
     private=False,
 )

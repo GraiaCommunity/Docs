@@ -160,3 +160,71 @@ class Bz:
 ```
 
 <Loading></Loading>
+
+
+## 某外星来客的写法
+
+仍然以中这个命令为例子
+
+``` bash
+bz rank
+bz random [-H24|-D7|-D30]
+bz search [-forward] {关键词}
+bz download [-forward] {本子号}
+```
+
+如果你阅读了 [Alconna —— 外 星 来 客](../guide/message_parser/alconna.md) 章节，
+你应该知道这个命令怎么去编写：
+
+```python
+from arclet.alconna import Alconna, Args, Option
+from arclet.alconna.graia import alcommand, assign
+
+bz = Alconna(
+    "bz",
+    Option("rank"),
+    Option("random", Args["mode", ["-H24", "-D7", "-D30"]]),
+    Option("search", Args["keyword", str]),
+    Option("download", Args["id", str]),
+    Option("-forward")
+)
+
+@alcommand(bz)
+@assign("rank")
+async def rank():
+    ...
+
+@alcommand(bz)
+@assign("random")
+async def random():
+    ...
+
+@alcommand(bz)
+@assign("search")
+async def search():
+    ...
+
+@alcommand(bz)
+@assign("download")
+async def download():
+    ...
+```
+
+但同时，**Alconna-Graia** 提供了更接近 **click-like** 的写法：
+
+```python
+from arclet.alconna import Args
+from arclet.alconna.graia import alc
+from graiax.shortcut.saya import listen
+from graia.ariadne.event.message import GroupMessage
+
+@listen(GroupMessage)
+@alc.command("bz")
+@alc.option("rank")
+@alc.option("random", Args["mode", ["-H24", "-D7", "-D30"]])
+@alc.option("search", Args["keyword", str])
+@alc.option("download", Args["id", str])
+@alc.option("-forward")
+async def bz():
+    ...
+```
