@@ -4,6 +4,11 @@
 知道拼积木吗？现在这一章差不多可以认为是零件乱放。
 :::
 
+::: danger
+蓝玻璃块（`Ariadne`的主要维护者）认为现在这个功能是重复造轮子  
+该功能已经在[`Unsync`](https://pypi.org/project/unsync/)中实现  
+:::
+
 在看了那么多篇文档以及 [其他 bot](/appendix/awesome_bot.md) 的源码，
 想必你已经做了一个**带有 Pillow / PIL 的制图**的模组吧~
 
