@@ -1,7 +1,6 @@
 const before = [
   {
     text: '开始之前',
-    collapsed: true,
     items: [
       { text: '说在前面', link: '/before/' },
       { text: '你需要知道的一些事', link: '/before/QA' },
@@ -9,12 +8,32 @@ const before = [
       { text: '名词解释', link: '/before/terms' },
     ],
   },
+  {
+    text: '社区及社区项目介绍',
+    items: [
+      { text: '社区介绍', link: '/before/introduction/' },
+      {
+        text: '社区项目介绍',
+        link: '/before/introduction/project/',
+        items: [
+          { text: 'Graiax FastAPI', link: '/before/introduction/project/fastapi' },
+          { text: 'Graiax Playwright', link: '/before/introduction/project/playwright' },
+          {
+            text: 'Graiax Text2Image 系列',
+            collapsed: true,
+            items: [
+              { text: '基于 Playwright', link: '/before/introduction/project/t2i/playwright' },
+            ],
+          },
+        ],
+      },
+    ],
+  },
 ]
 
 const guide = [
   {
     text: '手把手教你写机器人',
-    collapsed: true,
     items: [
       { text: '要致富，先撸树', link: '/guide/create_env' },
       { text: '快速上手', link: '/guide/hello_ero' },
@@ -58,7 +77,6 @@ const guide = [
 const appendix = [
   {
     text: '附录',
-    collapsed: true,
     items: [
       { text: '鸣谢', link: '/appendix/credit' },
       { text: '社区可供参考的 bot', link: 'appendix/awesome_bot' },
@@ -68,8 +86,6 @@ const appendix = [
   },
   {
     text: '写代码的小贴士',
-    collapsed: true,
-    // collapsed: true,
     items: [
       { text: '终端复用', link: '/appendix/tips/terminal_multiplexer' },
       { text: '更简短的修饰器', link: '/appendix/tips/shortcut' },
@@ -80,8 +96,6 @@ const appendix = [
   },
   {
     text: '奇奇怪怪的东西',
-    collapsed: true,
-    // collapsed: true,
     items: [{ text: '热点追踪 - 群搜图小助手', link: '/appendix/other/saucenao' }],
   },
 ]
