@@ -9,7 +9,7 @@ Ariadne 于 0.7.x 版本开始支持 richuru，并且从依赖中移除了 promp
 
 还记得 `mcl` 吗？你应该对他底下的这个 `>` 印象深刻吧。
 
-```txt
+```shell
 xxxx-xx-xx xx:xx:xx I/main: mirai-console started successfully.
 
 >
@@ -51,7 +51,7 @@ saya.install_behaviours(ConsoleBehaviour(con))
 
 然后让你再次启用程序的时候，铛铛：
 
-```txt
+```shell
 20yy-MM-dd HH:mm:ss.SSS | INFO     | launart.manager:launch:109 - launchable components count: 4
 20yy-MM-dd HH:mm:ss.SSS | INFO     | launart.manager:launch:110 - launch all components as async task...
 20yy-MM-dd HH:mm:ss.SSS | INFO     | launart.manager:task_done_cb:153 - [elizabeth.connection.242679293.http_client_connection] running completed.

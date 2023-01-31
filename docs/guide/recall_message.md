@@ -34,7 +34,7 @@ async def test(app: Ariadne, message: MessageChain):
     print(message.only(Plain))
 ```
 
-```txt
+```shell
 2022-01-14 00:42:38.651 | INFO     | graia.ariadne.model:log_group_message:106 - 114514: [GraiaCommunity(1919810)] GraiaX(10086) -> '测试'
 False
 ```
