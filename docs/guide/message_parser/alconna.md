@@ -1537,13 +1537,13 @@ ill = Alconna(
 
 基于对传入消息的记录，Alconna 0.9.0 以上支持动态的快捷指令构建：
 
-```text
+```txt
 >>> my_command --shortcut XXX "my_command foo bar ..."
 ```
 
 或者
 
-```text
+```txt
 >>> my_command foo bar ...
 >>> my_command --shortcut XXX
 ```

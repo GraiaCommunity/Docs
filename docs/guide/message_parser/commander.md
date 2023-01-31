@@ -78,7 +78,7 @@ async def setu(tag: str):
 
 这里先举一个简单的例子，这是一个 **Commander**：
 
-```text
+```txt
 [.涩图 | .涩涩] pixiv {tag}
 ```
 
@@ -87,21 +87,21 @@ async def setu(tag: str):
 :::: code-group
 ::: code-group-item A
 
-```text
+```txt
 .涩图 pixiv A60
 ```
 
 :::
 ::: code-group-item B
 
-```text
+```txt
 .涩涩 pixiv 野兽先辈
 ```
 
 :::
 ::: code-group-item C
 
-```text
+```txt
 .涩涩 pixiv "野兽 先辈"
 ```
 
@@ -111,7 +111,7 @@ async def setu(tag: str):
 ::: tip
 对于含有空格的字符串，需要像 shell 那样使用引号包裹，否则不满足匹配规则，例如下方的文本将不会被接受
 
-```text
+```txt
 .涩涩 pixiv 野兽 先辈
 ```
 
@@ -145,7 +145,7 @@ async def setu(pid: int): ...
 
 例如下面的命令是非法的：
 
-```text
+```txt
 .涩图 {pid: int = 114514} {foo} bar
 ```
 
