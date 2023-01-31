@@ -25,7 +25,7 @@
 - [MamoeTechnologies](https://github.com/mamoe): 带来了 `Mirai` 这样一个高效率 QQ 机器人支持库
 - [project-mirai](https://github.com/project-mirai): 带来了 `Mirai API http` 这样一个 `Mirai` 插件
 - [Vuepress Hope](https://github.com/vuepress-theme-hope): 其 `vuepress-plugin-md-enhance` 插件丰富了社区文档的展示形式
-- [萌娘百科](https://zh.moegirl.org.cn/Mainpage): 提供了如<Curtain>黑幕</Curtain>还有<RubyCurtain up="RubyH">这种</RubyCurtain>的 css，以及文档各种梗（~~主要是生草用的~~）<Curtain>和各种涩图 tag</Curtain>的解释
+- [萌娘百科](https://zh.moegirl.org.cn/Mainpage): 提供了如<curtain>黑幕</curtain>还有<ruby-curtain up="RubyH">这种</ruby-curtain>的 css，以及文档各种梗（~~主要是生草用的~~）<curtain>和各种涩图 tag</curtain>的解释
 - 正在看这篇文档的**你**: 使这篇文档的存在拥有了意义
 
 ## 本文档还参考或使用了以下资料
@@ -42,7 +42,7 @@
 
 - [A60 的 MyFirstBot](https://github.com/djkcyl/myfirstbot)
 - Graia Framework Community 群的沙雕群友们的日常（bushi）
-- [Github Copilot](https://copilot.github.com) 提供的各种奇妙~~怪话~~<Curtain>你不知道只按 tab 写文档有多爽</Curtain>
+- [Github Copilot](https://copilot.github.com) 提供的各种奇妙~~怪话~~<curtain>你不知道只按 tab 写文档有多爽</curtain>
 - [伪 QQ 移动端聊天窗口](https://github.com/Redlnn/Fake-QQ-Chat-Window)
 
 ::: tsukkomi Graia Framework Community 群

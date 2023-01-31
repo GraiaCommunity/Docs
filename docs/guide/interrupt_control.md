@@ -4,12 +4,12 @@
 
 让我们回顾一下至今我们学习的所有东西，假设你曾经看过友商的代码，想必曾今看到过这样子的对话：
 
-<ChatWindow title="Graia Framework Community">
-  <ChatMsg name="GraiaX" onright>天气</ChatMsg>
-  <ChatMsg name="EroEroBot" avatar="/avatar/ero.webp">你想查询哪个城市的天气呢？</ChatMsg>
-  <ChatMsg name="GraiaX" onright>学园都市</ChatMsg>
-  <ChatMsg name="EroEroBot" avatar="/avatar/ero.webp">学园都市的天气是...</ChatMsg>
-</ChatWindow>
+<chat-window title="Graia Framework Community">
+  <chat-msg name="GraiaX" onright>天气</chat-msg>
+  <chat-msg name="EroEroBot" avatar="/avatar/ero.webp">你想查询哪个城市的天气呢？</chat-msg>
+  <chat-msg name="GraiaX" onright>学园都市</chat-msg>
+  <chat-msg name="EroEroBot" avatar="/avatar/ero.webp">学园都市的天气是...</chat-msg>
+</chat-window>
 
 ::: tip
 其实原例子是**上海**而不是[**学园都市**](https://zh.moegirl.org.cn/%E5%AD%A6%E5%9B%AD%E9%83%BD%E5%B8%82)来着。
@@ -21,19 +21,19 @@
 我不怎么建议你去将 `Ariadne` 跟友商的代码进行对比，`Ariadne` 跟友商从整体思路上就已经有所不同了。
 :::
 
-虽然说这个例子挺好的，但不太符合我们对 EroEroBot 的设定（<Curtain>啥，这玩意儿还有设定？</Curtain>），
+虽然说这个例子挺好的，但不太符合我们对 EroEroBot 的设定（<curtain>啥，这玩意儿还有设定？</curtain>），
 所以我们稍稍改了一下：
 
-<ChatWindow title="Graia Framework Community">
-  <ChatMsg name="GraiaX" onright>涩图来</ChatMsg>
-  <ChatMsg name="EroEroBot" avatar="/avatar/ero.webp">你想要什么 tag 的涩图</ChatMsg>
-  <ChatMsg name="GraiaX" onright>死库水</ChatMsg>
-  <ChatImg name="EroEroBot" avatar="/avatar/ero.webp" src="/images/guide/high_DIO.webp"></ChatImg>
-  <ChatMsg name="GraiaX" onright>草</ChatMsg>
-</ChatWindow>
+<chat-window title="Graia Framework Community">
+  <chat-msg name="GraiaX" onright>涩图来</chat-msg>
+  <chat-msg name="EroEroBot" avatar="/avatar/ero.webp">你想要什么 tag 的涩图</chat-msg>
+  <chat-msg name="GraiaX" onright>死库水</chat-msg>
+  <chat-img name="EroEroBot" avatar="/avatar/ero.webp" src="/images/guide/high_DIO.webp"></chat-img>
+  <chat-msg name="GraiaX" onright>草</chat-msg>
+</chat-window>
 
 ::: tip
-根据[萌娘百科具有"死库水"属性的典型角色](https://zh.moegirl.org.cn/死库水#具有本属性的典型角色)，确实有 DIO（<Curtain>虽然说跟我这个一样使用黑幕包裹着的</Curtain>）。
+根据[萌娘百科具有"死库水"属性的典型角色](https://zh.moegirl.org.cn/死库水#具有本属性的典型角色)，确实有 DIO（<curtain>虽然说跟我这个一样使用黑幕包裹着的</curtain>）。
 :::
 
 ## 举个栗子

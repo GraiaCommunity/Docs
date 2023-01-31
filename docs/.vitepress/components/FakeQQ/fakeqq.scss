@@ -4,7 +4,7 @@
   justify-content: space-between;
   align-content: space-between;
   border-radius: 6px;
-  background-color: var(--vp-c-bg-mute);
+  background-color: var(--vp-c-mute);
   font-size: 14px;
 }
 
@@ -148,7 +148,7 @@
     // }
 
     .fakeqq-message__quote {
-      background-color: var(--vp-c-bg-mute);
+      background-color: var(--vp-c-mute);
     }
   }
 }
@@ -165,7 +165,7 @@
 }
 
 .fakeqq-message__quote {
-  background-color: var(--vp-c-bg-mute);
+  background-color: var(--vp-c-mute);
   padding: 10px;
   margin-bottom: 5px;
   border-radius: 10px;

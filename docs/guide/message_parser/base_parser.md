@@ -113,7 +113,7 @@ async def test():
 
 ::: tip
 `Quote` 和 `Source` 虽然也在消息链里面，  
-但是他们并不会被去掉哦<Curtain>只有"涩"消失的世界完成了</Curtain>。
+但是他们并不会被去掉哦<curtain>只有"涩"消失的世界完成了</curtain>。
 :::
 
 ::: details 用法实战
@@ -163,7 +163,7 @@ async def on_message(app: Ariadne, group: Group, message: Annotated[MessageChain
 
 ::: tip
 `Quote` 和 `Source` 虽然也在消息链里面，  
-但是他们并不会被去掉哦<Curtain>只有"涩"消失的世界完成了</Curtain>。
+但是他们并不会被去掉哦<curtain>只有"涩"消失的世界完成了</curtain>。
 :::
 
 ::: details 用法实战

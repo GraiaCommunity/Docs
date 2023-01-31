@@ -2,7 +2,7 @@
 
 在看了前两章后，你应该已经得到了一个**每发送一次"你好"就会嚷嚷要涩图的机器人**。
 
-不过，这样还是有点太诡异了<Curtain>不是吗？</Curtain>。
+不过，这样还是有点太诡异了<curtain>不是吗？</curtain>。
 事实上，QQ 除了群消息外还有其他类型的事件，如戳一戳、消息撤回等等等等……
 
 下面教大家如何使用戳一戳事件（`NudgeEvent`）
@@ -99,10 +99,10 @@ async def getup(app: Ariadne, event: NudgeEvent):
 
 此时运行机器人，然后在群里戳一下他，你就会得到如下结果
 
-<ChatWindow title="Graia Framework Community">
-  <ChatToast>GraiaX 👉 戳了戳 EroEroBot 的腰</ChatToast>
-  <ChatMsg name="EroEroBot" avatar="/avatar/ero.webp">你不要光天化日之下在这里戳我啊</ChatMsg>
-</ChatWindow>
+<chat-window title="Graia Framework Community">
+  <chat-toast>GraiaX 👉 戳了戳 EroEroBot 的腰</chat-toast>
+  <chat-msg name="EroEroBot" avatar="/avatar/ero.webp">你不要光天化日之下在这里戳我啊</chat-msg>
+</chat-window>
 
 ::: tip
 有关什么是 Broadcast，各种 Event 又是什么，请参阅[这里](/before/QA.html#_3-%E4%BB%80%E4%B9%88%E6%98%AF-broadcastcontrol)

@@ -76,13 +76,13 @@ const mermaidRender: RenderRule = (tokens, index) => {
   const key = `mermaid-${hash(index)}`
   const { content } = token
 
-  return `<Mermaid id="${key}" code="${encodeURIComponent(content)}"></Mermaid>`
+  return `<mermaid id="${key}" code="${encodeURIComponent(content)}"></mermaid>`
 }
 
 const mermaidHackRender = (name: string, content: string, index: number): string =>
-  `<Mermaid id="mermaid-${hash(index)}" code="${encodeURIComponent(
+  `<mermaid id="mermaid-${hash(index)}" code="${encodeURIComponent(
     `${name}\n${content
       .split('\n')
       .map((line) => (line ? `  ${line}` : ''))
       .join('\n')}`
-  )}"></Mermaid>`
+  )}"></mermaid>`

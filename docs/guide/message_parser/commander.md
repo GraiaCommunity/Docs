@@ -2,7 +2,7 @@
 
 ::: warning
 虽然现在还有一大堆没写，但是还要扯一句，现阶段 **Commander** 并不怎么适合给
-**Ariadne** 使用，即<Curtain>强制缝合不可取 desu</Curtain>
+**Ariadne** 使用，即<curtain>强制缝合不可取 desu</curtain>
 :::
 
 ## `Commander` 是什么
@@ -18,7 +18,7 @@
 |  指挥  | conductor, commander, director, dictate          |
 |  舰长  | captain, commander, commodore, warship's captain |
 
-<Curtain>什么碧蓝航线（划掉）</Curtain>
+<curtain>什么碧蓝航线（划掉）</curtain>
 
 事实上，这个词由 `command`（命令）和 `-er`（的东西<a href="https://zh.wiktionary.org/wiki/-er" target="_blank" title="来自维基词典"><sup>[1]</sup></a>）组成，说白了他就是一个`命令解析器`。
 
@@ -220,7 +220,7 @@ async def setu(dio: int):
     ...
 ```
 
-<Curtain>pid：这才是我的逃跑路线哒！</Curtain>
+<curtain>pid：这才是我的逃跑路线哒！</curtain>
 
 ### `Arg`
 

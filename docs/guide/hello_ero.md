@@ -78,10 +78,10 @@
    20yy-MM-dd HH:mm:ss.SSS | INFO     | graia.ariadne.model:log:64 - [BOT 1919810] Friend(114514) <- '不要说你好，来点涩图'
    ```
 
-   <ChatWindow title="Graia Framework Community">
-      <ChatMsg name="GraiaX" onright>你好</ChatMsg>
-      <ChatMsg name="EroEroBot" avatar="/avatar/ero.webp">不要说你好，来点涩图</ChatMsg>
-   </ChatWindow>
+   <chat-window title="Graia Framework Community">
+      <chat-msg name="GraiaX" onright>你好</chat-msg>
+      <chat-msg name="EroEroBot" avatar="/avatar/ero.webp">不要说你好，来点涩图</chat-msg>
+   </chat-window>
 
 ::: interlink
 <https://graia.readthedocs.io/ariadne/quickstart/>

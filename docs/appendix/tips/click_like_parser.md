@@ -158,7 +158,7 @@ class Bz:
 
 ```
 
-<Loading></Loading>
+<loading />
 
 
 ## 某外星来客的写法

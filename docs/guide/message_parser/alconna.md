@@ -7,7 +7,7 @@
 - 画风突变的标题
 - 意义不明的日语翻译 ~~熟肉反生~~
 
-不过放心，梗都有相关注释<Curtain>什么梗百科</Curtain>
+不过放心，梗都有相关注释<curtain>什么梗百科</curtain>
 
 > [**「わかります。」**](https://zh.moegirl.org.cn/%E9%95%BF%E9%A2%88%E9%B9%BF(%E5%B0%91%E5%A5%B3%E6%AD%8C%E5%89%A7))
 :::
@@ -147,17 +147,17 @@ async def ero_ascii2d(
 
 准备就绪，对着你的机器人~~发情~~发号施令吧：
 
-<ChatWindow title="聊天记录">
-  <ChatMsg name="群菜鸮" avatar="https://q4.qlogo.cn/g?b=qq&nk=2948531755&s=640">
+<chat-window title="聊天记录">
+  <chat-msg name="群菜鸮" avatar="https://q4.qlogo.cn/g?b=qq&nk=2948531755&s=640">
     setu搜索<br />
     <img alt="涩图" style="margin-top: 5px" src="/images/guide/ero_pic_1.webp"/>
-  </ChatMsg>
-  <ChatMsg name="EroEroBot" avatar="/avatar/ero.webp"><ChatQuote name="群菜鸮">setu搜索</ChatQuote>正在搜索，请稍后</ChatMsg>
-  <ChatMsg name="EroEroBot" avatar="/avatar/ero.webp">工口发生~</ChatMsg>
-  <ChatMsg name="群菜龙" avatar="https://q4.qlogo.cn/g?b=qq&nk=2544704967&s=640">草</ChatMsg>
-  <ChatMsg name="群菜鸡" avatar="https://q4.qlogo.cn/g?b=qq&nk=1450069615&s=640">草</ChatMsg>
-  <ChatMsg name="群菜鸮" avatar="https://q4.qlogo.cn/g?b=qq&nk=2948531755&s=640">草</ChatMsg>
-</ChatWindow>
+  </chat-msg>
+  <chat-msg name="EroEroBot" avatar="/avatar/ero.webp"><chat-quote name="群菜鸮">setu搜索</chat-quote>正在搜索，请稍后</chat-msg>
+  <chat-msg name="EroEroBot" avatar="/avatar/ero.webp">工口发生~</chat-msg>
+  <chat-msg name="群菜龙" avatar="https://q4.qlogo.cn/g?b=qq&nk=2544704967&s=640">草</chat-msg>
+  <chat-msg name="群菜鸡" avatar="https://q4.qlogo.cn/g?b=qq&nk=1450069615&s=640">草</chat-msg>
+  <chat-msg name="群菜鸮" avatar="https://q4.qlogo.cn/g?b=qq&nk=2948531755&s=640">草</chat-msg>
+</chat-window>
 
 
 ## [直面灾厄](https://zh.moegirl.org.cn/%E6%98%8E%E6%97%A5%E6%96%B9%E8%88%9F/%E9%9B%86%E6%88%90%E6%88%98%E7%95%A5/%E5%82%80%E5%BD%B1%E4%B8%8E%E7%8C%A9%E7%BA%A2%E5%AD%A4%E9%92%BB#%E9%9A%BE%E5%BA%A6%E5%88%86%E7%BA%A7)
@@ -345,7 +345,7 @@ ParamsUnmatched: 以下参数没有被正确解析哦~
 '''
 ```
 
-(~~[你毫无疑问是个雪菜推呢~](https://zh.moegirl.org.cn/LoveLive!%E7%B3%BB%E5%88%97#%E6%B5%81%E8%A1%8C%E7%9A%84%E6%A2%97)~~<Curtain><a href="https://zh.moegirl.org.cn/%E4%B8%8A%E5%8E%9F%E6%AD%A5%E6%A2%A6" target="_blank">大西亚步梦</a>：诶</Curtain>
+(~~[你毫无疑问是个雪菜推呢~](https://zh.moegirl.org.cn/LoveLive!%E7%B3%BB%E5%88%97#%E6%B5%81%E8%A1%8C%E7%9A%84%E6%A2%97)~~<curtain><a href="https://zh.moegirl.org.cn/%E4%B8%8A%E5%8E%9F%E6%AD%A5%E6%A2%A6" target="_blank">大西亚步梦</a>：诶</curtain>
 )
 
 ### 半自动补全
@@ -475,9 +475,9 @@ manager.add_service(AlconnaGraiaService("ariadne"))
 
 例如，当上例的 `send_flag` 为 `reply` 时，可以出现如下情况：
 
-<ChatWindow title="聊天记录">
-  <ChatMsg name="群菜鸮" avatar="https://q4.qlogo.cn/g?b=qq&nk=2948531755&s=640">setu搜索 --help</ChatMsg>
-  <ChatMsg name="EroEroBot" avatar="/avatar/ero.webp">setu搜索 &lt;content:Image|url&gt;<br />
+<chat-window title="聊天记录">
+  <chat-msg name="群菜鸮" avatar="https://q4.qlogo.cn/g?b=qq&nk=2948531755&s=640">setu搜索 --help</chat-msg>
+  <chat-msg name="EroEroBot" avatar="/avatar/ero.webp">setu搜索 &lt;content:Image|url&gt;<br />
   依据输入的图片寻找可能的原始图片来源<br />
   用法:<br />
    可以传入图片, 也可以是图片的网络链接<br />
@@ -492,9 +492,9 @@ manager.add_service(AlconnaGraiaService("ariadne"))
     timeout &lt;sec:int = 60&gt;<br />
   使用示例:<br />
    setu搜索 [图片]<br />
-  </ChatMsg>
-  <ChatMsg name="群菜龙" avatar="https://q4.qlogo.cn/g?b=qq&nk=2544704967&s=640">好</ChatMsg>
-</ChatWindow>
+  </chat-msg>
+  <chat-msg name="群菜龙" avatar="https://q4.qlogo.cn/g?b=qq&nk=2544704967&s=640">好</chat-msg>
+</chat-window>
 
 ### 参数标注
 
@@ -1625,15 +1625,15 @@ async def _(app: Ariadne, codes: Match[list]):
 这样便可以进行如下操作：
 
 
-<ChatWindow title="聊天记录">
-  <ChatMsg name="RF" avatar="https://q4.qlogo.cn/g?b=qq&nk=3165388245&s=640">run<br />
+<chat-window title="聊天记录">
+  <chat-msg name="RF" avatar="https://q4.qlogo.cn/g?b=qq&nk=3165388245&s=640">run<br />
   import sys<br />
   print(sys.version_info)<br />
-  </ChatMsg>
-  <ChatMsg name="EroEroBot" avatar="/avatar/ero.webp">sys.version_info(major=3, minor=8, micro=6, releaselevel='final', serial=0)</ChatMsg>
-  <ChatMsg name="群菜鸡" avatar="https://q4.qlogo.cn/g?b=qq&nk=1450069615&s=640">怎么是3.8（</ChatMsg>
-  <ChatMsg name="群菜龙" avatar="https://q4.qlogo.cn/g?b=qq&nk=2544704967&s=640">怎么是3.8（</ChatMsg>
-</ChatWindow>
+  </chat-msg>
+  <chat-msg name="EroEroBot" avatar="/avatar/ero.webp">sys.version_info(major=3, minor=8, micro=6, releaselevel='final', serial=0)</chat-msg>
+  <chat-msg name="群菜鸡" avatar="https://q4.qlogo.cn/g?b=qq&nk=1450069615&s=640">怎么是3.8（</chat-msg>
+  <chat-msg name="群菜龙" avatar="https://q4.qlogo.cn/g?b=qq&nk=2544704967&s=640">怎么是3.8（</chat-msg>
+</chat-window>
 
 ### 隐式构建 Args
 
@@ -1669,7 +1669,7 @@ alc.parse("cut_img --height=640")
 
 > **「わかります」**
 
-<Loading></Loading>
+<loading />
 
 ::: interlink
 <https://arcletproject.github.io/docs/alconna/tutorial>
