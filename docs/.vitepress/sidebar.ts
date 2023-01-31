@@ -1,7 +1,7 @@
 const before = [
   {
     text: '开始之前',
-    collapsible: true,
+    collapsed: true,
     items: [
       { text: '说在前面', link: '/before/' },
       { text: '你需要知道的一些事', link: '/before/QA' },
@@ -14,7 +14,7 @@ const before = [
 const guide = [
   {
     text: '手把手教你写机器人',
-    collapsible: true,
+    collapsed: true,
     items: [
       { text: '要致富，先撸树', link: '/guide/create_env' },
       { text: '快速上手', link: '/guide/hello_ero' },
@@ -58,7 +58,7 @@ const guide = [
 const appendix = [
   {
     text: '附录',
-    collapsible: true,
+    collapsed: true,
     items: [
       { text: '鸣谢', link: '/appendix/credit' },
       { text: '社区可供参考的 bot', link: 'appendix/awesome_bot' },
@@ -68,7 +68,7 @@ const appendix = [
   },
   {
     text: '写代码的小贴士',
-    collapsible: true,
+    collapsed: true,
     // collapsed: true,
     items: [
       { text: '终端复用', link: '/appendix/tips/terminal_multiplexer' },
@@ -80,7 +80,7 @@ const appendix = [
   },
   {
     text: '奇奇怪怪的东西',
-    collapsible: true,
+    collapsed: true,
     // collapsed: true,
     items: [{ text: '热点追踪 - 群搜图小助手', link: '/appendix/other/saucenao' }],
   },
