@@ -1,8 +1,8 @@
 const before = [
   {
-    text: '开始之前',
+    text: '说在前面',
     items: [
-      { text: '说在前面', link: '/before/' },
+      { text: '引言', link: '/before/' },
       { text: '你需要知道的一些事', link: '/before/QA' },
       { text: 'Mirai 的安装与配置', link: '/before/install_mirai' },
       { text: '名词解释', link: '/before/terms' },
