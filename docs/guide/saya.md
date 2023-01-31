@@ -144,7 +144,7 @@ with saya.module_context():
 :::: code-group
 ::: code-group-item 单文件模组
 
-```txt
+```shell
 EroEroBot
 ├─ main.py
 ├─ pyproject.toml
@@ -155,7 +155,7 @@ EroEroBot
 :::
 ::: code-group-item 文件夹模组
 
-```txt
+```shell
 EroEroBot
 ├─ main.py
 ├─ pyproject.toml
@@ -336,7 +336,7 @@ for module, channel in saya.channels.items():
 你可以将其直接跟 `bcc.receiver` 画上约等号,
 因为其中有一些参数的名称可能有所变化：
 
-```txt
+```shell
 event -> listening_events  # 因为是events，所有要传的是有一个及以上 Event 的 list
 dispatchers -> inline_dispatchers
 ```
