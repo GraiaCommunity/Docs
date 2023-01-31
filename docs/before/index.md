@@ -1,10 +1,9 @@
 # 引言
 
 众所周知，学习代码最好的办法，就是举例子。
+所以我们将以创建**大家最喜欢的涩图机器人**为例子，将你们带入机器人的世界。
 
-所以我们将创建**大家最喜欢的涩图机器人**为例子，将你们带入机器人的世界。
-
-本文档的所有例子都可以在 :point_right: [这里](https://github.com/GraiaCommunity/EroEroBot) 找到。
+~~本文档的所有例子都可以在 :point_right: [这里](https://github.com/GraiaCommunity/EroEroBot) 找到。~~（暂停更新）
 
 假设文档有一些专有名词不了解，也可以看看[这里](./terms)。
 
