@@ -38,9 +38,9 @@ footer: MIT Licensed | Copyright © 2022 Graia Community
 :::
 
 ::: interlink 镜像地址列表
-默认: <https://graiax.cn>  
-A60: <https://graiax.aunly.cn>  
-Netlify: <https://graiax-doc.netlify.app>
+默认（Netlify）: <https://graiax.cn>  
+Netlify: <https://graiax-doc.netlify.app>  
+Cloudflare: <https://docs.graiax.cn/>
 :::
 
 </div></div>
