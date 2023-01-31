@@ -107,7 +107,27 @@ Ariadne 定义的所有事件均可在 `graia.ariadne.event` 中找到，你也�
 再向那边的仓库提交 issue <Curtain>腾讯的 bug 例外，因为你压根没地方提交 issue</Curtain>
 :::
 
-## 6. 当你遇到问题的时候
+## 6. Python 包管理器的选择
+
+你可能听说过 [Conda](https://conda.io/)、[Poetry](https://python-poetry.org/)，Conda 是一个用于管理 Python 依赖和多版本 Python
+的一个常用工具，经常出现在深度学习相关的领域，他同时也具备创建虚拟环境的功能。
+
+为了隔绝不同 Python 项目的依赖，我们常常需要使用一种叫做**虚拟环境**（Virtual Environment）的方法，而
+Conda 和 Poetry 都可以用于创建和管理虚拟环境。
+
+假如你的设备中有深度学习项目且正在使用 Conda，那么请根据你的经验或其他教程自行创建虚拟环境。
+需要注意的是，任意依赖管理器（有时也称包管理器）不要互相混用或套娃。
+
+Conda 具备管理多 Python 版本，安装非 pip 包的功能，正常来说写一个机器人也不需要这些功能，
+因此我们可以选择像 Poetry 这种单纯的依赖管理器，但是 Poetry
+的依赖解析速度较慢，不遵守 PEP 规范，因此我们更建议使用 [PDM](https://pdm.fming.dev/)。
+
+:::danger ~~异端~~
+是的，不推荐直接使用 pip（希望你不会因此炸掉系统环境和其他项目），  
+也不推荐自己直接用 virtualenv 或 venv。
+:::
+
+## 当你遇到问题的时候
 
 鉴于 QQ Bot 社区的特殊性，我们建议你遵循以下步骤：
 
