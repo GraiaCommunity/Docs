@@ -13,16 +13,19 @@ const before = [
     items: [
       { text: '社区介绍', link: '/before/introduction/' },
       {
-        text: '社区项目介绍',
+        text: '社区项目',
         link: '/before/introduction/project/',
         items: [
-          { text: 'Graiax FastAPI', link: '/before/introduction/project/fastapi' },
-          { text: 'Graiax Playwright', link: '/before/introduction/project/playwright' },
+          { text: 'GraiaX FastAPI', link: '/before/introduction/project/fastapi' },
+          { text: 'GraiaX Playwright', link: '/before/introduction/project/playwright' },
           {
-            text: 'Graiax Text2Image 系列',
+            text: 'GraiaX Text2Image 系列',
             collapsed: true,
             items: [
-              { text: '基于 Playwright', link: '/before/introduction/project/t2i/playwright' },
+              {
+                text: '基于 Playwright 的文转图',
+                link: '/before/introduction/project/t2i/playwright',
+              },
             ],
           },
         ],
