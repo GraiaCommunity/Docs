@@ -244,29 +244,41 @@ adapterSettings:
 
 使用命令 `./mcl` 重新启动 MCL，此时你应该在控制台看到如下提示：
 
-```txt{2-5}
-2022-07-04 19:11:11 I/Mirai HTTP API: ********************************************************
-2022-07-04 19:11:12 I/http adapter: >>> [http adapter] is listening at http://localhost:8080
-2022-07-04 19:11:12 I/ws adapter: >>> [ws adapter] is listening at ws://localhost:8080
-2022-07-04 19:11:12 I/Mirai HTTP API: Http api server is running with verifyKey: GraiaxVerifyKey
-2022-07-04 19:11:12 I/Mirai HTTP API: adaptors: [http,ws]
-2022-07-04 19:11:12 I/Mirai HTTP API: ********************************************************
-```
+<div class="language-shell line-numbers-mode">
+<button class="copy"></button>
+<span class="lang">bash</span>
+<pre>
+<code><span class="line"><span style="color:#16c60c;">2023-01-31 18:11:11 I/Mirai HTTP API: ********************************************************</span></span>
+<span class="line"><span style="color:#e74856;">2023-01-31 18:11:11 W/stderr: [DefaultDispatcher-worker-2] INFO MahKtorAdapter[ws,http] - Autoreload is disabled because the development mode is off.</span></span>
+<span class="line"><span style="color:#e74856;">2023-01-31 18:11:11 W/stderr: [DefaultDispatcher-worker-2] INFO MahKtorAdapter[ws,http] - Application started in 0.131 seconds.</span></span>
+<span class="line highlighted"><span style="color:#16c60c;">2023-01-31 18:11:11 I/ws adapter: >>> [ws adapter] is listening at ws://localhost:8080</span></span>
+<span class="line"><span style="color:#e74856;">2023-01-31 18:11:11 W/stderr: [DefaultDispatcher-worker-4] INFO MahKtorAdapter[ws,http] - Responding at http://localhost:8080</span></span>
+<span class="line highlighted"><span style="color:#16c60c;">2023-01-31 18:11:11 I/http adapter: >>> [http adapter] is listening at http://localhost:8080</span></span>
+<span class="line highlighted"><span style="color:#16c60c;">2023-01-31 18:11:11 I/Mirai HTTP API: Http api server is running with verifyKey: GraiaxVerifyKey</span></span>
+<span class="line highlighted"><span style="color:#16c60c;">2023-01-31 18:11:11 I/Mirai HTTP API: adaptors: [ws,http]</span></span>
+<span class="line"><span style="color:#16c60c;">2023-01-31 18:11:11 I/Mirai HTTP API: ********************************************************</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span></div></div>
 
-其中第二第三行是 Ariadne 连接 Mirai 的地址，第四行则是连接所用的密钥，请确保配置 Ariadne
-时所用的参数与此处一致，同时还应确保第五行的 `adaptors:` 之后同时有 `http` 和 `ws` 两个选项。
+其中第四第六行是 Ariadne 连接 Mirai 的地址，第七行则是连接所用的密钥，请确保配置 Ariadne
+时所用的参数与此处一致，同时还应确保第八行的 `adaptors:` 之后同时有 `http` 和 `ws` 两个选项。
 
 ## 登录
 
 紧接上一小节，如果控制台显示如下信息：
 
-```txt
-2022-07-04 19:11:12 I/Bot.<你的bot之QQ号>: Loaded account secrets from local cache.
-2022-07-04 19:11:13 I/Bot.<你的bot之QQ号>: Saved account secrets to local cache for fast login.
-2022-07-04 19:11:13 I/Bot.<你的bot之QQ号>: Login successful.
-2022-07-04 19:11:14 V/Bot.<你的bot之QQ号>: Event: BotOnlineEvent(bot=Bot(<你的bot之QQ号>))
-2022-07-04 19:11:14 I/Bot.<你的bot之QQ号>: Bot login successful.
-```
+<div class="language-shell line-numbers-mode">
+<button class="copy"></button>
+<span class="lang">bash</span>
+<pre>
+<code><span class="line"><span style="color:#16c60c;">2023-01-31 18:44:05 I/Bot.&ltbot QQ号&gt: Loaded account secrets from local cache.</span></span>
+<span class="line"><span style="color:#16c60c;">2023-01-31 18:44:05 I/Bot.&ltbot QQ号&gt: Saved account secrets to local cache for fast login.</span></span>
+<span class="line"><span style="color:#16c60c;">2023-01-31 18:44:05 I/Bot.&ltbot QQ号&gt: Login successful.</span></span>
+<span class="line"><span style="color:#abb2bf;">2023-01-31 19:40:00 V/Bot.&ltbot QQ号&gt: Event: BotOnlineEvent(bot=Bot(&ltbot QQ号&gt))</span></span>
+<span class="line"><span style="color:#16c60c;">2023-01-31 18:44:07 I/Bot.&ltbot QQ号&gt: Bot login successful.</span></span>
+<span class="line"><span style="color:#abb2bf;">study_lover (&ltbot QQ号&gt) Login successful</span></span>
+<span class="line"></span></code></pre>
+<div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span></div></div>
 
 那么恭喜你，接下来不用看了，但是...
 如果像下面那样弹出一个弹窗，那你就继续看吧~
