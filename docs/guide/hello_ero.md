@@ -73,7 +73,7 @@
 
 5. 在群里发一句你好，当然你的 bot 得先在群里
 
-   ```txt
+   ```shell
    20yy-MM-dd HH:mm:ss.SSS | INFO     | graia.ariadne.model:log:64 - 1919810: [Graiax(114514)] -> '你好'
    20yy-MM-dd HH:mm:ss.SSS | INFO     | graia.ariadne.model:log:64 - [BOT 1919810] Friend(114514) <- '不要说你好，来点涩图'
    ```

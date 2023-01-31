@@ -167,14 +167,14 @@ unzip mcl-2.1.0.zip -d mcl-2.1.0
 
 首先需要进入到 `mcl-2.1.0` 文件夹中，然后使用如下命令添加 mirai-api-http 插件并启动 MCL：
 
-```bash
+``` shell
 ./mcl --update-package net.mamoe:mirai-api-http --channel stable-v2 --type plugin
 ./mcl -u
 ```
 
 然后，稍作等待，等到显示以下这行，就代表 Mirai 成功启动了。
 
-```txt
+``` shell
 xxxx-xx-xx xx:xx:xx I/main: mirai-console started successfully.
 
 >
@@ -182,7 +182,7 @@ xxxx-xx-xx xx:xx:xx I/main: mirai-console started successfully.
 
 现在，我们添加一下自动登录的账号：
 
-```txt
+```cmd
 /autoLogin add <你的QQ号> <你的QQ密码>
 # 如 /autoLogin add 114514 1919810
 ```
