@@ -22,6 +22,7 @@ import Curtain from '../components/Curtain.vue'
 import GitRepo from '../components/GitRepo.vue'
 import Loading from '../components/Loading.vue'
 import MoreInfo from '../components/MoreInfo.vue'
+import ProjectInfo from '../components/ProjectInfo.vue'
 import RubyCurtain from '../components/RubyCurtain.vue'
 import VolumeBar from '../components/VolumeBar.vue'
 
@@ -51,6 +52,7 @@ const theme: Theme = {
     app.component('GitRepo', GitRepo)
     app.component('Loading', Loading)
     app.component('MoreInfo', MoreInfo)
+    app.component('ProjectInfo', ProjectInfo)
     app.component('RubyCurtain', RubyCurtain)
     app.component('VolumeBar', VolumeBar)
 
