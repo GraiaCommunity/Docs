@@ -4,7 +4,7 @@
 以下篇章教学的东西将成为**真正意义上**能够发送**真正意义上的**涩图的功能，
 请务必在看本章节的时候摸着自己的良心，不要干出任何违法的事情。
 
-本文档不会涉及**任何**教你制作加密压缩包的教程<Curtain>自己探索去</Curtain>
+本文档不会涉及**任何**教你制作加密压缩包的教程<curtain>自己探索去</curtain>
 :::
 
 ::: warning
@@ -15,9 +15,9 @@
 不过呢，我们可以通过一些奇奇怪怪的方法来绕过这些限制。
 比如说，群文件<img src="/images/guide/wangwang.webp" class="face">。
 
-<ChatWindow title="Graia Framework Community">
-    <ChatMsg name="GraiaX" onright>来一打紧身衣涩图</ChatMsg>
-    <ChatFile
+<chat-window title="Graia Framework Community">
+    <chat-msg name="GraiaX" onright>来一打紧身衣涩图</chat-msg>
+    <chat-file
       name="EroEroBot"
       avatar="/avatar/ero.webp"
       filename="secret.zip"
@@ -25,7 +25,7 @@
       fileicon="/images/guide/compressed_file.png"
       onclick="window.open('https:\/\/www.bilibili.com/video/BV1GJ411x7h7', '_blank')"
     />
-</ChatWindow>
+</chat-window>
 
 斯巴拉西，这是什么梦寐以求的功能啊！那就让我们赶快进入今天的涩涩创想吧！
 
@@ -125,7 +125,7 @@ class FileInfo(AriadneBaseModel):
 
 讲一下画高亮的部分：
 
-1. `id`：QQ 使用 `文件 ID` 作为文件的唯一识别码<Curtain>要不然你用 QQ 群文件怎么会允许同名群文件</Curtain>。<br />
+1. `id`：QQ 使用 `文件 ID` 作为文件的唯一识别码<curtain>要不然你用 QQ 群文件怎么会允许同名群文件</curtain>。<br />
    事实上，后面会讲的一切操作（如重命名，移动文件），都会需要 `文件 ID`。
 
 2. `download_info`：如变量名所说，这个就是下载信息，这其中包含了包括文件 MD5 等一系列下载所需要的东西。

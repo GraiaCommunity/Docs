@@ -256,8 +256,8 @@ app.launch_blocking()
 
 ::: danger 警告
 使用 Saya 进行模块加载后，不可以将所有代码全部堆在同一个文件里！！！
-<br /><Curtain>啊我的上帝，老伙计，我发誓，你要是这么做，我就要狠狠地踢你的屁股了！</Curtain>
-<br /><Curtain>单文件 Bot 是坏文明 desu~</Curtain>
+<br /><curtain>啊我的上帝，老伙计，我发誓，你要是这么做，我就要狠狠地踢你的屁股了！</curtain>
+<br /><curtain>单文件 Bot 是坏文明 desu~</curtain>
 
 （相信你不会想功能多了以后一个文件几千行的）
 :::

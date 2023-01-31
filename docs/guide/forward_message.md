@@ -1,7 +1,7 @@
 # 好大的奶
 
 ::: danger
-本章除了例子<Curtain>与乐子</Curtain>啥也没写
+本章除了例子<curtain>与乐子</curtain>啥也没写
 :::
 
 ::: tsukkomi
@@ -11,8 +11,8 @@
 
 你可能曾经看到过这样的合并消息
 
-<ChatWindow title="Graia Framework Community">
-  <ForwardChat
+<chat-window title="Graia Framework Community">
+  <forward-chat
     name="EroEroBot"
     avatar="/avatar/ero.webp"
     title="群聊"
@@ -22,19 +22,19 @@
       '群菜鸡: 好大的奶'
     ]"
     counts="4" />
-</ChatWindow>
+</chat-window>
 
 你很兴奋，想要看一看这奶到底有多大，但很可惜，也不知道你在可惜什么，当你点开聊天记录的时候，你看到的是这种景象：
 
-<ChatWindow title="转发的合并消息">
-  <ChatImg name="EroEroBot" avatar="/avatar/ero.webp" src="/images/guide/huge_milk.webp"></ChatImg>
-  <ChatMsg name="群菜鸮" avatar="http://q1.qlogo.cn/g?b=qq&nk=2948531755&s=640">好大的奶</ChatMsg>
-  <ChatMsg name="群菜鸡" avatar="http://q1.qlogo.cn/g?b=qq&nk=1450069615&s=640">好大的奶</ChatMsg>
-  <ChatMsg name="群菜龙" avatar="http://q1.qlogo.cn/g?b=qq&nk=2544704967&s=640">好大的奶</ChatMsg>
-</ChatWindow>
+<chat-window title="转发的合并消息">
+  <chatimg name="EroEroBot" avatar="/avatar/ero.webp" src="/images/guide/huge_milk.webp"></chatimg>
+  <chat-msg name="群菜鸮" avatar="http://q1.qlogo.cn/g?b=qq&nk=2948531755&s=640">好大的奶</chat-msg>
+  <chat-msg name="群菜鸡" avatar="http://q1.qlogo.cn/g?b=qq&nk=1450069615&s=640">好大的奶</chat-msg>
+  <chat-msg name="群菜龙" avatar="http://q1.qlogo.cn/g?b=qq&nk=2544704967&s=640">好大的奶</chat-msg>
+</chat-window>
 
 不知道是因为你没看到你想要看的东西，还是说你觉得这个奶完全不够大，
-反正你发现你被骗了<Curtain>You're Rickrolling</Curtain>，
+反正你发现你被骗了<curtain>You're Rickrolling</curtain>，
 然后在下一秒，你突发奇想，能不能让机器人也整一个这个来骗人呢？
 
 **当然可以**，我们现在就通过代码来直接复刻上面的效果：

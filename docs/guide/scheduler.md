@@ -4,22 +4,22 @@
 
 然后，自从你学习了如何写出一个机器人，就想能不能通过机器人脚本来间接实现这个幻想呢？
 
-<VolumeBar>懂得都懂：</VolumeBar>
+<volume-bar>懂得都懂：</volume-bar>
 
-<ChatWindow title="Graia Framework Community">
-  <ChatToast>上午 07:30</ChatToast>
-  <ChatMsg name="Hanser" avatar="/avatar/hanser.webp"><a style="text-decoration: none">@GraiaX</a> おはよう</ChatMsg>
-  <ChatVoice name="Hanser" avatar="/avatar/hanser.webp" audio="/voices/欧尼酱快起床.m4a"></ChatVoice>
-  <ChatToast>上午 11:30</ChatToast>
-  <ChatMsg name="GraiaX" onright>哦嗨哟</ChatMsg>
-</ChatWindow>
+<chat-window title="Graia Framework Community">
+  <chat-toast>上午 07:30</chat-toast>
+  <chat-msg name="Hanser" avatar="/avatar/hanser.webp"><a style="text-decoration: none">@GraiaX</a> おはよう</chat-msg>
+  <chat-voice name="Hanser" avatar="/avatar/hanser.webp" audio="/voices/欧尼酱快起床.m4a"></chat-voice>
+  <chat-toast>上午 11:30</chat-toast>
+  <chat-msg name="GraiaX" onright>哦嗨哟</chat-msg>
+</chat-window>
 
 ::: tip
 你可能会问上面这位叫你起床的是谁，  
 这位是 [Hanser](https://zh.moegirl.org.cn/Hanser)，B站账号是[这个](https://space.bilibili.com/11073)。
 :::
 
-想想就得劲<Curtain>虽然一个 At 跟语音八成不能成功叫你起床</Curtain>。  
+想想就得劲<curtain>虽然一个 At 跟语音八成不能成功叫你起床</curtain>。  
 那么，就开始我们今天的艺术创想吧（bushi）
 
 ## 什么是 Graia Scheduler？
@@ -111,11 +111,11 @@ async def every_minute_speaking(app: Ariadne):
 
 :::
 
-<ChatWindow title="Graia Framework Community">
-  <ChatToast>上午 07:30</ChatToast>
-  <ChatMsg name="Hanser" avatar="/avatar/hanser.webp"><a style="text-decoration: none">@GraiaX</a></ChatMsg>
-  <ChatVoice name="Hanser" avatar="/avatar/hanser.webp" audio="/voices/起床搬砖辣.m4a"></ChatVoice>
-</ChatWindow>
+<chat-window title="Graia Framework Community">
+  <chat-toast>上午 07:30</chat-toast>
+  <chat-msg name="Hanser" avatar="/avatar/hanser.webp"><a style="text-decoration: none">@GraiaX</a></chat-msg>
+  <chat-voice name="Hanser" avatar="/avatar/hanser.webp" audio="/voices/起床搬砖辣.m4a"></chat-voice>
+</chat-window>
 
 ::: interlink
 <https://graia.readthedocs.io/ariadne/extra/scheduler/>

@@ -99,4 +99,4 @@ async def pic(app: Ariadne, group: Group, message: MessageChain)
 
 某些人（尤其是刚刚上手 Linux 的小白），会遇到「分不清自己调用的究竟是哪个 Python」的问题。然后就遇到「因为找错 Python 了导致遇到各种各样的因为版本问题而出现的 bug」
 
-<Loading></Loading>
+<loading />

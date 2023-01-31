@@ -49,7 +49,7 @@
 以下是关于 `BroadcastControl` 的简单介绍：
 
 Broadcast Control（后续简称为 `BCC`）用于 Ariadne 的用户接口构造以及各式事件广播。ta 的作者 **GreyElaina** 称其为 **魔剑** 。
-<Curtain>我们有时候会称 GreyElaina 为魔女（此处的`女`字并不指性别）</Curtain>
+<curtain>我们有时候会称 GreyElaina 为魔女（此处的`女`字并不指性别）</curtain>
 
 **BCC** 中有两种基本元素：Dispatcher（参数解析器）、Decorator（参数装饰器）。
 
@@ -63,7 +63,7 @@ Ariadne 定义的所有事件均可在 `graia.ariadne.event` 中找到，你也�
 
 ## 4. 关于 Mirai
 
-请容许我先介绍一下<Curtain>（虽然说不知道已经说了多少遍了）</Curtain>：
+请容许我先介绍一下<curtain>（虽然说不知道已经说了多少遍了）</curtain>：
 
 - [Mirai](https://github.com/mamoe/mirai)，是一个高性能，高可扩展性的 QQ 协议库
 - [Mirai Console](https://github.com/mamoe/mirai-console): 一个基于 **Mirai** 开发的插件式可扩展开发平台
@@ -104,7 +104,7 @@ Ariadne 定义的所有事件均可在 `graia.ariadne.event` 中找到，你也�
 
 ::: tip
 当你遇到什么 bug 的时候，最好搞清楚是哪里的 bug  
-再向那边的仓库提交 issue <Curtain>腾讯的 bug 例外，因为你压根没地方提交 issue</Curtain>
+再向那边的仓库提交 issue <curtain>腾讯的 bug 例外，因为你压根没地方提交 issue</curtain>
 :::
 
 ## 6. Python 包管理器的选择
@@ -134,7 +134,7 @@ Conda 具备管理多 Python 版本，安装非 pip 包的功能，正常来说�
 1. 查看 [官方文档](https://graia.readthedocs.io/ariadne)
 2. 如果你发现官方文档没有提及……
    1. 如果模块名以 `graia` 或 `graiax` 开头，立刻到 [交流群](https://jq.qq.com/?_wv=1027&k=VXp6plBD) 里问
-   2. 否则，去翻对应的文档（或者 `Stack Overflow` 之类的地方，同时善用搜索引擎 <Curtain>不过请远离 CSDN</Curtain>）
+   2. 否则，去翻对应的文档（或者 `Stack Overflow` 之类的地方，同时善用搜索引擎 <curtain>不过请远离 CSDN</curtain>）
       ~~如果以 `arclet` 开头立刻在群里 `@[Arclet]RF`~~
 
 ::: warning

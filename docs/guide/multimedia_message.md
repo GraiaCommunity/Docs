@@ -5,8 +5,8 @@
 <audio id="thtlb" src="/voices/太好听了8.m4a"></audio>
 
 ::: danger
-本文档还没有写完<Curtain>比如没准备好钉宫三连语音包，欢迎<RubyCurtain up="hentai xiong di" type="danger">
-有志之士</RubyCurtain>提供</Curtain>十分建议在阅读的时候不要声音拉满 + 外放 <Curtain>除非你跟<MoreInfo words="唐可可">
+本文档还没有写完<curtain>比如没准备好钉宫三连语音包，欢迎<ruby-curtain up="hentai xiong di" type="danger">
+有志之士</ruby-curtain>提供</curtain>十分建议在阅读的时候不要声音拉满 + 外放 <curtain>除非你跟<more-info words="唐可可">
 <img
   src="/images/guide/唐可可.webp"
   alt="太好听了吧"
@@ -17,17 +17,17 @@
   onmouseout="
     document.getElementById('thtlb').pause();
   "
-/></MoreInfo>一样有社交牛逼症</Curtain>
+/></more-info>一样有社交牛逼症</curtain>
 :::
 
 虽然有点突然，但你是否有想过机器人能够对你[钉宫三连](https://zh.moegirl.org.cn/%E9%92%89%E5%AE%AB%E7%90%86%E6%83%A0)呢？
 
-<ChatWindow title="Graia Framework Community">
-  <ChatMsg name="GraiaX" onright>无路赛</ChatMsg>
-  <ChatVoice name="EroEroBot" avatar="/avatar/ero.webp" audio="/voices/夏娜_无路赛_钉宫理惠.m4a">别戳我，好痒</ChatVoice>
-</ChatWindow>
+<chat-window title="Graia Framework Community">
+  <chat-msg name="GraiaX" onright>无路赛</chat-msg>
+  <chat-voice name="EroEroBot" avatar="/avatar/ero.webp" audio="/voices/夏娜_无路赛_钉宫理惠.m4a">别戳我，好痒</chat-voice>
+</chat-window>
 
-<VolumeBar>贴心的音量条：</VolumeBar>
+<volume-bar>贴心的音量条：</volume-bar>
 
 还记得上一节我们简单的讲解消息链时候，给出了这样一种构建图片元素的办法：
 
@@ -45,7 +45,7 @@ Image(path="./Graiax/EroEroBot/eropic.jpg")
 多媒体元素 `MultimediaElement`，是 `graia-ariadne` 为了方便构建类似图片这种需要上传二进制数据的元素所创造的，
 目前其子类包含有 `Image`、`FlashImage`、`Voice`。
 
-下面，就让<RubyCurtain up="举例狂魔">我</RubyCurtain>给大家举几个例子：
+下面，就让<ruby-curtain up="举例狂魔">我</ruby-curtain>给大家举几个例子：
 
 ```python
 >>> path_data = "./Graiax/EroEroBot/eropic.jpg"
@@ -71,7 +71,7 @@ Image(path="./Graiax/EroEroBot/eropic.jpg")
 - [rsilk](https://github.com/synodriver/rsilk)
 - [pilk](https://github.com/foyoux/pilk)
 
-以下我们将会以 `graiax-silkcoder` 举例（因为其是现阶段上述转换器中唯一支持 wav/pcm 以外格式的编解码器<Curtain>虽然是借助 ffmpeg 这种牛刀</Curtain><Curtain>不过 0.3.x 开始支持 libsndfile 了，占用会超小（不到 1Mb 大概）</Curtain>）
+以下我们将会以 `graiax-silkcoder` 举例（因为其是现阶段上述转换器中唯一支持 wav/pcm 以外格式的编解码器<curtain>虽然是借助 ffmpeg 这种牛刀</curtain><curtain>不过 0.3.x 开始支持 libsndfile 了，占用会超小（不到 1Mb 大概）</curtain>）
 
 首先安装 `graiax-silkcoder`：
 
@@ -156,7 +156,7 @@ Voice(data_bytes=audio_bytes)
 ::: tip
 详细用法请去其[Pypi 页面查看](https://pypi.org/project/graiax-silkcoder/)
 
-这次就不能说逊了，因为这就是我写的<Curtain>$h!t Mountain</Curtain>  
+这次就不能说逊了，因为这就是我写的<curtain>$h!t Mountain</curtain>  
 （注：此处的“我”指该文档的主要作者 —— I Love Study(详见[鸣谢](/appendix/credit.md))）
 :::
 

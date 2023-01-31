@@ -70,7 +70,7 @@ EroEroBot>
 
 这是因为 `Console` 的依赖库 `prompt-toolkit` 的问题，
 所以你往 `Ariadne` 提 issue 是没用的哦。
-<br /><Curtain>谁叫人家是 python 为数不多的支持多平台的 tui 库呢（摊手）</Curtain>
+<br /><curtain>谁叫人家是 python 为数不多的支持多平台的 tui 库呢（摊手）</curtain>
 :::
 
 ::: danger

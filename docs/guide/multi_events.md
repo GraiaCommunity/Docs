@@ -16,7 +16,7 @@
 你会发现，`channel.use` 传入的事件是一个 `List[Events]`，
 而不像 `bcc.receiver` 一样，是一个 `Events`。
 
-事实上，`BCC` 的广播确实是支持多类型的<Curtain>虽然 bcc.receiver 不行</Curtain>
+事实上，`BCC` 的广播确实是支持多类型的<curtain>虽然 bcc.receiver 不行</curtain>
 
 ::: tip
 以下例子全部都只能在 `saya` 中使用。
@@ -80,4 +80,4 @@ async def hello(app: Ariadne, sender: Group | Friend, message: MessageChain):
 - typing.Optional （与 `Union[a, None]` `a | None` 等价）
 - typing.Annotated （`Python3.9` 新功能）
 
-<Loading></Loading>
+<loading />
