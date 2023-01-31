@@ -58,7 +58,7 @@
 
    :::: details 命令输出
 
-   ```txt
+   ```bash
    $ poetry run python bot.py
    20yy-MM-dd HH:mm:ss.SSS | INFO     | launart.manager:launch:109 - launchable components count: 4
    20yy-MM-dd HH:mm:ss.SSS | INFO     | launart.manager:launch:110 - launch all components as async task...
