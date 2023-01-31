@@ -5,7 +5,7 @@
 ## 注意事项
 
 1. **本文档将会默认你至少学过一点点 `Python`，假设你连 Python 都不会，建议至少学点 Python 基础再来看。**
-2. **本文档将假设你具有一定的英语阅读能力<Curtain>通过 XX 翻译也行</Curtain>，并能对工具软件的提示作出自己的决定。**
+2. **本文档将假设你具有一定的英语阅读能力<curtain>通过 XX 翻译也行</curtain>，并能对工具软件的提示作出自己的决定。**
 3. **本文档将会使用 `poetry` 作为依赖和虚拟环境管理工具。**
    ::: warning
    关于为什么用 `poetry`，你可以看这里 :point_right: [看这](/before/QA#_6-关于-poetry)
@@ -20,11 +20,11 @@
    - **0.7.15 的 Ariadne 不能自己创建 loop 和 bcc 了，所以本文档的所用的 Ariadne 版本为 0.7.15+**
    - 有关什么是 Ariadne，请参阅[这里](/before/QA#_2-什么是-ariadne)
    - 一般情况下本文档会随着 **Ariadne** 版本的更新而更新，所以**强烈推荐**你直接安装最新版本（latest），现在 **Ariadne** 的最新版本为
-      <a href="https://pypi.org/project/graia-ariadne/#history"><img src="https://img.shields.io/pypi/v/graia-ariadne?color=2970b6&amp;label=&amp;style=flat-square" alt="PyPI版本" style="vertical-align: middle"></a>
+      <a href="https://pypi.org/project/graia-ariadne/#history"><img src="https://img.shields.io/pypi/v/graia-ariadne?color=2970b6&amp;label=&amp;style=flat-square" alt="PyPI版本" style="display:inline;vertical-align:text-bottom"></a>
    :::
 
 5. 虽然 `Ariadne` 支持
-   <img src="https://img.shields.io/pypi/pyversions/graia-ariadne?color=2970b6&amp;label=Python&amp;style=flat-square" alt="Python版本" style="vertical-align: middle">
+   <img src="https://img.shields.io/pypi/pyversions/graia-ariadne?color=2970b6&amp;label=Python&amp;style=flat-square" alt="Python版本" style="display:inline;vertical-align:text-bottom">
    ，但为了**最佳体验**，我们建议你最好升级到 `Python3.9+` 以保证能够享受到全部功能。
 6. **本文档部分内容可能未及时更新或不全**，因此你可以在本文档的一些页面见到如下的提示框，他们通常指向相关的文档/示例。
    ::: interlink
@@ -33,7 +33,7 @@
 
 ## 创建项目
 
-新建一个项目文件夹，这里我们就叫 `EroEroBot` 吧 （<Curtain>PeroPero 震怒</Curtain>）
+新建一个项目文件夹，这里我们就叫 `EroEroBot` 吧 （<curtain>PeroPero 震怒</curtain>）
 
 ::: interlink EroEroBot
 本章完整示例可在 [EroEroBot/main-base.py](https://github.com/GraiaCommunity/EroEroBot/blob/master/main-base.py) 找到。  

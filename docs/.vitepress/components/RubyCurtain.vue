@@ -5,7 +5,7 @@
     <slot></slot>
     <rp>(</rp>
     <rt>
-      <Curtain :title="title" :type="type">{{ up }}</Curtain>
+      <curtain :title="title" :type="type">{{ up }}</curtain>
     </rt>
     <rp>)</rp>
   </ruby>

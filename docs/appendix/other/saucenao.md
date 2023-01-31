@@ -7,11 +7,11 @@
 
 就在今天（2022年5月17日），一则合并消息传遍了整个 QQ 群
 
-<ChatWindow title="转发的合并消息（有部分删减）">
-  <ChatMsg name="LIAN-小明">隔壁群的机器人已经可以识别本子了</ChatMsg>
-  <ChatMsg name="LIAN-小明">好家伙 黄油也能识别</ChatMsg>
-  <ChatMsg name="LIAN-小明">咱们群不行啊 叫群主也搞一个这种高科技的机器人才行</ChatMsg>
-</ChatWindow>
+<chat-window title="转发的合并消息（有部分删减）">
+  <chat-msg name="LIAN-小明">隔壁群的机器人已经可以识别本子了</chat-msg>
+  <chat-msg name="LIAN-小明">好家伙 黄油也能识别</chat-msg>
+  <chat-msg name="LIAN-小明">咱们群不行啊 叫群主也搞一个这种高科技的机器人才行</chat-msg>
+</chat-window>
 
 看起来，这个合并消息很大程度激发了大家对于 QQ 机器人的乐趣
 
@@ -200,13 +200,13 @@ async def saucenao(app: Ariadne, group: Group, source: Source, content: Match[st
 
 这样，你的搜图机器人就做好力
 
-<ChatWindow title="转发的合并消息">
-  <ChatMsg name="爷">
+<chat-window title="转发的合并消息">
+  <chat-msg name="爷">
     以图搜图<br />
     <img alt="涩图" style="margin-top: 5px" src="/images/guide/ero_pic_1.webp"/>
-  </ChatMsg>
-  <ChatMsg name="EroEroBot" avatar="/avatar/ero.webp"><ChatQuote name="爷">以图搜图</ChatQuote>正在搜索，请稍后</ChatMsg>
-  <ForwardChat
+  </chat-msg>
+  <chat-msg name="EroEroBot" avatar="/avatar/ero.webp"><chat-quote name="爷">以图搜图</chat-quote>正在搜索，请稍后</chat-msg>
+  <forward-chat
     name="EroEroBot"
     avatar="/avatar/ero.webp"
     title="群聊"
@@ -216,7 +216,7 @@ async def saucenao(app: Ariadne, group: Group, source: Source, content: Match[st
       '爷: 相似度：87.62% ...'
     ]"
     counts="3" />
-</ChatWindow>
+</chat-window>
 
 ## 4. 背后原理
 

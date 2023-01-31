@@ -146,7 +146,7 @@ Java Virtual Machine，即 **Java 虚拟机**。
 
 假如你是 Windows 用户或 Linux 与 macOS 的图形界面用户，那就特别简单。
 首先点[这里](https://github.com/iTXTech/mirai-console-loader/releases/download/v2.1.0/mcl-2.1.0.zip)，
-然后点<MoreInfo words="这里" :link="true">↑ 不是这里，是这里 ↓<img alt="unzip" src="/images/before/unzip.webp"></MoreInfo>，就完成了（确信，不要连解压都不会吧）！
+然后点<more-info words="这里" :link="true">↑ 不是这里，是这里 ↓<img alt="unzip" src="/images/before/unzip.webp"></more-info>，就完成了（确信，不要连解压都不会吧）！
 
 如果你使用的是没有图形界面的 Linux 系统，那执行下下面的命令就好了（不要说你不会噢，不会吧不会吧不会有人啥都不会就用 Linux 了吧）：
 

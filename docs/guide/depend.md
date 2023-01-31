@@ -115,7 +115,7 @@ async def setu(app: Ariadne, group: Group):
 
 <p align="center" style="font-size: 30px"><strong>前面的区域，以后再来探索吧</strong></p>
 
-<Loading></Loading>
+<loading />
 
 ## `Depend` 的好处
 
