@@ -22,7 +22,6 @@ export default defineConfig({
     nav: nav(),
     sidebar: {
       '/before/': before,
-      '/introduction/': before,
       '/guide/': guide,
       '/appendix/': appendix,
     },
