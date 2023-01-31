@@ -22,6 +22,7 @@ export default defineConfig({
     nav: nav(),
     sidebar: {
       '/before/': before,
+      '/introduction/': before,
       '/guide/': guide,
       '/appendix/': appendix,
     },
@@ -51,8 +52,8 @@ export default defineConfig({
 function nav() {
   return [
     { text: '开始之前', link: '/before/', activeMatch: '/before/' },
-    { text: '正式上手', link: '/guide/create_env', activeMatch: '/guide/' },
-    { text: '附录', link: '/appendix/terms', activeMatch: '/appendix/' },
+    { text: '实战演练', link: '/guide/', activeMatch: '/guide/' },
+    { text: '附录', link: '/appendix/credit', activeMatch: '/appendix/' },
     { text: 'Graia 官方文档', link: 'https://graia.readthedocs.io/' },
   ]
 }
