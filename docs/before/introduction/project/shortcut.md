@@ -154,7 +154,7 @@ async def xxx(): ...
 
 ### `dispatch`
 
-**dispatch** 组件负责指定处理器上的调度器，对应 **ListenerSchema** 或 **SchedulerSchema** 的 `dispatchers`。
+**dispatch** 组件负责指定处理器上的调度器，对应 **ListenerSchema** 的 `inline_dispatchers` 或 **SchedulerSchema** 的 `dispatchers`。
 
 ```python
 @dispatch(Twilight.from_command(...), AlconnaDispatcher(...))
