@@ -18,7 +18,8 @@ const before = [
         items: [
           { text: 'GraiaX FastAPI', link: '/before/introduction/project/fastapi' },
           { text: 'GraiaX Playwright', link: '/before/introduction/project/playwright' },
-          { text: 'GraiaX Silkcoder', link: '/before/introduction/project/silkcoder' },
+          { text: 'Silkcoder —— 语音编解码', link: '/before/introduction/project/silkcoder' },
+          { text: 'Shortcut —— 更简短的修饰器', link: '/before/introduction/project/shortcut' },
           {
             text: 'GraiaX Text2Image 系列',
             collapsed: true,
@@ -90,7 +91,6 @@ const appendix = [
     text: '写代码的小贴士',
     items: [
       { text: '终端复用', link: '/appendix/tips/terminal_multiplexer' },
-      { text: '更简短的修饰器', link: '/appendix/tips/shortcut' },
       { text: 'Termux 安装 Uvicorn 出错', link: '/appendix/tips/termux-install-uvicon' },
       { text: '尝试以下click-like的写法', link: '/appendix/tips/click_like_parser' },
       { text: 'pathlib 为什么是神？路径解析推荐', link: '/appendix/tips/pathlib' },
