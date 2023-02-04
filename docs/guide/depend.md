@@ -109,7 +109,7 @@ async def setu(app: Ariadne, group: Group):
 
 首先，**Depend** 是 **Graia Broadcast** 提供的一种 **Decorator**。
 
-::: warning
+:::warning
 不要将本文提及的 `decorator` 跟 `Python` 本身语法中的 `decorator` 搞混
 :::
 
@@ -150,7 +150,7 @@ def check_group(*groups: int):
 
 在 `broadcast` 接到 `ExecutionStop` 错误之后，将会中断这个 `Listener` 的执行。
 
-::: tip
+:::tip
 事实上，假设你需要 `Depend` 中被修饰函数的返回值，可以这么写
 
 ```python

@@ -2,7 +2,7 @@
 
 &#91;>_<&#93;: 真的好多东西啊，好难写，哭唧唧
 
-::: danger 警告
+:::danger 警告
 在阅读本章之前，请先了解什么是**Dispatcher**，参阅[这里](/before/QA.html#_3-3-%E5%85%B3%E4%BA%8E-dispatcher)
 
 本章进度： <progress value="90" max="100"></progress> 90%
@@ -36,7 +36,7 @@ async def ero(app: Ariadne, group: Group, message: MessageChain):
 
 你有没有觉得，每次都要用 `if` 来判断实在有点难受（比如缩进太多或者匹配如 `涩图来 {涩图tag} {涩图数量}` 这样需要二级三级命令的地方）。
 
-:::: details 举个栗子
+::::details 举个栗子
 
 ```python
 if message.display != "涩图来":

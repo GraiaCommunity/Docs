@@ -82,7 +82,7 @@ await app.recall_message(source)  # 通过 Source 撤回消息
 await app.recall_message(active_message)  # 通过 ActiveMessage 撤回 bot 自己发的消息
 ```
 
-::: tip
+:::tip
 这里介绍一个获取消息 ID 相对简单的方法
 
 ```python
@@ -183,6 +183,6 @@ async def test(app: Ariadne, message: MessageChain):
     await app.recall_message(b_msg)
 ```
 
-::: interlink EroEroBot
+:::interlink EroEroBot
 本章完整示例可在 [EroEroBot/modules/recall_message.py](https://github.com/GraiaCommunity/EroEroBot/blob/master/modules/recall_message.py) 找到。
 :::

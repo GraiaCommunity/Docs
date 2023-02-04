@@ -32,12 +32,12 @@ footer: MIT Licensed | Copyright © 2022 Graia Community
 
 <div class="home"><div class="container">
 
-::: warning 注意
+:::warning 注意
 本文档所属项目为 Graia Community 自主发起，与 Graia Project 无任何直属关系。
 本文档内容不代表 Graia Project 维护者的任何意图与目的，其由社区共同进行维护。
 :::
 
-::: interlink 镜像地址列表
+:::interlink 镜像地址列表
 默认（Netlify）: <https://graiax.cn>  
 Netlify: <https://graiax-doc.netlify.app>  
 Cloudflare: <https://docs.graiax.cn/>

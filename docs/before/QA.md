@@ -102,7 +102,7 @@ Ariadne 定义的所有事件均可在 `graia.ariadne.event` 中找到，你也�
 所以，当你遇到这个问题的时候，无能狂怒并不能帮你解决这个问题  
 你需要做的，只有积极配合，耐心地等待，或者换一个号（虽然刚注册的账号更容易封禁）
 
-::: tip
+:::tip
 当你遇到什么 bug 的时候，最好搞清楚是哪里的 bug  
 再向那边的仓库提交 issue <curtain>腾讯的 bug 例外，因为你压根没地方提交 issue</curtain>
 :::
@@ -137,7 +137,7 @@ Conda 具备管理多 Python 版本，安装非 pip 包的功能，正常来说�
    2. 否则，去翻对应的文档（或者 `Stack Overflow` 之类的地方，同时善用搜索引擎 <curtain>不过请远离 CSDN</curtain>）
       ~~如果以 `arclet` 开头立刻在群里 `@[Arclet]RF`~~
 
-::: warning
+:::warning
 
 1. **请学会到群里提问，因为你提的问题有一定概率是我们的潜在 bug**
    不过请先确认你的 Python 版本与 Graia 版本是受到支持的 (Python 3.8+, Graia Ariadne 0.7.15+)

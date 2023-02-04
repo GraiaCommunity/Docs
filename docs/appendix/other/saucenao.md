@@ -1,6 +1,6 @@
 # 群搜图小助手
 
-::: tsukkomi
+:::tsukkomi
 已经不是热点了~
 <!-- 如果有空可以改改放进正文 -->
 :::
@@ -29,7 +29,7 @@
 我们可以知道，机器人的搜图功能事实上是通过调用 [Saucenao](https://www.saucenao.com) 的 api 来实现的。
 所以，让我们先注册一个 apikey
 
-::: tip
+:::tip
 你可能很好奇为什么这里没有图  
 因为是特别篇章嘛，写的有点急，嘿嘿
 :::
@@ -41,15 +41,15 @@
 
 ## 2. 安装 `saucenao-api`
 
-:::: code-group
-::: code-group-item poetry
+::::code-group
+:::code-group-item poetry
 
 ```bash
 poetry add saucenao-api
 ```
 
 :::
-::: code-group-item pip
+:::code-group-item pip
 
 ```bash
 pip install saucenao-api
@@ -59,14 +59,14 @@ pip install saucenao-api
 
 ## 3. 在插件文件夹里创建一个新的插件并且粘贴一下代码
 
-::: tip
+:::tip
 以下代码参考了 [Abot-graia](https://github.com/djkcyl/ABot-Graia)
 
 ~~听我说👂👂👂谢谢你🙏🙏🙏因为有你👉👉👉温暖了四季🌈🌈🌈~~
 :::
 
-:::: code-group
-::: code-group-item Twilight
+::::code-group
+:::code-group-item Twilight
 
 ```python
 from graia.ariadne.app import Ariadne
@@ -131,7 +131,7 @@ async def saucenao(app: Ariadne, group: Group, member: Member, img: ElementResul
 ```
 
 :::
-::: code-group-item Alconna
+:::code-group-item Alconna
 
 ```python
 from graia.ariadne.app import Ariadne

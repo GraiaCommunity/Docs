@@ -1,6 +1,6 @@
 # 代码行为优化 —— 尝试以下click-like的写法
 
-::: tip
+:::tip
 这一章节是笔者突然热血来潮写的
 :::
 
@@ -21,7 +21,7 @@ async def ero(app: Ariadne, group: Group, message: MessageChain):
 但是，在后面的，笔者发现，很多人，其实是没有意识到分开写的精髓。
 让我们来好好探究这方面吧
 
-::: tip  
+:::tip
 以下案例改编自真实情节<sup>[[1]](https://github.com/SAGIRI-kawaii/sagiri-bot/pull/330)</sup>
 :::
 
@@ -29,7 +29,7 @@ async def ero(app: Ariadne, group: Group, message: MessageChain):
 
 你想做一个本子下载器，然后，你开始思考这个本子下载器该怎么触发
 
-``` bash
+```bash
 bz rank
 bz random [-H24|-D7|-D30]
 bz search [-forward] {关键词}
@@ -38,12 +38,12 @@ bz download [-forward] {本子号}
 
 然后，顺着这个思路，你写出了这样的 dispatcher，这这样一个函数
 
-::: tip
+:::tip
 可能有同学好奇为什么不用 `Commander` 而是 `Twilight`，
 还记得吗，这个例子改编自真实情节。
 :::
 
-``` python
+```python
 @channel.use(
     ListenerSchema(
         listening_events=[GroupMessage],
@@ -164,7 +164,7 @@ class Bz:
 
 仍然以中这个命令为例子
 
-``` bash
+```bash
 bz rank
 bz random [-H24|-D7|-D30]
 bz search [-forward] {关键词}

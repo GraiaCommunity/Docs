@@ -1,6 +1,6 @@
 # 基础消息链处理器
 
-::: tsukkomi
+:::tsukkomi
 本章全是例子，还都是照抄官方文档的~ ~~开摆！~~
 
 P.s. 一些变量名称为了与本文档其他章节统一而与官方文档有所区别
@@ -8,7 +8,7 @@ P.s. 一些变量名称为了与本文档其他章节统一而与官方文档有
 
 假设你的需求很简单，那么我相信，这些基础消息链应该就够用了。
 
-::: tip
+:::tip
 假设你想要理解这些处理器的原理，你可以先去看一看[第 11 章](/guide/depend)
 :::
 
@@ -23,7 +23,7 @@ P.s. 一些变量名称为了与本文档其他章节统一而与官方文档有
 - `FuzzyMatch`: 模糊匹配，更推荐使用 FuzzyDispatcher 来进行模糊匹配操作, 因为其具有上下文匹配数量限制
 - `FuzzyDispatcher`: 模糊匹配
 
-::: tip
+:::tip
 以上这些**消息链处理器**均位于 `graia.ariadne.message.parser.base` 中
 
 冷知识，以下两种用法时一样的，前者使用 BCC，后者使用 Saya。
@@ -50,7 +50,7 @@ async def test():
     - 优点：能够比较方便的进行消息链的匹配
     - 缺点：不能获得数据的返回值
 
-    ``` python
+    ```python
     # 只有接收到的消息开头有“涩”，才会运行
     @channel.use(
         ListenerSchema(
@@ -100,7 +100,7 @@ async def test():
         ...
     ```
 
-::: tip
+:::tip
 你可能还是会有点蒙蔽，但是没关系，之后的**所有消息链处理器**我们都会给出一个例子
 :::
 
@@ -111,12 +111,12 @@ async def test():
 检测前缀，实例化时传入后缀**字符串**即可。  
 用法： `DetectPrefix(target)` 其中 `target` 是前缀（可以为 `str` 或者 `Iterable[str]`(如`["a", "b"]`)）
 
-::: tip
+:::tip
 `Quote` 和 `Source` 虽然也在消息链里面，  
 但是他们并不会被去掉哦<curtain>只有"涩"消失的世界完成了</curtain>。
 :::
 
-::: details 用法实战
+:::details 用法实战
 <h3>用法1</h3>
 
 作为 `Decorator`, 放到 `bcc.receiver` 或 `ListenerSchema` 的 `decorators` 里。
@@ -161,12 +161,12 @@ async def on_message(app: Ariadne, group: Group, message: Annotated[MessageChain
 检测后缀，实例化时传入后缀**字符串**即可。  
 用法：`DetectSuffix(target)` 其中 `target` 是后缀（可以为 `str` 或者 `Iterable[str]`(如`["a", "b"]`)）
 
-::: tip
+:::tip
 `Quote` 和 `Source` 虽然也在消息链里面，  
 但是他们并不会被去掉哦<curtain>只有"涩"消失的世界完成了</curtain>。
 :::
 
-::: details 用法实战
+:::details 用法实战
 <h3>用法1</h3>
 
 作为 `Decorator`, 放到 `bcc.receiver` 或 `ListenerSchema` 的 `decorators` 里。
@@ -208,7 +208,7 @@ async def on_message(message: Annotated[MessageChain, DetectSuffix("好涩")]):
 检测在聊天中提到 Bot (At Bot 或以 Bot 群昵称/自己名称 打头)。  
 用法：`MentionMe()`
 
-::: details 用法实战
+:::details 用法实战
 <h3>用法1</h3>
 
 放到 `bcc.receiver` 或 `ListenerSchema` 的 `decorators` 里。
@@ -249,7 +249,7 @@ async def on_mention_me(app: Ariadne, group: Group, member: Member, chain: Annot
 检测在聊天中提到指定的人 (At 指定的人 或以 指定的人 群昵称/名称打头)。  
 用法：`Mention(target)`，其中 `target` 为指定人（可以为 用户名(`str`) 或者 QQ号(`int`)）
 
-::: details 用法实战
+:::details 用法实战
 <h3>用法1</h3>
 
 放到 `bcc.receiver` 或 `ListenerSchema` 的 `decorators` 里。
@@ -294,7 +294,7 @@ async def on_mention(app: Ariadne, group: Group, chain: Annotated[MessageChain, 
 检测消息链是否包含指定关键字。  
 用法：`ContainKeyword(keyword)`，其中 `keyword` 为匹配关键字（`str`）
 
-::: details 用法实战
+:::details 用法实战
 
 ```python
 # "今晚一起涩涩吗" "让我涩涩你"
@@ -316,11 +316,11 @@ async def on_contain_keyword(app: Ariadne, group: Group):
 检测消息链是否与对应消息链相等。  
 用法：`MatchContent(content)`，其中 `content` 为匹配消息（可以为 `str` 或 `MessageChain`）
 
-::: warning
+:::warning
 注意 Image 等元素的特殊对比规则。
 :::
 
-::: details 用法实战
+:::details 用法实战
 
 ```python
 # "[图片]" <- 你控制台天天见的啦
@@ -343,11 +343,11 @@ async def on_match_content(app: Ariadne, group: Group):
 检测消息链是否匹配指定正则表达式。  
 用法：`MatchRegex(regex, flags)`，其中 `regex` 为 `str`(正则表达式)，`flags` 为 正则表达式标志（`re.RegexFlag`）（默认为 `0`）
 
-::: warning
+:::warning
 注意 `[]` 等特殊字符, 因为是使用 `MessageChain.display` 结果作为匹配源的。
 :::
 
-::: details 用法实战
+:::details 用法实战
 
 ```python
 # "1" "2" "114514"
@@ -374,7 +374,7 @@ async def on_match_regex(app: Ariadne, group: Group, message: MessageChain):
 
 用法：`MatchTemplate(template)`, 其中 `template` 为匹配元素链（详见用法实战）
 
-::: details 用法实战
+:::details 用法实战
 放到 `bcc.receiver` 或 `ListenerSchema` 的 `decorators` 里。
 
 ```python
@@ -399,7 +399,7 @@ async def on_match_regex(chain: MessageChain):  # 不会改动消息链
 
 用法：`FuzzyMatch(template, min_rate)`，其中 `template` 为模板(`str`)，`min_rate` 为最低匹配率(`float`,区间为 0 ~ 1)
 
-::: details 用法实战
+:::details 用法实战
 放到 `bcc.receiver` 或 `ListenerSchema` 的 `decorators` 里。
 
 ```python
@@ -446,6 +446,6 @@ async def on_fuzzy_match(app: Ariadne, group: Group, chain: MessageChain, rate: 
     ... # 我们就假定 rate >= 0.8 是对的吧
 ```
 
-::: interlink
+:::interlink
 <https://graia.readthedocs.io/ariadne/feature/base-parser/>
 :::

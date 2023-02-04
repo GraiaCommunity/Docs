@@ -12,7 +12,7 @@ Utilities for Graia Framework Community.
     repoName="graiax-shortcut"
 />
 
-::: tip
+:::tip
 你可能已经在本章之外的地方见过相关内容了，
 但这一章其实仍然属于[《东西要分类好》](/guide/saya.md)的进阶，
 你最好先那一章看完了再回头看这个。
@@ -22,7 +22,7 @@ Utilities for Graia Framework Community.
 
 别担心，这里有更好的写法！
 
-::: danger 警告
+:::danger 警告
 **Saya Util** 目前仅适用于替代 `graia.saya.builtin.broadcast.ListenerSchema` 与 `graia.schedule.saya.SchedulerSchema`。
 
 如果你需要使用其他例如 `ConsoleSchema`
@@ -75,12 +75,12 @@ async def setu(app: Ariadne, group: Group, message: MessageChain):
 
 ## 安装
 
-::: tip
+:::tip
 `graia.ariadne.util.saya` 也写有类似的 **Saya Util** 组件，
 但前者已停止更新，请尽量从 `graiax.shortcut.saya` 导入 **Saya Util**。
 :::
 
-:::: code-group
+::::code-group
 :::code-group-item PDM
 
 ```bash
@@ -109,7 +109,7 @@ pip install graiax-shortcut
 **Saya Util** 与 `channel.use` 一样，需要以装饰器的方式附加在事件处理器（就是你的函数啦~）上。
 但是其相对 **ListenerSchema** 或 **SchedulerSchema** 会更加简洁，增加了代码可读性。
 
-::: warning 注意事项
+:::warning 注意事项
 **Saya Util** 本质上是对当前的 **Channel** 的重复使用。
 因此，在同一函数/方法上多次使用相同类型的 **Saya Util** 组件实际上是在为同一个 **ListenerSchema** 进行追加。
 :::
@@ -141,7 +141,7 @@ async def xxx(): ...
 async def xxx(): ...
 ```
 
-::: warning
+:::warning
 **listen** 组件存在时必须将其置于顶层（即位于其他类型修饰器的上面），否则会产生预期外行为：
 
 ```python
@@ -236,7 +236,7 @@ async def xxx(): ...
 @priority(8, GroupMessage, FriendMessage)
 ```
 
-::: danger 提醒
+:::danger 提醒
 **设置指定事件的优先级**这个特性需要 `graia-broadcast` 在 **0.18.0** 及以上版本的支持。
 :::
 
@@ -262,7 +262,7 @@ async def xxx(): ...
 async def xxx(): ...
 ```
 
-::: warning
+:::warning
 
 **schedule** 组件存在时其必须置于顶层，否则会产生预期外行为：
 
@@ -301,7 +301,7 @@ async def xxx(): ...
 @every(30, "hour")  # 每 30 小时
 ```
 
-::: warning
+:::warning
 
 **every** 组件存在时其必须置于顶层，否则会产生预期外行为：
 
@@ -332,7 +332,7 @@ async def xxx(): ...
 async def xxx(): ...
 ```
 
-::: warning
+:::warning
 
 **crontab** 组件存在时其必须置于顶层，否则会产生预期外行为：
 

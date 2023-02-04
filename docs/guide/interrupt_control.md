@@ -11,13 +11,13 @@
   <chat-msg name="EroEroBot" avatar="/avatar/ero.webp">学园都市的天气是...</chat-msg>
 </chat-window>
 
-::: tip
+:::tip
 其实原例子是**上海**而不是[**学园都市**](https://zh.moegirl.org.cn/%E5%AD%A6%E5%9B%AD%E9%83%BD%E5%B8%82)来着。
 :::
 
 之前我们学到的，叫做回复（reply），即一问一答的形式，而上面这种呢，则叫流程（flow），即一个功能多次问答的形式。
 
-::: warning
+:::warning
 我不怎么建议你去将 `Ariadne` 跟友商的代码进行对比，`Ariadne` 跟友商从整体思路上就已经有所不同了。
 :::
 
@@ -32,7 +32,7 @@
   <chat-msg name="GraiaX" onright>草</chat-msg>
 </chat-window>
 
-::: tip
+:::tip
 根据[萌娘百科具有"死库水"属性的典型角色](https://zh.moegirl.org.cn/死库水#具有本属性的典型角色)，确实有 DIO（<curtain>虽然说跟我这个一样使用黑幕包裹着的</curtain>）。
 :::
 
@@ -96,7 +96,7 @@ async def new_friend(app: Ariadne, event: NewFriendRequestEvent):
         )
 ```
 
-::: warning
+:::warning
 上面的代码来自 [redbot](https://github.com/Redlnn/redbot/blob/master/core_modules/bot_manage.py)，且有已知
 BUG，所以不建议照搬。
 :::
@@ -133,7 +133,7 @@ async def wait(self, timeout: Optional[float] = None, default: Optional[T] = Non
     return await inc.wait(self)
 ```
 
-::: warning
+:::warning
 默认情况下，`timeout` 是没有被指定的，因此若你的 `waiter` 设定了一些条件才会返回非 `None` 值，
 那么当这些条件没有被满足时，`FunctionWaiter.wait` 将永远等待下去。  
 （虽然这样并不会影响 bot 的正常运行，但可能过了很久以后，
@@ -190,7 +190,7 @@ async def new_friend(app: Ariadne, event: NewFriendRequestEvent):
 
 ## 高级用法 & 原理讲解
 
-:::: details 点击展开
+::::details 点击展开
 
 <p style="font-size: 20px; margin: 32px 0 0; letter-spacing: -0.01em; line-height: 28px"><b>通过一个类创建 Waiter</b></p>
 
@@ -294,7 +294,7 @@ async def ero(app: Ariadne, group: Group, member: Member, message: MessageChain)
         )
 ```
 
-::: tsukkomi
+:::tsukkomi
 事实上，因为相关文档的缺失，
 通过创建局部函数来创建 `Waiter` 的方法在很长一段时间，
 都被社区成员认为是唯一构建 `Waiter` 的办法，
@@ -337,7 +337,7 @@ def create(
 当你调用 `inc.wait` 的时候，BCC 内将会新增一个 `Listener`，其行为跟其他 `Listener` 一模一样，
 但是不一样的是，当这个 `Listener` 的返回值不为 `None` 时，该 `Listener` 将会自动删除。
 
-::: tip
+:::tip
 假设你真的很想返回一个 `None`，你可以从 `graia.broadcast.entities.signatures` 中导入 `Force`，
 然后返回 `Force(None)`。
 :::
@@ -347,7 +347,7 @@ def create(
 
 <p style="font-size: 16px; line-height: 24px; margin-top: 20px"><b>优先级（priority）</b></p>
 
-::: warning
+:::warning
 由于使用了 Saya，本小节可能较为突兀（该部分写的时候没有使用 Saya）。
 
 以下的 **Listener** 可以理解为 **ListenerSchema**，
@@ -358,7 +358,7 @@ def create(
 
 比如说只有在优先级为 15 的 Listener 处理完，优先级为 16 的 Listener 才会开始运行。
 
-::: tip
+:::tip
 
 - `Listener` 的默认优先级是 16
 - `Waiter` 的默认优先级是 15
@@ -378,7 +378,7 @@ def create(
 
 正是因为这样，出现了这个骚操作：
 
-::: tip
+:::tip
 你在 `Listener` 里面报 `PropagationCancelled`，也会阻止后面优先级的 `Listener` 运行。
 :::
 
@@ -387,7 +387,7 @@ def create(
 
 ::::
 
-::: interlink
+:::interlink
 <https://graia.readthedocs.io/ariadne/extra/broadcast/interrupt/>
 
 **EroEroBot:**  

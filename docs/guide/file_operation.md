@@ -1,13 +1,13 @@
 # 无内鬼，来点加密压缩包
 
-::: danger 重要警告
+:::danger 重要警告
 以下篇章教学的东西将成为**真正意义上**能够发送**真正意义上的**涩图的功能，
 请务必在看本章节的时候摸着自己的良心，不要干出任何违法的事情。
 
 本文档不会涉及**任何**教你制作加密压缩包的教程<curtain>自己探索去</curtain>
 :::
 
-::: warning
+:::warning
 有种草草收尾的感觉。。。
 :::
 
@@ -70,14 +70,14 @@ async def upload_file(
 ) -> "FileInfo":
 ```
 
-::: tip
+:::tip
 `Mirai` **只支持**群文件，**并不支持**好友文件的发送及管理<br />
 target 的 `Type Hint` 有 `Friend` 的原因仅仅是因为 `万一哪一天支持了` 而出现的
 :::
 
 首先是最重要的 `data`，说白了就是文件的二进制数据，不过要注意，你写一个文件路径进去是不行的，你只能传数据/数据流进去。
 
-::: tip
+:::tip
 可能有些小白可能看不懂这个 `Union[bytes, io.IOBase, os.PathLike]` 是什么意思，
 所以在这里给大家介绍一下 `data` 可以传入的几种类型（并不全面 desu）：
 
@@ -92,7 +92,7 @@ target 的 `Type Hint` 有 `Friend` 的原因仅仅是因为 `万一哪一天支
 - `path` 就是你要上传到的文件夹
 - `name` 就是你上传文件的名字
 
-::: tip TIPS
+:::tip TIPS
 事实上，你可以通过 `path="sese/setu.jpg"` 的方式，来达到与
 `path="sese", name="setu.jpg"` 相同的效果。
 
@@ -160,7 +160,7 @@ async def download_setu(app: Ariadne, group: Group):
                         f.write(chunk)
 ```
 
-::: interlink
+:::interlink
 上面这个例子使用了海象运算符 `:=`，有关海象运算符可以看看[这篇来自 Python 官方的文档](https://docs.python.org/zh-cn/3/whatsnew/3.8.html?highlight=%E6%B5%B7%E8%B1%A1)（中文）。
 
 顺带一提，海象运算符是 Python 3.8 新增的功能。
@@ -169,7 +169,7 @@ async def download_setu(app: Ariadne, group: Group):
 本章部分例子可在 [EroEroBot/modules/file_operation.py](https://github.com/GraiaCommunity/EroEroBot/blob/master/modules/file_operation.py) 找到。
 :::
 
-::: tip
+:::tip
 事实上，获取 `DownloadInfo` 需要额外调用 API，
 所以在遍历的情况下，我们不太建议将 `getFileIterator` 的 `with_download_info` 参数设置为 `True`，
 要不然会让速度变慢（假设你群文件全是图片的话可能情况就又不相同了）。

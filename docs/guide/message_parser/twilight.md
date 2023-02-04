@@ -1,6 +1,6 @@
 # Twilight
 
-::: danger
+:::danger
 本章还没有写完且可能会过时，本章所适用的 Ariadne 版本请参考第一小节。
 :::
 
@@ -8,7 +8,7 @@
 
 `Twilight` 是 Ariadne 使用的一种标准消息链匹配工具。（有点类似于 v4 的 Kanata，但其增加了类似 argparse 的操作）
 
-::: tsukkomi ???
+:::tsukkomi ???
 `Twilight` 这个名字取自于 `My little Pony` 中的 `Twilight Sparkle`。
 
 Friendship is magic!
@@ -19,7 +19,7 @@ Friendship is magic!
 
 ## 创建 Twilight
 
-::: warning
+:::warning
 Twilight 的使用方法一致在跟随 Ariadne 的版本迭代进行改进。
 因此在参照本文或官方文档的内容时，请时刻注意文档适用的 Ariadne 版本以及你自己所使用的 Ariadne 版本。
 
@@ -28,8 +28,8 @@ Twilight 的使用方法一致在跟随 Ariadne 的版本迭代进行改进。
 
 以下演示 Twilight 的两种创建方法：
 
-:::: code-group
-::: code-group-item from_command
+::::code-group
+:::code-group-item from_command
 
 ```python
 from graia.ariadne.message.parser.twilight import Twilight
@@ -46,7 +46,7 @@ async def test(app: Ariadne, group: Group):
 ```
 
 :::
-::: code-group-item Match
+:::code-group-item Match
 
 ```python
 from graia.ariadne.message.element import At
@@ -79,7 +79,7 @@ async def test(app: Ariadne, group: Group):
 :::
 ::::
 
-::: warning
+:::warning
 上述代码中的匹配参数是强行创造需求，无实际意义。
 :::
 
@@ -155,7 +155,7 @@ class Twilight(Generic[T_Sparkle], BaseDispatcher):
 
 ## XxxxxMatch?
 
-::: tip
+:::tip
 下面部分内容来自 Ariadne 官方文档。
 
 本章所有需要 import 的类出消息元素（Elemen）外，  
@@ -168,7 +168,7 @@ class Twilight(Generic[T_Sparkle], BaseDispatcher):
 用来表示我们需要匹配的各种参数，如文本、消息元素等等，
 通过不同组合的 **Match**，就可以让我们轻松地匹配我们想要的东西了。
 
-::: tsukkomi
+:::tsukkomi
 ~~好像说了什么，又好像没说的样子~~
 :::
 
@@ -222,7 +222,7 @@ Twilight(
 >>> RegexMatch(r"\d+ # digits").flags(re.V)  # 设置 re.VERBOSE 标记
 ```
 
-::: interlink
+:::interlink
 什么？你不会正则？那你可以去学学噢~  
 要是你想去学的话，你可以看看[这篇来自 Python 官方的文档](https://docs.python.org/zh-cn/3/howto/regex.html)（中文）。
 :::
@@ -302,15 +302,15 @@ ElementMatch 可以用来匹配各种在消息链中可以与文字共存的消�
 
 例如，有一个 Twilight（以下两种创建 Twilight 的方式等价）：
 
-:::: code-group
-::: code-group-item from_command 方式
+::::code-group
+:::code-group-item from_command 方式
 
 ```python
 Twilight.from_command("歌词 {lyrics} 好耶")
 ```
 
 :::
-::: code-group-item Match 方式
+:::code-group-item Match 方式
 
 ```python
 Twilight(
@@ -340,7 +340,7 @@ ArgumentMatch 是 Twilight 的一大亮点，他可以像一般的命令行程�
 
 **ArgumentMatch** 的初始化方法与 **add_argument** 非常相似。
 
-::: interlink
+:::interlink
 有关 **add_argument** 的用法及定义，可以的点击[这里查看这篇 Python 官方的文档](https://docs.python.org/zh-cn/3/library/argparse.html#argparse.ArgumentParser.add_argument)（中文）。
 :::
 
@@ -360,7 +360,7 @@ ArgumentMatch 是 Twilight 的一大亮点，他可以像一般的命令行程�
 >>> ArgumentMatch("-a", optional=True)  # 同样的，ArgumentMatch 也可以为可选项
 ```
 
-::: warning
+:::warning
 如果有多个 **ArgumentMatch**，请不要指定相同的参数！例如下面的错误示范：
 
 ```python
@@ -392,7 +392,7 @@ Twilight 重载了这个运算符使其执行了 `Match.param()` 的这个方法
 也就是说 `"at" @ ElementMatch(At)` 等价于 `ElementMatch(At).param("at")`。
 另外，因为 `@` 与 `<<` 都是运算符，因此也可以把 `"At"` 放到 `ElementMatch(At)` 的后面。
 
-::: warning
+:::warning
 请注意，位移运算符 `>>` 与 `<<` 因始终朝向字符串，即由 **Match** 指向 **str**。
 :::
 
@@ -406,8 +406,8 @@ Twilight 重载了这个运算符使其执行了 `Match.param()` 的这个方法
 
 这里我们就不多说废话，老规矩，直接上实例:
 
-:::: code-group
-::: code-group-item MatchResult
+::::code-group
+:::code-group-item MatchResult
 
 ```python
 from graia.ariadne.message.parser.twilight import (
@@ -458,7 +458,7 @@ async def lyric_xxx(app: Ariadne, group: Group, lyrics1: RegexResult, lyrics2: R
 ```
 
 :::
-::: code-group-item Sparkle
+:::code-group-item Sparkle
 
 ```python
 ...
@@ -560,7 +560,7 @@ async def lyric_xxx(app: Ariadne, group: Group, sparkle: Sparkle):
 - `MatchResult.origin`: 原始 Match 对象（就是 `XxxxxMatch` 本身）
 - `MatchResult.result`: 匹配结果（一般为 `MessageChain`，`ElementMatch` 为 `Element`）
 
-::: tip
+:::tip
 虽然可能没啥用，但是假设你只需要 `MatchResult.origin`，也可以使用以下办法
 
 ```python
@@ -590,7 +590,7 @@ async def lyric_xxx(app: Ariadne, group: Group, lyrics: ParamMatch):
 
 将 `ResultValue` 作为装饰器使用，可以直接获取匹配结果而不需要从 `MatchResult.result` 提取了。
 
-::: tsukkomi
+:::tsukkomi
 再也不用忍受 `MatchResult.result.display` 被标红的烦恼了！
 :::
 
@@ -632,6 +632,6 @@ async def reply(..., arg: MessageChain = ResultValue()):  # 保证不会被正�
   <chat-msg name="群菜块" avatar="http://q1.qlogo.cn/g?b=qq&nk=2907489501&s=640">草，我ResultValue好像写炸了<br />ForceResult倒是没问题</chat-msg>
 </chat-window>
 
-::: interlink
+:::interlink
 <https://graia.readthedocs.io/ariadne/feature/twilight/>
 :::

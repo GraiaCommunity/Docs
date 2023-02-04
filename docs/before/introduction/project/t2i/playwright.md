@@ -15,7 +15,7 @@
 
 ## 安装
 
-:::: code-group
+::::code-group
 :::code-group-item PDM
 
 ```bash
