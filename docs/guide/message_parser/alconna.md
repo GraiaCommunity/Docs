@@ -159,7 +159,6 @@ async def ero_ascii2d(
   <chat-msg name="群菜鸮" avatar="https://q4.qlogo.cn/g?b=qq&nk=2948531755&s=640">草</chat-msg>
 </chat-window>
 
-
 ## [直面灾厄](https://zh.moegirl.org.cn/%E6%98%8E%E6%97%A5%E6%96%B9%E8%88%9F/%E9%9B%86%E6%88%90%E6%88%98%E7%95%A5/%E5%82%80%E5%BD%B1%E4%B8%8E%E7%8C%A9%E7%BA%A2%E5%AD%A4%E9%92%BB#%E9%9A%BE%E5%BA%A6%E5%88%86%E7%BA%A7)
 
 ~~左：莱塔尼亚权杖 右：荒地龙舌兰~~
@@ -183,7 +182,6 @@ async def ero_ascii2d(
 一个命令可以没有命令参数，但一定要有命令名称，这样才称得上健全.jpg
 
 若用一个类来比喻的话，命令参数就是 `__init__` 方法的参数，命令名称就是 `Class.__name__`，命令选项则是该类下的所有类方法。
-
 
 ### 帮助信息
 
@@ -291,7 +289,6 @@ with namespace(config.default_namespace.name) as np:
     np.headers = [...]
 ```
 
-
 :::tip NOTE
 内置选项的名称也可以通过 `Namespace` 进行配置：
 
@@ -303,7 +300,6 @@ with namespace("bar") as np1:
 则此时处于 `bar` 命名空间下的命令可以通过 `XXX 帮助` 而非 `XXX --help` 获取命令帮助
 
 :::
-
 
 ### 使用模糊匹配
 
@@ -471,7 +467,6 @@ manager.add_service(AlconnaGraiaService("ariadne"))
 
 若 `send_flag` 选择 `reply`，则 `AlconnaDispatcher` 会自动将输出信息发出。
 若 `send_flag` 选择 `post`，则 `AlconnaDispatcher` 会利用 `Broadcast` 广播一个事件，并将输出信息作为参数发出。
-
 
 例如，当上例的 `send_flag` 为 `reply` 时，可以出现如下情况：
 
@@ -887,6 +882,7 @@ async def _(app: Ariadne, group: Group, url: MessageChain):
 ```
 
 得益于**NEPattern**，你可以进行如下匹配：
+
 - 常规字符串，如 `startswith("foo")`
 - 其他消息元素类型，如 `startswith(At(...))`，`startswith(Image)`
 - 正则，如 `endswith("<[^<>]+>")`，`startswith("re:(bar|baz)")`
@@ -899,7 +895,6 @@ async def _(app: Ariadne, group: Group, url: MessageChain):
 两个 **Shortcut** 同样存在各自的 **Decorator** 形式，为 MatchPrefix 与 MatchSuffix
 
 :::
-
 
 ## [亮出你的本事吧！外星人](https://zh.moegirl.org.cn/%E6%9C%BA%E5%8A%A8%E6%88%98%E5%A3%AB%E9%AB%98%E8%BE%BE_%E9%97%AA%E5%85%89%E7%9A%84%E5%93%88%E8%90%A8%E7%BB%B4#%E6%96%B0%E4%BB%B2%E8%89%AF%E4%B8%89%E4%BA%BA%E7%BB%84/%E9%97%AA%E5%93%88%E5%AE%9A%E5%9E%8B%E6%96%87)
 
@@ -1057,7 +1052,6 @@ Alconna::我要涩图(args=Args('count': int), options=[从(args=Args('tag': (st
 `command`传入的便是命令名称，`main_args` 是命令参数，`options` 则是命令选项。
 
 `Args`是命令参数的载体，通过"键-值-默认"传入一系列参数，具体食用方法我们后面会讲到。
-
 
 ::: tsukkomi 注
 Alconna 0.7.6 后，简易的命令构造可用如下方法：
@@ -1238,12 +1232,11 @@ var 可以是以下几类：
 
 内置的类型检查包括 `int`、`str`、`float`、`bool`、`'url'`、`'ip'`、`'email'`、`list`、`dict`、`tuple`、`set`、`Any` 、`bytes`、`hex`、`datetime` 等。
 
-
 :::tip
 
 另外，`Alconna` 提供了两类特殊的类型用以实现限制功能：
 
-- **MultiVar**：将该参数标记为需要获取可变数量或指定数量的数据，通过填入 `flag: int | Literal['+', '*']` 实现  
+- **MultiVar**：将该参数标记为需要获取可变数量或指定数量的数据，通过填入 `flag: int | Literal['+', '*']` 实现
 - **KeyWordVar**：将该参数标记为需要同时写入参数名才认定为合法参数，默认形式为 `key=arg`，可指定分隔符
 
 当 **MultiVar** 与 **KeyWordVar** 一起使用时， 该参数表示为需要接收多个 `key=arg` 形式的数据， 类似 `**kwargs`
@@ -1276,7 +1269,6 @@ ObjectPattern(Image, limit=("url",))
 ```
 
 :::
-
 
 #### Field
 
@@ -1323,6 +1315,7 @@ Args[Arg(k1, v1), Arg(k2, v2), ...]
 ```
 
 **Arg** 初始化时可以传入：
+
 - key: 参数名
 - value: 参数类型
 - field: 参数域
@@ -1623,7 +1616,6 @@ async def _(app: Ariadne, codes: Match[list]):
 ```
 
 这样便可以进行如下操作：
-
 
 <chat-window title="聊天记录">
   <chat-msg name="RF" avatar="https://q4.qlogo.cn/g?b=qq&nk=3165388245&s=640">run<br />

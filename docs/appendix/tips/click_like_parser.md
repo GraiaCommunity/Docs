@@ -160,7 +160,6 @@ class Bz:
 
 <loading />
 
-
 ## 某外星来客的写法
 
 仍然以中这个命令为例子
@@ -172,7 +171,7 @@ bz search [-forward] {关键词}
 bz download [-forward] {本子号}
 ```
 
-如果你阅读了 [Alconna —— 外 星 来 客](../guide/message_parser/alconna.md) 章节，
+如果你阅读了 [Alconna —— 外 星 来 客](/guide/message_parser/alconna.md) 章节，
 你应该知道这个命令怎么去编写：
 
 ```python
