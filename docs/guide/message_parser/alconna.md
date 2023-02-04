@@ -664,7 +664,7 @@ async def _(...):
 
 ```python
 from arclet.alconna.graia import from_command
-from graia.ariadne.util.saya import listen
+from graiax.shortcut.saya import listen
 
 
 @listen(GroupMessage)
@@ -726,7 +726,7 @@ async def _(app: Ariadne, group: Group, name: str = fetch_name("name")):
 
 ```python{6}
 from arclet.alconna.graia import alcommand, fetch_name
-from graia.ariadne.util.saya import decorate
+from graiax.shortcut.saya import decorate
 
 
 @alcommand(Alconna(...), private=False)
@@ -781,7 +781,7 @@ async def handler(app: Ariadne, group: Group, result: Arparma):
 
 ```python
 from arclet.alconna.graia import alcommand, match_path
-from graia.ariadne.util.saya import decorate
+from graiax.shortcut.saya import decorate
 
 cmd = Alconna(...)
 
@@ -845,7 +845,7 @@ async def handler(app: Ariadne, group: Group, level: Match[str]):
 
 ```python
 from arclet.alconna.graia import alcommand, match_value
-from graia.ariadne.util.saya import decorate
+from graiax.shortcut.saya import decorate
 
 cmd = Alconna(...)
 
@@ -909,7 +909,7 @@ async def _(app: Ariadne, group: Group):
 
 ```python
 from arclet.alconna.graia import endswith, startswith
-from graia.ariadne.util.saya import listen
+from graiax.shortcut.saya import listen
 
 
 @listen(GroupMessage)
