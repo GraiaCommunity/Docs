@@ -159,7 +159,6 @@ async def ero_ascii2d(
   <chat-msg name="群菜鸮" avatar="https://q4.qlogo.cn/g?b=qq&nk=2948531755&s=640">草</chat-msg>
 </chat-window>
 
-
 ## [直面灾厄](https://zh.moegirl.org.cn/%E6%98%8E%E6%97%A5%E6%96%B9%E8%88%9F/%E9%9B%86%E6%88%90%E6%88%98%E7%95%A5/%E5%82%80%E5%BD%B1%E4%B8%8E%E7%8C%A9%E7%BA%A2%E5%AD%A4%E9%92%BB#%E9%9A%BE%E5%BA%A6%E5%88%86%E7%BA%A7)
 
 ~~左：莱塔尼亚权杖 右：荒地龙舌兰~~
@@ -930,6 +929,7 @@ async def _(app: Ariadne, group: Group, url: MessageChain):
 ```
 
 得益于**NEPattern**，你可以进行如下匹配：
+
 - 常规字符串，如 `startswith("foo")`
 - 其他消息元素类型，如 `startswith(At(...))`，`startswith(Image)`
 - 正则，如 `endswith("re:<[^<>]+>")`，`startswith("rep:(bar|baz)")`
@@ -942,7 +942,6 @@ async def _(app: Ariadne, group: Group, url: MessageChain):
 两个 **Shortcut** 同样存在各自的 **Decorator** 形式，为 MatchPrefix 与 MatchSuffix
 
 :::
-
 
 ## [亮出你的本事吧！外星人](https://zh.moegirl.org.cn/%E6%9C%BA%E5%8A%A8%E6%88%98%E5%A3%AB%E9%AB%98%E8%BE%BE_%E9%97%AA%E5%85%89%E7%9A%84%E5%93%88%E8%90%A8%E7%BB%B4#%E6%96%B0%E4%BB%B2%E8%89%AF%E4%B8%89%E4%BA%BA%E7%BB%84/%E9%97%AA%E5%93%88%E5%AE%9A%E5%9E%8B%E6%96%87)
 
@@ -1386,7 +1385,7 @@ var 可以是以下几类：
 
 另外，`Alconna` 提供了两类特殊的类型用以实现限制功能：
 
-- **MultiVar**：将该参数标记为需要获取可变数量或指定数量的数据，通过填入 `flag: int | Literal['+', '*']` 实现  
+- **MultiVar**：将该参数标记为需要获取可变数量或指定数量的数据，通过填入 `flag: int | Literal['+', '*']` 实现
 - **KeyWordVar**：将该参数标记为需要同时写入参数名才认定为合法参数，默认形式为 `key=arg`，可指定分隔符
 
 当 **MultiVar** 与 **KeyWordVar** 一起使用时， 该参数表示为需要接收多个 `key=arg` 形式的数据， 类似 `**kwargs`
@@ -1676,7 +1675,6 @@ async def _(app: Ariadne, codes: Match[list]):
 ```
 
 这样便可以进行如下操作：
-
 
 <chat-window title="聊天记录">
   <chat-msg name="RF" avatar="https://q4.qlogo.cn/g?b=qq&nk=3165388245&s=640">run<br />
