@@ -1,16 +1,15 @@
 # 异步画~~涩~~图
 
-::: danger
+:::danger
 知道拼积木吗？现在这一章差不多可以认为是零件乱放。
 :::
 
-::: danger
+:::danger
 蓝玻璃块（`Ariadne`的主要维护者）认为现在这个功能是重复造轮子  
 该功能已经在[`Unsync`](https://pypi.org/project/unsync/)中实现  
 :::
 
-在看了那么多篇文档以及 [其他 bot](/appendix/awesome_bot.md) 的源码，
-想必你已经做了一个**带有 Pillow / PIL 的制图**的模组吧~
+在看了那么多篇文档，想必你已经做了一个**带有 Pillow / PIL 的制图**的模组吧~
 
 但是，你有没有发现，随着你制图功能被调用的越来越多，你的 bot 又双叒叕卡了。
 
@@ -29,8 +28,8 @@
 
 ## 快速实例
 
-:::: code-group
-::: code-group-item 原来的
+::::code-group
+:::code-group-item 原来的
 
 ```python
 from io import BytesIO
@@ -53,7 +52,7 @@ async def drawing(group: Group):
 ```
 
 :::
-::: code-group-item 用 io_bound
+:::code-group-item 用 io_bound
 
 ```python
 from io import BytesIO
@@ -77,7 +76,7 @@ async def drawing(group: Group):
 ```
 
 :::
-::: code-group-item 用 asyncio.to_thread
+:::code-group-item 用 asyncio.to_thread
 
 ```python
 import asyncio
@@ -102,7 +101,7 @@ async def drawing(group: Group):
 :::
 ::::
 
-::: tip
+:::tip
 `io_bound` 跟 `asyncio.to_thread` 除了使用方法可能有所不同外，本质其实没有多大区别。
 不过假设你使用的是 `Python3.8`，那就没有 `asyncio.to_thread`
 :::
@@ -125,6 +124,6 @@ async def drawing(group: Group):
 
 <loading />
 
-::: interlink
+:::interlink
 **相关链接:** <https://graia.readthedocs.io/ariadne/extra/async-exec/>
 :::

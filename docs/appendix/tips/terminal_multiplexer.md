@@ -1,6 +1,6 @@
 # 终端复用
 
-::: warning 注意
+:::warning 注意
 本章节是给那些想要在 Linux 服务器上部署机器人的朋友们看的
 假设你是 Windows 服务器，可以直接跳过
 :::
@@ -18,7 +18,7 @@
 
 有很多终端复用器，不过在本教程就用 `tmux` 为例
 
-::: tip
+:::tip
 你也可以使用 `screen` 来进行终端复用  
 但介于 `screen` 已经在 `RHEL8` 中被移除  
 所以我们将会介绍 `tmux`
@@ -26,8 +26,8 @@
 
 ## 安装
 
-:::: code-group
-::: code-group-item Ubuntu / Debian
+::::code-group
+:::code-group-item Ubuntu / Debian
 
 ```bash
 # 非 root 用户记得前面加 sudo
@@ -35,7 +35,7 @@ apt install tmux
 ```
 
 :::
-::: code-group-item CentOS 8 / Rocky Linux 8
+:::code-group-item CentOS 8 / Rocky Linux 8
 
 ```bash
 # 非 root 用户记得前面加 sudo
@@ -43,7 +43,7 @@ dnf install tmux
 ```
 
 :::
-::: code-group-item CenOS 7
+:::code-group-item CenOS 7
 
 ```bash
 # 非 root 用户记得前面加 sudo

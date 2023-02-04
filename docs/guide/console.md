@@ -1,6 +1,6 @@
 # 后台对线
 
-::: danger
+:::danger
 Ariadne 于 0.7.x 版本开始支持 richuru，并且从依赖中移除了 prompt-toolkit，  
 因此 Console 可能会因为缺少维护而出现或多或少的问题。
 
@@ -63,7 +63,7 @@ saya.install_behaviours(ConsoleBehaviour(con))
 EroEroBot>
 ```
 
-::: tip
+:::tip
 因为[某种原因](https://github.com/prompt-toolkit/python-prompt-toolkit/issues/1483)，
 假设你是在 Windows 平台上使用 `Windows Terminal`，
 可能会出现「一行打印不下的文字只能显示第一行」的问题。
@@ -73,7 +73,7 @@ EroEroBot>
 <br /><curtain>谁叫人家是 python 为数不多的支持多平台的 tui 库呢（摊手）</curtain>
 :::
 
-::: danger
+:::danger
 一般情况下，请不要在启用 Console 之后在代码种使用如下方式进行输出，包括但不限于：
 
 - `print()`
@@ -99,27 +99,27 @@ logger.opt(raw=True).log("测试")
 1. 你可以在后台通过 Bot 的账号主动发送群/私聊消息了（当然，只要你想，你也可以执行更多的操作），你的 Bot 再也不是只能一应一答或者定时发消息的“傻孩纸”了
 2. 你觉不觉得每次关闭 Ariadne 都要按 `Ctrl + C` 手指要伸很长很累，现在你可以通过命令退出 Ariadne 了！
 
-::: tip
+:::tip
 假设在用了 `Console` 的情况下用 `Ctrl + C` 退出，
 可能会出现一长串报错，这是正常的。
 :::
 
 ### 安装desu
 
-::: tip
+:::tip
 因为 0.7.0+ 在依赖库里删除了 `prompt-toolkit`，
 所以这里只能单独安装了
 :::
 
-:::: code-group
-::: code-group-item poetry
+::::code-group
+:::code-group-item poetry
 
 ```bash
 poetry add prompt-toolkit
 ```
 
 :::
-::: code-group-item pip
+:::code-group-item pip
 
 ```bash
 pip install prompt-toolkit
@@ -225,7 +225,7 @@ con = Console(
 )
 ```
 
-::: interlink
+:::interlink
 
 - <https://graia.readthedocs.io/ariadne/extra/console/>
 - <https://python-prompt-toolkit.readthedocs.io/en/master/pages/reference.html?highlight=html#prompt_toolkit.formatted_text.HTML>

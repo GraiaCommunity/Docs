@@ -14,7 +14,7 @@
   <chat-msg name="GraiaX" onright>哦嗨哟</chat-msg>
 </chat-window>
 
-::: tip
+:::tip
 你可能会问上面这位叫你起床的是谁，  
 这位是 [Hanser](https://zh.moegirl.org.cn/Hanser)，B站账号是[这个](https://space.bilibili.com/11073)。
 :::
@@ -28,12 +28,12 @@
 
 ## 安装 Graia Scheduler
 
-::: tip 注意
+:::tip 注意
 在写本章文档的时候，**Graia Scheduler** 的版本为 `0.0.7`  
 而最新版本为 <img src="https://img.shields.io/pypi/v/graia-scheduler?color=2970b6&amp;style=flat-square" alt="PyPI版本" style="vertical-align: middle">
 :::
 
-::: tip
+:::tip
 假设你之前安装 Ariadne 时使用的是以下 3 种选项中的一种，那么你可以直接跳过本小节。
 
 - `graia-ariadne[full]`
@@ -41,15 +41,15 @@
 - `graia-ariadne[standard]`
 :::
 
-:::: code-group
-::: code-group-item poetry
+::::code-group
+:::code-group-item poetry
 
 ```bash
 poetry add graia-scheduler
 ```
 
 :::
-::: code-group-item pip
+:::code-group-item pip
 
 ```bash
 pip install graia-scheduler
@@ -100,7 +100,7 @@ async def every_minute_speaking(app: Ariadne):
 该方法支持传入一个 `crontab` 时间格式来进行时间计算，
 `crontab` 具体语法你可以看一下[菜鸟教程对 crontab 的讲解](https://www.runoob.com/linux/linux-comm-crontab.html)。
 
-::: tip
+:::tip
 **看清楚了，方法是 `timers.crontabify` 而不是 `timers.croniter`！**  
 事实上，`graia-scheduler` 所使用的 crontab 语法分析库支持将**秒**作为第六个参数导入，如：
 
@@ -117,7 +117,7 @@ async def every_minute_speaking(app: Ariadne):
   <chat-voice name="Hanser" avatar="/avatar/hanser.webp" audio="/voices/起床搬砖辣.m4a"></chat-voice>
 </chat-window>
 
-::: interlink
+:::interlink
 <https://graia.readthedocs.io/ariadne/extra/scheduler/>
 
 **EroEroBot:**  

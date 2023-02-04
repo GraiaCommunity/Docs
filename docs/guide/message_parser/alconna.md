@@ -1,6 +1,6 @@
 # Alconna
 
-::: tsukkomi 注
+:::tsukkomi 注
 本章节由 **Alconna** 作者本人编辑，所以你将会看到
 
 - 令人窒息的浓度
@@ -16,7 +16,7 @@
 是由 [**Arclet Project**](https://github.com/ArcletProject) 维护的一个功能强大的 **命令** 解析器，
 简单一点来讲就是杂糅了多种 CLI 模块（如 `click`、`fire` 等）风格的命令解析库（迫真）。
 
-::: tip TIPS
+:::tip TIPS
 
 1. **Alconna** 由两个[尼希语](http://tieba.baidu.com/p/7268094994) 单词组成，`alco` 和 `conna`
 2. **ArcletProject** 是一个新生社区，欢迎各位来[交流♂](https://jq.qq.com/?_wv=1027&k=PUPOnCSH)
@@ -25,14 +25,14 @@
 
 ## 凡事都要先安装
 
-::: warning
+:::warning
 
 **本文默认您使用的 `Alconna-Graia` 为 @latest 版本，若不符合请及时更新**
 
 :::
 
-:::: code-group
-::: code-group-item poetry
+::::code-group
+:::code-group-item poetry
 
 ```bash
 poetry add arclet-alconna-graia>=0.11.4, arclet-alconna-ariande>=0.11.4
@@ -40,7 +40,7 @@ poetry add graiax-shortcut
 ```
 
 :::
-::: code-group-item pdm
+:::code-group-item pdm
 
 ```bash
 pdm add arclet-alconna-graia>=0.11.4, arclet-alconna-ariande>=0.11.4
@@ -48,7 +48,7 @@ pdm add graiax-shortcut
 ```
 
 :::
-::: code-group-item pip
+:::code-group-item pip
 
 ```bash
 pip install arclet-alconna-graia>=0.11.4, arclet-alconna-ariande>=0.11.4
@@ -172,7 +172,7 @@ async def ero_ascii2d(
 3. 命令参数：一个命令所需求的主要参数，可以为空
 4. 命令选项：为命令添加额外的解释参数，或以此选择命令的不同功能
 
-::: tip
+:::tip
 是的，Alconna 负责的并不是**消息链解析**，而是**命令解析**。
 ~~虽然说 Alconna 的实现攘括了消息链解析的功能~~
 :::
@@ -413,7 +413,7 @@ async def _(app: Ariadne, group: Group, result: Arparma):
     ...
 ```
 
-::: warning
+:::warning
 
 自 `arclet-alcona-graia` 0.11.0 开始，**Alconna-Graia** 建议与 `Launart` 结合使用：
 
@@ -848,7 +848,7 @@ async def _(app: Ariadne, group: Group):
     ...
 ```
 
-::: tip
+:::tip
 `path` 除了指定选项名或者子命令名称，也可以指定到具体的参数上。
 
 例如 `foo.bar` 或 `foo.args.bar` 指向选项 `foo` 的参数 `bar`，
@@ -904,8 +904,8 @@ async def _(app: Ariadne, group: Group, url: MessageChain):
 
 以下将展示 Alconna 创建的 5 种方式：
 
-:::: code-group
-::: code-group-item typical
+::::code-group
+:::code-group-item typical
 
 ```python{4,10}
 from arclet.alconna import Args
@@ -925,7 +925,7 @@ async def test(app: Ariadne, group: Group):
 ```
 
 :::
-::: code-group-item String
+:::code-group-item String
 
 ```python{4,10}
 from arclet.alconna.graia import AlconnaDispatcher
@@ -945,7 +945,7 @@ async def test(app: Ariadne, group: Group):
 ```
 
 :::
-::: code-group-item Format
+:::code-group-item Format
 
 ```python{4,10}
 from arclet.alconna.graia import AlconnaDispatcher
@@ -965,7 +965,7 @@ async def test(app: Ariadne, group: Group):
 ```
 
 :::
-::: code-group-item Decorate
+:::code-group-item Decorate
 
 ```python{4,7-10,16}
 from arclet.alconna.graia import AlconnaDispatcher
@@ -991,7 +991,7 @@ async def test(app: Ariadne, group: Group):
 ```
 
 :::
-::: code-group-item Fire
+:::code-group-item Fire
 
 ```python{5-8,11,17}
 from arclet.alconna import.tools AlconnaFire
@@ -1053,7 +1053,7 @@ Alconna::我要涩图(args=Args('count': int), options=[从(args=Args('tag': (st
 
 `Args`是命令参数的载体，通过"键-值-默认"传入一系列参数，具体食用方法我们后面会讲到。
 
-::: tsukkomi 注
+:::tsukkomi 注
 Alconna 0.7.6 后，简易的命令构造可用如下方法：
 
 ```python
@@ -1082,7 +1082,7 @@ Alconna::我要涩图(args=Args('count': int), options=[从(args=Args('tag': (st
 
 可以看到，我们的 `<count:int>` 变成了 `Args['count', int]`。
 
-::: tip
+:::tip
 关于 `Koishi-like` 的命令参数，请详细阅读
 [命令参数](https://arcletproject.github.io/docs/alconna/basic/alconna-args)
 与
@@ -1176,7 +1176,7 @@ Subcommand("sub", Args, [Option("sub_opt"), Subcommand("sub_sub")])
 Alconna("test", Option("qux", Args.a[int], requires=["foo", "bar", "baz"]))
 ```
 
-::: tip
+:::tip
 requires 也可以在 name 中传入  
 譬如：
 
@@ -1663,6 +1663,6 @@ alc.parse("cut_img --height=640")
 
 <loading />
 
-::: interlink
+:::interlink
 <https://arcletproject.github.io/docs/alconna/tutorial>
 :::

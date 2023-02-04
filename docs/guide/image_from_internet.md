@@ -1,17 +1,17 @@
 # 来点网上的涩图
 
-::: danger
+:::danger
 本章**可能还没完成**，还有部分地方**需要斟酌**
 :::
 
-::: warning
+:::warning
 由于各种原因，我们在此并不能使用**超赞的涩图库**
 <br /><curtain>这种东西可是至宝，怎么会轻易给你 o(´^ ｀)o</curtain>
 :::
 
 先来介绍一下安装
 
-::: tip
+:::tip
 虽然说 `graia-ariadne` 的依赖项里面是有 `aiohttp` 的，
 但是为了让你能够记得你用了什么库，我们还是建议你写一下
 :::
@@ -69,7 +69,7 @@ very_simple_example()
 
 ## 为啥要用 aiohttp
 
-::: tip
+:::tip
 这里并发使用的是 aiohttp 只是因为 Ariadne 本身就有 aiohttp，不用装额外的库。
 你也可以使用 `httpx` 等支持并发的库，效果也是相同的。
 :::
@@ -89,7 +89,7 @@ async def test(app: Ariadne): ...
 
 ## 异步是什么？
 
-::: warning
+:::warning
 以下介绍是为了让你能够较为方便的理解异步的**大致**和**好处**，
 并没有探讨包括回调函数等一系列具体的东西。
 
@@ -155,7 +155,7 @@ flowchart LR
 为了实现这种“能在干一件事情干到一半的时候能去处理另一件事”的能力，`graia-ariadne` 也使用 aiohttp 以保证并发的高效性，
 而 aiohttp 即是一个异步请求库，能够保证你在请求发送完，等待网站回复的时候干别的事情。
 
-::: warning
+:::warning
 注意一下，**并不是说把一个函数前面加上 `async` 就是异步了**
 
 ```python
@@ -192,6 +192,6 @@ async with session.get(...) as resp:
 
 至于要不要用 Ariadne 自带的 session，就是你的选择了。
 
-::: interlink EroEroBot
+:::interlink EroEroBot
 本章完整示例可在 [EroEroBot/modules/image_from_internet.py](https://github.com/GraiaCommunity/EroEroBot/blob/master/modules/image_from_internet.py) 找到。
 :::

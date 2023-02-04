@@ -13,7 +13,7 @@
 3. 编辑 `setup.py`，将 `self.use_system_libuv` 的值从 `False` 改成 `True`
 4. 在 uvloop 文件夹中使用 `pip install .` 安装（**不要忘记最后的点**）
 
-::: tsukkomi Poetry 怎么办？
+:::tsukkomi Poetry 怎么办？
 你可能想要知道怎么通过 poetry 来安装 uvloop？
 
 你可以试试在 `poetry add xxx` 之前先按上面的步骤安装。  
@@ -57,8 +57,8 @@ async def pic(app: Ariadne, group: Group, message: MessageChain)
 
 那怎么办？我们为您提供了以下两种办法解决这个问题：
 
-:::: code-group
-::: code-group-item 直接传递值
+::::code-group
+:::code-group-item 直接传递值
 
 ```python{10}
 # 不要跟 Ariadne 中的 Image 搞混了
@@ -74,7 +74,7 @@ async def pic(app: Ariadne, group: Group, message: MessageChain)
 ```
 
 :::
-::: code-group-item 操作文件指针
+:::code-group-item 操作文件指针
 
 ```python{10}
 # 不要跟 Ariadne 中的 Image 搞混了

@@ -11,7 +11,7 @@
 这种**通过模组来管理机器人各个功能**的方式会对你后面写机器人有很大帮助。
 而且，某些模组甚至可以完全可以直接通过**复制粘贴文件**的形式直接装到你的机器人上。
 
-::: danger 警告
+:::danger 警告
 从本章之后所有示例都会采用 Saya 模组的形式编写及实现，并可能会省略诸如
 `import xxx`、`from xxx import xxx`、`channel = Channel.current()` 等语句。
 
@@ -29,7 +29,7 @@
 Nonebot 就是一个比较典型的插件导入式框架（通过导入不同的插件功能来运行），
 而通过 `Saya`，`Ariadne` 也可以实现类似的功能。
 
-:::: details Saya 的各个组成部分
+::::details Saya 的各个组成部分
 
 这部分看不懂也没关系
 
@@ -50,7 +50,7 @@ Nonebot 就是一个比较典型的插件导入式框架（通过导入不同的
 
 ## 如何安装 `Saya`
 
-::: tip 注意
+:::tip 注意
 在写本章文档的时候，**Graia Saya** 的版本为 `0.0.16`  
 而最新版本为 <img src="https://img.shields.io/pypi/v/graia-saya?color=2970b6&amp;style=flat-square" alt="PyPI版本" style="vertical-align: middle">
 
@@ -61,15 +61,15 @@ Nonebot 就是一个比较典型的插件导入式框架（通过导入不同的
 - `graia-ariadne[standard]`
 :::
 
-:::: code-group
-::: code-group-item poetry
+::::code-group
+:::code-group-item poetry
 
 ```bash
 poetry add graia-saya
 ```
 
 :::
-::: code-group-item pip
+:::code-group-item pip
 
 ```bash
 pip install graia-saya
@@ -120,7 +120,7 @@ app.launch_blocking()
 
 我们来讲解一下**高亮部分**，感兴趣的话可以展开以下内容阅读。
 
-:::: details 原理解析
+::::details 原理解析
 
 ```python
 saya = create(Saya)
@@ -132,7 +132,7 @@ with saya.module_context():
 首先我们使用 [creart](https://github.com/GraiaProject/creart) 的 create 创建了一个 `Saya` 实例。然后在下方有一个上下文，需要注意的是，这个 `with`
 的上下文处理是很有必要的，你的所有导入模组操作都必须在这个上下文处理器当中。
 
-::: interlink
+:::interlink
 什么？你不认识 `with` 语句？那你可以去学学噢~  
 要是你想去学的话，你可以看看[这篇来自 Python 官方的文档](https://docs.python.org/zh-cn/3/reference/compound_stmts.html#with)（中文）。
 :::
@@ -141,8 +141,8 @@ with saya.module_context():
 在这段代码中，我们在上下文中使用 `saya.require` 导入了一个名为 `modules.ero` 的模组。
 
 而事实上模组的形式可以是如下两种：
-:::: code-group
-::: code-group-item 单文件模组
+::::code-group
+:::code-group-item 单文件模组
 
 ```shell
 EroEroBot
@@ -153,7 +153,7 @@ EroEroBot
 ```
 
 :::
-::: code-group-item 文件夹模组
+:::code-group-item 文件夹模组
 
 ```shell
 EroEroBot
@@ -167,7 +167,7 @@ EroEroBot
 
 ::::
 
-::: interlink EroEroBot
+:::interlink EroEroBot
 本章完整示例可在 [EroEroBot/main-saya.py](https://github.com/GraiaCommunity/EroEroBot/blob/master/main-saya.py) 找到。  
 你可以在[此处](https://github.com/GraiaCommunity/EroEroBot/releases/tag/release)下载预配置好的模板（不定期更新）。
 
@@ -202,7 +202,7 @@ with saya.module_context():
 app.launch_blocking()
 ```
 
-::: tip
+:::tip
 你不是必须用我这个用法，假设你的模组都放在一个叫 modules 的文件夹里，你可以使用 `os.walk` 之类的函数遍历这个文件夹：
 
 - 对于文件夹模组，直接 `saya.require(f"modules.{模组的文件夹名字}")`
@@ -254,7 +254,7 @@ app.launch_blocking()
 
 ## 写个 `module`
 
-::: danger 警告
+:::danger 警告
 使用 Saya 进行模块加载后，不可以将所有代码全部堆在同一个文件里！！！
 <br /><curtain>啊我的上帝，老伙计，我发誓，你要是这么做，我就要狠狠地踢你的屁股了！</curtain>
 <br /><curtain>单文件 Bot 是坏文明 desu~</curtain>
@@ -290,7 +290,7 @@ async def setu(app: Ariadne, group: Group, message: MessageChain):
 
 你可能会觉得这一串比之前要长不少，但是当你模组多了之后这样反而更整洁噢。
 
-:::: details 发生了什么？
+::::details 发生了什么？
 
 下面就来看看这个模组中各部分代码的用途吧~
 
@@ -423,7 +423,7 @@ async def reload(app: Ariadne, group: Group, message: MessageChain):
 
 `uninstall_channel` 与 `reload_channel` 需要传入 **Channel** 对象，你可以在 `saya.channels` 中获取。
 
-::: interlink
+:::interlink
 相关链接：  
 <https://graia.readthedocs.io/ariadne/extra/saya/start>
 <https://graia.readthedocs.io/saya>

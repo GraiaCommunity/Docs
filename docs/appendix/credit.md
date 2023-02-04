@@ -1,6 +1,6 @@
 # 鸣谢
 
-::: warning
+:::warning
 以下团队或个人按英文或中文拼音字母排序
 :::
 
@@ -45,7 +45,7 @@
 - [Github Copilot](https://copilot.github.com) 提供的各种奇妙~~怪话~~<curtain>你不知道只按 tab 写文档有多爽</curtain>
 - [伪 QQ 移动端聊天窗口](https://github.com/Redlnn/Fake-QQ-Chat-Window)
 
-::: tsukkomi Graia Framework Community 群
+:::tsukkomi Graia Framework Community 群
 QQ 交流群: [邀请链接](https://jq.qq.com/?_wv=1027&k=VXp6plBD)  
 **注意**：不定时清除不活跃成员，请自行重新申请入群。
 :::
