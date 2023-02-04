@@ -7,6 +7,20 @@
         <span class="ico">
           <svg viewBox="0 0 1024 1024" width="200" height="200">
             <path
+              d="M352 928V812.416h-57.984a83.84 83.84 0 01-83.84-83.84A29.44 29.44 0 00180.8 699.2h-46.72v-54.4h46.72a84.096 84.096 0 0117.28 1.792 83.968 83.968 0 0166.56 82.048 29.44 29.44 0 0029.44 29.44H352v-24.448a127.936 127.936 0 0113.888-57.92 391.872 391.872 0 01-58.88-25.408l-1.28-.768c-31.872-17.216-59.712-38.4-82.304-62.528-40.32-43.008-64-95.488-64-152.128 0-54.08 21.568-104.32 58.56-146.176l-2.816-14.08a237.056 237.056 0 0134.56-178.176 237.056 237.056 0 01171.648 59.072l22.528 19.904a464.96 464.96 0 01139.072 1.024l23.552-20.928a237.056 237.056 0 01171.648-59.072c34.752 52.48 47.168 116.544 34.624 178.176l-4.352 21.248c33.28 40.384 52.48 88 52.48 139.008 0 88.32-57.6 166.592-146.048 214.528-18.368 9.92-38.016 18.56-58.752 25.728A127.872 127.872 0 01672 737.024V928H352zm100.992-689.216l-29.312 4.224-44.672-39.552a173.056 173.056 0 00-91.648-41.92 173.056 173.056 0 00-9.536 100.352l9.28 45.248-21.12 23.936c-28.288 32-42.56 67.584-42.56 103.808 0 70.272 56.96 144.192 163.072 180.288l69.76 23.68-33.28 65.856A63.936 63.936 0 00416 733.632V864h192V737.024a64 64 0 00-7.936-30.912l-36.736-66.624 71.872-24.832c105.216-36.288 161.664-109.824 161.664-179.776 0-34.24-12.672-67.84-37.76-98.304l-19.456-23.552 10.432-51.2a173.056 173.056 0 00-9.472-100.288 173.056 173.056 0 00-91.648 41.92l-46.208 40.96-29.824-4.8a399.872 399.872 0 00-119.936-.832z"
+              fill="currentColor"
+            />
+          </svg>
+        </span>
+        <span class="key">仓库地址:</span>
+        <span class="value">
+          <a :href="`https://github.com/${repoUser}/${repoName}`" target="_blank">GitHub</a>
+        </span>
+      </div>
+      <div class="cell">
+        <span class="ico">
+          <svg viewBox="0 0 1024 1024" width="200" height="200">
+            <path
               d="M512 872.6c-10.5 0-19-8.5-19-19V265.7c0-10.5 8.5-19 19-19s19 8.5 19 19v587.8c0 10.6-8.5 19.1-19 19.1z"
               fill="currentColor"
             />
@@ -32,7 +46,7 @@
             />
           </svg>
         </span>
-        <span class="key">协议:</span>
+        <span class="key">许可证:</span>
         <span class="value">{{ license }}</span>
       </div>
       <div class="cell">
@@ -69,18 +83,18 @@
           <img :src="`https://img.shields.io/pypi/v/${name}`" alt="PyPI" />
         </span>
       </div>
-    </section>
-    <section class="author">
-      <span class="ico">
-        <svg viewBox="0 0 1024 1024" width="200" height="200">
-          <path
-            d="M511.7 578.5c141.9 0 257.3-115.4 257.3-257.3S653.6 63.9 511.7 63.9 254.4 179.3 254.4 321.2s115.4 257.3 257.3 257.3zm0-461.2c112.4 0 203.9 91.4 203.9 203.9S624.1 525 511.7 525s-203.9-91.4-203.9-203.9 91.5-203.8 203.9-203.8zm168.6 517.9H343.9C186.9 635.2 59.1 763 59.1 920v39.7h50.8V920c0-129.1 105-234.1 234.1-234.1h336.4c129.1 0 234.1 105 234.1 234.1v39.7h50.8V920c-.2-157-128-284.8-285-284.8z"
-            fill="currentColor"
-          />
-        </svg>
-      </span>
-      <span class="key">作者:</span>
-      <span class="value">{{ author }}</span>
+      <div class="cell author">
+        <span class="ico">
+          <svg viewBox="0 0 1024 1024" width="200" height="200">
+            <path
+              d="M511.7 578.5c141.9 0 257.3-115.4 257.3-257.3S653.6 63.9 511.7 63.9 254.4 179.3 254.4 321.2s115.4 257.3 257.3 257.3zm0-461.2c112.4 0 203.9 91.4 203.9 203.9S624.1 525 511.7 525s-203.9-91.4-203.9-203.9 91.5-203.8 203.9-203.8zm168.6 517.9H343.9C186.9 635.2 59.1 763 59.1 920v39.7h50.8V920c0-129.1 105-234.1 234.1-234.1h336.4c129.1 0 234.1 105 234.1 234.1v39.7h50.8V920c-.2-157-128-284.8-285-284.8z"
+              fill="currentColor"
+            />
+          </svg>
+        </span>
+        <span class="key">作者:</span>
+        <span class="value">{{ author }}</span>
+      </div>
     </section>
   </section>
 </template>
@@ -95,6 +109,8 @@ export default defineComponent({
     license: String,
     version: String,
     author: String,
+    repoUser: String,
+    repoName: String,
   },
 })
 </script>
@@ -103,6 +119,7 @@ export default defineComponent({
 .info {
   display: grid;
   grid-gap: 5px;
+  grid-auto-flow: row dense;
 
   .cell {
     display: flex;
@@ -114,18 +131,20 @@ export default defineComponent({
   .info {
     grid-template-columns: repeat(2, calc(100% / 2));
   }
+
+  .author {
+    grid-column: 1 / 3;
+  }
 }
 
 @media (min-width: 1000px) {
   .info {
     grid-template-columns: repeat(3, calc(100% / 3));
   }
-}
 
-.author {
-  display: flex;
-  align-items: center;
-  margin-top: 5px;
+  .author {
+    grid-column: 2 / 4;
+  }
 }
 
 .ico {
@@ -140,6 +159,7 @@ export default defineComponent({
 
 .key {
   font-weight: bold;
+  word-break: keep-all;
 }
 
 .value {
