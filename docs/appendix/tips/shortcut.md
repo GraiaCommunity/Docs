@@ -56,8 +56,7 @@ from graia.ariadne.message.chain import MessageChain
 from graia.ariadne.message.parser.base import DetectPrefix
 from graia.ariadne.util.cooldown import CoolDown
 from graia.ariadne.model import Group
-
-from graia.ariadne.util.saya import listen, dispatch, decorate
+from graiax.shortcut.saya import listen, dispatch, decorate
 
 
 @listen(GroupMessage)
@@ -71,11 +70,6 @@ async def setu(app: Ariadne, group: Group, message: MessageChain):
 ```
 
 是不是感觉焕然一新？
-
-::: tip
-其实更推荐从 `graiax.shortcut.saya` 导入 **Saya Util**，
-它与从 `graia.ariadne.util.saya` 导入的效果是一样的。
-:::
 
 ## 使用方法
 

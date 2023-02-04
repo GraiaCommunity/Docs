@@ -214,8 +214,8 @@ async def download():
 ```python
 from arclet.alconna import Args
 from arclet.alconna.graia import alc
-from graiax.shortcut.saya import listen
 from graia.ariadne.event.message import GroupMessage
+from graiax.shortcut.saya import listen
 
 @listen(GroupMessage)
 @alc.command("bz")
