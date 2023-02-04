@@ -18,6 +18,7 @@ const before = [
         items: [
           { text: 'GraiaX FastAPI', link: '/before/introduction/project/fastapi' },
           { text: 'GraiaX Playwright', link: '/before/introduction/project/playwright' },
+          { text: 'GraiaX Silkcoder', link: '/before/introduction/project/silkcoder' },
           {
             text: 'GraiaX Text2Image 系列',
             collapsed: true,
