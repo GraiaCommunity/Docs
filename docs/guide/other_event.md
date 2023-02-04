@@ -7,7 +7,7 @@
 
 下面教大家如何使用戳一戳事件（`NudgeEvent`）
 
-:::: warning
+::::warning
 此处的“戳一戳”所指的是手机 QQ 客户端中**双击头像**的功能，而不是私聊发送戳一戳表情（对应 PC 的**窗口抖动**）
 
 接收 NudgeEvent 需要 Mirai 使用如下 3 种登陆协议中的一种：
@@ -24,7 +24,7 @@
 
 以下是一段示例代码：（注释为与群消息事件的对比）
 
-::: danger 警告
+:::danger 警告
 为了防止部分读者日常叛逆，再次说明，从章开始，如无特殊说明，所有示例代码均使用 Saya 的方式编写。  
 使用 Saya 进行模块加载后，不可以将所有代码全部堆在同一个文件里！！！
 :::
@@ -90,7 +90,7 @@ async def getup(app: Ariadne, event: NudgeEvent):
 </CodeGroupItem>
 </CodeGroup>
 
-::: tip
+:::tip
 
 1. 对于 **NudgeEvent** 应使用 `event: NudgeEvent` 获取事件实例来获得相关信息
 2. 此处之所以使用 `sendGroupMessage` 和 `sendFriendMessage` 是因为 `event.target` 的类型为 `int`，而 `sendMessage` 所需参数的类型为 `Union[MessageEvent, Group, Friend, Member]` 不包含 `int`
@@ -104,16 +104,16 @@ async def getup(app: Ariadne, event: NudgeEvent):
   <chat-msg name="EroEroBot" avatar="/avatar/ero.webp">你不要光天化日之下在这里戳我啊</chat-msg>
 </chat-window>
 
-::: tip
+:::tip
 有关什么是 Broadcast，各种 Event 又是什么，请参阅[这里](/before/QA.html#_3-%E4%BB%80%E4%B9%88%E6%98%AF-broadcastcontrol)
 :::
 
-::: warning
+:::warning
 如果你并没有看见 Python 控制台输出 `NudgeEvent` 事件的相关信息，请不要慌张。
 因为 `Ariadne` 的 log 默认状态下只会输出 `MessageEvent`。
 :::
 
-::: interlink
+:::interlink
 <https://graia.readthedocs.io/ariadne/feature/params/>
 
 **EroEroBot:**  

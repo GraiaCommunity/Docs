@@ -1,12 +1,12 @@
 # /斜眼笑（`Formatter`）
 
-::: warning
+:::warning
 ~~虽然 `mirai` 支持商城表情，但是 `mirai-api-http` 不支持！~~  
 `mirai-api-http` 已在 2.5.0 版本支持且 `graia-ariadne` 也在 0.5.3 提供了支持。  
 **注意：仅支持接收，不支持发送！**
 :::
 
-::: tip
+:::tip
 你知道吗，这章很水
 :::
 
@@ -81,7 +81,7 @@ Formatter(
 
 你看这样子是不是方便多了？
 
-::: interlink
+:::interlink
 **EroEroBot:** 本章完整示例可在 [EroEroBot/modules/formatter.py](https://github.com/GraiaCommunity/EroEroBot/blob/master/modules/formatter.py) 找到。
 
 **相关链接:** <https://graia.readthedocs.io/ariadne/extra/msg-chain-tool/>

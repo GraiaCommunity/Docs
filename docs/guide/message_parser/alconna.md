@@ -1,6 +1,6 @@
 # Alconna
 
-::: tsukkomi 注
+:::tsukkomi 注
 本章节由 **Alconna** 作者本人编辑，所以你将会看到
 
 - 令人窒息的浓度
@@ -16,7 +16,7 @@
 是由 [**Arclet Project**](https://github.com/ArcletProject) 维护的一个功能强大的 **命令** 解析器，
 简单一点来讲就是杂糅了多种 CLI 模块（如 `click`、`fire` 等）风格的命令解析库（迫真）。
 
-::: tip TIPS
+:::tip TIPS
 
 1. **Alconna** 由两个[尼希语](http://tieba.baidu.com/p/7268094994) 单词组成，`alco` 和 `conna`
 2. **ArcletProject** 是一个新生社区，欢迎各位来[交流♂](https://jq.qq.com/?_wv=1027&k=PUPOnCSH)
@@ -25,7 +25,7 @@
 
 ## 凡事都要先安装
 
-::: warning
+:::warning
 
 **本文默认您使用的 `Alconna-Graia` 为 @latest 版本，若不符合请及时更新**
 
@@ -172,7 +172,7 @@ async def ero_ascii2d(
 3. 命令参数：一个命令所需求的主要参数，可以为空
 4. 命令选项：为命令添加额外的解释参数，或以此选择命令的不同功能
 
-::: tip
+:::tip
 是的，Alconna 负责的并不是**消息链解析**，而是**命令解析**。
 ~~虽然说 Alconna 的实现攘括了消息链解析的功能~~
 :::
@@ -433,7 +433,7 @@ async def _(app: Ariadne, group: Group, result: Arparma):
     ...
 ```
 
-::: warning
+:::warning
 
 自 `arclet-alcona-graia` 0.11.0 开始，**Alconna-Graia** 建议与 `Launart` 结合使用：
 
@@ -895,7 +895,7 @@ async def _(app: Ariadne, group: Group):
     ...
 ```
 
-::: tip
+:::tip
 `path` 除了指定选项名或者子命令名称，也可以指定到具体的参数上。
 
 例如 `foo.bar` 或 `foo.args.bar` 指向选项 `foo` 的参数 `bar`，

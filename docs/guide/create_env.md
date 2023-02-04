@@ -7,14 +7,14 @@
 1. **本文档将会默认你至少学过一点点 `Python`，假设你连 Python 都不会，建议至少学点 Python 基础再来看。**
 2. **本文档将假设你具有一定的英语阅读能力<curtain>通过 XX 翻译也行</curtain>，并能对工具软件的提示作出自己的决定。**
 3. **本文档将会使用 `poetry` 作为依赖和虚拟环境管理工具。**
-   ::: warning
+   :::warning
    关于为什么用 `poetry`，你可以看这里 :point_right: [看这](/before/QA#_6-关于-poetry)
    :::
 
 4. **本文档将使用 `graia-ariadne` 0.7.15 及以上的版本**，Ariadne 在 0.7.0 进行了一次大的
    Breaking Change，因此本文档不适用 0.7.0 以下的 Ariadne，也不再提供旧版的使用方法及示例。  
 
-   ::: tip 小贴士（bushi）
+   :::tip 小贴士（bushi）
    - 从 0.5.x 和 0.6.x 版本的 Ariadne 迁移至 0.7.x 请参考[这里](https://graia.readthedocs.io/ariadne/migrate/amnesia_port/)
    - **0.7.6 及以下版本的 Ariadne 存在一些 Bug，不推荐使用噢。**
    - **0.7.15 的 Ariadne 不能自己创建 loop 和 bcc 了，所以本文档的所用的 Ariadne 版本为 0.7.15+**
@@ -27,7 +27,7 @@
    <img src="https://img.shields.io/pypi/pyversions/graia-ariadne?color=2970b6&amp;label=Python&amp;style=flat-square" alt="Python版本" style="display:inline;vertical-align:text-bottom">
    ，但为了**最佳体验**，我们建议你最好升级到 `Python3.9+` 以保证能够享受到全部功能。
 6. **本文档部分内容可能未及时更新或不全**，因此你可以在本文档的一些页面见到如下的提示框，他们通常指向相关的文档/示例。
-   ::: interlink
+   :::interlink
    <https://graia.readthedocs.io/ariadne/>
    :::
 
@@ -35,7 +35,7 @@
 
 新建一个项目文件夹，这里我们就叫 `EroEroBot` 吧 （<curtain>PeroPero 震怒</curtain>）
 
-::: interlink EroEroBot
+:::interlink EroEroBot
 本章完整示例可在 [EroEroBot/main-base.py](https://github.com/GraiaCommunity/EroEroBot/blob/master/main-base.py) 找到。  
 你可以在[此处](https://github.com/GraiaCommunity/EroEroBot/releases/tag/release)下载预配置好的模板（不定期更新）。
 :::
@@ -54,7 +54,7 @@ cd EroEroBot
 2. 进入文件夹，同时按下 `Shift` 和 鼠标右键，选择 `在此处打开 Powershell 窗口`  
    如果是 Windows 11 用户且安装有 Windows Terminal，可直接右键，选择 `在终端中打开`
 
-::: warning
+:::warning
 
 然后输入 `poetry init` 开始创建环境，你就会看到类似下面的提示：
 
@@ -93,7 +93,7 @@ build-backend = "poetry.core.masonry.api"
 Do you confirm generation? (yes/no) [yes] y  # 注意，这里要你自己填写 y
 ```
 
-::: tip
+:::tip
 国内连接 PyPI 非常慢，所以我们在定义依赖与开发依赖时填 no  
 后面设置了镜像源之后再自己添加依赖
 :::
@@ -119,7 +119,7 @@ poetry env use python3.9  # 如果你设备里只有一个版本的 Python 或�
 poetry add graia-ariadne[standard]
 ```
 
-::: tip TIPS
+:::tip TIPS
 
 1. Ariadne 其实有好几种 Extra deps（可选依赖），如下所示：
 
@@ -159,7 +159,7 @@ poetry add graia-ariadne[standard]
 4. 因为各种各样的原因，你的运行结果可能跟我有所不同，但是大致应该是差不多的。
 :::
 
-:::: details 命令输出
+::::details 命令输出
 
 ```bash
 $ poetry env use 3.9
@@ -209,7 +209,7 @@ Package operations: 25 installs, 0 updates, 0 removals
   • Installing prompt-toolkit (x.x.x)
 ```
 
-::: tsukkomi
+:::tsukkomi
 事实上，假设你比较细心的话，你会发现：前一句的运行环境是 `Linux`，后一句的运行环境是 `Windows`。
 
 为什么呢？没为什么，只是我懒。

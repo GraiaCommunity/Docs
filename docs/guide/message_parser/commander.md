@@ -1,6 +1,6 @@
 # Commander
 
-::: warning
+:::warning
 虽然现在还有一大堆没写，但是还要扯一句，现阶段 **Commander** 并不怎么适合给
 **Ariadne** 使用，即<curtain>强制缝合不可取 desu</curtain>
 :::
@@ -25,7 +25,7 @@
 与前文介绍的 `基础消息链处理器` 及 `Twilight` 与下文介绍的 `Alconna`
 相比，**Commander** 特点是基于 **pydantic** 进行命令处理。
 
-::: tip
+:::tip
 说实话，有一点点像 `Twilight.from_command`。
 :::
 
@@ -70,7 +70,7 @@ async def setu(tag: str):
 
 ## 命令样式
 
-::: tip
+:::tip
 如果你想直接知道 `Commander` 所支持的抽象语法，请到[官方文档](https://graia.readthedocs.io/ariadne/feature/commander/#command)查看
 
 什么，你不知道抽象语法是什么，没关系，[俺也一样](https://zh.moegirl.org.cn/%E4%BF%BA%E4%B9%9F%E4%B8%80%E6%A0%B7)
@@ -84,22 +84,22 @@ async def setu(tag: str):
 
 他可以接受下面形式的命令：
 
-:::: code-group
-::: code-group-item A
+::::code-group
+:::code-group-item A
 
 ```shell
 .涩图 pixiv A60
 ```
 
 :::
-::: code-group-item B
+:::code-group-item B
 
 ```shell
 .涩涩 pixiv 野兽先辈
 ```
 
 :::
-::: code-group-item C
+:::code-group-item C
 
 ```shell
 .涩涩 pixiv "野兽 先辈"
@@ -108,7 +108,7 @@ async def setu(tag: str):
 :::
 ::::
 
-::: tip
+:::tip
 对于含有空格的字符串，需要像 shell 那样使用引号包裹，否则不满足匹配规则，例如下方的文本将不会被接受
 
 ```shell
@@ -292,6 +292,6 @@ cmd.add_type_cast(cast_to_list)
 
 这样就添加了 `List[str]` 与 `List[MessageChain]` 两种类型支持。
 
-::: interlink
+:::interlink
 <https://graia.readthedocs.io/ariadne/feature/commander/>
 :::

@@ -7,7 +7,7 @@
 
 假设文档有一些专有名词不了解，也可以看看[这里](./terms)。
 
-::: danger 警告一下
+:::danger 警告一下
 本文档非 **Graia Project** 官方文档，官方文档指路
 :point_right: [点我](https://graia.cn)
 

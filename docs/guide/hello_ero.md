@@ -49,14 +49,14 @@
 
 4. 保存，并且使用命令 `poetry run python main.py` 运行
 
-   ::: tip 注意
+   :::tip 注意
    **一定一定一定**要记得在运行之前启动并登录 `mcl (mirai-console-loader)`  
    关于 `mcl` 的配置，请看 :point_right: [这里](/before/QA.md#_5-关于-mirai-环境)
    :::
 
    之后，你会看到显示如下信息输出：
 
-   :::: details 命令输出
+   ::::details 命令输出
 
    ```bash
    $ poetry run python bot.py
@@ -83,7 +83,7 @@
       <chat-msg name="EroEroBot" avatar="/avatar/ero.webp">不要说你好，来点涩图</chat-msg>
    </chat-window>
 
-::: interlink
+:::interlink
 <https://graia.readthedocs.io/ariadne/quickstart/>
 
 **EroEroBot:**  

@@ -4,7 +4,7 @@
 
 <audio id="thtlb" src="/voices/太好听了8.m4a"></audio>
 
-::: danger
+:::danger
 本文档还没有写完<curtain>比如没准备好钉宫三连语音包，欢迎<ruby-curtain up="hentai xiong di" type="danger">
 有志之士</ruby-curtain>提供</curtain>十分建议在阅读的时候不要声音拉满 + 外放 <curtain>除非你跟<more-info words="唐可可">
 <img
@@ -75,13 +75,13 @@ Image(path="./Graiax/EroEroBot/eropic.jpg")
 
 首先安装 `graiax-silkcoder`：
 
-::: warning
+:::warning
 该文档最后更新的时候，`graiax-silkcoder` 的版本的 0.3.0  
 现在的最新版本为 <img src="https://img.shields.io/pypi/v/graiax-silkcoder?color=2970b6&amp;style=flat-square" alt="PyPI版本" style="display: inline-block; vertical-align: text-bottom">
 :::
 
-:::: code-group
-::: code-group-item poetry
+::::code-group
+:::code-group-item poetry
 
 ```bash
 # 普通安装
@@ -93,7 +93,7 @@ poetry add graiax-silkcoder[libsndfile]
 ```
 
 :::
-::: code-group-item pip
+:::code-group-item pip
 
 ```bash
 # 普通安装
@@ -109,8 +109,8 @@ pip install graiax-silkcoder[libsndfile]
 
 快速简单地创建一个 Voice 对象：
 
-:::: code-group
-::: code-group-item 0.2.6 +
+::::code-group
+:::code-group-item 0.2.6 +
 
 ```python
 from graiax import silkcoder
@@ -120,7 +120,7 @@ Voice(data_bytes=audio_bytes)
 ```
 
 :::
-::: code-group-item 0.2.0 - 0.2.5
+:::code-group-item 0.2.0 - 0.2.5
 
 ```python
 from graiax import silkcoder
@@ -130,7 +130,7 @@ Voice(data_bytes=audio_bytes)
 ```
 
 :::
-::: code-group-item 0.1.x
+:::code-group-item 0.1.x
 
 ```python
 from graiax import silkcoder
@@ -142,7 +142,7 @@ Voice(data_bytes=audio_bytes)
 :::
 ::::
 
-::: tip
+:::tip
 0.2.6 + 新增的 `ios_adaptive` 参数，是为了让音频能够被 iOS 客户端的用户听到。  
 （因为 iOS 客户端的只能播放 **25kbps 以下（不含）** 码率的音频）
 :::
@@ -153,14 +153,14 @@ Voice(data_bytes=audio_bytes)
 >>> MessageChain.create(Voice(data_bytes=audio_bytes))
 ```
 
-::: tip
+:::tip
 详细用法请去其[Pypi 页面查看](https://pypi.org/project/graiax-silkcoder/)
 
 这次就不能说逊了，因为这就是我写的<curtain>$h!t Mountain</curtain>  
 （注：此处的“我”指该文档的主要作者 —— I Love Study(详见[鸣谢](/appendix/credit.md))）
 :::
 
-::: interlink
+:::interlink
 <https://graia.readthedocs.io/ariadne/feature/msg-chain/>
 
 **EroEroBot:**  

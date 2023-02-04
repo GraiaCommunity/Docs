@@ -1,6 +1,6 @@
 # 谁在找我
 
-::: warning
+:::warning
 以下使用场景，只能在 `graia-saya` 模块中才有所体现
 :::
 
@@ -18,7 +18,7 @@
 
 事实上，`BCC` 的广播确实是支持多类型的<curtain>虽然 bcc.receiver 不行</curtain>
 
-::: tip
+:::tip
 以下例子全部都只能在 `saya` 中使用。
 假设你用的是 `bcc.receiver`，还是跳过这一章节吧。
 :::

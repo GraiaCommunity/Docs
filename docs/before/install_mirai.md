@@ -1,6 +1,6 @@
 # Mirai 的安装与配置
 
-::: danger 注意
+:::danger 注意
 本章节写的有点 **$h!t**
 
 请注意，安装和配置 Java 或 Miral 或 MCL
@@ -16,7 +16,7 @@
 当你看到这个标题，你肯定会觉得，“这有什么好教的”。这你就不懂了，就像
 Python 也有如 “PyPy” 之类的其他解释器，所以，Java 也有很多种 JVM 和 JDK 可供选择。
 
-::: tip
+:::tip
 因为[某种原因](https://github.com/mamoe/mirai/discussions/779)，Mirai 与 Orcale JDK 的兼容性较差，因此建议使用 OpenJDK，同时 Mirai Console Loader 还要求 Java 版本大于等于 11，所以你不能使用 Java 8。
 :::
 
@@ -24,8 +24,8 @@ Python 也有如 “PyPy” 之类的其他解释器，所以，Java 也有很�
 
 如果你怕麻烦，那我们先从简单的安装方法说起，以下是各系统安装 OpenJDK 的方法：
 
-:::: code-group
-::: code-group-item Windows
+::::code-group
+:::code-group-item Windows
 
 ```powershell
 # 请注意，只有 Windows 10 1709 （非 LTS 版）及以上或 Windows 11 才自带 winget 命令
@@ -34,7 +34,7 @@ Python 也有如 “PyPy” 之类的其他解释器，所以，Java 也有很�
 winget install Microsoft.OpenJDK.17
 ```
 
-::: tip
+:::tip
 请注意，只有 Windows 10 1709（不含 LTSB、LTSC）及以上或 Windows 11 才自带 winget 命令。
 
 Windows XP / Vista 已不受支持，请使用现代化的操作系统，Windows 7 / 8 /
@@ -42,7 +42,7 @@ Windows XP / Vista 已不受支持，请使用现代化的操作系统，Windows
 :::
 
 :::
-::: code-group-item DEB系
+:::code-group-item DEB系
 
 ```bash
 # 适用于 Ubuntu / Debian 等系统
@@ -52,7 +52,7 @@ apt install openjdk-17-jre
 ```
 
 :::
-::: code-group-item RPM系
+:::code-group-item RPM系
 
 ```bash
 # 非 root 的情况下记得最前面加上 sudo
@@ -65,14 +65,14 @@ yum install java-latest-openjdk
 
 :::
 
-::: code-group-item Arch系
+:::code-group-item Arch系
 
 ```powershell
 pacman -S jdk-openjdk
 ```
 
 :::
-::: code-group-item macOS
+:::code-group-item macOS
 
 ```fish
 # 此处假设你提前安装了 brew cask
@@ -83,7 +83,7 @@ brew cask install java
 ```
 
 :::
-::: code-group-item Termux
+:::code-group-item Termux
 
 ```bash
 # 不太建议在 termux 运行 MCL，因为可能会出现各种各样的 bug 和问题（比如功能突然失效，然后下一次触发时又莫名其妙的恢复了，或者触发时出现错误，可以用 Proot 安装一个原生 Linux 系统，但是触发时包含的中文字符可能会乱码）
@@ -113,7 +113,7 @@ OpenJDK 相对更完整，包括 OpenJFX 等其他 OpenJDK 需要另外安装的
   前身为 [AdoptOpenJDK](https://adoptopenjdk.net/)
 - [OpenLogic OpenJDK](https://www.openlogic.com/openjdk-downloads)
 
-:::: details 想换个 JVM？试试 OpenJ9？
+::::details 想换个 JVM？试试 OpenJ9？
 
 前面一直在说 **JDK**，现在来说说 **JVM**， JVM 全称是
 Java Virtual Machine，即 **Java 虚拟机**。
@@ -129,7 +129,7 @@ Java Virtual Machine，即 **Java 虚拟机**。
 
 啥？不会？[那看这里](./QA#baidu)。
 
-::: warning
+:::warning
 在 Windows 上使用 `IBM Semeru OpenJDK`（即使用 OpenJ9）的情况下，
 可能在启动 MCL 的过程中在 `Mirai Console Loader 公告栏` 部分会出现乱码。
 不过现阶段暂时没有发现会出现什么其他问题，所以请放心使用。
@@ -138,7 +138,7 @@ Java Virtual Machine，即 **Java 虚拟机**。
 
 ## 下载并解压 **MCL**
 
-::: tip
+:::tip
 **MCL** 指的是 **Mirai Console Loader**，其用于启动 Mirai 的控制台。
 
 如果你较为熟悉 Github 的话，你也可以直接去其 [Releases 页面](https://github.com/iTXTech/mirai-console-loader/releases) 下载最新版本。
@@ -158,7 +158,7 @@ unzip mcl-2.1.0.zip -d mcl-2.1.0
 
 ## 添加 **Mirai Api Http** 插件并启动 **MCL**
 
-::: tip
+:::tip
 对于 Windows 用户来说，剩下的步骤是需要在 MCL 文件夹中打开命令行的。
 假设你不会的话，请[看这里](./QA.md#_9-当你遇到不会的东西的时候)。
 
@@ -167,14 +167,14 @@ unzip mcl-2.1.0.zip -d mcl-2.1.0
 
 首先需要进入到 `mcl-2.1.0` 文件夹中，然后使用如下命令添加 mirai-api-http 插件并启动 MCL：
 
-``` shell
+```shell
 ./mcl --update-package net.mamoe:mirai-api-http --channel stable-v2 --type plugin
 ./mcl -u
 ```
 
 然后，稍作等待，等到显示以下这行，就代表 Mirai 成功启动了。
 
-``` shell
+```shell
 xxxx-xx-xx xx:xx:xx I/main: mirai-console started successfully.
 
 >
@@ -208,7 +208,7 @@ xxxx-xx-xx xx:xx:xx I/main: mirai-console started successfully.
 Bot 不掉线的情况下使用手机登录 Bot 的 QQ 账号）而想要更改登录协议的话，
 可以试试以下命令：`/autoLogin setConfig <你的QQ号> protocol <你所需要的协议>`。
 
-::: tip
+:::tip
 上文所指的 `<你所需要的协议>`，是 `ANDROID_PHONE` 这样的英文哦，不是 `安卓手机` 什么的。
 
 括号也要替换掉哦，不要输 `/autoLogin setConfig <123456789> protocol <ANDROID_PHONE>`

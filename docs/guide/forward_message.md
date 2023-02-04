@@ -1,10 +1,10 @@
 # 好大的奶
 
-::: danger
+:::danger
 本章除了例子<curtain>与乐子</curtain>啥也没写
 :::
 
-::: tsukkomi
+:::tsukkomi
 本来这一节应该算是 MessageChain 的一个子章节，  
 但是一想到平时也没什么人用，还是单独开一章罢。
 :::
@@ -39,7 +39,7 @@
 
 **当然可以**，我们现在就通过代码来直接复刻上面的效果：
 
-::: tip
+:::tip
 你可能不太能理解为什么 `MatchContent("好大的奶")` 是什么东西，
 你只需要知道，当消息为"好大的奶"的时候，就会触发这个 `Listener`
 
@@ -96,13 +96,13 @@ ForwardNode(
 你必须再输入一个 `senderName` 参数才能实例化成功。
 :::
 
-::: danger 注意
+:::danger 注意
 通过上面的例子你一定意识到了一个很严肃的问题：  
 **你可以自己无中生有生成消息链然后传播出去**  
 请不要通过该方法**传播谣言**，要不然我就要用我的靴子狠狠的踢你的屁股
 :::
 
-::: interlink
+:::interlink
 <https://graia.readthedocs.io/ariadne/feature/msg-chain/>
 
 **EroEroBot:**  

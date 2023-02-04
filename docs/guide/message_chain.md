@@ -1,6 +1,6 @@
 # 消息链是什么链
 
-::: danger
+:::danger
 **本章不太全，等待补充**
 :::
 
@@ -57,7 +57,7 @@ Face(127)
 第一种方法是最基本的构建方法，也是 v4 唯一合法的构建方法。
 而剩下两种则是 `graia-ariadne` 新增的方法，以帮助用户能够更加简单的创建消息链。
 
-::: tip
+:::tip
 v4、v4p 等缩写词语的意思可以在[这里](/before/terms)找到。
 :::
 
@@ -68,7 +68,7 @@ v4、v4p 等缩写词语的意思可以在[这里](/before/terms)找到。
 >>> MessageChain("你好", At(1919810), [Plain(", 你是不是喜欢"), At(114514)])
 ```
 
-::: warning 注意一下
+:::warning 注意一下
 这只是举例，千万不要在你的业务代码中写出这么离谱的玩意儿
 <br /><curtain>否则<more-info words="蓝玻璃块"><img alt="BlueGlassBlock is wathcing you" src="/images/guide/BGB_watching.webp" style="border-radius:6px"></more-info>大概率会提刀撒了你（撒日朗）</curtain>
 :::
@@ -125,7 +125,7 @@ True
 事实上，消息日志所显示的就是 `display` 方法的返回值。
 这种办法返回的字符串比较容易让人看得舒服，
 不过很多消息链所承载的消息都会被消除（如图片消息直接变成"[图片]"）。
-::: tip
+:::tip
 事实上，`message.display` 跟 `str(message)` 是一样的。  
 至于要选哪一个呢？ <curtain>到底要选哪个呢</curtain>
 
@@ -166,7 +166,7 @@ True
 
 虽然说这样储存了所有的消息，但是可读性大大降低了，所以该方法一般用于长时间保存消息链，但是要注意以下问题：
 
-::: warning
+:::warning
 当你使用该方法保存图片等多媒体元素（`MultimediaElement`）时候会存在两种情况：
 
 1. 消息链中不包含图片的二进制信息，如通过`Image(url="http://example.com/1.jpg")`生成的 Image 元素
@@ -184,6 +184,6 @@ True
 如上所示，将消息链转为可持久化字符串时图片会自动下载（音频同理）。
 :::
 
-::: interlink
+:::interlink
 <https://graia.readthedocs.io/ariadne/feature/msg-chain/>  
 :::
