@@ -1,7 +1,7 @@
 name: Build Docs
 on:
   push:
-    branches: [vitepress]
+    branches: [remake]
 jobs:
   build_docs:
     runs-on: ubuntu-latest
@@ -41,6 +41,7 @@ jobs:
 
   upload2cos:
     needs: [build_docs]
+    if: ${{ false }}
     runs-on: ubuntu-latest
     steps:
       - name: Download artifact
@@ -96,5 +97,5 @@ jobs:
         with:
           args: deploy --dir=dist --prod
         env:
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_DEV_SITE_ID }}
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
