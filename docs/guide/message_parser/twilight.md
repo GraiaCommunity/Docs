@@ -219,7 +219,7 @@ Twilight(
 你可以通过该方法设置正则表达式的匹配标记，例如：
 
 ```python
->>> RegexMatch(r"\d+ # digits").flags(re.V)  # 设置 re.VERBOSE 标记
+>>> RegexMatch(r"\d+ # digits").flags(re.X)  # 设置 re.VERBOSE 标记
 ```
 
 :::interlink
