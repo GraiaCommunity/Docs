@@ -1,6 +1,6 @@
 # GraiaX FastAPI
 
-Easy FastAPI Access for GraiaCommunity
+Easy FastAPI Access for GraiaCommunity.
 
 <project-info
     name="graiax-fastapi"

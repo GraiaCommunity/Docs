@@ -1,6 +1,6 @@
 # GraiaX TextToImage (Playwright)
 
-基于 Playwright 的适用于 Graia 的文转图工具
+基于 Playwright 的适用于 Graia 的文转图工具。
 
 <project-info
     name="graiax-text2img-playwright"
