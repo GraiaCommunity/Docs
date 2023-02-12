@@ -23,7 +23,7 @@
    app = Ariadne(
        connection=config(
            114514,  # 你的机器人的 qq 号
-           "GraiaxVerifyKey",  # 填入你的 mirai-api-http 配置中的 verifyKey
+           "GraiaXVerifyKey",  # 填入你的 mirai-api-http 配置中的 verifyKey
            # 以下两行（不含注释）里的 host 参数的地址
            # 是你的 mirai-api-http 地址中的地址与端口
            # 他们默认为 "http://localhost:8080"
@@ -74,7 +74,7 @@
 5. 在群里发一句你好，当然你的 bot 得先在群里
 
    ```shell
-   20yy-MM-dd HH:mm:ss.SSS | INFO     | graia.ariadne.model:log:64 - 1919810: [Graiax(114514)] -> '你好'
+   20yy-MM-dd HH:mm:ss.SSS | INFO     | graia.ariadne.model:log:64 - 1919810: [GraiaX(114514)] -> '你好'
    20yy-MM-dd HH:mm:ss.SSS | INFO     | graia.ariadne.model:log:64 - [BOT 1919810] Friend(114514) <- '不要说你好，来点涩图'
    ```
 

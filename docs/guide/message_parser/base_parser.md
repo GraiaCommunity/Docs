@@ -255,7 +255,7 @@ async def on_mention_me(app: Ariadne, group: Group, member: Member, chain: Annot
 放到 `bcc.receiver` 或 `ListenerSchema` 的 `decorators` 里。
 
 ```python
-# "Graiax 人呢" "Graiax，今晚一起去涩涩"
+# "GraiaX 人呢" "GraiaX，今晚一起去涩涩"
 # 要求名字/At在最前面
 @channel.use(
     ListenerSchema(
@@ -272,11 +272,11 @@ async def on_mention(app: Ariadne, group: Group):
 <h3>用法2</h3>
 
 ```python
-"Graiax 一起去涩涩"
+"GraiaX 一起去涩涩"
 # 要求名字/At在最前面
 @channel.use(ListenerSchema(listening_events=[GroupMessage]))
 async def on_mention(app: Ariadne, group: Group, chain: MessageChain = Mention(target=...)):
-    # 这时的 chain 就没有 "@Graiax" 或者 "Graiax" 了
+    # 这时的 chain 就没有 "@GraiaX" 或者 "GraiaX" 了
     await app.send_message(group, MessageChain("你要找我主人", chain, "吗"))
     # 会发送 "你要找我主人一起去涩涩吗"
     ...

@@ -44,8 +44,8 @@ pip install graiax-silkcoder
 
 ## 多个编解码器支持
 
-这里我们着重讲一下事实上，**Graiax Silkcoder** 本体，**只有**wav/pcm格式转silk格式的能力。  
-也就是说，如果你的系统**非常滴干净**，那 **Graiax Silkcoder** 就只支持 `wav` 格式。  
+这里我们着重讲一下事实上，**GraiaX Silkcoder** 本体，**只有**wav/pcm格式转silk格式的能力。  
+也就是说，如果你的系统**非常滴干净**，那 **GraiaX Silkcoder** 就只支持 `wav` 格式。  
 （注：这里的 `wav` 格式特指内容为 PCM 音频的 `WAVE_FORMAT_PCM`）
 
 :::details 小贴士
@@ -102,7 +102,7 @@ graiax-silkcoder[libsndfile]
 需要注意的是，如果在 Windows 系统下安装时出现
 `error: Microsoft Visual C++ 14.0 is required:`
 或类似错误（或错误信息中含有 **BuildTools** 字眼），则需要安装
-**Microsoft Visual BuildTools** 后再安装 **Graiax Silkcoder**。
+**Microsoft Visual BuildTools** 后再安装 **GraiaX Silkcoder**。
 
 - [目前正式版BuildTools](https://visualstudio.microsoft.com/zh-hans/visual-cpp-build-tools/)
 - [Visual Studio 2015 BuildTools](https://www.microsoft.com/zh-CN/download/details.aspx?id=48159)
@@ -312,7 +312,7 @@ options:
 然后我们为 Windows 用户还保留了一个新功能：
 
 得益于 Python 的 Windows 标准库中有能够播放声音的库，
-**Graiax Silkcoder** 在 Windows 下能实现直接转码播放的功能，可通过如下方法实现
+**GraiaX Silkcoder** 在 Windows 下能实现直接转码播放的功能，可通过如下方法实现
 
 ```bash
 python -m graiax.silkcoder play xxx.silk
@@ -348,7 +348,7 @@ iOS 的音频解码器因为某些**特性**，只支持解码 **25kbps 以下**
 
 ### FFmpeg 转换成 AAC 格式的问题
 
-因为 **Graiax Silkcoder** 全程采用 **PIPE** 的形式跟 **FFmpeg** 通信，
+因为 **GraiaX Silkcoder** 全程采用 **PIPE** 的形式跟 **FFmpeg** 通信，
 所以假设你想要将 **silk** 转码成 **AAC** 的时候，就会出现一些问题。
 解决方法如下:
 
@@ -357,4 +357,4 @@ from graiax import silkcoder
 await silkcoder.async_decode("a.silk", "a.m4a", audio_format="adts")
 ```
 
-[^1]: **Graiax Silkcoder** 对 **libsndfile** 的支持来源于第三方库 **soundfile**，而该库在 **1.1.0** 之前并不支持 mp3、opus。
+[^1]: **GraiaX Silkcoder** 对 **libsndfile** 的支持来源于第三方库 **soundfile**，而该库在 **1.1.0** 之前并不支持 mp3、opus。

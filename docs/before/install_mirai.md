@@ -228,7 +228,7 @@ adapters:
   - ws
 debug: false
 enableVerify: true
-verifyKey: GraiaxVerifyKey # 你可以自己设定，这里作为示范
+verifyKey: GraiaXVerifyKey # 你可以自己设定，这里作为示范
 singleMode: false
 cacheSize: 4096
 adapterSettings:
@@ -254,7 +254,7 @@ adapterSettings:
 <span class="line highlighted"><span style="color:#16c60c;">2023-01-31 18:11:11 I/ws adapter: >>> [ws adapter] is listening at ws://localhost:8080</span></span>
 <span class="line"><span style="color:#e74856;">2023-01-31 18:11:11 W/stderr: [DefaultDispatcher-worker-4] INFO MahKtorAdapter[ws,http] - Responding at http://localhost:8080</span></span>
 <span class="line highlighted"><span style="color:#16c60c;">2023-01-31 18:11:11 I/http adapter: >>> [http adapter] is listening at http://localhost:8080</span></span>
-<span class="line highlighted"><span style="color:#16c60c;">2023-01-31 18:11:11 I/Mirai HTTP API: Http api server is running with verifyKey: GraiaxVerifyKey</span></span>
+<span class="line highlighted"><span style="color:#16c60c;">2023-01-31 18:11:11 I/Mirai HTTP API: Http api server is running with verifyKey: GraiaXVerifyKey</span></span>
 <span class="line highlighted"><span style="color:#16c60c;">2023-01-31 18:11:11 I/Mirai HTTP API: adaptors: [ws,http]</span></span>
 <span class="line"><span style="color:#16c60c;">2023-01-31 18:11:11 I/Mirai HTTP API: ********************************************************</span></span>
 <span class="line"></span></code></pre>

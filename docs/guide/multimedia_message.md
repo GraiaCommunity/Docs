@@ -32,7 +32,7 @@
 还记得上一节我们简单的讲解消息链时候，给出了这样一种构建图片元素的办法：
 
 ```python
-Image(path="./Graiax/EroEroBot/eropic.jpg")
+Image(path="./GraiaX/EroEroBot/eropic.jpg")
 ```
 
 很简单，对吧，只需要传入一个 `path` ，就可以构建一个图片元素实例。
@@ -48,8 +48,8 @@ Image(path="./Graiax/EroEroBot/eropic.jpg")
 下面，就让<ruby-curtain up="举例狂魔">我</ruby-curtain>给大家举几个例子：
 
 ```python
->>> path_data = "./Graiax/EroEroBot/eropic.jpg"
->>> bytes_data: bytes = Path("./Graiax/EroEroBot/eropic.jpg").read_bytes()
+>>> path_data = "./GraiaX/EroEroBot/eropic.jpg"
+>>> bytes_data: bytes = Path("./GraiaX/EroEroBot/eropic.jpg").read_bytes()
 >>> base64_data: str = b64encode(bytes_data).decode()
 
 >>> Image(path=path_data)  # 通过传入 path 字符串创建 Image 对象
@@ -115,7 +115,7 @@ pip install graiax-silkcoder[libsndfile]
 ```python
 from graiax import silkcoder
 
-audio_bytes = await silkcoder.async_encode("Graiax/EroEroBot/hentai.m4a", ios_adaptive=True)
+audio_bytes = await silkcoder.async_encode("GraiaX/EroEroBot/hentai.m4a", ios_adaptive=True)
 Voice(data_bytes=audio_bytes)
 ```
 
@@ -125,7 +125,7 @@ Voice(data_bytes=audio_bytes)
 ```python
 from graiax import silkcoder
 
-audio_bytes = await silkcoder.async_encode("Graiax/EroEroBot/hentai.m4a")
+audio_bytes = await silkcoder.async_encode("GraiaX/EroEroBot/hentai.m4a")
 Voice(data_bytes=audio_bytes)
 ```
 
@@ -135,7 +135,7 @@ Voice(data_bytes=audio_bytes)
 ```python
 from graiax import silkcoder
 
-audio_bytes = await silkcoder.encode("Graiax/EroEroBot/hentai.m4a")
+audio_bytes = await silkcoder.encode("GraiaX/EroEroBot/hentai.m4a")
 Voice(data_bytes=audio_bytes)
 ```
 

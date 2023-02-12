@@ -11,7 +11,7 @@ Easy Playwright Access for GraiaCommunity.
     repoName="graiax-playwright"
 />
 
-Graiax Playwright 使用 launart 作为启动管理器， 适用于 Ariadne 及 Avilla。
+GraiaX Playwright 使用 launart 作为启动管理器， 适用于 Ariadne 及 Avilla。
 
 用于在 Ariadne 启动的时候同时通过 Playwright 启动一个浏览器内核，且可以在
 Ariadne 运行过程中调用，并在其退出的时候自动关闭 Playwright。
