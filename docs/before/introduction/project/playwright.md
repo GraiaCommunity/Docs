@@ -1,6 +1,6 @@
 # GraiaX Playwright
 
-Easy Playwright Access for GraiaCommunity
+Easy Playwright Access for GraiaCommunity.
 
 <project-info
     name="graiax-playwright"
