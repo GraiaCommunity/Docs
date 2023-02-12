@@ -4,6 +4,7 @@ specifiers:
   '@types/hash-sum': ^1.0.0
   '@types/markdown-it': ^12.2.3
   '@types/markdown-it-container': ^2.0.5
+  '@types/markdown-it-footnote': ^3.0.0
   '@types/mermaid': ^9.2.0
   '@vue/eslint-config-typescript': ^11.0.2
   eslint: ^8.33.0
@@ -14,6 +15,7 @@ specifiers:
   hash-sum: ^2.0.0
   markdown-it: ^13.0.1
   markdown-it-container: ^3.0.0
+  markdown-it-footnote: ^3.0.3
   mermaid: ^9.3.0
   prettier: ^2.8.3
   rollup-plugin-external-globals: ^0.6.1
@@ -28,6 +30,7 @@ devDependencies:
   '@types/hash-sum': 1.0.0
   '@types/markdown-it': 12.2.3
   '@types/markdown-it-container': 2.0.5
+  '@types/markdown-it-footnote': 3.0.0
   '@types/mermaid': 9.2.0
   '@vue/eslint-config-typescript': 11.0.2_tf6rgb5i7kw5m4rbu3ajzgw7l4
   eslint: 8.33.0
@@ -38,6 +41,7 @@ devDependencies:
   hash-sum: 2.0.0
   markdown-it: 13.0.1
   markdown-it-container: 3.0.0
+  markdown-it-footnote: 3.0.3
   mermaid: 9.3.0
   prettier: 2.8.3
   rollup-plugin-external-globals: 0.6.1
@@ -556,6 +560,12 @@ packages:
 
   /@types/markdown-it-container/2.0.5:
     resolution: {integrity: sha512-8v5jIC5gcCUv+JcD0DExwNBkoKC0kLB4acensF0NoNlTIcXmQxF3RDjzAdIW82sXSoR+n772ePguxIWlq2ELvA==}
+    dependencies:
+      '@types/markdown-it': 12.2.3
+    dev: true
+
+  /@types/markdown-it-footnote/3.0.0:
+    resolution: {integrity: sha512-d6KGv1ZhzDdjMB0F+PmuCFuc4QPIsiyWbzldwxAqWz0TZHvSiHwTp5cj5D/6Qfqfv8mJ0HScaMgLt1zlcKjpyw==}
     dependencies:
       '@types/markdown-it': 12.2.3
     dev: true
@@ -2603,6 +2613,10 @@ packages:
 
   /markdown-it-container/3.0.0:
     resolution: {integrity: sha512-y6oKTq4BB9OQuY/KLfk/O3ysFhB3IMYoIWhGJEidXt1NQFocFK2sA2t0NYZAMyMShAGL6x5OPIbrmXPIqaN9rw==}
+    dev: true
+
+  /markdown-it-footnote/3.0.3:
+    resolution: {integrity: sha512-YZMSuCGVZAjzKMn+xqIco9d1cLGxbELHZ9do/TSYVzraooV8ypsppKNmUJ0fVH5ljkCInQAtFpm8Rb3eXSrt5w==}
     dev: true
 
   /markdown-it/13.0.1:
