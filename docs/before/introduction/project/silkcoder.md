@@ -328,7 +328,7 @@ python -m graiax.silkcoder play xxx.silk
 所以，从 0.3.0 开始，开始增加了通过 libsndfile 来使用解析音频的特性。
 > libsndfile 是一款广泛用于读写音频文件的C语言库，他支持包括 `flac`, `ogg`, `opus`, `mp3`[^1]等多种格式。
 
-注：在同时可以使用 ffmpeg 和 libsndfile 的情况下， graiax-silkcoder 会优先使用 ffmpeg 进行转码
+注：在同时可以使用 ffmpeg 和 libsndfile 的情况下， **GraiaX Silkcoder** 会优先使用 ffmpeg 进行转码
 
 ### 自定义 FFmpeg 的位置
 
