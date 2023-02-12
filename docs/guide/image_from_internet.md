@@ -42,7 +42,7 @@ async def very_simple_example():
             pic = await r.read()
 
     #将二进制数据储存在这里面
-    Path("./Graiax/EroEroBot/eropic.jpg").write_bytes(pic)
+    Path("./GraiaX/EroEroBot/eropic.jpg").write_bytes(pic)
 
 
 asyncio.run(very_simple_example())
@@ -62,7 +62,7 @@ def very_simple_example():
     ret = ss.get(ero_url).json()
     pic_url = "https://cn.bing.com" + ret["images"][0]["url"]
     pic = ss.get(pic_url).content
-    Path("./Graiax/EroEroBot/eropic.jpg").write_bytes(pic)
+    Path("./GraiaX/EroEroBot/eropic.jpg").write_bytes(pic)
 
 very_simple_example()
 ```
