@@ -99,7 +99,16 @@ graiax-silkcoder[libsndfile]
 ::::
 
 :::warning 警告1
-需要注意的是，如果在 Windows 系统下安装时出现
+需要注意的是，如果在 Windows 系统下运行时出现
+`ImportError: DLL load failed while importing _silkv3: 找不到指定的模块。`
+的错误，则需要安装 VC++ 运行库，下面是两个整合安装包下载地址（二选一）：
+
+- <https://www.ghxi.com/visualcppredist.html>
+- <https://www.ghxi.com/yxkhj.html>
+
+<hr />
+<p class="custom-block-title">警告2</p>
+需要注意的是，如果在 ARM 平台的 Windows 系统下安装时出现
 `error: Microsoft Visual C++ 14.0 is required:`
 或类似错误（或错误信息中含有 **BuildTools** 字眼），则需要安装
 **Microsoft Visual BuildTools** 后再安装 **GraiaX Silkcoder**。
@@ -110,15 +119,6 @@ graiax-silkcoder[libsndfile]
 - [Visual Studio 2019 BuildTools](https://aka.ms/vs/16/release/vs_buildtools.exe)
 - [Visual Studio 2022 BuildTools](https://aka.ms/vs/17/release/vs_buildtools.exe)
 
-<hr />
-<p class="custom-block-title">警告2</p>
-
-需要注意的是，如果在 Windows 系统下运行时出现
-`ImportError: DLL load failed while importing _silkv3: 找不到指定的模块。`
-的错误，则需要安装 VC++ 运行库，下面是两个整合安装包下载地址（二选一）：
-
-- <https://www.ghxi.com/visualcppredist.html>
-- <https://www.ghxi.com/yxkhj.html>
 :::
 
 ## 怎么用
