@@ -1,8 +1,8 @@
 # 后台对线
 
 :::danger
-Ariadne 于 0.7.x 版本开始支持 richuru，并且从依赖中移除了 prompt-toolkit，  
-因此 Console 可能会因为缺少维护而出现或多或少的问题。
+**Ariadne** 于 **0.7.x** 版本开始支持 **Richuru**，并且从依赖中移除了 **prompt-toolkit**，  
+因此 **Console** 可能会因为缺少维护而出现或多或少的问题。
 
 本章可能存在过时内容，如果没有必要，建议不要使用 Console。
 :::
@@ -15,7 +15,7 @@ xxxx-xx-xx xx:xx:xx I/main: mirai-console started successfully.
 >
 ```
 
-那么问题来了，我们能够在 `graia-ariadne` 整出相同的效果吗？
+那么问题来了，我们能够在 **Graia Ariadne** 整出相同的效果吗？
 
 还别说，真能，你需要的是 `Console`~
 

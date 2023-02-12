@@ -102,7 +102,7 @@ async def every_minute_speaking(app: Ariadne):
 
 :::tip
 **看清楚了，方法是 `timers.crontabify` 而不是 `timers.croniter`！**  
-事实上，`graia-scheduler` 所使用的 crontab 语法分析库支持将**秒**作为第六个参数导入，如：
+事实上，**Graia Scheduler** 所使用的 crontab 语法分析库支持将**秒**作为第六个参数导入，如：
 
 ```python
 #每天7点30分30秒发送消息

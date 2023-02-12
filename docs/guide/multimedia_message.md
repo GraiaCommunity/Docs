@@ -42,7 +42,7 @@ Image(path="./GraiaX/EroEroBot/eropic.jpg")
 
 ## 什么是 MultimediaElement
 
-多媒体元素 `MultimediaElement`，是 `graia-ariadne` 为了方便构建类似图片这种需要上传二进制数据的元素所创造的，
+多媒体元素 `MultimediaElement`，是 **Graia Ariadne** 为了方便构建类似图片这种需要上传二进制数据的元素所创造的，
 目前其子类包含有 `Image`、`FlashImage`、`Voice`。
 
 下面，就让<ruby-curtain up="举例狂魔">我</ruby-curtain>给大家举几个例子：
@@ -71,12 +71,14 @@ Image(path="./GraiaX/EroEroBot/eropic.jpg")
 - [rsilk](https://github.com/synodriver/rsilk)
 - [pilk](https://github.com/foyoux/pilk)
 
-以下我们将会以 `graiax-silkcoder` 举例（因为其是现阶段上述转换器中唯一支持 wav/pcm 以外格式的编解码器<curtain>虽然是借助 ffmpeg 这种牛刀</curtain><curtain>不过 0.3.x 开始支持 libsndfile 了，占用会超小（不到 1Mb 大概）</curtain>）
+以下我们将会以 [**GraiaX Silkcoder**](/before/introduction/project/silkcoder)
+举例（因为其是现阶段上述转换器中唯一支持 wav/pcm 以外格式的编解码器<curtain>虽然是借助 ffmpeg
+这种牛刀</curtain><curtain>不过 0.3.x 开始支持 libsndfile 了，占用会超小（不到 1Mb 大概）</curtain>）
 
-首先安装 `graiax-silkcoder`：
+首先安装 **GraiaX Silkcoder**：
 
 :::warning
-该文档最后更新的时候，`graiax-silkcoder` 的版本的 0.3.0  
+该文档最后更新的时候，**GraiaX Silkcoder** 的版本的 0.3.0  
 现在的最新版本为 <img src="https://img.shields.io/pypi/v/graiax-silkcoder?color=2970b6&amp;style=flat-square" alt="PyPI版本" style="display: inline-block; vertical-align: text-bottom">
 :::
 
