@@ -1,10 +1,10 @@
 # 谁在找我
 
 :::warning
-以下使用场景，只能在 `graia-saya` 模块中才有所体现
+以下使用场景，只能在 **Graia Saya** 模块中才有所体现
 :::
 
-我们来仔细对比一下 `graia-saya` 与 `BCC` 中对于 listener 的用法
+我们来仔细对比一下 **Graia Saya** 与 `BCC` 中对于 listener 的用法
 
 ```python
 # BCC

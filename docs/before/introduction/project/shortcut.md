@@ -237,7 +237,7 @@ async def xxx(): ...
 ```
 
 :::danger 提醒
-**设置指定事件的优先级**这个特性需要 `graia-broadcast` 在 **0.18.0** 及以上版本的支持。
+**设置指定事件的优先级**这个特性需要 **Graia Broadcast** 在 **0.18.0** 及以上版本的支持。
 :::
 
 关于事件监听器的**优先级**概念，请参考[官方文档](https://graia.readthedocs.io/broadcast/advance/event-propagation-and-priority/)。

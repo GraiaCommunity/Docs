@@ -11,7 +11,7 @@
    关于为什么用 `poetry`，你可以看这里 :point_right: [看这](/before/QA#_6-关于-poetry)
    :::
 
-4. **本文档将使用 `graia-ariadne` 0.7.15 及以上的版本**，Ariadne 在 0.7.0 进行了一次大的
+4. **本文档将使用 `Graia Ariadne` 0.7.15 及以上的版本**，Ariadne 在 0.7.0 进行了一次大的
    Breaking Change，因此本文档不适用 0.7.0 以下的 Ariadne，也不再提供旧版的使用方法及示例。  
 
    :::tip 小贴士（bushi）
@@ -110,9 +110,9 @@ url = "https://pypi.tuna.tsinghua.edu.cn/simple"
 default = false
 ```
 
-## 启用虚拟环境并安装 `graia-ariadne`
+## 启用虚拟环境并安装 `Graia Ariadne`
 
-在配置好环境之后，你需要给你的项目创建一个虚拟环境并安装 `graia-ariadne`，在项目根目录执行如下命令：
+在配置好环境之后，你需要给你的项目创建一个虚拟环境并安装 **Graia Ariadne**，在项目根目录执行如下命令：
 
 ```bash
 poetry env use python3.9  # 如果你设备里只有一个版本的 Python 或你想使用最新版本，则这一条命令可以不执行
