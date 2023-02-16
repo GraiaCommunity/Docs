@@ -17,7 +17,7 @@
 Python 也有如 “PyPy” 之类的其他解释器，所以，Java 也有很多种 JVM 和 JDK 可供选择。
 
 :::tip
-因为[某种原因](https://github.com/mamoe/mirai/discussions/779)，Mirai 与 Orcale JDK 的兼容性较差，因此建议使用 OpenJDK，同时 Mirai Console Loader 还要求 Java 版本大于等于 11，所以你不能使用 Java 8。
+因为[某种原因](https://github.com/mamoe/mirai/discussions/779)，Mirai 与 OrcaleJDK 的兼容性较差，因此建议使用 OpenJDK，同时 Mirai Console Loader 还要求 Java 版本大于等于 11，所以你不能使用 Java 8。
 :::
 
 ### 安装 Java 的简单方法
@@ -141,53 +141,53 @@ Java Virtual Machine，即 **Java 虚拟机**。
 :::tip
 **MCL** 指的是 **Mirai Console Loader**，其用于启动 Mirai 的控制台。
 
-如果你较为熟悉 Github 的话，你也可以直接去其 [Releases 页面](https://github.com/iTXTech/mirai-console-loader/releases) 下载最新版本。
+如果你较为熟悉 Github 的话，你也可以直接去其 [Latest Releases 页面](https://github.com/iTXTech/mirai-console-loader/releases/latest) 下载名为“mcl-2.x.x.zip”的压缩包，然后解压到任意文件夹。
 :::
-
-假如你是 Windows 用户或 Linux 与 macOS 的图形界面用户，那就特别简单。
-首先点[这里](https://github.com/iTXTech/mirai-console-loader/releases/download/v2.1.0/mcl-2.1.0.zip)，
-然后点<more-info words="这里" :link="true">↑ 不是这里，是这里 ↓<img alt="unzip" src="/images/before/unzip.webp"></more-info>，就完成了（确信，不要连解压都不会吧）！
 
 如果你使用的是没有图形界面的 Linux 系统，那执行下下面的命令就好了（不要说你不会噢，不会吧不会吧不会有人啥都不会就用 Linux 了吧）：
 
 ```bash
 # 假设你的系统十分的精简，记得安装 wget 和 unzip
-wget https://github.com/iTXTech/mirai-console-loader/releases/download/v2.1.0/mcl-2.1.0.zip
-unzip mcl-2.1.0.zip -d mcl-2.1.0
+wget https://github.com/iTXTech/mirai-console-loader/releases/download/v2.1.2/mcl-2.1.2.zip
+unzip mcl-2.1.2.zip -d mcl-2.1.2
 ```
 
 ## 添加 **Mirai Api Http** 插件并启动 **MCL**
 
-:::tip
-对于 Windows 用户来说，剩下的步骤是需要在 MCL 文件夹中打开命令行的。
-假设你不会的话，请[看这里](./QA.md#_9-当你遇到不会的东西的时候)。
+首先在终端中进入到 `mcl-2.1.2` 文件夹中，然后使用如下命令添加 mirai-api-http 插件并启动 MCL。
 
+:::tip
 冷知识：在本文档及 Graia 或“友商”社区中 Mirai Api Http 经常被缩写为 **MAH**。
+
+<hr />
+
+对于 Windows 用户，使用资源管理器进入 MCL 所在文件夹后，点击地址栏并输入 `CMD`
+然后敲击回车即可在当前文件夹的路径打开命令提示符，如果你使用 Windows 10（2022
+年及之后的非阉割版），你也可以使用 `wt` 代替 `CMD`。
+
+对于 Linux 用户，如果你连在终端中进入某个文件夹都不会，还是回去用 Windows 吧。
 :::
 
-首先需要进入到 `mcl-2.1.0` 文件夹中，然后使用如下命令添加 mirai-api-http 插件并启动 MCL：
-
 ```shell
-./mcl --update-package net.mamoe:mirai-api-http --channel stable-v2 --type plugin
+./mcl --update-package net.mamoe:mirai-api-http --channel maven-stable --type plugin
 ./mcl -u
 ```
 
-然后，稍作等待，等到显示以下这行，就代表 Mirai 成功启动了。
+然后稍作等待，等到显示以下这行，就代表 Mirai 成功启动了。
 
 ```shell
-xxxx-xx-xx xx:xx:xx I/main: mirai-console started successfully.
-
+20xx-xx-xx xx:xx:xx I/main: mirai-console started successfully.
 >
 ```
 
-现在，我们添加一下自动登录的账号：
+现在，我们添加一下自动登录的账号，在 Mirai 启动后的 `>` 后输入如下 Mirai Console 命令：
 
 ```cmd
 /autoLogin add <你的QQ号> <你的QQ密码>
 # 如 /autoLogin add 114514 1919810
 ```
 
-然后按键盘 `Ctrl + C` 退出一下 MCL。
+然后按键盘 `Ctrl + C` 退出一下 MCL（Mac 用户请使用 `Command + .`）。
 
 ### 关于账号协议问题
 
@@ -217,10 +217,12 @@ Bot 不掉线的情况下使用手机登录 Bot 的 QQ 账号）而想要更改�
 
 ## 配置 **Mirai Api Http** 参数
 
-进入 `mcl-2.1.0/config/net.mamoe.mirai-api-http`，修改 `setting.yml`。
+依次打开 `mcl-2.1.2/config/net.mamoe.mirai-api-http`
+文件夹，使用文本编辑器修改 `setting.yml`。
 
-你可以直接降下面的例子复制替换掉原本的内容。  
-不过请注意，不懂的参数不要乱动，冒号后请保留空格，不要使用中文冒号，不要随意删除空格。
+你可以直接复制下面的例子然后替换掉文件内原有的内容。  
+不过请注意，不懂的参数不要乱动，冒号后请保留空格，
+不要使用中文冒号，不要随意删除空格，不要随意添加新行。
 
 ```yaml
 adapters:
@@ -228,7 +230,7 @@ adapters:
   - ws
 debug: false
 enableVerify: true
-verifyKey: GraiaXVerifyKey # 你可以自己设定，这里作为示范
+verifyKey: GraiaXVerifyKey ## 你可以自己设定，这里作为示范
 singleMode: false
 cacheSize: 4096
 adapterSettings:
@@ -244,23 +246,18 @@ adapterSettings:
 
 使用命令 `./mcl` 重新启动 MCL，此时你应该在控制台看到如下提示：
 
-<div class="language-shell line-numbers-mode">
-<button class="copy"></button>
-<span class="lang">bash</span>
-<pre>
-<code><span class="line"><span style="color:#16c60c;">2023-01-31 18:11:11 I/Mirai HTTP API: ********************************************************</span></span>
-<span class="line"><span style="color:#e74856;">2023-01-31 18:11:11 W/stderr: [DefaultDispatcher-worker-2] INFO MahKtorAdapter[ws,http] - Autoreload is disabled because the development mode is off.</span></span>
-<span class="line"><span style="color:#e74856;">2023-01-31 18:11:11 W/stderr: [DefaultDispatcher-worker-2] INFO MahKtorAdapter[ws,http] - Application started in 0.131 seconds.</span></span>
-<span class="line highlighted"><span style="color:#16c60c;">2023-01-31 18:11:11 I/ws adapter: >>> [ws adapter] is listening at ws://localhost:8080</span></span>
-<span class="line"><span style="color:#e74856;">2023-01-31 18:11:11 W/stderr: [DefaultDispatcher-worker-4] INFO MahKtorAdapter[ws,http] - Responding at http://localhost:8080</span></span>
-<span class="line highlighted"><span style="color:#16c60c;">2023-01-31 18:11:11 I/http adapter: >>> [http adapter] is listening at http://localhost:8080</span></span>
-<span class="line highlighted"><span style="color:#16c60c;">2023-01-31 18:11:11 I/Mirai HTTP API: Http api server is running with verifyKey: GraiaXVerifyKey</span></span>
-<span class="line highlighted"><span style="color:#16c60c;">2023-01-31 18:11:11 I/Mirai HTTP API: adaptors: [ws,http]</span></span>
-<span class="line"><span style="color:#16c60c;">2023-01-31 18:11:11 I/Mirai HTTP API: ********************************************************</span></span>
-<span class="line"></span></code></pre>
-<div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span></div></div>
+<div class="language-txt line-numbers-mode"><button title="Copy Code" class="copy"></button><span class="lang">txt</span><pre class="shiki one-dark-pro has-highlighted-lines" tabindex="0"><code style="color:#16c60c;"><span class="line"><span>2023-02-16 23:02:29 I/Mirai HTTP API: ********************************************************</span></span>
+<span class="line"><span>2023-02-16 23:02:29 I/MahKtorAdapter[http,ws]: Autoreload is disabled because the development mode is off.</span></span>
+<span class="line"><span>2023-02-16 23:02:30 I/MahKtorAdapter[http,ws]: Application started in 0.076 seconds.</span></span>
+<span class="line highlighted"><span>2023-02-16 23:02:30 I/MahKtorAdapter[http,ws]: Responding at http://localhost:8080</span></span>
+<span class="line highlighted"><span>2023-02-16 23:02:30 I/http adapter: &gt;&gt;&gt; [http adapter] is listening at http://localhost:8080</span></span>
+<span class="line highlighted"><span>2023-02-16 23:02:30 I/ws adapter: &gt;&gt;&gt; [ws adapter] is listening at ws://localhost:8080</span></span>
+<span class="line highlighted"><span>2023-02-16 23:02:30 I/Mirai HTTP API: Http api server is running with verifyKey: funnyguy</span></span>
+<span class="line highlighted"><span>2023-02-16 23:02:30 I/Mirai HTTP API: adaptors: [http,ws]</span></span>
+<span class="line"><span>2023-02-16 23:02:30 I/Mirai HTTP API: ********************************************************</span></span>
+<span class="line"><span></span></span></code></pre><div class="line-numbers-wrapper" aria-hidden="true"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div>
 
-其中第四第六行是 Ariadne 连接 Mirai 的地址，第七行则是连接所用的密钥，请确保配置 Ariadne
+其中第四行是 Ariadne 连接 Mirai 的地址，第七行最后则是连接所用的密钥，请确保配置 Ariadne
 时所用的参数与此处一致，同时还应确保第八行的 `adaptors:` 之后同时有 `http` 和 `ws` 两个选项。
 
 ## 登录
