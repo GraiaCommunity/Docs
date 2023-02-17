@@ -20,21 +20,21 @@ ASGIApplication，在退出时自动关闭 Uvicorn。
 ::::code-group
 :::code-group-item PDM
 
-```bash
+```sh
 pdm add graiax-fastapi
 ```
 
 :::
 :::code-group-item Poetry
 
-```bash
+```sh
 poetry add graiax-fastapi
 ```
 
 :::
 :::code-group-item PIP
 
-```bash
+```sh
 pip install graiax-fastapi
 ```
 

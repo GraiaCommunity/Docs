@@ -85,7 +85,7 @@ Image(path="./GraiaX/EroEroBot/eropic.jpg")
 ::::code-group
 :::code-group-item poetry
 
-```bash
+```sh
 # 普通安装
 poetry add graiax-silkcoder
 # 假设你的环境中没有安装 ffmpeg 但又需要 wav 以外的音频格式转换
@@ -97,7 +97,7 @@ poetry add graiax-silkcoder[libsndfile]
 :::
 :::code-group-item pip
 
-```bash
+```sh
 # 普通安装
 pip install graiax-silkcoder
 # 假设你的环境中没有安装 ffmpeg 但又需要 wav 以外的音频格式转换

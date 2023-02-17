@@ -29,7 +29,7 @@ async def ero(app: Ariadne, group: Group, message: MessageChain):
 
 你想做一个本子下载器，然后，你开始思考这个本子下载器该怎么触发
 
-```bash
+```sh
 bz rank
 bz random [-H24|-D7|-D30]
 bz search [-forward] {关键词}
@@ -164,7 +164,7 @@ class Bz:
 
 仍然以中这个命令为例子
 
-```bash
+```sh
 bz rank
 bz random [-H24|-D7|-D30]
 bz search [-forward] {关键词}

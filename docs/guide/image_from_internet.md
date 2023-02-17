@@ -16,7 +16,7 @@
 但是为了让你能够记得你用了什么库，我们还是建议你写一下
 :::
 
-```bash
+```sh
 poetry add aiohttp
 # 👇假设你想要极致的速度
 poetry add aiohttp[speedups]

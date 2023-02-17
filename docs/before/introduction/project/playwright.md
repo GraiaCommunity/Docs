@@ -24,21 +24,21 @@ Ariadne 运行过程中调用，并在其退出的时候自动关闭 Playwright�
 ::::code-group
 :::code-group-item PDM
 
-```bash
+```sh
 pdm add graiax-playwright
 ```
 
 :::
 :::code-group-item Poetry
 
-```bash
+```sh
 poetry add graiax-playwright
 ```
 
 :::
 :::code-group-item PIP
 
-```bash
+```sh
 pip install graiax-playwright
 ```
 

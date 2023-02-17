@@ -7,9 +7,9 @@
 本章可能存在过时内容，如果没有必要，建议不要使用 Console。
 :::
 
-还记得 `mcl` 吗？你应该对他底下的这个 `>` 印象深刻吧。
+还记得 `MCL` 吗？你应该对他底下的这个 `>` 印象深刻吧。
 
-```shell
+```sh
 xxxx-xx-xx xx:xx:xx I/main: mirai-console started successfully.
 
 >
@@ -27,7 +27,7 @@ xxxx-xx-xx xx:xx:xx I/main: mirai-console started successfully.
 
 首先我们需要添加一个名为 `prompt-toolkit` 的新依赖：
 
-```bash
+```sh
 poetry add prompt-toolkit
 ```
 
@@ -51,7 +51,7 @@ saya.install_behaviours(ConsoleBehaviour(con))
 
 然后让你再次启用程序的时候，铛铛：
 
-```shell
+```sh
 20yy-MM-dd HH:mm:ss.SSS | INFO     | launart.manager:launch:109 - launchable components count: 4
 20yy-MM-dd HH:mm:ss.SSS | INFO     | launart.manager:launch:110 - launch all components as async task...
 20yy-MM-dd HH:mm:ss.SSS | INFO     | launart.manager:task_done_cb:153 - [elizabeth.connection.242679293.http_client_connection] running completed.
@@ -114,14 +114,14 @@ logger.opt(raw=True).log("测试")
 ::::code-group
 :::code-group-item poetry
 
-```bash
+```sh
 poetry add prompt-toolkit
 ```
 
 :::
 :::code-group-item pip
 
-```bash
+```sh
 pip install prompt-toolkit
 ```
 
