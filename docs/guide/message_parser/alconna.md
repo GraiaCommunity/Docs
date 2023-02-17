@@ -62,7 +62,7 @@ pip install graiax-shortcut
 
 开发涩涩Bot时，我们难免会有一个涩图搜索功能的需求。假设该功能命令如下：
 
-```shell
+```sh
 setu搜索 CONTENT
 ```
 
@@ -70,7 +70,7 @@ setu搜索 CONTENT
 
 我们默认使用 **SauceNAO** 的 api，但有时候我们也想使用别的搜图引擎而且能自定义参数：
 
-```shell
+```sh
 use API:[saucenao|ascii2d|ehentai|iqdb|tracemoe] = saucenao
 count NUM:int = 1
 --similarity VAL:float = 0.5
@@ -79,7 +79,7 @@ count NUM:int = 1
 
 这样的命令大致如下所示：
 
-```bash
+```sh
 setu搜索 XXX
 setu搜索 XXX use ascii2d
 setu搜索 XXX -s 0.8

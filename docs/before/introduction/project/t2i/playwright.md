@@ -18,21 +18,21 @@
 ::::code-group
 :::code-group-item PDM
 
-```bash
+```sh
 pdm add graiax-text2img-playwright
 ```
 
 :::
 :::code-group-item Poetry
 
-```bash
+```sh
 poetry add graiax-text2img-playwright
 ```
 
 :::
 :::code-group-item PIP
 
-```bash
+```sh
 pip install graiax-text2img-playwright
 ```
 

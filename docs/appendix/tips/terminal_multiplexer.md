@@ -29,7 +29,7 @@
 ::::code-group
 :::code-group-item Ubuntu / Debian
 
-```bash
+```sh
 # 非 root 用户记得前面加 sudo
 apt install tmux
 ```
@@ -37,7 +37,7 @@ apt install tmux
 :::
 :::code-group-item CentOS 8 / Rocky Linux 8
 
-```bash
+```sh
 # 非 root 用户记得前面加 sudo
 dnf install tmux
 ```
@@ -45,7 +45,7 @@ dnf install tmux
 :::
 :::code-group-item CenOS 7
 
-```bash
+```sh
 # 非 root 用户记得前面加 sudo
 yum install tmux
 ```
@@ -57,7 +57,7 @@ yum install tmux
 
 介绍常用命令
 
-```bash
+```sh
 # 新建一个叫做 `graia` 的会话并进入
 tmux new -s graia
 # 进入 `graia` 会话
@@ -68,7 +68,7 @@ tmux attach -t graia
 你现在只需要记得上面这两个命令就好了
 
 在新建完之后，你就会发现你进入到一个新的终端  
-你现在这个终端运行一下 `mcl`  
+你现在这个终端运行一下 `MCL`  
 然后，按下 `Ctrl + B`，再按下 `C`  
 欸？又变成新的窗口了  
 这个时候你再按一下 `Ctrl + B`，`P`  

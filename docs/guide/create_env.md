@@ -42,7 +42,7 @@
 
 创建好后进入该文件夹内：
 
-```bash
+```sh
 # 这个是 Linux 环境下通过终端创建并进入文件夹的命令
 mkdir EroEroBot
 cd EroEroBot
@@ -58,7 +58,7 @@ cd EroEroBot
 
 然后输入 `poetry init` 开始创建环境，你就会看到类似下面的提示：
 
-```bash
+```sh
 $ poetry init
 
 This command will guide you through creating your pyproject.toml config.
@@ -114,7 +114,7 @@ default = false
 
 在配置好环境之后，你需要给你的项目创建一个虚拟环境并安装 **Graia Ariadne**，在项目根目录执行如下命令：
 
-```bash
+```sh
 poetry env use python3.9  # 如果你设备里只有一个版本的 Python 或你想使用最新版本，则这一条命令可以不执行
 poetry add graia-ariadne[standard]
 ```
@@ -140,7 +140,7 @@ poetry add graia-ariadne[standard]
 
 2. 假设你不怎么喜欢整虚拟环境也可以使用如下命令来取消虚拟环境的创建。
 
-   ```bash
+   ```sh
    poetry config virtualenvs.create false
    ```
 
@@ -152,7 +152,7 @@ poetry add graia-ariadne[standard]
 
    假设你不怎么喜欢的话，可以通过以下方式将虚拟环境创建在项目文件夹的 `.venv` 文件夹里
 
-   ```bash
+   ```sh
    poetry config virtualenvs.in-project true
    ```
 
@@ -161,7 +161,7 @@ poetry add graia-ariadne[standard]
 
 ::::details 命令输出
 
-```bash
+```sh
 $ poetry env use 3.9
 
 Creating virtualenv EroEroBot-BexBd8Xq-py3.9 in /root/.cache/pypoetry/virtualenvs
@@ -170,7 +170,7 @@ Using virtualenv: /root/.cache/pypoetry/virtualenvs/EroEroBot-BexBd8Xq-py3.9
 
 <br />
 
-```bash
+```sh
 $ poetry add graia-ariadne[standard]
 
 Using version ^0.6.12 for graia-ariadne

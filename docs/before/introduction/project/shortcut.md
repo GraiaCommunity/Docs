@@ -83,21 +83,21 @@ async def setu(app: Ariadne, group: Group, message: MessageChain):
 ::::code-group
 :::code-group-item PDM
 
-```bash
+```sh
 pdm add graiax-shortcut
 ```
 
 :::
 :::code-group-item Poetry
 
-```bash
+```sh
 poetry add graiax-shortcut
 ```
 
 :::
 :::code-group-item PIP
 
-```bash
+```sh
 pip install graiax-shortcut
 ```
 

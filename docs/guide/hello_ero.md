@@ -50,15 +50,15 @@
 4. 保存，并且使用命令 `poetry run python main.py` 运行
 
    :::tip 注意
-   **一定一定一定**要记得在运行之前启动并登录 `mcl (mirai-console-loader)`  
-   关于 `mcl` 的配置，请看 :point_right: [这里](/before/QA.md#_5-关于-mirai-环境)
+   **一定一定一定**要记得在运行之前启动并登录 `MCL (mirai-console-loader)`  
+   关于 `MCL` 的配置，请看 :point_right: [这里](/before/QA.md#_5-关于-mirai-环境)
    :::
 
    之后，你会看到显示如下信息输出：
 
    ::::details 命令输出
 
-   ```bash
+   ```sh
    $ poetry run python bot.py
    20yy-MM-dd HH:mm:ss.SSS | INFO     | launart.manager:launch:109 - launchable components count: 4
    20yy-MM-dd HH:mm:ss.SSS | INFO     | launart.manager:launch:110 - launch all components as async task...
@@ -73,7 +73,7 @@
 
 5. 在群里发一句你好，当然你的 bot 得先在群里
 
-   ```shell
+   ```sh
    20yy-MM-dd HH:mm:ss.SSS | INFO     | graia.ariadne.model:log:64 - 1919810: [GraiaX(114514)] -> '你好'
    20yy-MM-dd HH:mm:ss.SSS | INFO     | graia.ariadne.model:log:64 - [BOT 1919810] Friend(114514) <- '不要说你好，来点涩图'
    ```
