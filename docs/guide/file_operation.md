@@ -22,7 +22,7 @@
       avatar="/avatar/ero.webp"
       filename="secret.zip"
       filesize="6.33MB"
-      fileicon="/images/guide/compressed_file.png"
+      fileicon="/images/guide/compressed_file.webp"
       onclick="window.open('https:\/\/www.bilibili.com/video/BV1GJ411x7h7', '_blank')"
     />
 </chat-window>
