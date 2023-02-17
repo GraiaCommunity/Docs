@@ -44,14 +44,14 @@
 ::::code-group
 :::code-group-item poetry
 
-```bash
+```sh
 poetry add graia-scheduler
 ```
 
 :::
 :::code-group-item pip
 
-```bash
+```sh
 pip install graia-scheduler
 ```
 

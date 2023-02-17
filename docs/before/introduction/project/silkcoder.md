@@ -21,21 +21,21 @@ A fxxxing simple silkv3 converter.
 ::::code-group
 :::code-group-item PDM
 
-```bash
+```sh
 pdm add graiax-silkcoder
 ```
 
 :::
 :::code-group-item Poetry
 
-```bash
+```sh
 poetry add graiax-silkcoder
 ```
 
 :::
 :::code-group-item PIP
 
-```bash
+```sh
 pip install graiax-silkcoder
 ```
 
@@ -75,7 +75,7 @@ wave.open("你要测试的wav.wav")
 ::::code-group
 :::code-group-item 只需要本体
 
-```bash
+```sh
 # 如果需要转换非 wav 音频，则需要自行安装与配置 FFmpeg
 graiax-silkcoder
 ```
@@ -83,7 +83,7 @@ graiax-silkcoder
 :::
 :::code-group-item 需要 ffmpeg (imageio-ffmpeg)
 
-```bash
+```sh
 # 通过下面的方式使用 imageio-ffmpeg 中的 FFmpeg
 graiax-silkcoder[ffmpeg]
 ```
@@ -91,7 +91,7 @@ graiax-silkcoder[ffmpeg]
 :::
 :::code-group-item 需要 libsndfile
 
-```bash
+```sh
 graiax-silkcoder[libsndfile]
 ```
 
@@ -264,14 +264,14 @@ silkcoder.decode("a.silk", "a.mp3", ffmpeg_para = ["-ar", "44100"])
 
 举个例子：
 
-```bash
+```sh
 python -m graiax.silkcoder encode -i "a.wav" "a.silk"
 python -m graiax.silkcoder decode -i "a.silk" "a.wav"
 ```
 
 在这里就~~恬不知耻地~~贴一份 `help` 生成地使用指南：
 
-```bash
+```sh
 # encode
 $ python -m graiax.silkcoder encode -h
 usage: silkcoder encode [-h] -i I [--audio_format AUDIO_FORMAT] [--codec {wave,ffmpeg,libsndfile}] [--rate RATE] [-ia]
@@ -315,7 +315,7 @@ options:
 得益于 Python 的 Windows 标准库中有能够播放声音的库，
 **GraiaX Silkcoder** 在 Windows 下能实现直接转码播放的功能，可通过如下方法实现
 
-```bash
+```sh
 python -m graiax.silkcoder play xxx.silk
 ```
 

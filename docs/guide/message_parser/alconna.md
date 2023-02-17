@@ -34,7 +34,7 @@
 ::::code-group
 :::code-group-item poetry
 
-```bash
+```sh
 poetry add arclet-alconna-graia>=0.11.4, arclet-alconna-ariande>=0.11.4
 poetry add graiax-shortcut
 ```
@@ -42,7 +42,7 @@ poetry add graiax-shortcut
 :::
 :::code-group-item pdm
 
-```bash
+```sh
 pdm add arclet-alconna-graia>=0.11.4, arclet-alconna-ariande>=0.11.4
 pdm add graiax-shortcut
 ```
@@ -50,7 +50,7 @@ pdm add graiax-shortcut
 :::
 :::code-group-item pip
 
-```bash
+```sh
 pip install arclet-alconna-graia>=0.11.4, arclet-alconna-ariande>=0.11.4
 pip install graiax-shortcut
 ```
@@ -62,7 +62,7 @@ pip install graiax-shortcut
 
 开发涩涩Bot时，我们难免会有一个涩图搜索功能的需求。假设该功能命令如下：
 
-```shell
+```sh
 setu搜索 CONTENT
 ```
 
@@ -70,7 +70,7 @@ setu搜索 CONTENT
 
 我们默认使用 **SauceNAO** 的 api，但有时候我们也想使用别的搜图引擎而且能自定义参数：
 
-```shell
+```sh
 use API:[saucenao|ascii2d|ehentai|iqdb|tracemoe] = saucenao
 count NUM:int = 1
 similarity VAL:float = 0.5
@@ -79,7 +79,7 @@ similarity VAL:float = 0.5
 
 这样的命令大致如下所示：
 
-```bash
+```sh
 setu搜索 XXX
 setu搜索 XXX use ascii2d
 setu搜索 XXX similarity 0.8
@@ -1530,13 +1530,13 @@ ill = Alconna(
 
 基于对传入消息的记录，Alconna 0.9.0 以上支持动态的快捷指令构建：
 
-```shell
+```sh
 >>> my_command --shortcut XXX "my_command foo bar ..."
 ```
 
 或者
 
-```shell
+```sh
 >>> my_command foo bar ...
 >>> my_command --shortcut XXX
 ```

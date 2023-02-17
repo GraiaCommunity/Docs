@@ -117,7 +117,7 @@ True
 
 这个应该是最简单，也是你最容易理解的办法，还记得最开始例子中的消息日志吗？
 
-```bash
+```sh
 2021-12-03 10:49:45.350 | INFO     | graia.ariadne.model:log_friend_message:114 - 1919810: [GraiaX(114514)] -> '你好'
 2021-12-03 10:49:45.478 | INFO     | graia.ariadne.app:sendFriendMessage:114 - [BOT 1919810] Friend(114514) <- '不要说你好，来点涩图'
 ```

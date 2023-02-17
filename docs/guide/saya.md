@@ -64,14 +64,14 @@ Nonebot 就是一个比较典型的插件导入式框架（通过导入不同的
 ::::code-group
 :::code-group-item poetry
 
-```bash
+```sh
 poetry add graia-saya
 ```
 
 :::
 :::code-group-item pip
 
-```bash
+```sh
 pip install graia-saya
 ```
 
@@ -144,7 +144,7 @@ with saya.module_context():
 ::::code-group
 :::code-group-item 单文件模组
 
-```shell
+```sh
 EroEroBot
 ├─ main.py
 ├─ pyproject.toml
@@ -155,7 +155,7 @@ EroEroBot
 :::
 :::code-group-item 文件夹模组
 
-```shell
+```sh
 EroEroBot
 ├─ main.py
 ├─ pyproject.toml
@@ -336,7 +336,7 @@ for module, channel in saya.channels.items():
 你可以将其直接跟 `bcc.receiver` 画上约等号,
 因为其中有一些参数的名称可能有所变化：
 
-```shell
+```sh
 event -> listening_events  # 因为是events，所有要传的是有一个及以上 Event 的 list
 dispatchers -> inline_dispatchers
 ```
