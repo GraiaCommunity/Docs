@@ -4,6 +4,7 @@ const before = [
     items: [
       { text: '引言', link: '/before/' },
       { text: '你需要知道的一些事', link: '/before/QA' },
+      { text: '从零开始的 Python 环境及 IDE 的配置', link: '/before/install_env' },
       { text: 'Mirai 的安装与配置', link: '/before/install_mirai' },
       { text: '名词解释', link: '/before/terms' },
     ],

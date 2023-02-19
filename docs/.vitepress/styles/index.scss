@@ -8,6 +8,10 @@
   background-color: transparent;
 }
 
+.vp-doc .custom-block blockquote > p {
+  font-size: inherit;
+}
+
 :root {
   --vp-c-brand: #318c87;
   --vp-c-brand-light: #47a19c;
