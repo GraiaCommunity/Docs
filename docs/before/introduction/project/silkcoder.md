@@ -42,7 +42,35 @@ pip install graiax-silkcoder
 :::
 ::::
 
-## 多个编解码器支持
+## 安装后的配置
+
+::: warning
+你一定很好奇为什么不先讲讲用法。我跟你<ruby>酱<rt>jiǎng</rt></ruby>哦，
+这里的环境配置是灰常重要的。如果不好好配置，你就会出现非常多的 `bug`。
+:::
+
+### 来自 Windows 可能出现的 bug
+
+对于**纯净的** Windows 来说，当你使用该插件的时候，很有可能会出现这个报错：
+
+``` shell
+# 英文系统
+...
+File "<省略的路径名>\graiax\silkcoder\silkv3.py", line 1, in <module>
+    from . import _silkv3
+ImportError: DLL load failed while importing _silkv3: The specified module could not be found.
+# 中文系统
+...
+File "<省略的路径名>\graiax\silkcoder\silkv3.py", line 1, in <module>
+    from . import _silkv3
+ImportError：DLL load failed while importing _silkv3：找不到指定的模块
+```
+
+烦诶，为什么会这样。原因很简单——**太干净了**
+
+解决方法也很简单：只要下载[这个](https://aka.ms/vs/17/release/vc_redist.x64.exe)，然后安装他，就能解决了。
+
+### 编解码器的选择
 
 这里我们着重讲一下事实上，**GraiaX Silkcoder** 本体，**只有**wav/pcm格式转silk格式的能力。  
 也就是说，如果你的系统**非常滴干净**，那 **GraiaX Silkcoder** 就只支持 `wav` 格式。  
