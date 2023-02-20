@@ -16,6 +16,7 @@
 
 | 术语       | 描述
 | :--:      | :--
+|涩图       |<div style="background-color: #e3e3e3; width: 200px; height: 22px; border-radius: 4px"></div>|
 | v4        | [Graia Application Mirai](https://pypi.org/project/graia-application-mirai/)
 | v4+ / v4p | [Graia Ariadne](https://pypi.org/project/graia-ariadne/)
 | v5        | [Graia Avilla](https://pypi.org/project/avilla-core/)，截至 2023.01.18，还处于 WIP 状态
