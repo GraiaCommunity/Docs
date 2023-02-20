@@ -4,12 +4,12 @@ import DefaultTheme from 'vitepress/theme'
 
 const randomMsg = [
   '涩图机器人文档真的没有涩图',
-  '你瞎了？试试深色模式',
+  '瞎了？试试深色模式',
   '阿祖，别刷新了，阿妈叫你洗碗了',
   '都几点了，还在看，赶快睡觉',
   '据不完全统计，社区有半数以上的人玩音游',
   'sdıʇ ǝsɹǝʌǝɹ ɐ sı sıɥʇ',
-  '建议每天撸码先来一句 poetry update，享受最新 bug',
+  '建议每天撸码先来一句 pdm/poetry update，享受最新 bug',
   '你是过来看文档的还是看 TIPS 的',
   'Loading 是停不下来的',
   '切记，撸码要适度',
@@ -49,7 +49,7 @@ const randomMsg = [
   'A60曾经说过，有人对着ABot发情',
   '谁有时间读你们这破文档啊',
   '轰击策略警告.jpg',
-  'poetry? 打得过pdm吗',
+  'poetry? 打得过 pdm 吗',
   '是 FuzzyDispatcher 而不是 FurryDispatcher！',
   'from typing_extensions import Annotated',
   '能不能别叫它 Graia-Ariadne 了，用 Graia Ariadne 或 graia-ariadne 都好得多...',
@@ -58,6 +58,8 @@ const randomMsg = [
   'NEXT UI!',
   '这是两只仓鼠吗，尾巴好长',
   '事物发展的道路是曲折的。新事物的发展总要经历一个由小到大，由不完善到比较完善的过程。新事物不可避免地存在着弱点和不完善的地方，人们对新事物的认识也有一个过程。旧事物在开始时往往比较强大，总是顽强抵抗和极力扼杀新事物。新事物不可能一蹴而就，必然经历曲折的过程。多体谅一点 Block',
+  '两个 K* 人在N* 群交换 G* 群号',
+  '优秀的框架都没有好的文档 —— 孤梦星影',
 ]
 const random = ref('')
 
