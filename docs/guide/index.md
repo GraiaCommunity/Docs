@@ -1,8 +1,8 @@
 <p align="center">
 <ruby>
   轮胎混装 <rp>(</rp><rt style="font-size:0.75em">Tire Kakimazerl</rt><rp>)</rp>
-  </ruby>！
-  <ruby>
+</ruby>！
+<ruby>
   <a herf="https://zh.moegirl.org.cn/%E5%81%87%E9%9D%A2%E9%AA%91%E5%A3%AB%E7%B3%BB%E5%88%97/%E6%A2%97#%E5%81%87%E9%9D%A2%E9%AA%91%E5%A3%ABDrive" target="_blank" rel="noreferrer">施工现场</a><rp>(</rp><rt style="font-size:0.75em">Kouji Genbar</rt><rp>)</rp>
 </ruby>！
 </p>

@@ -99,7 +99,10 @@ const appendix = [
   },
   {
     text: '奇奇怪怪的东西',
-    items: [{ text: '热点追踪 - 群搜图小助手', link: '/appendix/other/saucenao' }],
+    items: [
+      { text: '热点追踪 - 群搜图小助手', link: '/appendix/other/saucenao' },
+      { text: '蜜汁好活 - 论到底需要几个 Graia 人 换灯泡', link: '/appendix/other/bulb' },
+    ],
   },
 ]
 

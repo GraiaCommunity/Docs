@@ -42,6 +42,7 @@
 
 - [A60 的 MyFirstBot](https://github.com/djkcyl/myfirstbot)
 - Graia Framework Community 群的沙雕群友们的日常（bushi）
+- <ruby>友商<rp>(</rp><rt style="font-size:0.75em">Nonebot</rt><rp>)</rp></ruby> 群里的各种日常（乐）
 - [Github Copilot](https://copilot.github.com) 提供的各种奇妙~~怪话~~<curtain>你不知道只按 tab 写文档有多爽</curtain>
 - [伪 QQ 移动端聊天窗口](https://github.com/Redlnn/Fake-QQ-Chat-Window)
 
