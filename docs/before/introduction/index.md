@@ -1,5 +1,6 @@
 # 社区介绍
 
+你说得对，但是
 [Graia Community](https://github.com/GraiaCommunity) 是由
 [Graia Project](https://github.com/GraiaProject)
 用户自发组织在一起的社区，本社区有时也被称为 **GraiaX**。
