@@ -12,6 +12,9 @@ hero:
         - theme: brand
           text: 快速开始
           link: /before/
+        - theme: brand
+          text: 还没写完的重构文档
+          link: https://dev-docs.graiax.cn/
         - theme: alt
           text: Graia 官方文档
           link: https://graia.cn
