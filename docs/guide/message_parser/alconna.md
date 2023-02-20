@@ -35,7 +35,7 @@
 :::code-group-item poetry
 
 ```sh
-poetry add arclet-alconna-graia>=0.11.4, arclet-alconna-ariande>=0.11.4
+poetry add arclet-alconna-graia>=0.11.4, arclet-alconna-ariadne>=0.11.4
 poetry add graiax-shortcut
 ```
 
@@ -43,7 +43,7 @@ poetry add graiax-shortcut
 :::code-group-item pdm
 
 ```sh
-pdm add arclet-alconna-graia>=0.11.4, arclet-alconna-ariande>=0.11.4
+pdm add arclet-alconna-graia>=0.11.4, arclet-alconna-ariadne>=0.11.4
 pdm add graiax-shortcut
 ```
 
@@ -51,7 +51,7 @@ pdm add graiax-shortcut
 :::code-group-item pip
 
 ```sh
-pip install arclet-alconna-graia>=0.11.4, arclet-alconna-ariande>=0.11.4
+pip install arclet-alconna-graia>=0.11.4, arclet-alconna-ariadne>=0.11.4
 pip install graiax-shortcut
 ```
 
