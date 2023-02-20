@@ -1072,6 +1072,13 @@ Alconna 0.7.6 后，简易的命令构造可用如下方法：
 
 #### Koishi-like：使用 `AlconnaString(...)`
 
+<div class="tip custom-block" style="display: flex; justify-content: center; align-items: center;">
+<img width=50 height=50 src="https://img.moegirl.org.cn/common/thumb/3/3f/Commons-emblem-success.svg/75px-Commons-emblem-success.svg.png" style="margin-right: 10px"/>
+<span style="font-size: 15px; font-weight: bold;">
+这个条目曾经被 Koishi Maintainer 巡回过。<s>终于 GraiaX 文档也到了足够让公式前来巡回的知名度了吗！？</s>
+</span>
+</div>
+
 在 **Koishi-like** 方法中，你可以用类似 **Koishi** 中编写命令的格式来构造 **Alconna**。
 
 上面的例子中，我们期望的命令是这样的一串字符串：`我要涩图 2 从 纯爱 兽耳`。
