@@ -18,6 +18,7 @@ export default defineConfig({
   ],
 
   themeConfig: {
+    i18nRouting: true,
     logo: '/logo.svg',
     nav: nav(),
     sidebar: {
@@ -26,7 +27,7 @@ export default defineConfig({
       '/appendix/': appendix,
     },
     editLink: {
-      pattern: 'https://github.com/GraiaCommunity/Docs/edit/vitepress/docs/:path',
+      pattern: 'https://github.com/GraiaCommunity/Docs/edit/remake/docs/:path',
       text: '在 GitHub 上编辑此页',
     },
     socialLinks: [{ icon: 'github', link: 'https://github.com/GraiaCommunity/Docs' }],
@@ -34,11 +35,20 @@ export default defineConfig({
       message: 'MIT License',
       copyright: 'Copyright © 2022 Graia Community',
     },
+    lastUpdatedText: '上次更新',
     algolia: {
       appId: 'VA229YZAO1',
       apiKey: '91fa3eb8adfd68b9adda9a7495c45944',
       indexName: 'graiax',
     },
+    outlineTitle: '本页大纲',
+    docFooter: {
+      prev: '上一页',
+      next: '下一页',
+    },
+    darkModeSwitchLabel: '黑暗模式',
+    sidebarMenuLabel: '目录',
+    returnToTopLabel: '回到顶部 ▲',
   },
 
   markdown: {
