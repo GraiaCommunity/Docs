@@ -1,7 +1,4 @@
-import DefaultTheme from 'vitepress/theme'
 import { Theme } from 'vitepress'
-
-import '../styles/index.scss'
 
 import Layout from './Layout.vue'
 
@@ -26,13 +23,17 @@ import ProjectInfo from '../components/ProjectInfo.vue'
 import RubyCurtain from '../components/RubyCurtain.vue'
 import VolumeBar from '../components/VolumeBar.vue'
 
+import custom404 from './custom404.vue'
+
+import '../styles/index.scss'
+
 const theme: Theme = {
   // ...DefaultTheme,
   // root component to wrap each page
   Layout,
 
   // this is a Vue 3 functional component
-  NotFound: DefaultTheme.NotFound,
+  NotFound: custom404,
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   enhanceApp({ app, router, siteData }) {
