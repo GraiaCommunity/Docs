@@ -3,11 +3,6 @@
 @import './mermaid.scss';
 @import './tasklist.scss';
 
-.vp-doc .custom-block div[class*='language-'] code,
-.custom-block.tip code {
-  background-color: transparent;
-}
-
 .vp-doc .custom-block blockquote > p {
   font-size: inherit;
 }
