@@ -1,4 +1,5 @@
 import { Theme } from 'vitepress'
+import DefaultTheme from 'vitepress/theme'
 
 import Layout from './Layout.vue'
 
@@ -28,7 +29,8 @@ import custom404 from './custom404.vue'
 import '../styles/index.scss'
 
 const theme: Theme = {
-  // ...DefaultTheme,
+  ...DefaultTheme,
+
   // root component to wrap each page
   Layout,
 
@@ -37,6 +39,8 @@ const theme: Theme = {
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   enhanceApp({ app, router, siteData }) {
+    DefaultTheme.enhanceApp({ app, router, siteData })
+
     // app is the Vue 3 app instance from `createApp()`.
     // router is VitePress' custom router. `siteData` is
     // a `ref` of current site-level metadata.
