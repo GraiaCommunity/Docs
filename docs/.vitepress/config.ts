@@ -11,6 +11,7 @@ export default defineConfig({
   description: 'Documentation by community of Graia Project.',
 
   lastUpdated: true,
+  cleanUrls: true,
 
   head: [
     ['link', { rel: 'shortcut icon', href: '/favicon.png' }],
