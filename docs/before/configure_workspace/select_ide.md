@@ -32,7 +32,7 @@
 
 :::
 
-## PyCharm 与 Visual Studi Code 的区别？
+## PyCharm 与 Visual Studio Code 的区别？
 
 由于 PyCharm 拥有丰厚的历史底蕴，其功能繁多，配置也多，
 新手刚接触的时候常常会遇到工作区没有设置或设置错误、
@@ -43,3 +43,30 @@
 而 VS Code 是微软开发的开源**免费**跨平台编辑器，
 在设置正确的情况下其功能和使用体验与 PyCharm
 相当，但想要做到舒服使用 VS Code 也需要进行较多的配置。
+
+### PyCharm?
+
+对于新手而言，PyCharm 几乎开箱即用的体验非常合适，
+他无须进行过多的配置即可拥有满足日常使用的语法高亮、代码格式化、代码检查、语法检查等功能，
+**假如你眼睛不瞎**（指忽略所有标红、标黄等警告和提示），那么 PyCharm 能帮助你养成良好的编程习惯，
+改善你的代码风格。
+
+但是在 PyCharm 上使用虚拟环境时配置略微麻烦，并且截止这段文字写下来时 PyCharm
+并不支持 PDM，只支持 Poetry。
+
+### Visual Studio Code
+
+Visual Studio Code 简称为 **VS Code**，虽然名字里有 Visual Studio，但他与
+Visual Studio **没有任何联系**。
+
+<hr />
+
+:::tsukkomi 喵喵喵
+看完这一页，相信你已经做好选择了吧，假如你对于这两款 IDE 仍然有较多疑问，你可以通过互联网查阅相关资料。
+
+当然，假如你既不喜欢 PyCharm 也不喜欢 VS Code，那么你也可以选择
+Sublime Text、Vim/NeovIm、Jupyter Notebook/Jupyter Lab、Spyder
+等 IDE，其中 Jupyter 和 Spyder 更常见于深度学习领域。
+
+> 鉴于 Nodepad++ 作者及其官号曾多次发表有违开源精神的言论，我们强烈不推荐你使用该编辑器。
+:::
