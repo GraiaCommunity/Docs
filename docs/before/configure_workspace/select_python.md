@@ -3,7 +3,8 @@
 对于一个新创建的项目，理论上应使用较新的 Python 版本（毕竟你以后可能都不会想升级版本了）。
 
 对于面对 Graia Project（如 [Ariadne](https://github.com/GraiaProject/Ariadne)）的项目，应尽可能使用
-3.10 及以上的 Python 版本，目前 Python 最新版本为 3.11.x。  
+3.10 及以上的 Python 版本，目前 Python 最新版本为 3.11.x。
+
 再不济（比如用的是 Windows 7 系统）也请务必保证所使用的 Python 版本大于 3.8
 （Ariadne 对 Python 版本的最低要求是 Python 3.8）
 
