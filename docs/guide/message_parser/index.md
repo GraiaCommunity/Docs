@@ -71,7 +71,7 @@ if message.startswith("涩图来"):
 - [Commander](./commander.md)
 - [Alconna](./alconna.md)
 
-<style scope>
+<style lang="scss" scoped>
 progress {
     -webkit-appearance: none;
     background-color: var(--vp-custom-block-danger-border);

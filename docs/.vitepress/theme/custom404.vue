@@ -1,42 +1,39 @@
-<script lang="ts" setup>
-const a = 1
-</script>
+<script lang="ts" setup></script>
 
 <template>
   <div class="not-found">
-    <p class="code">404</p>
+    <p class="code">🤔</p>
     <h1 class="title">Oops！页面好像走丢惹~</h1>
     <div class="divider"></div>
     <blockquote class="quote">生活就像海洋，只有意志坚强的人才能到达彼岸。 ——马克思</blockquote>
-    <div class="action">
+    <route-link class="action">
       <a class="link" href="/" aria-label="返回首页"> 返回首页 </a>
-    </div>
+    </route-link>
   </div>
 </template>
 
 <style lang="scss" scoped>
+.not-found {
+  padding: 96px 24px 96px;
+  text-align: center;
+}
+
 @media screen and (min-width: 768px) {
   .not-found {
     padding: 96px 32px 168px;
   }
 }
 
-.not-found {
-  padding: 96px 24px 96px;
-  text-align: center;
-}
-
 .code {
-  line-height: 64px;
-  font-size: 64px;
+  line-height: 100px;
+  font-size: 100px;
   font-weight: 600;
 }
 
 .title {
-  padding-top: 12px;
-  //   letter-spacing: 2px;
+  padding-top: 36px;
   line-height: 20px;
-  font-size: 20px;
+  font-size: 26px;
   font-weight: 700;
 }
 
@@ -55,8 +52,8 @@ const a = 1
   color: var(--vp-c-text-2);
 }
 
-.action {
-  padding-top: 20px;
+.action > a {
+  margin-top: 20px;
 }
 
 .link {
@@ -70,26 +67,8 @@ const a = 1
   transition: border-color 0.25s, color 0.25s;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-li,
-p {
-  overflow-wrap: break-word;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  margin: 0;
-  line-height: 24px;
-  font-size: 16px;
-  font-weight: 400;
+.link:hover {
+  border-color: var(--vp-c-brand-dark);
+  color: var(--vp-c-brand-dark);
 }
 </style>
