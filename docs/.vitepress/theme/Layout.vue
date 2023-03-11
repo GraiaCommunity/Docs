@@ -2,6 +2,8 @@
 import { ref, onMounted } from 'vue'
 import DefaultTheme from 'vitepress/theme'
 
+import NotFound from './custom404.vue'
+
 const randomMsg = [
   '涩图机器人文档真的没有涩图',
   '瞎了？试试深色模式',
@@ -88,25 +90,28 @@ const { Layout } = DefaultTheme
         </div>
       </div>
     </template>
+    <template #not-found>
+      <NotFound />
+    </template>
   </Layout>
 </template>
 
-<style scope lang="scss">
+<style lang="scss" scoped>
 .doc-after {
   margin-top: 50px;
   text-align: center;
-}
 
-.ccbyncsa,
-.tips {
-  color: var(--vp-c-text-2);
-  font-size: 0.85rem;
+  .ccbyncsa,
+  .tips {
+    color: var(--vp-c-text-2);
+    font-size: 0.85rem;
 
-  a {
-    color: var(--vp-c-brand);
+    a {
+      color: var(--vp-c-brand);
 
-    &:hover {
-      color: var(--vp-c-brand-dark);
+      &:hover {
+        color: var(--vp-c-brand-dark);
+      }
     }
   }
 }
