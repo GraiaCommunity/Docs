@@ -338,6 +338,10 @@ APP，在顶部中间的输入框中输入请求码（即 `50634119`），
 |:--:|:--:|
 |![输入请求地址](/images/before/sakura_input.webp)|![滑动验证](/images/before/sukura_slide.webp)|
 
+:::tsukkomi 小知识
+如果上面的图看不清，你可以右键/长按图片并选择在新标签页中打开。
+:::
+
 :::tip
 
 1. **SakuraLoginSolver** 在首次运行时点击下一步可能会闪退，重新启动并输入即可
