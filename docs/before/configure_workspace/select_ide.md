@@ -54,7 +54,7 @@
 但是在 PyCharm 上使用虚拟环境时配置略微麻烦，并且截止这段文字写下来时 PyCharm
 并不支持 PDM，只支持 Poetry。
 
-### Visual Studio Code
+### Visual Studio Code?
 
 Visual Studio Code 简称为 **VS Code**，虽然名字里有 Visual Studio，但他与
 Visual Studio **没有任何联系**。
