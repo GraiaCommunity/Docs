@@ -138,19 +138,46 @@ Java Virtual Machine，即 **Java 虚拟机**。
 
 :::tip
 **MCL** 指的是 **Mirai Console Loader**，其用于启动 Mirai 的控制台。
-
-如果你较为熟悉 Github 的话，你也可以直接去其 [Latest Releases 页面](https://github.com/iTXTech/mirai-console-loader/releases/latest) 下载名为 `mcl-2.x.x.zip` 的压缩包，然后解压到任意文件夹。
 :::
 
-如果你使用的是没有图形界面的 Linux 系统，那执行下下面的命令就好了（不要说你不会噢，不会吧不会吧不会有人啥都不会就用 Linux 了吧）：
+下面将介绍使用命令行安装 MCL，你也可以直接用浏览器打开 MCL 的
+[Latest Releases 页面](https://github.com/iTXTech/mirai-console-loader/releases/latest)
+并在其中下载名为 `mcl-2.x.x.zip` 的压缩包，然后解压到任意文件夹（如果你连打开浏览器下载解压都不会，还是别打算写机器人了~）。
 
-```sh
-# 假设你的系统十分的精简，记得安装 wget 和 unzip
-wget https://github.com/iTXTech/mirai-console-loader/releases/download/v2.1.2/mcl-2.1.2.zip
-unzip mcl-2.1.2.zip -d mcl-2.1.2
+### Windows
+
+假设你使用的是现代化的 Windows，请打开你的 Powershell，然后依次执行下面每一行命令：
+
+> 不要说你不知道 Powershell 是什么，不知道你不会百度吗，这玩意 Windows Vista（比 7 还早）就自带了。
+
+```powershell
+$mcl_release = (Invoke-RestMethod -Uri "https://api.github.com/repos/iTXTech/mirai-console-loader/releases/latest").assets[0]
+Start-BitsTransfer -Source $mcl_release.browser_download_url -Destination $mcl_release.name
+Expand-Archive -Path $mcl_release.name -Destination mcl2
+cd mcl2
 ```
 
-至于有图形界面的系统，如果你连解压都不会，还是别继续下去了~
+### Linux/macOS
+
+如果你使用的是没有图形界面的 Linux/macOS 系统，请打开终端，然后依次执行下面每一行命令：
+
+> 服务器没有图形界面没有终端就不用打开终端，直接在命令行界面执行命令即可。  
+> 如果你用的是有图形界面的 Linux，不要说你不知道终端是什么噢，不会吧不会吧不会有人啥都不会就用 Linux 了吧。
+
+```bash
+# 假设你的系统十分的精简，记得安装 wget 和 unzip
+mcl_release=$(curl -s https://api.github.com/repos/iTXTech/mirai-console-loader/releases/latest)
+mcl_download_url=$(echo $mcl_release | sed -r -n 's/"browser_download_url": "(.+)",?/\1/p' | sed "s/[[:space:]]//g" | awk 'NR==1')
+mcl_name=$(echo $mcl_release | sed -r -n 's/"name": "(mcl-.+)",?/\1/p' | sed "s/[[:space:]]//g" | awk 'NR==1')
+wget $mcl_download_url -O $mcl_name
+unzip $mcl_name -d mcl2
+unset mcl_release mcl_download_url mcl_name
+cd mcl2
+```
+
+### 或者你也可以使用 `mcl-installer`
+
+未完待续...
 
 ## 添加 **Mirai Api Http** 插件
 
