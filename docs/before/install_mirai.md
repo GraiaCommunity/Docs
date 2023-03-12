@@ -90,7 +90,11 @@ brew cask install java
 # 可以看看后面的 MiraiAndroid，占用会低一点
 pkg install openjdk-17
 ```
-
+:::
+::: code-group-item mcl-installer
+#通过 mcl-installer 安装 Java
+#链接
+https://github.com/iTXTech/mcl-installer/releases
 :::
 ::::
 
