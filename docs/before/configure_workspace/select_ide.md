@@ -8,6 +8,14 @@
 毕竟自己用的舒服才是最重要的。
 :::
 
+:::warning 声明（~~叠甲×4~~）
+> Visual Studio Code is a lightweight but powerful source code editor which runs on your desktop and is available for Windows, macOS and Linux.
+
+我知道，就严格意义上来讲，vsc 并不能称之为 IDE，而是一个 code editor。
+但介于现代编辑器和 IDE 的界限已经很模糊了，而且笔者确实不知道到该如何形容，
+所以我们就假装 vsc 是 IDE 吧
+:::
+
 1. 什么是 IDE？
 2. pyc 和 vsc 的区别
 3. pyc 不支持 pdm，需要用 poetry
@@ -21,14 +29,16 @@
 对于 Python 程序猿来说，常用的 IDE 通常有以下两个：
 
 - [JetBrains PyCharm](https://www.jetbrains.com/pycharm/)（以下简称 pyc）
-- [Visual Studio Code](https://code.visualstudio.com/)（以下简称 vsc）
+- [Visual Studio Code](https://code.visualstudio.com/)（以下简称 vsc）[^1]
 
 :::tip
 
-- PyCharm 和 VSC 都是免费的，百度搜到要付费下载的都是假的
+- PyCharm 和 VSC 都是免费的，百度搜到要付费下载的都是<MoreInfo words="假的" width=300px><div style="background: var(--vp-c-bg); border:3px solid var(--vp-custom-block-tip-text); border-radius: 10px">比如下面这种<img src="/images/before/vscode_paid.webp" alt="VSCode Professional" style="vertical-align:top"/></div></MoreInfo>
+  (PyCharm 确实有付费的 `Professional` 版本，不过对于**初学者**的你来讲，现在还暂时没必要)
 - VSC 与 [Visual Studio](https://visualstudio.microsoft.com/zh-hans/)
-  并**没有**任何直接联系，他们俩只是名字有重复的词
+  **没有**任何直接联系，他们俩只是名字有重复的词
 - PyCharm 和 VSC 都需要经过一定的配置才用得舒服，并没有做到开箱即用
+  (如果硬要比谁更能开箱即用，你可以接着往下看)
 
 :::
 
@@ -61,12 +71,19 @@ Visual Studio **没有任何联系**。
 
 <hr />
 
-:::tsukkomi 喵喵喵
+::::tsukkomi 喵喵喵
 看完这一页，相信你已经做好选择了吧，假如你对于这两款 IDE 仍然有较多疑问，你可以通过互联网查阅相关资料。
 
 当然，假如你既不喜欢 PyCharm 也不喜欢 VS Code，那么你也可以选择
 Sublime Text、Vim/NeovIm、Jupyter Notebook/Jupyter Lab、Spyder
 等 IDE，其中 Jupyter 和 Spyder 更常见于深度学习领域。
 
-> 鉴于 Nodepad++ 作者及其官号曾多次发表有违开源精神的言论，我们强烈不推荐你使用该编辑器。
+:::warning 注意
+在这里我们强烈不建议你使用 `ipython notebook` （即以 `.ipynb` 为后缀的文件）编写机器人。
+因为机器人作为一个**服务**，直接会更方便点。
 :::
+
+> 鉴于 Nodepad++ 作者及其官号曾多次发表有违开源精神的言论，我们强烈不推荐你使用该编辑器。
+::::
+
+[^1]: vsc 严格意义上来讲并不能算是 IDE（详情请看本篇的第二个~~叠甲~~声明）
