@@ -2,14 +2,14 @@
 
 <template>
   <span v-if="link" class="text">
-    <span class="mbox" style="width: 200px">
+    <span class="mbox" :style="{ width: width }">
       <div style="height: 1.4em"></div>
       <slot></slot>
     </span>
     <a>{{ words }}</a>
   </span>
   <span v-else class="text">
-    <span class="mbox" style="width: 200px">
+    <span class="mbox" :style="{ width: width }">
       <div style="height: 1.4em"></div>
       <slot></slot> </span
     >{{ words }}
@@ -24,6 +24,10 @@ export default defineComponent({
   props: {
     words: String,
     link: Boolean,
+    width: {
+      type: String,
+      default: '200px',
+    },
   },
 })
 </script>
