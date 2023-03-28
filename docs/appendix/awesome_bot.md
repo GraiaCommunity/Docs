@@ -25,6 +25,7 @@
   <GitRepo user="AwordaProject" repo="Aworda-LBot">霖念的小世界</GitRepo>
   <GitRepo user="kaixinol" repo="AldotaiBot">集多种兽圈文化功能的综合性bot。</GitRepo>
   <GitRepo user="ProjectNu11" repo="Eric">一个支持在线安装模块的 QQ 机器人</GitRepo>
+  <GitRepo user="zihao-il" repo="zihmc-bot">一个与<s>MC</s>相关的 QQ 机器人</GitRepo>
 </div>
 
 <style scope>
