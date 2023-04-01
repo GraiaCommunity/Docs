@@ -5,7 +5,7 @@ import mdEnhance from './mdEnhance/index'
 export default defineConfig({
   lang: 'zh-CN',
 
-  title: 'GraiaX 文档',
+  title: 'NonebotX 文档',
   description: 'Documentation by community of Graia Project.',
 
   lastUpdated: true,
@@ -16,7 +16,7 @@ export default defineConfig({
   ],
 
   themeConfig: {
-    logo: '/logo.svg',
+    logo: 'https://v2.nonebot.dev/logo.png',
     nav: nav(),
     sidebar: sidebarGuide(),
     editLink: {
