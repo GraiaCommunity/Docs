@@ -208,8 +208,8 @@ Mirai Console 自带的登录非常地不方便，而且不正确的登录方法
 下载名为 `mirai-login-solver-sakura-x.x.x.mirai2.jar` 的 jar
 文件，并将其放入 `mcl-2.1.2/plugins/` 文件夹中。
 
-从上面提到的页面下载名为 `apk-release.apk` 的安卓安装包，安装
-**SakuraLoginSolver** 到你的安卓手机上。
+若使用滑动验证码+短信进行登录验证，则需要从上面提到的页面下载名为 `apk-release.apk` 的安卓安装包，安装
+**SakuraLoginSolver** 到你的安卓手机上（请不要使用模拟器、WSA、太老或太冷门的设备）。
 
 ## 启动 **MCL**
 
@@ -275,7 +275,7 @@ adapterSettings:
 
 1. 如果某次登录时执行完所有验证之后仍然提示登录失败，请不要重复尝试，请等待一两天后再试。
    否则可能会被 **BAN IP 和帐号**。
-2. 登录前请准备一台跟得上时代的 Android 手机，不要使用老旧的废手机/老人机/超冷门机型，
+2. 若使用滑动验证码+短信进行登录验证，那么请准备一台跟得上时代的 Android 手机，不要使用老旧的废手机/老人机/超冷门机型，
    也不要使用模拟器/WSA。在 Android 手机上登录这个 QQ 并且打开设备锁（登录设备验证）。
 
 :::
@@ -333,6 +333,16 @@ Bot 不掉线的情况下使用手机登录 Bot 的 QQ 账号）而想要更改�
 <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span></div></div>
 
 那么恭喜你，接下来不用看了，但如果不是，那你就继续看吧~
+
+### 二维码登录
+
+:::tsukkomi 喜闻乐见
+听闻 Mirai 终于添加二维码登录的支持了，但是本文作者还没用过，所以还没有具体描述~
+:::
+
+如果你不想使用二维码，而想使用滑动验证码+短信验证的方式进行登录，请点击下方展开详细内容查看。
+
+::::details 滑动验证码+短信验证
 
 ### 滑动验证码
 
@@ -434,6 +444,8 @@ MCL 将成功登录并记住登录状态。
 
 至此，自动登录就配置成功了，如果有多个帐号需要登录，在 MCL
 启动之后再次执行 `/autologin` 命令即可。
+
+::::
 
 ## Mirai 出现问题（报错）怎么办？
 
