@@ -23,7 +23,7 @@
 
 ## 开发&构建
 
-> 本项目使用 **pnpm** 作为包管理器  
+> 本项目使用 **pnpm@8** 作为包管理器  
 > 如果你没有安装 **pnpm**，那你可以使用 `corepack enable` 命令来安装 **pnpm** 和 **yarn**  
 > 后续如果需要升级 **pnpm** 则可以使用命令 `corepack prepare pnpm@x.x.x --activate` 来完成
 
