@@ -177,7 +177,42 @@ cd mcl2
 
 ### 或者你也可以使用 `mcl-installer`
 
-未完待续...
+从 [Releases 页面](https://github.com/iTXTech/mcl-installer/releases) 挑个与你 CPU 架构和系统类型对应的 mcl-installer 
+
+## Windows
+点击对应版本的 mcl-installer 下载就行，然后运行，通常你如果不确定架构可以打开控制面板，转到系统和安全，单击系统，可能会有以下 3 种情况
+
+64 位操作系统，基于 x64 处理器（可以下载 amd64 或者下 x86）
+
+32 位操作系统，基于 x64 处理器（虽然是 64 位处理器，但是因为是 32 位操作系统，所以只能下 x86）
+
+32 位操作系统，基于 x86 处理器（x86）
+
+还有一个简单粗暴的版本，直接下 x86 版本，因为 x64 也能运行 x86程序
+
+第一项是 Would you like to install Java? 翻译过来是你想要安装 Java 吗，默认是安装，如果你还没有 Java ，那么可以安装一下
+
+第二项是安装 MCL ，按回车，因为默认是y
+
+## Linux
+
+Linux 只需确认架构就行
+
+如果你不知道计算机架构，请在终端输入 uname -m 命令，然后根据输出内容下载对应版本
+
+i386,i686 i386 架构 32 位处理器处理器
+这个架构没有对应的 mcl-installer 所以只能自行安装 MCL 或者编译一个
+
+X86_64 amd64 架构 64 位处理器
+
+arm,armel arm_garbage 貌似是 arm 架构处理器
+
+aarch64, armv8l	arm64 arm64 架构
+
+CentOS 下载带 -musl 后缀的文件
+
+下载后 sudo chmod 755 <mcl-installer （填文件名而不是填mcl-installer）>
+./<mcl-installer （填文件名）>
 
 ## 添加 **Mirai Api Http** 插件
 
@@ -274,7 +309,7 @@ adapterSettings:
 :::danger 警告！！！
 
 1. 如果某次登录时执行完所有验证之后仍然提示登录失败，请不要重复尝试，请等待一两天后再试。
-   否则可能会被 **BAN IP 和帐号**。
+   多次登陆失败可能会被 **BAN IP 和帐号**。
 2. 若使用滑动验证码+短信进行登录验证，那么请准备一台跟得上时代的 Android 手机，不要使用老旧的废手机/老人机/超冷门机型，
    也不要使用模拟器/WSA。在 Android 手机上登录这个 QQ 并且打开设备锁（登录设备验证）。
 
@@ -473,9 +508,23 @@ Login failed: Error(bot=Bot(xxxxxxxxx), code=235, title=温馨提示，message=�
 
 :::danger 警告！！！
 
-1. 如果这样做后仍然提示登录失败，请不要重复尝试，请等待一两天后再试。
-   否则可能会被 **BAN IP 和帐号**。
+1. 如果这样做后仍然提示登录失败，可以下载修复插件 [点这里](https://github.com/cssxsh/fix-protocol-version/releases/tag/v1.2.0)，该插件只能运行在 Mirai-2.14.0 并且只能修复登录 235 问题，如果还是不能解决问题可以到社区发帖求助，但是不要再次登录，否则可能会被 **BAN IP 和帐号**。
 2. 登录前请准备一台跟得上时代的 Android 手机，不要使用老旧的废手机/老人机/超冷门机型，
    也不要使用模拟器/WSA。在 Android 手机上登录这个 QQ 并且打开设备锁（登录设备验证）。
 
 :::
+
+### 2. 登录限制（45）
+仅针对 ANDROID_PHONE 和 ANDROID_PAD 协议，遇到此问题可以安装修复插件然后切换到 MACOS 协议
+
+### 3. 登录限制（6）
+如果是新注册账号，先在手机 QQ 登录后才能在 Mirai 正常使用，
+如果是旧账号，请将 Mirai 升级到 2.14.0-RC 版本以上
+
+### 4.限制密码登录(238)
+只针对 ANDROID_WATCH 和 MACOS ，安装修复插件即可继续使用
+
+### 5.网络环境不稳定(237)
+删除 bots/.../ 下全部文件，
+保持机器人账号手机端QQ登录，
+在手机端QQ 设置/账号安全/登陆设备管理 中将历史设备删除
