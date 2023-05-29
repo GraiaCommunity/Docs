@@ -1189,54 +1189,6 @@ with namespace("bar") as np1:
 
 :::
 
-
-### 使用模糊匹配
-
-模糊匹配是 Alconna 0.8.0 版本新增加的特性，通过在 Alconna 中设置其 CommandMeta 开启。
-
-模糊匹配会应用在任意需要进行名称判断的地方，如**命令名称**，**选项名称**和**参数名称**（如指定需要传入参数名称）。
-
-```python{3}
-from arclet.alconna import Alconna, CommandMeta
-
-alc = Alconna("test_fuzzy", meta=CommandMeta(fuzzy_match=True))
-alc.parse("test_fuzy")
-# output: test_fuzy is not matched. Do you mean "test_fuzzy"?
-```
-
-### 自定义语言文件
-
-Alconna 的 i18n 支持使用了 [`Tarina.lang`](https://github.com/ArcletProject/Tarina/blob/main/src/tarina/lang.py)
-
-其语言文件配置位于 [`arclet.alconna.i18n`](https://github.com/ArcletProject/Alconna/tree/dev/src/arclet/alconna/i18n) 下
-
-您可以通过 `tarina.lang.select` 切换语言配置，也可以通过 `tarina.lang.set` 对单一文本进行修改。
-
-```python{2, 5-8}
-from arclet.alconna import Alconna, CommandMeta, config, Option
-from tarina import lang
-
-
-alc = Alconna("!command", meta=CommandMeta(raise_exception=True)) + Option("--bar", "foo:str")
-lang.set(
-    "analyser", "param_unmatched",
-    "以下参数没有被正确解析哦~\n: {target}\n请主人检查一下命令是否正确输入了呢~\n不然给你一招雪菜猩红风暴~",
-)
-alc.parse("!command --baz abc")
-
-'''
-output:
-
-ParamsUnmatched: 以下参数没有被正确解析哦~
-: --baz
-请主人检查一下命令是否正确输入了呢~
-不然给你一招雪菜猩红风暴~
-'''
-```
-
-(~~[你毫无疑问是个雪菜推呢~](https://zh.moegirl.org.cn/LoveLive!%E7%B3%BB%E5%88%97#%E6%B5%81%E8%A1%8C%E7%9A%84%E6%A2%97)~~<Curtain><a href="https://zh.moegirl.org.cn/%E4%B8%8A%E5%8E%9F%E6%AD%A5%E6%A2%A6" target="_blank">大西亚步梦</a>：诶</Curtain>
-)
-
 ### 半自动补全
 
 半自动补全是 Alconna 1.2.0 中新增加的特性，为用户提供了推荐后续输入的功能。
@@ -1328,7 +1280,7 @@ class ShortcutArgs(TypedDict, Generic[TDC]):
 
   例如，若快捷指令为 `涩图`, 配置为 `{"command": "setu {%0}"}`, 则指令 `涩图 1` 相当于 `setu 1`
 - `{*}`: 只用于 `command`, 表示此处填入所有后随参数，并且可以通过 `{*X}` 的方式指定组合参数之间的分隔符。
-- `{X}`: 只用于 `args`， 表示此处填入可能的正则匹配的组：
+- `{X}`: 用于 `command` 与 `args`， 表示此处填入可能的正则匹配的组：
   - 若 `command` 中存在匹配组 `(xxx)`，则 `{X}` 表示第 X 个匹配组的内容
   - 若 `command` 中存储匹配组 `(?P<xxx>...)`, 则 `{X}` 表示名字为 X 的匹配结果
 
@@ -1336,6 +1288,52 @@ class ShortcutArgs(TypedDict, Generic[TDC]):
 
 除此之外, 通过内置选项 `--shortcut` 可以动态操作快捷指令。
 
+### 使用模糊匹配
+
+模糊匹配是 Alconna 0.8.0 版本新增加的特性，通过在 Alconna 中设置其 CommandMeta 开启。
+
+模糊匹配会应用在任意需要进行名称判断的地方，如**命令名称**，**选项名称**和**参数名称**（如指定需要传入参数名称）。
+
+```python{3}
+from arclet.alconna import Alconna, CommandMeta
+
+alc = Alconna("test_fuzzy", meta=CommandMeta(fuzzy_match=True))
+alc.parse("test_fuzy")
+# output: test_fuzy is not matched. Do you mean "test_fuzzy"?
+```
+
+### 自定义语言文件
+
+Alconna 的 i18n 支持使用了 [`Tarina.lang`](https://github.com/ArcletProject/Tarina/blob/main/src/tarina/lang.py)
+
+其语言文件配置位于 [`arclet.alconna.i18n`](https://github.com/ArcletProject/Alconna/tree/dev/src/arclet/alconna/i18n) 下
+
+您可以通过 `tarina.lang.select` 切换语言配置，也可以通过 `tarina.lang.set` 对单一文本进行修改。
+
+```python{2, 5-8}
+from arclet.alconna import Alconna, CommandMeta, config, Option
+from tarina import lang
+
+
+alc = Alconna("!command", meta=CommandMeta(raise_exception=True)) + Option("--bar", "foo:str")
+lang.set(
+    "analyser", "param_unmatched",
+    "以下参数没有被正确解析哦~\n: {target}\n请主人检查一下命令是否正确输入了呢~\n不然给你一招雪菜猩红风暴~",
+)
+alc.parse("!command --baz abc")
+
+'''
+output:
+
+ParamsUnmatched: 以下参数没有被正确解析哦~
+: --baz
+请主人检查一下命令是否正确输入了呢~
+不然给你一招雪菜猩红风暴~
+'''
+```
+
+(~~[你毫无疑问是个雪菜推呢~](https://zh.moegirl.org.cn/LoveLive!%E7%B3%BB%E5%88%97#%E6%B5%81%E8%A1%8C%E7%9A%84%E6%A2%97)~~<Curtain><a href="https://zh.moegirl.org.cn/%E4%B8%8A%E5%8E%9F%E6%AD%A5%E6%A2%A6" target="_blank">大西亚步梦</a>：诶</Curtain>
+)
 
 ## [总会有参数的](https://zh.moegirl.org.cn/%E6%9C%BA%E5%8A%A8%E6%88%98%E5%A3%AB%E9%AB%98%E8%BE%BE_%E9%97%AA%E5%85%89%E7%9A%84%E5%93%88%E8%90%A8%E7%BB%B4#%E6%96%B0%E4%BB%B2%E8%89%AF%E4%B8%89%E4%BA%BA%E7%BB%84/%E9%97%AA%E5%93%88%E5%AE%9A%E5%9E%8B%E6%96%87)
 
