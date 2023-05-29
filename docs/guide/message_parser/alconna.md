@@ -991,7 +991,7 @@ Subcommand("sub", Args, [Option("sub_opt"), Subcommand("sub_sub")])
   ```python
   Alconna("test", Option("qux", Args.a[int], requires=["foo", "bar", "baz"]))
   ```
-  
+
   ::: tip
   requires 也可以在 name 中传入  
   譬如：
@@ -999,16 +999,16 @@ Subcommand("sub", Args, [Option("sub_opt"), Subcommand("sub_sub")])
   ```python
   Option("foo bar baz qux")
   ```
-  
+
   :::
 
 - `default`: 默认值，在该组件未被解析时使用使用该值替换。
-  
+
   特别的，使用 `OptionResult` 或 `SubcomanndResult` 可以设置包括参数字典在内的默认值：
-  
+
   ```python
   from arclet.alconna import Option, OptionResult
-  
+
   opt1 = Option("--foo", default=False)
   opt2 = Option("--foo", default=OptionResult(value=False, args={"bar": 1}))
   ```
@@ -1020,10 +1020,10 @@ Subcommand("sub", Args, [Option("sub_opt"), Subcommand("sub_sub")])
 `Action` 分为三类：
 - `store`: 无 Args 时, 仅存储一个值, 默认为 Ellipsis; 有 Args 时, 后续的解析结果会覆盖之前的值
 - `append`: 无 Args 时, 将多个值存为列表, 默认为 Ellipsis; 有 Args 时, 每个解析结果会追加到列表中
-  
+
   当存在默认值并且不为列表时, 会自动将默认值变成列表, 以保证追加的正确性
 - `count`: 无 Args 时, 计数器加一; 有 Args 时, 表现与 STORE 相同
-  
+
   当存在默认值并且不为数字时, 会自动将默认值变成 1, 以保证计数器的正确性
 
 `Alconna` 提供了预制的几类 `action`：
@@ -1134,7 +1134,7 @@ print(command_manager.all_command_help())
 
 ### 配置
 
-Alconna 有两类配置, 分别是 `arclet.alconna.config` 和 `arclet.alconna.Namespace` 
+Alconna 有两类配置, 分别是 `arclet.alconna.config` 和 `arclet.alconna.Namespace`
 
 `config` 是一个单例，可以控制一些全局属性，如：
 
@@ -1325,7 +1325,7 @@ class ShortcutArgs(TypedDict, Generic[TDC]):
 快捷指令允许三类特殊的 placeholder:
 
 - `{%X}`: 只用于 `command`, 如 `setu {%0}`，表示此处填入快截指令后随的第 X 个参数。
-  
+
   例如，若快捷指令为 `涩图`, 配置为 `{"command": "setu {%0}"}`, 则指令 `涩图 1` 相当于 `setu 1`
 - `{*}`: 只用于 `command`, 表示此处填入所有后随参数，并且可以通过 `{*X}` 的方式指定组合参数之间的分隔符。
 - `{X}`: 只用于 `args`， 表示此处填入可能的正则匹配的组：
