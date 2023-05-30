@@ -33,7 +33,7 @@ const defaultConfig = {
   divClass: 'checkbox',
   idPrefix: 'cbx_',
   ulClass: 'task-list',
-  liClass: 'task-list-item',
+  liClass: 'task-list-item'
 }
 
 export const tasklistPlugin: PluginWithOptions = (md) => {
@@ -111,7 +111,7 @@ function makeCheckbox(
   checkbox.attrs = [
     ['type', 'checkbox'],
     ['class', 'task-list-item-checkbox'],
-    ['id', id],
+    ['id', id]
   ]
   const checked = /^\[[xX]\][ \u00A0]/.test(token.content) // if token.content starts with '[x] ' or '[X] '
   if (checked === true) {

@@ -20,13 +20,13 @@ export default defineComponent({
     up: String,
     title: {
       type: String,
-      default: '你知道的太多了',
+      default: '你知道的太多了'
     },
     type: {
       type: String,
-      default: '',
-    },
-  },
+      default: ''
+    }
+  }
 })
 </script>
 

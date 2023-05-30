@@ -34,8 +34,8 @@ import { defineComponent } from 'vue'
 export default defineComponent({
   name: 'ChatWindow',
   props: {
-    title: String,
-  },
+    title: String
+  }
 })
 </script>
 

@@ -139,12 +139,12 @@ export const CodeGroup: ComponentOptions = defineComponent({
                     },
                     class: {
                       'code-group__nav-tab': true,
-                      'code-group__nav-tab-active': isActive,
+                      'code-group__nav-tab-active': isActive
                     },
                     ariaPressed: isActive,
                     ariaExpanded: isActive,
                     onClick: () => (activeIndex.value = i),
-                    onKeydown: (e: KeyboardEvent) => keyboardHandler(e, i),
+                    onKeydown: (e: KeyboardEvent) => keyboardHandler(e, i)
                   },
                   vnode.props.title
                 )
@@ -152,8 +152,8 @@ export const CodeGroup: ComponentOptions = defineComponent({
             })
           )
         ),
-        items,
+        items
       ])
     }
-  },
+  }
 })

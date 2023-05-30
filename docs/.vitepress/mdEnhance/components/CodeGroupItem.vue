@@ -35,7 +35,7 @@
 import { defineComponent } from 'vue'
 
 export default defineComponent({
-  name: 'CodeGroupItem',
+  name: 'CodeGroupItem'
 })
 </script>
 
@@ -43,13 +43,13 @@ export default defineComponent({
 defineProps({
   title: {
     type: String,
-    required: true,
+    required: true
   },
   active: {
     type: Boolean,
     required: false,
-    default: false,
-  },
+    default: false
+  }
 })
 </script>
 

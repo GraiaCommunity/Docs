@@ -36,6 +36,6 @@
 import { defineComponent } from 'vue'
 
 export default defineComponent({
-  name: 'ChatToast',
+  name: 'ChatToast'
 })
 </script>

@@ -11,9 +11,9 @@ export default defineComponent({
   props: {
     title: {
       type: String,
-      default: '你知道的太多了',
-    },
-  },
+      default: '你知道的太多了'
+    }
+  }
 })
 </script>
 

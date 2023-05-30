@@ -56,7 +56,7 @@ export default defineComponent({
   props: {
     name: { type: String, required: true },
     avatar: String,
-    onright: Boolean,
-  },
+    onright: Boolean
+  }
 })
 </script>

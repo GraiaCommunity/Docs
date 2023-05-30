@@ -60,7 +60,7 @@ export default defineComponent({
     title: { type: String, required: true },
     contents: { type: Array, required: true },
     counts: { type: [Number, String], default: 0 },
-    onright: Boolean,
-  },
+    onright: Boolean
+  }
 })
 </script>

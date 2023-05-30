@@ -44,8 +44,8 @@ export default defineComponent({
     name: { type: String, required: true },
     time: {
       type: String,
-      default: '',
-    },
-  },
+      default: ''
+    }
+  }
 })
 </script>

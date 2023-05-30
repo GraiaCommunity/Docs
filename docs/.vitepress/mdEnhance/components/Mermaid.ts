@@ -87,7 +87,7 @@ const getThemeVariables = (isDarkMode: boolean): Record<string, unknown> => {
     fillType4: '#25a55b',
     fillType5: '#13c2c2',
     fillType6: '#096dd9',
-    fillType7: '#aa6fe9',
+    fillType7: '#aa6fe9'
   }
 }
 
@@ -97,7 +97,7 @@ export default defineComponent({
 
   props: {
     id: { type: String, required: true },
-    code: { type: String, required: true },
+    code: { type: String, required: true }
   },
 
   setup(props) {
@@ -145,7 +145,7 @@ export default defineComponent({
           pie: { useMaxWidth: false },
 
           // ...MERMAID_OPTIONS,
-          startOnLoad: false,
+          startOnLoad: false
         })
 
         // clear SVG Code
@@ -168,7 +168,7 @@ export default defineComponent({
 
       observer.observe(html, {
         attributeFilter: ['class', 'data-theme'],
-        attributes: true,
+        attributes: true
       })
 
       watch(isDarkmode, renderMermaid)
@@ -183,13 +183,9 @@ export default defineComponent({
         'div',
         {
           ref: mermaidElement,
-          class: ['md-enhance-mermaid', { loading: !svgCode.value }],
+          class: ['md-enhance-mermaid', { loading: !svgCode.value }]
         },
-        svgCode.value
-          ? // mermaid
-            h('div', { class: 'content', innerHTML: svgCode.value })
-          : // loading
-            h(LoadingIcon)
+        svgCode.value ? h('div', { class: 'content', innerHTML: svgCode.value }) : h(LoadingIcon)
       )
-  },
+  }
 })

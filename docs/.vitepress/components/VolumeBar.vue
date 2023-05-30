@@ -25,7 +25,7 @@ import { defineComponent } from 'vue'
 export default defineComponent({
   data() {
     return {
-      volume: 100,
+      volume: 100
     }
   },
   methods: {
@@ -36,8 +36,8 @@ export default defineComponent({
         i.volume = this.volume / 100
       }
       ;(this.$refs.volumeNum as HTMLElement).innerHTML = `${input.value}%`
-    },
-  },
+    }
+  }
 })
 </script>
 

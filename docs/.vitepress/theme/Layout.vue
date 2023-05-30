@@ -32,7 +32,7 @@ const randomMsg = [
   '因为社区都去真寻群看热闹了，所以文档咕了',
   '因为社区都想咕咕咕，所以文档咕了',
   'Literal[2122222222111221212111111111112]',
-  "ModuleNotFoundError: No module named 'graiax'",
+  "ModuleNotFoundError: No module named 'graiax'", // eslint-disable-line prettier/prettier
   '看看你的 type checker',
   '什么超级魔法',
   'async def f(): time.sleep(10)',
@@ -61,7 +61,7 @@ const randomMsg = [
   '这是两只仓鼠吗，尾巴好长',
   '事物发展的道路是曲折的。新事物的发展总要经历一个由小到大，由不完善到比较完善的过程。新事物不可避免地存在着弱点和不完善的地方，人们对新事物的认识也有一个过程。旧事物在开始时往往比较强大，总是顽强抵抗和极力扼杀新事物。新事物不可能一蹴而就，必然经历曲折的过程。多体谅一点 Block',
   '两个 K* 人在N* 群交换 G* 群号',
-  '优秀的框架都没有好的文档 —— 孤梦星影',
+  '优秀的框架都没有好的文档 —— 孤梦星影'
 ]
 const random = ref('')
 

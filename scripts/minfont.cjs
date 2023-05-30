@@ -28,7 +28,9 @@
  *
  */
 
-const fs = require('fs') // 不可转为 import
+// eslint-disable-next-line no-undef
+const fs = require('fs')
+// eslint-disable-next-line no-undef
 const Fontmin = require('fontmin') // 不可转为 import
 
 const originPath = 'docs/'
@@ -48,7 +50,9 @@ function readFile(file) {
   if (stat.isDirectory()) {
     const subdir = fs.readdirSync(`${originPath}${file}`)
     for (let i = 0; i < subdir.length; i++) {
-      if (ignoreDirs.includes(subdir[i])) continue
+      if (ignoreDirs.includes(subdir[i])) {
+        continue
+      }
       readFile(`${file}/${subdir[i]}`)
     }
   }
@@ -76,10 +80,14 @@ fs.readdir(originPath, (err, files) => {
     return console.error(err)
   }
   for (let i = 0; i < files.length; i++) {
-    if (ignoreDirs.includes(files[i])) continue
+    if (ignoreDirs.includes(files[i])) {
+      continue
+    }
     readFile(files[i])
   }
-  if (!fs.existsSync(outPath)) fs.mkdirSync(outPath)
+  if (!fs.existsSync(outPath)) {
+    fs.mkdirSync(outPath)
+  }
   for (const idx in fonts) {
     minFont(fonts[idx])
   }

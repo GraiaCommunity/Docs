@@ -10,23 +10,23 @@ export default defineConfig({
       disable: false,
       threshold: 10240,
       algorithm: 'gzip',
-      ext: '.gz',
+      ext: '.gz'
     }),
     viteCompression({
       verbose: true,
       disable: false,
       threshold: 10240,
       algorithm: 'brotliCompress',
-      ext: '.br',
-    }),
+      ext: '.br'
+    })
   ],
   server: {
     port: 3000,
-    host: '0.0.0.0',
+    host: '0.0.0.0'
   },
   build: {
     rollupOptions: {
-      plugins: [externalGlobals({ mermaid: 'mermaid' })],
-    },
-  },
+      plugins: [externalGlobals({ mermaid: 'mermaid' })]
+    }
+  }
 })

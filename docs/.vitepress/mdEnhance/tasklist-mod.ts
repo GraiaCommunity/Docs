@@ -120,7 +120,7 @@ const beginLabel = (id: string): Token => {
 
   label.attrs = [
     ['class', 'task-list-item-label'],
-    ['for', id],
+    ['for', id]
   ]
 
   return label
@@ -134,7 +134,7 @@ const generateCheckbox = (token: Token, id: string, disabled = true): Token => {
   checkbox.attrs = [
     ['type', 'checkbox'],
     ['class', 'task-list-item-checkbox'],
-    ['id', id],
+    ['id', id]
   ]
 
   // if token.content starts with '[x] ' or '[X] '
