@@ -331,9 +331,9 @@ async def test(app: Ariadne, group: Group):
 Alconna::我要涩图(args=Args('count': int), options=[Option('从', args=Args('tag': (str+))), Option('help', ), Option('shortcut', args=Args('delete', 'name': str, 'command': str = '_')), Option('comp', )])
 ```
 
-`command`传入的便是命令名称，`main_args` 是命令参数，`options` 则是命令选项。
+`command` 传入的便是命令名称，`main_args` 是命令参数，`options` 则是命令选项。
 
-`Args`是命令参数的载体，通过"键-值-默认"传入一系列参数，具体食用方法我们后面会讲到。
+`Args` 是命令参数的载体，通过“键-值-默认”传入一系列参数，具体食用方法我们后面会讲到。
 
 
 ::: tsukkomi 注
@@ -400,7 +400,7 @@ Alconna::我要涩图(args=Args('count': int, '从', 'tags': (str+)), options=[O
 
 #### Fire-Like：使用 `AlconnaFire(...)`
 
-**Fire-like** 允许你传入任意的参数(主要是函数、类、实例、模块)，`Alconna` 会尝试提取命令相关参数，
+**Fire-like** 允许你传入任意的参数，包括函数、类、实例和模块，`Alconna` 会尝试提取命令相关参数，
 并构建为 `Alconna`。
 
 仍以上面的命令为例，我们相当于构造了一个类 `Class:我要涩图`，其需要传入 `count` 参数来实例化,
@@ -1256,7 +1256,7 @@ assert res.matched
 3
 ```
 
-`shortcut` 的第一个参数为快捷指令名称，第二个参数为 `ShortcutArgs`, 作为快捷指令的配置
+`shortcut` 的第一个参数为快捷指令名称，第二个参数为 `ShortcutArgs`，作为快捷指令的配置
 
 ```python
 class ShortcutArgs(TypedDict, Generic[TDC]):
@@ -1270,7 +1270,7 @@ class ShortcutArgs(TypedDict, Generic[TDC]):
     """是否允许命令后随参数"""
 ```
 
-当 `fuzzy` 为 False 时, 传入 `"涩图1张 abc"` 之类的快捷指令将视为解析失败
+当 `fuzzy` 为 False 时，传入 `"涩图1张 abc"` 之类的快捷指令将视为解析失败
 
 ::: tip
 
