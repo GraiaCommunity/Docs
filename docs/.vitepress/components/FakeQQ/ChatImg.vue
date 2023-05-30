@@ -38,8 +38,8 @@ export default defineComponent({
     avatar: String,
     src: { type: String, required: true },
     onright: Boolean,
-    maxWidth: { type: String, default: '250px' },
-  },
+    maxWidth: { type: String, default: '250px' }
+  }
 })
 </script>
 

@@ -1,31 +1,11 @@
 {
-  "compilerOptions": {
-    "target": "ESNext",
-    "composite": true,
-    "useDefineForClassFields": true,
-    "module": "ESNext",
-    "moduleResolution": "Node",
-    "allowSyntheticDefaultImports": true,
-    "strict": true,
-    "jsx": "preserve",
-    "sourceMap": true,
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "esModuleInterop": true,
-    "lib": ["ESNext", "DOM"],
-    "skipLibCheck": true,
-    "noEmit": true,
-    "baseUrl": ".",
-    "types": ["vite/client"]
-  },
-  "include": [
-    "docs/*.ts",
-    "docs/*.tsx",
-    "docs/.vitepress/**/*.ts",
-    "docs/.vitepress/**/*.tsx",
-    "docs/.vitepress/**/*.vue",
-    "docs/.vitepress/vite.config.ts",
-    "typings/shims.d.ts"
-  ],
-  "exclude": ["node_modules"]
+  "files": [],
+  "references": [
+    {
+      "path": "./tsconfig.node.json"
+    },
+    {
+      "path": "./tsconfig.app.json"
+    }
+  ]
 }

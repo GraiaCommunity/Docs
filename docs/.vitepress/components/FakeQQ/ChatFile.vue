@@ -70,13 +70,13 @@ export default defineComponent({
     filesize: { type: String, required: true },
     fileicon: { type: String, required: true },
     href: { type: String, default: '' },
-    onright: Boolean,
+    onright: Boolean
   },
   mounted() {
     if (this.href) {
       const file = this.$refs.file as HTMLAnchorElement
       file.href = this.href
     }
-  },
+  }
 })
 </script>

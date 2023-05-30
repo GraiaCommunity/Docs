@@ -54,9 +54,9 @@ export default defineComponent({
     href: String,
     archived: {
       type: Boolean,
-      default: false,
-    },
-  },
+      default: false
+    }
+  }
 })
 </script>
 

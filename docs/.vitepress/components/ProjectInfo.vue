@@ -110,8 +110,8 @@ export default defineComponent({
     version: String,
     author: String,
     repoUser: String,
-    repoName: String,
-  },
+    repoName: String
+  }
 })
 </script>
 

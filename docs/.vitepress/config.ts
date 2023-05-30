@@ -15,7 +15,7 @@ export default defineConfig({
 
   head: [
     ['link', { rel: 'shortcut icon', href: '/favicon.png' }],
-    ['script', { src: 'https://cdn.bootcdn.net/ajax/libs/mermaid/9.4.0/mermaid.min.js' }],
+    ['script', { src: 'https://cdn.bootcdn.net/ajax/libs/mermaid/9.4.3/mermaid.min.js' }]
   ],
 
   themeConfig: {
@@ -25,31 +25,31 @@ export default defineConfig({
     sidebar: {
       '/before/': before,
       '/guide/': guide,
-      '/appendix/': appendix,
+      '/appendix/': appendix
     },
     editLink: {
       pattern: 'https://github.com/GraiaCommunity/Docs/edit/remake/docs/:path',
-      text: '在 GitHub 上编辑此页',
+      text: '在 GitHub 上编辑此页'
     },
     socialLinks: [{ icon: 'github', link: 'https://github.com/GraiaCommunity/Docs' }],
     footer: {
       message: 'MIT License',
-      copyright: 'Copyright © 2022 Graia Community',
+      copyright: 'Copyright © 2022 Graia Community'
     },
     lastUpdatedText: '上次更新',
     algolia: {
       appId: 'VA229YZAO1',
       apiKey: '91fa3eb8adfd68b9adda9a7495c45944',
-      indexName: 'graiax',
+      indexName: 'graiax'
     },
     outlineTitle: '本页大纲',
     docFooter: {
       prev: '上一页',
-      next: '下一页',
+      next: '下一页'
     },
     darkModeSwitchLabel: '黑暗模式',
     sidebarMenuLabel: '目录',
-    returnToTopLabel: '回到顶部 ▲',
+    returnToTopLabel: '回到顶部 ▲'
   },
 
   transformHead({ assets }) {
@@ -64,9 +64,9 @@ export default defineConfig({
             href: HarmonySansFile,
             as: 'font',
             type: 'font/woff2',
-            crossorigin: '',
-          },
-        ],
+            crossorigin: ''
+          }
+        ]
       ]
     }
   },
@@ -74,8 +74,8 @@ export default defineConfig({
   markdown: {
     theme: 'one-dark-pro',
     lineNumbers: true,
-    config: mdEnhance,
-  },
+    config: mdEnhance
+  }
 })
 
 function nav() {
@@ -83,6 +83,6 @@ function nav() {
     { text: '开始之前', link: '/before/', activeMatch: '/before/' },
     { text: '实战演练', link: '/guide/', activeMatch: '/guide/' },
     { text: '附录', link: '/appendix/credit', activeMatch: '/appendix/' },
-    { text: 'Graia 官方文档', link: 'https://graia.readthedocs.io/' },
+    { text: 'Graia 官方文档', link: 'https://graia.readthedocs.io/' }
   ]
 }

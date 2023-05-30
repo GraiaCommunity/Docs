@@ -74,13 +74,13 @@ export default defineComponent({
     name: { type: String, required: true },
     avatar: String,
     audio: { type: String, required: true },
-    onright: Boolean,
+    onright: Boolean
   },
   data() {
     return {
       playFlag: false,
       duration: 10,
-      formatedDuration: '',
+      formatedDuration: ''
     }
   },
   methods: {
@@ -132,7 +132,7 @@ export default defineComponent({
           })
         }
       }
-    },
-  },
+    }
+  }
 })
 </script>

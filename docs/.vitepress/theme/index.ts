@@ -59,7 +59,7 @@ const theme: Theme = {
     app.component('CodeGroup', CodeGroup)
     app.component('CodeGroupItem', CodeGroupItem)
     app.component('Mermaid', Mermaid)
-  },
+  }
 }
 
 export default theme

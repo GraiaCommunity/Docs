@@ -53,7 +53,7 @@ export const IconBase: FunctionalComponent<IconBaseProps> = (
       'class': ['icon', `${name}-icon`],
       'viewBox': '0 0 1024 1024',
       'fill': color,
-      'aria-label': `${name} icon`,
+      'aria-label': `${name} icon`
     },
     slots['default']?.()
   )

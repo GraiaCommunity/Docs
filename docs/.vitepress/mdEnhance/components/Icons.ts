@@ -46,7 +46,7 @@ export const LoadingIcon: FunctionalComponent = () =>
           r: 0,
           fill: 'none',
           stroke: 'currentColor',
-          strokeWidth: '2',
+          strokeWidth: '2'
         },
         [
           h('animate', {
@@ -57,7 +57,7 @@ export const LoadingIcon: FunctionalComponent = () =>
             keyTimes: '0;1',
             keySplines: '0 0.2 0.8 1',
             calcMode: 'spline',
-            begin: item,
+            begin: item
           }),
           h('animate', {
             attributeName: 'opacity',
@@ -67,8 +67,8 @@ export const LoadingIcon: FunctionalComponent = () =>
             keyTimes: '0;1',
             keySplines: '0.2 0 0.8 1',
             calcMode: 'spline',
-            begin: item,
-          }),
+            begin: item
+          })
         ]
       )
     )

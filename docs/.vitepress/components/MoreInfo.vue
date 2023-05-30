@@ -26,9 +26,9 @@ export default defineComponent({
     link: Boolean,
     width: {
       type: String,
-      default: '200px',
-    },
-  },
+      default: '200px'
+    }
+  }
 })
 </script>
 
