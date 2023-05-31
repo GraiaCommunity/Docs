@@ -556,7 +556,7 @@ manager.add_service(AlconnaGraiaService("ariadne"))
 
 ### 与 Saya 配合使用
 
-`Alconna-Graia` 在 0.0.12 更新了 **Saya** 相关的部分, 包括 **AlconnaSchame** 与 **AlconnaBehaviour**，如下例：
+`Alconna-Graia` 在 0.0.12 更新了 **Saya** 相关的部分，包括 **AlconnaSchame** 与 **AlconnaBehaviour**，如下例：
 
 首先，在 `main.py` 中记得创建一个 **AlconnaBehaviour** 并在 Saya 中注册，此处使用 **creart** 完成相关操作：
 
@@ -681,7 +681,7 @@ async def _(target: At):
 
 - `output` (str): 可能的帮助信息
 - `command` (Alconna): 该帮助信息对应的命令
-- `sender`, `message`, `app`, ...: 从源消息事件中可获取的所有参数
+- ...: 从源消息事件中可获取的所有参数
 
 ### 特殊类型
 
@@ -1018,26 +1018,22 @@ Subcommand("sub", Args, [Option("sub_opt"), Subcommand("sub_sub")])
 `Option` 可以特别设置传入一类 `Action`，作为解析操作
 
 `Action` 分为三类：
-- `store`: 无 Args 时, 仅存储一个值, 默认为 Ellipsis; 有 Args 时, 后续的解析结果会覆盖之前的值
-- `append`: 无 Args 时, 将多个值存为列表, 默认为 Ellipsis; 有 Args 时, 每个解析结果会追加到列表中
+- `store`: 无 Args 时，仅存储一个值，默认为 Ellipsis；有 Args 时，后续的解析结果会覆盖之前的值
+- `append`: 无 Args 时，将多个值存为列表，默认为 Ellipsis；有 Args 时，每个解析结果会追加到列表中
 
   当存在默认值并且不为列表时, 会自动将默认值变成列表, 以保证追加的正确性
-- `count`: 无 Args 时, 计数器加一; 有 Args 时, 表现与 STORE 相同
+- `count`: 无 Args 时，计数器加一；有 Args 时，表现与 STORE 相同
 
-  当存在默认值并且不为数字时, 会自动将默认值变成 1, 以保证计数器的正确性
+  当存在默认值并且不为数字时，会自动将默认值变成 1，以保证计数器的正确性
 
 `Alconna` 提供了预制的几类 `action`：
-- `store`
-- `store_value`
-- `store_true`
-- `store_false`
-- `append`
-- `append_value`
+- `store`，`store_value`，`store_true`，`store_false`
+- `append`，`append_value`
 - `count`
 
 ### 紧凑命令
 
-`Alconna`, `Option` 与 `Subcommand` 可以设置 `compact=True` 使得解析命令时允许名称与后随参数之间没有分隔：
+`Alconna`，`Option` 与 `Subcommand` 可以设置 `compact=True` 使得解析命令时允许名称与后随参数之间没有分隔：
 
 ```python
 from arclet.alconna import Alconna, Option, CommandMeta, Args
@@ -1095,7 +1091,7 @@ count: 这是一个注释
 '''
 ```
 
-除此之外， 你可以通过 `command_manager` 获取当前程序下的所有命令：
+除此之外，你可以通过 `command_manager` 获取当前程序下的所有命令：
 
 ```python
 from arclet.alconna import command_manager
@@ -1113,7 +1109,7 @@ print(command_manager.all_command_help())
 ```
 
 :::tip NOTE
-Alconna 可以设置 `meta.hide`  参数以不被 command_manager 打印出来。
+Alconna 可以设置 `meta.hide` 参数以不被 command_manager 打印出来。
 
 ```python
 from arclet.alconna import Alconna, CommandMeta, command_manager
@@ -1134,7 +1130,7 @@ print(command_manager.all_command_help())
 
 ### 配置
 
-Alconna 有两类配置, 分别是 `arclet.alconna.config` 和 `arclet.alconna.Namespace`
+Alconna 有两类配置，分别是 `arclet.alconna.config` 和 `arclet.alconna.Namespace`
 
 `config` 是一个单例，可以控制一些全局属性，如：
 
@@ -1276,17 +1272,17 @@ class ShortcutArgs(TypedDict, Generic[TDC]):
 
 快捷指令允许三类特殊的 placeholder:
 
-- `{%X}`: 只用于 `command`, 如 `setu {%0}`，表示此处填入快截指令后随的第 X 个参数。
+- `{%X}`: 只用于 `command`，如 `setu {%0}`，表示此处填入快截指令后随的第 X 个参数。
 
-  例如，若快捷指令为 `涩图`, 配置为 `{"command": "setu {%0}"}`, 则指令 `涩图 1` 相当于 `setu 1`
-- `{*}`: 只用于 `command`, 表示此处填入所有后随参数，并且可以通过 `{*X}` 的方式指定组合参数之间的分隔符。
+  例如，若快捷指令为 `涩图`，配置为 `{"command": "setu {%0}"}`，则指令 `涩图 1` 相当于 `setu 1`
+- `{*}`: 只用于 `command`，表示此处填入所有后随参数，并且可以通过 `{*X}` 的方式指定组合参数之间的分隔符。
 - `{X}`: 用于 `command` 与 `args`， 表示此处填入可能的正则匹配的组：
   - 若 `command` 中存在匹配组 `(xxx)`，则 `{X}` 表示第 X 个匹配组的内容
-  - 若 `command` 中存储匹配组 `(?P<xxx>...)`, 则 `{X}` 表示名字为 X 的匹配结果
+  - 若 `command` 中存储匹配组 `(?P<xxx>...)`，则 `{X}` 表示名字为 X 的匹配结果
 
 :::
 
-除此之外, 通过内置选项 `--shortcut` 可以动态操作快捷指令。
+除此之外，通过内置选项 `--shortcut` 可以动态操作快捷指令。
 
 ### 使用模糊匹配
 
@@ -1377,7 +1373,7 @@ var 可以是以下几类：
 - `Dict[type1，type2]`、`List[type]`、`Set[type]`
 - 一般的类型，其会尝试比较传入参数的类型是否与其相关
 - **AnyOne**、**AllParam**，作为泛匹配的标识符
-- 预制好的字典, 表示传入值依据该字典的键决定匹配结果
+- 预制好的字典，表示传入值依据该字典的键决定匹配结果
 - `Annotated[type, Callable[..., bool], ...]`，表示为某一类型添加校验器
 - `Callable[[P], T]`，表示会将传入的参数 P 经过该调用对象并将返回值 T 作为匹配结果
 - ...
@@ -1396,34 +1392,6 @@ var 可以是以下几类：
 当 **MultiVar** 与 **KeyWordVar** 一起使用时， 该参数表示为需要接收多个 `key=arg` 形式的数据， 类似 `**kwargs`
 
 :::
-
-:::tip NOTE
-若想增加类型检查,我们可以通过 `nepattern.set_converter` 传入自己的 BasePattern：
-
-```python
-from nepattern import set_converter
-
->>> set_converter(
-...     BasePattern(
-...         "app",
-...         PatternModel.REGEX_CONVERT,
-...         Ariadne,
-...         lambda x: app,
-...         'app',
-...     )
-... )
-```
-
-或通过 `arclet.alconna.tools.pattern import ObjectPattern` 传入一个类型来向 pattern_map 中注册检查类型：
-
-```python
-from arclet.alconna.tools.pattern import ObjectPattern
-
-ObjectPattern(Image, limit=("url",))
-```
-
-:::
-
 
 #### Field
 
@@ -1502,14 +1470,14 @@ Args[Arg(k1, v1), Arg(k2, v2), ...]
 `Arparma` 同时提供了便捷的查询方法 `query()`，会根据传入的 `path` 查找参数并返回
 
 `path` 支持如下：
-- `main_args`, `options`, ...: 返回对应的属性
+- `main_args`，`options`，...: 返回对应的属性
 - `args`: 返回 all_matched_args
-- `main_args.xxx`, `options.xxx`, ...: 返回字典中 `xxx`键对应的值
+- `main_args.xxx`，`options.xxx`，...: 返回字典中 `xxx`键对应的值
 - `args.xxx`: 返回 all_matched_args 中 `xxx`键对应的值
-- `options.foo`, `foo`: 返回选项 `foo` 的解析结果 (OptionResult)
-- `options.foo.value`, `foo.value`: 返回选项 `foo` 的解析值
-- `options.foo.args`, `foo.args`: 返回选项 `foo` 的解析参数字典
-- `options.foo.args.bar`, `foo.bar`: 返回选项 `foo` 的参数字典中 `bar` 键对应的值
+- `options.foo`，`foo`: 返回选项 `foo` 的解析结果 (OptionResult)
+- `options.foo.value`，`foo.value`: 返回选项 `foo` 的解析值
+- `options.foo.args`，`foo.args`: 返回选项 `foo` 的解析参数字典
+- `options.foo.args.bar`，`foo.bar`: 返回选项 `foo` 的参数字典中 `bar` 键对应的值
 ...
 
 同样, `Arparma["foo.bar"]` 的表现与 `query()` 一致
