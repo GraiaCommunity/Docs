@@ -1708,5 +1708,5 @@ alc.parse("cut_img --height=640")
 <Loading></Loading>
 
 ::: interlink
-<https://arcletproject.github.io/docs/alconna/tutorial>
+<https://arclet.top/docs/tutorial/alconna>
 :::
