@@ -24,7 +24,7 @@
 - [iTXTech](https://github.com/iTXTech): 带来了 `mirai-console-loader` 和 `mcl-installer` 这两个方便部署 `Mirai` 的工具
 - [MamoeTechnologies](https://github.com/mamoe): 带来了 `Mirai` 这样一个高效率 QQ 机器人支持库
 - [project-mirai](https://github.com/project-mirai): 带来了 `Mirai API http` 这样一个 `Mirai` 插件
-- [Vuepress Hope](https://github.com/vuepress-theme-hope): 其 `vuepress-plugin-md-enhance` 插件丰富了社区文档的展示形式
+- [Vitepress](https://github.com/vuejs/vitepress): 其 [Markdown扩展](https://vitepress.dev/guide/markdown) 丰富了社区文档的展示形式
 - [萌娘百科](https://zh.moegirl.org.cn/Mainpage): 提供了如<Curtain>黑幕</Curtain>还有<RubyCurtain up="RubyH">这种</RubyCurtain>的 css，以及文档各种梗（~~主要是生草用的~~）<Curtain>和各种涩图 tag</Curtain>的解释
 - 正在看这篇文档的**你**: 使这篇文档的存在拥有了意义
 
