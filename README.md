@@ -2,9 +2,15 @@
 
 ## TODO
 
-- [ ] 补充 GraiaX 相关介绍
-- [ ] Alc 挪到 GraiaX 相关介绍
+咕咕咕咕
+
+- [ ] **Avilla!!!**
 - [ ] 重构文章顺序
+- [ ] 基础教程
+  - [ ] PyCharm / VS Code 安装与配置（`docs/before/configure_workspace/install_ide/`）
+  - [ ] Mirai 登录（已经过时啦！！！要不还是等 Avilla 吧~）
+- [ ] 补充 GraiaX 相关介绍
+- [ ] Alc 挪到 GraiaX 相关介绍（大概？）
 - [ ] 详见腾讯文档……
 
 ## 许可协议

@@ -32,7 +32,7 @@ const randomMsg = [
   '因为社区都去真寻群看热闹了，所以文档咕了',
   '因为社区都想咕咕咕，所以文档咕了',
   'Literal[2122222222111221212111111111112]',
-  "ModuleNotFoundError: No module named 'graiax'", // eslint-disable-line prettier/prettier
+  'ModuleNotFoundError: No module named \'graiax\'', // prettier-ignore
   '看看你的 type checker',
   '什么超级魔法',
   'async def f(): time.sleep(10)',

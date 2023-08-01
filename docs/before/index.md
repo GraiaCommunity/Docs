@@ -8,7 +8,11 @@
 那就点击 [这里](../guide/index.md) 或者点击右上角的 实战演练  
 开始我们的学习吧 Kira~⭐
 
-本文档的所有例子都可以在 :point_right: [这里](https://github.com/GraiaCommunity/EroEroBot) 找到。
+本文档的部分例子都可以在 :point_right: [这里](https://github.com/GraiaCommunity/EroEroBot) 找到。
+
+:::tsukkomi 樂
+这个仓库常年不更新，仅供参考。
+:::
 
 假设文档有一些专有名词不了解，也可以看看[这里](./terms)。
 
