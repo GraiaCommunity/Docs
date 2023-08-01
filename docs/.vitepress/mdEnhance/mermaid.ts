@@ -30,59 +30,98 @@
  *
  */
 
-import hashSum from 'hash-sum'
 import type { PluginSimple } from 'markdown-it'
-import MarkdownIt from 'markdown-it'
-import { RenderRule } from 'markdown-it/lib/renderer'
+import type Renderer from 'markdown-it/lib/renderer.js'
+import { zlibSync, strToU8, strFromU8 } from 'fflate'
 
-export const mermaidPlugin: PluginSimple = (md: MarkdownIt) => {
-  const fence = md.renderer.rules.fence
+function utoa(data: string): string {
+  const buffer = strToU8(data)
+  const zipped = zlibSync(buffer, { level: 9 })
+  const binary = strFromU8(zipped, true)
+  return btoa(binary)
+}
+
+const mermaidRenderer: Renderer.RenderRule = (tokens, index) =>
+  `<Mermaid id="mermaid-${index}" code="${utoa(tokens[index].content)}"></Mermaid>`
+
+interface MermaidOptions {
+  content: string
+  diagram?: string
+  title?: string
+}
+
+export const getMermaidContent = ({
+  diagram = 'mermaid',
+  content,
+  title = ''
+}: MermaidOptions): string => `\
+${
+  title
+    ? `\
+---
+title: ${title}
+---
+
+`
+    : ''
+}\
+${
+  diagram === 'mermaid'
+    ? ''
+    : `\
+${diagram}
+`
+}\
+${
+  diagram === 'mermaid'
+    ? content
+    : content
+        .split('\n')
+        .map((line) => (line ? `  ${line}` : ''))
+        .join('\n')
+}\
+`
+
+const getMermaid = (options: MermaidOptions, index: number): string =>
+  `<Mermaid id="mermaid-${index}" code="${utoa(getMermaidContent(options))}"></Mermaid>`
+
+const DIAGRAM_MAP: Record<string, string> = {
+  'class': 'classDiagram',
+  'c4c': 'C4Context',
+  'er': 'erDiagram',
+  'gantt': 'gantt',
+  'git-graph': 'gitGraph',
+  'journey': 'journey',
+  'mindmap': 'mindmap',
+  'pie': 'pie',
+  'sequence': 'sequenceDiagram',
+  'state': 'stateDiagram-v2',
+  'timeline': 'timeline'
+}
+
+export const mermaidPlugin: PluginSimple = (md) => {
+  // Handle ```mermaid blocks
+  const { fence } = md.renderer.rules
+
   md.renderer.rules.fence = (...args): string => {
     const [tokens, index] = args
     const { content, info } = tokens[index]
 
-    switch (info.trim()) {
-      case 'mermaid':
-        return mermaidRender(...args)
-      case 'sequence':
-        return mermaidHackRender('sequenceDiagram', content, index)
-      case 'class':
-        return mermaidHackRender('classDiagram', content, index)
-      case 'state':
-        return mermaidHackRender('stateDiagram-v2', content, index)
-      case 'er':
-        return mermaidHackRender('erDiagram', content, index)
-      case 'journey':
-        return mermaidHackRender('journey', content, index)
-      case 'gantt':
-        return mermaidHackRender('gantt', content, index)
-      case 'pie':
-        return mermaidHackRender('pie', content, index)
-      case 'git-graph':
-        return mermaidHackRender('gitGraph', content, index)
-      case 'c4c':
-        return mermaidHackRender('C4Context', content, index)
+    const fenceInfo = info.trim()
+
+    if (fenceInfo === 'mermaid') {
+      return getMermaid({ content }, index)
     }
-    return fence!(...args) // eslint-disable-line @typescript-eslint/no-non-null-assertion
+
+    const [name, ...rest] = fenceInfo.split(' ')
+
+    if (DIAGRAM_MAP[name]) {
+      return getMermaid({ diagram: DIAGRAM_MAP[name], title: rest.join(' '), content }, index)
+    }
+
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+    return fence!(...args)
   }
 
-  md.renderer.rules['mermaid'] = mermaidRender
+  md.renderer.rules['mermaid'] = mermaidRenderer
 }
-
-const hash: (val: unknown) => string = hashSum
-
-const mermaidRender: RenderRule = (tokens, index) => {
-  const token = tokens[index]
-  const key = `mermaid-${hash(index)}`
-  const { content } = token
-
-  return `<mermaid id="${key}" code="${encodeURIComponent(content)}"></mermaid>`
-}
-
-const mermaidHackRender = (name: string, content: string, index: number): string =>
-  `<mermaid id="mermaid-${hash(index)}" code="${encodeURIComponent(
-    `${name}\n${content
-      .split('\n')
-      .map((line) => (line ? `  ${line}` : ''))
-      .join('\n')}`
-  )}"></mermaid>`
