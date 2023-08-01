@@ -54,7 +54,7 @@ export default defineConfig({
 
   transformHead({ assets }) {
     // adjust the regex accordingly to match your font
-    const HarmonySansFile = assets.find(() => /HarmonyOSHans\.woff2/)
+    const HarmonySansFile = assets.find(() => /HarmonyOS_Sans_SC\.woff2/)
     if (HarmonySansFile) {
       return [
         [

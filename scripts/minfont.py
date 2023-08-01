@@ -6,7 +6,7 @@ minfont.js 的 Python 版，速度比 minfont.js 快，支持可变字体，且�
 
 MIT License
 
-Copyright (c) 2021 GraiaCommunity
+Copyright (c) 2023 GraiaCommunity
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -42,7 +42,7 @@ ignore_dirs = ['dist', 'public', '.DS_Store']
 out_path = Path('docs', 'public', 'fonts')
 fonts_path = Path('fonts')
 fonts = [
-    'HarmonyOSHans.ttf',
+    'HarmonyOS_Sans_SC.ttf',
 ]
 
 content = ''
