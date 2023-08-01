@@ -91,8 +91,8 @@ Path() / "a" / "b"
 
 在 Windows 和 Linux 上，路径的分隔符其实是不一样的。
 
-- 在 Windows 上，分隔符是正斜杠 `/`
-- 在 Linux 上，分隔符是反斜杠 `\`
+- 在 Windows 上，分隔符是反斜杠 `\`，代码中使用时需要对其进行转义，即`some_path = "C:\\xxx\\xxx.txt"`
+- 在 Linux/macOS 上，分隔符是正斜杠 `/`，例如 `some_path = "/home/xxx/xxx.txt"`
 
 但是在 Path 中，你可以直接通过 Path 重定义 `/` 运算符 来做到路径的解析。  
 而让你通过 `str(Path())` 来获取路径字符串的时候，`Path` 将根据所在系统自动判断是否 `/` 还是 `\`
