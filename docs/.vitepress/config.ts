@@ -15,7 +15,7 @@ export default defineConfig({
 
   head: [
     ['link', { rel: 'shortcut icon', href: '/favicon.png' }],
-    ['script', { src: 'https://cdn.bootcdn.net/ajax/libs/mermaid/9.4.3/mermaid.min.js' }]
+    ['script', { src: 'https://cdn.bootcdn.net/ajax/libs/mermaid/10.3.0/mermaid.min.js' }]
   ],
 
   themeConfig: {
