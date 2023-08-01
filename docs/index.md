@@ -13,9 +13,6 @@ hero:
           text: 快速开始
           link: /before/
         - theme: alt
-          text: 还没写完的重构文档
-          link: https://dev-docs.graiax.cn/
-        - theme: brand
           text: Graia 官方文档
           link: https://graia.cn
 
@@ -39,7 +36,6 @@ footer: MIT Licensed | Copyright © 2022 Graia Community
 
 :::interlink 镜像地址列表
 默认（Netlify）: <https://graiax.cn>  
-Netlify: <https://graiax-doc.netlify.app>  
 Cloudflare: <https://docs.graiax.cn/>
 :::
 
