@@ -1,7 +1,7 @@
 name: Build Docs
 on:
   push:
-    branches: [remake]
+    branches: [vitepress]
 jobs:
   build_docs:
     runs-on: ubuntu-latest
@@ -20,7 +20,7 @@ jobs:
       - name: Setup pnpm
         uses: pnpm/action-setup@v2
         with:
-          version: 7
+          version: 8
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
@@ -97,5 +97,5 @@ jobs:
         with:
           args: deploy --dir=dist --prod
         env:
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_DEV_SITE_ID }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
