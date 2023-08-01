@@ -31,7 +31,7 @@
  */
 
 import MarkdownIt from 'markdown-it'
-import { RenderRule } from 'markdown-it/lib/renderer'
+import type { RenderRule } from 'markdown-it/lib/renderer'
 import container from 'markdown-it-container'
 
 export const containerPlugin = (md: MarkdownIt) => {
