@@ -1,6 +1,14 @@
 
 :::danger 本章节已过时！！！！！！！
 由于目前腾讯严打机器人登录，且QQ服务器与客户端正在互相配合切换架构中，按照本章节的步骤暂时仍无法登录，且目前各框架登录方法仍在迭代中，请自行查找相关资料。
+
+参考：
+
+- [关于签名服务](https://mirai.mamoe.net/topic/2373/%E5%85%B3%E4%BA%8E%E7%AD%BE%E5%90%8D%E6%9C%8D%E5%8A%A1)
+- [无法登录的临时处理方案](https://mirai.mamoe.net/topic/223/%E6%97%A0%E6%B3%95%E7%99%BB%E5%BD%95%E7%9A%84%E4%B8%B4%E6%97%B6%E5%A4%84%E7%90%86%E6%96%B9%E6%A1%88)
+- [fix-protocol-version](https://github.com/cssxsh/fix-protocol-version)
+- [unidbg-fetch-qsign](https://github.com/fuqiuluo/unidbg-fetch-qsign)
+- [qsign](https://github.com/MrXiaoM/qsign)
 :::
 
 # Mirai 的安装与配置
@@ -182,7 +190,44 @@ cd mcl2
 
 ### 或者你也可以使用 `mcl-installer`
 
-未完待续...
+从 [Releases 页面](https://github.com/iTXTech/mcl-installer/releases) 下载与你 CPU 架构和系统类型对应的 `mcl-installer` 版本。
+
+下载并运行，根据提示信息操作即可安装 `mcl`（如遇到看不懂的英语句子，请咨询百度翻译、谷歌翻译、有道翻译、DeePL、必应翻译）。
+
+#### Windows
+
+如果你的系统是【64位操作系统，基于x64的处理器】，则你需要下载 `amd64` 版本，
+如果你的系统是【32位操作系统，基于x64的处理器】或者【32位操作系统】，则你需要下载 `x86` 版本，
+如果你的系统不是前面 3 者之一，很遗憾 `mcl-installer` 目前不适合你。
+
+如果不确定你的CPU架构和系统类型可以按照以下步骤操作：
+
+##### Windows 10 或以上
+
+以 Windwos 11 为例：
+
+1. 打开系统设置
+2. 点击左侧的`系统`选项，在右侧主窗口滚动到最下方点击`系统信息`，查看`设备规格`下的`系统类型`
+
+##### Windwos 7
+
+右键`计算机`图标，选择`属性`，在新打开的窗口中查看系统类型
+
+#### Linux
+
+与 Windows 不同，Linux/macOS 只需确认系统类型就行，在终端输入并执行 `uname -m` 命令，然后根据输出内容进行判断。
+
+如果输出值包含 `i386`、`i686`、`i386`、`x86` 其中之一，那么很遗憾 `mcl-installer` 目前不适合你，
+如果输出值包含 `X86_64`、`x64`、`amd64`  其中之一则选择 `amd64` 版本，
+如果输出值包含 `arm`、`armel`、`arm_garbage`、`arm64`、`aarch64`、`armv8` 其中之一，则选择 `arm64` 版本。
+
+:::tip
+CentOS 系统请下载带 -musl 后缀的文件。
+
+CentOS 已失去或即将失去更新和支持，请尽量避免使用该系统或选择使用其他能得到维护支持的 RHEL 系 Linux。
+:::
+
+对于如何在 Linux 上允许一个可执行文件，是 Linux 用户必修课，此处不过多阐述。
 
 ## 添加 **Mirai Api Http** 插件
 
@@ -454,6 +499,14 @@ MCL 将成功登录并记住登录状态。
 
 ## Mirai 出现问题（报错）怎么办？
 
+:::danger 警告！！！
+
+1. 提示登录失败后，请不要重复进行多次尝试，请等待一两天后再试，否则可能会被 **BAN IP 和帐号**。
+2. 如需使用手机操作，请准备一台跟得上时代的 Android 手机，不要使用老旧的废手机/老人机/超冷门机型，
+   也不要使用模拟器/WSA。在 Android 手机上登录这个 QQ 并且打开设备锁（登录设备验证）。
+
+:::
+
 ### 1. 登录时提示版本过低（235）
 
 如果某次登录的时候提示如下信息：
@@ -462,10 +515,6 @@ MCL 将成功登录并记住登录状态。
 Login failed: Error(bot=Bot(xxxxxxxxx), code=235, title=温馨提示，message=当前QQ版本过低，请升级至最新版本后再登录。点击进入下载页面，errorInfo=)
 2023-01-20 05:39:20 E/console: net.mamoe.mirai.network.WrongPasswordException: Error(bot=Bot(xxxxxxxxx), code=235, title=温馨提示，message=当前QQ版本过低，请升级至最新版本后再登录。点击进入下载页面，errorInfo=) // [!code error]
 ```
-
-:::danger 警告！！！
-目前由于 TX 的风控策略，请不要立即重试，请等待几天后再按一下步骤重试。
-:::
 
 首先，你需要通过 `./mcl -u` 命令更新 Mirai Core 及 Mirai Console 到最新版。
 
@@ -476,11 +525,20 @@ Login failed: Error(bot=Bot(xxxxxxxxx), code=235, title=温馨提示，message=�
 重新启动 MCL，如果仍然不行，你需要删除 `mcl-2.1.2/bots/<xxxxxxxxx>`
 这个文件夹，`<xxxxxxxxx>` 为你的 Bot 的 QQ 号，删除之后重新登录即可。
 
-:::danger 警告！！！
+### 2. 登录限制（45）
 
-1. 如果这样做后仍然提示登录失败，请不要重复尝试，请等待一两天后再试。
-   否则可能会被 **BAN IP 和帐号**。
-2. 登录前请准备一台跟得上时代的 Android 手机，不要使用老旧的废手机/老人机/超冷门机型，
-   也不要使用模拟器/WSA。在 Android 手机上登录这个 QQ 并且打开设备锁（登录设备验证）。
+无解。
 
-:::
+### 3. 登录限制（6）
+
+如果是新注册账号，先在手机 QQ 登录后才能在 Mirai 正常使用，
+如果是旧账号，请将 Mirai 升级到 2.15.0 版本以上
+
+### 4.限制密码登录(238)
+
+只针对 `ANDROID_WATCH` 和 `MACOS` 协议，需更新协议。
+
+### 5.网络环境不稳定(237)
+
+删除 **mcl** 文件夹中 `bots/` 文件夹内的全部文件，保持机器人账号手机端 QQ
+登录，在手机端 QQ 的【设置/账号安全/登陆设备管理】中将所有历史设备删除。
