@@ -20,7 +20,6 @@ module.exports = {
     'prettier/prettier': 'warn',
     'linebreak-style': ['error', 'unix'],
     'quotes': ['error', 'single'],
-    'indent': ['error', 2, { SwitchCase: 1 }],
     'no-useless-return': 'error',
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
