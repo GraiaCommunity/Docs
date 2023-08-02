@@ -15,7 +15,7 @@
 那 NPM 可以用 **Yarn** 和 **Pnpm** 一样，我们 Python
 也要有我们自己的特色包管理器！
 
-常见的 Python 的包管理器有 **Poetry**、**PDM**、**Hatch**、pipenv 等。其中
+常见的 Python 的包管理器有 **PDM**、**Poetry**、**Hatch**、pipenv 等。其中
 **pipenv** 已经落后于时代了，因此在这里我们推荐首选 **PDM**，其次**Poetry**。
 
 :::warning 声明（~~叠甲~~）
@@ -68,7 +68,7 @@ Python 版本管理器，因此所有使用 Conda 的项目都可以使用任一
 除了安装 Python 包，Conda 还能安装一些二进制程序，例如 cuda 和 cudnn 等。
 
 因此，笔者仅建议使用多 Python 版本进行开发或科学计算领域用户使用，
-对于单版本多环境的等常规开发者来说，Poetry 或 Pdm 是你更好的选择。
+对于单版本多环境的等常规开发者来说，PDM 或 Poetry 是你更好的选择。
 
 :::tsukkomi 提示
 若无明确说明，本文档默认使用 PDM 或 Poetry 作为包管理器。你都用 Conda
@@ -79,9 +79,9 @@ Python 版本管理器，因此所有使用 Conda 的项目都可以使用任一
 使用错误的方法安装包或安装在错误的环境中而使得程序无法运行。
 :::
 
-## Poetry、PDM 和 virtualenv 的区别
+## PDM、Poetry 和 virtualenv 的区别
 
-通过 Poetry 和 PDM 可以调用 virtualenv
+通过 PDM 和 Poetry 可以调用 virtualenv
 **自动**创建和调用虚拟环境并在安装新包时**解决（或提示）依赖问题**。
 
 当然你也可以自己使用 virtualenv 或 venv 创建虚拟环境，然后使用虚拟环境内的 PIP

@@ -64,9 +64,14 @@ brew install python3
 
 ## PDM / Poetry 的安装
 
-前面提到了我们选择使用 Poetry 或 PDM 进行 Python 包管理，所以接下来要安装 PDM 和 Poetry。
+前面提到了我们选择使用 PDM 或 Poetry 进行 Python 包管理，所以接下来要安装 PDM 和 Poetry。
 
-为例避免污染系统的 `site-packages`，我们可以先安装 `pipx` 再使用 `pipx` 安装 Poetry 或 PDM。
+为例避免污染系统的 `site-packages`，我们可以先安装 `pipx` 再使用 `pipx` 安装 PDM 或 Poetry。
+
+:::info
+自 Ubuntu 23.04 起，系统的 Python 禁止使用 pip 安装任何库了，仅支持
+`apt install python3-xxx` 或 `apt install python-xxx`，可喜可贺可喜可贺~
+:::
 
 ```bash
 python3 -m pip install pipx
