@@ -42,6 +42,13 @@
 ## 2. 安装 `saucenao-api`
 
 ::::code-group
+:::code-group-item pdm
+
+```sh
+pdm add saucenao-api
+```
+
+:::
 :::code-group-item poetry
 
 ```sh

@@ -6,9 +6,9 @@
 
 1. **本文档将会默认你至少学过一点点 `Python`，假设你连 Python 都不会，建议至少学点 Python 基础再来看。**
 2. **本文档将假设你具有一定的英语阅读能力<curtain>通过 XX 翻译也行</curtain>，并能对工具软件的提示作出自己的决定。**
-3. **本文档将会使用 `poetry` 作为依赖和虚拟环境管理工具。**
+3. **本文档将会使用 `PDM` 作为依赖和虚拟环境管理工具。**
    :::warning
-   关于为什么用 `poetry`，你可以看这里 :point_right: [看这](/before/QA#_6-关于-poetry)
+   关于为什么用 `PDM`，你可以看这里 :point_right: [看这](/before/QA#_6-python-包管理器的选择)
    :::
 
 4. **本文档将使用 `Graia Ariadne` 0.7.15 及以上的版本**，Ariadne 在 0.7.0 进行了一次大的
@@ -51,168 +51,129 @@ cd EroEroBot
 如果你是 Windows 用户
 
 1. 创建一个空文件夹 `EroEroBot`（别跟我说你连这个都不会）
-2. 进入文件夹，同时按下 `Shift` 和 鼠标右键，选择 `在此处打开 Powershell 窗口`  
+2. 进入该文件夹，同时按下 `Shift` 和 鼠标右键，选择 `在此处打开 Powershell 窗口`  
    如果是 Windows 11 用户且安装有 Windows Terminal，可直接右键，选择 `在终端中打开`
 
 :::warning
 
-然后输入 `poetry init` 开始创建环境，你就会看到类似下面的提示：
+然后输入 `pdm init` 开始创建环境，你就会看到类似下面的提示：
+
+> 过长的行请手动往右滚动查看
 
 ```sh
-$ poetry init
-
-This command will guide you through creating your pyproject.toml config.
-
-Package name [EroEroBot]:
-Version [0.1.0]:
-Description []:
-Author [GraiaCommunity <example@graiax.cn>, n to skip]:  n  # 注意，这里要你自己填写 n
-License []:
-Compatible Python versions [^3.9]:
-
-Would you like to define your main dependencies interactively? (yes/no) [yes] n  # 注意，这里要你自己填写 n
-Would you like to define your development dependencies interactively? (yes/no) [yes] n  # 注意，这里要你自己填写 n
-Generated file
-
-[tool.poetry]
-name = "EroEroBot"
-version = "0.1.0"
-description = ""
-authors = ["GraiaCommunity <example@graiax.cn>"]
-
-[tool.poetry.dependencies]
-python = "^3.9"
-
-[tool.poetry.dev-dependencies]
-
-[build-system]
-requires = ["poetry-core>=1.0.0"]
-build-backend = "poetry.core.masonry.api"
-
-
-Do you confirm generation? (yes/no) [yes] y  # 注意，这里要你自己填写 y
+❯ pdm init
+Creating a pyproject.toml for PDM...
+Would you like to create a virtualenv with C:\Users\GraiaX\AppData\Local\Programs\Python\Python311\python.EXE? [y/n]
+(y): y # 输入 y 并按下回车以使用系统环境中的 Python 创建虚拟环境
+Virtualenv is created successfully at D:\Projects\PythonProjects\EroEroBot\.venv
+Is the project a library that is installable?
+If yes, we will need to ask a few more questions to include the project name and build backend [y/n] (n): y # 输入 y 并按下回车
+Project name (EroEroBot): # 项目名称。默认使用给当前文件夹的名字，所以直接按下回车即可
+Project version (0.1.0): # 项目版本。如无特殊需要保持默认直接按下回车即可
+Project description ( ): # 项目描述。如无特殊需要保持默认直接按下回车即可
+Which build backend to use?
+0. pdm-backend
+1. setuptools
+2. flit-core
+3. hatchling
+4. pdm-pep517
+Please select (0): # 选择构建器。如无特殊需要保持默认直接按下回车即可
+License(SPDX name) (MIT): AGPL-3.0-Only
+# 输入项目的开源协议，由于 Graia Project 的部分包以及 Mirai 都为 AGPL3 协议且 GPL 具有传染性，因此我们这里也要使用 AGPL3，输入 `AGPL-3.0-Only` 并按下回车
+Author name (GraiaCommunity): # 作者名称。请尽量不要使用中文
+Author email (admin@graiax.cn): # 作者邮箱
+Python requires('*' to allow any) (>=3.11): # 项目的 Python 版本。如无特殊需要保持默认直接按下回车即可
+Project is initialized successfully # 至此，一个基于 PDM 管理依赖的 Python 项目便初始化完毕
 ```
-
-:::tip
-国内连接 PyPI 非常慢，所以我们在定义依赖与开发依赖时填 no  
-后面设置了镜像源之后再自己添加依赖
-:::
 
 完成之后，你的项目文件夹内应该会出现一个 `pyproject.toml` 文件。
 
-为了防止后续添加依赖时等待太久，可以修改 `pyproject.toml` 来添加国内镜像加速站，打开该文件后在文件末尾添加如下内容即可：
+:::tip
+为了防止后续添加依赖时等待太久，可以修改 `pyproject.toml` 来添加国内镜像加速站，打开该文件后添加如下内容即可：
 
 ```toml
-[[tool.poetry.source]]
+[[tool.pdm.source]]
 # 这里以清华源举例，你也可以使用其他源
 name = "tuna-tsinghua"
 url = "https://pypi.tuna.tsinghua.edu.cn/simple"
-default = false
+verify_ssl = true
 ```
+
+或者你也可以使用命令 `pdm config pypi.url https://pypi.tuna.tsinghua.edu.cn/simple`
+为所有使用 PDM 管理的项目设置全局的镜像源。
+:::
 
 ## 启用虚拟环境并安装 `Graia Ariadne`
 
 在配置好环境之后，你需要给你的项目创建一个虚拟环境并安装 **Graia Ariadne**，在项目根目录执行如下命令：
 
 ```sh
-poetry env use python3.9  # 如果你设备里只有一个版本的 Python 或你想使用最新版本，则这一条命令可以不执行
-poetry add graia-ariadne[standard]
+pdm add graia-ariadne[standard]
 ```
 
-:::tip TIPS
+:::tip
 
-1. Ariadne 其实有好几种 Extra deps（可选依赖），如下所示：
+- `graia-ariadne[graia]`
+  - `graia-saya` —— 模块化（[第 3 章](/guide/saya.md)）
+  - `graia-scheduler` —— 定时任务（[第 12 章](/guide/scheduler.md)））
+- `graia-ariadne[standard]` 或 `graia-ariadne[full]`
+  - `richuru`
+  - `graia-saya` —— 模块化（[第 3 章](/guide/saya.md)）
+  - `graia-scheduler` —— 定时任务（[第 12 章](/guide/scheduler.md)）
+- `graia-ariadne[fastapi]`
+  - `uvicorn[standard]`
+  - `fastapi`
 
-   - graia-ariadne[graia]
-     - graia-saya —— 模块化（[第 3 章](/guide/saya.md)）
-     - graia-scheduler —— 定时任务（[第 12 章](/guide/scheduler.md)））
-   - graia-ariadne[standard]
-     - richuru
-     - graia-saya —— 模块化（[第 3 章](/guide/saya.md)）
-     - graia-scheduler —— 定时任务（[第 12 章](/guide/scheduler.md)）
-   - graia-ariadne[full]
-     - richuru
-     - graia-saya —— 模块化（[第 3 章](/guide/saya.md)）
-     - graia-scheduler —— 定时任务（[第 12 章](/guide/scheduler.md)）
-   - graia-ariadne[fastapi]
-     - uvicorn[standard]
-     - fastapi
-
-2. 假设你不怎么喜欢整虚拟环境也可以使用如下命令来取消虚拟环境的创建。
-
-   ```sh
-   poetry config virtualenvs.create false
-   ```
-
-3. 事实上，poetry 创建的虚拟环境并不会在文件夹里面，则是在这些地方
-
-   - macOS: `~/Library/Application Support/pypoetry/virtualenvs`
-   - Windows: `%AppData%\pypoetry\virtualenvs`
-   - Linux: `~/.cache/pypoetry/virtualenvs`
-
-   假设你不怎么喜欢的话，可以通过以下方式将虚拟环境创建在项目文件夹的 `.venv` 文件夹里
-
-   ```sh
-   poetry config virtualenvs.in-project true
-   ```
-
-4. 因为各种各样的原因，你的运行结果可能跟我有所不同，但是大致应该是差不多的。
 :::
 
 ::::details 命令输出
 
 ```sh
-$ poetry env use 3.9
+❯ pdm add graia-ariadne[standard]
+Adding packages to default dependencies: graia-ariadne
+🔒 Lock successful
+Changes are written to pyproject.toml.
+Synchronizing working set with lock file: 34 to add, 0 to update, 0 to remove
 
-Creating virtualenv EroEroBot-BexBd8Xq-py3.9 in /root/.cache/pypoetry/virtualenvs
-Using virtualenv: /root/.cache/pypoetry/virtualenvs/EroEroBot-BexBd8Xq-py3.9
+  ✔ Install async-timeout 4.0.2 successful
+  ✔ Install colorama 0.4.6 successful
+  ✔ Install aiosignal 1.3.1 successful
+  ✔ Install creart 0.2.2 successful
+  ✔ Install attrs 23.1.0 successful
+  ✔ Install croniter 1.4.1 successful
+  ✔ Install charset-normalizer 3.2.0 successful
+  ✔ Install creart-graia 0.1.5 successful
+  ✔ Install graia-broadcast 0.22.1 successful
+  ✔ Install idna 3.4 successful
+  ✔ Install graia-saya 0.0.17 successful
+  ✔ Install frozenlist 1.4.0 successful
+  ✔ Install importlib-metadata 6.8.0 successful
+  ✔ Install graia-amnesia 0.7.1 successful
+  ✔ Install graia-ariadne 0.11.5 successful
+  ✔ Install graia-scheduler 0.1.5 successful
+  ✔ Install mdurl 0.1.2 successful
+  ✔ Install loguru 0.6.0 successful
+  ✔ Install launart 0.6.3 successful
+  ✔ Install markdown-it-py 3.0.0 successful
+  ✔ Install aiohttp 3.8.5 successful
+  ✔ Install packaging 23.1 successful
+  ✔ Install python-dateutil 2.8.2 successful
+  ✔ Install richuru 0.1.1 successful
+  ✔ Install six 1.16.0 successful
+  ✔ Install typing-extensions 4.7.1 successful
+  ✔ Install rich 13.5.2 successful
+  ✔ Install win32-setctime 1.1.0 successful
+  ✔ Install statv 0.3.2 successful
+  ✔ Install zipp 3.16.2 successful
+  ✔ Install pygments 2.15.1 successful
+  ✔ Install multidict 6.0.4 successful
+  ✔ Install pydantic 1.10.12 successful
+  ✔ Install yarl 1.9.2 successful
+Installing the project as an editable package...
+  ✔ Install 123213 0.1.0 successful
+
+🎉 All complete!
+
 ```
-
-<br />
-
-```sh
-$ poetry add graia-ariadne[standard]
-
-Using version ^0.6.12 for graia-ariadne
-
-Updating dependencies
-Resolving dependencies...
-
-Writing lock file
-
-Package operations: 25 installs, 0 updates, 0 removals
-
-  • Installing six (x.x.x)
-  • Installing colorama (x.x.x)
-  • Installing frozenlist (x.x.x)
-  • Installing idna (x.x)
-  • Installing multidict (x.x.x)
-  • Installing python-dateutil (x.x.x)
-  • Installing win32-setctime (x.x.x)
-  • Installing aiosignal (x.x.x)
-  • Installing arclet-alconna (x.x.x.x)
-  • Installing async-timeout (x.x.x)
-  • Installing croniter (x.x.x)
-  • Installing attrs (x.x.x)
-  • Installing loguru (x.x.x)
-  • Installing graia-broadcast (x.x.x)
-  • Installing graia-ariadne (x.x.x)
-  • Installing typing-extensions (x.x.x)
-  • Installing yarl (x.x.x)
-  • Installing wcwidth (x.x.x)
-  • Installing charset-normalizer (x.x.x)
-  • Installing aiohttp (x.x.x)
-  • Installing arclet-alconna-graia (x.x.x)
-  • Installing graia-scheduler (x.x.x)
-  • Installing graia-saya (x.x.x)
-  • Installing pydantic (x.x.x)
-  • Installing prompt-toolkit (x.x.x)
-```
-
-:::tsukkomi
-事实上，假设你比较细心的话，你会发现：前一句的运行环境是 `Linux`，后一句的运行环境是 `Windows`。
-
-为什么呢？没为什么，只是我懒。
-:::
 
 ::::

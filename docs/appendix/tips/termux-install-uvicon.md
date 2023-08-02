@@ -4,7 +4,7 @@
 **Uvicorn** 在 Linux / Unix 环境下会安装 **uvloop**。
 
 但是直到 uvloop 0.16.0，由于 Termux 中存在一些兼容性的问题，
-所以不能通过 `pip install uvloop` 或 `poetry add uvloop` 之类的便捷方法来安装，否则会报错。（[相关问题](https://github.com/MagicStack/uvloop/issues/260)）
+所以不能通过 `pip install uvloop` 或 `pdm add uvloop` 之类的便捷方法来安装，否则会报错。（[相关问题](https://github.com/MagicStack/uvloop/issues/260)）
 
 那么问题来了，怎么解决这个问题呢？
 
@@ -13,14 +13,14 @@
 3. 编辑 `setup.py`，将 `self.use_system_libuv` 的值从 `False` 改成 `True`
 4. 在 uvloop 文件夹中使用 `pip install .` 安装（**不要忘记最后的点**）
 
-:::tsukkomi Poetry 怎么办？
-你可能想要知道怎么通过 poetry 来安装 uvloop？
+:::tsukkomi PDM 怎么办？
+你可能想要知道怎么通过 pdm 来安装 uvloop？
 
-你可以试试在 `poetry add xxx` 之前先按上面的步骤安装。  
-（请注意，第 2 步请把 uvloop 下载到项目目录内，第 4 步要把 `pip install .` 替换为 `poetry run pip install .`）
+你可以试试在 `pdm add xxx` 之前先按上面的步骤安装。  
+（请注意，第 2 步请把 uvloop 下载到项目目录内，第 4 步要把 `pip install .` 替换为 `pdm run pip install .`）
 
-待 uvloop 安装完后再使用 `poetry add uvloop` 来添加 uvloop，这样 poetry **可能**就不会尝试重复安装 uvloop 了。  
-（如果成功了，记得把 uvloop 的版本锁定，以避免 poetry 以后尝试自动升级时出错。）
+待 uvloop 安装完后再使用 `pdm add uvloop` 来添加 uvloop，这样 pdm **可能**就不会尝试重复安装 uvloop 了。  
+（如果成功了，记得把 uvloop 的版本锁定，以避免 pdm 以后尝试自动升级时出错。）
 
 如果这样做失败了，那你还是放弃吧~
 :::
