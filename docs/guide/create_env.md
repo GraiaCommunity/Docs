@@ -170,7 +170,7 @@ Synchronizing working set with lock file: 34 to add, 0 to update, 0 to remove
   ✔ Install pydantic 1.10.12 successful
   ✔ Install yarl 1.9.2 successful
 Installing the project as an editable package...
-  ✔ Install 123213 0.1.0 successful
+  ✔ Install EroEroBot 0.1.0 successful
 
 🎉 All complete!
 
