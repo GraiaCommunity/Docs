@@ -197,7 +197,7 @@ async def xxx(): ...
 async def xxx(): ...
 ```
 
-除了[**无头装饰器**](https://graia.readthedocs.io/broadcast/advance/headless-decorator/)以外，
+除了[**无头装饰器**](https://graia.cn/broadcast/advance/headless-decorator/)以外，
 `decorate` 亦支持对已有参数附加装饰器，你可以以此安全地通过类型检查。
 
 - 仅针对单个参数添加装饰器时：
@@ -240,7 +240,7 @@ async def xxx(): ...
 **设置指定事件的优先级**这个特性需要 **Graia Broadcast** 在 **0.18.0** 及以上版本的支持。
 :::
 
-关于事件监听器的**优先级**概念，请参考[官方文档](https://graia.readthedocs.io/broadcast/advance/event-propagation-and-priority/)。
+关于事件监听器的**优先级**概念，请参考[官方文档](https://graia.cn/broadcast/advance/event-propagation-and-priority/)。
 
 ### `schedule`
 

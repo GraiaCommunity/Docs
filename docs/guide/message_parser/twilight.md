@@ -633,5 +633,5 @@ async def reply(..., arg: MessageChain = ResultValue()):  # 保证不会被正�
 </chat-window>
 
 :::interlink
-<https://graia.readthedocs.io/ariadne/feature/twilight/>
+<https://graia.cn/ariadne/feature/twilight/>
 :::

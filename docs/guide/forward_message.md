@@ -103,7 +103,7 @@ ForwardNode(
 :::
 
 :::interlink
-<https://graia.readthedocs.io/ariadne/feature/msg-chain/>
+<https://graia.cn/ariadne/feature/msg-chain/>
 
 **EroEroBot:**  
 本章完整示例可在 [EroEroBot/modules/forward_message.py](https://github.com/GraiaCommunity/EroEroBot/blob/master/modules/forward_message.py) 找到。

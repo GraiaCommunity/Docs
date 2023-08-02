@@ -84,7 +84,7 @@
    </chat-window>
 
 :::interlink
-<https://graia.readthedocs.io/ariadne/quickstart/>
+<https://graia.cn/ariadne/quickstart/>
 
 **EroEroBot:**  
 本章完整示例可在 [EroEroBot/main-base.py](https://github.com/GraiaCommunity/EroEroBot/blob/master/main-base.py) 找到。  

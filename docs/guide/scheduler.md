@@ -118,7 +118,7 @@ async def every_minute_speaking(app: Ariadne):
 </chat-window>
 
 :::interlink
-<https://graia.readthedocs.io/ariadne/extra/scheduler/>
+<https://graia.cn/ariadne/extra/scheduler/>
 
 **EroEroBot:**  
 本章完整示例可在 [EroEroBot/modules/scheduler.py](https://github.com/GraiaCommunity/EroEroBot/blob/master/modules/scheduler.py) 找到。

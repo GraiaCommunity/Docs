@@ -388,7 +388,7 @@ def create(
 ::::
 
 :::interlink
-<https://graia.readthedocs.io/ariadne/extra/broadcast/interrupt/>
+<https://graia.cn/ariadne/extra/broadcast/interrupt/>
 
 **EroEroBot:**  
 本章完整示例可在 [EroEroBot/modules/interrupt_control.py](https://github.com/GraiaCommunity/EroEroBot/blob/master/modules/interrupt_control.py) 找到。

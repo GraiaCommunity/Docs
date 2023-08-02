@@ -447,5 +447,5 @@ async def on_fuzzy_match(app: Ariadne, group: Group, chain: MessageChain, rate: 
 ```
 
 :::interlink
-<https://graia.readthedocs.io/ariadne/feature/base-parser/>
+<https://graia.cn/ariadne/feature/base-parser/>
 :::

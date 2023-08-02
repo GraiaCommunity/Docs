@@ -93,7 +93,7 @@ async def test(app: Ariadne): ...
 以下介绍是为了让你能够较为方便的理解异步的**大致**和**好处**，
 并没有探讨包括回调函数等一系列具体的东西。
 
-假设你真的很想进一步了解 asyncio，请阅读[Graia Ariadne 官方文档关于 asyncio 的介绍](https://graia.readthedocs.io/ariadne/appendix/asyncio-intro/)（进行一个鱼的摸）
+假设你真的很想进一步了解 asyncio，请阅读[Graia Ariadne 官方文档关于 asyncio 的介绍](https://graia.cn/ariadne/appendix/asyncio-intro/)（进行一个鱼的摸）
 :::
 
 首先，我们先来假设一个场景，比如说...

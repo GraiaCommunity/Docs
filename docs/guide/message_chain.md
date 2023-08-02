@@ -79,7 +79,7 @@ v4、v4p 等缩写词语的意思可以在[这里](/before/terms)找到。
 
 这边推荐你去看一下这篇官方教程，~~这个社区文档作者就是逊啦，什么都不教的！~~
 
-- [Ariadne 文档 消息链](https://graia.readthedocs.io/ariadne/feature/msg-chain/)
+- [Ariadne 文档 消息链](https://graia.cn/ariadne/feature/msg-chain/)
 
 这边提供一些简简单单的例子：
 
@@ -185,5 +185,5 @@ True
 :::
 
 :::interlink
-<https://graia.readthedocs.io/ariadne/feature/msg-chain/>  
+<https://graia.cn/ariadne/feature/msg-chain/>  
 :::
