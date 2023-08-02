@@ -4,8 +4,8 @@ layout: home
 title: 主页
 
 hero:
-    name: Graia 社区文档 重构版
-    text: GraiaX Docs(Remake Ver.)
+    name: Graia 社区文档
+    text: GraiaX Docs
     tagline: Documentation by community of Graia Project
 
     actions:

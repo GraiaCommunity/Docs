@@ -334,7 +334,6 @@ Alconna::我要涩图(args=Args('count': int), options=[Option('从', args=Args(
 
 `Args` 是命令参数的载体，通过“键-值-默认”传入一系列参数，具体食用方法我们后面会讲到。
 
-
 ::: tsukkomi 注
 Alconna 0.7.6 后，简易的命令构造可用如下方法：
 
@@ -509,7 +508,8 @@ manager.add_service(AlconnaGraiaService("ariadne"))
   <chat-msg name="群菜龙" avatar="https://q4.qlogo.cn/g?b=qq&nk=2544704967&s=640">好</chat-msg>
 </chat-window>
 
-`comp_session` 主要配置关于补全会话的相关参数
+`comp_session` 主要配置关于补全会话的相关参数：
+
 - `priority`: 补全使用的中断服务的优先级
 - `tab`: 补全使用的切换提升指令的名字，默认为 `.tab`
 - `enter`: 补全使用的输入内容指令的名字，默认为 `.enter`
@@ -1017,15 +1017,16 @@ Subcommand("sub", Args, [Option("sub_opt"), Subcommand("sub_sub")])
 `Option` 可以特别设置传入一类 `Action`，作为解析操作
 
 `Action` 分为三类：
-- `store`: 无 Args 时，仅存储一个值，默认为 Ellipsis；有 Args 时，后续的解析结果会覆盖之前的值
-- `append`: 无 Args 时，将多个值存为列表，默认为 Ellipsis；有 Args 时，每个解析结果会追加到列表中
 
+- `store`: 无 Args 时，仅存储一个值，默认为 Ellipsis；有 Args 时，后续的解析结果会覆盖之前的值
+- `append`: 无 Args 时，将多个值存为列表，默认为 Ellipsis；有 Args 时，每个解析结果会追加到列表中，
   当存在默认值并且不为列表时, 会自动将默认值变成列表, 以保证追加的正确性
 - `count`: 无 Args 时，计数器加一；有 Args 时，表现与 STORE 相同
 
   当存在默认值并且不为数字时，会自动将默认值变成 1，以保证计数器的正确性
 
 `Alconna` 提供了预制的几类 `action`：
+
 - `store`，`store_value`，`store_true`，`store_false`
 - `append`，`append_value`
 - `count`
@@ -1063,7 +1064,6 @@ assert alc.parse("test123 BARabc").matched
 ```
 
 :::
-
 
 ### 帮助信息
 
@@ -1170,7 +1170,6 @@ config.default_namespace = np  # 更换默认的命名空间
 with namespace(config.default_namespace.name) as np:
     np.prefixes = [...]
 ```
-
 
 :::tip NOTE
 内置选项的名称也可以通过 `Namespace` 进行配置：
@@ -1437,6 +1436,7 @@ Args[Arg(k1, v1), Arg(k2, v2), ...]
 ```
 
 **Arg** 初始化时可以传入：
+
 - name: 参数名
 - value: 参数类型
 - field: 参数域
@@ -1469,6 +1469,7 @@ Args[Arg(k1, v1), Arg(k2, v2), ...]
 `Arparma` 同时提供了便捷的查询方法 `query()`，会根据传入的 `path` 查找参数并返回
 
 `path` 支持如下：
+
 - `main_args`，`options`，...: 返回对应的属性
 - `args`: 返回 all_matched_args
 - `main_args.xxx`，`options.xxx`，...: 返回字典中 `xxx`键对应的值
@@ -1480,7 +1481,6 @@ Args[Arg(k1, v1), Arg(k2, v2), ...]
 ...
 
 同样, `Arparma["foo.bar"]` 的表现与 `query()` 一致
-
 
 ### Duplication
 

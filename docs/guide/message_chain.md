@@ -90,7 +90,7 @@ True/False
 # 有没有人 At 机器人
 >>> At(app.account) in message
 True/False
-# 消息里是不是只有文字（这里有个坑，详细请看第 9 章）
+# 消息里是不是只有文字（这里有个坑）
 >>> message.only(Plain)
 True/False
 # 获取消息链中所有的图片元素

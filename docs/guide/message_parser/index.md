@@ -3,7 +3,7 @@
 &#91;>_<&#93;: 真的好多东西啊，好难写，哭唧唧
 
 :::danger 警告
-在阅读本章之前，请先了解什么是**Dispatcher**，参阅[这里](/before/QA.html#_3-3-%E5%85%B3%E4%BA%8E-dispatcher)
+在阅读本章之前，请先了解什么是**Dispatcher**，参阅[这里](/before/QA.html#_3-什么是-broadcastcontrol)
 
 本章进度： <progress value="90" max="100"></progress> 90%
 
@@ -66,7 +66,7 @@ if message.startswith("涩图来"):
 
 目前支持 Ariadne 的消息链匹配器有以下：
 
-- [基础消息链处理器](./base_parser)
+- [基础消息链处理器](./base_parser.md)
 - [Twillght](./twilight.md)
 - [Commander](./commander.md)
 - [Alconna](./alconna.md)

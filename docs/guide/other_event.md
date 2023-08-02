@@ -19,7 +19,7 @@
 即使你不需要“戳一戳”这个功能，我们也**十分建议**你使用以上三种登陆协议。
 因为他们是现阶段支持功能最多的协议。
 
-关于如何设置协议，你可以看看[这里](/before/install_mirai.md#关于账号协议问题)
+由于腾讯经常抽风，不知道什么时候就登不上或者发不出消息，你可以看看[这里](/before/install_mirai.md#mirai-出现问题-报错-怎么办)
 ::::
 
 以下是一段示例代码：（注释为与群消息事件的对比）
@@ -105,7 +105,7 @@ async def getup(app: Ariadne, event: NudgeEvent):
 </chat-window>
 
 :::tip
-有关什么是 Broadcast，各种 Event 又是什么，请参阅[这里](/before/QA.html#_3-%E4%BB%80%E4%B9%88%E6%98%AF-broadcastcontrol)
+有关什么是 Broadcast，各种 Event 又是什么，请参阅[这里](/before/QA.html#_3-什么是-broadcastcontrol)
 :::
 
 :::warning

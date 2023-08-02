@@ -368,7 +368,7 @@ def create(
 
 <p style="font-size: 16px; line-height: 24px; margin-top: 20px"><b>ExecutionStop 与 PropagationCancelled 的故事</b></p>
 
-回想一下[第 11 章](./depend.md)的内容，你应该还记得 `ExecutionStop` 这个错误吧。
+回想一下[不是所有人都能看涩图](./depend.md)的内容，你应该还记得 `ExecutionStop` 这个错误吧。
 
 > 在 `broadcast` 接到 `ExecutionStop` 错误之后，将会中断这个 `Listener` 的运行。
 
