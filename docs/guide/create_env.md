@@ -114,12 +114,12 @@ pdm add graia-ariadne[standard]
 :::tip
 
 - `graia-ariadne[graia]`
-  - `graia-saya` —— 模块化（[第 3 章](/guide/saya.md)）
-  - `graia-scheduler` —— 定时任务（[第 12 章](/guide/scheduler.md)））
+  - `graia-saya` —— 模块化（[东西要分类好](/guide/saya.md)）
+  - `graia-scheduler` —— 定时任务（[哦嗨哟，欧尼酱](/guide/scheduler.md)））
 - `graia-ariadne[standard]` 或 `graia-ariadne[full]`
   - `richuru`
-  - `graia-saya` —— 模块化（[第 3 章](/guide/saya.md)）
-  - `graia-scheduler` —— 定时任务（[第 12 章](/guide/scheduler.md)）
+  - `graia-saya` —— 模块化（[东西要分类好](/guide/saya.md)）
+  - `graia-scheduler` —— 定时任务（[哦嗨哟，欧尼酱](/guide/scheduler.md)）
 - `graia-ariadne[fastapi]`
   - `uvicorn[standard]`
   - `fastapi`

@@ -138,7 +138,7 @@ Java Virtual Machine，即 **Java 虚拟机**。
 
 我们只需要在[这个地方](https://developer.ibm.com/languages/java/semeru-runtimes/downloads)找到适合自己系统的 Java 版本，然后安装即可。
 
-啥？不会？[那看这里](./QA#baidu)。
+啥？不会？[那看这里](./QA#当你遇到问题的时候)。
 
 :::warning
 在 Windows 上使用 `IBM Semeru OpenJDK`（即使用 OpenJ9）的情况下，

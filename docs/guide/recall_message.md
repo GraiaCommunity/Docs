@@ -24,7 +24,7 @@ app.recall_message()  # 实际使用时请不要忘记 await
 ### Source —— 消息的识别 ID
 
 在讲这些之前，先给大家扯点别的，
-假设（是的，又是假设）你还记得[第 5 章](./message_chain.md#_如何操作-messagechain)曾经介绍过的`MessageChain.only`方法吗？
+假设（是的，又是假设）你还记得[消息链是什么链](./message_chain.md#如何操作-messagechain)中曾经介绍过的`MessageChain.only`方法吗？
 
 如果你还记得，就会发现很诡异的事情：
 
@@ -139,7 +139,7 @@ async def test(app: Ariadne, message: MessageChain):
 
 ### 关于异步
 
-还记得我们在[第 7 章](./image_from_internet.html#为啥要用-aiohttp)讲过，我们为什么要使用异步吗？
+还记得我们在[来点网上的涩图](./image_from_internet.html#为啥要用-aiohttp)讲过，我们为什么要使用异步吗？
 
 ```python{14}
 import aiohttp

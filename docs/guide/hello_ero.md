@@ -51,7 +51,7 @@
 
    :::tip 注意
    **一定一定一定**要记得在运行之前启动并登录 `MCL (mirai-console-loader)`  
-   关于 `MCL` 的配置，请看 :point_right: [这里](/before/QA.md#_5-关于-mirai-环境)
+   关于 `MCL` 的配置，请看 :point_right: [这里](/before/QA.md#_4-关于-mirai)
    :::
 
    之后，你会看到显示如下信息输出：

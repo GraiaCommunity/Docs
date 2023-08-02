@@ -82,7 +82,7 @@ const guide = [
         text: '来点 xxx 涩图',
         link: '/guide/message_parser/',
         items: [
-          { text: '消息链匹配器', link: '/guide/message_parser/base_parser' },
+          { text: '基础消息链处理器', link: '/guide/message_parser/base_parser' },
           { text: 'Twilight', link: '/guide/message_parser/twilight' },
           { text: 'Commander', link: '/guide/message_parser/commander' },
           { text: 'Alconna', link: '/guide/message_parser/alconna' }
