@@ -163,7 +163,7 @@ Voice(data_bytes=audio_bytes)
 :::
 
 :::interlink
-<https://graia.readthedocs.io/ariadne/feature/msg-chain/>
+<https://graia.cn/ariadne/feature/msg-chain/>
 
 **EroEroBot:**  
 本章完整示例可在 [EroEroBot/modules/multimedia_message.py](https://github.com/GraiaCommunity/EroEroBot/blob/master/modules/multimedia_message.py) 找到。

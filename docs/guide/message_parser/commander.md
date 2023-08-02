@@ -71,7 +71,7 @@ async def setu(tag: str):
 ## 命令样式
 
 :::tip
-如果你想直接知道 `Commander` 所支持的抽象语法，请到[官方文档](https://graia.readthedocs.io/ariadne/feature/commander/#command)查看
+如果你想直接知道 `Commander` 所支持的抽象语法，请到[官方文档](https://graia.cn/ariadne/feature/commander/#command)查看
 
 什么，你不知道抽象语法是什么，没关系，[俺也一样](https://zh.moegirl.org.cn/%E4%BF%BA%E4%B9%9F%E4%B8%80%E6%A0%B7)
 :::
@@ -293,5 +293,5 @@ cmd.add_type_cast(cast_to_list)
 这样就添加了 `List[str]` 与 `List[MessageChain]` 两种类型支持。
 
 :::interlink
-<https://graia.readthedocs.io/ariadne/feature/commander/>
+<https://graia.cn/ariadne/feature/commander/>
 :::

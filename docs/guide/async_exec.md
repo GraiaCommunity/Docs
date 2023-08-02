@@ -167,5 +167,5 @@ GIL 许可的代码进入线程运行，当线程完成任务或者达到一定�
 <loading />
 
 :::interlink
-**相关链接:** <https://graia.readthedocs.io/ariadne/extra/async-exec/>
+**相关链接:** <https://graia.cn/ariadne/extra/async-exec/>
 :::

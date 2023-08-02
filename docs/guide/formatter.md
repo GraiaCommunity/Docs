@@ -84,5 +84,5 @@ Formatter(
 :::interlink
 **EroEroBot:** 本章完整示例可在 [EroEroBot/modules/formatter.py](https://github.com/GraiaCommunity/EroEroBot/blob/master/modules/formatter.py) 找到。
 
-**相关链接:** <https://graia.readthedocs.io/ariadne/extra/msg-chain-tool/>
+**相关链接:** <https://graia.cn/ariadne/extra/msg-chain-tool/>
 :::

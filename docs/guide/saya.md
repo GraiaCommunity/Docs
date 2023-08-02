@@ -425,7 +425,7 @@ async def reload(app: Ariadne, group: Group, message: MessageChain):
 
 :::interlink
 相关链接：  
-<https://graia.readthedocs.io/ariadne/extra/saya/start>
-<https://graia.readthedocs.io/saya>
-<https://graia.readthedocs.io/broadcast/advance/event-propagation-and-priority>
+<https://graia.cn/ariadne/extra/saya/start>
+<https://graia.cn/saya>
+<https://graia.cn/broadcast/advance/event-propagation-and-priority>
 :::
