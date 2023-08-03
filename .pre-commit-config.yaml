@@ -7,21 +7,21 @@ repos:
       - id: trailing-whitespace
         args: [--markdown-linebreak-ext=md]
       - id: end-of-file-fixer
-  - repo: https://github.com/pre-commit/mirrors-eslint
-    rev: 'v8.46.0' # Use the sha / tag you want to point at
-    hooks:
-      - id: eslint
-        files: \.(([jt]sx?)|vue)$ # *.js, *.jsx, *.ts, *.tsx and *.vue
-        types: [file]
-        additional_dependencies:
-          - '@rushstack/eslint-patch@1.3.2'
-          - '@vue/eslint-config-typescript@11.0.3'
-          - '@vue/eslint-config-prettier@8.0.0'
-          - eslint@8.46.0
-          - eslint-plugin-prettier@5.0.0
-          - eslint-plugin-vue@9.16.1
+  # - repo: https://github.com/pre-commit/mirrors-eslint
+  #   rev: 'v8.46.0' # Use the sha / tag you want to point at
+  #   hooks:
+  #     - id: eslint
+  #       files: \.(([jt]sx?)|vue)$ # *.js, *.jsx, *.ts, *.tsx and *.vue
+  #       types: [file]
+  #       additional_dependencies:
+  #         - '@rushstack/eslint-patch@1.3.2'
+  #         - '@vue/eslint-config-typescript@11.0.3'
+  #         - '@vue/eslint-config-prettier@8.0.0'
+  #         - eslint@8.46.0
+  #         - eslint-plugin-prettier@5.0.0
+  #         - eslint-plugin-vue@9.16.1
   - repo: https://github.com/pre-commit/mirrors-prettier
     rev: 'v3.0.0' # Use the sha / tag you want to point at
     hooks:
       - id: prettier
-        types_or: [scss, css, javascript, vue, html, json, yaml]
+        types_or: [scss, css, javascript, vue, html, json, yaml, markdown]

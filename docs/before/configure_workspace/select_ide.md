@@ -9,6 +9,7 @@
 :::
 
 :::warning 声明（~~叠甲×4~~）
+
 > Visual Studio Code is a lightweight but powerful source code editor which runs on your desktop and is available for Windows, macOS and Linux.
 
 我知道，就严格意义上来讲，vsc 并不能称之为 IDE，而是一个 code editor。
@@ -84,6 +85,7 @@ Sublime Text、Vim/NeovIm、Jupyter Notebook/Jupyter Lab、Spyder
 :::
 
 > 鉴于 Nodepad++ 作者及其官号曾多次发表有违开源精神的言论，我们强烈不推荐你使用该编辑器。
+
 ::::
 
 [^1]: vsc 严格意义上来讲并不能算是 IDE（详情请看本篇的第二个~~叠甲~~声明）

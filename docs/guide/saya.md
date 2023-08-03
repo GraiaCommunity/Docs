@@ -33,6 +33,7 @@ Nonebot 就是一个比较典型的插件导入式框架（通过导入不同的
 
 这部分看不懂也没关系
 
+<!-- prettier-ignore-start -->
 | 名称 | 作用 |
 | :--: | :-- |
 | Saya Controller<br />(控制器) | 负责控制各个模组，分配 Channel，管理模组启停，Behaviour 的注册和调用. |
@@ -40,6 +41,7 @@ Nonebot 就是一个比较典型的插件导入式框架（通过导入不同的
 | Cube<br />(内容容器) | 对模组提供的内容附加一个由 Schema 实例化来的 metadata，即 "元信息"，用于给 Behaviour 进行处理. |
 | Schema<br />(元信息模板) | 用于给模组提供的内容附加不同类型的元信息，给 Behaviour isinstance 处理用. |
 | Behaviour<br />(行为) | 根据 Cube 及其元信息，对底层接口(例如 Broadcast，Scheduler 等)进行操作. 包括 allocate 与 uninstall 两个操作. |
+<!-- prettier-ignore-end -->
 
 说白了，每一个模组，都会有一个 **Channel**，用来保存模组相关的信息。而每一个 **Channel**，都会有一个及以上的 **Cube**。
 往简单点来说呢，你可以暂时把 **Cube** 当作 BCC 的 **Listener**。
@@ -59,6 +61,7 @@ Nonebot 就是一个比较典型的插件导入式框架（通过导入不同的
 - `graia-ariadne[full]`
 - `graia-ariadne[graia]`
 - `graia-ariadne[standard]`
+
 :::
 
 ::::code-group

@@ -4,25 +4,25 @@ layout: home
 title: 主页
 
 hero:
-    name: Graia 社区文档
-    text: GraiaX Docs
-    tagline: Documentation by community of Graia Project
+  name: Graia 社区文档
+  text: GraiaX Docs
+  tagline: Documentation by community of Graia Project
 
-    actions:
-        - theme: brand
-          text: 快速开始
-          link: /before/
-        - theme: alt
-          text: Graia 官方文档
-          link: https://graia.cn
+  actions:
+    - theme: brand
+      text: 快速开始
+      link: /before/
+    - theme: alt
+      text: Graia 官方文档
+      link: https://graia.cn
 
 features:
-    - title: 简洁而强大
-      details: 化繁为简，Graia Framework 通过将复杂的底层简单化，只需几行代码，便可创造无限可能。
-    - title: 框架式开发
-      details: Graia Framework 借鉴了多种机器人框架的设计，并在其基础上创造出更多独有设计，帮助开发者更快更好地创作。
-    - title: 富有表现性
-      details: 借助 Graia Framework 的各种特性，你不必懊恼于网络通信，只需要有无限的想法就能实现你想要的一切。
+  - title: 简洁而强大
+    details: 化繁为简，Graia Framework 通过将复杂的底层简单化，只需几行代码，便可创造无限可能。
+  - title: 框架式开发
+    details: Graia Framework 借鉴了多种机器人框架的设计，并在其基础上创造出更多独有设计，帮助开发者更快更好地创作。
+  - title: 富有表现性
+    details: 借助 Graia Framework 的各种特性，你不必懊恼于网络通信，只需要有无限的想法就能实现你想要的一切。
 
 footer: MIT Licensed | Copyright © 2022 Graia Community
 ---

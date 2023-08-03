@@ -1,4 +1,3 @@
-
 :::danger 本章节已过时！！！！！！！
 由于目前腾讯严打机器人登录，且QQ服务器与客户端正在互相配合切换架构中，按照本章节的步骤暂时仍无法登录，且目前各框架登录方法仍在迭代中，请自行查找相关资料。
 
@@ -9,6 +8,7 @@
 - [fix-protocol-version](https://github.com/cssxsh/fix-protocol-version)
 - [unidbg-fetch-qsign](https://github.com/fuqiuluo/unidbg-fetch-qsign)
 - [qsign](https://github.com/MrXiaoM/qsign)
+
 :::
 
 # Mirai 的安装与配置
@@ -218,7 +218,7 @@ cd mcl2
 与 Windows 不同，Linux/macOS 只需确认系统类型就行，在终端输入并执行 `uname -m` 命令，然后根据输出内容进行判断。
 
 如果输出值包含 `i386`、`i686`、`i386`、`x86` 其中之一，那么很遗憾 `mcl-installer` 目前不适合你，
-如果输出值包含 `X86_64`、`x64`、`amd64`  其中之一则选择 `amd64` 版本，
+如果输出值包含 `X86_64`、`x64`、`amd64` 其中之一则选择 `amd64` 版本，
 如果输出值包含 `arm`、`armel`、`arm_garbage`、`arm64`、`aarch64`、`armv8` 其中之一，则选择 `arm64` 版本。
 
 :::tip
@@ -421,9 +421,11 @@ APP，在顶部中间的输入框中输入请求码（即 `50634119`），
 并点击下一步进入滑动验证码界面，完成验证后，电脑上的 MCL 会提示你下一步操作。
 :::
 
-|输入请求地址/请求码|滑动验证|
-|:--:|:--:|
-|![输入请求地址](/images/before/sakura_input.webp)|![滑动验证](/images/before/sukura_slide.webp)|
+<!-- prettier-ignore-start -->
+| 输入请求地址/请求码 | 滑动验证 |
+| :---: | :---: |
+| ![输入请求地址](/images/before/sakura_input.webp) | ![滑动验证](/images/before/sukura_slide.webp) |
+<!-- prettier-ignore-end -->
 
 :::tsukkomi 小知识
 如果上面的图看不清，你可以右键/长按图片并选择在新标签页中打开。

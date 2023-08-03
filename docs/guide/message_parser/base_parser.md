@@ -47,58 +47,58 @@ async def test():
 
 1. 以 `无头修饰器` 的方式来使用。
 
-    - 优点：能够比较方便的进行消息链的匹配
-    - 缺点：不能获得数据的返回值
+   - 优点：能够比较方便的进行消息链的匹配
+   - 缺点：不能获得数据的返回值
 
-    ```python
-    # 只有接收到的消息开头有“涩”，才会运行
-    @channel.use(
-        ListenerSchema(
-            listening_events=[GroupMessage],
-            decorators=[DetectPrefix("涩")],
-        )
-    )
-    async def ero(app: Ariadne, group: Group, message: MessageChain):
-        # 此时 `message` 参数并不会帮你把开头的“涩”消去
-        ...
-    ```
+   ```python
+   # 只有接收到的消息开头有“涩”，才会运行
+   @channel.use(
+       ListenerSchema(
+           listening_events=[GroupMessage],
+           decorators=[DetectPrefix("涩")],
+       )
+   )
+   async def ero(app: Ariadne, group: Group, message: MessageChain):
+       # 此时 `message` 参数并不会帮你把开头的“涩”消去
+       ...
+   ```
 
 2. 以默认参数的方式来使用。
 
-    - 优点：能够获取处理过后的文本
-    - 缺点：如果你开了 `类型检查(type checking)`，编辑器会向你报错
+   - 优点：能够获取处理过后的文本
+   - 缺点：如果你开了 `类型检查(type checking)`，编辑器会向你报错
 
-    ```python
-    # 只有接收到的消息开头有“涩”，才会运行
-    @channel.use(
-        ListenerSchema(
-            listening_events=[GroupMessage],
-        )
-    )
-    async def ero(app: Ariadne, group: Group, message: MessageChain = DetectPrefix("涩")):
-        # 此时 `message` 参数会自动帮你把开头的“涩”消去
-        ...
-    ```
+   ```python
+   # 只有接收到的消息开头有“涩”，才会运行
+   @channel.use(
+       ListenerSchema(
+           listening_events=[GroupMessage],
+       )
+   )
+   async def ero(app: Ariadne, group: Group, message: MessageChain = DetectPrefix("涩")):
+       # 此时 `message` 参数会自动帮你把开头的“涩”消去
+       ...
+   ```
 
 3. 以 `typing.Annotated` 来使用
 
-    - 优点：能够获取处理过后的文本的同时，`类型检查(type checking)` 不会报错
-    - 缺点：如果是 `Python 3.8`，需要安装 `typing-extension` 第三方库来导入
+   - 优点：能够获取处理过后的文本的同时，`类型检查(type checking)` 不会报错
+   - 缺点：如果是 `Python 3.8`，需要安装 `typing-extension` 第三方库来导入
 
-    ```python
-    from typing import Annotated # Python3.9+
-    from typing_extension import Annotated # Python3.8
+   ```python
+   from typing import Annotated # Python3.9+
+   from typing_extension import Annotated # Python3.8
 
-    # 只有接收到的消息开头有“涩”，才会运行
-    @channel.use(
-        ListenerSchema(
-            listening_events=[GroupMessage],
-        )
-    )
-    async def ero(app: Ariadne, group: Group, message: Annotated[MessageChain, DetectPrefix("涩")]):
-        # 此时 `message` 参数会自动帮你把开头的“涩”消去
-        ...
-    ```
+   # 只有接收到的消息开头有“涩”，才会运行
+   @channel.use(
+       ListenerSchema(
+           listening_events=[GroupMessage],
+       )
+   )
+   async def ero(app: Ariadne, group: Group, message: Annotated[MessageChain, DetectPrefix("涩")]):
+       # 此时 `message` 参数会自动帮你把开头的“涩”消去
+       ...
+   ```
 
 :::tip
 你可能还是会有点蒙蔽，但是没关系，之后的**所有消息链处理器**我们都会给出一个例子
@@ -117,6 +117,7 @@ async def test():
 :::
 
 :::details 用法实战
+
 <h3>用法1</h3>
 
 作为 `Decorator`, 放到 `bcc.receiver` 或 `ListenerSchema` 的 `decorators` 里。
@@ -167,6 +168,7 @@ async def on_message(app: Ariadne, group: Group, message: Annotated[MessageChain
 :::
 
 :::details 用法实战
+
 <h3>用法1</h3>
 
 作为 `Decorator`, 放到 `bcc.receiver` 或 `ListenerSchema` 的 `decorators` 里。
@@ -209,6 +211,7 @@ async def on_message(message: Annotated[MessageChain, DetectSuffix("好涩")]):
 用法：`MentionMe()`
 
 :::details 用法实战
+
 <h3>用法1</h3>
 
 放到 `bcc.receiver` 或 `ListenerSchema` 的 `decorators` 里。
@@ -250,6 +253,7 @@ async def on_mention_me(app: Ariadne, group: Group, member: Member, chain: Annot
 用法：`Mention(target)`，其中 `target` 为指定人（可以为 用户名(`str`) 或者 QQ号(`int`)）
 
 :::details 用法实战
+
 <h3>用法1</h3>
 
 放到 `bcc.receiver` 或 `ListenerSchema` 的 `decorators` 里。

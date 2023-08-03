@@ -12,15 +12,17 @@
    :::
 
 4. **本文档将使用 `Graia Ariadne` 0.7.15 及以上的版本**，Ariadne 在 0.7.0 进行了一次大的
-   Breaking Change，因此本文档不适用 0.7.0 以下的 Ariadne，也不再提供旧版的使用方法及示例。  
+   Breaking Change，因此本文档不适用 0.7.0 以下的 Ariadne，也不再提供旧版的使用方法及示例。
 
    :::tip 小贴士（bushi）
+
    - 从 0.5.x 和 0.6.x 版本的 Ariadne 迁移至 0.7.x 请参考[这里](https://graia.cn/ariadne/migrate/amnesia_port/)
    - **0.7.6 及以下版本的 Ariadne 存在一些 Bug，不推荐使用噢。**
    - **0.7.15 的 Ariadne 不能自己创建 loop 和 bcc 了，所以本文档的所用的 Ariadne 版本为 0.7.15+**
    - 有关什么是 Ariadne，请参阅[这里](/before/QA#_2-什么是-ariadne)
    - 一般情况下本文档会随着 **Ariadne** 版本的更新而更新，所以**强烈推荐**你直接安装最新版本（latest），现在 **Ariadne** 的最新版本为
-      <a href="https://pypi.org/project/graia-ariadne/#history"><img src="https://img.shields.io/pypi/v/graia-ariadne?color=2970b6&amp;label=&amp;style=flat-square" alt="PyPI版本" style="display:inline;vertical-align:text-bottom"></a>
+     <a href="https://pypi.org/project/graia-ariadne/#history"><img src="https://img.shields.io/pypi/v/graia-ariadne?color=2970b6&amp;label=&amp;style=flat-square" alt="PyPI版本" style="display:inline;vertical-align:text-bottom"></a>
+
    :::
 
 5. 虽然 `Ariadne` 支持

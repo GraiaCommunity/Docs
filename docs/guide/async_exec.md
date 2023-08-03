@@ -130,6 +130,7 @@ GIL ，既全局解释器锁（Global Interpreter Lock），为了保证线程�
 - [PEP 703即将被正式接受，移除GIL的这一天竟然真的要来了？](https://www.bilibili.com/video/BV1ph4y1c7ue)
 - [【python】这一天终于要来了？万恶之源GIL要被移除了？](https://www.bilibili.com/video/BV1Hs4y1t7PK)
 - [【python】天使还是魔鬼？GIL的前世今生。一期视频全面了解GIL！](https://www.bilibili.com/video/BV1za411t7dR)
+
 :::
 
 Python 的内存回收机制在加载资源时，会对资源做标记，对应一个数字，这个数字的大小代表这个资源还能被线程调用多少次，

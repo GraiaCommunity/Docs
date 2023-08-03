@@ -14,7 +14,6 @@
 Friendship is magic!
 
 <curtain>来点暮光闪闪涩图<curtain> 人不能，至少不应该</curtain></curtain>
-<div style="height:1em"></div>
 :::
 
 ## 创建 Twilight
