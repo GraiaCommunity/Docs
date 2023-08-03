@@ -53,7 +53,7 @@ pip install graiax-silkcoder
 
 对于**纯净的** Windows 来说，当你使用该插件的时候，很有可能会出现这个报错：
 
-``` shell
+```shell
 # 英文系统
 ...
 File "<省略的路径名>\graiax\silkcoder\silkv3.py", line 1, in <module>
@@ -144,7 +144,7 @@ graiax-silkcoder[libsndfile]
 
 ## 怎么用
 
-好了，终于讲到了最关键的地方了。  
+好了，终于讲到了最关键的地方了。
 
 :::tip
 因为同步和异步的区别只有前面是否有一个 `async_`，例如将 `silkcoder.encode("a.wav")`
@@ -347,6 +347,7 @@ python -m graiax.silkcoder play xxx.silk
 （注：虽然说 ffmpeg 可以通过 disable 一大堆不必要视频/滤镜库来达到减小体积的目的，但是这需要自己编译，对小白挺不友好的）
 
 所以，从 0.3.0 开始，开始增加了通过 libsndfile 来使用解析音频的特性。
+
 > libsndfile 是一款广泛用于读写音频文件的C语言库，他支持包括 `flac`, `ogg`, `opus`, `mp3`[^1]等多种格式。
 
 注：在同时可以使用 ffmpeg 和 libsndfile 的情况下， **GraiaX Silkcoder** 会优先使用 ffmpeg 进行转码

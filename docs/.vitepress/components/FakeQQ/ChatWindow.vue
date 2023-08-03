@@ -19,7 +19,7 @@ export default defineComponent({
     <div v-if="title" class="banner">
       <span class="title">{{ title }}</span>
     </div>
-    <div v-else style="height: 8px;"></div>
+    <div v-else style="height: 8px"></div>
     <div class="list"><slot></slot></div>
   </div>
 </template>
