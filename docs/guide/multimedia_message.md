@@ -24,7 +24,7 @@
 
 <chat-window title="Graia Framework Community">
   <chat-msg name="GraiaX" onright>无路赛</chat-msg>
-  <chat-voice name="EroEroBot" avatar="/avatar/ero.webp" audio="/voices/夏娜_无路赛_钉宫理惠.m4a">别戳我，好痒</chat-voice>
+  <chat-voice name="EroEroBot" tag="机器人" avatar="/avatar/ero.webp" audio="/voices/夏娜_无路赛_钉宫理惠.m4a">别戳我，好痒</chat-voice>
 </chat-window>
 
 <volume-bar>贴心的音量条：</volume-bar>

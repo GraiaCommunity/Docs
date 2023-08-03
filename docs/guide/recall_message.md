@@ -123,16 +123,16 @@ async def test(app: Ariadne, message: MessageChain):
 <chat-window title="Graia Framework Community">
   <chat-toast>下午 3:38</chat-toast>
   <chat-msg name="群菜鸮" avatar="http://q1.qlogo.cn/g?b=qq&nk=2948531755&s=640">涩图来</chat-msg>
-  <chat-img name="EroEroBot" avatar="/avatar/ero.webp" src="/images/guide/ero_pic_1.webp"></chat-img>
+  <chat-img name="EroEroBot" tag="机器人" avatar="/avatar/ero.webp" src="/images/guide/ero_pic_1.webp"></chat-img>
   <chat-msg name="群菜鸡" avatar="http://q1.qlogo.cn/g?b=qq&nk=1450069615&s=640">涩图来</chat-msg>
   <chat-msg name="群菜鸡" avatar="http://q1.qlogo.cn/g?b=qq&nk=1450069615&s=640">？我涩图呢</chat-msg>
   <chat-msg name="群菜鸡" avatar="http://q1.qlogo.cn/g?b=qq&nk=1450069615&s=640"><a>@GraiaX</a> 我涩图呢</chat-msg>
   <chat-msg name="GraiaX" onright>涩图来</chat-msg>
   <chat-msg name="GraiaX" onright>az?</chat-msg>
   <chat-toast>下午 3:40</chat-toast>
-  <chat-img name="EroEroBot" avatar="/avatar/ero.webp" src="/images/guide/ero_pic_2.webp"></chat-img>
+  <chat-img name="EroEroBot" tag="机器人" avatar="/avatar/ero.webp" src="/images/guide/ero_pic_2.webp"></chat-img>
   <chat-toast>下午 3:42</chat-toast>
-  <chat-img name="EroEroBot" avatar="/avatar/ero.webp" src="/images/guide/ero_pic_3.webp"></chat-img>
+  <chat-img name="EroEroBot" tag="机器人" avatar="/avatar/ero.webp" src="/images/guide/ero_pic_3.webp"></chat-img>
 </chat-window>
 
 你可以猜一下是什么原因吗？

@@ -101,7 +101,7 @@ async def getup(app: Ariadne, event: NudgeEvent):
 
 <chat-window title="Graia Framework Community">
   <chat-toast>GraiaX 👉 戳了戳 EroEroBot 的腰</chat-toast>
-  <chat-msg name="EroEroBot" avatar="/avatar/ero.webp">你不要光天化日之下在这里戳我啊</chat-msg>
+  <chat-msg name="EroEroBot" tag="机器人" avatar="/avatar/ero.webp">你不要光天化日之下在这里戳我啊</chat-msg>
 </chat-window>
 
 :::tip

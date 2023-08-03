@@ -212,7 +212,7 @@ async def saucenao(app: Ariadne, group: Group, source: Source, content: Match[st
     以图搜图<br />
     <img alt="涩图" style="margin-top: 5px" src="/images/guide/ero_pic_1.webp"/>
   </chat-msg>
-  <chat-msg name="EroEroBot" avatar="/avatar/ero.webp"><chat-quote name="爷">以图搜图</chat-quote>正在搜索，请稍后</chat-msg>
+  <chat-msg name="EroEroBot" tag="机器人" avatar="/avatar/ero.webp"><chat-quote name="爷">以图搜图</chat-quote>正在搜索，请稍后</chat-msg>
   <forward-chat
     name="EroEroBot"
     avatar="/avatar/ero.webp"
