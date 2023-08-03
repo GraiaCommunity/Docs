@@ -6,9 +6,9 @@
 
 <chat-window title="Graia Framework Community">
   <chat-msg name="GraiaX" onright>天气</chat-msg>
-  <chat-msg name="EroEroBot" avatar="/avatar/ero.webp">你想查询哪个城市的天气呢？</chat-msg>
+  <chat-msg name="EroEroBot" tag="机器人" avatar="/avatar/ero.webp">你想查询哪个城市的天气呢？</chat-msg>
   <chat-msg name="GraiaX" onright>学园都市</chat-msg>
-  <chat-msg name="EroEroBot" avatar="/avatar/ero.webp">学园都市的天气是...</chat-msg>
+  <chat-msg name="EroEroBot" tag="机器人" avatar="/avatar/ero.webp">学园都市的天气是...</chat-msg>
 </chat-window>
 
 :::tip
@@ -26,9 +26,9 @@
 
 <chat-window title="Graia Framework Community">
   <chat-msg name="GraiaX" onright>涩图来</chat-msg>
-  <chat-msg name="EroEroBot" avatar="/avatar/ero.webp">你想要什么 tag 的涩图</chat-msg>
+  <chat-msg name="EroEroBot" tag="机器人" avatar="/avatar/ero.webp">你想要什么 tag 的涩图</chat-msg>
   <chat-msg name="GraiaX" onright>死库水</chat-msg>
-  <chat-img name="EroEroBot" avatar="/avatar/ero.webp" src="/images/guide/high_DIO.webp"></chat-img>
+  <chat-img name="EroEroBot" tag="机器人" avatar="/avatar/ero.webp" src="/images/guide/high_DIO.webp"></chat-img>
   <chat-msg name="GraiaX" onright>草</chat-msg>
 </chat-window>
 

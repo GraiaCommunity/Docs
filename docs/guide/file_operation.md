@@ -17,14 +17,16 @@
 
 <chat-window title="Graia Framework Community">
     <chat-msg name="GraiaX" onright>来一打紧身衣涩图</chat-msg>
-    <chat-file
-      name="EroEroBot"
-      avatar="/avatar/ero.webp"
-      filename="secret.zip"
-      filesize="6.33MB"
-      fileicon="/images/guide/compressed_file.webp"
-      onclick="window.open('https:\/\/www.bilibili.com/video/BV1GJ411x7h7', '_blank')"
-    />
+    <chat-msg name="GraiaX">
+        <chat-file
+            name="EroEroBot"
+            avatar="/avatar/ero.webp"
+            filename="secret.zip"
+            filesize="6.33MB"
+            fileicon="/images/guide/compressed_file.webp"
+            href="https://www.bilibili.com/video/BV1GJ411x7h7"
+        />
+    </chat-msg>
 </chat-window>
 
 斯巴拉西，这是什么梦寐以求的功能啊！那就让我们赶快进入今天的涩涩创想吧！
@@ -85,6 +87,7 @@ target 的 `Type Hint` 有 `Friend` 的原因仅仅是因为 `万一哪一天支
 - `io.BytesIO` `io.StringIO`
 - `typing.BinaryIO` （如 `open("secret.txt")`）
 - `pathlib.Path` （`pathlib`，好东西，建议去学学）
+
 :::
 
 然后是 `path` 和 `name`，事实上这个很容易理解：

@@ -9,7 +9,8 @@
 
 不过放心，梗都有相关注释<curtain>什么梗百科</curtain>
 
-> [**「わかります。」**](https://zh.moegirl.org.cn/%E9%95%BF%E9%A2%88%E9%B9%BF(%E5%B0%91%E5%A5%B3%E6%AD%8C%E5%89%A7))
+> [**「わかります。」**](<https://zh.moegirl.org.cn/%E9%95%BF%E9%A2%88%E9%B9%BF(%E5%B0%91%E5%A5%B3%E6%AD%8C%E5%89%A7>)
+
 :::
 
 **Alconna**，全称 [**Arclet-Alconna**](https://github.com/ArcletProject/Alconna)，
@@ -152,8 +153,8 @@ async def ero_ascii2d(
     setu搜索<br />
     <img alt="涩图" style="margin-top: 5px" src="/images/guide/ero_pic_1.webp"/>
   </chat-msg>
-  <chat-msg name="EroEroBot" avatar="/avatar/ero.webp"><chat-quote name="群菜鸮">setu搜索</chat-quote>正在搜索，请稍后</chat-msg>
-  <chat-msg name="EroEroBot" avatar="/avatar/ero.webp">工口发生~</chat-msg>
+  <chat-msg name="EroEroBot" tag="机器人" avatar="/avatar/ero.webp"><chat-quote name="群菜鸮">setu搜索</chat-quote>正在搜索，请稍后</chat-msg>
+  <chat-msg name="EroEroBot" tag="机器人" avatar="/avatar/ero.webp">工口发生~</chat-msg>
   <chat-msg name="群菜龙" avatar="https://q4.qlogo.cn/g?b=qq&nk=2544704967&s=640">草</chat-msg>
   <chat-msg name="群菜鸡" avatar="https://q4.qlogo.cn/g?b=qq&nk=1450069615&s=640">草</chat-msg>
   <chat-msg name="群菜鸮" avatar="https://q4.qlogo.cn/g?b=qq&nk=2948531755&s=640">草</chat-msg>
@@ -489,7 +490,7 @@ manager.add_service(AlconnaGraiaService("ariadne"))
 
 <chat-window title="聊天记录">
   <chat-msg name="群菜鸮" avatar="https://q4.qlogo.cn/g?b=qq&nk=2948531755&s=640">setu搜索 --help</chat-msg>
-  <chat-msg name="EroEroBot" avatar="/avatar/ero.webp">setu搜索 &lt;content:Image|url&gt;<br />
+  <chat-msg name="EroEroBot" tag="机器人" avatar="/avatar/ero.webp">setu搜索 &lt;content:Image|url&gt;<br />
   依据输入的图片寻找可能的原始图片来源<br />
   用法:<br />
    可以传入图片, 也可以是图片的网络链接<br />
@@ -520,7 +521,7 @@ manager.add_service(AlconnaGraiaService("ariadne"))
 
 <ChatWindow title="聊天记录">
   <ChatMsg name="群菜鸮" avatar="https://q4.qlogo.cn/g?b=qq&nk=2948531755&s=640">setu搜索 ?</ChatMsg>
-  <ChatMsg name="EroEroBot" avatar="/avatar/ero.webp">以下是建议的输入:<br />
+  <ChatMsg name="EroEroBot" tag="机器人" avatar="/avatar/ero.webp">以下是建议的输入:<br />
   &gt; &lt;content: str&gt;<br />
   &#42; use<br />
   &#42; count<br />
@@ -529,7 +530,7 @@ manager.add_service(AlconnaGraiaService("ariadne"))
   &#42; --timeout<br />
   &#42; -t<br />
   </ChatMsg>
-  <ChatMsg name="EroEroBot" avatar="/avatar/ero.webp">发送 .tab 切换提示<br />
+  <ChatMsg name="EroEroBot" tag="机器人" avatar="/avatar/ero.webp">发送 .tab 切换提示<br />
   发送 .enter [xxx] 确认输入<br />
   发送 .exit 退出补全会话<br />
   </ChatMsg>
@@ -1273,6 +1274,7 @@ class ShortcutArgs(TypedDict, Generic[TDC]):
 - `{%X}`: 只用于 `command`，如 `setu {%0}`，表示此处填入快截指令后随的第 X 个参数。
 
   例如，若快捷指令为 `涩图`，配置为 `{"command": "setu {%0}"}`，则指令 `涩图 1` 相当于 `setu 1`
+
 - `{*}`: 只用于 `command`，表示此处填入所有后随参数，并且可以通过 `{*X}` 的方式指定组合参数之间的分隔符。
 - `{X}`: 用于 `command` 与 `args`， 表示此处填入可能的正则匹配的组：
   - 若 `command` 中存在匹配组 `(xxx)`，则 `{X}` 表示第 X 个匹配组的内容
@@ -1453,6 +1455,7 @@ Args[Arg(k1, v1), Arg(k2, v2), ...]
 `Arpamar` 会有如下参数：
 
 - 调试类
+
   - matched: 是否匹配成功
   - error_data: 解析失败时剩余的数据
   - error_info: 解析失败时的异常内容
@@ -1478,7 +1481,7 @@ Args[Arg(k1, v1), Arg(k2, v2), ...]
 - `options.foo.value`，`foo.value`: 返回选项 `foo` 的解析值
 - `options.foo.args`，`foo.args`: 返回选项 `foo` 的解析参数字典
 - `options.foo.args.bar`，`foo.bar`: 返回选项 `foo` 的参数字典中 `bar` 键对应的值
-...
+  ...
 
 同样, `Arparma["foo.bar"]` 的表现与 `query()` 一致
 
@@ -1681,7 +1684,7 @@ async def _(app: Ariadne, codes: Match[list]):
   import sys<br />
   print(sys.version_info)<br />
   </chat-msg>
-  <chat-msg name="EroEroBot" avatar="/avatar/ero.webp">sys.version_info(major=3, minor=8, micro=6, releaselevel='final', serial=0)</chat-msg>
+  <chat-msg name="EroEroBot" tag="机器人" avatar="/avatar/ero.webp">sys.version_info(major=3, minor=8, micro=6, releaselevel='final', serial=0)</chat-msg>
   <chat-msg name="群菜鸡" avatar="https://q4.qlogo.cn/g?b=qq&nk=1450069615&s=640">怎么是3.8（</chat-msg>
   <chat-msg name="群菜龙" avatar="https://q4.qlogo.cn/g?b=qq&nk=2544704967&s=640">怎么是3.8（</chat-msg>
 </chat-window>

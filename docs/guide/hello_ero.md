@@ -80,7 +80,7 @@
 
    <chat-window title="Graia Framework Community">
       <chat-msg name="GraiaX" onright>你好</chat-msg>
-      <chat-msg name="EroEroBot" avatar="/avatar/ero.webp">不要说你好，来点涩图</chat-msg>
+      <chat-msg name="EroEroBot" tag="机器人" avatar="/avatar/ero.webp">不要说你好，来点涩图</chat-msg>
    </chat-window>
 
 :::interlink

@@ -1,68 +1,75 @@
-<!--
- 修改自 https://github.com/Redlnn/Fake-QQ-Chat-Window
-
- MIT License
-
- Copyright (c) 2023 Red_lnn
-
- Permission is hereby granted, free of charge, to any person obtaining a copy
- of this software and associated documentation files (the "Software"), to deal
- in the Software without restriction, including without limitation the rights
- to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- copies of the Software, and to permit persons to whom the Software is
- furnished to do so, subject to the following conditions:
-
- The above copyright notice and this permission notice shall be included in all
- copies or substantial portions of the Software.
-
- THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
- SOFTWARE.
-
- @author Red_lnn
- @website https://github.com/Redlnn/Fake-QQ-Chat-Window
-
--->
-
 <template>
-  <div class="fakeqq-message" :class="[onright ? 'right' : 'left']">
-    <div
-      v-if="avatar"
-      :style="{ 'background-image': `url(${avatar})` }"
-      class="fakeqq-message__avatar"
-    ></div>
-    <div v-else class="fakeqq-message__avatar">
-      <span class="fakeqq-message__text-avatar">{{ name[0] }}</span>
-    </div>
-    <div class="fakeqq-message__content">
-      <div class="fakeqq-message__name">{{ name }}</div>
-      <div class="fakeqq-message__bubble" :onclick="playVoice" style="cursor: pointer">
-        <div class="fakeqq-message__bubble-arrow"></div>
-        <div class="fakeqq-voice">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
-            <circle cx="26" cy="26" r="26" />
-            <path
-              d="M35.5,25.324,20.512,14.575a1,1,0,0,0-1.589.815v21.5a1,1,0,0,0,1.589.816L35.5,26.955a1,1,0,0,0,.237-1.394A.988.988,0,0,0,35.5,25.324Z"
-            />
-          </svg>
-          <audio ref="audio" :src="audio" @ended="reset" @loadedmetadata="onLoadedmetadata"></audio>
-          <span class="fakeqq-voice__bar">
-            <span
-              v-for="line in getLineCount(duration)"
-              :key="line.id"
-              ref="voice-line"
-              class="fakeqq-coice__bar-line"
-            ></span>
-          </span>
-          {{ formatedDuration }}
+  <section>
+    <div class="message">
+      <div
+        class="message-container"
+        :class="[onright ? 'message-container--self message-container--align-right' : '']"
+      >
+        <span class="avatar-span">
+          <div
+            v-if="avatar"
+            class="avatar message-container__avatar"
+            :style="{ backgroundImage: `url(${avatar})` }"
+          ></div>
+          <div v-else class="avatar message-container__avatar text-avatar">
+            <span>{{ name[0] }}</span>
+          </div>
+        </span>
+        <div class="user-name text-ellipsis">
+          <span class="text-ellipsis">{{ name }}</span>
+          <div
+            class="q-tag member-role-tag"
+            v-if="tag"
+            :style="{ backgroundColor: tagBgColor, color: tagColor }"
+          >
+            {{ tag }}
+          </div>
+        </div>
+        <div class="message-content__wrapper">
+          <div
+            class="msg-content-container mix-message__container ptt-message"
+            :class="[onright ? 'container--self' : 'container--others']"
+            :onclick="playVoice"
+          >
+            <div class="ptt-message__inner">
+              <div class="ptt-element">
+                <div class="ptt-element__top-area">
+                  <div class="ptt-element__button">
+                    <i class="q-icon">
+                      <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M4 13.1783V2.82167C4 2.03258 4.87115 1.55437 5.53688 1.97801L13.6742 7.15634C14.2917 7.54929 14.2917 8.45071 13.6742 8.84366L5.53688 14.022C4.87115 14.4456 4 13.9674 4 13.1783Z"
+                          fill="currentColor"
+                        ></path>
+                      </svg>
+                    </i>
+                  </div>
+                  <audio
+                    ref="audio"
+                    :src="audio"
+                    @ended="reset"
+                    @loadedmetadata="onLoadedmetadata"
+                  ></audio>
+                  <div class="ptt-element__progress">
+                    <span
+                      v-for="line in getLineCount(duration)"
+                      :key="line.id"
+                      ref="voice-line"
+                      class="ptt-element__progress-item"
+                      :style="{ height: `${getRndInteger(30, 60)}%` }"
+                    ></span>
+                  </div>
+                  <div class="ptt-element__duration">
+                    <span>{{ formatedDuration }}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script lang="ts">
@@ -73,6 +80,9 @@ export default defineComponent({
   props: {
     name: { type: String, required: true },
     avatar: String,
+    tag: String,
+    tagBgColor: String,
+    tagColor: String,
     audio: { type: String, required: true },
     onright: Boolean
   },
@@ -86,7 +96,7 @@ export default defineComponent({
   methods: {
     getLineCount: function (num: number) {
       const lineArray = []
-      num = num / 1.5
+      num = num / 1.2
       if (num < 5) return [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }, { id: 5 }]
       for (let i = 0; i <= num; i++) {
         if (i >= 25) {
@@ -98,6 +108,9 @@ export default defineComponent({
     },
     reset: function () {
       this.playFlag = false
+    },
+    getRndInteger: function (min: number, max: number) {
+      return Math.floor(Math.random() * (max - min + 1)) + min
     },
     onLoadedmetadata: function () {
       const audioElem = this.$refs.audio as HTMLAudioElement

@@ -16,6 +16,7 @@
     name="EroEroBot"
     avatar="/avatar/ero.webp"
     title="群聊"
+    tag="机器人"
     :contents="[
       'EroEroBot: [图片]',
       '群菜鸮: 好大的奶',
@@ -27,7 +28,7 @@
 你很兴奋，想要看一看这奶到底有多大，但很可惜，也不知道你在可惜什么，当你点开聊天记录的时候，你看到的是这种景象：
 
 <chat-window title="转发的合并消息">
-  <chatimg name="EroEroBot" avatar="/avatar/ero.webp" src="/images/guide/huge_milk.webp"></chatimg>
+  <chatimg name="EroEroBot" tag="机器人" avatar="/avatar/ero.webp" src="/images/guide/huge_milk.webp"></chatimg>
   <chat-msg name="群菜鸮" avatar="http://q1.qlogo.cn/g?b=qq&nk=2948531755&s=640">好大的奶</chat-msg>
   <chat-msg name="群菜鸡" avatar="http://q1.qlogo.cn/g?b=qq&nk=1450069615&s=640">好大的奶</chat-msg>
   <chat-msg name="群菜龙" avatar="http://q1.qlogo.cn/g?b=qq&nk=2544704967&s=640">好大的奶</chat-msg>
