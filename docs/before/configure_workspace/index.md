@@ -4,6 +4,22 @@
 在这里，学校老师教的 Python 和 IDE 的使用方法可能不再适用，为了帮助你产生项目管理的意识，
 本章从零开始介绍一个 Python 项目的配置。
 
+:::tsukkomi 魔女的吐槽（菜狗总结版）
+对于安装 IDE 和 Python 等开发环境，网络畅通过的话，可以选择使用 scoop~
+:::
+
+<chat-window title="Graia Framework Community">
+   <chat-msg name="GreyElaina" avatar="http://q1.qlogo.cn/g?b=qq&nk=1846913566&s=640">去世了</chat-msg>
+   <chat-msg name="GreyElaina" avatar="http://q1.qlogo.cn/g?b=qq&nk=1846913566&s=640">我难以吐槽了</chat-msg>
+   <chat-msg name="GreyElaina" avatar="http://q1.qlogo.cn/g?b=qq&nk=1846913566&s=640">你们不看看scoop吗</chat-msg>
+   <chat-msg name="群菜狗" avatar="http://q1.qlogo.cn/g?b=qq&nk=731347477&s=640" onright><a href="https://scoop.sh/">这个吗</a></chat-msg>
+   <chat-msg name="GreyElaina" avatar="http://q1.qlogo.cn/g?b=qq&nk=1846913566&s=640">
+    <chat-quote name="群菜狗">这个吗</chat-quote>没有国际网络不太好用
+  </chat-msg>
+   <chat-msg name="GreyElaina" avatar="http://q1.qlogo.cn/g?b=qq&nk=1846913566&s=640">有的话</chat-msg>
+   <chat-msg name="GreyElaina" avatar="http://q1.qlogo.cn/g?b=qq&nk=1846913566&s=640">我XX杀杀杀</chat-msg>
+</chat-window>
+
 :::danger 请注意
 
 1. 如果你是 Machine Learning（机器学习）/ Deep Learning（深度学习）/ Neural Network（神经网络）
