@@ -1,3 +1,94 @@
+<script setup lang="ts">
+import { onBeforeUpdate, ref } from 'vue'
+
+let lineRefs: HTMLSpanElement[] = []
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const setItemRef = (el: any) => {
+  if (el) {
+    lineRefs.push(el)
+  }
+}
+
+onBeforeUpdate(() => (lineRefs = []))
+
+interface Props {
+  name: string
+  avatar?: string
+  tag?: string
+  tagBgColor?: string
+  tagColor?: string
+  audioSrc: string
+  onright: boolean
+}
+
+withDefaults(defineProps<Props>(), {
+  name: '',
+  avatar: undefined,
+  tag: undefined,
+  tagBgColor: undefined,
+  tagColor: undefined,
+  audioSrc: undefined,
+  onright: false
+})
+
+const playFlag = ref(false)
+const duration = ref(10)
+const formatedDuration = ref('')
+const audio = ref<HTMLAudioElement>()
+
+function getLineCount(num: number) {
+  const lineArray = []
+  num = num / 1.2
+  if (num < 5) return [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }, { id: 5 }]
+  for (let i = 0; i <= num; i++) {
+    if (i >= 25) {
+      break
+    }
+    lineArray.push({ id: i })
+  }
+  return lineArray
+}
+function reset() {
+  playFlag.value = false
+}
+function getRndInteger(min: number, max: number) {
+  return Math.floor(Math.random() * (max - min + 1)) + min
+}
+function onLoadedmetadata() {
+  if (!audio.value) return
+  duration.value = Math.round(audio.value.duration)
+  const m = Math.floor(audio.value.duration / 60)
+  const s = Math.round(audio.value.duration % 60)
+  formatedDuration.value = m > 0 ? `${m}'${s}"` : `${s}"`
+}
+function sleep(ms: number) {
+  return new Promise((resolve) => setTimeout(resolve, ms))
+}
+async function playVoice() {
+  if (!audio.value) return
+  if (playFlag.value) {
+    audio.value.pause()
+    audio.value.currentTime = 0
+    lineRefs.forEach((line: { style: { backgroundColor: string } }) => {
+      line.style.backgroundColor = 'var(--vp-c-text-1)'
+    })
+    playFlag.value = false
+  } else {
+    audio.value.play()
+    playFlag.value = true
+    lineRefs.forEach((line: { style: { backgroundColor: string } }) => {
+      line.style.backgroundColor = '#999999'
+    })
+    for (let index = 0; index < lineRefs.length; index++) {
+      if (audio.value.paused) return
+      await sleep((duration.value * 1000) / lineRefs.length).then(() => {
+        lineRefs[index].style.backgroundColor = 'var(--vp-c-text-1)'
+      })
+    }
+  }
+}
+</script>
+
 <template>
   <section>
     <div class="message">
@@ -46,7 +137,7 @@
                   </div>
                   <audio
                     ref="audio"
-                    :src="audio"
+                    :src="audioSrc"
                     @ended="reset"
                     @loadedmetadata="onLoadedmetadata"
                   ></audio>
@@ -54,7 +145,7 @@
                     <span
                       v-for="line in getLineCount(duration)"
                       :key="line.id"
-                      ref="voice-line"
+                      :ref="setItemRef"
                       class="ptt-element__progress-item"
                       :style="{ height: `${getRndInteger(30, 60)}%` }"
                     ></span>
@@ -71,81 +162,3 @@
     </div>
   </section>
 </template>
-
-<script lang="ts">
-import { defineComponent } from 'vue'
-
-export default defineComponent({
-  name: 'ChatVoice',
-  props: {
-    name: { type: String, required: true },
-    avatar: String,
-    tag: String,
-    tagBgColor: String,
-    tagColor: String,
-    audio: { type: String, required: true },
-    onright: Boolean
-  },
-  data() {
-    return {
-      playFlag: false,
-      duration: 10,
-      formatedDuration: ''
-    }
-  },
-  methods: {
-    getLineCount: function (num: number) {
-      const lineArray = []
-      num = num / 1.2
-      if (num < 5) return [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }, { id: 5 }]
-      for (let i = 0; i <= num; i++) {
-        if (i >= 25) {
-          break
-        }
-        lineArray.push({ id: i })
-      }
-      return lineArray
-    },
-    reset: function () {
-      this.playFlag = false
-    },
-    getRndInteger: function (min: number, max: number) {
-      return Math.floor(Math.random() * (max - min + 1)) + min
-    },
-    onLoadedmetadata: function () {
-      const audioElem = this.$refs.audio as HTMLAudioElement
-      this.duration = Math.round(audioElem.duration)
-      const m = Math.floor(audioElem.duration / 60)
-      const s = Math.round(audioElem.duration % 60)
-      this.formatedDuration = m > 0 ? `${m}'${s}"` : `${s}"`
-    },
-    sleep: (ms: number) => {
-      return new Promise((resolve) => setTimeout(resolve, ms))
-    },
-    async playVoice() {
-      const audioElem = this.$refs.audio as HTMLAudioElement
-      const lines = this.$refs['voice-line'] as NodeListOf<HTMLElement>
-      if (this.playFlag) {
-        audioElem.pause()
-        audioElem.currentTime = 0
-        lines.forEach((line) => {
-          line.style.backgroundColor = 'var(--vp-c-text-1)'
-        })
-        this.playFlag = false
-      } else {
-        audioElem.play()
-        this.playFlag = true
-        lines.forEach((line) => {
-          line.style.backgroundColor = '#999999'
-        })
-        for (let index = 0; index < lines.length; index++) {
-          if (audioElem.paused) return
-          await this.sleep((this.duration * 1000) / lines.length).then(() => {
-            lines[index].style.backgroundColor = 'var(--vp-c-text-1)'
-          })
-        }
-      }
-    }
-  }
-})
-</script>

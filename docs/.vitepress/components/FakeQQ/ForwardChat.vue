@@ -1,3 +1,27 @@
+<script setup lang="ts">
+interface Props {
+  name: string
+  avatar?: string
+  tag?: string
+  tagBgColor?: string
+  tagColor?: string
+  onright?: boolean
+  title: string
+  contents: string[]
+}
+
+withDefaults(defineProps<Props>(), {
+  name: '',
+  avatar: undefined,
+  tag: undefined,
+  tagBgColor: undefined,
+  tagColor: undefined,
+  onright: false,
+  title: '',
+  contents: () => [] as string[]
+})
+</script>
+
 <template>
   <section>
     <div class="message">
@@ -42,21 +66,3 @@
     </div>
   </section>
 </template>
-
-<script lang="ts">
-import { defineComponent } from 'vue'
-
-export default defineComponent({
-  name: 'ForwardChat',
-  props: {
-    name: { type: String, required: true },
-    avatar: { type: String, required: true },
-    title: { type: String, required: true },
-    tag: String,
-    tagBgColor: String,
-    tagColor: String,
-    contents: { type: Array, required: true },
-    onright: Boolean
-  }
-})
-</script>

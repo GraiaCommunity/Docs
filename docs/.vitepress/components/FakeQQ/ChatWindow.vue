@@ -1,12 +1,5 @@
-<script lang="ts">
-import { defineComponent } from 'vue'
-
-export default defineComponent({
-  name: 'ChatWindow',
-  props: {
-    title: String
-  }
-})
+<script setup lang="ts">
+defineProps<{ title: string }>()
 </script>
 
 <template>

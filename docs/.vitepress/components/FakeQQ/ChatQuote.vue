@@ -1,3 +1,9 @@
+<script setup lang="ts">
+defineProps<{
+  name: string
+}>()
+</script>
+
 <template>
   <div class="reply-element no-copy reply-element--self">
     <div class="reply-title">
@@ -10,14 +16,3 @@
     </div>
   </div>
 </template>
-
-<script lang="ts">
-import { defineComponent } from 'vue'
-
-export default defineComponent({
-  name: 'ChatQuote',
-  props: {
-    name: { type: String, required: true }
-  }
-})
-</script>

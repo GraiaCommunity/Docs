@@ -9,7 +9,7 @@
 <chat-window title="Graia Framework Community">
   <chat-toast>上午 07:30</chat-toast>
   <chat-msg name="Hanser" avatar="/avatar/hanser.webp"><a style="text-decoration: none">@GraiaX</a> おはよう</chat-msg>
-  <chat-voice name="Hanser" avatar="/avatar/hanser.webp" audio="/voices/欧尼酱快起床.m4a"></chat-voice>
+  <chat-voice name="Hanser" avatar="/avatar/hanser.webp" audio-src="/voices/欧尼酱快起床.m4a"></chat-voice>
   <chat-toast>上午 11:30</chat-toast>
   <chat-msg name="GraiaX" onright>哦嗨哟</chat-msg>
 </chat-window>
@@ -115,7 +115,7 @@ async def every_minute_speaking(app: Ariadne):
 <chat-window title="Graia Framework Community">
   <chat-toast>上午 07:30</chat-toast>
   <chat-msg name="Hanser" avatar="/avatar/hanser.webp"><a style="text-decoration: none">@GraiaX</a></chat-msg>
-  <chat-voice name="Hanser" avatar="/avatar/hanser.webp" audio="/voices/起床搬砖辣.m4a"></chat-voice>
+  <chat-voice name="Hanser" avatar="/avatar/hanser.webp" audio-src="/voices/起床搬砖辣.m4a"></chat-voice>
 </chat-window>
 
 :::interlink

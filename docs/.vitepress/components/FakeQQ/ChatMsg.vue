@@ -1,3 +1,23 @@
+<script setup lang="ts">
+interface Props {
+  name: string
+  avatar?: string
+  tag?: string
+  tagBgColor?: string
+  tagColor?: string
+  onright?: boolean
+}
+
+withDefaults(defineProps<Props>(), {
+  name: '',
+  avatar: undefined,
+  tag: undefined,
+  tagBgColor: undefined,
+  tagColor: undefined,
+  onright: false
+})
+</script>
+
 <template>
   <section>
     <div class="message">
@@ -43,19 +63,3 @@
     </div>
   </section>
 </template>
-
-<script lang="ts">
-import { defineComponent } from 'vue'
-
-export default defineComponent({
-  name: 'ChatMsg',
-  props: {
-    name: { type: String, required: true },
-    avatar: String,
-    tag: String,
-    tagBgColor: String,
-    tagColor: String,
-    onright: Boolean
-  }
-})
-</script>

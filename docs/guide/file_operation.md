@@ -20,7 +20,6 @@
     <chat-msg name="GraiaX">
         <chat-file
             name="EroEroBot"
-            avatar="/avatar/ero.webp"
             filename="secret.zip"
             filesize="6.33MB"
             fileicon="/images/guide/compressed_file.webp"
