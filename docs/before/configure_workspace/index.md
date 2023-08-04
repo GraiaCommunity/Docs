@@ -5,10 +5,10 @@
 本章从零开始介绍一个 Python 项目的配置。
 
 :::tsukkomi 魔女的吐槽（菜狗总结版）
-对于安装 IDE 和 Python 等开发环境，网络畅通过的话，可以选择使用 scoop~
+对于安装 IDE 和 Python 等开发环境，网络畅通的话，可以选择使用 scoop~
 
-> winget: 看看我好不好？
-> homebrew: 我呢我呢？
+> winget: 看看我好不好？  
+> homebrew: 我呢我呢？  
 > 一众软件包管理器：不把我列出来？
 
 :::
