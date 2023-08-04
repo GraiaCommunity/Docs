@@ -14,6 +14,8 @@
 :::
 
 <chat-window title="Graia Framework Community">
+   <chat-msg name="群菜狗" avatar="http://q1.qlogo.cn/g?b=qq&nk=731347477&s=640" onright>魔女 review 一下文档？</chat-msg>
+   <chat-toast>Ten minutes later...</chat-toast>
    <chat-msg name="GreyElaina" avatar="http://q1.qlogo.cn/g?b=qq&nk=1846913566&s=640">去世了</chat-msg>
    <chat-msg name="GreyElaina" avatar="http://q1.qlogo.cn/g?b=qq&nk=1846913566&s=640">我难以吐槽了</chat-msg>
    <chat-msg name="GreyElaina" avatar="http://q1.qlogo.cn/g?b=qq&nk=1846913566&s=640">你们不看看scoop吗</chat-msg>
