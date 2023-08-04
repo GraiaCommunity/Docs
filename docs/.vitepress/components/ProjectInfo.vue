@@ -1,5 +1,16 @@
 <!-- Author: Redlnn <w731347477@gmail.com> -->
 
+<script setup lang="ts">
+defineProps<{
+  name: string
+  license: string
+  version: string
+  author: string
+  repoUser: string
+  repoName: string
+}>()
+</script>
+
 <template>
   <section style="margin: 16px 0 30px 0">
     <section class="info">
@@ -98,22 +109,6 @@
     </section>
   </section>
 </template>
-
-<script lang="ts">
-import { defineComponent } from 'vue'
-
-export default defineComponent({
-  name: 'ProjectInfo',
-  props: {
-    name: String,
-    license: String,
-    version: String,
-    author: String,
-    repoUser: String,
-    repoName: String
-  }
-})
-</script>
 
 <style scoped lang="scss">
 .info {

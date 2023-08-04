@@ -1,17 +1,22 @@
-<script lang="ts">
-import { defineComponent } from 'vue'
+<script setup lang="ts">
+interface Props {
+  name: string
+  avatar?: string
+  tag?: string
+  tagBgColor?: string
+  tagColor?: string
+  src: string
+  onright: boolean
+}
 
-export default defineComponent({
-  name: 'ChatImg',
-  props: {
-    name: { type: String, required: true },
-    avatar: String,
-    tag: String,
-    tagBgColor: String,
-    tagColor: String,
-    src: { type: String, required: true },
-    onright: Boolean
-  }
+withDefaults(defineProps<Props>(), {
+  name: '',
+  avatar: undefined,
+  tag: undefined,
+  tagBgColor: undefined,
+  tagColor: undefined,
+  src: undefined,
+  onright: false
 })
 </script>
 

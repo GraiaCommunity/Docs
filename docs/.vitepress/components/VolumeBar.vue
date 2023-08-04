@@ -3,6 +3,24 @@
  Co-Author: Redlnn <w731347477@gmail.com>
 -->
 
+<script setup lang="ts">
+import { ref } from 'vue'
+
+const volume = ref<number>(100)
+const input = ref<HTMLInputElement>()
+const volumeNum = ref<HTMLElement>()
+
+function onInput() {
+  if (!input.value) return
+  if (!volumeNum.value) return
+  volume.value = parseInt(input.value.value)
+  for (const i of document.getElementsByTagName('audio')) {
+    i.volume = volume.value / 100
+  }
+  volumeNum.value.innerHTML = `${input.value.value}%`
+}
+</script>
+
 <template>
   <div class="volume-bar">
     <span class="captions"><slot>普普通通的音量条：</slot></span>
@@ -18,28 +36,6 @@
     <p ref="volumeNum" class="volume-num">100%</p>
   </div>
 </template>
-
-<script lang="ts">
-import { defineComponent } from 'vue'
-
-export default defineComponent({
-  data() {
-    return {
-      volume: 100
-    }
-  },
-  methods: {
-    onInput: function () {
-      const input = this.$refs.input as HTMLInputElement
-      this.volume = parseInt(input.value)
-      for (const i of document.getElementsByTagName('audio')) {
-        i.volume = this.volume / 100
-      }
-      ;(this.$refs.volumeNum as HTMLElement).innerHTML = `${input.value}%`
-    }
-  }
-})
-</script>
 
 <style scoped lang="scss">
 *,

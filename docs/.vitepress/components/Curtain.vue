@@ -3,17 +3,13 @@
  Co-Author: Redlnn <w731347477@gmail.com>
 -->
 
-<script lang="ts">
-import { defineComponent } from 'vue'
+<script setup lang="ts">
+interface Props {
+  title: string
+}
 
-export default defineComponent({
-  name: 'Curtain',
-  props: {
-    title: {
-      type: String,
-      default: '你知道的太多了'
-    }
-  }
+withDefaults(defineProps<Props>(), {
+  title: '你知道的太多了'
 })
 </script>
 

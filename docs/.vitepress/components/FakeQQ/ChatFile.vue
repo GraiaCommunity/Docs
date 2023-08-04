@@ -3,7 +3,6 @@ import { onMounted, ref, type Ref } from 'vue'
 
 const props = defineProps<{
   name: string
-  avatar?: string
   filename: string
   filesize: string
   fileicon: string
