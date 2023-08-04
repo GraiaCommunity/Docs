@@ -10,7 +10,7 @@ hero:
 
   actions:
     - theme: brand
-      text: 快速开始
+      text: 让我们开始吧
       link: /before/
     - theme: alt
       text: Graia 官方文档
