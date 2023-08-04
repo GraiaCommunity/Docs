@@ -38,7 +38,7 @@ from fontTools import subset
 from fontTools.ttLib import TTFont
 
 origin_path = Path('docs')
-ignore_dirs = ['dist', 'public', '.DS_Store']
+ignore_dirs = ['dist', 'public', '.DS_Store', 'cache']
 out_path = Path('docs', 'public', 'fonts')
 fonts_path = Path('fonts')
 fonts = [
@@ -79,4 +79,6 @@ for font in fonts:
     subsetter.populate(text=content.rstrip())
     subsetter.subset(f)
     f.flavor = 'woff2'
-    f.save(out_path / font.replace(".ttf", ".woff2"))
+    out = out_path / font.replace(".ttf", ".woff2")
+    f.save(out)
+    print(f'输出路径: {out}')
