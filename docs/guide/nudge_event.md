@@ -29,71 +29,32 @@
 使用 Saya 进行模块加载后，不可以将所有代码全部堆在同一个文件里！！！
 :::
 
-<CodeGroup>
-<CodeGroupItem title="Python <= 3.9">
-
 ```python
-# 本部分示例不完整，请自行补充
 # 本部分示例需使用 Saya 进行加载
-# from graia.ariadne.event.message import GroupMessage
+from graia.ariadne.app import Ariadne
 from graia.ariadne.event.mirai import NudgeEvent
+from graia.ariadne.message.chain import MessageChain
+from graia.ariadne.model import Friend, Group
+from graia.saya import Channel
+from graia.saya.builtins.broadcast import ListenerSchema
+
+channel = Channel.current()
 
 
 # 此处注释的意思是用法类比，不是说这里可以用 GroupMessage
 # @channel.use(ListenerSchema(listening_events=[GroupMessage]))
 @channel.use(ListenerSchema(listening_events=[NudgeEvent]))
 async def getup(app: Ariadne, event: NudgeEvent):
-    if event.context_type == "group":
-        await app.send_group_message(
-            event.group_id,
-            MessageChain("你不要光天化日之下在这里戳我啊")
-        )
-    elif event.context_type == "friend":
-        await app.send_friend_message(
-            event.friend_id,
-            MessageChain("别戳我，好痒！")
-        )
-    else:
-        return
+    if isinstance(event.subject, Group) and event.supplicant is not None:
+        await app.send_group_message(event.supplicant, MessageChain("你不要光天化日之下在这里戳我啊"))
+    elif isinstance(event.subject, Friend) and event.supplicant is not None:
+        await app.send_friend_message(event.supplicant, MessageChain("别戳我，好痒！"))
 ```
-
-</CodeGroupItem>
-<CodeGroupItem title="Python >= 3.10">
-
-```python
-# 本部分示例不完整，请自行补充
-# 本部分示例需使用 Saya 进行加载
-# 本部分示例使用 Python 3.10 引入的 match...case...语法
-# from graia.ariadne.event.message import GroupMessage
-from graia.ariadne.event.mirai import NudgeEvent
-
-
-# 此处注释的意思是用法类比，不是说这里可以用 GroupMessage
-# @channel.use(ListenerSchema(listening_events=[GroupMessage]))
-@channel.use(ListenerSchema(listening_events=[NudgeEvent]))
-async def getup(app: Ariadne, event: NudgeEvent):
-    match event.context_type:
-        case "group":
-            await app.send_group_message(
-                event.group_id,
-                MessageChain("你不要光天化日之下在这里戳我啊")
-            )
-        case "friend":
-            await app.send_friend_message(
-                event.friend_id,
-                MessageChain("别戳我，好痒！")
-            )
-        case _:
-            return
-```
-
-</CodeGroupItem>
-</CodeGroup>
 
 :::tip
 
 1. 对于 **NudgeEvent** 应使用 `event: NudgeEvent` 获取事件实例来获得相关信息
-2. 此处之所以使用 `sendGroupMessage` 和 `sendFriendMessage` 是因为 `event.target` 的类型为 `int`，而 `sendMessage` 所需参数的类型为 `Union[MessageEvent, Group, Friend, Member]` 不包含 `int`
+2. 此处之所以使用独立判断 `event.subject` 的类型，是避免对陌生人的戳一戳进行回应而导致封号
 
 :::
 
@@ -117,5 +78,5 @@ async def getup(app: Ariadne, event: NudgeEvent):
 <https://graia.cn/ariadne/feature/params/>
 
 **EroEroBot:**  
-本章完整示例可在 [EroEroBot/modules/other_event.py](https://github.com/GraiaCommunity/EroEroBot/blob/master/modules/other_event.py) 找到。
+本章完整示例可在 [EroEroBot/modules/nudge_event.py](https://github.com/GraiaCommunity/EroEroBot/blob/master/modules/nudge_event.py) 找到。
 :::

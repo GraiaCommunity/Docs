@@ -67,7 +67,7 @@ const guide = [
       { text: '要致富，先撸树', link: '/guide/create_env' },
       { text: '快速上手', link: '/guide/hello_ero' },
       { text: '东西要分类好', link: '/guide/saya' },
-      { text: '不要再戳了~', link: '/guide/other_event' },
+      { text: '不要再戳了~', link: '/guide/nudge_event' },
       { text: '谁在找我', link: '/guide/multi_events' },
       {
         text: '关于消息链的故事',
