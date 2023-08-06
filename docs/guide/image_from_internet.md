@@ -90,13 +90,14 @@ async def test(app: Ariadne): ...
 ## 异步是什么？
 
 :::warning
-以下介绍是为了让你能够较为方便的理解异步的**大致**和**好处**，
-并没有探讨包括回调函数等一系列具体的东西。
+以下介绍是为了让你能够较为方便地大概理解异步的**大致**和**好处**，
+并没有深入探讨更底层的内容，也不包括回调函数等一系列东西。
 
 假设你真的很想进一步了解 asyncio，请阅读[Graia Ariadne 官方文档关于 asyncio 的介绍](https://graia.cn/ariadne/appendix/asyncio-intro/)（进行一个鱼的摸）
 :::
 
-首先，我们先来假设一个场景，比如说...
+首先，我们需要知道，我们前面一直提到的异步，其实是指协程（Coroutine），除了协程以外，多线程也是异步的一种，
+但我们一般默认都是指协程，让我们先来假设一个场景，比如说...
 
 <p align="center" style="font-size: 30px"><strong><a href="https://zh.moegirl.org.cn/%E7%96%AF%E7%8B%82%E6%98%9F%E6%9C%9F%E5%9B%9B"  target="_blank">狂 乱 木 曜 日</a></strong></p>
 
@@ -183,7 +184,7 @@ async with session.get(...) as resp:
 ```
 
 在[aiohttp 官方文档的这里](https://docs.aiohttp.org/en/stable/client_quickstart.html#make-a-request)有一个 Note 👇  
-**不要为每一个请求都创造一个会话。 (Don’t create a session per request.)**
+**不要为每一个请求都创造一个会话。 (Don't create a session per request.)**
 
 假设你直接调用 Ariadne 本身的会话（session），那你机器人的性能会好一点（当然这好的一点点你可能都感觉不到）。
 

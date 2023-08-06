@@ -8,5 +8,10 @@
     "MD033": false,
     "MD036": false,
     "MD026": false
-  }
+  },
+  "markdown.validate.ignoredLinks": [
+    "/before/**/*",
+    "/guide/**/*",
+    "/appendix/**/*"
+  ]
 }
