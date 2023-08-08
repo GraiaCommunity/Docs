@@ -35,6 +35,7 @@ import { useMutationObserver, useDark } from '@vueuse/core'
 import { LoadingIcon } from './Icons'
 import { unzlibSync, strToU8, strFromU8 } from 'fflate'
 import type { VNode } from 'vue'
+import mermaid from 'mermaid'
 import type { MermaidConfig } from 'mermaid'
 
 const DEFAULT_CHART_OPTIONS = { useMaxWidth: false }
@@ -303,11 +304,6 @@ export default defineComponent({
     const svgCode = ref('')
 
     const renderMermaid = async (): Promise<void> => {
-      const [{ default: mermaid }] = await Promise.all([
-        import(/* webpackChunkName: "mermaid" */ 'mermaid'),
-        new Promise((resolve) => setTimeout(resolve, 800))
-      ])
-
       mermaid.initialize({
         theme: 'base',
         themeVariables: {
