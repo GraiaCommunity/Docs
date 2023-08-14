@@ -11,7 +11,8 @@
     repoName="graiax-text2img-playwright"
 />
 
-一个基于 GraiaX Playwright 的文转图工具， 其可以将纯文本、Markdown 文本、HTML 代码通过 Playwright 转换为图片。
+GraiaX TextToImage (Playwright) 是一个基于 [GraiaX Playwright](https://github.com/GraiaCommunity/graiax-playwright) 的文转图工具，
+其可以将纯文本、Markdown 文本、HTML 代码通过 Playwright 转换为图片。
 
 ## 安装
 
@@ -39,9 +40,11 @@ pip install graiax-text2img-playwright
 :::
 ::::
 
-## 在 Saya 模块中使用
+## 开始使用
 
-### 将 Markdown 转换为图片
+以下示例以 Ariadne 为例。
+
+### 配合 Graia Saya 使用
 
 ```python
 from graiax.shortcut.saya import listen
@@ -79,11 +82,3 @@ async def function(app: Ariadne, friend: Friend):
 :::details 预览图
 ![preview](https://raw.githubusercontent.com/GraiaCommunity/graiax-text2img-playwright/master/preview.jpg)
 :::
-
-### 将 HTML 转换为图片
-
-<loading/>
-
-### 将纯文本转换为图片
-
-<loading/>

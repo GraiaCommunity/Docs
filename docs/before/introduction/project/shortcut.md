@@ -9,7 +9,7 @@ Utilities for Graia Framework Community.
     version="v0.2.1"
     author="BlueGlassBlock、RF-Tar-Railt"
     repoUser="GraiaCommunity"
-    repoName="graiax-shortcut"
+    repoName="Shortcut"
 />
 
 :::tip

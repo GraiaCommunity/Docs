@@ -5,15 +5,16 @@ Easy FastAPI Access for GraiaCommunity.
 <project-info
     name="graiax-fastapi"
     license="MIT"
-    version="v0.2.1"
+    version="v0.4.0"
     author="BlueGlassBlock、Red_lnn"
     repoUser="GraiaCommunity"
     repoName="graiax-fastapi"
 />
 
-启动 Ariadne 时同时启动一个 Uvicorn 服务器并把 FastAPI 作为其
-ASGIApplication，在退出时自动关闭 Uvicorn。
-同时，可在 Saya 模块中便捷地注册 FastAPI 的路由。
+你可以方便地使用 GraiaX FastAPI 配合 `graia.amnesia.builtins.asgi.UvicornASGIService`
+轻松地在启动使用了 Graia Amnesia 的项目（如：Ariadne、Avilla）的同时启动一个
+Uvicorn 服务器并在 Saya 模块中便捷地注册 FastAPI 的路由，且在 Launart 退出的时候自动关闭 Uvicorn。
+
 
 ## 安装
 
@@ -43,37 +44,79 @@ pip install graiax-fastapi
 
 ## 开始
 
-以下教程以 Ariadne 配合 Launart 为例。
+以 Avilla 为例。
 
-如果你有使用 **Graia Saya** 作为模块管理工具，那么可以通过使用 **FastAPIBehaviour** 以在 Saya 模块中更方便地使用 FastAPI。
+:::warning
+自 v0.4.0 版本开始， GraiaX FastAPI 抛弃了旧版
+Launart（`<0.7.0`）和旧版 Amnesia（`<0.8.0`）的支持，因此在
+Ariadne 支持新的 Launart 以及 Amnesia 之前，请使用
+`graiax-fastapi==0.3.0`。
+:::
 
-但是 FastAPI 本身并**不自带**ASGI 服务器，因此你需要额外添加一个 **UvicornService**。
+### 配合 Launart 使用
 
 ### 在机器人入口文件中：
 
+#### 机器人入口文件
+
+如果你有使用 **Graia Saya** 作为模块管理工具，那么你可以使用 **FastAPIBehaviour**
+以在 Saya 模块中更方便地使用 FastAPI。
+
+FastAPI 本身并 **不自带** ASGI 服务器，因此你需要额外添加一个 **UvicornASGIService**。
+
 ```python
+import pkgutil
+
+from avilla.console.protocol import ConsoleProtocol
+from avilla.core import Avilla
 from creart import create
-from graia.ariadne.app import Ariadne
-from graia.amnesia.builtins.uvicorn import UvicornService // [!code focus]
-from graiax.fastapi import FastAPIBehaviour, FastAPIService // [!code focus]
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+from graia.amnesia.builtins.asgi import UvicornASGIService
+from graia.broadcast import Broadcast
 from graia.saya import Saya
+from launart import Launart
 
-app = Ariadne(...)
+broadcast = create(Broadcast)
 saya = create(Saya)
-fastapi = FastAPI() // [!code focus]
+launart = create(Launart)
+avilla = Avilla(broadcast=broadcast, launch_manager=launart, message_cache_size=0)
+fastapi = FastAPI()
 
-saya.install_behaviours(FastAPIBehaviour(fastapi)) // [!code focus]
+avilla.apply_protocols(ConsoleProtocol())
+saya.install_behaviours(FastAPIBehaviour(fastapi))
+fastapi.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+launart.add_component(FastAPIService(fastapi))
+launart.add_component(UvicornASGIService("127.0.0.1", 9000, {"": fastapi}))  # type:ignore
+# 上面这条命令会占据 Uvicorn 的所有入口点，详见下方的 Warning
 
-# 可以不创建 FastAPI 实例, 交给 FastAPIService 自己创建 // [!code focus]
-# app.launch_manager.add_service(FastAPIService()) // [!code focus]
-# 这样的话就不能给 FastAPI 传参并自定义 FastAPI // [!code focus]
-app.launch_manager.add_service(FastAPIService(fastapi)) // [!code focus]
-app.launch_manager.add_service(UvicornService()) // [!code focus]
+with saya.module_context():
+    for module in pkgutil.iter_modules(["modules"]):
+        if module.name[0] in ("#", ".", "_"):
+            continue
+        saya.require(f"modules.{module.name}")
 
-Ariadne.launch_blocking()
+launart.launch_blocking()
 ```
 
-### 在 Saya 模块中：
+:::warning
+需要留意的是，在把我们的 FastAPI 实例添加到 `UvicornASGIService` 中间件时，我们通过
+`{"": fastapi}` 指定了一个**入口点**（entrypoint）`""`，这代表着我们此时传进去的
+FastAPI 实例将占据 `http://127.0.0.1:9000/` 下所有入口（例如我们可以通过 `http://127.0.0.1:9000/docs`
+访问我们的 FastAPI 实例的 OpenAPI 文档），这样用起来很方便，但可能会影响其他也使用 `UvicornASGIService`
+中间件的功能（例如 Avilla 的 ob11 协议）。
+
+假如我们使用 `{"/api": fastapi}` 指定 `/api` 为入口点，那么我们就需要通过 `http://127.0.0.1:9000/api/docs` 而不是
+`http://127.0.0.1:9000/docs` 来访问我们的 FastAPI 实例的 OpenAPI 文档。
+:::
+
+#### Saya 模块中
 
 ```python
 from graia.saya import Channel
@@ -124,52 +167,49 @@ async def ws(websocket: WebSocket):
             break
 ```
 
-:::details 其他方式
-假如你不想在 Saya 模块中为 FastAPI 添加路由，那么你可以选择以下两种方式：
+假如你不想在 Saya 模块中为 FastAPI 添加路由，那么你可以选择以下几种方式：
 
+:::details 其他方式
 **1. 在机器人入口文件中直接添加：**
 
 ```python
 ...
-app = Ariadne(...)
-saya = create(Saya)
 fastapi = FastAPI()
-
+...
 fastapi.add_middleware(
     CORSMiddleware,
-    allow_origins=['*'],
+    allow_origins=["*"],
     allow_credentials=True,
-    allow_methods=['*'],
-    allow_headers=['*'],
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
-
 
 @fastapi.get("/main")
 async def main():
     return "main"
 
 ...
-Ariadne.launch_blocking()
+launart.add_component(FastAPIService(fastapi))
+launart.add_component(UvicornASGIService("127.0.0.1", 9000, {"": fastapi}))  # type:ignore
+...
 ```
 
-**2. Ariadne 启动成功后在 Saya 模块中添加：**
+**2. 在 Avilla 启动成功后添加：**
 
 ```python
-from graia.amnesia.builtins.uvicorn import ASGIHandlerProvider
-from graiax.shortcut.saya import listen
+from fastapi.responses import PlainTextResponse
+from avilla.standard.core.application.event import ApplicationReady
+from graiax.fastapi.interface import FastAPIProvider
+
+async def interface_test():
+    return PlainTextResponse("I'm from interface!")
 
 
-async def root(...):
-    ...
-
-
-@listen(ApplicationLaunched)
-async def function(app: Ariadne):
-    mgr = app.launch_manager
-    fastapi: FastAPI = mgr.get_interface(ASGIHandlerProvider).get_asgi_handler()  # type: ignore
-    fastapi.add_api_route('/', endpoint=root, methods=['GET'])
-    fastapi.get('/main')(root)
-    fastapi.add_api_websocket_route('/ws', endpoint=websocket)
+@listen(ApplicationReady)
+async def function():
+    launart = Launart.current()
+    fastapi = launart.get_interface(FastAPIProvider)
+    fastapi.add_api_route("/interface", fastapi.get("/interface")(interface_test))
 ```
 
 :::
