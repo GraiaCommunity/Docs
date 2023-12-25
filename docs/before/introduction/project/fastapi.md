@@ -15,7 +15,6 @@ Easy FastAPI Access for GraiaCommunity.
 轻松地在启动使用了 Graia Amnesia 的项目（如：Ariadne、Avilla）的同时启动一个
 Uvicorn 服务器并在 Saya 模块中便捷地注册 FastAPI 的路由，且在 Launart 退出的时候自动关闭 Uvicorn。
 
-
 ## 安装
 
 ::::code-group
