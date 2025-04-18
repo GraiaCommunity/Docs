@@ -32,6 +32,11 @@ footer: MIT Licensed | Copyright © 2024 Graia Community
 
 <div class="home"><div class="container">
 
+:::danger 过时警告
+由于 Tenxxxt 封号加剧，加上 Graia 开发者个人原因，相关项目已基本停更。
+故本文档也停止更新，相关内容自2024年起已不再具有可参考价值，可转用其他 Bot 框架。
+:::
+
 :::warning 注意
 本文档所属项目为 Graia Community 自主发起，与 Graia Project 无任何直属关系。
 本文档内容不代表 Graia Project 维护者的任何意图与目的，其由社区共同进行维护。
